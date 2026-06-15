@@ -25,7 +25,7 @@ import { CD } from '../tien_ich/chu_de_giao_dien';
 import { capNhatTaiKhoanTheoEmail, docDanhSachTaiKhoan, ghiNhatKyHeThong, luuDanhSachTaiKhoan } from '../tien_ich/nhat_ky_he_thong';
 import { luuPhienDangNhap } from '../tien_ich/phien_dang_nhap';
 import { damBaoMigratePhanQuyen, layVaiTroPhienHieuLuc, taiRBAC } from '../tien_ich/rbac_engine';
-import { TEN_UNG_DUNG, LOGO_UNG_DUNG, HINH_NEN_DANG_NHAP } from '../tien_ich/ten_ung_dung';
+import { TEN_UNG_DUNG, TEN_UNG_DUNG_XUONG_DONG, LOGO_UNG_DUNG, HINH_NEN_DANG_NHAP } from '../tien_ich/ten_ung_dung';
 
 const ADMIN_EMAIL = 'htthinh28@gmail.com';
 const ADMIN_LEGACY_PASSWORD = 'Tramanh@2010##';
@@ -239,7 +239,7 @@ const ManHinhDangNhap = ({ navigation }) => {
                 <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.brand_logo} resizeMode="contain" />
               </View>
 
-              <Text style={styles.brand_name}>{TEN_UNG_DUNG}</Text>
+              <Text style={styles.brand_name}>{TEN_UNG_DUNG_XUONG_DONG}</Text>
 
               <View style={styles.brand_divider} />
 
@@ -279,7 +279,7 @@ const ManHinhDangNhap = ({ navigation }) => {
                   <View style={styles.brand_icon_ring_sm}>
                     <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.brand_logo_sm} resizeMode="contain" />
                   </View>
-                  <Text style={styles.mobile_brand_name}>{TEN_UNG_DUNG}</Text>
+                  <Text style={styles.mobile_brand_name}>{TEN_UNG_DUNG_XUONG_DONG}</Text>
                   <Text style={styles.mobile_brand_sub}>Hệ Thống BHYT & Lâm Sàng</Text>
                 </View>
               )}
