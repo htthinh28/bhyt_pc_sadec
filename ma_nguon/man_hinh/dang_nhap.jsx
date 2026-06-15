@@ -8,6 +8,7 @@ import { useState } from 'react';
 import {
     Alert,
     Image,
+    ImageBackground,
     KeyboardAvoidingView,
     Platform,
     ScrollView,
@@ -24,7 +25,7 @@ import { CD } from '../tien_ich/chu_de_giao_dien';
 import { capNhatTaiKhoanTheoEmail, docDanhSachTaiKhoan, ghiNhatKyHeThong, luuDanhSachTaiKhoan } from '../tien_ich/nhat_ky_he_thong';
 import { luuPhienDangNhap } from '../tien_ich/phien_dang_nhap';
 import { damBaoMigratePhanQuyen, layVaiTroPhienHieuLuc, taiRBAC } from '../tien_ich/rbac_engine';
-import { TEN_UNG_DUNG, LOGO_UNG_DUNG } from '../tien_ich/ten_ung_dung';
+import { TEN_UNG_DUNG, LOGO_UNG_DUNG, HINH_NEN_DANG_NHAP } from '../tien_ich/ten_ung_dung';
 
 const ADMIN_EMAIL = 'htthinh28@gmail.com';
 const ADMIN_LEGACY_PASSWORD = 'Tramanh@2010##';
@@ -219,17 +220,19 @@ const ManHinhDangNhap = ({ navigation }) => {
   const rongFormPanel = dungBoCucHaiCot ? Math.min(520, Math.max(400, Math.round(beRong * 0.42))) : '100%';
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground
+      source={{ uri: HINH_NEN_DANG_NHAP }}
+      style={styles.bg_image}
+      imageStyle={styles.bg_image_inner}
+      resizeMode="cover"
+    >
+      <View style={styles.bg_overlay} />
+      <SafeAreaView style={styles.container}>
       <View style={dungBoCucHaiCot ? styles.layout_web : styles.layout_mobile}>
 
         {/* ===== PANEL TRÁI: BRANDING (tablet trở lên) ===== */}
         {dungBoCucHaiCot && (
           <View style={styles.brand_panel}>
-            {/* Vòng trang trí nền */}
-            <View style={styles.deco_circle_1} />
-            <View style={styles.deco_circle_2} />
-            <View style={styles.deco_circle_3} />
-
             <View style={styles.brand_content}>
               {/* Logo / Icon */}
               <View style={styles.brand_icon_ring}>
@@ -361,15 +364,25 @@ const ManHinhDangNhap = ({ navigation }) => {
         </KeyboardAvoidingView>
 
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  bg_image: { flex: 1 },
+  bg_image_inner: {
+    ...Platform.select({
+      web: { objectFit: 'cover' },
+    }),
+  },
+  bg_overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(15, 23, 42, 0.42)',
+  },
   container: {
     flex: 1,
-    ...Platform.select({ web: { backgroundImage: CD.web.gradient_bg } }),
-    backgroundColor: CD.bg.gradient_mobile,
+    backgroundColor: 'transparent',
   },
 
   layout_web: { flex: 1, flexDirection: 'row' },
@@ -383,18 +396,8 @@ const styles = StyleSheet.create({
     padding: 50,
     position: 'relative',
     overflow: 'hidden',
-  },
-  deco_circle_1: {
-    position: 'absolute', width: 400, height: 400, borderRadius: 200,
-    backgroundColor: 'rgba(255,255,255,0.04)', top: -100, left: -100,
-  },
-  deco_circle_2: {
-    position: 'absolute', width: 300, height: 300, borderRadius: 150,
-    backgroundColor: 'rgba(255,255,255,0.06)', bottom: -50, right: -50,
-  },
-  deco_circle_3: {
-    position: 'absolute', width: 200, height: 200, borderRadius: 100,
-    backgroundColor: 'rgba(255,255,255,0.03)', top: '40%', left: '60%',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+    ...Platform.select({ web: { backdropFilter: 'blur(2px)', WebkitBackdropFilter: 'blur(2px)' } }),
   },
   brand_content: { alignItems: 'center', zIndex: 1 },
   brand_icon_ring: {
