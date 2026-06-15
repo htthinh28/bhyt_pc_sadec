@@ -28,6 +28,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import * as XLSX from 'xlsx';
 import ChanTrangUngDung from '../thanh_phan/chan_trang_ung_dung';
 import ThanhPanelPhai from '../thanh_phan/thanh_panel_phai';
+import KhungCuonThanhPhai from '../thanh_phan/khung_cuon_thanh_phai';
 import { LOGO_UNG_DUNG, TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import KhungTroLyTriThucChat from '../thanh_phan/khung_tro_ly_tri_thuc_chat';
 import { BoChonChuDe, CD } from '../tien_ich/chu_de_giao_dien';
@@ -1436,9 +1437,8 @@ ${phanDongKhoi.join('\n')}
           </ScrollView>
         </View>
 
-        <ScrollView
+        <KhungCuonThanhPhai
           style={styles.dashboard_main}
-          showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: chenAmThanhTienIch + 12 }}
         >
 
@@ -1978,7 +1978,7 @@ ${phanDongKhoi.join('\n')}
 
           <ChanTrangUngDung style={{ marginBottom: 28 }} />
 
-        </ScrollView>
+        </KhungCuonThanhPhai>
       </View>
 
       <ThanhPanelPhai
