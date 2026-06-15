@@ -360,6 +360,17 @@ const layKetQuaGiamDinhCoSan = (hoSo = {}) => {
   return Array.isArray(hoSo?.ket_qua_giam_dinh) ? hoSo.ket_qua_giam_dinh : null;
 };
 
+const HienThiCanhBaoLoi = ({ loi, styleChinh, stylePhu }) => (
+  <>
+    <Text style={styleChinh}>{loi?.canh_bao}</Text>
+    {Array.isArray(loi?.chi_tiet_phu) && loi.chi_tiet_phu.length > 0
+      ? loi.chi_tiet_phu.map((dong, idx) => (
+        <Text key={`${idx}-${dong}`} style={stylePhu}>{dong}</Text>
+      ))
+      : null}
+  </>
+);
+
 const ManHinhTongQuan = ({ navigation }) => {
   const { dungSidebarTrai, width: beRongCuaSo } = useLayoutMode();
   const rongSidebarDash = beRongCuaSo >= BREAKPOINTS.xl ? 300 : 260;
@@ -1881,7 +1892,11 @@ ${phanDongKhoi.join('\n')}
                     </View>
                     <Text style={styles.rule_instance_tab}>{chiTiet.tab_quan_tri_goi_y || 'LUAT_HANH_CHINH'}</Text>
                   </View>
-                  <Text style={styles.rule_instance_desc}>{chiTiet.canh_bao}</Text>
+                  <HienThiCanhBaoLoi
+                    loi={chiTiet}
+                    styleChinh={styles.rule_instance_desc}
+                    stylePhu={styles.rule_instance_desc_phu}
+                  />
                   <View style={styles.rule_instance_actions}>
                     <TouchableOpacity style={[styles.rule_action_btn, styles.rule_action_btn_xml]} onPress={() => moChiTietXmlTheoLoi(chiTiet)}>
                       <Text style={styles.rule_action_btn_txt}>🗂 Mở XML lỗi</Text>
@@ -1958,7 +1973,11 @@ ${phanDongKhoi.join('\n')}
                     </View>
                     <Text style={styles.rule_instance_tab}>{chiTiet.tab_quan_tri_goi_y || 'LUAT_HANH_CHINH'}</Text>
                   </View>
-                  <Text style={styles.rule_instance_desc}>{chiTiet.canh_bao}</Text>
+                  <HienThiCanhBaoLoi
+                    loi={chiTiet}
+                    styleChinh={styles.rule_instance_desc}
+                    stylePhu={styles.rule_instance_desc_phu}
+                  />
                   <View style={styles.rule_instance_actions}>
                     <TouchableOpacity style={[styles.rule_action_btn, styles.rule_action_btn_xml]} onPress={() => moChiTietXmlTheoLoi(chiTiet)}>
                       <Text style={styles.rule_action_btn_txt}>🗂 Mở XML lỗi</Text>
@@ -2148,7 +2167,11 @@ ${phanDongKhoi.join('\n')}
                       </View>
                       <Text style={styles.rule_instance_tab}>{chiTiet.tab_quan_tri_goi_y || 'LUAT_HANH_CHINH'}</Text>
                     </View>
-                    <Text style={styles.rule_instance_desc}>{chiTiet.canh_bao}</Text>
+                    <HienThiCanhBaoLoi
+                    loi={chiTiet}
+                    styleChinh={styles.rule_instance_desc}
+                    stylePhu={styles.rule_instance_desc_phu}
+                  />
                     <View style={styles.rule_instance_actions}>
                       <TouchableOpacity
                         style={[styles.rule_action_btn, styles.rule_action_btn_xml]}
@@ -3938,7 +3961,17 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     color: CD.text.secondary,
     fontFamily: CD.font.family,
-    marginBottom: 10,
+    marginBottom: 4,
+  },
+  rule_instance_desc_phu: {
+    fontSize: 12,
+    lineHeight: 18,
+    color: CD.text.muted || '#94A3B8',
+    fontFamily: CD.font.family,
+    marginBottom: 6,
+    paddingLeft: 10,
+    borderLeftWidth: 2,
+    borderLeftColor: '#E2E8F0',
   },
   rule_instance_actions: {
     flexDirection: 'row',

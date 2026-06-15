@@ -56,6 +56,12 @@ import { giamDinhCv4262Bhyt } from './giam_dinh_cv4262_bhyt';
 import { giamDinhCv3231Bhyt } from './giam_dinh_cv3231_bhyt';
 import { laMotLanKcbDuoi15PhanTramLcs as laMotLanKcbDuoi15PhanTramLCS } from './muc_luong_co_so_bhyt';
 import { tachChuoiNhieuMa } from './catalog_mapping_chuoi_ma';
+import {
+    chuanHoaChuoiGomCanhBao,
+    ghepCanhBaoVaChiTietNgan,
+    locCanhBaoBiBaoHoa,
+    rutGonCanhBaoCoBan,
+} from './rut_gon_canh_bao';
 import { hopNhatQuyTacTrungTheoDoiTuong } from './hop_nhat_quy_tac_trung_lap';
 
 // ============================================================
@@ -1229,10 +1235,7 @@ const layLỗiCauTrucTienXuLy = (hoSo) => {
     });
 };
 
-const chuanHoaChuoiGomCanhBao = (s) => String(s || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\s+/g, ' ')
-    .trim();
+const chuanHoaChuoiGomCanhBaoLocal = (s) => chuanHoaChuoiGomCanhBao(s);
 
 /**
  * Gộp các dòng cảnh báo trùng trên cùng một hồ sơ: cùng mã luật + cùng nội dung cảnh báo (sau chuẩn hóa),
@@ -1240,19 +1243,29 @@ const chuanHoaChuoiGomCanhBao = (s) => String(s || '')
  * Gọi sau boSungChiTietCanhBaoGiaiTrinh.
  */
 export const gomTrungLapCanhBaoTheoMaLuatVaNoiDung = (danhSach = []) => {
-    if (!Array.isArray(danhSach) || danhSach.length <= 1) return danhSach || [];
+    if (!Array.isArray(danhSach) || danhSach.length <= 1) {
+        return locCanhBaoBiBaoHoa(
+            (Array.isArray(danhSach) ? danhSach : []).map((loi) => ({
+                ...loi,
+                canh_bao: rutGonCanhBaoCoBan(loi?.canh_bao),
+            })),
+        );
+    }
     const seen = new Set();
     const ketQua = [];
     for (let i = 0; i < danhSach.length; i += 1) {
-        const loi = danhSach[i];
+        const loi = {
+            ...danhSach[i],
+            canh_bao: rutGonCanhBaoCoBan(danhSach[i]?.canh_bao),
+        };
         const ma = String(loi?.ma_luat || '').trim().toUpperCase() || 'KHONG_MA_LUAT';
-        const canh = chuanHoaChuoiGomCanhBao(loi?.canh_bao);
+        const canh = chuanHoaChuoiGomCanhBaoLocal(loi?.canh_bao);
         const key = `${ma}::${canh}`;
         if (seen.has(key)) continue;
         seen.add(key);
         ketQua.push(loi);
     }
-    return ketQua;
+    return locCanhBaoBiBaoHoa(ketQua);
 };
 
 // ============================================================
@@ -1326,8 +1339,9 @@ const gopMetaTuongTacTrungCap = (current, incoming) => {
     if (oI < oC) return current;
     const lenI = (incoming.CANH_BAO_HE_THONG || '').length;
     const lenC = (current.CANH_BAO_HE_THONG || '').length;
-    if (lenI > lenC) return incoming;
-    return current;
+    if (lenI < lenC) return incoming;
+    if (lenI > lenC) return current;
+    return incoming;
 };
 
 /**
@@ -3224,24 +3238,33 @@ const boSungChiTietCanhBaoGiaiTrinh = (hoSo, dsLỗi, dm) => (Array.isArray(dsL�
     const phanHe = UPPER(loi?.phan_he || '');
     const truong = UPPER(loi?.truong_loi || '');
     const maLuat = UPPER(loi?.ma_luat || '');
-    let canhBao = lamSachChuoiHienThi(loi?.canh_bao || '');
+    let canhBao = rutGonCanhBaoCoBan(lamSachChuoiHienThi(loi?.canh_bao || ''));
+    const chiTietPhu = [];
     const dong = layDongTheoLỗi(hoSo, loi);
 
+    const themChiTietPhu = (item) => {
+        const text = lamSachChuoiHienThi(item);
+        if (!text) return;
+        const key = text.toUpperCase();
+        if (chiTietPhu.some((x) => x.toUpperCase() === key)) return;
+        const tokenItem = key.replace(/[^A-Z0-9]/g, '');
+        const tokenCanh = UPPER(canhBao).replace(/[^A-Z0-9]/g, '');
+        if (tokenItem && tokenCanh.includes(tokenItem)) return;
+        chiTietPhu.push(text);
+    };
+
     if (dong && phanHe === 'XML2') {
-        canhBao = renderCanhBaoTemplate(canhBao, taoPlaceholderCanhBaoThuoc(dong));
-        canhBao = dinhKemChiTietCanhBao(canhBao, 'Chi tiết thuốc', [layMoTaThuoc(dong, dm)]);
+        canhBao = rutGonCanhBaoCoBan(renderCanhBaoTemplate(canhBao, taoPlaceholderCanhBaoThuoc(dong)));
+        themChiTietPhu(layMoTaThuoc(dong, dm));
         if (maLuat === 'THUOC_391') {
-            canhBao = dinhKemChiTietCanhBao(canhBao, 'Cách tính', [layChiTietTinhToanThieuThuoc(dong)]);
+            themChiTietPhu(layChiTietTinhToanThieuThuoc(dong));
         }
     }
     if (dong && phanHe === 'XML3') {
-        canhBao = dinhKemChiTietCanhBao(canhBao, 'Chi tiết dịch vụ', [layMoTaDvkt(dong, dm)]);
+        themChiTietPhu(layMoTaDvkt(dong, dm));
     }
     if ((dong || phanHe === 'XML1') && (truong === 'MA_KHOA' || /^DM-KHOA-/.test(UPPER(loi?.ma_luat || '')))) {
-        const thongTinKhoa = layMoTaKhoa(dong || _getXML1(hoSo) || {}, dm);
-        if (thongTinKhoa) {
-            canhBao = dinhKemChiTietCanhBao(canhBao, 'Khoa liên quan', [thongTinKhoa]);
-        }
+        themChiTietPhu(layMoTaKhoa(dong || _getXML1(hoSo) || {}, dm));
     }
 
     const canBoSungNhanSu = (
@@ -3256,17 +3279,16 @@ const boSungChiTietCanhBaoGiaiTrinh = (hoSo, dsLỗi, dm) => (Array.isArray(dsL�
         const nguoiThucHien = dong?.NGUOI_THUC_HIEN || '';
         const nhanSu = layMoTaNhanSu({ maBacSi, nguoiThucHien, dm });
         if (nhanSu) {
-            canhBao = dinhKemChiTietCanhBao(canhBao, 'Nhân sự liên quan', [nhanSu]);
+            themChiTietPhu(nhanSu);
         } else if (maBacSi || nguoiThucHien) {
-            canhBao = dinhKemChiTietCanhBao(canhBao, 'Nhân sự liên quan', [
-                dinhDangMaTen(maBacSi, nguoiThucHien, 'nhân sự'),
-            ]);
+            themChiTietPhu(dinhDangMaTen(maBacSi, nguoiThucHien, 'nhân sự'));
         }
     }
 
     return {
         ...loi,
         canh_bao: canhBao,
+        ...(chiTietPhu.length ? { chi_tiet_phu: chiTietPhu } : {}),
     };
 });
 
@@ -3816,16 +3838,9 @@ const taoNhomChiTietDuyNhat = (items = []) => {
     return out;
 };
 
-const dinhKemChiTietCanhBao = (message = '', label = 'Chi tiết', details = []) => {
-    const text = lamSachChuoiHienThi(message);
-    const chiTiet = taoNhomChiTietDuyNhat(details).join('; ');
-    if (!chiTiet) return text;
-    const tokenMessage = UPPER(text).replace(/[^A-Z0-9]/g, '');
-    const tokenDetail = UPPER(chiTiet).replace(/[^A-Z0-9]/g, '');
-    if (tokenMessage && tokenDetail && tokenMessage.includes(tokenDetail)) return text;
-    const ketThuc = text.endsWith('.') ? text : `${text}.`;
-    return `${ketThuc} ${label}: ${chiTiet}.`;
-};
+const dinhKemChiTietCanhBao = (message = '', _label = 'Chi tiết', details = []) => (
+    ghepCanhBaoVaChiTietNgan(message, details)
+);
 
 const dinhDangMaTen = (ma = '', ten = '', fallback = '') => {
     const code = lamSachChuoiHienThi(ma);

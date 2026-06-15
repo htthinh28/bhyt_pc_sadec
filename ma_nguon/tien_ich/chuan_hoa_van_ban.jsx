@@ -1,3 +1,5 @@
+import { rutGonCanhBaoCoBan } from './rut_gon_canh_bao';
+
 const WINDOWS_1252_FORWARD = new Map([
   ['\u20AC', 0x80], ['\u201A', 0x82], ['\u0192', 0x83], ['\u201E', 0x84],
   ['\u2026', 0x85], ['\u2020', 0x86], ['\u2021', 0x87], ['\u02C6', 0x88],
@@ -140,6 +142,14 @@ export const chuanHoaCanhBaoGiamDinh = (item) => {
       next[field] = chuanHoaVanBanLoiFont(next[field]);
     }
   });
+  if (typeof next.canh_bao === 'string') {
+    next.canh_bao = rutGonCanhBaoCoBan(next.canh_bao);
+  }
+  if (Array.isArray(next.chi_tiet_phu)) {
+    next.chi_tiet_phu = next.chi_tiet_phu
+      .map((line) => rutGonCanhBaoCoBan(chuanHoaVanBanLoiFont(String(line || ''))))
+      .filter(Boolean);
+  }
   return next;
 };
 
