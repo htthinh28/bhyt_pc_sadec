@@ -14,7 +14,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import * as XLSX from 'xlsx';
 import { BREAKPOINTS } from '../tien_ich/diem_anh_man_hinh';
-import { TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
+import { LOGO_UNG_DUNG, TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import { xoaCacheBoMayGiamDinh } from '../tien_ich/dong_co_giam_dinh';
 import { quayLaiAnToan } from '../tien_ich/dieu_huong_an_toan';
 import {
@@ -22,8 +22,6 @@ import {
     luuBoDuLieuDanhMuc,
     taiBoDuLieuDanhMuc,
 } from '../tien_ich/luu_tru_danh_muc';
-
-const LOGO_PC = 'https://i.ibb.co/nNr9SQYr/logo-pc.png';
 
 // ============================================================
 // HỆ THỐNG LƯU TRỮ BIG DATA CHỐNG TRÀN BỘ NHỚ WEB (CHUNKING)
@@ -624,7 +622,7 @@ const DanhMucBYTMain = ({ navigation }) => {
           <Text style={styles.chu_nut_back_home}>⬅ Trang chủ</Text>
         </TouchableOpacity>
         <View style={styles.top_brand_trung_tam}>
-          <Image source={{ uri: LOGO_PC }} style={styles.logo_header} resizeMode="contain" />
+          <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.logo_header} resizeMode="contain" />
           <View style={{ alignItems: 'center' }}>
             <Text style={styles.top_brand_text_main}>{TEN_UNG_DUNG}</Text>
             <Text style={styles.top_brand_text_sub}>HỆ THỐNG DANH MỤC DÙNG CHUNG BỘ Y TẾ (QĐ 7603)</Text>

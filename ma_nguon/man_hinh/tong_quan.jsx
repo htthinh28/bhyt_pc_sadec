@@ -27,7 +27,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as XLSX from 'xlsx';
 import ChanTrangUngDung from '../thanh_phan/chan_trang_ung_dung';
-import { TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
+import { LOGO_UNG_DUNG, TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import KhungTroLyTriThucChat from '../thanh_phan/khung_tro_ly_tri_thuc_chat';
 import { BoChonChuDe, CD } from '../tien_ich/chu_de_giao_dien';
 import {
@@ -72,8 +72,6 @@ import NhapFileXML, {
   xuLyMotFileXmlChoBanGiamDinh,
 } from '../tien_ich/nhap_file_xml';
 import { BREAKPOINTS, useLayoutMode } from '../tien_ich/diem_anh_man_hinh';
-
-const LOGO_PC = 'https://i.ibb.co/nNr9SQYr/logo-pc.png';
 
 const chuanHoaTenSheetXlsx = (name) => {
   const s = String(name || 'Sheet')
@@ -1204,7 +1202,7 @@ ${phanDongKhoi.join('\n')}
       <View style={styles.header}>
         <View style={styles.header_main_row}>
           <View style={styles.header_left}>
-            <Image source={{ uri: LOGO_PC }} style={styles.logo} resizeMode="contain" />
+            <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.logo} resizeMode="contain" />
             <View>
               <Text style={styles.header_ten_bv}>{TEN_UNG_DUNG}</Text>
               <Text style={styles.header_sub}>Hệ thống hỗ trợ kiểm tra hồ sơ BHYT · QĐ 130</Text>

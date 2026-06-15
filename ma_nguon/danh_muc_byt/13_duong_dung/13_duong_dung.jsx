@@ -8,8 +8,9 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Alert, FlatList, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, Image, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import * as XLSX from 'xlsx';
+import { LOGO_UNG_DUNG } from '../../tien_ich/ten_ung_dung';
 
 const STORAGE_KEY = '@DM_BYT_PL13_V2';
 
@@ -238,7 +239,7 @@ const PhuLuc13DuongDung = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerBar}>
-        <Image source={{ uri: LOGO_PC }} style={styles.logo} />
+        <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.logo} />
         <Text style={styles.title}>PHỤ LỤC 13: DANH MỤC ĐƯỜNG DÙNG THUỐC</Text>
       </View>
 
