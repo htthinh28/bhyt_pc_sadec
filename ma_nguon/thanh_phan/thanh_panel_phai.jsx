@@ -1,11 +1,11 @@
 /**
- * Thanh panel trượt bên phải — cố định trên màn rộng, overlay trượt trên màn nhỏ.
+ * Thanh tiện ích trượt lên / xuống ở đáy màn hình — thay panel phải cố định khi dashboard dài.
  */
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Animated,
+  Dimensions,
   Easing,
-  Modal,
   Platform,
   Pressable,
   ScrollView,
@@ -14,238 +14,209 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CD } from '../tien_ich/chu_de_giao_dien';
 
-const NoiDungPanel = ({ title, subtitle, onClose, children, showClose }) => (
-  <View style={styles.panel_body}>
-    <View style={styles.header}>
-      <View style={[styles.header_accent, { backgroundColor: CD.brand.mauChinh }]} />
-      <View style={styles.header_text}>
-        <Text style={styles.title}>{title}</Text>
-        {!!subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
-      </View>
-      {showClose ? (
-        <TouchableOpacity onPress={onClose} style={styles.btn_close} accessibilityLabel="Đóng bảng điều khiển">
-          <Text style={styles.btn_close_txt}>✕</Text>
-        </TouchableOpacity>
-      ) : null}
-    </View>
-    <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll_content}>
-      {children}
-    </ScrollView>
-  </View>
-);
+export const CHIEU_CAO_THANH_THU_GOON = 52;
+
+const CHIEU_CAO_TOI_DA = () => {
+  const { height } = Dimensions.get('window');
+  return Math.min(Math.round(height * 0.58), 520);
+};
 
 export default function ThanhPanelPhai({
-  visible = false,
-  pinned = false,
-  width = 300,
-  title = 'Bảng điều khiển',
-  subtitle = 'Tiện ích nhanh',
+  visible = true,
+  expanded: expandedControlled,
+  onExpandedChange,
+  onInsetChange,
+  title = 'Tiện ích nhanh',
+  subtitle = 'Kéo lên hoặc chạm để mở',
   onClose,
   children,
 }) {
+  const insets = useSafeAreaInsets();
+  const [expandedInternal, setExpandedInternal] = useState(false);
+  const expanded = expandedControlled ?? expandedInternal;
+  const chieuCaoToiDa = CHIEU_CAO_TOI_DA();
+  const animHeight = useRef(new Animated.Value(CHIEU_CAO_THANH_THU_GOON)).current;
   const animBackdrop = useRef(new Animated.Value(0)).current;
-  const animSlide = useRef(new Animated.Value(0)).current;
 
-  useEffect(() => {
-    if (pinned || !visible) return;
-    animBackdrop.setValue(0);
-    animSlide.setValue(0);
-    requestAnimationFrame(() => {
-      Animated.parallel([
-        Animated.timing(animBackdrop, {
-          toValue: 1,
-          duration: 240,
-          easing: Easing.out(Easing.cubic),
-          useNativeDriver: true,
-        }),
-        Animated.spring(animSlide, {
-          toValue: 1,
-          friction: 9,
-          tension: 72,
-          useNativeDriver: true,
-        }),
-      ]).start();
-    });
-  }, [visible, pinned, animBackdrop, animSlide]);
-
-  const dongOverlay = () => {
-    Animated.parallel([
-      Animated.timing(animBackdrop, {
-        toValue: 0,
-        duration: 200,
-        easing: Easing.in(Easing.cubic),
-        useNativeDriver: true,
-      }),
-      Animated.timing(animSlide, {
-        toValue: 0,
-        duration: 220,
-        easing: Easing.in(Easing.cubic),
-        useNativeDriver: true,
-      }),
-    ]).start(({ finished }) => {
-      if (finished) onClose?.();
-    });
+  const datTrangThaiMo = (mo) => {
+    if (expandedControlled === undefined) setExpandedInternal(mo);
+    onExpandedChange?.(mo);
+    if (!mo) onClose?.();
   };
 
-  if (pinned) {
-    return (
-      <View style={[styles.panel_pinned, { width, alignSelf: 'stretch' }]}>
-        <View style={styles.panel_pinned_inner}>
-          <NoiDungPanel title={title} subtitle={subtitle}>
-            {children}
-          </NoiDungPanel>
-        </View>
-      </View>
-    );
-  }
+  const moRong = () => datTrangThaiMo(true);
+  const thuGon = () => datTrangThaiMo(false);
+  const chuyenTrangThai = () => (expanded ? thuGon() : moRong());
+
+  const paddingBottom = Math.max(insets.bottom, Platform.OS === 'web' ? 8 : 0);
+  const chieuCaoThuGon = CHIEU_CAO_THANH_THU_GOON + paddingBottom;
+  const chieuCaoMo = chieuCaoToiDa + paddingBottom;
+
+  useEffect(() => {
+    onInsetChange?.(chieuCaoThuGon + 10);
+  }, [chieuCaoThuGon, onInsetChange]);
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(animHeight, {
+        toValue: expanded ? chieuCaoMo : chieuCaoThuGon,
+        duration: 280,
+        easing: expanded ? Easing.out(Easing.cubic) : Easing.in(Easing.cubic),
+        useNativeDriver: false,
+      }),
+      Animated.timing(animBackdrop, {
+        toValue: expanded ? 1 : 0,
+        duration: 240,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [expanded, chieuCaoMo, chieuCaoThuGon, animHeight, animBackdrop]);
+
+  if (!visible) return null;
 
   return (
-    <Modal visible={visible} transparent animationType="none" onRequestClose={dongOverlay}>
-      <View style={styles.overlay_root}>
-        <Pressable style={styles.overlay_hit} onPress={dongOverlay}>
+    <>
+      {expanded ? (
+        <Pressable style={styles.backdrop_hit} onPress={thuGon}>
           <Animated.View
             style={[
-              styles.overlay_backdrop,
+              styles.backdrop,
               {
                 opacity: animBackdrop.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, 0.48],
+                  outputRange: [0, 0.38],
                 }),
               },
             ]}
           />
         </Pressable>
-        <Animated.View
-          style={[
-            styles.panel_overlay,
-            { width: Math.min(width, 360) },
-            {
-              transform: [
-                {
-                  translateX: animSlide.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [width + 24, 0],
-                  }),
-                },
-              ],
-            },
-          ]}
-        >
-          <NoiDungPanel title={title} subtitle={subtitle} onClose={dongOverlay} showClose>
-            {children}
-          </NoiDungPanel>
-        </Animated.View>
-      </View>
-    </Modal>
+      ) : null}
+
+      <Animated.View
+        style={[
+          styles.sheet_root,
+          {
+            height: animHeight,
+          },
+        ]}
+      >
+        <View style={[styles.sheet_card, { paddingBottom }]}>
+          <TouchableOpacity
+            style={[styles.handle_row, expanded && styles.handle_row_expanded]}
+            onPress={chuyenTrangThai}
+            activeOpacity={0.85}
+            accessibilityRole="button"
+            accessibilityLabel={expanded ? 'Thu gọn thanh tiện ích' : 'Mở thanh tiện ích'}
+          >
+            <View style={styles.handle_pill} />
+            <View style={styles.handle_text}>
+              <Text style={styles.title}>{title}</Text>
+              {!!subtitle && !expanded ? (
+                <Text style={styles.subtitle} numberOfLines={1}>{subtitle}</Text>
+              ) : null}
+            </View>
+            <Text style={styles.chevron}>{expanded ? '▼' : '▲'}</Text>
+          </TouchableOpacity>
+
+          {expanded ? (
+            <ScrollView
+              style={styles.scroll}
+              showsVerticalScrollIndicator
+              contentContainerStyle={styles.scroll_content}
+              nestedScrollEnabled
+            >
+              {children}
+            </ScrollView>
+          ) : null}
+        </View>
+      </Animated.View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  panel_pinned: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1,
-    borderColor: '#E2E8F0',
-    borderRadius: 20,
-    overflow: 'hidden',
-    minHeight: 0,
-    ...Platform.select({
-      web: {
-        boxShadow: '0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 12px 28px -6px rgba(15, 23, 42, 0.08)',
-      },
-      default: {
-        shadowColor: '#0F172A',
-        shadowOpacity: 0.07,
-        shadowRadius: 14,
-        shadowOffset: { width: 0, height: 5 },
-        elevation: 3,
-      },
-    }),
-  },
-  panel_pinned_inner: {
-    flex: 1,
-    minHeight: 0,
-  },
-  overlay_root: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  },
-  overlay_hit: {
+  backdrop_hit: {
     ...StyleSheet.absoluteFillObject,
+    zIndex: 40,
   },
-  overlay_backdrop: {
+  backdrop: {
     flex: 1,
     backgroundColor: '#0f172a',
   },
-  panel_overlay: {
-    height: '100%',
+  sheet_root: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 50,
+    paddingHorizontal: 10,
+  },
+  sheet_card: {
+    flex: 1,
+    minHeight: 0,
     backgroundColor: '#FFFFFF',
-    borderLeftWidth: 1,
-    borderLeftColor: '#E2E8F0',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    overflow: 'hidden',
     ...Platform.select({
       web: {
-        boxShadow: '-8px 0 32px rgba(15, 23, 42, 0.14)',
+        boxShadow: '0 -8px 32px rgba(15, 23, 42, 0.12)',
       },
       default: {
         shadowColor: '#0F172A',
-        shadowOpacity: 0.12,
+        shadowOpacity: 0.14,
         shadowRadius: 16,
-        shadowOffset: { width: -4, height: 0 },
-        elevation: 8,
+        shadowOffset: { width: 0, height: -4 },
+        elevation: 12,
       },
     }),
   },
-  panel_body: {
-    flex: 1,
-    minHeight: 0,
-  },
-  header: {
+  handle_row: {
     flexDirection: 'row',
-    alignItems: 'stretch',
+    alignItems: 'center',
     paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 14,
+    paddingTop: 10,
+    paddingBottom: 12,
     backgroundColor: '#FAFBFC',
+    minHeight: CHIEU_CAO_THANH_THU_GOON,
+  },
+  handle_row_expanded: {
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: '#EEF2F7',
   },
-  header_accent: {
-    width: 4,
-    borderRadius: 3,
+  handle_pill: {
+    width: 36,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#CBD5E1',
     marginRight: 12,
-    minHeight: 44,
   },
-  header_text: {
+  handle_text: {
     flex: 1,
     justifyContent: 'center',
   },
   title: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: '800',
     color: '#0F172A',
     fontFamily: CD.font.family,
   },
   subtitle: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#64748B',
-    marginTop: 4,
+    marginTop: 2,
     fontFamily: CD.font.family,
   },
-  btn_close: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#F1F5F9',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center',
-  },
-  btn_close_txt: {
-    fontSize: 16,
-    color: '#64748B',
-    fontWeight: '700',
+  chevron: {
+    fontSize: 14,
+    color: CD.brand.mauChinh,
+    fontWeight: '800',
+    marginLeft: 8,
   },
   scroll: {
     flex: 1,
@@ -253,6 +224,6 @@ const styles = StyleSheet.create({
   },
   scroll_content: {
     padding: 14,
-    paddingBottom: 24,
+    paddingBottom: 20,
   },
 });

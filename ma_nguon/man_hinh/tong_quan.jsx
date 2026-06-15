@@ -362,9 +362,8 @@ const layKetQuaGiamDinhCoSan = (hoSo = {}) => {
 const ManHinhTongQuan = ({ navigation }) => {
   const { dungSidebarTrai, width: beRongCuaSo } = useLayoutMode();
   const rongSidebarDash = beRongCuaSo >= BREAKPOINTS.xl ? 300 : 260;
-  const dungPanelPhaiCoDinh = beRongCuaSo >= BREAKPOINTS.xl;
-  const rongPanelPhai = beRongCuaSo >= BREAKPOINTS.xxl ? 320 : 280;
-  const [panelPhaiMo, setPanelPhaiMo] = useState(false);
+  const [thanhTienIchMo, setThanhTienIchMo] = useState(false);
+  const [chenAmThanhTienIch, setChenAmThanhTienIch] = useState(60);
   const [dangTai, setDangTai] = useState(false);
   const [thongBaoDangTai, setThongBaoDangTai] = useState('Đang kiểm tra hồ sơ...');
   const [thongKe, setThongKe] = useState({ tong: 0, sach: 0, loi: 0, giamDinhLai: 0, danhMuc: [] });
@@ -1191,8 +1190,7 @@ ${phanDongKhoi.join('\n')}
     dongPopupTriThuc(() => navigation.navigate(route));
   };
 
-  const moPanelPhai = () => setPanelPhaiMo(true);
-  const dongPanelPhai = () => setPanelPhaiMo(false);
+  const thuGonThanhTienIch = () => setThanhTienIchMo(false);
 
   const phanTramLoi = thongKe.tong > 0 ? Math.round((thongKe.loi / thongKe.tong) * 100) : 0;
   const danhSachKpi = [
@@ -1250,7 +1248,7 @@ ${phanDongKhoi.join('\n')}
         <TouchableOpacity
           style={styles.panel_phai_link_btn}
           onPress={() => {
-            dongPanelPhai();
+            thuGonThanhTienIch();
             navigation.navigate('Helper');
           }}
         >
@@ -1273,7 +1271,7 @@ ${phanDongKhoi.join('\n')}
                 key={item.id}
                 style={[styles.panel_phai_tri_thuc_row, { borderLeftColor: cfg.mau }]}
                 onPress={() => {
-                  dongPanelPhai();
+                  thuGonThanhTienIch();
                   if (item.id === 'MOD_TRO_LY_TRI_THUC') {
                     moPopupTriThuc();
                   } else {
@@ -1311,11 +1309,6 @@ ${phanDongKhoi.join('\n')}
           </View>
           <View style={styles.header_right}>
             <View style={styles.header_account_row}>
-              {!dungPanelPhaiCoDinh ? (
-                <TouchableOpacity style={styles.btn_panel_phai} onPress={moPanelPhai} accessibilityLabel="Mở bảng điều khiển bên phải">
-                  <Text style={styles.btn_panel_phai_txt}>☰ Tiện ích</Text>
-                </TouchableOpacity>
-              ) : null}
               <View style={styles.user_badge}>
                 <Text style={styles.user_badge_icon}>👤</Text>
                 <View>
@@ -1443,7 +1436,11 @@ ${phanDongKhoi.join('\n')}
           </ScrollView>
         </View>
 
-        <ScrollView style={styles.dashboard_main} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.dashboard_main}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: chenAmThanhTienIch + 12 }}
+        >
 
         {/* ── 4. KHU VỰC VẬN HÀNH THỐNG NHẤT (thẻ nạp gọn) ── */}
         <View style={[styles.section_block, styles.section_block_import_tight]}>
@@ -1982,36 +1979,18 @@ ${phanDongKhoi.join('\n')}
           <ChanTrangUngDung style={{ marginBottom: 28 }} />
 
         </ScrollView>
-
-        {dungPanelPhaiCoDinh ? (
-          <ThanhPanelPhai pinned width={rongPanelPhai} title="Bảng điều khiển" subtitle="Tiện ích nhanh">
-            {noiDungPanelPhai}
-          </ThanhPanelPhai>
-        ) : null}
       </View>
 
-      {!dungPanelPhaiCoDinh ? (
-        <ThanhPanelPhai
-          visible={panelPhaiMo}
-          width={rongPanelPhai}
-          title="Bảng điều khiển"
-          subtitle="Tiện ích nhanh"
-          onClose={dongPanelPhai}
-        >
-          {noiDungPanelPhai}
-        </ThanhPanelPhai>
-      ) : null}
-
-      {menuTriThucPopup.length > 0 && !dungPanelPhaiCoDinh ? (
-        <TouchableOpacity
-          style={styles.tri_thuc_fab}
-          onPress={moPopupTriThuc}
-          activeOpacity={0.85}
-          accessibilityLabel="Mở tri thức CDSS"
-        >
-          <Text style={styles.tri_thuc_fab_icon}>🤖</Text>
-        </TouchableOpacity>
-      ) : null}
+      <ThanhPanelPhai
+        expanded={thanhTienIchMo}
+        onExpandedChange={setThanhTienIchMo}
+        onInsetChange={setChenAmThanhTienIch}
+        title="Tiện ích nhanh"
+        subtitle="Kéo lên hoặc chạm để mở"
+        onClose={thuGonThanhTienIch}
+      >
+        {noiDungPanelPhai}
+      </ThanhPanelPhai>
 
       <Modal
         visible={popupTriThucVisible}
