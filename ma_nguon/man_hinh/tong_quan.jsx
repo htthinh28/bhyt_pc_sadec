@@ -27,6 +27,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as XLSX from 'xlsx';
 import ChanTrangUngDung from '../thanh_phan/chan_trang_ung_dung';
+import { TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import KhungTroLyTriThucChat from '../thanh_phan/khung_tro_ly_tri_thuc_chat';
 import { BoChonChuDe, CD } from '../tien_ich/chu_de_giao_dien';
 import {
@@ -1205,7 +1206,7 @@ ${phanDongKhoi.join('\n')}
           <View style={styles.header_left}>
             <Image source={{ uri: LOGO_PC }} style={styles.logo} resizeMode="contain" />
             <View>
-              <Text style={styles.header_ten_bv}>BỆNH VIỆN QUỐC TẾ PHƯƠNG CHÂU</Text>
+              <Text style={styles.header_ten_bv}>{TEN_UNG_DUNG}</Text>
               <Text style={styles.header_sub}>Hệ thống hỗ trợ kiểm tra hồ sơ BHYT · QĐ 130</Text>
             </View>
           </View>
@@ -2142,7 +2143,7 @@ const styles = StyleSheet.create({
   },
   header_left: { flexDirection: 'row', alignItems: 'center', gap: 16 },
   logo: { width: 60, height: 60, borderRadius: 30, backgroundColor: '#FFF', borderWidth: 2, borderColor: 'rgba(255,255,255,0.5)' },
-  header_ten_bv: { fontSize: 26, fontWeight: '900', color: '#FFF', fontFamily: CD.font.family, letterSpacing: 0.5 },
+  header_ten_bv: { fontSize: 20, fontWeight: '900', color: '#FFF', fontFamily: CD.font.family, letterSpacing: 0.3, lineHeight: 28, flexShrink: 1 },
   header_sub: { fontSize: 16, color: 'rgba(255,255,255,0.75)', fontFamily: CD.font.family, marginTop: 2 },
   header_right: {
     alignItems: Platform.OS === 'web' ? 'flex-end' : 'flex-start',

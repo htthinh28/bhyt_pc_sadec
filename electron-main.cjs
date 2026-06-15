@@ -96,7 +96,7 @@ function start() {
       height: 800,
       minWidth: 900,
       minHeight: 600,
-      title: 'CDSS BHYT Phuong Chau',
+      title: 'Ứng dụng hỗ trợ kiểm tra BHYT',
       webPreferences: {
         contextIsolation: true,
         nodeIntegration: false,

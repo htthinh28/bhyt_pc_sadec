@@ -1,4 +1,5 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TEN_UNG_DUNG } from '../../tien_ich/ten_ung_dung';
 
 const InQuyTrinh = ({ maDV, danhSachData }) => {
   // Lấy dữ liệu của dòng tương ứng
@@ -9,7 +10,7 @@ const InQuyTrinh = ({ maDV, danhSachData }) => {
       <View style={styles.trang_in}>
         
         <View style={styles.phan_dau_trang}>
-          <Text style={styles.ten_benh_vien}>TẬP ĐOÀN Y TẾ PHƯƠNG CHÂU</Text>
+          <Text style={styles.ten_benh_vien}>{TEN_UNG_DUNG}</Text>
           <Text style={styles.tieu_de_tai_lieu}>QUY TRÌNH KỸ THUẬT LÂM SÀNG</Text>
           <Text style={styles.ma_icd_header}>Tên kỹ thuật: {quyTrinh['TÊN QUY TRÌNH KỸ THUẬT']}</Text>
           <Text style={styles.chu_thuong}>(Mã DVKT: {quyTrinh['MÃ DỊCH VỤ KT']})</Text>

@@ -5,7 +5,7 @@ electronVersion: 35.7.5
 
 appId: com.phuongchau.cdss.bhyt
 productName: CDSS-BHYT-Phuong-Chau
-copyright: Copyright © Phuong Chau
+copyright: Copyright © CDSS BHYT
 
 directories:
   output: ../release-desktop

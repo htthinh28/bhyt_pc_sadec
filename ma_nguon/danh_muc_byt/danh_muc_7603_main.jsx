@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import * as XLSX from 'xlsx';
-import { BREAKPOINTS } from '../tien_ich/diem_anh_man_hinh';
+import { TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import { xoaCacheBoMayGiamDinh } from '../tien_ich/dong_co_giam_dinh';
 import { quayLaiAnToan } from '../tien_ich/dieu_huong_an_toan';
 import {
@@ -625,7 +625,7 @@ const DanhMucBYTMain = ({ navigation }) => {
         <View style={styles.top_brand_trung_tam}>
           <Image source={{ uri: LOGO_PC }} style={styles.logo_header} resizeMode="contain" />
           <View style={{ alignItems: 'center' }}>
-            <Text style={styles.top_brand_text_main}>BỆNH VIỆN QUỐC TẾ PHƯƠNG CHÂU SÓC TRĂNG</Text>
+            <Text style={styles.top_brand_text_main}>{TEN_UNG_DUNG}</Text>
             <Text style={styles.top_brand_text_sub}>HỆ THỐNG DANH MỤC DÙNG CHUNG BỘ Y TẾ (QĐ 7603)</Text>
           </View>
         </View>
@@ -714,7 +714,7 @@ const styles = StyleSheet.create({
   top_brand_trung_tam: { flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', minWidth: 0 },
   top_brand_spacer: { minWidth: 132 },
   logo_header: { width: 90, height: 90, borderRadius: 45, marginRight: 20, backgroundColor: '#FFF' },
-  top_brand_text_main: { color: '#FFF', fontSize: 32, fontWeight: 'bold', fontFamily: 'Arial', letterSpacing: 0.5, textAlign: 'center' },
+  top_brand_text_main: { color: '#FFF', fontSize: 22, fontWeight: 'bold', fontFamily: 'Arial', letterSpacing: 0.3, textAlign: 'center', lineHeight: 30 },
   top_brand_text_sub: { color: '#BBDEFB', fontSize: 20, fontFamily: 'Arial', marginTop: 4, fontStyle: 'italic', textAlign: 'center' },
 
   nav_bar: { backgroundColor: '#FFF', paddingVertical: 5, borderBottomWidth: 2, borderBottomColor: '#FFC107', elevation: 2 },

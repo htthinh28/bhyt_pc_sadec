@@ -1,5 +1,6 @@
 import { Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { TEN_UNG_DUNG, TEN_UNG_DUNG_HOA } from '../../tien_ich/ten_ung_dung';
 import { COT_MAC_DINH_PHAC_DO_CDSS } from './phac_do_cdss_columns';
 
 // Tự động sinh danh mục 40 tài liệu tham khảo y khoa uy tín (>50% trong 5 năm gần đây)
@@ -26,7 +27,7 @@ const InPhacDo = ({ maICD = 'J18.9', noiDungPhacDo = null }) => {
       <ScrollView style={styles.vung_an_toan}>
         <View style={styles.trang_in}>
           <View style={styles.phan_dau_trang}>
-            <Text style={styles.ten_benh_vien}>TẬP ĐOÀN Y TẾ PHƯƠNG CHÂU</Text>
+            <Text style={styles.ten_benh_vien}>{TEN_UNG_DUNG}</Text>
             <Text style={styles.tieu_de_tai_lieu}>PHÁC ĐỒ ĐIỀU TRỊ — CDSS GUIDELINES</Text>
             <Text style={styles.ma_icd_header}>
               Mã ICD-10: {noiDungPhacDo['MÃ ICD-10'] || maICD}
@@ -62,7 +63,7 @@ const InPhacDo = ({ maICD = 'J18.9', noiDungPhacDo = null }) => {
         
         {/* HEADER BẢN IN */}
         <View style={styles.phan_dau_trang}>
-          <Text style={styles.ten_benh_vien}>TẬP ĐOÀN Y TẾ PHƯƠNG CHÂU</Text>
+          <Text style={styles.ten_benh_vien}>{TEN_UNG_DUNG}</Text>
           <Text style={styles.tieu_de_tai_lieu}>PHÁC ĐỒ ĐIỀU TRỊ LÂM SÀNG</Text>
           <Text style={styles.ma_icd_header}>Mã bệnh (ICD-10): {maICD}</Text>
           <View style={styles.duong_ke_ngang} />
@@ -72,7 +73,7 @@ const InPhacDo = ({ maICD = 'J18.9', noiDungPhacDo = null }) => {
         <View style={styles.phan_muc}>
           <Text style={styles.tieu_de_muc}>I. HÀNH CHÍNH</Text>
           <View style={styles.noi_dung_muc}>
-            <Text style={styles.chu_thuong}><Text style={styles.chu_dam}>Cơ sở y tế:</Text> Tập đoàn Y tế Phương Châu (Chuẩn JCI)</Text>
+            <Text style={styles.chu_thuong}><Text style={styles.chu_dam}>Cơ sở y tế:</Text> {TEN_UNG_DUNG_HOA}</Text>
             <Text style={styles.chu_thuong}><Text style={styles.chu_dam}>Mã số tài liệu:</Text> PC-COP-PD-{maICD}</Text>
             <Text style={styles.chu_thuong}><Text style={styles.chu_dam}>Phiên bản / Ngày ban hành:</Text> 5.0 / 01/01/2026</Text>
           </View>

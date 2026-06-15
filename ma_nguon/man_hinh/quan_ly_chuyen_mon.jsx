@@ -16,7 +16,7 @@ import SoTayHanhNghe from '../chuyen_mon/so_tay_hanh_nghe/so_tay_hanh_nghe';
 
 // Định nghĩa phân hệ chuyên môn
 const PHAN_HE_CHUYEN_MON = [
-  { id: 'PHAC_DO_BV', ten: '🏥 PHÁC ĐỒ PHƯƠNG CHÂU' },
+  { id: 'PHAC_DO_BV', ten: '🏥 PHÁC ĐỒ CDSS' },
   { id: 'HUONG_DAN_BYT', ten: '📖 HƯỚNG DẪN BỘ Y TẾ' },
   { id: 'QUY_TRINH_KT', ten: '⚙️ QUY TRÌNH KỸ THUẬT' },
   { id: 'TUONG_TAC_THUOC', ten: '💊 TƯƠNG TÁC THUỐC' },

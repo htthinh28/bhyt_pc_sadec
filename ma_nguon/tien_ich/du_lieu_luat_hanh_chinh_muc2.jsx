@@ -618,7 +618,7 @@ export const DU_LIEU_SEED_LUAT_HANH_CHINH_MUC2 = [
     "MA_LUAT": "HC_67",
     "TEN_QUY_TAC": "Mã cơ sở KCB trong file sai",
     "DIEU_KIEN": "1 == 0",
-    "CANH_BAO": "⛔ Lỗi hệ thống: Mã bệnh viện trong tệp XML không khớp với mã của Phương Châu.",
+    "CANH_BAO": "⛔ Lỗi hệ thống: Mã bệnh viện trong tệp XML không khớp với mã cơ sở KCB đã cấu hình.",
     "NGUON_DU_LIEU": "DuLieu_LUAT_HANH_CHINH (7).xlsx",
     "GHI_CHU_SUA": "✏️ [Production review] Vô hiệu hóa trước deploy: tham chiếu XML_HEADER.* ngoài dữ liệu nghiệp vụ XML chuẩn đang dùng. Điều kiện gốc: XML_HEADER.MA_CSKCB != '95013'"
   },

@@ -1,6 +1,7 @@
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
 import { Alert, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TEN_UNG_DUNG } from '../../tien_ich/ten_ung_dung';
 
 const thongBao = (title, msg) => {
   if (typeof Alert?.alert === 'function') Alert.alert(title, String(msg));
@@ -51,7 +52,7 @@ export const taoHtmlInHuongDanBytMotDong = (columns = [], noiDungDong = null) =>
   return `<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"/><title>Hướng dẫn BYT ${ma}</title><style>${css}</style></head><body>
     <div class="trang">
       <div class="dau">
-        <div class="ten-bv">TẬP ĐOÀN Y TẾ PHƯƠNG CHÂU</div>
+        <div class="ten-bv">${TEN_UNG_DUNG}</div>
         <div class="tieu-de">HƯỚNG DẪN CHẨN ĐOÁN &amp; ĐIỀU TRỊ — BỘ Y TẾ (CDSS)</div>
         <div class="ma-icd">Mã ICD-10: ${ma}</div>
         <div class="ke"></div>
@@ -123,7 +124,7 @@ const InHuongDanByt = ({ maICD = '', columns = [], noiDungDong = null }) => {
     <ScrollView style={styles.vung_an_toan}>
       <View style={styles.trang_in}>
         <View style={styles.phan_dau_trang}>
-          <Text style={styles.ten_benh_vien}>TẬP ĐOÀN Y TẾ PHƯƠNG CHÂU</Text>
+          <Text style={styles.ten_benh_vien}>{TEN_UNG_DUNG}</Text>
           <Text style={styles.tieu_de_tai_lieu}>HƯỚNG DẪN CHẨN ĐOÁN & ĐIỀU TRỊ — BỘ Y TẾ (CDSS)</Text>
           <Text style={styles.ma_icd_header}>Mã ICD-10: {noiDungDong['Mã ICD10'] || maICD}</Text>
           <View style={styles.duong_ke_ngang} />

@@ -162,7 +162,7 @@ const PhacDoBenhVien = () => {
       const ws = XLSX.utils.json_to_sheet(exportData, { header: c });
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'PhacDo');
-      XLSX.writeFile(wb, 'PhacDo_CDSS_PhuongChau.xlsx');
+      XLSX.writeFile(wb, 'PhacDo_CDSS.xlsx');
     }
   };
 

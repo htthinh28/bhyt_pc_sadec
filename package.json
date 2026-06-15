@@ -1,7 +1,7 @@
 {
   "name": "ung_dung_cdss_bhyt",
   "description": "CDSS BHYT — kiểm tra hồ sơ BHYT; web/mobile + portable Windows (export đủ tài liệu/chỉ mục nội bộ).",
-  "author": "BV Phương Châu",
+  "author": "CDSS BHYT",
   "main": "index.js",
   "version": "1.2.1",
   "scripts": {

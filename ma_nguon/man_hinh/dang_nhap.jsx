@@ -23,6 +23,7 @@ import { CD } from '../tien_ich/chu_de_giao_dien';
 import { capNhatTaiKhoanTheoEmail, docDanhSachTaiKhoan, ghiNhatKyHeThong, luuDanhSachTaiKhoan } from '../tien_ich/nhat_ky_he_thong';
 import { luuPhienDangNhap } from '../tien_ich/phien_dang_nhap';
 import { damBaoMigratePhanQuyen, layVaiTroPhienHieuLuc, taiRBAC } from '../tien_ich/rbac_engine';
+import { TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 
 const ADMIN_EMAIL = 'htthinh28@gmail.com';
 const ADMIN_LEGACY_PASSWORD = 'Tramanh@2010##';
@@ -234,8 +235,7 @@ const ManHinhDangNhap = ({ navigation }) => {
                 <Text style={styles.brand_icon_txt}>🏥</Text>
               </View>
 
-              <Text style={styles.brand_name}>PHƯƠNG CHÂU</Text>
-              <Text style={styles.brand_subtitle}>BỆNH VIỆN QUỐC TẾ SÓC TRĂNG</Text>
+              <Text style={styles.brand_name}>{TEN_UNG_DUNG}</Text>
 
               <View style={styles.brand_divider} />
 
@@ -275,7 +275,7 @@ const ManHinhDangNhap = ({ navigation }) => {
                   <View style={styles.brand_icon_ring_sm}>
                     <Text style={{ fontSize: 32 }}>🏥</Text>
                   </View>
-                  <Text style={styles.mobile_brand_name}>CDSS PHƯƠNG CHÂU</Text>
+                  <Text style={styles.mobile_brand_name}>{TEN_UNG_DUNG}</Text>
                   <Text style={styles.mobile_brand_sub}>Hệ Thống BHYT & Lâm Sàng</Text>
                 </View>
               )}
@@ -405,8 +405,9 @@ const styles = StyleSheet.create({
   },
   brand_icon_txt: { fontSize: 52 },
   brand_name: {
-    fontSize: 40, fontWeight: '900', color: CD.text.primary,
-    letterSpacing: 0.6, fontFamily: CD.font.family, textAlign: 'center',
+    fontSize: 28, fontWeight: '900', color: CD.text.primary,
+    letterSpacing: 0.4, fontFamily: CD.font.family, textAlign: 'center',
+    lineHeight: 38, maxWidth: 420,
   },
   brand_subtitle: {
     fontSize: 18, color: CD.text.secondary,
@@ -458,7 +459,10 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: CD.border.glass_md,
     justifyContent: 'center', alignItems: 'center', marginBottom: 12,
   },
-  mobile_brand_name: { fontSize: 28, fontWeight: '900', color: CD.brand.mauNhat, fontFamily: CD.font.family },
+  mobile_brand_name: {
+    fontSize: 22, fontWeight: '900', color: CD.brand.mauNhat, fontFamily: CD.font.family,
+    textAlign: 'center', lineHeight: 30, paddingHorizontal: 8,
+  },
   mobile_brand_sub: { fontSize: 18, color: CD.text.secondary, marginTop: 4, fontFamily: CD.font.family },
 
   form_title: { fontSize: 30, fontWeight: '800', color: CD.text.primary, fontFamily: CD.font.family, marginBottom: 8 },

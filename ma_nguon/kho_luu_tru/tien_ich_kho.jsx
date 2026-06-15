@@ -220,7 +220,7 @@ export const layDanhSachTuKho = async () => {
 // ============================================================
 // 3. ĐỌC CHI TIẾT HỒ SƠ (Trả về Data gốc + Ghi log XEM)
 // ============================================================
-export const layHoSoTheoMaLK = async (maLK, nguoiDung = 'Bác sĩ Phương Châu') => {
+export const layHoSoTheoMaLK = async (maLK, nguoiDung = 'Người dùng hệ thống') => {
   try {
     let allHoSo = await docKhoAnToan();
     const index = allHoSo.findIndex((hs) => hs.ma_lk === maLK);

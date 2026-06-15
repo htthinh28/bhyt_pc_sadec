@@ -1,5 +1,6 @@
 import { Platform, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
+import { TEN_UNG_DUNG, TEN_UNG_DUNG_HOA } from '../../tien_ich/ten_ung_dung';
 import { COT_MAC_DINH_PHAC_DO_CDSS } from './phac_do_cdss_columns';
 
 // Tự động sinh danh mục 40 tài liệu tham khảo y khoa uy tín (>50% trong 5 năm gần đây)
@@ -26,7 +27,7 @@ const InfographicPhacDo = ({ maICD = 'J18.9', noiDungPhacDo = null }) => {
       <SafeAreaView style={styles.vung_an_toan}>
         <ScrollView contentContainerStyle={styles.khung_chinh}>
           <View style={styles.the_phan_he}>
-            <Text style={styles.tieu_de_phan}>HÀNH CHÍNH — PHÁC ĐỒ CDSS PHƯƠNG CHÂU</Text>
+            <Text style={styles.tieu_de_phan}>HÀNH CHÍNH — PHÁC ĐỒ CDSS</Text>
             <View style={styles.noi_dung_hang}>
               <Text style={styles.chu_dam}>Mã ICD-10:</Text>
               <Text style={styles.chu_thuong}> {noiDungPhacDo['MÃ ICD-10'] || maICD}</Text>
@@ -60,7 +61,7 @@ const InfographicPhacDo = ({ maICD = 'J18.9', noiDungPhacDo = null }) => {
         <View style={styles.the_phan_he}>
           <Text style={styles.tieu_de_phan}>I. HÀNH CHÍNH [1]</Text>
           <View style={styles.noi_dung_hang}>
-            <Text style={styles.chu_dam}>Cơ sở y tế:</Text><Text style={styles.chu_thuong}> Tập đoàn Y tế Phương Châu</Text>
+            <Text style={styles.chu_dam}>Cơ sở y tế:</Text><Text style={styles.chu_thuong}> {TEN_UNG_DUNG_HOA}</Text>
           </View>
           <View style={styles.noi_dung_hang}>
             <Text style={styles.chu_dam}>Mã số tài liệu:</Text><Text style={styles.chu_thuong}> PC-COP-PD-{maICD}</Text>

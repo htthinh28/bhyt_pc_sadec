@@ -3,11 +3,13 @@
  * Được mã hóa từ Hợp đồng KBCB BHYT năm 2025
  */
 
+import { TEN_UNG_DUNG_HOA } from '../tien_ich/ten_ung_dung';
+
 export const THONG_TIN_CO_SO = {
   // --- THÔNG TIN HÀNH CHÍNH CƠ BẢN ---
   MA_CSKCB: "94170", 
-  TEN_CSKCB: "Bệnh viện Quốc tế Phương Châu Sóc Trăng", 
-  DON_VI_THU_HUONG: "Chi Nhánh Công Ty TNHH MTV Phương Châu Sóc Trăng",
+  TEN_CSKCB: TEN_UNG_DUNG_HOA, 
+  DON_VI_THU_HUONG: TEN_UNG_DUNG_HOA,
   
   // --- PHÂN TUYẾN & CHUYÊN MÔN ---
   CAP_CHUYEN_MON: "Cơ bản", 
