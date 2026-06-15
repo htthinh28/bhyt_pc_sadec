@@ -27,6 +27,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as XLSX from 'xlsx';
 import ChanTrangUngDung from '../thanh_phan/chan_trang_ung_dung';
+import ThanhPanelPhai from '../thanh_phan/thanh_panel_phai';
 import { LOGO_UNG_DUNG, TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import KhungTroLyTriThucChat from '../thanh_phan/khung_tro_ly_tri_thuc_chat';
 import { BoChonChuDe, CD } from '../tien_ich/chu_de_giao_dien';
@@ -361,6 +362,9 @@ const layKetQuaGiamDinhCoSan = (hoSo = {}) => {
 const ManHinhTongQuan = ({ navigation }) => {
   const { dungSidebarTrai, width: beRongCuaSo } = useLayoutMode();
   const rongSidebarDash = beRongCuaSo >= BREAKPOINTS.xl ? 300 : 260;
+  const dungPanelPhaiCoDinh = beRongCuaSo >= BREAKPOINTS.xl;
+  const rongPanelPhai = beRongCuaSo >= BREAKPOINTS.xxl ? 320 : 280;
+  const [panelPhaiMo, setPanelPhaiMo] = useState(false);
   const [dangTai, setDangTai] = useState(false);
   const [thongBaoDangTai, setThongBaoDangTai] = useState('Đang kiểm tra hồ sơ...');
   const [thongKe, setThongKe] = useState({ tong: 0, sach: 0, loi: 0, giamDinhLai: 0, danhMuc: [] });
@@ -1187,6 +1191,9 @@ ${phanDongKhoi.join('\n')}
     dongPopupTriThuc(() => navigation.navigate(route));
   };
 
+  const moPanelPhai = () => setPanelPhaiMo(true);
+  const dongPanelPhai = () => setPanelPhaiMo(false);
+
   const phanTramLoi = thongKe.tong > 0 ? Math.round((thongKe.loi / thongKe.tong) * 100) : 0;
   const danhSachKpi = [
     { label: 'Tổng hồ sơ', value: thongKe.tong, icon: '📁', mau: '#1565C0', mauNhat: '#E3F2FD' },
@@ -1194,6 +1201,100 @@ ${phanDongKhoi.join('\n')}
     { label: 'Có lỗi', value: thongKe.loi, icon: '⚠️', mau: '#C62828', mauNhat: '#FFEBEE' },
     { label: 'Tỉ lệ lỗi', value: `${phanTramLoi}%`, icon: '📊', mau: '#E65100', mauNhat: '#FFF3E0' },
   ];
+
+  const noiDungPanelPhai = (
+    <>
+      <View style={styles.panel_phai_section}>
+        <Text style={styles.panel_phai_section_title}>Tài khoản</Text>
+        <View style={styles.panel_phai_user_card}>
+          <Text style={styles.panel_phai_user_name}>{tenTaiKhoan || 'Chưa đăng nhập'}</Text>
+          <Text style={[styles.panel_phai_user_role, vaiTroHienTai === 'ADMIN' && { color: CD.brand.mauChinh }]}>
+            {vaiTroHienTai}
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.panel_phai_section}>
+        <Text style={styles.panel_phai_section_title}>Thống kê nhanh</Text>
+        <View style={styles.panel_phai_kpi_grid}>
+          {danhSachKpi.map((kpi, i) => (
+            <View key={i} style={[styles.panel_phai_kpi_item, { borderLeftColor: kpi.mau }]}>
+              <Text style={styles.panel_phai_kpi_icon}>{kpi.icon}</Text>
+              <Text style={[styles.panel_phai_kpi_value, { color: kpi.mau }]}>{kpi.value}</Text>
+              <Text style={styles.panel_phai_kpi_label} numberOfLines={1}>{kpi.label}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.panel_phai_section}>
+        <Text style={styles.panel_phai_section_title}>Hệ thống</Text>
+        <View style={styles.panel_phai_status_row}>
+          <Text style={styles.panel_phai_status_label}>Python service</Text>
+          <Text style={[
+            styles.panel_phai_status_val,
+            trangThaiPythonKhoiDong.daKiemTra && trangThaiPythonKhoiDong.ok && styles.panel_phai_status_ok,
+            trangThaiPythonKhoiDong.daKiemTra && !trangThaiPythonKhoiDong.ok && styles.panel_phai_status_err,
+          ]}>
+            {!trangThaiPythonKhoiDong.daKiemTra
+              ? 'Đang kiểm tra...'
+              : trangThaiPythonKhoiDong.ok
+                ? 'Sẵn sàng'
+                : 'Không kết nối'}
+          </Text>
+        </View>
+        <View style={styles.panel_phai_status_row}>
+          <Text style={styles.panel_phai_status_label}>Chế độ giám định</Text>
+          <Text style={styles.panel_phai_status_val}>{cheDoGiamDinh}</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.panel_phai_link_btn}
+          onPress={() => {
+            dongPanelPhai();
+            navigation.navigate('Helper');
+          }}
+        >
+          <Text style={styles.panel_phai_link_btn_txt}>🧰 Mở Helper / Firebase</Text>
+        </TouchableOpacity>
+      </View>
+
+      {menuTriThucPopup.length > 0 ? (
+        <View style={styles.panel_phai_section}>
+          <Text style={styles.panel_phai_section_title}>Tri thức CDSS</Text>
+          {menuTriThucPopup.map((item) => {
+            const cfg = MODULE_ICONS[item.id] || { icon: '📦', mau: '#607D8B', mauNhat: '#ECEFF1' };
+            const label = item.id === 'MOD_TRO_LY_TRI_THUC'
+              ? 'Trợ lý tri thức (RAG)'
+              : item.id === 'MOD_TRI_THUC_GD'
+                ? 'Tri thức từ kiểm tra'
+                : item.ten;
+            return (
+              <TouchableOpacity
+                key={item.id}
+                style={[styles.panel_phai_tri_thuc_row, { borderLeftColor: cfg.mau }]}
+                onPress={() => {
+                  dongPanelPhai();
+                  if (item.id === 'MOD_TRO_LY_TRI_THUC') {
+                    moPopupTriThuc();
+                  } else {
+                    navigation.navigate(item.route);
+                  }
+                }}
+              >
+                <Text style={styles.panel_phai_tri_thuc_icon}>{cfg.icon}</Text>
+                <Text style={styles.panel_phai_tri_thuc_txt} numberOfLines={2}>{label}</Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      ) : null}
+
+      <View style={styles.panel_phai_section}>
+        <Text style={styles.panel_phai_section_title}>Giao diện</Text>
+        <BoChonChuDe style={{ margin: 0 }} />
+      </View>
+    </>
+  );
 
   return (
     <SafeAreaView style={styles.vung_an_toan}>
@@ -1210,6 +1311,11 @@ ${phanDongKhoi.join('\n')}
           </View>
           <View style={styles.header_right}>
             <View style={styles.header_account_row}>
+              {!dungPanelPhaiCoDinh ? (
+                <TouchableOpacity style={styles.btn_panel_phai} onPress={moPanelPhai} accessibilityLabel="Mở bảng điều khiển bên phải">
+                  <Text style={styles.btn_panel_phai_txt}>☰ Tiện ích</Text>
+                </TouchableOpacity>
+              ) : null}
               <View style={styles.user_badge}>
                 <Text style={styles.user_badge_icon}>👤</Text>
                 <View>
@@ -1873,15 +1979,30 @@ ${phanDongKhoi.join('\n')}
           </View>
         </View>
 
-          {/* ── 6. CHỦ ĐỀ GIAO DIỆN ── */}
-          <BoChonChuDe style={{ margin: 16, marginBottom: 16 }} />
-
           <ChanTrangUngDung style={{ marginBottom: 28 }} />
 
         </ScrollView>
+
+        {dungPanelPhaiCoDinh ? (
+          <ThanhPanelPhai pinned width={rongPanelPhai} title="Bảng điều khiển" subtitle="Tiện ích nhanh">
+            {noiDungPanelPhai}
+          </ThanhPanelPhai>
+        ) : null}
       </View>
 
-      {menuTriThucPopup.length > 0 ? (
+      {!dungPanelPhaiCoDinh ? (
+        <ThanhPanelPhai
+          visible={panelPhaiMo}
+          width={rongPanelPhai}
+          title="Bảng điều khiển"
+          subtitle="Tiện ích nhanh"
+          onClose={dongPanelPhai}
+        >
+          {noiDungPanelPhai}
+        </ThanhPanelPhai>
+      ) : null}
+
+      {menuTriThucPopup.length > 0 && !dungPanelPhaiCoDinh ? (
         <TouchableOpacity
           style={styles.tri_thuc_fab}
           onPress={moPopupTriThuc}
@@ -2183,6 +2304,140 @@ const styles = StyleSheet.create({
     ...Platform.select({ web: { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', cursor: 'pointer' } }),
   },
   btn_logout_txt: { fontSize: 16, color: '#FFF', fontWeight: '600', fontFamily: CD.font.family },
+
+  btn_panel_phai: {
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.35)',
+    marginRight: 10,
+    ...Platform.select({ web: { cursor: 'pointer' } }),
+  },
+  btn_panel_phai_txt: {
+    fontSize: 15,
+    color: '#FFF',
+    fontWeight: '700',
+    fontFamily: CD.font.family,
+  },
+
+  panel_phai_section: {
+    marginBottom: 16,
+  },
+  panel_phai_section_title: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#64748B',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: 10,
+    fontFamily: CD.font.family,
+  },
+  panel_phai_user_card: {
+    backgroundColor: '#F8FAFC',
+    borderRadius: 12,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  panel_phai_user_name: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#0F172A',
+    fontFamily: CD.font.family,
+  },
+  panel_phai_user_role: {
+    fontSize: 13,
+    color: '#64748B',
+    marginTop: 4,
+    fontFamily: CD.font.family,
+  },
+  panel_phai_kpi_grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  panel_phai_kpi_item: {
+    width: '48%',
+    backgroundColor: '#F8FAFC',
+    borderRadius: 12,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderLeftWidth: 3,
+  },
+  panel_phai_kpi_icon: { fontSize: 18, marginBottom: 4 },
+  panel_phai_kpi_value: {
+    fontSize: 20,
+    fontWeight: '800',
+    fontFamily: CD.font.family,
+  },
+  panel_phai_kpi_label: {
+    fontSize: 11,
+    color: '#64748B',
+    marginTop: 2,
+    fontFamily: CD.font.family,
+  },
+  panel_phai_status_row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#EEF2F7',
+  },
+  panel_phai_status_label: {
+    fontSize: 14,
+    color: '#475569',
+    fontFamily: CD.font.family,
+    flex: 1,
+    paddingRight: 8,
+  },
+  panel_phai_status_val: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#94A3B8',
+    fontFamily: CD.font.family,
+  },
+  panel_phai_status_ok: { color: '#2E7D32' },
+  panel_phai_status_err: { color: '#C62828' },
+  panel_phai_link_btn: {
+    marginTop: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderRadius: 12,
+    backgroundColor: '#FCE4EC',
+    borderWidth: 1,
+    borderColor: '#F8BBD0',
+  },
+  panel_phai_link_btn_txt: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: CD.brand.mauChinh,
+    fontFamily: CD.font.family,
+  },
+  panel_phai_tri_thuc_row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    marginBottom: 8,
+    borderRadius: 12,
+    backgroundColor: '#F8FAFC',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderLeftWidth: 3,
+  },
+  panel_phai_tri_thuc_icon: { fontSize: 20 },
+  panel_phai_tri_thuc_txt: {
+    flex: 1,
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#0F172A',
+    fontFamily: CD.font.family,
+  },
 
   // ── DASHBOARD LAYOUT ──
   dashboard_layout: {
