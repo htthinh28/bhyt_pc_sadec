@@ -1,0 +1,800 @@
+[
+  {
+    "stt": "1.",
+    "ma_tt43": "13.41",
+    "ten_ky_thuat": "Khám thai",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "2.",
+    "ma_tt43": "13.23",
+    "ten_ky_thuat": "Kỹ thuật theo dõi nhịp tim thai và cơn co tử cung bằng monitor sản khoa *",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "3.",
+    "ma_tt43": "13.53",
+    "ten_ky_thuat": "Kỹ thuật cắt chỉ khâu vòng cổ tử cung đường âm đạo *",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "4.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi thai phụ mắc bệnh truyền nhiễm",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "5.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi thai phụ bệnh lý",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "6.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, chuẩn bị bệnh trước phẫu thuật sản, phụ khoa",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "7.",
+    "ma_tt43": "13.29",
+    "ten_ky_thuat": "Soi ối",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "8.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu người bệnh có bệnh lý về sản khoa",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "9.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hướng dẫn lăn bóng xoa dịu cơn đau chuyển dạ",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "10.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nghiệm pháp dung nạp Glucose đường uống cho phụ nữ mang thai",
+    "nhom": "TRƯỚC SINH"
+  },
+  {
+    "stt": "11.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, xác định và theo dõi các giai đoạn của chuyển dạ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "12.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi sản phụ chuyển dạ đẻ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "13.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi và truyền oxytocin trong chuyển dạ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "14.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi gây chuyển dạ bằng thuốc",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "15.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu các trường hợp bất thường trong chuyển dạ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "16.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí sa dây rau",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "17.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật tách màng ối",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "18.",
+    "ma_tt43": "13.39",
+    "ten_ky_thuat": "Kỹ thuật bấm ối",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "19.",
+    "ma_tt43": "13.21",
+    "ten_ky_thuat": "Nghiệm pháp lọt ngôi chỏm",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "20.",
+    "ma_tt43": "13.33",
+    "ten_ky_thuat": "Đỡ đẻ thường ngôi chỏm",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "21.",
+    "ma_tt43": "13.24",
+    "ten_ky_thuat": "Đỡ đẻ ngôi mông *",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "22.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đỡ đẻ ngôi mặt *",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "23.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đỡ đẻ thường trên người bệnh có bệnh truyền nhiễm (viêm gan nặng; HIV-AIDS …)",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "24.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đỡ đẻ rơi",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "25.",
+    "ma_tt43": "13.35",
+    "ten_ky_thuat": "Xử trí tích cực giai đoạn 3 cuộc chuyển dạ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "26.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu những trường hợp bất thường trong đẻ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "27.",
+    "ma_tt43": "13.36",
+    "ten_ky_thuat": "Thực hiện nghiệm pháp bong rau, đỡ rau, kiểm tra bánh rau",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "28.",
+    "ma_tt43": "13.37",
+    "ten_ky_thuat": "Kiểm soát tử cung *",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "29.",
+    "ma_tt43": "13.38",
+    "ten_ky_thuat": "Bóc rau nhân tạo *",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "30.",
+    "ma_tt43": "13.34",
+    "ten_ky_thuat": "Cắt và khâu tầng sinh môn",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "31.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đón bé sau mổ",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "32.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi sản phụ đặt bóng gây chuyển dạ - bóng kéo",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "33.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi sản phụ đặt bóng gây chuyển dạ - bóng Cook",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "34.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi sản phụ gây chuyển dạ bằng thuốc Propess",
+    "nhom": "TRONG SINH"
+  },
+  {
+    "stt": "35.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật da kề da (ngay sau đẻ, mổ đẻ)",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "36.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chèn gạc âm đạo cầm máu",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "37.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu băng huyết sau sinh đường âm đạo",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "38.",
+    "ma_tt43": "13.30",
+    "ten_ky_thuat": "Khâu phục hồi rách âm đạo, tầng sinh môn độ 1, 2,",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "39.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khâu phục hồi rách âm hộ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "40.",
+    "ma_tt43": "13.30",
+    "ten_ky_thuat": "Xử trí vết rách cổ tử cung đơn thuần *",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "41.",
+    "ma_tt43": "13.31",
+    "ten_ky_thuat": "Cặp, kéo cổ tử cung cầm máu sau đẻ; sau sảy; sau nạo",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "42.",
+    "ma_tt43": "13.14",
+    "ten_ky_thuat": "Lấy khối máu tụ âm đạo; tầng sinh môn với kích thước < 2x3 cm",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "43.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi đặt bóng chèn lòng tử cung để cầm máu",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "44.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy bệnh phẩm để sinh thiết rau thai sau sổ rau",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "45.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi người bệnh sau phẫu thuật truyền nhiễm",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "46.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bà mẹ ngày đầu sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "47.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bà mẹ tuần đầu sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "48.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bà mẹ 6 tuần đầu sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "49.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp vú thông tuyến sữa sau sinh",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "50.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tắc tia sữa bằng máy hút",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "51.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tắc tia sữa bằng hồng ngoại",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "52.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tắc tia sữa bằng sóng ngắn",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "53.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi vết khâu tầng sinh môn sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "54.",
+    "ma_tt43": "13.167",
+    "ten_ky_thuat": "Làm thuốc âm hộ; âm đạo sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "55.",
+    "ma_tt43": "13.167",
+    "ten_ky_thuat": "Làm thuốc tầng sinh môn sau đẻ",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "56.",
+    "ma_tt43": "13.40",
+    "ten_ky_thuat": "Làm thuốc vết khâu tầng sinh môn nhiễm khuẩn",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "57.",
+    "ma_tt43": "13,54",
+    "ten_ky_thuat": "Chích áp xe tầng sinh môn",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "58.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Ép tử cung bằng tay (2 tay ngoài, 1 tay ngoài 1 tay trong âm đạo) để cầm máu sau sinh",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "59.",
+    "ma_tt43": "13.48",
+    "ten_ky_thuat": "Nong cổ tử cung do bế sản dịch",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "60.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hút buồng tử cung bằng bơm hút chân không để điều trị chảy máu muộn thời kỳ sau đẻ *",
+    "nhom": "SAU SINH"
+  },
+  {
+    "stt": "61.",
+    "ma_tt43": "13.165",
+    "ten_ky_thuat": "Khám phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "62.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu cấp cứu phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "63.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bệnh nhân trước thủ thuật sản phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "64.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bệnh nhân sau thủ thuật sản phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "65.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi bệnh nhân trước phẫu thuật sản, phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "66.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi người bệnh sau phẫu thuật sản, phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "67.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi người bệnh trước phẫu thuật bệnh lý",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "68.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi người bệnh sau phẫu thuật bệnh lý",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "69.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi người bệnh rò bàng quang - âm đạo",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "70.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi thai phụ bệnh lý",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "71.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi người bệnh chửa ngoài tử cung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "72.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi người bệnh sau nạo thai trứng",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "73.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi người bệnh sau mổ cắt vú",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "74.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hướng dẫn , tư vấn về dinh dưỡng phù hợp cho người bệnh sản phụ khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "75.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám vú cho phụ nữ",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "76.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện test acid acetic, lugol",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "77.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chiếu tia hồng ngoại điều trị viêm dính tiểu khung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "78.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện Sóng ngắn điều trị viêm dính tiểu khung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "79.",
+    "ma_tt43": "13.148",
+    "ten_ky_thuat": "Lấy dị vật âm đạo",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "80.",
+    "ma_tt43": "13.151",
+    "ten_ky_thuat": "Chích áp xe tuyến Bartholin",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "81.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật chăm sóc hậu môn, sinh dục",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "82.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật thực hiện thuốc qua niêm mạc âm đạo",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "83.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy bệnh phẩm để xét nghiệm tế bào học âm đạo, cổ tử cung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "84.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy bệnh phẩm âm đạo, cổ tử cung để xét nghiệm HPV",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "85.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy bệnh phẩm để xét nghiệm vi khuẩn, vi nấm, Trichomonas nhuộm soi và phân tích tự động hỗ trợ chẩn đoán viêm âm đạo",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "86.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đặt thuốc trong điều trị viêm âm hộ, âm đạo, cổ tử cung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "87.",
+    "ma_tt43": "13.241",
+    "ten_ky_thuat": "Phá thai đến hết 7 tuần bằng phương pháp hút chân không",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "88.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy hoặc tháo thuốc tránh thai (một nang; nhiều nang) (theo chỉ định)",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "89.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đặt dụng cụ tử cung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "90.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tháo dụng cụ tử cung",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "91.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi, chăm sóc người bệnh phá thai nội khoa",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "92.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật xử lý thoát mạch hóa chất/bệnh nhân ung thư",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "93.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi người bệnh hỗ trợ sinh sản",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "94.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi người bệnh sau các thủ thuật hỗ trợ sinh sản",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "95.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc người bệnh quá kích buồng trứng",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "96.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tách, lột bao quy đầu",
+    "nhom": "PHỤ KHOA- PHÁ THAI - KẾ HOẠCH HÓA GIA ĐÌNH"
+  },
+  {
+    "stt": "97.",
+    "ma_tt43": "13.189",
+    "ten_ky_thuat": "Chiếu đèn điều trị vàng da sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "98.",
+    "ma_tt43": "13.196",
+    "ten_ky_thuat": "Khám phát hiện di tật ngoài trẻ sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "99.",
+    "ma_tt43": "13.196",
+    "ten_ky_thuat": "Khám sàng lọc toàn thân cho trẻ sơ sinh để phát hiện những dấu hiệu bất thường của trẻ",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "100.",
+    "ma_tt43": "13.197",
+    "ten_ky_thuat": "Chăm sóc rốn sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "101.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc rốn sơ sinh nhiễm khuẩn",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "102.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy máu gót chân sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "103.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xóa bóp thư giãn cho trẻ sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "104.",
+    "ma_tt43": "13.198",
+    "ten_ky_thuat": "Tắm trẻ sơ sinh",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "105.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi trẻ sơ sinh ngay sau đẻ",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "106.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi trẻ sơ sinh ngày đầu",
+    "nhom": "SƠ SINH"
+  },
+  {
+    "stt": "107.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi trẻ sơ sinh tuần đầu sau đẻ",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "108.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi trẻ sơ sinh 6 đầu sau đẻ",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "109.",
+    "ma_tt43": "13.192",
+    "ten_ky_thuat": "Đặt ống thông dạ dày (hút dịch hoặc nuôi dưỡng) sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "110.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cho trẻ ăn qua sonde dạ dày",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "111.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc và theo dõi trẻ sơ sinh nằm lồng ấp",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "112.",
+    "ma_tt43": "13.199",
+    "ten_ky_thuat": "Đặt sonde hậu môn trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "113.",
+    "ma_tt43": "13.201",
+    "ten_ky_thuat": "Hồi sức trẻ sơ sinh ngạt sau sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "114.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấp cứu sặc sữa",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "115.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu dị vật đường thở trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "116.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu hạ thân nhiệt ở trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "117.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí ban đầu hạ đường huyết ở trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "118.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xử trí chảy máu rốn",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "119.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc theo dõi trẻ sơ sinh có mẹ có bệnh truyền nhiễm",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "120.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi trẻ sơ sinh có mẹ bệnh lý",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "121.",
+    "ma_tt43": "13.202",
+    "ten_ky_thuat": "Cố định tạm thời gãy xương trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "122.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc trẻ sơ sinh được chiếu đèn điều trị vàng da",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "123.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc, theo dõi trẻ sơ sinh bằng phương pháp Căng gu ru",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "124.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy máu cuống rốn sơ sinh, tĩnh mạch rốn",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "125.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật theo dõi chức năng não liên tục ở trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "126.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật theo dõi PCO2 và PO2 máu qua da ở trẻ sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "127.",
+    "ma_tt43": "13.190",
+    "ten_ky_thuat": "Truyền máu sơ sinh",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "128.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Truyền máu cho thai nhi qua dây rốn",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "129.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc trẻ sơ sinh thở khí NO",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "130.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chăm sóc trẻ sơ sinh hạ thân nhiệt chỉ huy",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "131.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tiêm chủng và theo dõi, chăm sóc sau tiêm",
+    "nhom": "sau đẻ"
+  },
+  {
+    "stt": "132.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đặt catheter động mạch rốn trẻ sơ sinh",
+    "nhom": "chủng"
+  },
+  {
+    "stt": "133.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đặt catheter tĩnh mạch rốn trẻ sơ sinh",
+    "nhom": "chủng"
+  }
+]

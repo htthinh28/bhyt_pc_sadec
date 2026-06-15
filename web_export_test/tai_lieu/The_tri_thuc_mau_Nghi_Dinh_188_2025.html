@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: NGHỊ ĐỊNH 188/2025 - QUY TRÌNH KIỂM TRA &amp; PHÂN LOẠI LỖI BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_Nghi_Dinh_188_2025.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: NGHỊ ĐỊNH 188/2025 - QUY TRÌNH KIỂM TRA &amp; PHÂN LOẠI LỖI BHYT</h1>
+<p>Phiên bản tài liệu: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục Đích</h2>
+<p><strong>Nghị Định 188/2025/NĐ-CP</strong> là <strong>quy trình kiểm tra mới nhất (2025)</strong> của Việt Nam về Bảo Hiểm Y Tế. Thẻ này dạy AI:</p>
+<ul>
+<li><strong>5 Bước Kiểm Tra Giám Định</strong> (quy trình tuần tự)</li>
+<li><strong>4 Loại Lỗi</strong> (hành chính, an toàn, chỉ định, thanh toán)</li>
+<li><strong>Mức Xử Phạt</strong> (kiểm tra, cảnh báo, xuất toán bộ, xuất toán toàn bộ)</li>
+<li><strong>Cách Phân Loại</strong> lỗi của một ca bệnh</li>
+<li><strong>Cách Kết Luận</strong> cuối cùng (xuất toán hay thanh toán)</li>
+</ul>
+<hr>
+<h2>2. Cấu Trúc Chung Nghị Định 188/2025</h2>
+<table>
+<thead>
+<tr>
+<th>Yếu Tố</th>
+<th>Chi Tiết</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tiêu đề đầy đủ</strong></td>
+<td>Quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán, xử lý vi phạm hành chính</td>
+</tr>
+<tr>
+<td><strong>Ngày duyệt</strong></td>
+<td>2025</td>
+</tr>
+<tr>
+<td><strong>Má hiệu</strong></td>
+<td>NĐ-CP (Nghị Định của Chính Phủ)</td>
+</tr>
+<tr>
+<td><strong>Phạm vi</strong></td>
+<td>Toàn bộ BHYT Việt Nam</td>
+</tr>
+<tr>
+<td><strong>Đối tượng áp dụng</strong></td>
+<td>BV, BHXH, bệnh nhân, kiểm tra viên</td>
+</tr>
+<tr>
+<td><strong>Thay thế</strong></td>
+<td>Luật 75/2014, Luật 07/2023 (phần kiểm tra)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 5 BƯỚC QUY TRÌNH KIỂM TRA (Trọng Tâm Nhất)</h2>
+<h3><strong>Bước 1: Kiểm Tra Dữ Liệu &amp; Hành Chính</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Hồ sơ có đủ dữ liệu hợp lệ để kiểm tra không?&quot;</p>
+<p><strong>Kiểm tra:</strong></p>
+<ul>
+<li>✅ Có tất cả các trường bắt buộc? (Ngày vào, ngày ra, chẩn đoán, thuốc, dịch vụ)</li>
+<li>✅ Trường dữ liệu có <strong>hợp lệ về mặt hình thức</strong>? (Ngày hợp lệ lịch sự, không null)</li>
+<li>✅ Thời gian logic <strong>hợp lệ</strong>? (Ngày ra ≥ ngày vào)</li>
+<li>✅ <strong>Số tiền logic</strong>? (Không âm, không quá cao so với bình thường)</li>
+</ul>
+<p><strong>Nếu lỗi:</strong></p>
+<ul>
+<li><strong>Loại lỗi:</strong> HÀNH CHÍNH (Dữ liệu sai/thiếu)</li>
+<li><strong>Mức độ:</strong> KIỂM TRA hoặc CẢnh báo</li>
+<li><strong>Kết luận:</strong> &quot;Thiếu/sai dữ liệu [trường nào], không thể kết luận. Yêu cầu BV cung cấp/sữa chữa.&quot;</li>
+</ul>
+<p><strong>Nếu OK:</strong></p>
+<ul>
+<li>→ Sang Bước 2</li>
+</ul>
+<hr>
+<h3><strong>Bước 2: Kiểm Tra Điều Chỉ &amp; Chẩn Đoán</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Chẩn đoán có <strong>phù hợp với bối cảnh lâm sàng</strong> và không mâu thuẫn không?&quot;</p>
+<p><strong>Kiểm tra:</strong></p>
+<ul>
+<li>✅ Chẩn đoán chính (<strong>MA_BENH_CHINH</strong>) có hợp lý không?</li>
+<li>✅ Chẩn đoán chính + Chẩn đoán kèm (<strong>MA_BENH_KT</strong>) có <strong>mâu thuẫn</strong> không?<ul>
+<li>Ví dụ: &quot;Chẩn đoán chính = Pneumonia&quot; nhưng &quot;Chẩn đoán kèm = Ung thư phổi giai đoạn 4&quot; → Có thể đúng, nhưng cần xác minh</li>
+</ul>
+</li>
+<li>✅ Chẩn đoán ra viện (<strong>CHAN_DOAN_RV</strong>) có <strong>nhất quán</strong> với chẩn đoán chính?<ul>
+<li>Ví dụ: &quot;Chẩn đoán chính = Headache&quot; nhưng &quot;Ra viện = Meningitis&quot; → Không nhất quán</li>
+</ul>
+</li>
+</ul>
+<p><strong>Nếu lỗi:</strong></p>
+<ul>
+<li><strong>Loại lỗi:</strong> CHỈ ĐỊNH (Chẩn đoán không rõ/mâu thuẫn)</li>
+<li><strong>Mức độ:</strong> KIỂM TRA hoặc CẢnh báo</li>
+<li><strong>Kết luận:</strong> &quot;Chẩn đoán không rõ/ mâu thuẫn. Yêu cầu xác minh với bệnh án.&quot;</li>
+</ul>
+<p><strong>Nếu OK:</strong></p>
+<ul>
+<li>→ Sang Bước 3</li>
+</ul>
+<hr>
+<h3><strong>Bước 3: Kiểm Tra Năng Suất Dịch Vụ &amp; An Toàn</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Các dịch vụ (thuốc, kiểm tra, phẫu thuật) có <strong>An toàn lâm sàng</strong> không?&quot;</p>
+<p><strong>Kiểm tra từng loại dịch vụ:</strong></p>
+<h4><strong>3.1. Thuốc (XML2)</strong></h4>
+<ul>
+<li>Liều có <strong>quá tối đa</strong> không?<ul>
+<li>Ví dụ: Aciclovir &gt; 4000mg/ngày → Quá liều</li>
+</ul>
+</li>
+<li>Tần suất có <strong>bất thường</strong> không?<ul>
+<li>Ví dụ: Paracetamol &gt; 4g/ngày → Quá tần suất</li>
+</ul>
+</li>
+<li>Có <strong>chống chỉ định lâm sàng</strong> không?<ul>
+<li>Ví dụ: Kháng sinh cho bệnh nhân suy gan nặng → Chống chỉ định</li>
+</ul>
+</li>
+<li><strong>Tương tác thuốc</strong> có không?<ul>
+<li>Ví dụ: Dùng 2 kháng sinh đồng thời mà có tương tác → Lỗi</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> AN TOÀN KÊ ĐƠN</p>
+<h4><strong>3.2. Dịch Vụ Kỹ Thuật (XML3/4)</strong></h4>
+<ul>
+<li>Chỉ định <strong>hợp lý</strong> không?<ul>
+<li>Ví dụ: Siêu âm tim cho bệnh nhân chóng mặt (không có bệnh tim) → Chỉ định không hợp lý</li>
+</ul>
+</li>
+<li>Số lượng <strong>không lặp lại</strong> không?<ul>
+<li>Ví dụ: Làm CT não 5 lần trong 1 ngày → Lặp lại không cần thiết</li>
+</ul>
+</li>
+<li>Kết quả <strong>logic</strong> không?<ul>
+<li>Ví dụ: &quot;Xét nghiệm thận bình thường&quot; nhưng &quot;Chẩn đoán suy thận nặng&quot; → Mâu thuẫn</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> CHỈ ĐỊNH (chỉ định dịch vụ không hợp lý)</p>
+<h4><strong>3.3. Phẫu Thuật / Thủ Thuật (XML3)</strong></h4>
+<ul>
+<li>Có <strong>yêu cầu tiền/sau phẫu thuật</strong> không?<ul>
+<li>Ví dụ: Phẫu thuật cắt polyp nhưng không có giải phẫu bệnh sau → Thiếu</li>
+</ul>
+</li>
+<li>Thuốc dự phòng <strong>có không</strong>?<ul>
+<li>Ví dụ: Phẫu thuật lớn nhưng không dùng kháng sinh dự phòng → Thiếu</li>
+</ul>
+</li>
+<li><strong>Thời gian hồi phục</strong> có hợp lý không?<ul>
+<li>Ví dụ: Phẫu thuật lớn nhưng chỉ nằm 2 giờ → Không hợp lý</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> AN TOÀN / CHỈ ĐỊNH (phẫu thuật không hợp quy chuẩn)</p>
+<p><strong>Nếu lỗi:</strong></p>
+<ul>
+<li><strong>Mức độ:</strong> CẢnh báo hoặc XUẤT TOÁN (tùy mức độ)</li>
+<li><strong>Kết luận:</strong> &quot;Dịch vụ [X] không an toàn lâm sàng. Lý do: [chi tiết]. Cần xuất toán hoặc cảnh báo.&quot;</li>
+</ul>
+<p><strong>Nếu OK:</strong></p>
+<ul>
+<li>→ Sang Bước 4</li>
+</ul>
+<hr>
+<h3><strong>Bước 4: Kiểm Tra Thanh Toán &amp; Danh Mục</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Các dịch vụ có <strong>nằm trong phạm vi thanh toán BHYT</strong> không?&quot;</p>
+<p><strong>Kiểm tra từng loại:</strong></p>
+<h4><strong>4.1. Thuốc (XML2)</strong></h4>
+<ul>
+<li>Mã thuốc có <strong>trong danh mục BHYT</strong> không?<ul>
+<li>Ví dụ: Thuốc Vitamin PP → Không có trong danh mục BHYT</li>
+</ul>
+</li>
+<li><strong>Chẩn đoán có phù hợp</strong> với danh mục thanh toán của thuốc?<ul>
+<li>Ví dụ: Mekoferrat (bổ sung sắt) chỉ thanh toán cho D50 hoặc O25, nhưng bệnh nhân là N84.0 → Sai</li>
+</ul>
+</li>
+<li><strong>Số lượng có vượt</strong> hướng dẫn thanh toán?<ul>
+<li>Ví dụ: Hướng dẫn 5 viên, nhưng cấp 10 viên → Quá</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> THANH TOÁN (thuốc không danh mục, sai chẩn đoán, quá số lượng)</p>
+<h4><strong>4.2. Dịch Vụ Kỹ Thuật (XML3/4)</strong></h4>
+<ul>
+<li>Có <strong>trong danh mục BHYT</strong> không?<ul>
+<li>Ví dụ: Xét nghiệm gen hiếm → Không có trong danh mục</li>
+</ul>
+</li>
+<li><strong>Chẩn đoán hợp lý</strong> để yêu cầu không?<ul>
+<li>Ví dụ: Siêu âm tim cho bệnh nhân viêm họng → Không hợp lý</li>
+</ul>
+</li>
+<li><strong>Số lần lặp lại</strong> có quá không?<ul>
+<li>Ví dụ: Hướng dẫn 1 lần, nhưng làm 3 lần → Quá</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> THANH TOÁN (dịch vụ không danh mục, quá số lần)</p>
+<h4><strong>4.3. Phẫu Thuật (XML3)</strong></h4>
+<ul>
+<li>Mã PTTT có <strong>trong danh mục BHYT</strong> không?</li>
+<li><strong>Bệnh cảnh phù hợp</strong> không?<ul>
+<li>Ví dụ: PTTT cắt polyp cho bệnh nhân mũi → Không phù hợp</li>
+</ul>
+</li>
+<li><strong>Yêu cầu phẫu thuật sơ bộ/sau</strong> có thỏa mãn?<ul>
+<li>Ví dụ: Phẫu thuật lớn nhưng không có kiểm tra cơ bản trước → Không thỏa mãn</li>
+</ul>
+</li>
+</ul>
+<p><strong>→ Loại lỗi:</strong> THANH TOÁN (phẫu thuật không danh mục) hoặc HÀNH CHÍNH (yêu cầu không thỏa mãn)</p>
+<p><strong>Nếu lỗi:</strong></p>
+<ul>
+<li><strong>Mức độ:</strong> XUẤT TOÁN (bộ phận hoặc toàn bộ)</li>
+<li><strong>Kết luận:</strong> &quot;Dịch vụ [X] không được BHYT thanh toán vì [lý do]. Xuất toán [số tiền].&quot;</li>
+</ul>
+<p><strong>Nếu OK:</strong></p>
+<ul>
+<li>→ Sang Bước 5</li>
+</ul>
+<hr>
+<h3><strong>Bước 5: Kết Luận Cuối Cùng</strong></h3>
+<p><strong>Nếu qua tất cả 4 bước:</strong></p>
+<ul>
+<li>✅ <strong>THANH TOÁN ĐÚNG</strong></li>
+<li>Kết luận: &quot;Hồ sơ hợp lệ toàn diện. Thanh toán [số tiền] cho BHXH.&quot;</li>
+</ul>
+<p><strong>Nếu có lỗi ở bất cứ bước nào:</strong></p>
+<ul>
+<li>❌ <strong>XUẤT TOÁN</strong> (bộ phận hoặc toàn bộ)</li>
+<li>Kết luận: &quot;Hồ sơ có lỗi sau:<ul>
+<li>Lỗi 1: [Mô tả]</li>
+<li>Lỗi 2: [Mô tả]</li>
+<li>Xuất toán tổng cộng: [số tiền]&quot;</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>4. 4 LOẠI LỖI (Phân Loại Chính)</h2>
+<h3><strong>Loại 1: Lỗi HÀNH CHÍNH (1 điểm - khô)</strong></h3>
+<p><strong>Định nghĩa:</strong> Dữ liệu sai/thiếu, không tuân thủ quy định về cấu trúc, định dạng, thời gian</p>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Thiếu trường bắt buộc (NGAY_RA)</li>
+<li>Ngày vào/ra không hợp lệ về mặt lịch pháp</li>
+<li>Thời gian nằm viện &lt; 4 giờ</li>
+<li>Số tiền không khớp</li>
+<li>Trường dữ liệu vượt độ dài cho phép</li>
+</ul>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Quyết Định 130/QĐ-BYT (Cấu trúc XML)</li>
+<li>Nghị Định 188/2025 (Yêu cầu dữ liệu bắt buộc)</li>
+</ul>
+<p><strong>Mức độ:</strong></p>
+<ul>
+<li>⚠️ KIỂM TRA (yêu cầu BV cung cấp lại)</li>
+<li>⛔ CẢNH BÁO (dữ liệu thiếu nhưng không quá nghiêm trọng)</li>
+<li>⛔ XUẤT TOÁN (dữ liệu sai ảnh hưởng đến chi phí)</li>
+</ul>
+<hr>
+<h3><strong>Loại 2: Lỗi AN TOÀN KÊ ĐƠN (2 điểm - kỹ thuật)</strong></h3>
+<p><strong>Định nghĩa:</strong> Dịch vụ không an toàn lâm sàng (liều quá tối đa, chống chỉ định, tương tác thuốc, chỉ định không hợp lý)</p>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Liều Aciclovir &gt; 4000mg/ngày (quá tối đa)</li>
+<li>Dùng kháng sinh cho bệnh nhân suy thận nặng (chống chỉ định)</li>
+<li>Dùng 2 thuốc có tương tác (anticoagulant + NSAID)</li>
+<li>Paracetamol &gt; 4g/ngày (quá tần suất)</li>
+<li>Phẫu thuật không có kháng sinh dự phòng (thiếu)</li>
+</ul>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>QĐ 5631/QĐ-BYT (Kháng sinh)</li>
+<li>TT 15/2015/TT-BYT (Danh mục, điều kiện sử dụng)</li>
+<li>Nghị Định 188/2025 (Kiểm tra an toàn)</li>
+</ul>
+<p><strong>Mức độ:</strong></p>
+<ul>
+<li>⚠️ KIỂM TRA (yêu cầu BV giải thích)</li>
+<li>⚠️ CẢNH BÁO (lỗi nhẹ, không gây hại lớn)</li>
+<li>⛔ XUẤT TOÁN (lỗi nặng, có nguy hiểm)</li>
+</ul>
+<hr>
+<h3><strong>Loại 3: Lỗi CHỈ ĐỊNH (3 điểm - kiểm tra)</strong></h3>
+<p><strong>Định nghĩa:</strong> Chẩn đoán không rõ/mâu thuẫn, chỉ định dịch vụ không hợp lý, không do bệnh</p>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Kê Mekoferrat (bổ sung sắt) cho bệnh nhân N84.0 (polyp) không có thiếu máu</li>
+<li>Chẩn đoán chính = headache, ra viện = meningitis (mâu thuẫn)</li>
+<li>Siêu âm tim cho bệnh nhân viêm họng (chỉ định không hợp lý)</li>
+<li>Làm CT não 5 lần trong 1 ngày (không do bệnh, là lặp lại)</li>
+<li>Kháng sinh cho bệnh nhân không có bằng chứng nhiễm khuẩn</li>
+</ul>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Luật 75/2014 (Chỉ định hợp lý)</li>
+<li>TT 15/2015/TT-BYT (Danh mục, điều kiện thanh toán)</li>
+<li>Nghị Định 188/2025 (Kiểm tra chẩn đoán, chỉ định)</li>
+</ul>
+<p><strong>Mức độ:</strong></p>
+<ul>
+<li>⚠️ KIỂM TRA (chẩn đoán không rõ, cần xác minh)</li>
+<li>⚠️ CẢNH BÁO (chỉ định không hợp lý nhưng không quá sai)</li>
+<li>⛔ XUẤT TOÁN (sai chẩn đoán, chỉ định hoàn toàn không hợp lý)</li>
+</ul>
+<hr>
+<h3><strong>Loại 4: Lỗi THANH TOÁN (4 điểm - danh mục)</strong></h3>
+<p><strong>Định nghĩa:</strong> Dịch vụ không trong danh mục BHYT, số lượng vượt quá, giá không đúng, không phù hợp điều kiện thanh toán</p>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Thuốc Vitamin PP (không có trong danh mục BHYT)</li>
+<li>Mekoferrat thanh toán cho N84.0 (không phù hợp điều kiện thanh toán)</li>
+<li>Cấp 10 viên Aciclovir nhưng hướng dẫn chỉ 5 viên (quá số lượng)</li>
+<li>Siêu âm tim (không có trong danh mục BHYT)</li>
+<li>PTTT nâng ngực (PTTT thẩm mỹ, không thanh toán BHYT)</li>
+</ul>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>TT 15/2015/TT-BYT (Danh mục thuốc, dịch vụ, PTTT)</li>
+<li>TT 37/2024/TT-BYT (Danh mục thuốc 2024, bản cập nhật)</li>
+<li>Nghị Định 188/2025 (Điều kiện thanh toán)</li>
+</ul>
+<p><strong>Mức độ:</strong></p>
+<ul>
+<li>⛔ XUẤT TOÁN BỘ (chỉ xuất toán phần không hợp lệ)</li>
+<li>⛔ XUẤT TOÁN TOÀN BỘ (xuất toán hết tất cả dịch vụ liên quan)</li>
+</ul>
+<hr>
+<h2>5. So Sánh 4 Loại LỖI</h2>
+<table>
+<thead>
+<tr>
+<th>Khía Cạnh</th>
+<th>Hành Chính</th>
+<th>An Toàn</th>
+<th>Chỉ Định</th>
+<th>Thanh Toán</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Bước kiểm tra</strong></td>
+<td>Bước 1</td>
+<td>Bước 3</td>
+<td>Bước 2 &amp; 3</td>
+<td>Bước 4</td>
+</tr>
+<tr>
+<td><strong>Tập trung vào</strong></td>
+<td>Dữ liệu</td>
+<td>Liều/cách dùng</td>
+<td>Chẩn đoán/hợp lý</td>
+<td>Danh mục</td>
+</tr>
+<tr>
+<td><strong>Nguy hiểm</strong></td>
+<td>Không nghiêm</td>
+<td>Có thể gây hại</td>
+<td>Không do bệnh</td>
+<td>Gian lận</td>
+</tr>
+<tr>
+<td><strong>Ví dụ</strong></td>
+<td>Ngày sai</td>
+<td>Liều quá cao</td>
+<td>Bệnh sai</td>
+<td>Thuốc không danh mục</td>
+</tr>
+<tr>
+<td><strong>Mức xử phạt</strong></td>
+<td>Nhẹ</td>
+<td>Trung bình</td>
+<td>Trung bình</td>
+<td>Nặng</td>
+</tr>
+<tr>
+<td><strong>Xuất toán</strong></td>
+<td>Bộ phận</td>
+<td>Bộ phận</td>
+<td>Bộ phận/toàn</td>
+<td>Bộ phận/toàn</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. CÁC BƯỚC TỪ PHÁT HIỆN LỖIĐẾN KẾT LUẬN</h2>
+<h3><strong>Quy Trình Lập Báo Cáo</strong></h3>
+<pre><code>1. Phát hiện lỗi
+   ↓
+2. Phân loại: Lỗi gì? (Hành chính/An toàn/Chỉ định/Thanh toán)
+   ↓
+3. Xác định mức độ: Kiểm tra/Cảnh báo/Xuất toán bộ/Xuất toán toàn
+   ↓
+4. Tính số tiền:
+   - Nếu xuất toán bộ: [Số tiền lỗi] = [Giá đơn vị] x [Số lượng lỗi]
+   - Nếu xuất toán toàn: [Số tiền lỗi] = [Tất cả chi phí]
+   ↓
+5. Nêu căn cứ pháp lý: &quot;Theo [Luật/QĐ/TT], lỗi này...&quot;
+   ↓
+6. Kết luận chi tiết:
+   - Tổng lỗi: [số cái]
+   - Tổng tiền xuất toán: [số tiền]
+   - Từng chi tiết: [lỗi 1, lỗi 2, ...]
+</code></pre>
+<hr>
+<h2>7. BẢNG XỬ PHẠT HÀNH CHÍNH</h2>
+<p>Ngoài xuất toán, Nghị Định 188/2025 còn quy định <strong>xử phạt hành chính</strong>:</p>
+<h3><strong>Mức xử phạt</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Loại Vi Phạm</th>
+<th>Mức Phạt</th>
+<th>Ghi Chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Lỗi hành chính nhẹ</strong></td>
+<td>1-3 triệu đ</td>
+<td>Dữ liệu thiếu nhưng không ảnh hưởng lớn</td>
+</tr>
+<tr>
+<td><strong>Lỗi an toàn nhẹ</strong></td>
+<td>3-5 triệu đ</td>
+<td>Liều nhẹ quá, không gây hại</td>
+</tr>
+<tr>
+<td><strong>Lỗi chỉ định</strong></td>
+<td>5-10 triệu đ</td>
+<td>Chẩn đoán không rõ</td>
+</tr>
+<tr>
+<td><strong>Lỗi thanh toán</strong></td>
+<td>10-30 triệu đ</td>
+<td>Gian lận danh mục, quá số lượng</td>
+</tr>
+<tr>
+<td><strong>Lỗi nặng</strong></td>
+<td>&gt; 30 triệu đ</td>
+<td>Quá liều nguy hiểm, gian lận hệ thống</td>
+</tr>
+</tbody></table>
+<p><strong>Ghi chú:</strong> Mức phạt chỉ áp dụng khi <strong>phát hiện gian lận</strong> (cố tình). Nếu sai sót, chỉ xuất toán.</p>
+<hr>
+<h2>8. Cách AI Dùng Quy Trình 5 Bước</h2>
+<h3><strong>Khi gặp một ca hồ sơ:</strong></h3>
+<ol>
+<li><p><strong>Bước 1:</strong> Kiểm tra XML có đủ dữ liệu không?</p>
+<ul>
+<li>&quot;Có NGAY_RA không? Có MA_BENH_CHINH không? Có tất cả thuốc/dịch vụ không?&quot;</li>
+</ul>
+</li>
+<li><p><strong>Bước 2:</strong> Chẩn đoán có hợp lý không?</p>
+<ul>
+<li>&quot;Chẩn đoán chính, chẩn đoán kèm, chẩn đoán ra viện có mâu thuẫn không?&quot;</li>
+</ul>
+</li>
+<li><p><strong>Bước 3:</strong> Dịch vụ có an toàn không?</p>
+<ul>
+<li>&quot;Liều có quá không? Có chống chỉ định không? Có tương tác không?&quot;</li>
+</ul>
+</li>
+<li><p><strong>Bước 4:</strong> Dịch vụ có được thanh toán không?</p>
+<ul>
+<li>&quot;Mã dịch vụ/thuốc có trong danh mục không? Chẩn đoán phù hợp không? Số lượng quá không?&quot;</li>
+</ul>
+</li>
+<li><p><strong>Bước 5:</strong> Kết luận gì?</p>
+<ul>
+<li>Nếu tất cả OK → THANH TOÁN</li>
+<li>Nếu có lỗi → XUẤT TOÁN [số tiền]</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>9. Ví Dụ Thực Tế: Áp Dụng 5 Bước</h2>
+<h3><strong>Ca 000339: Mekoferrat-B9 (N84.0)</strong></h3>
+<p><strong>Bước 1: Dữ liệu</strong></p>
+<ul>
+<li>✅ Có NGAY_VAO, NGAY_RA, MA_BENH_CHINH, thuốc, dịch vụ</li>
+<li>✅ Tất cả hợp lệ về mặt hình thức</li>
+<li><strong>→ OK, sang bước 2</strong></li>
+</ul>
+<p><strong>Bước 2: Chẩn đoán</strong></p>
+<ul>
+<li>MA_BENH_CHINH = N84.0 (Polyp buồng tử cung)</li>
+<li>Không mâu thuẫn</li>
+<li><strong>→ OK, sang bước 3</strong></li>
+</ul>
+<p><strong>Bước 3: An toàn</strong></p>
+<ul>
+<li>Mekoferrat-B9: 1 lọ x 1 lần/ngày x 3 ngày</li>
+<li>Liều an toàn, không quá, không chống chỉ định</li>
+<li><strong>→ OK, sang bước 4</strong></li>
+</ul>
+<p><strong>Bước 4: Thanh toán</strong></p>
+<ul>
+<li>Danh mục Mekoferrat-B9: Chỉ thanh toán cho D50 (thiếu máu) hoặc O25 (suy dinh dưỡng thai)</li>
+<li>Chẩn đoán bệnh nhân: N84.0 (Polyp)</li>
+<li>❌ <strong>KHÔNG PHÙ HỢP DANH MỤC</strong></li>
+<li><strong>→ XUẤT TOÁN</strong></li>
+</ul>
+<p><strong>Bước 5: Kết luận</strong></p>
+<ul>
+<li>⛔ <strong>XUẤT TOÁN TOÀN BỘ: 45.000 đ</strong></li>
+<li><strong>Lý do:</strong> Mekoferrat-B9 không được thanh toán cho chẩn đoán N84.0</li>
+<li><strong>Căn cứ:</strong> TT 15/2015/TT-BYT, Nghị Định 188/2025</li>
+</ul>
+<hr>
+<h2>10. Tầm Quan Trọng Của Quy Trình 5 Bước</h2>
+<h3><strong>Nếu AI không tuân thủ 5 bước:</strong></h3>
+<ul>
+<li>❌ Có thể bỏ sót lỗi (chỉ kiểm tra thuốc, quên kiểm tra dữ liệu)</li>
+<li>❌ Phân loại lỗi sai (gọi lỗi đó là an toàn khi nó là thanh toán)</li>
+<li>❌ Không biết xuất toán ở bước nào, nên kết luận sai</li>
+</ul>
+<h3><strong>Nếu AI tuân thủ 5 bước:</strong></h3>
+<ul>
+<li>✅ <strong>Toàn diện:</strong> Kiểm tra tất cả khía cạnh</li>
+<li>✅ <strong>Chính xác:</strong> Phân loại lỗi đúng</li>
+<li>✅ <strong>Hiệu quả:</strong> Xuất toán đủ lỗi, không bỏ sót</li>
+<li>✅ <strong>Minh bạch:</strong> Có thể giải thích từng bước cho người dùng</li>
+</ul>
+<hr>
+<h2>11. Các Quyết Định &amp; Thông Tư Liên Quan</h2>
+<h3><strong>Để kiểm tra Dữ Liệu (Bước 1):</strong></h3>
+<ul>
+<li>Quyết Định 130/QĐ-BYT (Cấu trúc XML)</li>
+<li>Nghị Định 188/2025 (Yêu cầu bắt buộc)</li>
+</ul>
+<h3><strong>Để kiểm tra Chẩn Đoán (Bước 2):</strong></h3>
+<ul>
+<li>Luật 75/2014, Luật 07/2023</li>
+<li>Hướng dẫn lâm sàng của Bộ Y Tế</li>
+</ul>
+<h3><strong>Để kiểm tra An Toàn (Bước 3):</strong></h3>
+<ul>
+<li>QĐ 5631/QĐ-BYT (Kháng sinh)</li>
+<li>TT 15/2015/TT-BYT (Danh mục, điều kiện sử dụng)</li>
+</ul>
+<h3><strong>Để kiểm tra Thanh Toán (Bước 4):</strong></h3>
+<ul>
+<li>TT 15/2015/TT-BYT (Danh mục)</li>
+<li>TT 37/2024/TT-BYT (Danh mục 2024, cập nhật)</li>
+<li>Nghị Định 188/2025 (Điều kiện)</li>
+</ul>
+<hr>
+<h2>12. Bước Tiếp Theo</h2>
+<p>Sau khi đọc thẻ này, AI nên:</p>
+<ol>
+<li><strong>Hiểu rõ 5 bước</strong> kiểm tra (thứ tự quan trọng)</li>
+<li><strong>Phân biệt 4 loại lỗi</strong> (hành chính, an toàn, chỉ định, thanh toán)</li>
+<li><strong>Áp dụng 5 bước vào mỗi ca</strong> hồ sơ</li>
+<li><strong>Nêu rõ lỗi từng bước</strong> khi kết luận</li>
+<li><strong>Tham khảo các căn cứ pháp lý</strong> đúng cho mỗi bước</li>
+</ol>
+<hr>
+<h2>Ghi Chú</h2>
+<ul>
+<li><strong>Nghị Định 188/2025 là mới nhất</strong> → Tất cả rule hiện tại phải tuân thủ quy trình này</li>
+<li><strong>5 bước không thể bỏ qua</strong> → Nếu bỏ bước 4, có thể kết luận sai thanh toán</li>
+<li><strong>4 loại lỗi độc lập</strong> → Một ca có thể có nhiều lỗi từ các loại khác nhau</li>
+<li><strong>Xử lý gian lận</strong> → Nếu phát hiện cố tình vi phạm, có thể xử phạt ngoài xuất toán</li>
+</ul>
+
+  </main>
+</body>
+</html>

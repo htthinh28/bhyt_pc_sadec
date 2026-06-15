@@ -1,0 +1,806 @@
+[
+  {
+    "stt": "1",
+    "ma_tt43": "6.1",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm Beck (BDI)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": "6.2",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm Hamilton (HDRS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": "6.3",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm ở cộng đồng (PHQ - 9)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": "6.4",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm ở trẻ em (CDI)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": "6.5",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm ở người già (GDS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": "6.6",
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm sau sinh (EPDS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": "6.7",
+    "ten_ky_thuat": "Trắc nghiệm lo âu - trầm cảm - stress (DASS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": "6.8",
+    "ten_ky_thuat": "Trắc nghiệm hưng cảm Young (YMRS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": "6.9",
+    "ten_ky_thuat": "Trắc nghiệm lo âu Zung (ZAI)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": "6.10",
+    "ten_ky_thuat": "Trắc nghiệm lo âu Hamilton (HARS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm lo âu trầm cảm (HAD)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm lo âu trẻ em Spence (SCAS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm rối loạn ám ảnh nghi thức (Y- BOCS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm rối loạn cảm xúc lưỡng cực (MDQ)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm rối loạn dạng cơ thể (PHQ-15)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm rối loạn lo âu lan tỏa (GAD7)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm lo âu ở trẻ em (RCADS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm trầm cảm thanh thiếu niên (RADS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": "6.11",
+    "ten_ky_thuat": "Trắc nghiệm sự phát triển ở trẻ em (DENVER II)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": "6.12",
+    "ten_ky_thuat": "Trắc nghiệm sàng lọc tự kỷ cho trẻ nhỏ 18 - 36 tháng (M- CHAT)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": "6.13",
+    "ten_ky_thuat": "Trắc nghiệm mức độ tự kỷ (CARS)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": "6.14",
+    "ten_ky_thuat": "Trắc nghiệm hành vi trẻ em (CBCL)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": "6.15",
+    "ten_ky_thuat": "Trắc nghiệm ấn tượng lâm sàng chung (CGI-S)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": "6.16",
+    "ten_ky_thuat": "Trắc nghiệm tâm thần rút gọn (BPRS)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": "6.17",
+    "ten_ky_thuat": "Trắc nghiệm trạng thái tâm thần tối thiểu (MMSE)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": "6.24",
+    "ten_ky_thuat": "Trắc nghiệm hoạt động hàng ngày (ADLS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "27",
+    "ma_tt43": "6.18",
+    "ten_ky_thuat": "Trắc nghiệm RAVEN*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "28",
+    "ma_tt43": "6.19",
+    "ten_ky_thuat": "Trắc nghiệm WAIS*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "29",
+    "ma_tt43": "6.20",
+    "ten_ky_thuat": "Trắc nghiệm WICS*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "30",
+    "ma_tt43": "6.21",
+    "ten_ky_thuat": "Trắc nghiệm trí nhớ Wechsler (WMS)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "31",
+    "ma_tt43": "6.22",
+    "ten_ky_thuat": "Trắc nghiệm tập trung chú ý Bourdon*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "32",
+    "ma_tt43": "6.23",
+    "ten_ky_thuat": "Trắc nghiệm tập trung chú ý Pictogram*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "33",
+    "ma_tt43": "6.26",
+    "ten_ky_thuat": "Trắc nghiệm đa diện nhân cách MMPI*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "34",
+    "ma_tt43": "6.25",
+    "ten_ky_thuat": "Trắc nghiệm nhân cách RORSCHACH*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "35",
+    "ma_tt43": "6.27",
+    "ten_ky_thuat": "Trắc nghiệm nhân cách CAT*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "36",
+    "ma_tt43": "6.28",
+    "ten_ky_thuat": "Trắc nghiệm nhân cách TAT*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "37",
+    "ma_tt43": "6.29",
+    "ten_ky_thuat": "Trắc nghiệm nhân cách CATELL*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "38",
+    "ma_tt43": "6.30",
+    "ten_ky_thuat": "Trắc nghiệm nhân cách EPI*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "39",
+    "ma_tt43": "6.31",
+    "ten_ky_thuat": "Trắc nghiệm rối loạn giấc ngủ (PSQI)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "40",
+    "ma_tt43": "6.32",
+    "ten_ky_thuat": "Trắc nghiệm vận động bất thường (AIMS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "41",
+    "ma_tt43": "6.33",
+    "ten_ky_thuat": "Trắc nghiệm bồn chồn bất an BARNES",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "42",
+    "ma_tt43": "6.35",
+    "ten_ky_thuat": "Trắc nghiệm mức độ sử dụng rượu AUDIT",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "43",
+    "ma_tt43": "6.36",
+    "ten_ky_thuat": "Trắc nghiệm hội chứng cai rượu CIWA",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "44",
+    "ma_tt43": "6.75",
+    "ten_ky_thuat": "Trắc nghiệm mức độ nghiện Himmelbach",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "45",
+    "ma_tt43": "6.84",
+    "ten_ky_thuat": "Trắc nghiệm PANSS",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "46",
+    "ma_tt43": "6.85",
+    "ten_ky_thuat": "Trắc nghiệm năng lực của trẻ K-ABC*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "47",
+    "ma_tt43": "6.86",
+    "ten_ky_thuat": "Trắc nghiệm rối loạn tăng động giảm chú ý VANDERBILT",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "48",
+    "ma_tt43": "6.87",
+    "ten_ky_thuat": "Đánh giá cho trẻ khiếm thị và chậm phát triển từ 0-6 tuổi*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "49",
+    "ma_tt43": "6.88",
+    "ten_ky_thuat": "Trắc nghiệm Gille*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "50",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm báo động khó khăn ở trẻ nhỏ (ADBB)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "51",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá Aladed*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "52",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá của cha mẹ về tình trạng phát triển (PEDS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "53",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá chân dung tâm lý dành cho trẻ vị thành niên và người lớn (AAPEP)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "54",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá hành vi tự kỷ (ECA)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "55",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá rối loạn stress sau sang chấn - PTSD",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "56",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm điểm mạnh và khó khăn trẻ em SDQ25",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "57",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm giai đoạn và lứa tuổi cho trẻ em (ASQ-3)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "58",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm hành vi thích ứng (VINELAND-II)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "59",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm hội chứng Asperger ở trẻ em (CAST)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "60",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đánh giá hành vi phát triển của trẻ em bằng DBC-P*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "61",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật chẩn đoán tự kỷ theo DSM*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "62",
+    "ma_tt43": "6.44",
+    "ten_ky_thuat": "Trị liệu thư giãn luyện tập",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "63",
+    "ma_tt43": "6.45",
+    "ten_ky_thuat": "Trị liệu tâm lý nhóm*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "64",
+    "ma_tt43": "6.46",
+    "ten_ky_thuat": "Trị liệu tâm lý gia đình*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "65",
+    "ma_tt43": "6.47",
+    "ten_ky_thuat": "Trị liệu tâm kịch*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "66",
+    "ma_tt43": "6.48",
+    "ten_ky_thuat": "Tư vấn tâm lý cho người bệnh và gia đình",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "67",
+    "ma_tt43": "6.49",
+    "ten_ky_thuat": "Trị liệu giải thích hợp lý*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "68",
+    "ma_tt43": "6.50",
+    "ten_ky_thuat": "Trị liệu hành vi*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "69",
+    "ma_tt43": "6.51",
+    "ten_ky_thuat": "Trị liệu ám thị*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "70",
+    "ma_tt43": "6.52",
+    "ten_ky_thuat": "Trị liệu nhận thức hành vi*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "71",
+    "ma_tt43": "6.53",
+    "ten_ky_thuat": "Trị liệu nhận thức*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "72",
+    "ma_tt43": "6.54",
+    "ten_ky_thuat": "Trị liệu tâm lý động*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "73",
+    "ma_tt43": "6.55",
+    "ten_ky_thuat": "Trị liệu kích hoạt hành vi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "74",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu cam kết chấp nhận*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "75",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu cảm xúc hành vi hợp lý*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "76",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu định tâm*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "77",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu giải quyết vấn đề*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "78",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu giáo dục tâm lý",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "79",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu liên cá nhân*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "80",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu phỏng vấn tạo động lực*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "81",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu tăng nhận thức*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "82",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu thôi miên*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "83",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phân tích hành vi ứng dụng (ABA)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "84",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liệu pháp trò chơi (Dixit)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "85",
+    "ma_tt43": "6.56",
+    "ten_ky_thuat": "Liệu pháp âm nhạc",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "86",
+    "ma_tt43": "6.57",
+    "ten_ky_thuat": "Liệu pháp hội họa",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "87",
+    "ma_tt43": "6.58",
+    "ten_ky_thuat": "Liệu pháp thể dục, thể thao",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "88",
+    "ma_tt43": "6.59",
+    "ten_ky_thuat": "Liệu pháp tái thích ứng xã hội",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "89",
+    "ma_tt43": "6.60",
+    "ten_ky_thuat": "Liệu pháp hoạt động - lao động",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "90",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phát triển kỹ năng giao tiếp và tương tác ở trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "91",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phát triển kỹ năng chơi và bắt chước ở trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "92",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phát triển kỹ năng vận động và cảm giác ở trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "93",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phát triển kỹ năng điều chỉnh hành vi ở trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "94",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phát triển kỹ năng tự phục vụ ở trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "95",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đánh giá và xây dựng kế hoạch can thiệp cho trẻ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "96",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá cảm xúc*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "97",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá hành vi*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "98",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá nhận thức*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "99",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá stress*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "100",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá rối loạn ăn uống*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "101",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá rối loạn giấc ngủ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "102",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá loạn thần*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "103",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá tự sát, tự hủy hoại",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "104",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá nhân cách*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "105",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá tình dục*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "106",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá sử dụng chất gây nghiện*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "107",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu hành vi biện chứng*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "108",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu ánh sáng",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "109",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu diễn tập hình ảnh*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "110",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu giải mã cơn ác mộng và tái xử lý*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "111",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu giải mẫn cảm chuyển động mắt và tái xử lý thông tin*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "112",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu hỗ trợ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "113",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu tăng cường động lực*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "114",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liệu pháp phục hồi kiến thức xã hội",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "115",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liệu pháp quản lý chăm sóc tổng hợp",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "116",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liệu pháp quản lý dựa trên gia đình",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "117",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu tiếp xúc giải mẫn cảm*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "118",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu tuân thủ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "119",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu tương tác cá nhân và nhịp điệu xã hội*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "120",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trị liệu định hướng thấu cảm cá nhân*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "121",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá rối loạn học tập*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "122",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm rối loạn ngôn ngữ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "123",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm nhân cách Patte noir*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "124",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá tranh vẽ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "125",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm nhân cách Neo Pi-r*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "126",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm nghiện Internet của Chen (CIAS)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "127",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá mức độ nghiện Internet (IAT)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "128",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm Bayley*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "129",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá tự kỷ Gilliam (GARS)*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "130",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm ADOS*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "131",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm ADI-R*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "132",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm trí nhớ*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "133",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá rối loạn giao tiếp*",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "134",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trắc nghiệm đánh giá chất lượng cuộc sống",
+    "nhom": "KHÁC"
+  }
+]

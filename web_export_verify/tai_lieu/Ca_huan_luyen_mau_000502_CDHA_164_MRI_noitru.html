@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000502 — CDHA_164 — MRI VÀ THỜI GIAN CHỜ NỘI TRÚ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000502 — CDHA_164 — MRI VÀ THỜI GIAN CHỜ NỘI TRÚ</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 09/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI nhận diện cảnh báo <strong>CĐHA hardcoded</strong> <code>CDHA_164</code>: <strong>nội trú</strong> (loại KCB <strong>03/09</strong>) có dòng <strong>MRI</strong> với <strong>ngày y lệnh</strong> cách <strong>ngày vào</strong> viện <strong>&gt; 3 ngày</strong> — góc <strong>quản trị / TAT</strong>, khác với xuất toán thuần túy theo giá BHYT.</p>
+<p><strong>Không nhầm</strong> với:</p>
+<ul>
+<li><strong><code>CLN-GIUONG-01</code></strong> (tổng ngày giường XML3 vs <code>SO_NGAY_DTRI</code>) — cùng hồ sơ có thể có song song;</li>
+<li><strong><code>DVKT_26xx</code></strong> gói PTTT trong <code>du_lieu_luat_pttt_muc11.jsx</code> — khác bảng seed và ý nghiệp vụ.</li>
+</ul>
+<p><strong>Neo pháp lý (khung):</strong> Điều <strong>4c</strong> (ngày giường, thời điểm điều trị) và tinh thần <strong>theo dõi hợp lý thời gian</strong> trong hồ sơ nội trú — chi tiết điều kiện TT từng DV xem <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000502_20260404_192348.json</code></li>
+<li>XML gốc (meta): <code>…\ip\PC022303311_IP26000207.xml</code></li>
+<li>Rule: <code>ma_nguon/tien_ich/luat_cdha_hardcoded.jsx</code> — id <code>CDHA-164</code>, <code>MA_LUAT</code>: <strong><code>CDHA_164</code></strong>.</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <strong>000502</strong></li>
+<li><code>total_warnings</code>: <strong>6</strong> (snapshot)</li>
+<li>Có <strong><code>CDHA_164</code></strong> × 1 (<code>index</code> XML3: <strong>16</strong> trong audit).</li>
+</ul>
+<p><strong>Cùng hồ sơ (để AI phân tầng):</strong> <code>CLN-GIUONG-01</code>, <code>HC_130</code>, <code>HC_171</code>, <code>HC_65</code>, <code>HD_10</code>.</p>
+<h2>4. Rule đích: CDHA_164</h2>
+<h3>4.1. Định nghĩa trong <code>luat_cdha_hardcoded.jsx</code> (chuẩn khi đọc điều kiện)</h3>
+<ul>
+<li><strong>Mã:</strong> <code>CDHA_164</code></li>
+<li><strong>Tên:</strong> Chụp MRI và Thời gian chờ điều trị nội trú (mã 03/09)</li>
+<li><strong>Điều kiện:</strong><br><code>XML1.MA_LOAI_KCB == &#39;3&#39; AND XML3.MA_DV IN (DM_MRI) AND DATEDIFF_DAY(XML1.NGAY_VAO, XML3.NGAY_YL) &gt; 3</code></li>
+<li><strong>Cảnh báo (gốc):</strong> Cảnh báo quản trị: chờ MRI quá 3 ngày kể từ ngày vào (nội trú).</li>
+</ul>
+<h3>4.2. Ghi chép audit</h3>
+<p>File JSON audit có thể hiển thị <code>dieu_kien</code> rút gọn (thiếu cụm <code>MA_DV IN (DM_MRI)</code>). Khi huấn luyện <strong>ưu tiên đối chiếu seed</strong> trong <code>luat_cdha_hardcoded.jsx</code>.</p>
+<h2>5. Dữ liệu cần xem</h2>
+<ul>
+<li><strong>XML1:</strong> <code>MA_LOAI_KCB</code>, <code>NGAY_VAO</code>, <code>NGAY_RA</code>, <code>SO_NGAY_DTRI</code></li>
+<li><strong>XML3:</strong> dòng có <code>MA_DV</code> thuộc nhóm MRI (theo <code>DM_MRI</code> trong engine), <code>NGAY_YL</code></li>
+</ul>
+<h2>6. Bài tập cho AI</h2>
+<ol>
+<li>Giải thích vì sao rule này mang nhãn <strong>QUẢN TRỊ</strong> chứ không phải <strong>XUẤT TOÁN</strong> thuần BHYT trong text cảnh báo.</li>
+<li>Liệt kê <strong>ít nhất hai</strong> lý do lâm sàng / vận hành hợp lý khiến MRI &gt; 3 ngày sau vào viện <strong>vẫn có thể</strong> chấp nhận được (AI chỉ gợi ý — không kết luận thay kiểm tra viên).</li>
+<li>Phân biệt một dòng với <strong><code>CLN-GIUONG-01</code></strong> trên cùng hồ sơ: khác <strong>trường so sánh</strong> và <strong>mục đích</strong> cảnh báo.</li>
+</ol>
+<h2>7. Liên kết</h2>
+<ul>
+<li>Bảng neo DVKT/CDHA: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a></li>
+<li>Phiên tri thức DVKT: <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a></li>
+</ul>
+
+  </main>
+</body>
+</html>

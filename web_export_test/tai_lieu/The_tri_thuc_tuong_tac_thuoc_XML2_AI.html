@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: TƯƠNG TÁC THUỐC (XML2 — CÙNG ĐỢT, ĐỒNG THỜI A VÀ B)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_tuong_tac_thuoc_XML2_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: TƯƠNG TÁC THUỐC (XML2 — CÙNG ĐỢT, ĐỒNG THỜI A VÀ B)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 14/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Chuẩn hóa tri thức huấn luyện AI và đối chiếu mã nguồn cho quy tắc <strong>tương tác thuốc nội bộ</strong> trên <strong>XML2</strong>, đồng bộ với:</p>
+<ul>
+<li><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> — khối XML2 tương tác, <code>MAP_TUONG_TAC_CAP</code>, <code>danhGiaDongThoiThuocABtrenXML2</code>, <code>layNgayYYYYMMDDtuDongXML2Thuoc</code>, <code>laBHYTKhôngThanhToan</code>;</li>
+<li><code>ma_nguon/chuyen_mon/tuong_tac_thuoc/quy_tac_giam_dinh_tuong_tac.jsx</code> — văn bản quy tắc hiển thị trong module Chuyên môn;</li>
+<li>Danh mục lưu trữ <code>DANH_MUC_TUONG_TAC_THUOC</code> (seed: <code>du_lieu_tuong_tac_thuoc.seed.json</code>).</li>
+</ul>
+<h2>2. Mệnh đề nghiệp vụ cốt lõi</h2>
+<ul>
+<li>Trên <strong>một MA_LK</strong>, nếu bác sĩ kê <strong>cả hai mã thuốc A và B</strong> thuộc <strong>một dòng danh mục</strong> (cặp không phân hướng), và <strong>điều kiện thời gian trên XML2</strong> thỏa (cùng ngày y lệnh ưu tiên; hoặc cùng đợt khi thiếu mốc ngày), hệ thống ghi nhận <strong>cảnh báo chuyên môn</strong> (Warning), không phải xuất toán tự động chỉ vì cặp này.</li>
+</ul>
+<h2>3. Phạm vi áp dụng</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Phân hệ</td>
+<td><strong>XML2</strong> (thuốc), trong <code>giamDinhDanhMucNoiBo</code></td>
+</tr>
+<tr>
+<td>Hồ sơ</td>
+<td>Một lượt KCB — toàn bộ dòng XML2 thuốc <strong>BHYT thanh toán</strong> của hồ sơ</td>
+</tr>
+<tr>
+<td>Loại trừ</td>
+<td>Dòng <code>laBHYTKhôngThanhToan</code> (nguồn không BHYT / <code>MUC_HUONG</code> = 0 khi có giá trị)</td>
+</tr>
+<tr>
+<td>Danh mục</td>
+<td>Chỉ dòng <code>TRANG_THAI = ON</code>; cặp thiếu <code>MA_THUOC_A</code> hoặc <code>MA_THUOC_B</code> không vào map</td>
+</tr>
+</tbody></table>
+<h2>4. Dữ liệu cần kiểm tra</h2>
+<ul>
+<li><strong>XML2:</strong> <code>MA_THUOC</code>, <code>NGAY_YL</code>, <code>NGAY_TH_YL</code> (chuẩn 8 ký tự ngày sau khi bỏ ký tự không số), <code>MUC_HUONG</code>, nguồn thanh toán (BHYT).</li>
+<li><strong>Danh mục:</strong> <code>MA_THUOC_A</code>, <code>MA_THUOC_B</code>, <code>MA_TUONG_TAC</code>, <code>CANH_BAO_HE_THONG</code>, <code>NOI_DUNG_TUONG_TAC</code>, <code>TRANG_THAI</code>.</li>
+</ul>
+<h2>5. Cách suy luận đúng (đồng thời A và B)</h2>
+<ol>
+<li>Thu thập tập <strong>mã thuốc</strong> xuất hiện trên XML2 BHYT (mỗi mã gom tập <strong>ngày</strong> từ các dòng của mã đó).</li>
+<li>Với mỗi cặp mã trong danh mục (khóa cặp đã sort), nếu <strong>cả hai mã</strong> có trong tập:<ul>
+<li><strong>Có ít nhất một ngày chung</strong> trong hai tập ngày → ghi nhận, kiểu <strong>CUNG_NGAY_YL</strong>.</li>
+<li><strong>Cả hai đều có ít nhất một ngày</strong> nhưng <strong>không ngày chung</strong> → <strong>không</strong> ghi nhận tương tác đồng thời (kê khác ngày).</li>
+<li><strong>Thiếu mốc ngày</strong> ở một hoặc hai mã → ghi nhận theo <strong>cùng đợt</strong> trong tập XML2 BHYT, kiểu <strong>CUNG_DOT_XML2</strong> (có câu chữ trong cảnh báo).</li>
+</ul>
+</li>
+</ol>
+<h2>6. Kết quả engine (nhãn hiển thị)</h2>
+<ul>
+<li><strong>Mức độ:</strong> Warning  </li>
+<li><strong>Tên quy tắc:</strong> <code>Tương tác thuốc (XML2 — cùng đợt, đồng thời A và B)</code>  </li>
+<li><strong>Mã quy tắc (<code>ma_luat</code>):</strong> <code>MA_TUONG_TAC</code> trong bảng; nếu trống → <code>CLN-TT-001</code>  </li>
+<li><strong>Nội dung:</strong> ưu tiên <code>CANH_BAO_HE_THONG</code> → <code>NOI_DUNG_TUONG_TAC</code> → câu mặc định theo cặp mã  </li>
+<li><strong>Căn cứ pháp lý:</strong> khung chuyên môn KCB (chuỗi tương đương Luật KCB + NĐ 96 + TT 32 + NĐ 188 + QĐ 3618 + TT 12/2026 Điều 10 trong engine)</li>
+</ul>
+<h2>7. Kiểm chứng (audit)</h2>
+<ul>
+<li><strong>Fixture XML tối thiểu:</strong> <code>test_xml/huan_luyen/AUDIT_TUONGTAC_001.xml</code> — hai dòng thuốc mã <code>40.558</code> và <code>40.671</code>, cùng <code>NGAY_YL</code>, BHYT; khớp cặp <strong>TUONGTAC_001</strong> trong seed danh mục tương tác.</li>
+<li><strong>Lệnh:</strong> <code>npm run qa:tuong-tac-audit</code>  <ul>
+<li>Chạy <code>qa:claim-audit</code> lên fixture, kiểm tra snapshot có mã quy tắc <strong>TUONGTAC_001</strong> (và tên quy tắc tương tác như trên).</li>
+</ul>
+</li>
+</ul>
+<h2>8. Bài học cho AI</h2>
+<ul>
+<li>Không nhầm cảnh báo này với <strong>DM-THUOC-</strong>* (danh mục/giá) hay <strong>THUOC_</strong>* (luật seed mức 8); đây là lớp <strong>tương tác/phối hợp</strong> gắn danh mục nội bộ bệnh viện.</li>
+<li>Khi giải thích “vì sao có/không báo”, luôn nêu: <strong>cặp mã</strong>, <strong>điều kiện ngày</strong> (trùng / khác / thiếu), <strong>ON/OFF</strong> dòng danh mục.</li>
+<li>Nếu tài liệu nghiệp vụ và mã nguồn lệch nhau, ưu tiên <strong>mã nguồn đang chạy</strong>.</li>
+</ul>
+
+  </main>
+</body>
+</html>

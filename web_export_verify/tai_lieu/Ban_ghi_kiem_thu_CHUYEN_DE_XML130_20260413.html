@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bản ghi kiểm thử — CHUYEN_DE XML130 (batch 39–40)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ban_ghi_kiem_thu_CHUYEN_DE_XML130_20260413.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Bản ghi kiểm thử — CHUYEN_DE XML130 (batch 39–40)</h1>
+<p><strong>Ngày:</strong> 2026-04-13<br><strong>Phiên bản mã:</strong> <code>CHUYEN_DE_XML130_CONVERSION_VERSION = 2026-04-13-batch40-chuyen-de-xml130-cls-387-408</code></p>
+<h2>Kết quả pipeline</h2>
+<ul>
+<li><code>npm run lint</code> — PASS (expo lint, encoding:check, font:check).</li>
+<li><code>npm run qa:audit-all</code> — gồm: <code>tai_lieu:index-huan-luyen</code>, <code>qa:audit-fixtures</code>, <code>qa:on-off-match</code>, <code>qa:rule-schema</code>, <code>qa:rule-trang-thai</code>, <code>qa:claim-audit-smoke</code>, <code>qa:chuyen-de-placeholder</code>, <code>qa:chuyen-de-thuc-chien</code>, <code>tai_lieu:prepare</code> — chạy thành công trong phiên kiểm tra.</li>
+<li><code>npm run chuyen-de:sync-eligible-scan</code> — cập nhật <code>scripts/chuyen_de_eligible_scan.json</code> (placeholder 0; XML130 không placeholder 603; seed ON 593; cảnh báo mặc định OFF nội bộ theo scan).</li>
+<li><code>npm run tai_lieu:danh-muc-off</code> — tái tạo <code>tai_lieu/Danh_muc_quy_tac_OFF_va_Placeholder.txt</code> và <code>tai_lieu:prepare</code>.</li>
+</ul>
+<h2>Quy tắc CHUYEN_DE heuristic XML130 (lô thời gian / CLS)</h2>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Mã</th>
+<th>Ý chính (cơ sở dữ liệu XML130)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHUYEN_DE-261</td>
+<td>Chuyen_de_261</td>
+<td>XML3: <code>NGAY_KQ</code>, <code>NGAY_YL</code> đủ 12 ký tự; thời điểm KQ trước mốc y lệnh.</td>
+</tr>
+<tr>
+<td>CHUYEN_DE-375</td>
+<td>Chuyen_de_375</td>
+<td>XML3: <code>NGAY_TH_YL</code>, <code>NGAY_YL</code> đủ 12 ký tự; y lệnh sau thời điểm thực hiện.</td>
+</tr>
+<tr>
+<td>CHUYEN_DE-387</td>
+<td>Chuyen_de_387</td>
+<td>Có thuốc XML2 có <code>NGAY_YL</code>; có dòng XML3 gợi CDHA/CT/MRI/XQ/SA (theo tên) mà mốc <code>NGAY_YL</code> CLS muộn hơn mọi <code>NGAY_YL</code> thuốc.</td>
+</tr>
+<tr>
+<td>CHUYEN_DE-408</td>
+<td>Chuyen_de_408</td>
+<td>XML3: <code>NGAY_KQ</code> không trước <code>NGAY_YL</code>, <code>DIFF_DAYS</code> lớn hơn 14 (trễ trả KQ so với chỉ định).</td>
+</tr>
+</tbody></table>
+<p>Quy tắc <strong>376/377</strong> vẫn backlog (phạm vi ngày so với nằm viện đã phủ bởi <strong>279</strong>). <strong>402</strong> backlog (không có trường “tổng thời gian thực hiện” chuẩn).</p>
+<h2>Tri thức cho huấn luyện AI</h2>
+<ol>
+<li>Đọc điều kiện thực tế trong <code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code>; không suy diễn ngoài các trường XML1–XMLn đã map.</li>
+<li>Phân biệt <strong>heuristic</strong> (có thể dương giả) với <strong><code>CHUYEN_DE_XML130_PLACEHOLDER_EXIT_AUDIT_BACKLOG</code></strong> — biểu thức luôn false trên hồ sơ hợp lệ, engine không phát cảnh báo tự động cho đến khi có DIEU_KIEN XML130.</li>
+<li>Nghiệp vụ cần <strong>hai đợt KCB / hai MA_LK</strong> (ví dụ khám lại quá sớm, ra viện nội trú rồi khám OP ngay): <strong>một file XML130 không đủ</strong> — không ép khớp bằng một MA_LK.</li>
+<li>Ký duyệt thực chiến từng id: thêm vào <code>scripts/chuyen_de_thuc_chien_manifest.json</code> → <code>approved_rule_ids</code> sau kiểm thử vàng và checklist nội bộ (hiện manifest có thể để rỗng, QA vẫn pass).</li>
+</ol>
+<h2>Tham chiếu nhanh</h2>
+<ul>
+<li><code>tai_lieu/Lo_trinh_viet_lai_CHUYEN_DE_theo_XML130.md</code> — lộ trình lô.</li>
+<li><code>scripts/chuyen_de_batch_manifest.json</code>, <code>scripts/chuyen_de_thuc_chien_manifest.json</code>.</li>
+</ul>
+
+  </main>
+</body>
+</html>

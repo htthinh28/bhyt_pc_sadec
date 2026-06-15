@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000589 — MỘT HỒ SƠ, NHIỀU NHÓM THUỐC (DANH MỤC BV)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000589 — MỘT HỒ SƠ, NHIỀU NHÓM THUỐC (DANH MỤC BV)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 08/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI <strong>phân tách đồng thời</strong> nhiều cảnh báo thuốc trong <strong>một</strong> hồ sơ nội trú, mỗi loại thuộc <strong>nhóm kiểm soát khác nhau</strong> (theo <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>):</p>
+<ul>
+<li>chỉ định thanh toán theo <strong>ICD</strong> (ho thảo dược, probiotic);</li>
+<li><strong>số lượng</strong> cấp phát so với y lệnh (thiếu / dư);</li>
+<li><strong>trùng kê</strong> cùng ngày (XML1).</li>
+</ul>
+<p>Không gộp thành một kết luận “sai thuốc chung”.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000589_20260405_232716.json</code><br>(có thể đối chiếu bản cùng <code>MA_LK</code>: <code>audit_000589_20260406_074454.json</code>)</li>
+<li>Seed: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> — các mục <code>THUOC_207</code>, <code>THUOC_63</code>, <code>THUOC_417</code>, <code>THUOC_391</code>.</li>
+</ul>
+<h2>3. Tóm tắt cảnh báo thuốc trong audit (snapshot)</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Số lần (ước lượng từ cấu trúc)</th>
+<th>Ý nghĩa ngắn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>THUOC_207</code></td>
+<td>1</td>
+<td>Hoastex — chỉ định ICD J06/J20/R05</td>
+</tr>
+<tr>
+<td><code>THUOC_391</code></td>
+<td>2</td>
+<td>Cefotaxime — cấp phát <strong>thấp hơn</strong> y lệnh</td>
+</tr>
+<tr>
+<td><code>THUOC_417</code></td>
+<td>1</td>
+<td>DOMUVAR — cấp <strong>dư</strong> so với y lệnh</td>
+</tr>
+<tr>
+<td><code>THUOC_63</code></td>
+<td>1</td>
+<td>DOMUVAR — ICD không thuộc tiêu chảy / loạn khuẩn ruột</td>
+</tr>
+<tr>
+<td><code>XML_121</code></td>
+<td>1</td>
+<td>Dấu hiệu trùng lặp kê cùng ngày (toàn hồ sơ)</td>
+</tr>
+</tbody></table>
+<p><em>(Số đếm chính xác: mở <code>meta.focus_summary</code> hoặc đếm mảng <code>warnings</code> trong JSON.)</em></p>
+<h2>4. Ánh xạ sang “nhóm danh mục BV”</h2>
+<table>
+<thead>
+<tr>
+<th>Thuốc / mã (từ text cảnh báo)</th>
+<th>Nhóm</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hoastex <code>05C.150</code></td>
+<td>Ho / Đông dược</td>
+<td><code>THUOC_207</code></td>
+</tr>
+<tr>
+<td>Tenamyd-Cefotaxime <code>40.173</code></td>
+<td>Kháng sinh tiêm</td>
+<td><code>THUOC_391</code></td>
+</tr>
+<tr>
+<td>DOMUVAR <code>40.718</code></td>
+<td>Probiotic</td>
+<td><code>THUOC_63</code> + <code>THUOC_417</code></td>
+</tr>
+</tbody></table>
+<p>→ <strong>Ba nhóm dược lý khác nhau</strong>, ba logic kiểm tra khác nhau.</p>
+<h2>5. Bài tập cho AI</h2>
+<ol>
+<li>Với <strong>DOMUVAR</strong>: giải thích vì sao <strong>cùng một dòng thuốc</strong> (cùng <code>index</code> XML2 nếu có) có thể liên quan <strong>hai rule</strong> (<code>THUOC_63</code> và <code>THUOC_417</code>) — một cái ICD, một cái số lượng.</li>
+<li>Với <strong>Cefotaxime</strong>: chỉ ra công thức <code>THUOC_391</code> và ý nghiệp vụ “tự túc / sai số / tách đơn”.</li>
+<li>Với <strong>Hoastex</strong>: liệt kê ICD hoặc mô tả chẩn đoán <strong>mở</strong> chỉ định thanh toán theo seed.</li>
+<li><code>XML_121</code>: đây có phải “sai chỉ định thuốc” không? Nếu không, định danh đúng loại kiểm soát.</li>
+</ol>
+<h2>6. Bài học rút ra</h2>
+<ul>
+<li>Hồ sơ nội trú thường <strong>dày XML2</strong>; AI cần <strong>bảng kê theo index</strong> + nhóm rule.</li>
+<li><strong>Probiotic</strong> dễ vừa dính <strong>ICD</strong> vừa dính <strong>số lượng</strong> — hay train cùng nhau.</li>
+<li>Luôn giữ <strong><code>XML_121</code></strong> tách khỏi nhóm THUOC ICD/liều khi báo cáo ban giám đốc.</li>
+</ul>
+<h2>7. Liên kết</h2>
+<ul>
+<li>Bảng đa dạng nhóm thuốc: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>  </li>
+<li>Khung kiểm soát: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>  </li>
+<li>Ca DOMUVAR chi tiết (ngoài bối cảnh 000589): <code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

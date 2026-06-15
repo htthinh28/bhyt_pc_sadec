@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: HÀNH CHÍNH BHYT VÀ QUY TRÌNH THANH TOÁN</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_hanh_chinh_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: HÀNH CHÍNH BHYT VÀ QUY TRÌNH THANH TOÁN</h1>
+<p>Phiên bản: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Thẻ này chuẩn hóa <strong>toàn bộ yêu cầu hành chính</strong> để hồ sơ được thanh toán BHYT, giúp AI:</p>
+<ul>
+<li>Hiểu <strong>quy trình hành chính từ vào viện đến thanh toán</strong></li>
+<li>Biết <strong>dữ liệu bắt buộc</strong> ở mỗi bước</li>
+<li>Phát hiện <strong>lỗi hành chính</strong> và xử lý tương ứng</li>
+<li>Phân biệt <strong>lỗi đơn giản</strong> vs <strong>lỗi gian lận</strong></li>
+</ul>
+<hr>
+<h2>2. Quy trình hành chính thanh toán BHYT (tóm gọn)</h2>
+<pre><code>VIỆN (Bệnh Viện)
+  ↓
+Khảm:【BN vào viện, lập XML1 (hồ sơ chính)
+  ↓
+ Điều trị【BN nằm/chữa, tạo XML2, XML3, XML4, XML5
+  ↓
+Ra viện【BN xuất viện, quản lý khoá hồ sơ
+  ↓
+Lập tài liệu⟡hồ sơ + hóa đơn + chứng từ
+  ↓
+Gửi BHXH⟡hóa đơn điện tử + XML files
+  ↓
+BHXH KIỂM⟡Kiểm tra viên kiểm tra
+  ↓
+THANH TOÁN⟡BHXH chuyển tiền
+</code></pre>
+<hr>
+<h2>3. Các bước hành chính chi tiết</h2>
+<h3>BƯỚC 1: Tiếp nhận &amp; Lập XML1</h3>
+<h4>1.1. Yêu cầu hành chính</h4>
+<p><strong>Dữ liệu bắt buộc trong XML1:</strong></p>
+<ul>
+<li><code>MA_BHYT</code> (mã BHYT của BN)</li>
+<li><code>HO_TEN</code> (họ tên bệnh nhân)</li>
+<li><code>NGAY_SINH</code> (ngày sinh)</li>
+<li><code>GIOI_TINH</code> (giới tính)</li>
+<li><code>NGAY_VAO</code> (ngày vào viện - định dạng yyyyMMddHHmm, 12 ký tự)</li>
+<li><code>NGAY_RA</code> (ngày ra viện - định dạng yyyyMMddHHmm, 12 ký tự)</li>
+<li><code>MA_BENH_CHINH</code> (chẩn đoán chính, ICD-10)</li>
+<li><code>MA_BENH_KT</code> (chẩn đoán kèm)</li>
+<li><code>CHAN_DOAN_RV</code> (chẩn đoán ra viện)</li>
+<li><code>MA_LOAI_KCB</code> (loại KCB: 1=ngoại trú, 2=ngoại trú ngắn lâu, 3=nội trú)</li>
+<li><code>PHONG_KHOA</code> (phòng khoa khám)</li>
+</ul>
+<h4>1.2. Lỗi phổ biến</h4>
+<table>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Ví dụ</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Thiếu NGAY_RA</td>
+<td>XML1 không có ngày ra</td>
+<td><strong>LỖI NẶNG</strong> - từ chối tạm thời</td>
+</tr>
+<tr>
+<td>NGAY_RA &lt; NGAY_VAO</td>
+<td>Ngày ra 2026-03-10, nhưng ngày vào 2026-03-15</td>
+<td><strong>LỖI LOGIC</strong> - xáo trộn, từ chối</td>
+</tr>
+<tr>
+<td>Định dạng ngày sai</td>
+<td>Ghi &quot;03/15/2026&quot; thay vì &quot;202603150000&quot;</td>
+<td><strong>LỖI FORMAT</strong> - từ chối</td>
+</tr>
+<tr>
+<td>Thiếu MA_BHYT</td>
+<td>BN không có mã BHYT (chưa được bảo hiểm)</td>
+<td><strong>LỖI XÁC THỰC</strong> - từ chối</td>
+</tr>
+<tr>
+<td>Chẩn đoán thiếu ICD-10</td>
+<td>Viết &quot;viêm họng&quot; thay vì &quot;J02&quot;</td>
+<td><strong>LỖI CHẨN ĐOÁN</strong> - yêu cầu sửa</td>
+</tr>
+</tbody></table>
+<h4>1.3. Quy tắc kiểm tra XML1</h4>
+<p><strong>Rule code:</strong> HC_*, GB_*, XML*-REQ-* (kiểm tra hành chính)</p>
+<p><strong>Ví dụ rule:</strong></p>
+<ul>
+<li><code>HC_246</code>: Định dạng ngày sai</li>
+<li><code>GB_47</code>: NGAY_RA &lt; NGAY_VAO</li>
+<li><code>XML1-REQ-NGAY_RA</code>: Thiếu trường bắt buộc</li>
+</ul>
+<hr>
+<h3>BƯỚC 2: Điều trị &amp; Tạo XML2, XML3, XML4, XML5</h3>
+<h4>2.1. Tổng quan các XML</h4>
+<table>
+<thead>
+<tr>
+<th>XML</th>
+<th>Nội dung</th>
+<th>Chi tiết</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML2</strong></td>
+<td>Thuốc</td>
+<td>MA_THUOC, SO_LUONG, GIA_THANH_TOAN, NGAY_YL</td>
+</tr>
+<tr>
+<td><strong>XML3</strong></td>
+<td>Dịch vụ kỹ thuật</td>
+<td>DVKT_CODE, TEN_DVKT, GIA, NGAY_TTH</td>
+</tr>
+<tr>
+<td><strong>XML4</strong></td>
+<td>Xét nghiệm</td>
+<td>MA_XN, KET_QUA, CHI_SO_BT</td>
+</tr>
+<tr>
+<td><strong>XML5</strong></td>
+<td>Diễn biến bệnh</td>
+<td>NGAY_GIAI_THICH, TRANG_THAI, GHI_CHU</td>
+</tr>
+</tbody></table>
+<h4>2.2. Yêu cầu XML2 (Thuốc)</h4>
+<p><strong>Dữ liệu bắt buộc cho mỗi dòng thuốc:</strong></p>
+<ul>
+<li><code>MA_THUOC</code> (mã thuốc, VD: 40.685)</li>
+<li><code>TEN_THUOC</code> (tên thuốc)</li>
+<li><code>HAN_LUONG</code> (hàm lượng thuốc, VD: &quot;500mg&quot;)</li>
+<li><code>DANG_BAO_CHE</code> (dạng: viên, lọ, etc.)</li>
+<li><code>SO_LUONG</code> (số lượng cấp)</li>
+<li><code>GIA_THANH_TOAN</code> (giá BHYT / đơn vị)</li>
+<li><code>THANH_TIEN</code> (= SO_LUONG * GIA)</li>
+<li><code>NGAY_YL</code> (ngày y lệnh - phải nằm trong NGAY_VAO → NGAY_RA)</li>
+<li><code>TONG_LIEU_24H</code> (nếu kê bằng liều)</li>
+<li><code>TAN_SUAT</code> (tần suất, nếu kê bằng tần suất)</li>
+</ul>
+<p><strong>Lỗi phổ biến:</strong></p>
+<ul>
+<li>SO_LUONG không khớp với LIEU_DUNG × SO_NGAY</li>
+<li>THANH_TIEN tính sai</li>
+<li>NGAY_YL ngoài khoảng NGAY_VAO → NGAY_RA</li>
+<li>MA_THUOC không tồn tại trong danh mục</li>
+</ul>
+<h4>2.3. Yêu cầu XML3 (Dịch vụ kỹ thuật)</h4>
+<p><strong>Dữ liệu bắt buộc:</strong></p>
+<ul>
+<li><code>MA_DVKT</code> (mã dịch vụ)</li>
+<li><code>TEN_DVKT</code> (tên dịch vụ)</li>
+<li><code>GIA_THANH_TOAN</code> (giá BHYT)</li>
+<li><code>NGAY_TTH</code> (ngày thực hiện, nằm trong khoảng NGAY_VAO → NGAY_RA)</li>
+<li><code>NHAN_SU</code> (bác sĩ thực hiện, mã CN)</li>
+</ul>
+<h4>2.4. Yêu cầu XML4 (Xét nghiệm)</h4>
+<p><strong>Dữ liệu bắt buộc:</strong></p>
+<ul>
+<li><code>MA_XN</code> (mã xét nghiệm)</li>
+<li><code>TEN_XN</code> (tên xét nghiệm)</li>
+<li><code>KET_QUA</code> (kết quả, hoặc &quot;...&quot;)</li>
+<li><code>CHI_SO_BT</code> (chỉ số bình thường - <strong>BẮT BUỘC</strong> theo HD 10 ở 403244)</li>
+<li><code>NGAY_LAY_MAU</code> → <code>NGAY_PTH</code></li>
+</ul>
+<p><strong>Lỗi HD_10:</strong></p>
+<ul>
+<li>Thiếu <code>CHI_SO_BT</code> (chỉ số bình thường) → Không thanh toán xét nghiệm</li>
+</ul>
+<h4>2.5. Yêu cầu XML5 (Diễn biến)</h4>
+<p><strong>Bắt buộc cho hồ sơ NỘI TRỰ (MA_LOAI_KCB == &#39;3&#39;):</strong></p>
+<ul>
+<li>Phải có ≥ 1 dòng diễn biến/ngày</li>
+<li><code>NGAY_GIAI_THICH</code> (ngày ghi chép)</li>
+<li><code>TRANG_THAI</code> (tình trạng: cải thiện, không thay đổi, xấu đi)</li>
+<li><code>GHI_CHU</code> (mô tả chi tiết)</li>
+</ul>
+<p><strong>Lỗi:</strong></p>
+<ul>
+<li><code>HC_171</code>: Hồ sơ nội trú nhưng không có XML5 → từ chối</li>
+</ul>
+<hr>
+<h3>BƯỚC 3: Tổng hợp &amp; Tính toán</h3>
+<h4>3.1. Sự khớp chiếu</h4>
+<p><strong>XML1 phải khớp với tổng XML2, XML3, XML4:</strong></p>
+<pre><code>XML1.T_THUOC = SUM(XML2.THANH_TIEN)
+XML1.T_XETNGHIEM = SUM(XML4.GIA_THANH_TOAN)
+XML1.T_DVKT = SUM(XML3.GIA_THANH_TOAN)
+XML1.TONG_TIEN = T_THUOC + T_XETNGHIEM + T_DVKT + T_GIUONG + ...
+</code></pre>
+<p><strong>Lỗi:</strong></p>
+<ul>
+<li><code>CLN-CHI-01</code>: Chênh lệch tổng tiền &gt; 10%</li>
+</ul>
+<h4>3.2. Kiểm tra thời gian</h4>
+<p><strong>Quy tắc:</strong></p>
+<ul>
+<li>NGAY_VAO &lt; NGAY_RA (phải có thứ tự)</li>
+<li>SO_NGAY_DTRI = DATEDIFF_DAY(NGAY_VAO, NGAY_RA)</li>
+<li>Mỗi NGAY_YL trong XML2 phải: NGAY_VAO ≤ NGAY_YL ≤ NGAY_RA</li>
+</ul>
+<p><strong>Lỗi:</strong></p>
+<ul>
+<li><code>HC_130</code>: Số ngày điều trị lệch</li>
+<li><code>HC_210</code>: Thời gian khám = 0 phút</li>
+</ul>
+<h4>3.3. Kiểm tra loại KCB</h4>
+<table>
+<thead>
+<tr>
+<th>MA_LOAI_KCB</th>
+<th>Loại</th>
+<th>Yêu cầu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Ngoại trú</td>
+<td>Không cần XML5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ngoại trú lâu</td>
+<td>Có thể có XML5</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nội trú</td>
+<td><strong>PHẢI có XML5</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Lỗi:</strong></p>
+<ul>
+<li><code>HC_171</code>: Nội trú nhưng không có XML5</li>
+</ul>
+<hr>
+<h3>BƯỚC 4: Xác minh chứng từ</h3>
+<h4>4.1. Hóa đơn</h4>
+<p><strong>Bệnh viện phải gửi:</strong></p>
+<ol>
+<li>Hóa đơn gốc (hoặc bản sao được xác thực công chứng)</li>
+<li>Chi tiết: Từng dóng thuốc, dịch vụ, xét nghiệm</li>
+<li>Tổng tiền phải khớp với XML1</li>
+</ol>
+<p><strong>Lỗi:</strong></p>
+<ul>
+<li>Hóa đơn không đầy đủ chi tiết</li>
+<li>Hóa đơn không khớp XML</li>
+<li>Thiếu chữ ký, dấu xác thực</li>
+</ul>
+<h4>4.2. Chứng từ y tế</h4>
+<p><strong>Cần có:</strong></p>
+<ol>
+<li>Sơ lược bệnh án (tiếp nhận, chẩn đoán, điều trị)</li>
+<li>Bảng điều trị chi tiết (nếu có XML5)</li>
+<li>Xét nghiệm gốc (kết quả, chỉ số bình thường)</li>
+<li>Y lệnh thuốc (chữ ký bác sĩ)</li>
+</ol>
+<hr>
+<h2>4. Các loại lỗi hành chính</h2>
+<h3>Loại 1: Lỗi cấu trúc dữ liệu (Dữ liệu sai/thiếu)</h3>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Thiếu NGAY_RA</li>
+<li>Định dạng ngày sai (14 ký tự thay 12)</li>
+<li>MA_BHYT không hợp lệ</li>
+<li>MA_LOAI_KCB không phải 1/2/3</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>LỖI NẶNG - từ chối tạm thời</li>
+<li>Yêu cầu bệnh viện sửa XML</li>
+</ul>
+<p><strong>Rule code:</strong></p>
+<ul>
+<li><code>XMLn-REQ-*</code> (kiểm tra trường bắt buộc)</li>
+<li><code>HC_246</code> (định dạng ngày)</li>
+</ul>
+<h3>Loại 2: Lỗi logic dữ liệu (Dữ liệu không hợp lý)</h3>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>NGAY_RA &lt; NGAY_VAO</li>
+<li>NGAY_YL (y lệnh) ngoài khoảng NGAY_VAO → NGAY_RA</li>
+<li>SO_NGAY_DTRI không khớp NGAY_VAO/RA</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>LỖI NẶNG - xáo trộn, không thanh toán</li>
+<li>Yêu cầu bệnh viện sửa lại</li>
+</ul>
+<p><strong>Rule code:</strong></p>
+<ul>
+<li><code>GB_47</code> (NGAY_RA &lt; NGAY_VAO)</li>
+<li><code>HC_130</code> (Số ngày lệch)</li>
+</ul>
+<h3>Loại 3: Lỗi nhất quán dữ liệu (Khoảng trống, không khớp)</h3>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>XML1.T_THUOC ≠ tổng XML2</li>
+<li>Nội trú nhưng không có XML5</li>
+<li>Khoảng thời gian nằm viện quá ngắn (&lt; 4 giờ)</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>KIỂM SOÁT CHẶT - từ chối tạm thời</li>
+<li>Yêu cầu giải thích ± sửa XML</li>
+</ul>
+<p><strong>Rule code:</strong></p>
+<ul>
+<li><code>CLN-CHI-01</code> (chênh lệch tiền)</li>
+<li><code>HC_171</code> (Nội trú thiếu XML5)</li>
+<li><code>GB_75</code> (Nằm &lt; 4 giờ)</li>
+</ul>
+<h3>Loại 4: Lỗi xác thực chứng từ (Thiếu hóa đơn, chứng từ)</h3>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Không gửi hóa đơn gốc</li>
+<li>Hóa đơn không có dấu xác thực</li>
+<li>Chứng từ y tế không đầy đủ</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>KIỂM SOÁT CHẶT - yêu cầu cung cấp chứng từ</li>
+</ul>
+<hr>
+<h2>5. Cách AI kiểm tra hành chính</h2>
+<h3>Quy trình 5 bước</h3>
+<p><strong>Bước 1: Kiểm tra XML1 (Hồ sơ chính)</strong></p>
+<pre><code>✓ Có MA_BHYT?
+✓ Có HO_TEN?
+✓ Có NGAY_VAO, NGAY_RA?
+✓ Định dạng ngày đúng 12 ký tự?
+✓ NGAY_RA &gt;= NGAY_VAO?
+✓ Có MA_BENH_CHINH?
+</code></pre>
+<p>Nếu lỗi → <strong>LỖI NẶNG, từ chối tạm thời</strong></p>
+<p><strong>Bước 2: Kiểm tra XML2, XML3, XML4, XML5</strong></p>
+<pre><code>✓ Mỗi dòng có dữ liệu bắt buộc?
+✓ NGAY_YL (y lệnh) nằm trong NGAY_VAO → NGAY_RA?
+✓ Nếu nội trú: có XML5?
+✓ XML4: có CHI_SO_BT?
+</code></pre>
+<p>Nếu lỗi → <strong>KIỂM SOÁT CHẶT, yêu cầu sửa</strong></p>
+<p><strong>Bước 3: Kiểm tra khớp chiếu</strong></p>
+<pre><code>✓ XML1.T_THUOC == SUM(XML2)?
+✓ XML1.TONG_TIEN == T_THUOC + T_XN + T_DVKT?
+✓ Chênh lệch &lt; 10%?
+</code></pre>
+<p>Nếu lỗi &gt; 10% → <strong>KIỂM SOÁT CHẶT, từ chối tạm thời cho phần chênh lệch</strong></p>
+<p><strong>Bước 4: Kiểm tra xác thực</strong></p>
+<pre><code>✓ Có hóa đơn gốc?
+✓ Hóa đơn khớp XML?
+✓ Có dấu xác thực/chữ ký?
+</code></pre>
+<p>Nếu lỗi → <strong>KIỂM SOÁT CHẶT, yêu cầu cung cấp</strong></p>
+<p><strong>Bước 5: Tổng hợp kết luận</strong></p>
+<pre><code>- Lỗi nặng: Từ chối tạm thời toàn bộ
+- Lỗi nhẹ: Từ chối bộ + yêu cầu sửa
+- Không lỗi: Chuyển sang kiểm tra chuyên môn
+</code></pre>
+<hr>
+<h2>6. Bảng tra cứu rule hành chính</h2>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Lỗi</th>
+<th>Mức độ</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XMLn-REQ-*</td>
+<td>Thiếu trường bắt buộc</td>
+<td>NẶNG</td>
+<td>Từ chối tạm</td>
+</tr>
+<tr>
+<td>HC_246</td>
+<td>Định dạng ngày sai</td>
+<td>NẶNG</td>
+<td>Từ chối tạm</td>
+</tr>
+<tr>
+<td>GB_47</td>
+<td>NGAY_RA &lt; NGAY_VAO</td>
+<td>NẶNG</td>
+<td>Từ chối tạm</td>
+</tr>
+<tr>
+<td>HC_43</td>
+<td>Giờ ra &lt; giờ vào</td>
+<td>NẶNG</td>
+<td>Từ chối tạm</td>
+</tr>
+<tr>
+<td>HC_130</td>
+<td>Số ngày lệch</td>
+<td>TRUNG</td>
+<td>Kiểm soát</td>
+</tr>
+<tr>
+<td>GB_75</td>
+<td>Nằm &lt; 4 giờ</td>
+<td>TRUNG</td>
+<td>Kiểm soát</td>
+</tr>
+<tr>
+<td>HC_171</td>
+<td>Nội trú không XML5</td>
+<td>TRUNG</td>
+<td>Kiểm soát</td>
+</tr>
+<tr>
+<td>HC_210</td>
+<td>Thời gian khám 0 phút</td>
+<td>NHẸ</td>
+<td>Cảnh báo</td>
+</tr>
+<tr>
+<td>CLN-CHI-01</td>
+<td>Chênh lệch tiền</td>
+<td>TRUNG</td>
+<td>Kiểm soát</td>
+</tr>
+<tr>
+<td>HD_10</td>
+<td>Thiếu chỉ số BT</td>
+<td>NHẸ</td>
+<td>Cảnh báo</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Bài học cho AI</h2>
+<h3>Quy tắc &quot;Từ chối tạm thời&quot;</h3>
+<p><strong>Khi nào:</strong></p>
+<ul>
+<li>Dữ liệu thiếu/sai nhưng có thể sửa</li>
+<li>Khớp chiếu lệch nhưng có giải thích</li>
+<li>Cần bệnh viện cung cấp thêm tài liệu</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>Ghi rõ <strong>chính xác lỗi nào</strong></li>
+<li>Yêu cầu bệnh viện trong <strong>15 ngày</strong></li>
+<li>Nếu bệnh viện lâu quá → chuyển <strong>XUẤT TOÁN vĩnh viễn</strong></li>
+</ul>
+<h3>Quy tắc &quot;Từ chối vĩnh viễn&quot;</h3>
+<p><strong>Khi nào:</strong></p>
+<ul>
+<li>Lỗi quá nặng (logic không có cách sửa)</li>
+<li>Bệnh viện không giải thích được</li>
+<li>Xác định gian lận</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li><strong>XUẤT TOÁN</strong> phần có lỗi</li>
+<li>Báo cáo cơ quan chức năng nếu là gian lận</li>
+</ul>
+<hr>
+<h2>8. Prompt học tập</h2>
+<h3>Prompt 1: Phát hiện lỗi hành chính</h3>
+<pre><code>&quot;Hồ sơ 000589 có NGAY_VAO = 2026-03-08 08:00, NGAY_RA = 2026-03-06 10:00.
+Cái gì sai? Đây là lỗi gì? Xử lý thế nào?&quot;
+</code></pre>
+<h3>Prompt 2: Kiểm tra khớp chiếu</h3>
+<pre><code>&quot;XML1.T_THUOC = 12.864.000đ, XML2_TONG = 4.932.000đ
+Chênh lệch là bao nhiêu %? Nên từ chối tạm hay xuất toán?&quot;
+</code></pre>
+<h3>Prompt 3: Soạn quyết định hành chính</h3>
+<pre><code>&quot;Soạn quyết định từ chối tạm thời do lỗi hành chính,
+bao gồm: Lỗi, Căn cứ, Yêu cầu bệnh viện, Hạn chế&quot;
+</code></pre>
+<hr>
+<h2>9. Ghi chú cuối</h2>
+<ul>
+<li><strong>Hành chính là lớp chắn đầu tiên</strong> - phải kiểm tra kỹ trước khi vào chuyên môn</li>
+<li><strong>Lỗi hành chính có thể sửa được</strong> - nên từ chối tạm thời, không ngay xuất toán</li>
+<li><strong>Từ chối tạm thời phải có thời gian</strong> - 15-30 ngày, rõ ràng yêu cầu</li>
+<li><strong>Nếu bệnh viện quá hạn</strong> - chuyển xuất toán</li>
+<li><strong>Lỗi hành chính lặp lại</strong> - báo cáo, có dấu hiệu không chuyên nghiệp</li>
+</ul>
+
+  </main>
+</body>
+</html>

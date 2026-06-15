@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Báo cáo mã quy tắc — ICD chống chỉ định thuốc (ICD_DRUG_CONTRA)</title>
+  <style>
+    body { font-family: system-ui, Segoe UI, Roboto, sans-serif; line-height: 1.5; max-width: 56rem; margin: 1.5rem auto; padding: 0 1rem; color: #1a1a1a; }
+    h1 { font-size: 1.35rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    th, td { border: 1px solid #ddd; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f5f5f5; }
+    code { background: #f0f0f0; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.88em; }
+    .muted { color: #555; font-size: 0.92rem; }
+    ul.compact { margin: 0.4rem 0; padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <h1>Báo cáo mã quy tắc — ICD chống chỉ định thuốc (ICD_DRUG_CONTRA)</h1>
+  <p class="muted">Đồng bộ thư viện nội bộ CDSS BHYT — mô tả mã luật engine, seed mapping và phân tách với quy tắc DVKT.</p>
+
+  <h2>1. Mã quy tắc giám định (LUẬT THUỐC)</h2>
+  <p>Đối chiếu dòng XML2 (mã/tên thuốc, có hỗ trợ hoạt chất) với danh mục mapping <strong>ICD_DRUG_CONTRA</strong> và ICD chính/kèm trên XML1. Khi vi phạm, cảnh báo nhóm <strong>XUẤT TOÁN</strong> theo mẫu đã cấu hình trong <code>luat_thuoc_hardcoded.jsx</code>.</p>
+  <table>
+    <thead>
+      <tr><th>Mã quy tắc (<code>MA_LUAT</code>)</th><th>Tên / ghi chú</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>THUOC_ICD_CONTRA_MAPPING</code></td>
+        <td>[Chung] ICD-10 chống chỉ định (thẻ ICD_DRUG_CONTRA). Một mã duy nhất cho toàn bộ logic <code>CO_ICD_VI_PHAM_CHONG_CHI_DINH_THUOC</code>; dữ liệu chi tiết nằm trong seed + Mapping nghiệp vụ.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Loại mapping &amp; import Excel</h2>
+  <table>
+    <thead>
+      <tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>ICD_DRUG_CONTRA</code></td>
+        <td>Loại mapping trong Quản lý → Mapping nghiệp vụ: «ICD-10 chống chỉ định → Thuốc (M03)». Lưu AsyncStorage <code>CATALOG_MAP_V1__ICD_DRUG_CONTRA</code>, gộp với seed bundle.</td>
+      </tr>
+      <tr>
+        <td><code>THUOC_CCD_xx</code></td>
+        <td>Giá trị cột <code>Loai</code> trong file Excel export/import catalog (được map sang <code>ICD_DRUG_CONTRA</code>).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Dòng seed <code>seed_icd_drug_contra_bhyt.json</code></h2>
+  <p>Mỗi dòng là một bản ghi mapping; không có <code>MA_LUAT</code> riêng trên màn ON/OFF. Định danh truy vết:</p>
+  <ul class="compact">
+    <li><code>metadata.rule_id</code>: ví dụ <code>SEED_ICD_CD_BHYT_L…</code> (bundle BHYT), <code>SEED_ICD_CD_CAT_L…</code> (bổ sung từ catalog BV).</li>
+    <li>Trường <code>quy_tac_giam_dinh_excel</code> có thể chứa nhãn mô tả <code>RULE_ICD_DRUG_CONTRA_nn</code> (ghi chú nguồn Excel), không phải mã tắt/bật UI.</li>
+  </ul>
+  <p><strong>Thống kê snapshot repo</strong> (cập nhật khi merge seed): <strong>290</strong> bản ghi trong <code>seed_icd_drug_contra_bhyt.json</code>; trong đó <code>metadata.rule_id</code> có tiền tố <strong>SEED_ICD_CD_BHYT_</strong>: 178 dòng, <strong>SEED_ICD_CD_CAT_</strong> (catalog BV): 112 dòng.</p>
+
+  <h2>4. Tách biệt module DVKT (không phải thuốc)</h2>
+  <table>
+    <thead>
+      <tr><th>Mã</th><th>Tab</th><th>Ghi chú</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>DVKT-OP-02</code></td>
+        <td><code>LUAT_CDHA</code></td>
+        <td>No-code DVKT: ICD chống chỉ định <strong>dịch vụ</strong> — khác hẳn luật thuốc <code>THUOC_ICD_CONTRA_MAPPING</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Quản trị ON/OFF</h2>
+  <p>Mã <code>THUOC_ICD_CONTRA_MAPPING</code> được đăng ký trong <code>quy_tac_on_off_noi_bo.jsx</code> (danh mục chi tiết) để bật/tắt độc lập hoặc qua mẫu <code>THUOC*</code> tổng quát.</p>
+
+  <p class="muted" style="margin-top:2rem;">Tài liệu này phục vụ Thư viện / RAG — giữ đồng bộ với mã nguồn khi đổi tên quy tắc hoặc seed.</p>
+</body>
+</html>

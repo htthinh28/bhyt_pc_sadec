@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "generated_at": "2026-04-04T15:03:20.642Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022602828_IP26000284.xml",
+    "ma_lk": "000579",
+    "total_warnings": 5,
+    "by_severity": {
+      "Warning": 5
+    },
+    "focus_summary": {}
+  },
+  "unique_rule_codes": [
+    "DVKT_0862",
+    "HC_130",
+    "HC_171",
+    "HC_65",
+    "HD_10"
+  ],
+  "rule_summary": {
+    "DVKT_0862": 1,
+    "HC_130": 1,
+    "HC_171": 1,
+    "HC_65": 1,
+    "HD_10": 1
+  },
+  "warnings": [
+    {
+      "id": "DVKT_0862",
+      "phan_he": "XML3",
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "🔴 Cần mã Sản Phụ khoa: Bệnh cơ quan sinh dục nữ (N70-N98), Thai ngoài tử cung (O00). Chi tiết dịch vụ: [18.0031.0003] Siêu âm tử cung buồng trứng qua đường âm đạo. Nhân sự liên quan: 004078/CT-CCHN (007046/CT-CCHN); Chức danh: 1; Phạm vi: 113.",
+      "muc_do": "Warning",
+      "index": 2,
+      "ma_luat": "DVKT_0862",
+      "ten_quy_tac": "Chỉ định - Siêu âm tử cung phần phụ qua âm đạo (18.0031.0003)",
+      "dieu_kien": "XML3.MA_DICH_VU == '18.0031.0003' AND NOT (XML1.MA_BENH STARTS_WITH 'N' OR XML1.MA_BENH STARTS_WITH 'O00')",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "HC_130",
+      "phan_he": "XML1",
+      "truong_loi": "SO_NGAY_DTRI",
+      "canh_bao": "⛔ Lỗi kế toán: Số ngày điều trị khai báo không khớp với khoảng cách ngày vào - ngày ra.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_130",
+      "ten_quy_tac": "Tổng ngày điều trị lệch Ngày vào/ra",
+      "dieu_kien": "XML1.SO_NGAY_DTRI != DATEDIFF_DAY(XML1.NGAY_VAO, XML1.NGAY_RA)",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_171",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi hồ sơ: Điều trị nội trú bắt buộc phải có dữ liệu diễn biến bệnh hàng ngày (XML5).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_171",
+      "ten_quy_tac": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND COUNT(XML5) == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_65",
+      "phan_he": "XML1",
+      "truong_loi": "NGAY_TTOAN",
+      "canh_bao": "⛔ Lỗi logic: Ngày ký điện tử hồ sơ không thể xảy ra trước khi bệnh nhân ra viện.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_65",
+      "ten_quy_tac": "Ngày ký hồ sơ trước ngày ra viện",
+      "dieu_kien": "XML1.NGAY_TTOAN < XML1.NGAY_RA",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HD_10",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ JCI Audit: Kết quả cận lâm sàng thiếu dải chỉ số bình thường, vi phạm tiêu chuẩn chất lượng cam kết trong Hợp đồng.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HD_10",
+      "ten_quy_tac": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "dieu_kien": "COUNT_IF(XML4, IS_EMPTY(item.CHI_SO_XN_BT)) > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    }
+  ]
+}

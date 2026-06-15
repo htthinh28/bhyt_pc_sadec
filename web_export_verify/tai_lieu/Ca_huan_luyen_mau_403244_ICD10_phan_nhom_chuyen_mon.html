@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 403244 - ICD10 PHÂN NHÓM CHUYÊN MÔN TỪ BỆNH CHÍNH VÀ BỆNH KÈM</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_403244_ICD10_phan_nhom_chuyen_mon.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 403244 - ICD10 PHÂN NHÓM CHUYÊN MÔN TỪ BỆNH CHÍNH VÀ BỆNH KÈM</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Ca này dùng để huấn luyện AI cách kiểm tra theo nhóm chuyên môn, dựa trên:</p>
+<ul>
+<li><code>MA_BENH_CHINH</code></li>
+<li><code>MA_BENH_KT</code></li>
+<li>đối chiếu cụm rule đang phát sinh trong audit</li>
+</ul>
+<p>Trọng tâm không phải &quot;đếm lỗi&quot;, mà là chọn đúng trục chuyên môn để phân tích và ra quyết định phù hợp.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>XML gốc: <code>tai_nguyen/xml/QD130_94170_202603_202603191032_PC-022603360.xml</code></li>
+<li>Audit: <code>test_xml/audit_403244_20260405_224614.json</code></li>
+<li>Rule nổi bật:<ul>
+<li><code>CLN-PTTT-02</code>, <code>CLN-PTTT-05</code>, <code>CLN-PTTT-13</code></li>
+<li><code>DVKT_0259</code>, <code>DVKT_2587</code> (snapshot audit; một số mã seed cũ đã gỡ — xem <code>Khung_chat_luong_giam_dinh_DVKT_VBHN17.md</code>)</li>
+</ul>
+</li>
+</ul>
+<h2>3. Dữ liệu ICD10 đã xác nhận</h2>
+<ul>
+<li><code>MA_LK</code>: <code>403244</code></li>
+<li><code>MA_BENH_CHINH</code>: <code>K52.3</code></li>
+<li><code>MA_BENH_KT</code>: <code>K63.5</code>, <code>K21</code>, <code>E11</code>, <code>I10</code>, <code>R10.4</code></li>
+</ul>
+<h2>4. Bước phân nhóm chuyên môn từ ICD10</h2>
+<h3>4.1. Trục chuyên môn chính</h3>
+<ul>
+<li><code>K52.3</code> thuộc nhóm tiêu hóa (<code>K*</code>) -&gt; trục chính: tiêu hóa.</li>
+</ul>
+<h3>4.2. Nhóm chuyên môn kèm theo</h3>
+<ul>
+<li><code>K63.5</code>, <code>K21</code>: tiếp tục củng cố nhóm tiêu hóa.</li>
+<li><code>E11</code>: nội tiết/chuyển hóa (đái tháo đường) -&gt; bệnh nền ảnh hưởng theo dõi điều trị.</li>
+<li><code>I10</code>: tim mạch (tăng huyết áp) -&gt; bệnh nền nguy cơ khi làm kỹ thuật có gây mê.</li>
+<li><code>R10.4</code>: triệu chứng đau bụng -&gt; hỗ trợ ngữ cảnh lâm sàng, không phải đích điều trị chính.</li>
+</ul>
+<h3>4.3. Kết luận nhóm chuyên môn của hồ sơ</h3>
+<ul>
+<li>Nhóm chính: tiêu hóa.</li>
+<li>Nhóm nền phối hợp: nội tiết + tim mạch.</li>
+<li>Đây là hồ sơ đa bệnh kèm cần suy luận liên chuyên khoa, không nên xem như một ca đơn chẩn.</li>
+</ul>
+<h2>5. Liên hệ ICD10 với cụm cảnh báo thực tế</h2>
+<p>Audit của ca này chủ yếu cảnh báo ở cụm PTTT/chứng từ thực hiện:</p>
+<ul>
+<li>thiếu mã hóa <code>MA_PTTT_QT</code> ở XML1/XML3</li>
+<li>thiếu tóm tắt PTTT tại XML5</li>
+<li>thiếu/chưa đủ chứng cứ nhân sự hoặc vật tư theo seed</li>
+</ul>
+<p>Điểm học quan trọng:</p>
+<ol>
+<li>ICD10 cho biết ca thuộc trục tiêu hóa và có nền bệnh phối hợp.</li>
+<li>Tuy nhiên cảnh báo hiện hữu không phải &quot;sai ICD10&quot;, mà là &quot;thiếu chứng cứ/mã hóa kỹ thuật&quot;.</li>
+<li>AI phải tách đúng hai tầng:<ul>
+<li>tầng chuyên môn bệnh học (ICD10)</li>
+<li>tầng chứng từ thực hiện kỹ thuật (PTTT, XML3/XML5/XML4)</li>
+</ul>
+</li>
+</ol>
+<h2>6. Kết luận kiểm tra mẫu theo hướng chuyên môn</h2>
+<ol>
+<li>Về chuyên môn bệnh học, hồ sơ phù hợp trục tiêu hóa có bệnh nền đi kèm.</li>
+<li>Rủi ro chính trong audit nằm ở chứng từ và mã hóa kỹ thuật, không phải do ICD10 chính/kèm mâu thuẫn trực tiếp.</li>
+<li>Hướng xử lý ưu tiên:<ul>
+<li>hoàn thiện mã <code>MA_PTTT_QT</code> tại XML1 và XML3</li>
+<li>bổ sung tóm tắt thực hiện tại XML5</li>
+<li>đối chiếu chứng cứ nhân sự/vật tư theo yêu cầu rule DVKT</li>
+</ul>
+</li>
+</ol>
+<h2>7. Bài học rút ra cho AI</h2>
+<h3>7.1. Bài học chuyên môn</h3>
+<ul>
+<li>ICD10 chính + ICD10 kèm dùng để xác định trục phân tích chuyên môn trước.</li>
+</ul>
+<h3>7.2. Bài học kiểm tra</h3>
+<ul>
+<li>Không phải cảnh báo nào cũng do sai chỉ định theo ICD10; nhiều lỗi là lỗi mã hóa và chứng từ.</li>
+</ul>
+<h3>7.3. Bài học kết luận</h3>
+<ul>
+<li>Kết luận phải ghi rõ lớp nguyên nhân chính:<ul>
+<li>sai chuyên môn (nếu có)</li>
+<li>hay thiếu chứng cứ/mã hóa (như ca này)</li>
+</ul>
+</li>
+</ul>
+<h2>8. Prompt tái sử dụng</h2>
+<pre><code>Phân tích hồ sơ 403244 theo hướng ICD10 chuyên môn:
+1) Tách MA_BENH_CHINH và MA_BENH_KT thành các nhóm chuyên môn.
+2) Xác định nhóm chính và nhóm nền phối hợp.
+3) Đối chiếu các cảnh báo audit để kết luận lỗi thuộc lớp chuyên môn hay lớp chứng từ/mã hóa.
+4) Đề xuất thứ tự xử lý ưu tiên cho bệnh viện.
+</code></pre>
+
+  </main>
+</body>
+</html>

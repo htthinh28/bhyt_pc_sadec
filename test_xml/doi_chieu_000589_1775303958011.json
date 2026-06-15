@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022300757_000589.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775303803909.xlsx",
+    "maLK": "000589",
+    "durationMinutes": 2092,
+    "reportRowCount": 7,
+    "summary": {
+      "HOP_LY": 1,
+      "CAN_XAC_MINH_THEM": 6
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "J03;K30",
+    "mucThe": "1"
+  },
+  "rows": [
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "HC_171",
+      "QUY_TAC": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "HC_194",
+      "QUY_TAC": "Sai định dạng số điện thoại",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "THUOC_63",
+      "QUY_TAC": "[Bacillus subtilis] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "THUOC_207",
+      "QUY_TAC": "[Húng chanh, Núc nác, Cineol] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000589",
+      "MA_LUAT": "THUOC_417",
+      "QUY_TAC": "Kiểm tra thuốc cấp dư (Dựa trên y lệnh)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

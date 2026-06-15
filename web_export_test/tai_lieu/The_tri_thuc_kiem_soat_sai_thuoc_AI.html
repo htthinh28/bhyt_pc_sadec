@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KIỂM SOÁT “SAI THUỐC” CHO AI KIỂM TRA BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KIỂM SOÁT “SAI THUỐC” CHO AI KIỂM TRA BHYT</h1>
+<p>Phiên bản tài liệu: 1.5<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Trong kiểm tra BHYT, “sai thuốc” <strong>không phải một khái niệm duy nhất</strong>. AI cần phân tầng để:</p>
+<ul>
+<li>không gom mọi cảnh báo thuốc thành một kết luận “chỉ định sai”;</li>
+<li>phân biệt <strong>rủi ro thanh toán / xuất toán</strong> với <strong>rủi ro an toàn lâm sàng</strong> với <strong>lỗi nhập liệu / nhất quán dữ liệu</strong>;</li>
+<li>biết <strong>dòng dữ liệu XML</strong> nào phải đọc cho từng loại.</li>
+</ul>
+<p>Tài liệu này là <strong>khung nền</strong>; các đợt thẻ theo nhóm (dot1–dot5 thuốc, kháng sinh, ngoại trú…) chi tiết hóa từng nhánh.</p>
+<h2>2. Định nghĩa làm việc (cho AI)</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Ý nghĩa trong CDSS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sai chỉ định thanh toán</strong></td>
+<td>Thuốc hoặc cách kê không phù hợp <strong>phạm vi thanh toán BHYT</strong> theo chẩn đoán / nhóm thuốc / ngoại trú (ví dụ ICD không mở chỉ định).</td>
+</tr>
+<tr>
+<td><strong>Sai liều / tần suất / thời gian</strong></td>
+<td>Vượt ngưỡng rule seed (mg, lần/ngày, số ngày…) hoặc không khớp cấu trúc liều khai báo.</td>
+</tr>
+<tr>
+<td><strong>Sai lệch y lệnh – cấp phát</strong></td>
+<td><code>SO_LUONG</code> (hoặc tương đương) <strong>không khớp</strong> với y lệnh suy ra từ <code>SL_MOI_NGAY</code>, <code>SO_NGAY</code> (rule <code>THUOC_391</code>).</td>
+</tr>
+<tr>
+<td><strong>Sai đường dùng / ngữ cảnh điều trị</strong></td>
+<td>Ví dụ kháng sinh <strong>dự phòng</strong> ghi như <strong>điều trị</strong> dài ngày; tiêm vs uống so với bối cảnh nội/ngoại trú.</td>
+</tr>
+<tr>
+<td><strong>Thiếu thuốt đi kèm gói / PTTT</strong></td>
+<td>Có DVKT/PTTT nhưng <strong>XML2</strong> không có thuốc bắt buộc theo rule (thường gắn XML3 + XML2).</td>
+</tr>
+<tr>
+<td><strong>Lỗi danh mục / giá / hành chính đơn thuốc</strong></td>
+<td><code>DM-THUOC-*</code>, <code>THUOC_436</code> (INN đơn ngoại trú), <code>DM-THUOC-04</code> (giá) — <strong>chưa chắc</strong> là “sai chỉ định lâm sàng”.</td>
+</tr>
+<tr>
+<td><strong>Phụ lục I BYT — hạng BV &amp; cột (8)</strong></td>
+<td><code>MA_CSKCB</code> + Phụ lục I cột <strong>(4)–(7)</strong> và <strong>(8)</strong> (điều kiện, tỷ lệ) — xem <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> §3.4, §4.5–4.6.</td>
+</tr>
+</tbody></table>
+<h2>3. Phân loại kiểm soát (bảng tra nhanh)</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Loại kiểm soát</th>
+<th>Dữ liệu ưu tiên</th>
+<th>Gợi ý rule / nhóm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Chỉ định theo ICD / chẩn đoán</td>
+<td><code>XML1.MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>, <code>CHAN_DOAN_*</code>, <code>XML2.MA_THUOC</code></td>
+<td><code>THUOC_345</code>, <code>THUOC_417</code>, <code>THUOC_342</code>, …</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ngưỡng liều / tần suất</td>
+<td><code>XML2</code> các trường số, <code>LIEU_DUNG</code></td>
+<td><code>THUOC_01</code>…, <code>THUOC_392</code>, …</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sai lệch số lượng cấp vs y lệnh</td>
+<td><code>XML2.SO_LUONG</code>, <code>SL_MOI_NGAY</code>, <code>SO_NGAY</code></td>
+<td><strong><code>THUOC_391</code></strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Kháng sinh / dự phòng / điều trị</td>
+<td><code>XML1</code>, <code>XML2.TEN_THUOC</code>, <code>MA_NHOM</code>, đường dùng</td>
+<td><code>THUOC_84</code>, <code>THUOC_85</code>, ca <code>403521</code>, <code>000339</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ngoại trú – đơn / hạn mức / INN</td>
+<td><code>MA_LOAI_KCB</code>, <code>XML2</code></td>
+<td><code>THUOC_391</code> (khác ngữ cảnh), <code>THUOC_436</code>, <code>THUOC_…</code> ngoại trú</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Đồng bộ tiền thuốc</td>
+<td><code>XML1.T_THUOC</code>, tổng <code>XML2</code></td>
+<td><code>XML_53</code>, <code>CLN-CHI-01</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Thuốc đi kèm DVKT/PTTT</td>
+<td><code>XML3</code>, <code>XML2</code></td>
+<td><code>DVKT_2588</code>, các rule “gói”</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Đơn ngoại trú — trùng mã / liều / thời gian</strong></td>
+<td><code>XML2</code>, <code>XML1</code> (ICD &gt;30 ngày)</td>
+<td><strong><code>CLN-THUOC-01</code>…<code>04</code></strong> (built-in, xem chỉ mục engine)</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Hạng BV &amp; điều kiện/tỷ lệ Phụ lục I</strong></td>
+<td><code>XML1.MA_CSKCB</code>, Phụ lục I <strong>(4)–(8)</strong></td>
+<td>Văn bản <strong>15/VBHN-BYT</strong> — <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code></td>
+</tr>
+</tbody></table>
+<h2>4. Nguyên tắc suy luận (tránh nhầm)</h2>
+<ol>
+<li><strong>Đọc đúng dòng XML2</strong>: Một hồ sơ có nhiều dòng thuốc; cùng mã rule có thể lặp <strong>theo từng index</strong> — cần map cảnh báo với đúng dòng (tên thuốc, mã, số lượng).</li>
+<li><strong>Một hồ sơ, nhiều lớp lỗi</strong>: Ví dụ vừa có cảnh báo <strong>thiếu thuốc tê trong gói mổ</strong> (XML3+XML2) vừa có <strong>sai lệch số lượng cấp Biofazolin</strong> (XML2) — hai vấn đề <strong>độc lập</strong>, không gộp giải thích.</li>
+<li><strong>“KIỂM TRA” ≠ “XUẤT TOÁN”</strong>: Nhiều cảnh báo dùng từ “kiểm tra”; mức nghiệp vụ và hướng xử lý khác ⛔ xuất toán cứng.</li>
+<li><strong>Thiếu dữ liệu</strong>: Nếu <code>SL_MOI_NGAY</code> / <code>SO_NGAY</code> trống hoặc 0, không tự ý khẳng định “gian lận”; ghi rõ <em>cần đối chiếu văn bản y lệnh / hệ thống HIS</em>.</li>
+</ol>
+<h2>5. Prompt mẫu cho huấn luyện AI</h2>
+<p>Sau khi nạp audit JSON hoặc XML, có thể dùng:</p>
+<ul>
+<li><em>“Phân loại các cảnh báo liên quan thuốc trong hồ sơ này theo bảng các loại kiểm soát trong <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code> (gồm cả <code>CLN-THUOC-*</code> nếu có). Mỗi loại liệt kê: mã rule, index XML2 nếu có, và kết luận nghiệp vụ một dòng.”</em></li>
+<li><em>“Với rule THUOC_391, chứng minh bằng số: SO_LUONG vs SL_MOI_NGAY × SO_NGAY cho từng dòng bị cảnh báo.”</em></li>
+<li><em>“Có tồn tại cảnh báo không phải ‘sai thuốc’ thuần túy (ví dụ giá, INN, tổng tiền) không? Tách riêng.”</em></li>
+</ul>
+<h2>6. Ca huấn luyện gắn khung này</h2>
+<table>
+<thead>
+<tr>
+<th>Ca</th>
+<th>Trọng tâm “sai thuốc”</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code></td>
+<td><strong>Đa nhóm thuốc danh mục BV</strong> + bài lô 20 mục</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code></td>
+<td>Một hồ sơ: ho Đông dược + KS tiêm + probiotic + XML_121</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.md</code></td>
+<td>Sai lệch cấp phát vs y lệnh (<code>THUOC_391</code>)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_403538_THUOC_345_MOGASTIC.md</code></td>
+<td>Sai chỉ định thanh toán theo ICD</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code></td>
+<td>Cấp dư + ICD (DOMUVAR)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000339_Mekoferrat_sai_chan_doan.md</code></td>
+<td>Chỉ định / chẩn đoán (Mekoferrat)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000339_Biofazolin_du_phong_phu_khoa.md</code></td>
+<td>Kháng sinh dự phòng vs ngữ cảnh</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_OP26001050_Ciprofloxacin_ngoai_tru.md</code></td>
+<td>Ngoại trú + nhiều lớp (đơn, giá, …)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_OP26000282_I10_tang_huyet_ap.md</code></td>
+<td>Ngoại trú: nhiều thuốc (KS, tim mạch, giảm đau, INN, giá)</td>
+</tr>
+<tr>
+<td><code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code></td>
+<td><strong>DM-THUOC-01…04</strong> + <code>XML_53</code> / <code>CLN-CHI-01</code> (đối chiếu tiền)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code></td>
+<td><code>DM-THUOC-03</code> lặp theo dòng (snapshot audit)</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_OP26000908_THUOC_267_Medlon_Methylprednisolon_ICD.md</code></td>
+<td>Corticoid <code>THUOC_267</code> (Medlon) — cổng ICD</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.md</code></td>
+<td>Magnesi B6 <code>THUOC_374</code> + <code>THUOC_417</code> + <code>THUOC_436</code> chồng lớp</td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.md</code></td>
+<td><code>THUOC_391</code> (Dafodin) trong nội trú — giường / DVKT đi kèm</td>
+</tr>
+<tr>
+<td><code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code></td>
+<td><strong>Bản đồ engine</strong>: built-in vs seed, lọc ngữ cảnh, <code>enrichXML2</code></td>
+</tr>
+<tr>
+<td><code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code></td>
+<td>Nội trú: <code>THUOC_63</code> ×3 + <code>THUOC_417</code> ×5 + XML_121</td>
+</tr>
+</tbody></table>
+<h2>7. Tài liệu nền trong repo</h2>
+<ul>
+<li><code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> — luồng mã kiểm tra thuốc và lọc cảnh báo.  </li>
+<li><code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code> — danh mục nội bộ thuốc và đối chiếu tổng tiền.</li>
+<li><code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> — thanh toán vs an toàn.</li>
+<li><code>The_tri_thuc_mau_nhom_thuoc_dot1.md</code> … <code>dot5</code> — từng đợt chi tiết.</li>
+<li><code>Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code>, <code>The_tri_thuc_phap_ly_quan_ly_su_dung_khang_sinh.md</code> — kháng sinh.</li>
+<li>Seed: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code>.</li>
+<li>Đa dạng nhóm trong danh mục BV: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>.</li>
+</ul>
+<hr>
+<p><em>Tài liệu có thể nâng phiên bản khi bổ sung thêm loại kiểm soát hoặc rule mới; mỗi lần bổ sung nên gắn ít nhất một ca audit minh họa.</em></p>
+
+  </main>
+</body>
+</html>

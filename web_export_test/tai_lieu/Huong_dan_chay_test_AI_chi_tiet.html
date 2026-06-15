@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN CHI TIẾT: CHẠY TEST AI KIỂM TRA BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_chay_test_AI_chi_tiet.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN CHI TIẾT: CHẠY TEST AI KIỂM TRA BHYT</h1>
+<p>Phiên bản tài liệu: 1.1
+Ngày cập nhật: 07/04/2026</p>
+<h2>1. Mục Đích</h2>
+<p>Tài liệu này hướng dẫn cách <strong>chạy test AI một cách có hệ thống</strong> để đánh giá mức độ hiểu:</p>
+<ul>
+<li>Của AI về <strong>5 bước kiểm tra</strong> (Nghị Định 188/2025)</li>
+<li>Của AI về <strong>4 loại lỗi</strong> (hành chính, an toàn, chỉ định, thanh toán)</li>
+<li>Của AI về <strong>thanh toán thuốc</strong> (danh mục, chẩn đoán, số lượng)</li>
+</ul>
+<hr>
+<h2>2. Chuẩn Bị Trước Test</h2>
+<h3><strong>2.1. Tài Liệu Nền Tảng AI Phải Đã Học</strong></h3>
+<p>Trước khi test, AI phải đã <strong>đọc &amp; hiểu</strong> 3 thẻ tri thức này:</p>
+<ol>
+<li>✅ <strong>Luật BHYT 2008-2024</strong> - Lịch sử pháp lý</li>
+<li>✅ <strong>Nghị Định 188/2025</strong> - 5 bước kiểm tra, 4 loại lỗi</li>
+<li>✅ <strong>Thanh Toán Thuốc BHYT</strong> - Danh mục, chẩn đoán, số lượng</li>
+</ol>
+<p><strong>Xác nhận AI đã học:</strong> Hỏi AI: &quot;Nêu 5 bước kiểm tra theo Nghị Định 188/2025&quot; → Nếu trả lời đúng = OK</p>
+<h3><strong>2.2. Dữ Liệu Test</strong></h3>
+<p>Dữ liệu test <strong>lấy từ folder <code>test_xml/</code></strong>:</p>
+<ul>
+<li>Mỗi file là 1 <strong>audit JSON</strong> từ 1 hồ sơ thật</li>
+<li>Audit JSON chứa: chẩn đoán, thuốc, dịch vụ, danh sách lỗi đã phát hiện</li>
+<li><strong>Ví dụ:</strong> <code>audit_000339_20260405_232511.json</code> = Hồ sơ 000339 được audit hôm 05/04</li>
+</ul>
+<p><strong>Danh sách 10 file chuẩn + snapshot:</strong> <code>Danh_sach_10_ca_test_va_du_lieu_chi_tiet.md</code> (v1.1).<br><strong>Prompt CA 7–10 + bảng chấm:</strong> <code>Bat_dau_test_10_ca_chi_tiet.md</code> (v2.0).<br><strong>Kiểm tra repo:</strong> <code>npm run qa:audit-fixtures</code> (script <code>scripts/qa_audit_fixtures.js</code>).</p>
+<hr>
+<h2>3. Chọn 10 CA TEST &amp; PHÂN LOẠI ĐỘ PHỨC TẠP</h2>
+<h3><strong>3.1. Danh Sách 10 Ca (Từ test_xml/)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>MA_LK</th>
+<th>File Audit</th>
+<th>Tổng Lỗi</th>
+<th>Loại Lỗi Chính</th>
+<th>Độ Phức Tạp</th>
+<th>Ghi Chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>403521</td>
+<td>audit_403521_*.json</td>
+<td>0</td>
+<td>(Không)</td>
+<td>⭐ Đơn giản</td>
+<td>Thanh toán đúng, chuẩn</td>
+</tr>
+<tr>
+<td>2</td>
+<td>000339</td>
+<td>audit_000339_*.json</td>
+<td>1</td>
+<td>Thanh toán (Mekoferrat sai chẩn đoán)</td>
+<td>⭐ Đơn giản</td>
+<td>1 lỗi, dễ nhận</td>
+</tr>
+<tr>
+<td>3</td>
+<td>000589</td>
+<td>audit_000589_*.json</td>
+<td>2</td>
+<td>Hành chính + Thanh toán</td>
+<td>⭐⭐ Trung bình</td>
+<td>2 lỗi khác loại</td>
+</tr>
+<tr>
+<td>4</td>
+<td>OP26000908</td>
+<td>audit_OP26000908_*.json</td>
+<td>2</td>
+<td>An toàn + Chỉ định</td>
+<td>⭐⭐ Trung bình</td>
+<td>2 lỗi, liều cao</td>
+</tr>
+<tr>
+<td>5</td>
+<td>403244</td>
+<td>audit_403244_*.json</td>
+<td>4</td>
+<td>Hành chính + An toàn + Chỉ định + Thanh toán</td>
+<td>⭐⭐⭐ Phức tạp</td>
+<td>4 lỗi chồng</td>
+</tr>
+<tr>
+<td>6</td>
+<td>403538</td>
+<td>audit_403538_*.json</td>
+<td>1</td>
+<td>Thanh toán</td>
+<td>⭐ Đơn giản</td>
+<td>1 lỗi thuốc</td>
+</tr>
+<tr>
+<td>7</td>
+<td>000434</td>
+<td>audit_000434_*.json</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>Cần kiểm tra</td>
+</tr>
+<tr>
+<td>8</td>
+<td>403563</td>
+<td>audit_403563_*.json</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>Cần kiểm tra</td>
+</tr>
+<tr>
+<td>9</td>
+<td>000308</td>
+<td>audit_000308_*.json</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>Cần kiểm tra</td>
+</tr>
+<tr>
+<td>10</td>
+<td>(Tìm 1 ca nữa)</td>
+<td>-</td>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+<td>Tìm audit khác</td>
+</tr>
+</tbody></table>
+<h3><strong>3.2. Chọn 3 Ca Để Test (Đơn → Trung → Phức)</strong></h3>
+<p>Dựa trên phân loại trên, chọn:</p>
+<table>
+<thead>
+<tr>
+<th>Cấp Độ</th>
+<th>Ma_LK</th>
+<th>Lý Do</th>
+<th>Mục Tiêu Test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cấp 1: Đơn Giản</strong></td>
+<td>403521</td>
+<td>Không có lỗi</td>
+<td>AI hiểu khi nào <strong>THANH TOÁN ĐÚNG</strong></td>
+</tr>
+<tr>
+<td><strong>Cấp 2: Trung Bình</strong></td>
+<td>000589</td>
+<td>2 lỗi (hành chính + thanh toán)</td>
+<td>AI phát hiện <strong>2 loại lỗi khác nhau</strong></td>
+</tr>
+<tr>
+<td><strong>Cấp 3: Phức Tạp</strong></td>
+<td>403244</td>
+<td>4 lỗi chồng (hành chính + an toàn + chỉ định + thanh toán)</td>
+<td>AI phát hiện <strong>4 loại lỗi, tính tiền đúng</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. LẤY DỮ LIỆU CHI TIẾT TỪ AUDIT JSON</h2>
+<h3><strong>4.1. Cách Đọc Audit JSON</strong></h3>
+<p>Mỗi file audit JSON có cấu trúc:</p>
+<pre><code class="language-json">{
+  &quot;meta&quot;: {
+    &quot;ma_lk&quot;: &quot;000339&quot;,
+    &quot;total_warnings&quot;: 14,
+    &quot;by_severity&quot;: {
+      &quot;Critical&quot;: 1,
+      &quot;Error&quot;: 1,
+      &quot;Warning&quot;: 12
+    }
+  },
+  &quot;warnings&quot;: [
+    {
+      &quot;id&quot;: &quot;THUOC_342&quot;,
+      &quot;truong_loi&quot;: &quot;MA_THUOC&quot;,
+      &quot;canh_bao&quot;: &quot;⛔ [XUẤT TOÁN]: Thuốc Prodertonic...&quot;,
+      &quot;muc_do&quot;: &quot;Warning&quot;,
+      &quot;ma_luat&quot;: &quot;THUOC_342&quot;,
+      &quot;ten_quy_tac&quot;: &quot;[Sắt fumarat + Acid Folic] Kiểm tra Chỉ định ICD-10&quot;
+    }
+  ]
+}
+</code></pre>
+<p><strong>Để hiểu ca hồ sơ, cần lấy:</strong></p>
+<ul>
+<li><code>ma_lk</code> - Mã bệnh nhân</li>
+<li><code>total_warnings</code> - Tổng số lỗi</li>
+<li><code>muc_do</code> (Critical/Error/Warning) - Mức độ nghiêm trọng</li>
+<li><code>canh_bao</code> - Nội dung lỗi</li>
+<li><code>ma_luat</code> - Mã rule gây lỗi</li>
+</ul>
+<h3><strong>4.2. Ví Dụ: Lấy Dữ Liệu CA 000339</strong></h3>
+<p><strong>File:</strong> <code>test_xml/audit_000339_20260405_232511.json</code></p>
+<p><strong>Dữ liệu chính:</strong></p>
+<ul>
+<li>MA_LK = 000339</li>
+<li>Total_warnings = 14</li>
+<li><strong>Lỗi chính:</strong><ul>
+<li>THUOC_342: &quot;Mekoferrat-B9 không được thanh toán cho N84.0&quot;</li>
+<li>(Các lỗi khác: hành chính, ngày vào/ra, v.v.)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Để chuẩn bị test, tôi cần:</strong></p>
+<ol>
+<li>Lấy XML gốc từ <code>tai_nguyen/op/PC022601324_000339.xml</code></li>
+<li>Kéo ra: MA_BENH_CHINH = N84.0, tên thuốc = Mekoferrat, mã = 40.429</li>
+<li>Soạn prompt test dựa trên dữ liệu này</li>
+</ol>
+<hr>
+<h2>5. TEMPLATE PROMPT TEST AI</h2>
+<h3><strong>5.1. Prompt Chuẩn (Dùng Để Test Mỗi Ca)</strong></h3>
+<pre><code class="language-markdown">## TEST AI KIỂM TRA BHYT
+
+### Hồ Sơ: MA_LK = [000339]
+
+**Thông tin hồ sơ:**
+- Chẩn đoán chính: [N84.0 - Polyp buồng tử cung]
+- Loại KCB: [Nội trú, 3 ngày]
+- Ngày vào: [2026-03-15]
+- Ngày ra: [2026-03-18]
+
+**Danh sách dịch vụ/thuốc:**
+1. Biofazolin (40.166) - 2 viên, liều 1g/viên, dự phòng
+2. Mekoferrat-B9 (40.429) - 1 lọ, ngày 1 lần, 3 ngày
+3. [Dịch vụ khác...]
+
+---
+
+### NHIỆM VỤ:
+
+Áp dụng **5 bước kiểm tra** từ Nghị Định 188/2025:
+
+**Bước 1:** Kiểm tra dữ liệu hành chính
+- Hồ sơ có đủ trường bắt buộc không?
+- Dữ liệu có hợp lệ không?
+
+**Bước 2:** Kiểm tra chẩn đoán
+- Chẩn đoán có rõ ràng không?
+- Có mâu thuẫn không?
+
+**Bước 3:** Kiểm tra an toàn kê đơn
+- Liều/tần suất có an toàn không?
+- Có chống chỉ định không?
+
+**Bước 4:** Kiểm tra thanh toán
+- Dịch vụ/thuốc có trong danh mục BHYT không?
+- Chẩn đoán phù hợp với danh mục thanh toán không?
+- Số lượng có quá không?
+
+**Bước 5:** Kết luận
+- Hồ sơ: THANH TOÁN hay XUẤT TOÁN?
+- Nếu XUẤT TOÁN: Tổng tiền và chi tiết từng lỗi
+
+---
+
+### ĐẦU RA MONG MUỐN:
+
+**Danh sách lỗi:**
+- Lỗi 1: [Loại lỗi] [Mô tả] [Tiền xuất toán]
+- Lỗi 2: ...
+- Lỗi 3: ...
+
+**Căn cứ pháp lý:**
+- Lỗi 1: Theo [Luật/QĐ/TT], ...
+- ...
+
+**Kết luận:**
+- XUẤT TOÁN TOÀN BỘ / XUẤT TOÁN BỘ / THANH TOÁN ĐÚNG
+- Tổng tiền: [số tiền]
+
+---
+
+### GHI CHÚ:
+- Nêu rõ từng bước kiểm tra
+- Giải thích tại sao là lỗi
+- Nêu căn cứ pháp lý cho mỗi lỗi
+- Tính tiền xuất toán chi tiết
+</code></pre>
+<h3><strong>5.2. Customize Prompt Cho Từng Ca</strong></h3>
+<p>Rồi <strong>tuỳ từng ca</strong>, điền vào:</p>
+<ul>
+<li><code>[MA_LK]</code> → 000339, 000589, 403244</li>
+<li><code>[Danh sách dịch vụ/thuốc]</code> → Kéo từ audit JSON</li>
+<li><code>[Chẩn đoán chính]</code> → Kéo từ XML gốc</li>
+</ul>
+<hr>
+<h2>6. BẢNG ĐÁNH GIÁ KẾT QUẢ TEST (CHECKLIST)</h2>
+<h3><strong>6.1. Tiêu Chí Đánh Giá Từng Ca</strong></h3>
+<p>Sau khi AI trả lời, <strong>chấm điểm</strong> theo bảng này:</p>
+<pre><code>CA TEST: [000339]
+ĐIỂM KIỂM TRA | CÓ | KHÔNG | GHI CHÚ
+---|---|---|---
+1. Tuân thủ 5 bước? | ☐ | ☐ | AI có nêu rõ từng bước không?
+2. Phát hiện được lỗi? | ☐ | ☐ | AI có phát hiện THUOC_342 (Mekoferrat sai chẩn đoán)?
+3. Phân loại lỗi đúng? | ☐ | ☐ | AI gọi là &quot;Thanh toán&quot; hay sai loại?
+4. Căn cứ pháp lý rõ ràng? | ☐ | ☐ | AI có nêu &quot;Theo TT 15/2015...&quot;?
+5. Tính tiền đúng? | ☐ | ☐ | Tiền xuất toán đúng không?
+6. Giải thích dễ hiểu? | ☐ | ☐ | Người dùng có thể hiểu không?
+ĐIỂM SỐ | _/6 | |
+</code></pre>
+<h3><strong>6.2. Tính Điểm Tổng Hợp</strong></h3>
+<p><strong>Công thức:</strong></p>
+<pre><code>Điểm AI = (Số tiêu chí ✅) / 6 * 100 %
+
+- ≥ 90% = Excellent (AI rất tốt)
+- 70-89% = Good (AI tốt, cần cải thiện chút ít)
+- 50-69% = Fair (AI trung bình, cần học thêm)
+- &lt; 50% = Poor (AI yếu, cần cập nhật tài liệu)
+</code></pre>
+<h3><strong>6.3. Ví Dụ Chấm Điểm CA 000339</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Tiêu Chí</th>
+<th>Kỳ Vọng</th>
+<th>AI Làm được</th>
+<th>Chấm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5 bước</td>
+<td>Nêu rõ từng bước</td>
+<td>AI chỉ nêu &quot;lỗi thanh toán&quot; không nêu bước</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Phát hiện lỗi</td>
+<td>Phát hiện THUOC_342</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Phân loại</td>
+<td>Thanh toán</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Căn cứ</td>
+<td>TT 15/2015</td>
+<td>AI chỉ nói &quot;không được thanh toán&quot;</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Tính tiền</td>
+<td>45.000đ</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Giải thích</td>
+<td>Dễ hiểu</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>TỔNG</strong></td>
+<td>-</td>
+<td>4/6 = 67%</td>
+<td>Fair</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. QUY TRÌNH CHẠY TEST TỪNG CA</h2>
+<h3><strong>Quy trình tuần tự:</strong></h3>
+<pre><code>CA TEST 1 (Cấp 1: Đơn giản - 403521)
+    ↓
+1. Chuẩn bị dữ liệu (lấy audit JSON)
+2. Viết prompt test (điền MA_LK, dữ liệu)
+3. Cho AI làm (paste prompt)
+4. AI trả lời (nên 2-3 phút)
+5. Chấm điểm (dùng checklist)
+    ↓
+CA TEST 2 (Cấp 2: Trung bình - 000589)
+    ↓
+[Lặp lại 1-5]
+    ↓
+CA TEST 3 (Cấp 3: Phức tạp - 403244)
+    ↓
+[Lặp lại 1-5]
+    ↓
+TỔNG HỢP ĐIỂM
+    ↓
+QUYẾT ĐỊNH: Cập nhật tài liệu?
+</code></pre>
+<hr>
+<h2>8. CÁC TÌNH HUỐNG AI CÓ THỂ GẶP (&amp; CÁC CẦU HỎI TIẾP)</h2>
+<h3><strong>Nếu AI quên bước nào?</strong></h3>
+<p><strong>Câu hỏi tiếp:</strong> &quot;Em quên kiểm tra bước [X]. Hãy kiểm tra lại dữ liệu ở bước đó.&quot;</p>
+<p><strong>Ví dụ:</strong> &quot;Em quên bước 1 (kiểm tra dữ liệu hành chính). Hãy kiểm tra: Ngày vào có hợp lệ không? Có đủ trường NGAY_RA không?&quot;</p>
+<h3><strong>Nếu AI phân loại lỗi sai?</strong></h3>
+<p><strong>Câu hỏi tiếp:</strong> &quot;Lỗi này thuộc loại nào? Hành chính / An toàn / Chỉ định / Thanh toán?&quot;</p>
+<p><strong>Ví dụ nếu AI nhầm:</strong></p>
+<ul>
+<li>AI nói: &quot;Mekoferrat liều cao → An toàn&quot;</li>
+<li>Đúng: &quot;Mekoferrat không được thanh toán cho N84.0 → Thanh toán&quot;</li>
+</ul>
+<h3><strong>Nếu AI không nêu căn cứ pháp lý?</strong></h3>
+<p><strong>Câu hỏi tiếp:</strong> &quot;Lỗi này dựa trên căn cứ pháp lý nào? Luật / QĐ / Thông Tư nào?&quot;</p>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>AI nên nói: &quot;Theo TT 15/2015/TT-BYT, Mekoferrat thanh toán cho D50 hoặc O25, không bao gồm N84.0&quot;</li>
+<li>Không phải chỉ: &quot;Không được thanh toán&quot;</li>
+</ul>
+<h3><strong>Nếu AI tính tiền sai?</strong></h3>
+<p><strong>Câu hỏi tiếp:</strong> &quot;Tính lại tiền xuất toán. Giá thuốc là bao nhiêu? Số lượng bao nhiêu?&quot;</p>
+<hr>
+<h2>9. TEMPLATE BÁO CÁO KẾT QUẢ TEST</h2>
+<p>Sau khi test xong 3 ca, viết báo cáo:</p>
+<pre><code class="language-markdown"># BÁO CÁO KẾT QUẢ TEST AI KIỂM TRA BHYT
+
+**Ngày test:** [06/04/2026]
+**Người test:** [Admin]
+**Số ca test:** 3
+
+---
+
+## 1. TÓTA CÁ TEST
+
+| STT | MA_LK | Cấp Độ | Lỗi Kỳ Vọng | Lỗi AI Phát Hiện | Điểm |
+|-----|-------|--------|---|---|---|
+| 1 | 403521 | Đơn giản | 0 lỗi | 0 lỗi | 6/6 (100%) |
+| 2 | 000589 | Trung bình | 2 lỗi | 1 lỗi | 3/6 (50%) |
+| 3 | 403244 | Phức tạp | 4 lỗi | 3 lỗi | 4/6 (67%) |
+
+---
+
+## 2. CHI TIẾT TỪNG CA
+
+### **CA 1: 403521 (Đơn Giản)**
+
+**Kỳ vọng:** Không lỗi → THANH TOÁN ĐÚNG
+
+**AI làm:**
+- ✅ Tuân thủ 5 bước
+- ✅ Kết luận THANH TOÁN ĐÚNG
+- ✅ Giải thích rõ
+
+**Điểm:** 6/6 (100%)
+
+**Ghi chú:** AI xử lý tốt trường hợp &quot;không lỗi&quot;
+
+---
+
+### **CA 2: 000589 (Trung Bình)**
+
+**Kỳ vọng:** 2 lỗi → XUẤT TOÁN
+
+**AI làm:**
+- ✅ Phát hiện lỗi 1 (...)
+- ❌ Bỏ sót lỗi 2 (...)
+- ✅ Tính tiền một phần
+- ⚠️ Giải thích không rõ bước kiểm tra
+
+**Điểm:** 3/6 (50%)
+
+**Ghi chú:** AI cần học thêm về [Loại lỗi X]
+
+---
+
+### **CA 3: 403244 (Phức Tạp)**
+
+**Kỳ vọng:** 4 lỗi chồng → XUẤT TOÁN TOÀN BỘ
+
+**AI làm:**
+- ✅ Phát hiện 3 lỗi (ABCD)
+- ❌ Bỏ sót 1 lỗi (D)
+- ✓ Tính tiền gần đúng
+- ✅ Giải thích rõ hầu hết
+
+**Điểm:** 4/6 (67%)
+
+**Ghi chú:** AI yếu ở việc phát hiện lỗi chồng lấp
+
+---
+
+## 3. KẾT LUẬN TỔNG HỢP
+
+**Điểm trung bình:** (100 + 50 + 67) / 3 = **72%** (Good)
+
+**Mức độ hiểu:**
+- ✅ Tốt: Tuân thủ 5 bước, tính tiền, giải thích
+- ⚠️ Cần cải: Phát hiện lỗi chồng, phân loại lỗi
+
+**Quyết định:**
+- [ ] Cập nhật tài liệu (nêu chi tiết lỗi chồng)
+- [x] Tiếp tục test trên 10 ca khác
+- [ ] Tạo thẻ tri thức bổ sung
+
+---
+
+## 4. KHUYẾN NGHỊ TIẾP THEO
+
+1. **Tạo thẻ học về lỗi chồng:** AI cần hiểu khi nào có 2+ lỗi cùng lúc
+2. **Tạo ca ví dụ lỗi chồng:** Để AI luyện tập
+3. **Test ca đơn giản thêm:** Để tăng confidence AI
+</code></pre>
+<hr>
+<h2>10. TIMELINE CHẠY TEST</h2>
+<h3><strong>Lịch Trình Cụ Thể</strong></h3>
+<p><strong>Hôm Nay (06/04) - Tối:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 19h: Chuẩn bị dữ liệu 3 ca</li>
+<li><input disabled="" type="checkbox"> 19h30: Viết 3 prompt test</li>
+<li><input disabled="" type="checkbox"> 20h: Chạy CA 1 (403521 - Đơn giản) - 30 phút</li>
+<li><input disabled="" type="checkbox"> 20h30: Chạy CA 2 (000589 - Trung bình) - 30 phút</li>
+<li><input disabled="" type="checkbox"> 21h: Chạy CA 3 (403244 - Phức tạp) - 30 phút</li>
+<li><input disabled="" type="checkbox"> 21h30: Chấm điểm 3 ca</li>
+<li><input disabled="" type="checkbox"> 22h: Viết báo cáo tóm tắt</li>
+</ul>
+<p><strong>Kết quả dự kiến:</strong></p>
+<ul>
+<li>Có kết luận về mức độ hiểu AI</li>
+<li>Biết cần cập nhật thẻ tri thức nào</li>
+<li>Quyết định bước tiếp theo</li>
+</ul>
+<hr>
+<h2>11. GHI CHÚ QUAN TRỌNG</h2>
+<h3><strong>Trước khi test:</strong></h3>
+<ul>
+<li>✅ Xác nhận AI đã <strong>học 3 thẻ tri thức</strong> (Luật, Nghị Định, Thanh toán)</li>
+<li>✅ Xác nhận <strong>prompt test rõ ràng</strong> (không nhập nhằng)</li>
+<li>✅ Chuẩn bị <strong>bảng chấm điểm</strong> sẵn</li>
+</ul>
+<h3><strong>Khi test:</strong></h3>
+<ul>
+<li>🎯 Hãy <strong>tinh tế với AI</strong> (nếu AI chưa hiểu, hỏi lại không chỉ trích)</li>
+<li>🎯 <strong>Ghi lại từng câu trả lời</strong> của AI (để phân tích sau)</li>
+<li>🎯 <strong>Không bảo AI đáp án</strong> (để đánh giá thực)</li>
+</ul>
+<h3><strong>Sau test:</strong></h3>
+<ul>
+<li>📊 <strong>Phân tích kết quả</strong> (AI yếu chỗ nào?)</li>
+<li>📊 <strong>Có cập nhật tài liệu</strong> hay <strong>test thêm ca?</strong></li>
+<li>📊 <strong>Lập báo cáo chi tiết</strong> để lưu trữ</li>
+</ul>
+<hr>
+<h2>12. FAQ (Câu Hỏi Thường Gặp)</h2>
+<h3><strong>Q: Nếu AI bỏ sót 1 lỗi, điểm có phải 0 không?</strong></h3>
+<p><strong>A:</strong> Không. Dùng checklist: AI phát hiện được 5/6 tiêu chí = 83% (Good). Lỗi bỏ sót là 1 trong 6 tiêu chí thôi.</p>
+<h3><strong>Q: Có cần test trên nhiều hơn 3 ca không?</strong></h3>
+<p><strong>A:</strong> Nếu điểm trung bình ≥ 70%, có thể dừng. Nếu &lt; 70%, test thêm 3 ca nữa để xác nhận.</p>
+<h3><strong>Q: AI sai loại lỗi nhưng tính tiền đúng, tính sao?</strong></h3>
+<p><strong>A:</strong> Mức độ: 4/6 (67%). Vì &quot;phân loại lỗi đúng&quot; là 1 tiêu chí riêng.</p>
+<h3><strong>Q: Nếu AI hiểu tốt (≥ 80%), có cần cập nhật tài liệu không?</strong></h3>
+<p><strong>A:</strong> Không. Chỉ cần test thêm 10 ca khác để xác nhận stability.</p>
+<hr>
+<h2>Kết Luận</h2>
+<p>Tài liệu này cung cấp <strong>quy trình systemic</strong> để test AI:</p>
+<ul>
+<li><strong>Không chủ quan</strong> (dùng checklist, điểm số)</li>
+<li><strong>Có thể lặp lại</strong> (template prompt, bảng đánh giá)</li>
+<li><strong>Có hết cứ liệu</strong> (ghi lại từng test)</li>
+<li><strong>Dễ phân tích</strong> (báo cáo chi tiết)</li>
+</ul>
+<p><strong>Anh sẵn sàng chạy test tối chưa?</strong> 🎯</p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 4 - KHÁNG SINH</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_thuoc_dot4_khang_sinh.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 4 - KHÁNG SINH</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Đợt 4 tập trung vào nhóm kháng sinh và các quy tắc quản trị sử dụng kháng sinh trong repo, nhằm dạy AI các lớp suy luận sau:</p>
+<ul>
+<li>chỉ định thanh toán theo chẩn đoán</li>
+<li>chống chỉ định lâm sàng</li>
+<li>liều tối đa theo cân nặng hoặc 24 giờ</li>
+<li>nhất quán y lệnh</li>
+<li>quản trị kháng sinh hạn chế</li>
+<li>quản trị dự phòng phẫu thuật</li>
+</ul>
+<h2>2. Nguồn tri thức</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li>các seed <code>THUOC_42</code> đến <code>THUOC_45</code></li>
+<li><code>THUOC_274</code> đến <code>THUOC_276</code></li>
+<li><code>THUOC_431</code> đến <code>THUOC_435</code></li>
+<li>Bộ nguồn nghiệp vụ và quản lý sử dụng kháng sinh ưu tiên dùng khi giải thích hoặc phản biện rule:<ul>
+<li><code>Quyết định 5631/QĐ-BYT năm 2020</code> về tài liệu hướng dẫn thực hiện quản lý sử dụng kháng sinh trong bệnh viện</li>
+<li><code>Sổ tay hướng dẫn thực hiện chương trình quản lý sử dụng kháng sinh dành cho bệnh viện tuyến huyện</code> ban hành kèm <code>Quyết định số 2115/QĐ-BYT ngày 11/05/2023</code></li>
+<li><code>Hướng dẫn sử dụng kháng sinh</code> bản cập nhật cuối khi in <code>09/01/2015</code></li>
+</ul>
+</li>
+<li>Tài liệu nền đọc kèm:<ul>
+<li><code>tai_lieu/Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code></li>
+<li><code>tai_lieu/The_tri_thuc_phap_ly_quan_ly_su_dung_khang_sinh.md</code></li>
+<li><code>tai_lieu/Ra_soat_ca_khang_sinh_tu_XML_thuc_20260405.md</code></li>
+<li><code>tai_lieu/Ra_soat_khoang_trong_rule_khang_sinh_20260405.md</code></li>
+</ul>
+</li>
+</ul>
+<p>Lưu ý nguồn:</p>
+<ul>
+<li>Không dùng <code>Quyết định 772/QĐ-BYT năm 2016</code> làm nguồn ưu tiên cho bộ huấn luyện hiện tại.</li>
+<li>Khi có khác biệt giữa seed rule của repo và tài liệu nghiệp vụ, AI phải nêu rõ đây là chênh lệch giữa <code>logic hệ thống đang chạy</code> và <code>nguồn hướng dẫn chuyên môn</code>.</li>
+</ul>
+<h2>3. Thẻ tri thức mẫu đợt 4</h2>
+<hr>
+<h2>Thẻ 18. Amoxicillin/Clavulanate liều tối đa nhi</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Amoxicillin + acid clavulanic</li>
+<li>Nguồn: <code>THUOC_42</code></li>
+<li>Kiểu suy luận: an toàn liều</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Với trẻ em có cân nặng được khai báo, tổng liều Amoxicillin quy đổi không được vượt <code>90mg/kg/ngày</code>.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện: <code>XML2.MA_THUOC == &#39;40.155&#39;</code></li>
+<li>XML liên quan: <code>XML1</code>, <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.CAN_NANG</code></li>
+<li><code>TONG_LIEU_24H</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu <code>(TONG_LIEU_24H / CAN_NANG) &gt; 90</code> thì phải cảnh báo quá liều.</li>
+<li>Đây là cảnh báo an toàn điều trị, không chỉ là câu chuyện thanh toán.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Các kháng sinh nhi khoa phải luôn gắn với cân nặng, không được đọc số lượng đơn thuần.</li>
+</ul>
+<hr>
+<h2>Thẻ 19. Amoxicillin và căn cứ thanh toán/chống chỉ định</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Amoxicillin 500mg</li>
+<li>Nguồn: <code>THUOC_43</code>, <code>THUOC_44</code>, <code>THUOC_45</code></li>
+<li>Kiểu suy luận: chống chỉ định, chỉ định, nhất quán dữ liệu</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Amoxicillin không phù hợp nếu có tiền sử dị ứng Penicillin.</li>
+<li>Về thanh toán, seed hiện hành chỉ chấp nhận một số nhóm nhiễm khuẩn hô hấp và viêm tủy răng.</li>
+<li>Hệ thống còn kiểm tra số lượng kê có khớp y lệnh chi tiết hay không.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện: <code>XML2.MA_THUOC == &#39;40.154&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Có <code>Z88.0</code> thì chống chỉ định theo seed.</li>
+<li>Không có <code>J01</code>, <code>J03</code>, <code>J06</code>, <code>J15</code>, <code>J20</code>, <code>K04</code> hoặc mô tả tương đương thì có nguy cơ xuất toán.</li>
+<li>Nếu <code>SO_LUONG != CALC_SL_MOI_NGAY * SO_NGAY</code> thì có tín hiệu lỗi dữ liệu/y lệnh.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Một kháng sinh có thể đồng thời dính 3 lớp vấn đề: an toàn, thanh toán và chất lượng dữ liệu.</li>
+</ul>
+<hr>
+<h2>Thẻ 20. Metronidazol</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Metronidazol</li>
+<li>Nguồn: <code>THUOC_274</code>, <code>THUOC_275</code>, <code>THUOC_276</code></li>
+<li>Kiểu suy luận: liều, chống chỉ định, chỉ định ICD-10</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Metronidazol có trần liều 24 giờ rõ ràng và chỉ phù hợp cho một số chỉ định đường tiêu hóa/nhiễm amíp theo seed hiện hành.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện: <code>XML2.MA_THUOC == &#39;40.212&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>TONG_LIEU_24H</code></li>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu <code>TONG_LIEU_24H &gt; 4000</code> thì coi là nguy cơ rất cao.</li>
+<li>Nếu có <code>K72</code>, <code>N18.4</code>, <code>N18.5</code> thì tăng nguy cơ chống chỉ định theo seed.</li>
+<li>Nếu không có <code>A06</code>, <code>A04</code>, <code>K25</code>, <code>K26</code> hoặc mô tả tương đương thì có nguy cơ xuất toán.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Thuốc tiêu hóa có thể vừa là kháng sinh vừa bị kiểm tra chặt về căn cứ thanh toán, không được giản lược thành “thuốc hỗ trợ”.</li>
+</ul>
+<hr>
+<h2>Thẻ 21. Kháng sinh cùng nhóm Cephalosporin thế hệ 3</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: trùng lặp kháng sinh cùng nhóm</li>
+<li>Nguồn: <code>THUOC_431</code></li>
+<li>Kiểu suy luận: quản trị kháng sinh và an toàn kê đơn</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Nếu hồ sơ có hơn 1 kháng sinh thuộc nhóm <code>Cephalosporin_3</code>, hệ thống coi đó là tín hiệu kê trùng nhóm, có nguy cơ không tối ưu chi phí và tăng rủi ro điều trị.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện: <code>COUNT_IF(XML2, NHOM_KS == &#39;Cephalosporin_3&#39;) &gt; 1</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li>toàn bộ các dòng kháng sinh trong <code>XML2</code></li>
+<li>thuộc tính nhóm kháng sinh <code>NHOM_KS</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là rule quản trị ở mức toàn hồ sơ, không đánh trên một dòng thuốc riêng lẻ.</li>
+<li>Khi bị đánh rule, cần gom toàn bộ kháng sinh cùng nhóm rồi mới kết luận.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Các rule dạng đếm toàn hồ sơ rất dễ bị bỏ sót nếu AI chỉ đọc từng dòng một.</li>
+</ul>
+<hr>
+<h2>Thẻ 22. Kháng sinh dự phòng phẫu thuật quá 24 giờ</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: kháng sinh dự phòng phẫu thuật</li>
+<li>Nguồn: <code>THUOC_432</code></li>
+<li>Kiểu suy luận: thanh toán và quản trị sử dụng kháng sinh</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Kháng sinh dự phòng phẫu thuật thường chỉ được chấp nhận trong vòng <code>24 giờ</code>. Kéo dài hơn mà không có bằng chứng nhiễm khuẩn sẽ có nguy cơ xuất toán.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện: <code>XML2.MA_NHOM == &#39;KS_DU_PHONG&#39; AND XML2.SO_NGAY &gt; 1 AND XML1.MA_LOAI_KCB == &#39;3&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.MA_NHOM</code></li>
+<li><code>XML2.SO_NGAY</code></li>
+<li><code>XML1.MA_LOAI_KCB</code></li>
+<li>bằng chứng nhiễm khuẩn đi kèm nếu có</li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Không kết luận chỉ từ tên thuốc; phải xác định đúng đây là kháng sinh dự phòng.</li>
+<li>Nếu thời gian kéo dài hơn 1 ngày, AI phải yêu cầu xem thêm căn cứ nhiễm khuẩn trước khi phản biện rule.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Đây là rule rất phù hợp để dạy AI phân biệt giữa “dự phòng” và “điều trị”.</li>
+</ul>
+<hr>
+<h2>Thẻ 23. Kháng sinh hạn chế và giám sát xét nghiệm</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Linezolid, nhóm G3, Vancomycin</li>
+<li>Nguồn: <code>THUOC_433</code>, <code>THUOC_434</code>, <code>THUOC_435</code></li>
+<li>Kiểu suy luận: stewardship và theo dõi an toàn</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li><code>Linezolid</code> cần theo dõi công thức máu định kỳ.</li>
+<li>Kháng sinh <code>G3</code> nên có căn cứ kháng sinh đồ hoặc hội chẩn quản lý kháng sinh.</li>
+<li><code>Vancomycin</code> dùng kéo dài nên có TDM để giảm độc tính thận.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li><code>THUOC_433</code>: <code>XML2.MA_HOAT_CHAT == &#39;40.228&#39;</code> và thiếu <code>XN_CONG_THUC_MAU</code></li>
+<li><code>THUOC_434</code>: thuốc thuộc <code>NHOM_DIEU_KIEN == &#39;G3&#39;</code> và thiếu <code>KS_DO</code></li>
+<li><code>THUOC_435</code>: <code>XML2.MA_HOAT_CHAT == &#39;40.189&#39;</code> và <code>SO_NGAY &gt; 3</code> nhưng thiếu <code>XN_DINH_LUONG_VANCO</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.MA_HOAT_CHAT</code></li>
+<li><code>XML2.SO_NGAY</code></li>
+<li><code>XML3.MA_DICH_VU</code></li>
+<li>phân nhóm điều kiện kháng sinh <code>G3</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là nhóm rule stewardship thiên về hướng dẫn và an toàn, không nên diễn đạt như lỗi kế toán đơn thuần.</li>
+<li>AI phải nêu rõ thiếu bằng chứng xét nghiệm hay thiếu quy trình hội chẩn, không chỉ nói “sai”.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Kháng sinh hạn chế là lớp tri thức rất quan trọng vì nối giữa nghiệp vụ BHYT và quản trị chất lượng điều trị.</li>
+</ul>
+<hr>
+<h2>Thẻ 24. Cefazolin dự phòng phẫu thuật và bối cảnh sản khoa</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Cefazolin / Biofazolin</li>
+<li>Nguồn: <code>THUOC_84</code>, <code>THUOC_85</code>, <code>THUOC_393</code></li>
+<li>Kiểu suy luận: chống chỉ định, chỉ định dự phòng, tổng liều 24 giờ</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Cefazolin là ví dụ điển hình cho thuốc cần đọc cùng lúc cả chẩn đoán và bối cảnh phẫu thuật.</li>
+<li>Nếu chỉ nhìn ICD-10 tại XML1, AI có thể bỏ sót bối cảnh dự phòng quanh một cuộc mổ hoặc thủ thuật.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện: <code>XML2.MA_THUOC == &#39;40.166&#39;</code></li>
+<li>Rule liên quan:<ul>
+<li><code>THUOC_84</code>: chống chỉ định dị ứng Cephalosporin</li>
+<li><code>THUOC_85</code>: kiểm tra chỉ định ICD-10 hoặc dự phòng phẫu thuật</li>
+<li><code>THUOC_393</code>: tổng liều Cefazolin không vượt <code>6g/ngày</code></li>
+</ul>
+</li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>XML1.MA_PTTT_QT</code></li>
+<li>các dòng PTTT ở <code>XML3</code></li>
+<li><code>XML2.SO_LUONG</code></li>
+<li>hàm lượng g/đơn vị của Cefazolin</li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Có <code>Z88.1</code> thì chống chỉ định theo seed.</li>
+<li>Nếu không có <code>J15</code>, <code>L01</code>, <code>M86</code>, <code>Z29.2</code> hoặc mô tả <code>dự phòng nhiễm trùng</code>, phải xem thêm bối cảnh mổ/thủ thuật trước khi kết luận về chỉ định.</li>
+<li>Nếu <code>SO_LUONG * 2 &gt; 6</code> thì vượt tổng liều ngày theo seed hiện hành.</li>
+</ul>
+<h3>6. Bài học cho AI</h3>
+<ul>
+<li>Đây là nhóm thuốc mà false negative hoặc tranh chấp nghiệp vụ rất dễ xuất hiện nếu hệ thống chỉ bám ICD-10 mà không hiểu bối cảnh dự phòng quanh PTTT.</li>
+<li>Khi gặp Cefazolin trong hồ sơ phẫu thuật/sản khoa, AI phải chủ động kiểm tra thêm <code>MA_PTTT_QT</code> và XML3 thay vì đọc riêng XML1.</li>
+</ul>
+<h2>4. Kết luận huấn luyện đợt 4</h2>
+<p>Khi học nhóm kháng sinh, AI nên đi theo thứ tự:</p>
+<ol>
+<li>Nhận diện loại kháng sinh và bối cảnh dùng.</li>
+<li>Kiểm tra liều và chống chỉ định.</li>
+<li>Kiểm tra chỉ định thanh toán theo ICD-10.</li>
+<li>Kiểm tra quản trị sử dụng kháng sinh ở mức toàn hồ sơ.</li>
+<li>Cuối cùng mới đánh giá các ngoại lệ cần bác sĩ hoặc dữ liệu bổ sung xác minh.</li>
+</ol>
+<p>Khi cần viện dẫn căn cứ chuyên môn cho kháng sinh, thứ tự ưu tiên nên là:</p>
+<ol>
+<li>Bộ hướng dẫn quản lý sử dụng kháng sinh đang còn dùng làm nguồn huấn luyện.</li>
+<li>Hồ sơ XML thật và ca audit thật trong repo.</li>
+<li>Seed rule và hành vi thực tế của engine trong repo.</li>
+<li>Sau đó mới kết luận về việc cần sửa rule hay chỉ cần ghi nhận ngoại lệ nghiệp vụ.</li>
+</ol>
+<p>Ca thực chiến nên đọc kèm cho đợt này:</p>
+<ul>
+<li><code>403521</code> với Cefazolin/Biofazolin trong bối cảnh phẫu thuật sản khoa để luyện cách phát hiện khoảng trống giữa seed rule và bối cảnh điều trị thực tế.</li>
+</ul>
+<p>Các tài liệu nên mở theo thứ tự khi huấn luyện:</p>
+<ol>
+<li><code>Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code></li>
+<li><code>The_tri_thuc_phap_ly_quan_ly_su_dung_khang_sinh.md</code></li>
+<li><code>Ra_soat_ca_khang_sinh_tu_XML_thuc_20260405.md</code></li>
+<li>các ca huấn luyện chi tiết như <code>403521</code>, <code>000434</code>, <code>403244</code></li>
+</ol>
+<p>Các ca kháng sinh mới nên dùng tiếp:</p>
+<ul>
+<li><code>000339</code> cho dự phòng tiêm phụ khoa</li>
+<li><code>000589</code> cho điều trị tiêm và lỗi chuẩn hóa đơn vị</li>
+<li><code>OP26000908</code> cho điều trị uống và nguy cơ rule quá hẹp</li>
+</ul>
+<h2>5. Bước tiếp theo khuyến nghị</h2>
+<p>Sau đợt này, nên ưu tiên thêm ca thật có XML gốc chứa kháng sinh nhóm Cepha hoặc Metronidazol để AI học từ dữ liệu nguồn, không chỉ từ seed rule.</p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000589 — DM-THUOC-03 — THUỐC CHƯA XÁC MINH TRONG DANH MỤC NỘI BỘ (SNAPSHOT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000589 — DM-THUOC-03 — THUỐC CHƯA XÁC MINH TRONG DANH MỤC NỘI BỘ (SNAPSHOT)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 08/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Dạy AI phân biệt <strong><code>DM-THUOC-03</code></strong> (cảnh báo, cần xác minh danh mục) với <strong><code>DM-THUOC-01</code> / <code>02</code></strong> (xuất toán Critical khi logic đủ dữ liệu BYT + BV).</p>
+<p>Đồng thời luyện cách <strong>đếm theo dòng XML2</strong>: cùng mã thuốc có thể <strong>lặp</strong> nhiều cảnh báo (index khác nhau).</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000589_20260404_185800.json</code></li>
+<li><code>MA_LK</code>: <code>000589</code></li>
+<li><strong>Lưu ý:</strong> Snapshot cũ hơn bản <code>232716</code>; có thêm <code>HC-06b</code> Critical — khi huấn luyện nên <strong>tách</strong> cảnh báo đối tượng KCB khỏi nhóm thuốc.</li>
+</ul>
+<h2>3. Cảnh báo DM-THUOC-03 trong file</h2>
+<p>Theo cấu trúc JSON:</p>
+<ul>
+<li><strong>4</strong> cảnh báo <code>DM-THUOC-03</code></li>
+<li>Mã thuốc minh họa: <strong><code>40.173</code></strong> Tenamyd-Cefotaxime (xuất hiện ở index <strong>0</strong> và <strong>3</strong>), <strong><code>40.81</code></strong> Clorpheniramin (index <strong>2</strong> và <strong>5</strong>)</li>
+</ul>
+<h2>4. Ý nghĩa nghiệp vụ (cho AI trình bày)</h2>
+<ul>
+<li>Hệ thống <strong>không kết luận</strong> “ngoài danh mục BYT” trong nhánh này; mà báo <strong>chưa xác minh trong DM nội bộ BV</strong> (thường do map chưa nạp, mã mới, hoặc lệch mã).</li>
+<li>Hướng xử lý: <strong>đồng bộ danh mục thuốc nội bộ</strong>, kiểm tra kỹ thuật <code>MAP_THUOC_BV</code>, rồi chạy lại kiểm tra — khác với sửa ICD hay liều.</li>
+</ul>
+<h2>5. Bài tập</h2>
+<ol>
+<li>Lập bảng: <code>index</code> | <code>MA_THUOC</code> | <code>TEN_THUOC</code> | rule.</li>
+<li>So sánh với audit <code>audit_000589_20260405_232716.json</code>: cùng <code>MA_LK</code> nhưng <strong>không</strong> có <code>DM-THUOC-03</code> — đặt giả thuyết vì sao (danh mục runtime khác / thời điểm export khác).</li>
+<li>Liệt kê thứ tự ưu tiên xử lý nếu đồng thời có <code>HC-06b</code> Critical và <code>DM-THUOC-03</code>.</li>
+</ol>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Thẻ DM + tiền: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>  </li>
+<li>Ca đa nhóm thuốc cùng hồ sơ (bản 232716): <code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

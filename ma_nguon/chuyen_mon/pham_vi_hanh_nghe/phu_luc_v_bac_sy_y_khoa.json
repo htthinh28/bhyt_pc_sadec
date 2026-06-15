@@ -1,0 +1,3104 @@
+[
+  {
+    "stt": "1",
+    "ma_tt43": "3.2457",
+    "ten_ky_thuat": "Bóc, cắt u bã đậu, u mỡ dưới da đầu đường kính dưới 10 cm",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": "3.137",
+    "ten_ky_thuat": "Xử trí tăng áp lực nội sọ",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": "2.85",
+    "ten_ky_thuat": "Điện tim thường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": "2.113",
+    "ten_ky_thuat": "Cấp cứu ngừng tuần hoàn hô hấp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": "21.13",
+    "ten_ky_thuat": "Nghiệm pháp dây thắt",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": "3.180",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh bằng đường truyền tĩnh mạch ngoại biên",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": "6.69",
+    "ten_ky_thuat": "Xử trí hạ huyết áp tư thế",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": "3.203",
+    "ten_ky_thuat": "Cầm máu (vết thương chảy máu)",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": "9.6",
+    "ten_ky_thuat": "Cấp cứu cao huyết áp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": "9.8",
+    "ten_ky_thuat": "Cấp cứu ngừng tim",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": "9.10",
+    "ten_ky_thuat": "Cấp cứu tụt huyết áp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": "3.36",
+    "ten_ky_thuat": "Đo áp lực động mạch liên tục",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": "3.31",
+    "ten_ky_thuat": "Đo áp lực tĩnh mạch trung tâm",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": "3.37",
+    "ten_ky_thuat": "Đo áp lực tĩnh mạch trung tâm liên tục",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": "3.51",
+    "ten_ky_thuat": "Ép tim ngoài lồng ngực",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": "1.2",
+    "ten_ky_thuat": "Ghi điện tim cấp cứu tại giường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": "3.1411",
+    "ten_ky_thuat": "Kỹ thuật cấp cứu tụt huyết áp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": "3.1401",
+    "ten_ky_thuat": "Kỹ thuật theo dõi huyết áp động mạch bằng phương pháp xâm lấn",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": "3.1402",
+    "ten_ky_thuat": "Kỹ thuật theo dõi huyết áp động mạch không xâm lấn bằng máy",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": "9.156",
+    "ten_ky_thuat": "Theo dõi áp lực tĩnh mạch trung tâm",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": "1.3",
+    "ten_ky_thuat": "Theo dõi điện tim cấp cứu tại giường liên tục ≤ 8 giờ",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": "3.47",
+    "ten_ky_thuat": "Theo dõi điện tim liên tục tại giường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": "2.2",
+    "ten_ky_thuat": "Bơm rửa khoang màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": "3.102",
+    "ten_ky_thuat": "Chăm sóc lỗ mở khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": "1.75",
+    "ten_ky_thuat": "Chăm sóc ống nội khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": "3.179",
+    "ten_ky_thuat": "Chọc hút/dẫn lưu dịch màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "27",
+    "ma_tt43": "2.9",
+    "ten_ky_thuat": "Chọc dò dịch màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "28",
+    "ma_tt43": "2.11",
+    "ten_ky_thuat": "Chọc hút khí màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "29",
+    "ma_tt43": "3.84",
+    "ten_ky_thuat": "Chọc thăm dò màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "30",
+    "ma_tt43": "2.10",
+    "ten_ky_thuat": "Chọc tháo dịch màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "31",
+    "ma_tt43": "3.2333",
+    "ten_ky_thuat": "Chọc tháo dịch màng phổi dưới hướng dẫn của siêu âm",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "32",
+    "ma_tt43": "3.86",
+    "ten_ky_thuat": "Dẫn lưu màng phổi liên tục",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "33",
+    "ma_tt43": "9.31",
+    "ten_ky_thuat": "Đặt Combitube",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "34",
+    "ma_tt43": "9.37",
+    "ten_ky_thuat": "Đặt nội khí quản khi dạ dày đầy",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "35",
+    "ma_tt43": "3.77",
+    "ten_ky_thuat": "Đặt ống nội khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "36",
+    "ma_tt43": "9.120",
+    "ten_ky_thuat": "Hút nội khí quản hoặc hút mở khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "37",
+    "ma_tt43": "9.123",
+    "ten_ky_thuat": "Khí dung đường thở ở bệnh nhân nặng",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "38",
+    "ma_tt43": "2.32",
+    "ten_ky_thuat": "Khí dung thuốc giãn phế quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "39",
+    "ma_tt43": "3.2330",
+    "ten_ky_thuat": "Kỹ thuật dẫn lưu tư thế điều trị giãn phế quản, áp xe phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "40",
+    "ma_tt43": "2.28",
+    "ten_ky_thuat": "Kỹ thuật ho có điều khiển",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "41",
+    "ma_tt43": "2.30",
+    "ten_ky_thuat": "Kỹ thuật ho khạc đờm bằng khí dung nước muối ưu trương",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "42",
+    "ma_tt43": "2.29",
+    "ten_ky_thuat": "Kỹ thuật tập thở cơ hoành",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "43",
+    "ma_tt43": "2.31",
+    "ten_ky_thuat": "Kỹ thuật vỗ rung dẫn lưu tư thế",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "44",
+    "ma_tt43": "1.74",
+    "ten_ky_thuat": "Mở khí quản qua da một thì cấp cứu ngạt thở",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "45",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Mở màng giáp nhẫn cấp cứu",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "46",
+    "ma_tt43": "10.152",
+    "ten_ky_thuat": "Phẫu thuật dẫn lưu tối thiểu khoang màng phổi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "47",
+    "ma_tt43": "2.61",
+    "ten_ky_thuat": "Rút ống dẫn lưu màng phổi, ống dẫn lưu ổ áp xe",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "48",
+    "ma_tt43": "3.2331",
+    "ten_ky_thuat": "Rút sonde dẫn lưu màng phổi, sonde dẫn lưu ổ áp xe",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "49",
+    "ma_tt43": "15.221",
+    "ten_ky_thuat": "Sơ cứu bỏng đường hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "50",
+    "ma_tt43": "3.2189",
+    "ten_ky_thuat": "Sơ cứu bỏng kỳ đầu đường hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "51",
+    "ma_tt43": "3.88",
+    "ten_ky_thuat": "Thăm dò chức năng hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "52",
+    "ma_tt43": "3.101",
+    "ten_ky_thuat": "Thay canuyn mở khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "53",
+    "ma_tt43": "3.82",
+    "ten_ky_thuat": "Thở máy không xâm nhập (thở CPAP, Thở BIPAP)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "54",
+    "ma_tt43": "9.187",
+    "ten_ky_thuat": "Thông khí áp lực dương 2 mức qua hệ thống Boussignac",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "55",
+    "ma_tt43": "3.107",
+    "ten_ky_thuat": "Thủ thuật Heimlich (lấy dị vật đường thở)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "56",
+    "ma_tt43": "3.93",
+    "ten_ky_thuat": "Vận động trị liệu hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "57",
+    "ma_tt43": "2.14",
+    "ten_ky_thuat": "Đánh giá mức độ nặng của cơn hen phế quản bằng peak flow meter (Đo lưu lượng đỉnh)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "58",
+    "ma_tt43": "3.75",
+    "ten_ky_thuat": "Cai máy thở",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "59",
+    "ma_tt43": "9.7",
+    "ten_ky_thuat": "Cấp cứu ngừng thở",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "60",
+    "ma_tt43": "3.103",
+    "ten_ky_thuat": "Làm ẩm đường thở qua máy phun sương mù",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "61",
+    "ma_tt43": "9.177",
+    "ten_ky_thuat": "Thở CPAP không qua máy thở",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "62",
+    "ma_tt43": "1.59",
+    "ten_ky_thuat": "Thở ô xy qua mặt nạ có túi có hít lại (túi không có van) (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "63",
+    "ma_tt43": "9.183",
+    "ten_ky_thuat": "Thở oxy gọng kính",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "64",
+    "ma_tt43": "1.57",
+    "ten_ky_thuat": "Thở oxy qua gọng kính (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "65",
+    "ma_tt43": "9.184",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "66",
+    "ma_tt43": "3.110",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ có túi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "67",
+    "ma_tt43": "1.60",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ có túi không hít lại (túi có van) (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "68",
+    "ma_tt43": "1.58",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ không có túi (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "69",
+    "ma_tt43": "9.185",
+    "ten_ky_thuat": "Thở oxy qua mũ kín",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "70",
+    "ma_tt43": "9.186",
+    "ten_ky_thuat": "Thở oxy qua ống chữ T",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "71",
+    "ma_tt43": "3.111",
+    "ten_ky_thuat": "Thở oxy qua ống chữ T (T-tube)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "72",
+    "ma_tt43": "3.105",
+    "ten_ky_thuat": "Thổi ngạt",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "73",
+    "ma_tt43": "2.241",
+    "ten_ky_thuat": "Cho ăn qua ống mở thông dạ dày hoặc hỗng tràng (một lần)",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "74",
+    "ma_tt43": "3.172",
+    "ten_ky_thuat": "Cho ăn qua ống thông dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "75",
+    "ma_tt43": "1.224",
+    "ten_ky_thuat": "Cho ăn qua ống thông dạ dày (một lần)",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "76",
+    "ma_tt43": "1.216",
+    "ten_ky_thuat": "Đặt ống thông dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "77",
+    "ma_tt43": "1.223",
+    "ten_ky_thuat": "Đặt ống thông hậu môn",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "78",
+    "ma_tt43": "3.178",
+    "ten_ky_thuat": "Đặt sonde hậu môn",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "79",
+    "ma_tt43": "2.249",
+    "ten_ky_thuat": "Đo áp lực ổ bụng gián tiếp qua ống thông dẫn lưu bàng quang",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "80",
+    "ma_tt43": "2.215",
+    "ten_ky_thuat": "Gây nôn cho người bệnh ngộ độc qua đường tiêu hóa",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "81",
+    "ma_tt43": "3.1384",
+    "ten_ky_thuat": "Kỹ thuật phòng và điều trị trào ngược dịch dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "82",
+    "ma_tt43": "1.1227",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh liên tục bằng máy truyền thức ăn qua ống thông dạ dày ≤ 8 giờ",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "83",
+    "ma_tt43": "1.152",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh liên tục bằng máy, truyền thức ăn qua thực quản, dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "84",
+    "ma_tt43": "3.176",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua catheter hỗng tràng",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "85",
+    "ma_tt43": "3.181",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua Catheter thực quản dạ dày bằng bơm tay",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "86",
+    "ma_tt43": "3.175",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua lỗ mở dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "87",
+    "ma_tt43": "1.225",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua ống thông dạ dày bằng bơm tay",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "88",
+    "ma_tt43": "9.142",
+    "ten_ky_thuat": "Nuôi dưỡng qua ống thông dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "89",
+    "ma_tt43": "9.143",
+    "ten_ky_thuat": "Nuôi dưỡng qua ống thông hỗng tràng",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "90",
+    "ma_tt43": "9.147",
+    "ten_ky_thuat": "Phòng và điều trị trào ngược dịch dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "91",
+    "ma_tt43": "3.173",
+    "ten_ky_thuat": "Rửa dạ dày bằng ống Faucher và qua túi kín",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "92",
+    "ma_tt43": "1.218",
+    "ten_ky_thuat": "Rửa dạ dày cấp cứu",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "93",
+    "ma_tt43": "1.219",
+    "ten_ky_thuat": "Rửa dạ dày loại bỏ chất độc bằng hệ thống kín",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "94",
+    "ma_tt43": "1.220",
+    "ten_ky_thuat": "Rửa toàn bộ hệ thống tiêu hóa (dạ dày, tiểu tràng, đại tràng)",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "95",
+    "ma_tt43": "1.222",
+    "ten_ky_thuat": "Thụt giữ",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "96",
+    "ma_tt43": "2.221",
+    "ten_ky_thuat": "Thụt tháo",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "97",
+    "ma_tt43": "2.337",
+    "ten_ky_thuat": "Thụt thuốc qua đường hậu môn",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "98",
+    "ma_tt43": "2.243",
+    "ten_ky_thuat": "Chọc tháo dịch ổ bụng điều trị",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "99",
+    "ma_tt43": "2.244",
+    "ten_ky_thuat": "Đặt ống sonde dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "100",
+    "ma_tt43": "1.240",
+    "ten_ky_thuat": "Chọc dò ổ bụng cấp cứu",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "101",
+    "ma_tt43": "3.3399",
+    "ten_ky_thuat": "Dẫn lưu áp xe hậu môn đơn giản",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "102",
+    "ma_tt43": "3.128",
+    "ten_ky_thuat": "Bài niệu cưỡng bức",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "103",
+    "ma_tt43": "3.334",
+    "ten_ky_thuat": "Chăm sóc ống thông bàng quang",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "104",
+    "ma_tt43": "3.161",
+    "ten_ky_thuat": "Chọc hút nước tiểu trên xương mu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "105",
+    "ma_tt43": "3.3534",
+    "ten_ky_thuat": "Dẫn lưu áp xe khoang Retzius",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "106",
+    "ma_tt43": "10.344",
+    "ten_ky_thuat": "Dẫn lưu bàng quang bằng chọc trôca",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "107",
+    "ma_tt43": "10.359",
+    "ten_ky_thuat": "Dẫn lưu bàng quang đơn thuần",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "108",
+    "ma_tt43": "3.3533",
+    "ten_ky_thuat": "Dẫn lưu nước tiểu bàng quang",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "109",
+    "ma_tt43": "3.3549",
+    "ten_ky_thuat": "Dẫn lưu viêm tấy khung chậu do rò nước tiểu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "110",
+    "ma_tt43": "3.3489",
+    "ten_ky_thuat": "Dẫn lưu viêm tấy quanh thận, áp xe thận",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "111",
+    "ma_tt43": "1.160",
+    "ten_ky_thuat": "Đặt ống thông dẫn lưu bàng quang",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "112",
+    "ma_tt43": "2.233",
+    "ten_ky_thuat": "Rửa bàng quang",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "113",
+    "ma_tt43": "1.164",
+    "ten_ky_thuat": "Thông bàng quang",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "114",
+    "ma_tt43": "3.133",
+    "ten_ky_thuat": "Thông tiểu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "115",
+    "ma_tt43": "2.172",
+    "ten_ky_thuat": "Chăm sóc ống dẫn lưu bể thận qua da 24 giờ",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "116",
+    "ma_tt43": "2.167",
+    "ten_ky_thuat": "Chăm sóc sonde dẫn lưu bể thận qua da/lần",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "117",
+    "ma_tt43": "2.168",
+    "ten_ky_thuat": "Chăm sóc sonde dẫn lưu tụ dịch- máu quanh thận/lần",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "118",
+    "ma_tt43": "2.171",
+    "ten_ky_thuat": "Chăm sóc và bảo quản catheter đường hầm có cuff để lọc máu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "119",
+    "ma_tt43": "2.170",
+    "ten_ky_thuat": "Chăm sóc và bảo quản catheter tĩnh mạch trung tâm trong lọc máu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "120",
+    "ma_tt43": "1.246",
+    "ten_ky_thuat": "Đo lượng nước tiểu 24 giờ",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "121",
+    "ma_tt43": "3.1390",
+    "ten_ky_thuat": "Kỹ thuật săn sóc theo dõi ống thông tiểu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "122",
+    "ma_tt43": "9.150",
+    "ten_ky_thuat": "Săn sóc theo dõi ống thông tiểu",
+    "nhom": "HỆ TIẾT NIỆU"
+  },
+  {
+    "stt": "123",
+    "ma_tt43": "7.225",
+    "ten_ky_thuat": "Thay băng trên người bệnh đái tháo đường",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "124",
+    "ma_tt43": "7.232",
+    "ten_ky_thuat": "Tháo móng quặp trên người bệnh đái tháo đường",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "125",
+    "ma_tt43": "7.233",
+    "ten_ky_thuat": "Gọt chai chân (gọt nốt chai) trên người bệnh đái tháo đường",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "126",
+    "ma_tt43": "7.234",
+    "ten_ky_thuat": "Cắt móng chân, chăm sóc móng trên người bệnh đái tháo đường",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "127",
+    "ma_tt43": "7.239",
+    "ten_ky_thuat": "Hướng dẫn kỹ thuật tiêm Insulin",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "128",
+    "ma_tt43": "7.241",
+    "ten_ky_thuat": "Tư vấn chế độ dinh dưỡng và tập luyện",
+    "nhom": "HỆ NỘI TIẾT"
+  },
+  {
+    "stt": "129",
+    "ma_tt43": "10.164",
+    "ten_ky_thuat": "Cố định gãy xương sườn bằng băng dính to bản",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "130",
+    "ma_tt43": "16.300",
+    "ten_ky_thuat": "Sơ cứu gãy xương vùng hàm mặt",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "131",
+    "ma_tt43": "1.157",
+    "ten_ky_thuat": "Cố định lồng ngực do chấn thương gãy xương sườn",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "132",
+    "ma_tt43": "1.276",
+    "ten_ky_thuat": "Cố định tạm thời người bệnh gãy xương",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "133",
+    "ma_tt43": "1.277",
+    "ten_ky_thuat": "Cố định cột sống cổ bằng nẹp cứng",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "134",
+    "ma_tt43": "3.151",
+    "ten_ky_thuat": "Điều trị giãn cơ trong cấp cứu",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "135",
+    "ma_tt43": "3.2069",
+    "ten_ky_thuat": "Nắn sai khớp thái dương hàm",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "136",
+    "ma_tt43": "3.2072",
+    "ten_ky_thuat": "Cố định tạm thời sơ cứu gãy xương hàm",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "137",
+    "ma_tt43": "3.3840",
+    "ten_ky_thuat": "Nắn, bó bột gãy xương đòn",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "138",
+    "ma_tt43": "13.202",
+    "ten_ky_thuat": "Cố định tạm thời gãy xương sơ sinh",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "139",
+    "ma_tt43": "3.3756",
+    "ten_ky_thuat": "Chọc hút máu tụ khớp gối, bó bột ống",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "140",
+    "ma_tt43": "3.3817",
+    "ten_ky_thuat": "Chích áp xe phần mềm lớn",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "141",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sơ cứu vết thương phần mềm vùng hàm mặt",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "142",
+    "ma_tt43": "3.2068",
+    "ten_ky_thuat": "Phẫu thuật điều trị vết thương phần mềm vùng hàm mặt không thiếu hổng tổ chức",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "143",
+    "ma_tt43": "3.2245",
+    "ten_ky_thuat": "Khâu vết thương phần mềm vùng đầu cổ",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "144",
+    "ma_tt43": "3.3825",
+    "ten_ky_thuat": "Khâu vết thương phần mềm dài trên 10cm",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "145",
+    "ma_tt43": "3.3827",
+    "ten_ky_thuat": "Khâu vết thương phần mềm dài dưới 10cm",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "146",
+    "ma_tt43": "3.3903",
+    "ten_ky_thuat": "Phẫu thuật viêm tấy phần mềm ở cơ quan vận động",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "147",
+    "ma_tt43": "3.4246",
+    "ten_ky_thuat": "Tháo bột các loại",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "148",
+    "ma_tt43": "10.1032",
+    "ten_ky_thuat": "Nẹp bột các loại, không nắn",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "149",
+    "ma_tt43": "12.321",
+    "ten_ky_thuat": "Cắt u bao gân",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "150",
+    "ma_tt43": "12.322",
+    "ten_ky_thuat": "Cắt u nang bao hoạt dịch (cổ tay, khoeo chân, cổ chân)",
+    "nhom": "HỆ CƠ XƯƠNG"
+  },
+  {
+    "stt": "151",
+    "ma_tt43": "14.214",
+    "ten_ky_thuat": "Bóc giả mạc",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "152",
+    "ma_tt43": "14.206",
+    "ten_ky_thuat": "Bơm rửa lệ đạo",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "153",
+    "ma_tt43": "14.212",
+    "ten_ky_thuat": "Cấp cứu bỏng mắt ban đầu",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "154",
+    "ma_tt43": "14.203",
+    "ten_ky_thuat": "Cắt chỉ khâu da mi đơn giản",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "155",
+    "ma_tt43": "14.204",
+    "ten_ky_thuat": "Cắt chỉ khâu kết mạc",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "156",
+    "ma_tt43": "3.207",
+    "ten_ky_thuat": "Chăm sóc mắt ở người bệnh hôn mê",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "157",
+    "ma_tt43": "14.207",
+    "ten_ky_thuat": "Chích chắp, lẹo, nang lông mi; chích áp xe mi, kết mạc",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "158",
+    "ma_tt43": "14.169",
+    "ten_ky_thuat": "Chích dẫn lưu túi lệ",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "159",
+    "ma_tt43": "14.255",
+    "ten_ky_thuat": "Đo nhãn áp (Maclakov, Goldmann, Schiotz…..)",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "160",
+    "ma_tt43": "14.260",
+    "ten_ky_thuat": "Đo thị lực",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "161",
+    "ma_tt43": "14.205",
+    "ten_ky_thuat": "Đốt lông xiêu; nhổ lông xiêu",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "162",
+    "ma_tt43": "3.1707",
+    "ten_ky_thuat": "Khám mắt",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "163",
+    "ma_tt43": "14.171",
+    "ten_ky_thuat": "Khâu da mi đơn giản",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "164",
+    "ma_tt43": "14.202",
+    "ten_ky_thuat": "Lấy calci kết mạc",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "165",
+    "ma_tt43": "14.200",
+    "ten_ky_thuat": "Lấy dị vật kết mạc",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "166",
+    "ma_tt43": "14.210",
+    "ten_ky_thuat": "Nặn tuyến bờ mi, đánh bờ mi",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "167",
+    "ma_tt43": "14.215",
+    "ten_ky_thuat": "Rạch áp xe mi",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "168",
+    "ma_tt43": "14.218",
+    "ten_ky_thuat": "Soi đáy mắt trực tiếp",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "169",
+    "ma_tt43": "14.208",
+    "ten_ky_thuat": "Thay băng vô khuẩn",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "170",
+    "ma_tt43": "14.222",
+    "ten_ky_thuat": "Theo dõi nhãn áp 3 ngày",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "171",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thử kính",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "172",
+    "ma_tt43": "14.174",
+    "ten_ky_thuat": "Xử lý vết thương phần mềm, tổn thương nông vùng mắt",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "173",
+    "ma_tt43": "14.211",
+    "ten_ky_thuat": "Rửa cùng đồ",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "15.57",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chích nhọt ống tai ngoài",
+    "nhom": "TAI"
+  },
+  {
+    "stt": "15.56",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chọc hút dịch vành tai",
+    "nhom": "TAI"
+  },
+  {
+    "stt": "176",
+    "ma_tt43": "3.2184",
+    "ten_ky_thuat": "Làm thuốc tai, mũi, thanh quản",
+    "nhom": "TAI"
+  },
+  {
+    "stt": "177",
+    "ma_tt43": "3.2117",
+    "ten_ky_thuat": "Lấy dị vật tai",
+    "nhom": "TAI"
+  },
+  {
+    "stt": "178",
+    "ma_tt43": "15.59",
+    "ten_ky_thuat": "Lấy nút biểu bì ống tai ngoài",
+    "nhom": "TAI"
+  },
+  {
+    "stt": "179",
+    "ma_tt43": "1.52",
+    "ten_ky_thuat": "Cầm chảy máu ở lỗ mũi sau bằng ống thông có bóng chèn",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "180",
+    "ma_tt43": "15.145",
+    "ten_ky_thuat": "Cầm máu điểm mạch mũi bằng hóa chất (Bạc Nitrat)",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "181",
+    "ma_tt43": "15.142",
+    "ten_ky_thuat": "Cầm máu mũi bằng Merocel",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "182",
+    "ma_tt43": "3.1960",
+    "ten_ky_thuat": "Chích áp xe lợi",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "183",
+    "ma_tt43": "3.1958",
+    "ten_ky_thuat": "Chích Apxe lợi trẻ em",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "184",
+    "ma_tt43": "3.2074",
+    "ten_ky_thuat": "Dẫn lưu máu tụ vùng miệng - hàm mặt",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "185",
+    "ma_tt43": "1.53",
+    "ten_ky_thuat": "Đặt canuyn mũi hầu, miệng hầu",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "186",
+    "ma_tt43": "3.1957",
+    "ten_ky_thuat": "Điều trị viêm loét niêm mạc miệng trẻ em",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "187",
+    "ma_tt43": "3.1926",
+    "ten_ky_thuat": "Điều trị viêm lợi do mọc răng",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "188",
+    "ma_tt43": "3.2075",
+    "ten_ky_thuat": "Điều trị viêm lợi miệng loét hoại tử cấp",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "189",
+    "ma_tt43": "3.1959",
+    "ten_ky_thuat": "Điều trị viêm lợi trẻ em",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "190",
+    "ma_tt43": "3.1927",
+    "ten_ky_thuat": "Điều trị viêm quanh thân răng cấp",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "191",
+    "ma_tt43": "2.150",
+    "ten_ky_thuat": "Hút đờm hầu họng",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "192",
+    "ma_tt43": "15.147",
+    "ten_ky_thuat": "Hút rửa mũi, xoang sau mổ",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "193",
+    "ma_tt43": "15.222",
+    "ten_ky_thuat": "Khí dung mũi họng",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "194",
+    "ma_tt43": "12.164",
+    "ten_ky_thuat": "Khí dung vòm họng trong điều trị ung thư vòm",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "195",
+    "ma_tt43": "15.212",
+    "ten_ky_thuat": "Lấy dị vật họng miệng",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "196",
+    "ma_tt43": "15.141",
+    "ten_ky_thuat": "Nhét bấc mũi trước",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "197",
+    "ma_tt43": "3.1955",
+    "ten_ky_thuat": "Nhổ răng sữa",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "198",
+    "ma_tt43": "15.146",
+    "ten_ky_thuat": "Rút meche, rút merocel hốc mũi",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "199",
+    "ma_tt43": "12.165",
+    "ten_ky_thuat": "Súc rửa vòm họng trong xạ trị",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "200",
+    "ma_tt43": "12.135",
+    "ten_ky_thuat": "Cắt u lưỡi lành tính",
+    "nhom": "MŨI , MIỆNG, HỌNG"
+  },
+  {
+    "stt": "201",
+    "ma_tt43": "3.3603",
+    "ten_ky_thuat": "Cắt bỏ bao da qui đầu do dính hoặc dài",
+    "nhom": "CƠ QUAN SINH DỤC NAM"
+  },
+  {
+    "stt": "202",
+    "ma_tt43": "10.411",
+    "ten_ky_thuat": "Cắt hẹp bao quy đầu",
+    "nhom": "CƠ QUAN SINH DỤC NAM"
+  },
+  {
+    "stt": "203",
+    "ma_tt43": "3.3608",
+    "ten_ky_thuat": "Dẫn lưu áp xe bìu/tinh hoàn",
+    "nhom": "CƠ QUAN SINH DỤC NAM"
+  },
+  {
+    "stt": "204",
+    "ma_tt43": "13.164",
+    "ten_ky_thuat": "Khám nam khoa",
+    "nhom": "CƠ QUAN SINH DỤC NAM"
+  },
+  {
+    "stt": "205",
+    "ma_tt43": "3.3600",
+    "ten_ky_thuat": "Rạch rộng vòng thắt nghẹt bao quy đầu",
+    "nhom": "CƠ QUAN SINH DỤC NAM"
+  },
+  {
+    "stt": "206",
+    "ma_tt43": "12.309",
+    "ten_ky_thuat": "Bóc nang tuyến Bartholin",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "207",
+    "ma_tt43": "3.2258",
+    "ten_ky_thuat": "Chích áp xe tuyến Bartholin",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "208",
+    "ma_tt43": "3.3406",
+    "ten_ky_thuat": "Chích áp xe tầng sinh môn",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "209",
+    "ma_tt43": "3.3407",
+    "ten_ky_thuat": "Phẫu thuật vết thương tầng sinh môn đơn giản",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "210",
+    "ma_tt43": "12.279",
+    "ten_ky_thuat": "Thủ thuật xoắn polip cổ tử cung, âm đạo",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "211",
+    "ma_tt43": "12.281",
+    "ten_ky_thuat": "Cắt u nang buồng trứng",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "212",
+    "ma_tt43": "12.287",
+    "ten_ky_thuat": "Cắt u xơ cổ tử cung",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "213",
+    "ma_tt43": "13.30",
+    "ten_ky_thuat": "Khâu phục hồi rách cổ tử cung, âm đạo",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "214",
+    "ma_tt43": "13.53",
+    "ten_ky_thuat": "Cắt chỉ khâu vòng cổ tử cung",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "215",
+    "ma_tt43": "13.165",
+    "ten_ky_thuat": "Khám phụ khoa",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "216",
+    "ma_tt43": "13.167",
+    "ten_ky_thuat": "Làm thuốc âm đạo",
+    "nhom": "CƠ QUAN SINH DỤC NỮ"
+  },
+  {
+    "stt": "217",
+    "ma_tt43": "3.2259",
+    "ten_ky_thuat": "Dẫn lưu cùng đồ Douglas",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "218",
+    "ma_tt43": "3.2260",
+    "ten_ky_thuat": "Chọc dò túi cùng Douglas",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "219",
+    "ma_tt43": "12.267",
+    "ten_ky_thuat": "Cắt u vú lành tính",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "220",
+    "ma_tt43": "12.268",
+    "ten_ky_thuat": "Mổ bóc nhân xơ vú",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "221",
+    "ma_tt43": "13.21",
+    "ten_ky_thuat": "Nghiệm pháp lọt ngôi chỏm",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "222",
+    "ma_tt43": "13.23",
+    "ten_ky_thuat": "Theo dõi nhịp tim thai và cơn co tử cung bằng monitor sản khoa",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "223",
+    "ma_tt43": "13.29",
+    "ten_ky_thuat": "Soi ối",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "224",
+    "ma_tt43": "13.33",
+    "ten_ky_thuat": "Đỡ đẻ thường ngôi chỏm",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "225",
+    "ma_tt43": "13.34",
+    "ten_ky_thuat": "Cắt và khâu tầng sinh môn",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "226",
+    "ma_tt43": "13.35",
+    "ten_ky_thuat": "Xử trí tích cực giai đoạn 3 cuộc chuyển dạ đẻ",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "227",
+    "ma_tt43": "13.36",
+    "ten_ky_thuat": "Nghiệm pháp bong rau, đỡ rau, kiểm tra bánh rau",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "228",
+    "ma_tt43": "13.37",
+    "ten_ky_thuat": "Kiểm soát tử cung",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "229",
+    "ma_tt43": "13.40",
+    "ten_ky_thuat": "Làm thuốc vết khâu tầng sinh môn nhiễm khuẩn",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "230",
+    "ma_tt43": "13.41",
+    "ten_ky_thuat": "Khám thai",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "231",
+    "ma_tt43": "13.196",
+    "ten_ky_thuat": "Khám sơ sinh",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "232",
+    "ma_tt43": "13.197",
+    "ten_ky_thuat": "Chăm sóc rốn sơ sinh",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "233",
+    "ma_tt43": "13.38",
+    "ten_ky_thuat": "Bóc rau nhân tạo",
+    "nhom": "SẢN KHOA - SƠ SINH"
+  },
+  {
+    "stt": "234",
+    "ma_tt43": "3.3083",
+    "ten_ky_thuat": "Cắt lọc, khâu vết thương rách da đầu",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "235",
+    "ma_tt43": "5.3",
+    "ten_ky_thuat": "Điều trị bệnh da bằng ngâm, tắm",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "236",
+    "ma_tt43": "5.73",
+    "ten_ky_thuat": "Điều trị đau do zona bằng chiếu Laser Hé- Né",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "237",
+    "ma_tt43": "5.72",
+    "ten_ky_thuat": "Điều trị loét lỗ đáo cho người bệnh phong bằng chiếu Laser Hé- Né",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "238",
+    "ma_tt43": "3.2973",
+    "ten_ky_thuat": "Điều trị sẹo lõm bằng chấm TCA",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "239",
+    "ma_tt43": "5.51",
+    "ten_ky_thuat": "Điều trị u mềm lây bằng nạo thương tổn",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "240",
+    "ma_tt43": "3.3006",
+    "ten_ky_thuat": "Ga giường bột tale điều trị bệnh da",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "241",
+    "ma_tt43": "11.57",
+    "ten_ky_thuat": "Ghép da dị loại điều trị vết thương bỏng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "242",
+    "ma_tt43": "3.3404",
+    "ten_ky_thuat": "Khâu lại da thì 2, sau nhiễm khuẩn",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "243",
+    "ma_tt43": "11.151",
+    "ten_ky_thuat": "Nẹp cổ mềm dự phòng và điều trị sẹo co kéo vùng cổ",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "244",
+    "ma_tt43": "11.12",
+    "ten_ky_thuat": "Thay băng và chăm sóc vùng lấy da",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "245",
+    "ma_tt43": "3.3005",
+    "ten_ky_thuat": "Tiêm nội sẹo, nội thương tổn",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "246",
+    "ma_tt43": "3.1703",
+    "ten_ky_thuat": "Cắt chỉ khâu da",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "247",
+    "ma_tt43": "3.3822",
+    "ten_ky_thuat": "Cắt hoại tử tiếp tuyến 10 đến 15% diện tích cơ thể",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "248",
+    "ma_tt43": "3.3823",
+    "ten_ky_thuat": "Cắt hoại tử tiếp tuyến từ dưới 10% diện tích cơ thể",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "249",
+    "ma_tt43": "11.77",
+    "ten_ky_thuat": "Khám bệnh nhân bỏng, chẩn đoán diện tích và độ sâu bỏng bằng lâm sàng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "250",
+    "ma_tt43": "3.1515",
+    "ten_ky_thuat": "Ngâm rửa vết bỏng bằng nước mát sạch, băng ép, trong sơ cứu, cấp cứu tổn thương bỏng kỳ đầu.",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "251",
+    "ma_tt43": "3.3820",
+    "ten_ky_thuat": "Tạo hình bằng các vạt tại chỗ đơn giản",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "252",
+    "ma_tt43": "8.26",
+    "ten_ky_thuat": "Bó thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "253",
+    "ma_tt43": "8.10",
+    "ten_ky_thuat": "Chích lể",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "254",
+    "ma_tt43": "8.27",
+    "ten_ky_thuat": "Chườm ngải",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "255",
+    "ma_tt43": "8.9",
+    "ten_ky_thuat": "Cứu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "256",
+    "ma_tt43": "8.25",
+    "ten_ky_thuat": "Đặt thuốc YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "257",
+    "ma_tt43": "8.5",
+    "ten_ky_thuat": "Điện châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "258",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điệm châm điều trị liệt ½ người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "259",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau đầu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "260",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau thắt lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "261",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau thần kinh hông to",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "262",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "263",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "264",
+    "ma_tt43": "3.508",
+    "ten_ky_thuat": "Điện châm điều trị cảm cúm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "265",
+    "ma_tt43": "3.484",
+    "ten_ky_thuat": "Điện châm điều trị liệt dây thần kinh VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "266",
+    "ma_tt43": "3.525",
+    "ten_ky_thuat": "Điện châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "267",
+    "ma_tt43": "3.529",
+    "ten_ky_thuat": "Điện châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "268",
+    "ma_tt43": "8.485",
+    "ten_ky_thuat": "Giác hơi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "269",
+    "ma_tt43": "8.2",
+    "ten_ky_thuat": "Hào châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "270",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "271",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau đầu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "272",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "273",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau thắt lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "274",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau thần kinh hông to",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "275",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt dây thần kinh VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "276",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị cảm cúm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "277",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "278",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "279",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "280",
+    "ma_tt43": "8.24",
+    "ten_ky_thuat": "Ngâm thuốc YHCT bộ phận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "281",
+    "ma_tt43": "8.22",
+    "ten_ky_thuat": "Sắc thuốc thang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "282",
+    "ma_tt43": "8.15",
+    "ten_ky_thuat": "Sắc thuốc thang và đóng gói thuốc bằng máy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "283",
+    "ma_tt43": "3.483",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt bằng tay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "284",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau đầu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "285",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau thắt lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "286",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau thần kinh hông to",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "287",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị cảm cúm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "288",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "289",
+    "ma_tt43": "8.414",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt dây thần kinh số VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "290",
+    "ma_tt43": "8.391",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "291",
+    "ma_tt43": "8.406",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "292",
+    "ma_tt43": "8.428",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "293",
+    "ma_tt43": "8.431",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "294",
+    "ma_tt43": "8.20",
+    "ten_ky_thuat": "Xông hơi thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "295",
+    "ma_tt43": "8.21",
+    "ten_ky_thuat": "Xông khói thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "296",
+    "ma_tt43": "8.3",
+    "ten_ky_thuat": "Ôn châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "297",
+    "ma_tt43": "8.6",
+    "ten_ky_thuat": "Thủy châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "298",
+    "ma_tt43": "8.28",
+    "ten_ky_thuat": "Luyện tập dưỡng sinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "299",
+    "ma_tt43": "17.11",
+    "ten_ky_thuat": "Điều trị bằng tia hồng ngoại",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "300",
+    "ma_tt43": "17.16",
+    "ten_ky_thuat": "Điều trị bằng nhiệt nóng (chườm nóng)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "301",
+    "ma_tt43": "17.17",
+    "ten_ky_thuat": "Điều trị bằng nhiệt lạnh (chườm lạnh)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "302",
+    "ma_tt43": "17.31",
+    "ten_ky_thuat": "Tập nằm đúng tư thế cho người bệnh liệt nửa người",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "303",
+    "ma_tt43": "17.35",
+    "ten_ky_thuat": "Tập lăn trở khi nằm",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "304",
+    "ma_tt43": "17.36",
+    "ten_ky_thuat": "Tập thay đổi tư thế từ nằm sang ngồi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "305",
+    "ma_tt43": "17.41",
+    "ten_ky_thuat": "Tập đi với thanh song song",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "306",
+    "ma_tt43": "17.42",
+    "ten_ky_thuat": "Tập đi với khung tập đi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "307",
+    "ma_tt43": "17.43",
+    "ten_ky_thuat": "Tập đi với nạng (nạng nách, nạng khuỷu)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "308",
+    "ma_tt43": "17.44",
+    "ten_ky_thuat": "Tập đi với gậy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "309",
+    "ma_tt43": "17.47",
+    "ten_ky_thuat": "Tập lên, xuống cầu thang",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "310",
+    "ma_tt43": "17.48",
+    "ten_ky_thuat": "Tập đi trên các địa hình khác nhau (dốc, sỏi, gồ ghề,…)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "311",
+    "ma_tt43": "17.54",
+    "ten_ky_thuat": "Tập vận động chủ động",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "312",
+    "ma_tt43": "17.55",
+    "ten_ky_thuat": "Tập vận động tự do tứ chi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "313",
+    "ma_tt43": "17.63",
+    "ten_ky_thuat": "Tập với thang tường",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "314",
+    "ma_tt43": "17.65",
+    "ten_ky_thuat": "Tập với ròng rọc",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "315",
+    "ma_tt43": "17.66",
+    "ten_ky_thuat": "Tập với dụng cụ quay khớp vai",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "316",
+    "ma_tt43": "17.67",
+    "ten_ky_thuat": "Tập với dụng cụ chèo thuyền",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "317",
+    "ma_tt43": "17.70",
+    "ten_ky_thuat": "Tập với ghế tập mạnh cơ Tứ đầu đùi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "318",
+    "ma_tt43": "17.71",
+    "ten_ky_thuat": "Tập với xe đạp tập",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "319",
+    "ma_tt43": "17.75",
+    "ten_ky_thuat": "Tập ho có trợ giúp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "320",
+    "ma_tt43": "3.15",
+    "ten_ky_thuat": "Vận động trị liệu cho người bệnh bất động tại giường",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "321",
+    "ma_tt43": "11.122",
+    "ten_ky_thuat": "Khám bệnh nhân phục hồi chức năng sau bỏng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "322",
+    "ma_tt43": "11.102",
+    "ten_ky_thuat": "Khám di chứng bỏng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "323",
+    "ma_tt43": "17.12",
+    "ten_ky_thuat": "Điều trị bằng Laser công suất thấp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "324",
+    "ma_tt43": "17.21",
+    "ten_ky_thuat": "Điều trị bằng Laser công suất thấp vào điểm vận động và huyệt đạo",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "325",
+    "ma_tt43": "17.28",
+    "ten_ky_thuat": "Điều trị bằng Parafin",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "326",
+    "ma_tt43": "17.30",
+    "ten_ky_thuat": "Điều trị bằng xông hơi (tắm hơi)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "327",
+    "ma_tt43": "17.32",
+    "ten_ky_thuat": "Thủy trị liệu toàn thân (bể bơi, bồn ngâm)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "328",
+    "ma_tt43": "17.33",
+    "ten_ky_thuat": "Điều trị bằng nước khoáng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "329",
+    "ma_tt43": "17.34",
+    "ten_ky_thuat": "Thủy trị liệu có thuốc",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "330",
+    "ma_tt43": "17.39",
+    "ten_ky_thuat": "Điều trị chườm ngải cứu",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "331",
+    "ma_tt43": "17.53",
+    "ten_ky_thuat": "Tập dưỡng sinh",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "332",
+    "ma_tt43": "17.54",
+    "ten_ky_thuat": "Kỹ thuật thư giãn",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "333",
+    "ma_tt43": "17.56",
+    "ten_ky_thuat": "Kỹ thuật đặt tư thế đúng cho người bệnh liệt nửa người",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "334",
+    "ma_tt43": "17.57",
+    "ten_ky_thuat": "Tập nằm đúng tư thế cho người bệnh liệt tủy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "335",
+    "ma_tt43": "17.69",
+    "ten_ky_thuat": "Tập đi với bàn xương cá",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "336",
+    "ma_tt43": "17.93",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp vùng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "337",
+    "ma_tt43": "17.95",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp toàn thân",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "338",
+    "ma_tt43": "17.97",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp bằng máy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "339",
+    "ma_tt43": "17.236",
+    "ten_ky_thuat": "Thử cơ bằng tay",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "340",
+    "ma_tt43": "17.237",
+    "ten_ky_thuat": "Đo tầm vận động khớp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "341",
+    "ma_tt43": "3.268",
+    "ten_ky_thuat": "Cấp cứu người bệnh tự sát",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "342",
+    "ma_tt43": "6.80",
+    "ten_ky_thuat": "Điều trị chống tái nghiện các chất dạng thuốc phiện bằng naltrexon",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "343",
+    "ma_tt43": "3.245",
+    "ten_ky_thuat": "Điều trị hỗ trợ cắt cơn cai nghiện các chất dạng thuốc phiện bằng các bài thuốc y học dân tộc",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "344",
+    "ma_tt43": "6.77",
+    "ten_ky_thuat": "Điều trị nghiện các chất dạng thuốc phiện bằng các thuốc hướng thần",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "345",
+    "ma_tt43": "6.78",
+    "ten_ky_thuat": "Điều trị thay thế nghiện các chất dạng thuốc phiện bằng thuốc methadone",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "346",
+    "ma_tt43": "6.49",
+    "ten_ky_thuat": "Liệu pháp giải thích hợp lý",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "347",
+    "ma_tt43": "6.55",
+    "ten_ky_thuat": "Liệu pháp kích hoạt hành vi (BA)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "348",
+    "ma_tt43": "6.60",
+    "ten_ky_thuat": "Liệu pháp lao động",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "349",
+    "ma_tt43": "6.59",
+    "ten_ky_thuat": "Liệu pháp tái thích ứng xã hội",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "350",
+    "ma_tt43": "3.262",
+    "ten_ky_thuat": "Liệu pháp tâm lý gia đình",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "351",
+    "ma_tt43": "3.261",
+    "ten_ky_thuat": "Liệu pháp tâm lý nhóm",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "352",
+    "ma_tt43": "6.58",
+    "ten_ky_thuat": "Liệu pháp thể dục, thể thao",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "353",
+    "ma_tt43": "6.44",
+    "ten_ky_thuat": "Liệu pháp thư giãn luyện tập",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "354",
+    "ma_tt43": "6.76",
+    "ten_ky_thuat": "Nghiệm pháp Naloxone chẩn đoán hội chứng cai các chất dạng thuốc phiện",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "355",
+    "ma_tt43": "6.33",
+    "ten_ky_thuat": "Thang đánh giá bồn chồn bất an - BARNES",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "356",
+    "ma_tt43": "6.24",
+    "ten_ky_thuat": "Thang đánh giá hoạt động hàng ngày (ADLS)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "357",
+    "ma_tt43": "6.36",
+    "ten_ky_thuat": "Thang đánh giá hội chứng cai rượu CIWA",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "358",
+    "ma_tt43": "6.7",
+    "ten_ky_thuat": "Thang đánh giá lo âu - trầm cảm - stress (DASS)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "359",
+    "ma_tt43": "6.35",
+    "ten_ky_thuat": "Thang đánh giá mức độ sử dụng rượu (Audit )",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "360",
+    "ma_tt43": "6.3",
+    "ten_ky_thuat": "Thang đánh giá trầm cảm ở cộng đồng (PHQ - 9)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "361",
+    "ma_tt43": "6.6",
+    "ten_ky_thuat": "Thang đánh giá trầm cảm sau sinh (EPDS)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "362",
+    "ma_tt43": "3.253",
+    "ten_ky_thuat": "Thang đánh giá triệu chứng ngoại tháp (SIMPSON)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "363",
+    "ma_tt43": "6.32",
+    "ten_ky_thuat": "Thang đánh giá vận động bất thường (AIMS)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "364",
+    "ma_tt43": "6.31",
+    "ten_ky_thuat": "Trắc nghiệm rối loạn giấc ngủ (PSQI)",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "365",
+    "ma_tt43": "3.237",
+    "ten_ky_thuat": "Trắc nghiệm tâm lý Beck",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "366",
+    "ma_tt43": "3.238",
+    "ten_ky_thuat": "Trắc nghiệm tâm lý Zung",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "367",
+    "ma_tt43": "6.48",
+    "ten_ky_thuat": "Tư vấn tâm lí cho người bệnh và gia đình",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "368",
+    "ma_tt43": "6.71",
+    "ten_ky_thuat": "Xử trí dị ứng thuốc hướng thần",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "369",
+    "ma_tt43": "6.70",
+    "ten_ky_thuat": "Xử trí ngộ độc thuốc hướng thần",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "370",
+    "ma_tt43": "6.259",
+    "ten_ky_thuat": "Xử trí người bệnh không ăn",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "371",
+    "ma_tt43": "6.257",
+    "ten_ky_thuat": "Xử trí người bệnh kích động",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "372",
+    "ma_tt43": "6.66",
+    "ten_ky_thuat": "Xử trí trạng thái bồn chồn bất an do thuốc hướng thần",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "373",
+    "ma_tt43": "6.72",
+    "ten_ky_thuat": "Xử trí trạng thái sảng rượu",
+    "nhom": "TÂM THẦN"
+  },
+  {
+    "stt": "374",
+    "ma_tt43": "9.22",
+    "ten_ky_thuat": "Chụp X-quang cấp cứu tại giường",
+    "nhom": "ĐIỆN QUANG"
+  },
+  {
+    "stt": "375",
+    "ma_tt43": "2.314",
+    "ten_ky_thuat": "Siêu âm ổ bụng",
+    "nhom": "ĐIỆN QUANG"
+  },
+  {
+    "stt": "376",
+    "ma_tt43": "3.225",
+    "ten_ky_thuat": "Định lượng nhanh CK-MB trong máu toàn phần tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "377",
+    "ma_tt43": "3.223",
+    "ten_ky_thuat": "Định lượng nhanh D-Dimer trong máu toàn phần tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "378",
+    "ma_tt43": "3.224",
+    "ten_ky_thuat": "Định lượng nhanh Myoglobin trong máu toàn phần tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "379",
+    "ma_tt43": "3.222",
+    "ten_ky_thuat": "Định lượng nhanh NT-ProBNP trong máu toàn phần tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "380",
+    "ma_tt43": "3.221",
+    "ten_ky_thuat": "Định lượng nhanh Troponin T trong máu toàn phần tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "381",
+    "ma_tt43": "3.217",
+    "ten_ky_thuat": "Định tính chất độc trong máu bằng test nhanh",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "382",
+    "ma_tt43": "3.214",
+    "ten_ky_thuat": "Định tính chất độc trong nước tiểu bằng test nhanh",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "383",
+    "ma_tt43": "3.216",
+    "ten_ky_thuat": "Đo lactat trong máu",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "384",
+    "ma_tt43": "3.213",
+    "ten_ky_thuat": "Làm test nhanh chẩn đoán ngộ độc cấp",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "385",
+    "ma_tt43": "1.5",
+    "ten_ky_thuat": "Làm test phục hồi máu mao mạch",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "386",
+    "ma_tt43": "1.282",
+    "ten_ky_thuat": "Lấy máu động mạch quay làm xét nghiệm",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "387",
+    "ma_tt43": "3.220",
+    "ten_ky_thuat": "Phát hiện benzodiazepin bằng Anexate",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "388",
+    "ma_tt43": "3.219",
+    "ten_ky_thuat": "Phát hiện opiat bằng Naloxone",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "389",
+    "ma_tt43": "6.74",
+    "ten_ky_thuat": "Test nhanh phát hiện chất gây nghiện trong nước tiểu",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "390",
+    "ma_tt43": "6.73",
+    "ten_ky_thuat": "Test nhanh phát hiện chất opiats trong nước tiểu",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "391",
+    "ma_tt43": "3.226",
+    "ten_ky_thuat": "Xác định nhanh INR/PT/ Quick tại chỗ bằng máy cầm tay",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "392",
+    "ma_tt43": "3.191",
+    "ten_ky_thuat": "Xét nghiệm đường máu mao mạch tại giường",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "393",
+    "ma_tt43": "23.201",
+    "ten_ky_thuat": "Định lượng protein niệu",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "394",
+    "ma_tt43": "22.279, 22.280, 22.283",
+    "ten_ky_thuat": "Định nhóm máu ABO",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "395",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy mẫu, vận chuyển mẫu bệnh phẩm xét nghiệm",
+    "nhom": "XÉT NGHIỆM"
+  },
+  {
+    "stt": "396",
+    "ma_tt43": "1.275",
+    "ten_ky_thuat": "Băng bó vết thương",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "397",
+    "ma_tt43": "1.269",
+    "ten_ky_thuat": "Băng ép bất động sơ cứu rắn cắn",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "398",
+    "ma_tt43": "1.65",
+    "ten_ky_thuat": "Bóp bóng Ambu qua mặt nạ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "399",
+    "ma_tt43": "1.245",
+    "ten_ky_thuat": "Cân người bệnh tại giường bằng cân treo hay cân điện tử",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "400",
+    "ma_tt43": "15.302",
+    "ten_ky_thuat": "Cắt chỉ sau phẫu thuật",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "401",
+    "ma_tt43": "3.3821",
+    "ten_ky_thuat": "Cắt lọc tổ chức hoại tử hoặc cắt lọc vết thương đơn giản",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "402",
+    "ma_tt43": "12.92",
+    "ten_ky_thuat": "Cắt u mỡ, u bã đậu vùng hàm mặt đường kính dưới 5 cm",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "403",
+    "ma_tt43": "9.11",
+    "ten_ky_thuat": "Chăm sóc bệnh nhân đã tử vong",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "404",
+    "ma_tt43": "1.305",
+    "ten_ky_thuat": "Chăm sóc bệnh nhân thở máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "405",
+    "ma_tt43": "9.12",
+    "ten_ky_thuat": "Chăm sóc catheter động mạch",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "406",
+    "ma_tt43": "9.13",
+    "ten_ky_thuat": "Chăm sóc catheter tĩnh mạch",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "407",
+    "ma_tt43": "15.304",
+    "ten_ky_thuat": "Chích áp xe nhỏ vùng đầu cổ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "408",
+    "ma_tt43": "3.3910",
+    "ten_ky_thuat": "Chích hạch viêm mủ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "409",
+    "ma_tt43": "3.3032",
+    "ten_ky_thuat": "Chích rạch áp xe lớn, dẫn lưu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "410",
+    "ma_tt43": "3.3031",
+    "ten_ky_thuat": "Chích rạch áp xe nhỏ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "411",
+    "ma_tt43": "3.163",
+    "ten_ky_thuat": "Chọc dẫn lưu ổ áp xe dưới siêu âm",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "412",
+    "ma_tt43": "3.2354",
+    "ten_ky_thuat": "Chọc dịch màng bụng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "413",
+    "ma_tt43": "1.202",
+    "ten_ky_thuat": "Chọc dịch tủy sống",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "414",
+    "ma_tt43": "3.2356",
+    "ten_ky_thuat": "Chọc hút áp xe thành bụng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "415",
+    "ma_tt43": "3.2261",
+    "ten_ky_thuat": "Chọc hút dịch do máu tụ sau mổ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "416",
+    "ma_tt43": "9.15",
+    "ten_ky_thuat": "Chọc tĩnh mạch cảnh ngoài",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "417",
+    "ma_tt43": "9.16",
+    "ten_ky_thuat": "Chọc tĩnh mạch đùi",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "418",
+    "ma_tt43": "9.20",
+    "ten_ky_thuat": "Chọc tủy sống đường giữa",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "419",
+    "ma_tt43": "9.21",
+    "ten_ky_thuat": "Chống hạ thân nhiệt trong hoặc sau phẫu thuật",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "420",
+    "ma_tt43": "3.2355",
+    "ten_ky_thuat": "Dẫn lưu dịch màng bụng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "421",
+    "ma_tt43": "3.164",
+    "ten_ky_thuat": "Dẫn lưu ổ bụng cấp cứu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "422",
+    "ma_tt43": "3.33",
+    "ten_ky_thuat": "Đặt catheter động mạch",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "423",
+    "ma_tt43": "3.28",
+    "ten_ky_thuat": "Đặt catheter tĩnh mạch",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "424",
+    "ma_tt43": "9.32",
+    "ten_ky_thuat": "Đặt dẫn lưu ngực cấp cứu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "425",
+    "ma_tt43": "11.89",
+    "ten_ky_thuat": "Đặt dây truyền dịch ngoại vi điều trị bệnh nhân bỏng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "426",
+    "ma_tt43": "11.131",
+    "ten_ky_thuat": "Đặt vị thế cho bệnh nhân bỏng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "427",
+    "ma_tt43": "3.1469",
+    "ten_ky_thuat": "Điều trị rối loạn đông máu trong ngoại khoa",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "428",
+    "ma_tt43": "11.126",
+    "ten_ky_thuat": "Điều trị sẹo bỏng bằng băng thun áp lực kết hợp với thuốc làm mềm sẹo",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "429",
+    "ma_tt43": "11.120",
+    "ten_ky_thuat": "Điều trị vết thương chậm liền bằng laser he-ne",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "430",
+    "ma_tt43": "11.171",
+    "ten_ky_thuat": "Điều trị vết thương mạn tính bằng đèn hồng ngoại",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "431",
+    "ma_tt43": "3.1468",
+    "ten_ky_thuat": "Dự phòng tắc tĩnh mạch sau phẫu thuật, sau chấn thương",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "432",
+    "ma_tt43": "1.45",
+    "ten_ky_thuat": "Dùng thuốc chống đông",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "433",
+    "ma_tt43": "1.271",
+    "ten_ky_thuat": "Dùng thuốc kháng độc điều trị giải độc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "434",
+    "ma_tt43": "1.270",
+    "ten_ky_thuat": "Ga rô hoặc băng ép cầm máu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "435",
+    "ma_tt43": "3.1448",
+    "ten_ky_thuat": "Giảm đau bằng thuốc cho người bệnh sau phẫu thuật, sau chấn thương",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "436",
+    "ma_tt43": "3.134",
+    "ten_ky_thuat": "Hồi sức chống sốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "437",
+    "ma_tt43": "3.4214",
+    "ten_ky_thuat": "Hướng dẫn sử dụng bình xịt định liều",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "438",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám bệnh",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "439",
+    "ma_tt43": "11.16",
+    "ten_ky_thuat": "Khâu cầm máu, thắt mạch máu để cấp cứu chảy máu trong bỏng sâu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "440",
+    "ma_tt43": "3.3261",
+    "ten_ky_thuat": "Khâu kín vết thương thủng ngực",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "441",
+    "ma_tt43": "3.187",
+    "ten_ky_thuat": "Kiểm soát đau trong cấp cứu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "442",
+    "ma_tt43": "11.178",
+    "ten_ky_thuat": "Kỹ thuật bơm rửa liên tục trong điều trị vết thương mạn tính phức tạp",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "443",
+    "ma_tt43": "3.1415",
+    "ten_ky_thuat": "Kỹ thuật chọc tĩnh mạch cảnh ngoài",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "444",
+    "ma_tt43": "9.98",
+    "ten_ky_thuat": "Kỹ thuật giảm đau bằng tiêm morphin cách quãng dưới da",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "445",
+    "ma_tt43": "11.177",
+    "ten_ky_thuat": "Kỹ thuật massage tại chỗ trong chăm sóc vết thương mạn tính",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "446",
+    "ma_tt43": "11.180",
+    "ten_ky_thuat": "Kỹ thuật sử dụng băng chun băng ép trong điều trị vết loét do giãn tĩnh mạch chi dưới",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "447",
+    "ma_tt43": "3.1403",
+    "ten_ky_thuat": "Kỹ thuật theo dõi thân nhiệt với nhiệt kế thường quy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "448",
+    "ma_tt43": "3.1409",
+    "ten_ky_thuat": "Kỹ thuật truyền dịch trong sốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "449",
+    "ma_tt43": "3.1410",
+    "ten_ky_thuat": "Kỹ thuật truyền máu trong sốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "450",
+    "ma_tt43": "11.176",
+    "ten_ky_thuat": "Kỹ thuật xoay chuyển bệnh nhân dự phòng loét tỳ đè",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "451",
+    "ma_tt43": "3.2386",
+    "ten_ky_thuat": "Lấy bệnh phẩm trực tràng để chẩn đoán các bệnh nhiễm trùng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "452",
+    "ma_tt43": "1.253",
+    "ten_ky_thuat": "Lấy máu tĩnh mạch bẹn",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "453",
+    "ma_tt43": "1.251",
+    "ten_ky_thuat": "Lấy máu tĩnh mạch, tiêm thuốc tĩnh mạch (một lần chọc kim qua da)",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "454",
+    "ma_tt43": "9.127",
+    "ten_ky_thuat": "Liệu pháp kháng sinh dự phòng trước và sau phẫu thuật",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "455",
+    "ma_tt43": "9.133",
+    "ten_ky_thuat": "Lưu kim luồn tĩnh mạch để tiêm thuốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "456",
+    "ma_tt43": "9.134",
+    "ten_ky_thuat": "Lý liệu pháp ngực ở bệnh nhân nặng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "457",
+    "ma_tt43": "9.139",
+    "ten_ky_thuat": "Nâng thân nhiệt chỉ huy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "458",
+    "ma_tt43": "3.185",
+    "ten_ky_thuat": "Nâng thân nhiệt chủ động",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "459",
+    "ma_tt43": "1.229",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh bằng đường truyền tĩnh mạch ngoại biên ≤ 8 giờ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "460",
+    "ma_tt43": "1.230",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh bằng đường truyền tĩnh mạch trung tâm ≤ 8 giờ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "461",
+    "ma_tt43": "3.1470",
+    "ten_ky_thuat": "Phát hiện, phòng, điều trị nhiễm khuẩn bệnh viện (vết phẫu thuật, catheter, hô hấp, tiết niệu…)",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "462",
+    "ma_tt43": "3.2070",
+    "ten_ky_thuat": "Phẫu thuật rạch dẫn lưu áp xe nông vùng hàm mặt",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "463",
+    "ma_tt43": "11.15",
+    "ten_ky_thuat": "Rạch hoại tử bỏng giải thoát chèn ép",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "464",
+    "ma_tt43": "11.138",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do cóng lạnh",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "465",
+    "ma_tt43": "11.139",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do kiềm và các hóa chất khác",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "466",
+    "ma_tt43": "11.140",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do tia xạ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "467",
+    "ma_tt43": "11.82",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng acid",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "468",
+    "ma_tt43": "11.83",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng do dòng điện",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "469",
+    "ma_tt43": "11.81",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng do vôi tôi nóng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "470",
+    "ma_tt43": "11.79",
+    "ten_ky_thuat": "Sơ cứu, cấp cứu tổn thương bỏng nhiệt",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "471",
+    "ma_tt43": "3.29",
+    "ten_ky_thuat": "Sốc điện ngoài lồng ngực cấp cứu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "472",
+    "ma_tt43": "11.129",
+    "ten_ky_thuat": "Sử dụng gel silicol điều trị sẹo bỏng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "473",
+    "ma_tt43": "11.13",
+    "ten_ky_thuat": "Sử dụng thuốc tạo màng điều trị vết thương bỏng nông",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "474",
+    "ma_tt43": "3.1509",
+    "ten_ky_thuat": "Sử dụng thuốc tạo màng điều trị vết thương bỏng nông theo chỉ định",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "475",
+    "ma_tt43": "3.4198",
+    "ten_ky_thuat": "Test dưới da với thuốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "476",
+    "ma_tt43": "2.163",
+    "ten_ky_thuat": "Thay băng các vết loét hoại tử rộng sau TBMMN",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "477",
+    "ma_tt43": "3.192",
+    "ten_ky_thuat": "Thay băng cho các vết thương hoại tử rộng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "478",
+    "ma_tt43": "1.267",
+    "ten_ky_thuat": "Thay băng cho các vết thương hoại tử rộng (một lần)",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "479",
+    "ma_tt43": "3.1510",
+    "ten_ky_thuat": "Thay băng điều trị bỏng nông, dưới 10% diện tích cơ thể ở trẻ em.",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "480",
+    "ma_tt43": "11.5",
+    "ten_ky_thuat": "Thay băng điều trị vết bỏng dưới 10% diện tích cơ thể ở người lớn",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "481",
+    "ma_tt43": "11.10",
+    "ten_ky_thuat": "Thay băng điều trị vết bỏng dưới 10% diện tích cơ thể ở trẻ em",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "482",
+    "ma_tt43": "11.4",
+    "ten_ky_thuat": "Thay băng điều trị vết bỏng từ 10% - 19% diện tích cơ thể ở người lớn",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "483",
+    "ma_tt43": "11.116",
+    "ten_ky_thuat": "Thay băng điều trị vết thương mạn tính",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "484",
+    "ma_tt43": "15.303",
+    "ten_ky_thuat": "Thay băng vết mổ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "485",
+    "ma_tt43": "3.3911",
+    "ten_ky_thuat": "Thay băng, cắt chỉ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "486",
+    "ma_tt43": "3.87",
+    "ten_ky_thuat": "Theo dõi độ bão hòa ô xy (SPO2)",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "487",
+    "ma_tt43": "9.163",
+    "ten_ky_thuat": "Theo dõi đường giấy tại chỗ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "488",
+    "ma_tt43": "9.165",
+    "ten_ky_thuat": "Theo dõi EtCO2",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "489",
+    "ma_tt43": "9.168",
+    "ten_ky_thuat": "Theo dõi huyết áp không xâm lấn bằng máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "490",
+    "ma_tt43": "9.169",
+    "ten_ky_thuat": "Theo dõi huyết áp xâm lấn bằng máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "491",
+    "ma_tt43": "9.172",
+    "ten_ky_thuat": "Theo dõi nhịp tim qua ống nghe thực quản",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "492",
+    "ma_tt43": "9.175",
+    "ten_ky_thuat": "Theo dõi thân nhiệt bằng máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "493",
+    "ma_tt43": "9.176",
+    "ten_ky_thuat": "Theo dõi thân nhiệt với nhiệt kế thường qui",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "494",
+    "ma_tt43": "3.2389",
+    "ten_ky_thuat": "Tiêm bắp thịt",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "495",
+    "ma_tt43": "3.2388",
+    "ten_ky_thuat": "Tiêm dưới da",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "496",
+    "ma_tt43": "3.2387",
+    "ten_ky_thuat": "Tiêm trong da",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "497",
+    "ma_tt43": "3.210",
+    "ten_ky_thuat": "Tiêm truyền thuốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "498",
+    "ma_tt43": "9.194",
+    "ten_ky_thuat": "Tiệt trùng dụng cụ phục vụ phẫu thuật, GMHS",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "499",
+    "ma_tt43": "3.1405",
+    "ten_ky_thuat": "Truyền dịch thường quy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "500",
+    "ma_tt43": "9.196",
+    "ten_ky_thuat": "Truyền dịch trong sốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "501",
+    "ma_tt43": "3.209",
+    "ten_ky_thuat": "Truyền dịch vào tủy xương",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "502",
+    "ma_tt43": "9.199",
+    "ten_ky_thuat": "Truyền máu trong sốc",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "503",
+    "ma_tt43": "1.254",
+    "ten_ky_thuat": "Truyền máu và các chế phẩm máu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "504",
+    "ma_tt43": "1.252",
+    "ten_ky_thuat": "Truyền thuốc, dịch tĩnh mạch ≤ 8 giờ",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "505",
+    "ma_tt43": "9.200",
+    "ten_ky_thuat": "Vận chuyển bệnh nhân nặng ngoại viện",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "506",
+    "ma_tt43": "9.201",
+    "ten_ky_thuat": "Vận chuyển bệnh nhân nặng nội viện",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "507",
+    "ma_tt43": "3.204",
+    "ten_ky_thuat": "Vận chuyển người bệnh an toàn",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "508",
+    "ma_tt43": "1.278",
+    "ten_ky_thuat": "Vận chuyển người bệnh cấp cứu",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "509",
+    "ma_tt43": "1.279",
+    "ten_ky_thuat": "Vận chuyển người bệnh chấn thương cột sống thắt lưng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "510",
+    "ma_tt43": "1.280",
+    "ten_ky_thuat": "Vận chuyển người bệnh nặng có thở máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "511",
+    "ma_tt43": "9.204",
+    "ten_ky_thuat": "Vô trùng phòng phẫu thuật, phòng tiểu phẫu hoặc buồng bệnh",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "512",
+    "ma_tt43": "3.885",
+    "ten_ky_thuat": "Xoa bóp đầu mặt cổ, vai gáy, tay",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "513",
+    "ma_tt43": "3.886",
+    "ten_ky_thuat": "Xoa bóp lưng, chân",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "514",
+    "ma_tt43": "1.266",
+    "ten_ky_thuat": "Xoa bóp phòng chống loét",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "515",
+    "ma_tt43": "3.887",
+    "ten_ky_thuat": "Xoa bóp",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "516",
+    "ma_tt43": "9.124",
+    "ten_ky_thuat": "Xoay trở bệnh nhân thở máy",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  },
+  {
+    "stt": "517",
+    "ma_tt43": "11.80",
+    "ten_ky_thuat": "Xử lí tại chỗ kì đầu tổn thương bỏng",
+    "nhom": "DANH MỤC KỸ THUẬT KHÁC"
+  }
+]

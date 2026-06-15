@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000434 - THUOC_417 - DOMUVAR</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000434 - THUOC_417 - DOMUVAR</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Tài liệu này là một ca huấn luyện mẫu để dạy AI cách phân tích một hồ sơ kiểm tra thuốc từ dữ liệu audit thật trong repo.</p>
+<p>Ca này dùng để huấn luyện 3 kỹ năng:</p>
+<ul>
+<li>đọc kết quả audit thật</li>
+<li>nối audit với rule seed đang chạy</li>
+<li>rút ra kết luận nghiệp vụ và bài học tái sử dụng</li>
+</ul>
+<h2>2. Nguồn dữ liệu sử dụng</h2>
+<ul>
+<li>Audit gốc: <code>test_xml/audit_PC022300479_IP26000139.json</code></li>
+<li>Audit đã thay biến cảnh báo: <code>test_xml/audit_PC022300479_IP26000139_final_bg.json</code></li>
+<li>Rule seed liên quan:<ul>
+<li><code>THUOC_417</code></li>
+<li><code>THUOC_63</code></li>
+</ul>
+</li>
+<li>Nguồn rule: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+</ul>
+<p>Giới hạn dữ liệu:</p>
+<ul>
+<li>File XML gốc không nằm trong workspace hiện tại.</li>
+<li>Vì vậy kết luận của ca này bám trên audit đã sinh ra, không tự nhận là đã kiểm chứng trực tiếp từng dòng XML nguồn.</li>
+</ul>
+<h2>3. Bối cảnh ca hồ sơ</h2>
+<ul>
+<li>Hồ sơ: <code>PC022300479_IP26000139.xml</code></li>
+<li><code>MA_LK</code>: <code>000434</code></li>
+<li>Loại dữ liệu đang có: kết quả audit JSON</li>
+<li>Tổng cảnh báo trong bản <code>final_bg</code>: <code>11</code></li>
+</ul>
+<p>Phân bố rule chính:</p>
+<ul>
+<li><code>THUOC_417</code>: 5 cảnh báo</li>
+<li><code>THUOC_63</code>: 3 cảnh báo</li>
+<li><code>HC_171</code>: 1 cảnh báo</li>
+<li><code>HD_10</code>: 1 cảnh báo</li>
+<li><code>XML_121</code>: 1 cảnh báo</li>
+</ul>
+<p>Trọng tâm huấn luyện của ca này:</p>
+<ul>
+<li>lỗi thuốc cấp dư theo y lệnh</li>
+<li>lỗi thuốc sai chỉ định thanh toán</li>
+<li>dấu hiệu kê trùng trong cùng ngày</li>
+</ul>
+<h2>4. Vấn đề chính AI cần nhìn ra</h2>
+<p>AI phải xác định được rằng đây không chỉ là một ca có nhiều lỗi thuốc, mà là một ca có <strong>mẫu sai lặp lại</strong>:</p>
+<ul>
+<li>một nhóm thuốc bị cấp dư nhiều dòng</li>
+<li>một thuốc khác vừa cấp dư vừa sai chỉ định</li>
+<li>có thêm tín hiệu trùng thuốc cùng ngày</li>
+</ul>
+<p>Điều này quan trọng vì nó gợi ý:</p>
+<ul>
+<li>khả năng lỗi nhập y lệnh hoặc mapping kê đơn</li>
+<li>khả năng lặp y lệnh theo ngày</li>
+<li>khả năng điều trị không phù hợp với chẩn đoán đã mã hóa</li>
+</ul>
+<h2>5. Dữ liệu đã xác nhận được từ audit</h2>
+<h3>5.1. Rule THUOC_417 trên Tenamyd-Cefotaxime 1000</h3>
+<p>Audit <code>final_bg</code> cho thấy 4 dòng cảnh báo lặp cùng mẫu:</p>
+<ul>
+<li>Thuốc: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>Mã thuốc: <code>40.173</code></li>
+<li>Số lượng kê: <code>3</code></li>
+<li>Y lệnh thực tế: <code>2 Lọ/ngày x 1 ngày</code></li>
+<li>Phần cấp dư: <code>1 đơn vị</code></li>
+</ul>
+<p>Diễn giải nghiệp vụ:</p>
+<ul>
+<li>Nếu y lệnh thực tế là 2 lọ trong 1 ngày thì tổng lượng hợp lý là 2.</li>
+<li>Kê 3 lọ tạo chênh <code>+1</code>, đủ căn cứ để rule <code>THUOC_417</code> đánh cấp dư.</li>
+</ul>
+<h3>5.2. Rule THUOC_417 trên DOMUVAR</h3>
+<p>Audit <code>final_bg</code> cho thấy một cảnh báo rõ ràng:</p>
+<ul>
+<li>Thuốc: <code>DOMUVAR</code></li>
+<li>Mã thuốc: <code>40.718</code></li>
+<li>Số lượng kê: <code>6</code></li>
+<li>Y lệnh thực tế: <code>2 Ống/ngày x 1 ngày</code></li>
+<li>Phần cấp dư: <code>4 đơn vị</code></li>
+</ul>
+<p>Diễn giải nghiệp vụ:</p>
+<ul>
+<li>Y lệnh cho thấy lượng hợp lý là 2 ống.</li>
+<li>Kê 6 ống tạo chênh <code>+4</code>, đây là mức sai lệch lớn hơn rõ rệt so với nhóm Tenamyd.</li>
+</ul>
+<h3>5.3. Rule THUOC_63 trên DOMUVAR</h3>
+<p>Audit <code>final_bg</code> còn cho thấy 3 cảnh báo <code>THUOC_63</code>:</p>
+<ul>
+<li>DOMUVAR chỉ được thanh toán cho:<ul>
+<li><code>A09</code></li>
+<li><code>K59.1</code></li>
+<li><code>R19.7</code></li>
+</ul>
+</li>
+<li>Audit kết luận hồ sơ không có căn cứ chẩn đoán phù hợp ở các trường đang đối chiếu.</li>
+</ul>
+<p>Diễn giải nghiệp vụ:</p>
+<ul>
+<li>DOMUVAR ở ca này không chỉ bị cấp dư.</li>
+<li>Nó còn có nguy cơ sai điều kiện thanh toán BHYT nếu chẩn đoán không thuộc nhóm tiêu chảy / loạn khuẩn ruột.</li>
+</ul>
+<h3>5.4. Dấu hiệu kê trùng cùng ngày</h3>
+<p>Audit có thêm <code>XML_121</code>:</p>
+<ul>
+<li>Có dấu hiệu kê trùng 1 loại thuốc nhiều lần trong cùng một ngày y lệnh.</li>
+</ul>
+<p>Diễn giải nghiệp vụ:</p>
+<ul>
+<li>Đây là tín hiệu bổ sung giúp AI không dừng ở kết luận “cấp dư”, mà phải nghĩ tới khả năng <strong>trùng y lệnh hoặc lặp dòng thuốc</strong>.</li>
+</ul>
+<h2>6. Liên hệ với rule seed đang chạy</h2>
+<h3>6.1. Rule THUOC_417</h3>
+<p>Seed hiện hành:</p>
+<ul>
+<li>Tên: <code>Kiểm tra thuốc cấp dư (Dựa trên y lệnh)</code></li>
+<li>Điều kiện: <code>XML2.SO_LUONG &gt; (XML2.SL_MOI_NGAY * XML2.SO_NGAY)</code></li>
+</ul>
+<p>Điểm AI phải học:</p>
+<ul>
+<li>Đây là rule dễ giải thích nhất cho nghiệp vụ vì dùng ngay dữ liệu trong dòng XML2.</li>
+<li>Khi audit đã thay biến, AI nên ưu tiên đọc bản <code>final_bg</code> để lấy con số thực thay vì lặp lại template <code>{TEN_THUOC}</code>.</li>
+</ul>
+<h3>6.2. Rule THUOC_63</h3>
+<p>Seed hiện hành:</p>
+<ul>
+<li>Tên: <code>[Bacillus subtilis] Kiểm tra Chỉ định ICD-10</code></li>
+<li>Mã thuốc: <code>40.718</code></li>
+<li>Điều kiện thanh toán: chỉ phù hợp với <code>A09</code>, <code>K59.1</code>, <code>R19.7</code> hoặc mô tả tương đương trong chẩn đoán ra viện.</li>
+</ul>
+<p>Điểm AI phải học:</p>
+<ul>
+<li>Một thuốc có thể đồng thời dính 2 lớp lỗi:<ul>
+<li>sai số lượng</li>
+<li>sai căn cứ thanh toán</li>
+</ul>
+</li>
+</ul>
+<h2>7. Kết luận mẫu mà AI nên rút ra</h2>
+<p>Nếu AI được hỏi phân tích ca này, kết luận chuẩn nên là:</p>
+<ol>
+<li>Hồ sơ <code>000434</code> có mẫu lỗi thuốc lặp nhiều dòng, không phải chỉ một sai sót đơn lẻ.</li>
+<li><code>Tenamyd-Cefotaxime 1000</code> bị cấp dư lặp lại nhiều dòng theo rule <code>THUOC_417</code>, mỗi dòng dư <code>1</code> đơn vị so với y lệnh thực tế.</li>
+<li><code>DOMUVAR</code> vừa bị cấp dư <code>4</code> đơn vị theo <code>THUOC_417</code>, vừa không có căn cứ chẩn đoán thanh toán phù hợp theo <code>THUOC_63</code>.</li>
+<li><code>XML_121</code> gợi ý có khả năng trùng kê thuốc cùng ngày, cần kiểm tra lại nguồn sinh y lệnh hoặc logic import XML2.</li>
+<li>Đây là ca phù hợp để dạy AI cách phân biệt:<ul>
+<li>lỗi cấp dư do số lượng</li>
+<li>lỗi sai chỉ định thanh toán</li>
+<li>tín hiệu nghi ngờ lặp dòng/y lệnh</li>
+</ul>
+</li>
+</ol>
+<h2>8. Dữ liệu AI cần yêu cầu xem thêm nếu có XML gốc</h2>
+<p>Nếu sau này có file XML gốc, AI nên yêu cầu đọc thêm:</p>
+<ul>
+<li>các dòng XML2 của thuốc <code>40.173</code> và <code>40.718</code></li>
+<li><code>SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+<li><code>SO_LUONG</code></li>
+<li><code>NGAY_YL</code></li>
+<li>chẩn đoán ở XML1:<ul>
+<li><code>MA_BENH_CHINH</code></li>
+<li><code>MA_BENH_KT</code></li>
+<li><code>CHAN_DOAN_RV</code></li>
+</ul>
+</li>
+</ul>
+<p>Mục tiêu của bước này là xác nhận:</p>
+<ul>
+<li>lỗi do dữ liệu gốc thật</li>
+<li>hay lỗi do mapping/chuẩn hóa trong quá trình audit</li>
+</ul>
+<h2>9. Bài học huấn luyện cho AI</h2>
+<h3>9.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Một thuốc có thể sai ở nhiều lớp cùng lúc.</li>
+<li>Không được dừng ở một rule đầu tiên nhìn thấy.</li>
+<li>Cần gom các rule cùng thuốc để hiểu bản chất vấn đề.</li>
+</ul>
+<h3>9.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Khi có cả bản audit template và bản đã thay biến, nên ưu tiên bản đã thay biến để giải thích cho người dùng.</li>
+<li>Nếu thấy nhiều cảnh báo lặp cùng thuốc trong cùng hồ sơ, phải nghĩ tới khả năng trùng dòng hoặc lặp y lệnh.</li>
+</ul>
+<h3>9.3. Bài học quy trình</h3>
+<ul>
+<li>Trình tự đúng khi gặp ca như vậy:<ol>
+<li>đọc rule summary</li>
+<li>gom theo từng thuốc</li>
+<li>đọc số liệu thực từ cảnh báo đã thay biến</li>
+<li>đối chiếu với seed rule</li>
+<li>mới kết luận nghiệp vụ</li>
+</ol>
+</li>
+</ul>
+<h2>10. Cách dùng ca này để huấn luyện AI</h2>
+<p>Anh có thể dùng ca này theo 3 vòng.</p>
+<h3>Vòng 1. Cho AI đọc ca và tóm tắt</h3>
+<p>Mục tiêu:</p>
+<ul>
+<li>buộc AI đọc đúng số liệu thật</li>
+<li>buộc AI nhận diện thuốc nào lỗi gì</li>
+</ul>
+<h3>Vòng 2. Buộc AI liên hệ lại với seed rule</h3>
+<p>Mục tiêu:</p>
+<ul>
+<li>AI không chỉ lặp lại cảnh báo audit</li>
+<li>AI phải hiểu vì sao rule đánh như vậy</li>
+</ul>
+<h3>Vòng 3. Buộc AI rút bài học tái sử dụng</h3>
+<p>Mục tiêu:</p>
+<ul>
+<li>AI biến 1 ca hồ sơ thành tri thức dùng cho các ca sau</li>
+</ul>
+<h2>11. Prompt gợi ý để luyện AI với ca này</h2>
+<h3>Prompt 1</h3>
+<ul>
+<li><code>/Mo Phong Ca Giam Dinh BHYT Ho so 000434, dung audit_PC022300479_IP26000139_final_bg.json, phan tich THUOC_417 va THUOC_63</code></li>
+</ul>
+<h3>Prompt 2</h3>
+<ul>
+<li><code>/Trich Xuat The Tri Thuc Giam Dinh Rut ra 1 the tri thuc tu ca 000434 cho rule THUOC_417</code></li>
+</ul>
+<h3>Prompt 3</h3>
+<ul>
+<li><code>/Bao Cao Ket Qua Sua Ho So Neu sau nay sua XML2 cua ho so 000434, can viet bao cao ket qua nhu the nao</code></li>
+</ul>
+<h2>12. Kết luận</h2>
+<p>Ca <code>000434</code> là một ca huấn luyện tốt vì nó dạy AI cùng lúc nhiều kỹ năng quan trọng:</p>
+<ul>
+<li>đọc audit thật</li>
+<li>giải thích rule thuốc cấp dư</li>
+<li>phát hiện thuốc sai chỉ định thanh toán</li>
+<li>nhận biết mẫu lỗi lặp do kê trùng hoặc nhập liệu chưa chuẩn</li>
+</ul>
+<p>Đây là loại ca nên dùng lặp lại trong quá trình huấn luyện AI kiểm tra BHYT vì vừa có số liệu rõ, vừa có giá trị nghiệp vụ cao.</p>
+
+  </main>
+</body>
+</html>

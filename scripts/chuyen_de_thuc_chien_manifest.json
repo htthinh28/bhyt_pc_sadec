@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "description": "Danh sách quy tắc CHUYEN_DE đã hoàn tất checklist thực chiến (ký duyệt nội bộ). Chỉ thêm id vào approved_rule_ids sau khi làm đủ các bước trong scripts/qa_chuyen_de_thuc_chien.mjs (in ra khi chạy). QA fail nếu id trong manifest còn placeholder, seed OFF, hoặc không tồn tại.",
+  "approved_rule_ids": [],
+  "golden_test_note": "Ghi tham chiếu file XML mẫu / mã ca huấn luyện / commit sau khi có kiểm thử vàng (tùy chọn).",
+  "golden_test_refs": []
+}

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN SỬ DỤNG CHI TIẾT CDSS BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_su_dung_CDSS_BHYT_20260405.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN SỬ DỤNG CHI TIẾT CDSS BHYT</h1>
+<p>Phiên bản tài liệu: 4.0<br>Ngày cập nhật: 15/04/2026<br>Phiên bản ứng dụng tham chiếu: <strong>1.1.0</strong><br>Đối tượng sử dụng: người dùng vận hành, quản trị dữ liệu, quản trị hệ thống và đội hỗ trợ triển khai</p>
+<h2>1. Mục tiêu tài liệu</h2>
+<p>Tài liệu này hướng dẫn thao tác chi tiết với hệ thống CDSS BHYT theo giao diện và luồng hiện hành trong mã nguồn. Mục tiêu là giúp người dùng mới có thể sử dụng đúng quy trình, đồng thời giúp quản trị viên vận hành được các chức năng đồng bộ, sao lưu, phân quyền và kiểm tra hệ thống.</p>
+<h2>2. Đối tượng người dùng</h2>
+<ul>
+<li>Người nhập liệu hoặc rà soát hồ sơ XML BHYT.</li>
+<li>Bác sĩ hoặc điều dưỡng được giao kiểm tra lỗi hồ sơ.</li>
+<li>Nhân sự quản lý kho hồ sơ và dữ liệu thống kê.</li>
+<li>Quản trị viên phân quyền, danh mục, luật và đồng bộ dữ liệu.</li>
+<li>Đội IT triển khai nội bộ.</li>
+</ul>
+<h2>3. Chuẩn bị trước khi sử dụng</h2>
+<h3>3.1. Yêu cầu tối thiểu</h3>
+<ul>
+<li>Có tài khoản truy cập hợp lệ.</li>
+<li>Có quyền tương ứng với phân hệ cần dùng.</li>
+<li>Có tệp XML BHYT đúng định dạng nếu thực hiện nhập hồ sơ.</li>
+<li>Nếu dùng Firebase hoặc Python service, cần có cấu hình hợp lệ trong <code>app.json</code> hoặc runtime.</li>
+</ul>
+<h3>3.2. Chuẩn bị cho môi trường kỹ thuật</h3>
+<p><strong>Chạy từ mã nguồn (dev):</strong></p>
+<pre><code class="language-bash">npm install
+npm run start
+</code></pre>
+<p><strong>Chỉ bản web:</strong></p>
+<pre><code class="language-bash">npm run web
+</code></pre>
+<p><strong>Python service (mô hình lai — tùy chọn):</strong></p>
+<pre><code class="language-bash">npm run py:install
+npm run py:start
+</code></pre>
+<p><strong>Bản desktop Windows (portable — không cài đặt):</strong> do đội IT build từ mã nguồn (<code>npm run desktop:build:win-portable</code>). Thành phẩm là file <code>.exe</code> (ví dụ <code>CDSS-BHYT-Phuong-Chau-&lt;phiên_bản&gt;-Windows-x64.exe</code>). Người dùng chỉ cần copy file sang máy Windows 64-bit và chạy; không cần Node.js trên máy đích. Chi tiết: <code>packaging/HUONG_DAN_BAN_PORTABLE_DAY_DU.txt</code>.</p>
+<p><strong>Sau khi cập nhật tài liệu trong <code>tai_lieu/</code> (đội phát triển):</strong> chạy <code>npm run tai_lieu:prepare</code> để Thư viện trong app hiển thị đúng bản mới.</p>
+<h2>4. Đăng nhập hệ thống</h2>
+<h3>4.1. Cách vào màn hình đăng nhập</h3>
+<ul>
+<li>Mở ứng dụng.</li>
+<li>Hệ thống sẽ hiển thị <code>DangNhap</code> nếu chưa có phiên làm việc hợp lệ.</li>
+</ul>
+<h3>4.2. Thao tác đăng nhập</h3>
+<ol>
+<li>Nhập email hoặc thông tin tài khoản theo cơ chế đơn vị đang áp dụng.</li>
+<li>Nhập mật khẩu nếu hệ thống yêu cầu.</li>
+<li>Nhấn nút đăng nhập.</li>
+<li>Nếu thành công, hệ thống chuyển sang màn hình <code>TongQuan</code>.</li>
+</ol>
+<h3>4.3. Lưu ý khi đăng nhập</h3>
+<ul>
+<li>Nếu mở ứng dụng từ deep link nhưng chưa đăng nhập, hệ thống sẽ tự đưa về <code>DangNhap</code>.</li>
+<li>Nếu tài khoản có phiên cũ còn hiệu lực, hệ thống có thể khôi phục route gần nhất hoặc đưa thẳng về dashboard.</li>
+<li>Nếu không đủ quyền, người dùng vẫn có thể đăng nhập nhưng bị chặn khi vào màn hình không được phép.</li>
+</ul>
+<h2>5. Tổng quan màn hình chính</h2>
+<p><code>TongQuan</code> là bảng điều khiển sau đăng nhập: thanh bên <strong>ĐIỀU HƯỚNG</strong> mở từng module; khu vực giữa dùng để <strong>nạp hàng loạt XML</strong>, xem <strong>danh mục vi phạm (QPS)</strong> và xuất báo cáo. Menu hiển thị theo <strong>RBAC</strong> (phân quyền theo tài khoản).</p>
+<h3>5.1. Bảng chức năng trên thanh ĐIỀU HƯỚNG (theo mã màn hình)</h3>
+<table>
+<thead>
+<tr>
+<th>Trên giao diện</th>
+<th>Màn hình (route)</th>
+<th>Ghi chú ngắn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HELPER + FIREBASE</td>
+<td><code>Helper</code></td>
+<td>Đồng bộ Firebase, sao lưu/phục hồi, cấu hình hybrid Python (nếu dùng).</td>
+</tr>
+<tr>
+<td>KHO LƯU TRỮ</td>
+<td><code>KhoLuuTru</code></td>
+<td>Danh sách hồ sơ đã lưu cục bộ, mở chi tiết / sửa.</td>
+</tr>
+<tr>
+<td>ĐỌC XML CHI TIẾT</td>
+<td><code>DocXML</code></td>
+<td>Luồng đọc XML, xem cảnh báo chi tiết theo hồ sơ.</td>
+</tr>
+<tr>
+<td>CHUYÊN MÔN</td>
+<td><code>QuanLyChuyenMon</code></td>
+<td>Phác đồ / nội dung chuyên môn; có thể gồm các luồng con (ví dụ tương tác thuốc) tùy triển khai.</td>
+</tr>
+<tr>
+<td>DM NỘI BỘ</td>
+<td><code>QuanLyDanhMuc</code></td>
+<td>Danh mục nội bộ (mã dịch vụ, thuốc… theo cấu hình đơn vị).</td>
+</tr>
+<tr>
+<td>DM BỘ Y TẾ</td>
+<td><code>DanhMucBYTMain</code></td>
+<td>Danh mục tham chiếu BYT.</td>
+</tr>
+<tr>
+<td>MAPPING DM</td>
+<td><code>MappingNghiepVu</code></td>
+<td>Ánh xạ danh mục / mã nghiệp vụ giữa kho nội bộ và chuẩn dùng trong kiểm tra.</td>
+</tr>
+<tr>
+<td>THƯ VIỆN</td>
+<td><code>ThuVien</code></td>
+<td>Đọc tài liệu hướng dẫn, tri thức huấn luyện (đồng bộ từ kho <code>tai_lieu/</code>).</td>
+</tr>
+<tr>
+<td>TRỢ LÝ TRI THỨC (RAG)</td>
+<td><code>TroLyTriThuc</code></td>
+<td>Hỏi đáp trên corpus tài liệu nội bộ khi được bật.</td>
+</tr>
+<tr>
+<td>QUẢN LÝ LUẬT</td>
+<td><code>QuanLyLuat</code></td>
+<td>Xem và quản trị bộ luật (seed, điều kiện, cảnh báo).</td>
+</tr>
+<tr>
+<td>QUY TẮC ON/OFF</td>
+<td><code>QuanLyQuyTacOnOff</code></td>
+<td>Bật/tắt, sửa hiển thị, ẩn quy tắc mẫu — xem mục 7.7.</td>
+</tr>
+<tr>
+<td>BÁO CÁO</td>
+<td><code>BaoCaoVaThongKe</code></td>
+<td>Thống kê theo thời gian, khoa, bác sĩ, quy tắc.</td>
+</tr>
+<tr>
+<td>CỔNG HIS</td>
+<td><code>CongHIS</code></td>
+<td>Kiểm tra / tiếp nhận luồng từ HIS theo cấu hình.</td>
+</tr>
+<tr>
+<td>PHÂN QUYỀN</td>
+<td><code>PhanQuyenTruyCap</code></td>
+<td>Chỉ tài khoản được cấp quyền quản trị (thường là admin).</td>
+</tr>
+<tr>
+<td>Làm mới kho</td>
+<td>(hành động trên dashboard)</td>
+<td>Làm mới dữ liệu thống kê từ kho (không thay thế sao lưu trong Helper).</td>
+</tr>
+</tbody></table>
+<p>Các màn <strong>Chi tiết ca</strong> (<code>ChiTiet</code>), <strong>Sửa XML</strong> (<code>SuaFileXML</code>), <strong>XML1…XML6</strong>, <strong>Tri thức từ kiểm tra</strong> (<code>TriThucTuGiamDinh</code>) có thể mở từ <strong>Kho</strong>, <strong>Đọc XML</strong>, popup tri thức trên Tổng quan, hoặc luồng xử lý lỗi (mục 5.3) — tùy RBAC.</p>
+<h3>5.2. Đường dẫn web (deep link) — tham chiếu kỹ thuật</h3>
+<p>Khi chạy bản web, có thể dùng đường dẫn tương ứng (ví dụ <code>.../dashboard</code> cho Tổng quan). Bảng tham chiếu:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Đường dẫn web (path)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TongQuan</code></td>
+<td><code>/dashboard</code></td>
+</tr>
+<tr>
+<td><code>DocXML</code></td>
+<td><code>/auditing</code></td>
+</tr>
+<tr>
+<td><code>ChiTiet</code></td>
+<td><code>/case-detail/:maLK</code></td>
+</tr>
+<tr>
+<td><code>SuaFileXML</code></td>
+<td><code>/auditing/edit/:maLK</code></td>
+</tr>
+<tr>
+<td><code>KhoLuuTru</code></td>
+<td><code>/archive</code></td>
+</tr>
+<tr>
+<td><code>Helper</code></td>
+<td><code>/helper</code></td>
+</tr>
+<tr>
+<td><code>QuanLyLuat</code></td>
+<td><code>/rules</code></td>
+</tr>
+<tr>
+<td><code>QuanLyQuyTacOnOff</code></td>
+<td><code>/rules/on-off</code></td>
+</tr>
+<tr>
+<td><code>QuanLyDanhMuc</code></td>
+<td><code>/master-data</code></td>
+</tr>
+<tr>
+<td><code>DanhMucBYTMain</code></td>
+<td><code>/danh-muc-byt</code></td>
+</tr>
+<tr>
+<td><code>QuanLyChuyenMon</code></td>
+<td><code>/clinical-guidelines</code></td>
+</tr>
+<tr>
+<td><code>MappingNghiepVu</code></td>
+<td><code>/mapping-nghiep-vu</code></td>
+</tr>
+<tr>
+<td><code>ThuVien</code></td>
+<td><code>/thu-vien</code></td>
+</tr>
+<tr>
+<td><code>TriThucTuGiamDinh</code></td>
+<td><code>/tri-thuc-giam-dinh</code></td>
+</tr>
+<tr>
+<td><code>TroLyTriThuc</code></td>
+<td><code>/tro-ly-tri-thuc</code></td>
+</tr>
+<tr>
+<td><code>CongHIS</code></td>
+<td><code>/his-gateway</code></td>
+</tr>
+<tr>
+<td><code>BaoCaoVaThongKe</code></td>
+<td><code>/reports</code></td>
+</tr>
+<tr>
+<td><code>PhanQuyenTruyCap</code></td>
+<td><code>/permissions</code></td>
+</tr>
+<tr>
+<td><code>XML1</code> … <code>XML6</code></td>
+<td><code>/xml/xml1</code> … <code>/xml/xml6</code></td>
+</tr>
+</tbody></table>
+<h3>5.3. Chi tiết thao tác trên màn <code>TongQuan</code></h3>
+<ol>
+<li><p><strong>Chế độ kiểm tra</strong><br>Trên vùng “Nạp hồ sơ XML”, hệ thống hiển thị chế độ hiện tại: <strong>JS nội bộ</strong> hoặc <strong>Python service</strong>. Chuyển chế độ hybrid / kiểm tra service nằm ở <strong>Helper</strong> (nút “Mở Helper Hybrid” cạnh nút chọn file).</p>
+</li>
+<li><p><strong>Nạp nhiều hồ sơ</strong><br>Chọn <strong>Chọn XML</strong> → chọn một hoặc nhiều file → hệ thống chạy kiểm tra batch. Kết quả đổ vào kho thống kê và bảng vi phạm bên dưới (sau khi dữ liệu được ghi nhận).</p>
+</li>
+<li><p><strong>Bảng vi phạm QPS</strong>  </p>
+<ul>
+<li>Lọc theo mức: Tất cả / Xuất toán / Cảnh báo / Nhắc nhở.  </li>
+<li>Ô lọc theo <strong>mã luật / tên quy tắc</strong> và theo <strong>mã hồ sơ hoặc bệnh nhân</strong>.  </li>
+<li>Chạm một dòng quy tắc để xem <strong>danh sách ca phát sinh</strong>; từ đó có thể: <strong>Mở XML lỗi</strong>, <strong>Sửa và lưu XML</strong>, <strong>Đúng vị trí rule</strong> (mở Quy tắc ON/OFF đúng tab gợi ý), hoặc <strong>Mở Rule ON/OFF</strong> ở đầu panel chi tiết.</li>
+</ul>
+</li>
+<li><p><strong>Xuất file</strong>  </p>
+<ul>
+<li><strong>XML → Excel</strong>: chuyển dữ liệu XML đã nạp sang Excel (tiện đối chiếu ngoài hệ thống).  </li>
+<li><strong>Xuất báo cáo</strong>: xuất danh sách lỗi chi tiết (cột theo cấu hình dashboard: mã LK, thẻ BHYT, mã luật, cảnh báo…).</li>
+</ul>
+</li>
+<li><p><strong>Làm mới kho</strong><br>Dùng khi cần đồng bộ lại hiển thị từ kho lưu trữ sau khi dữ liệu thay đổi; không thay cho <strong>sao lưu</strong> định kỳ trong Helper.</p>
+</li>
+</ol>
+<h2>6. Quy trình thao tác chuẩn hằng ngày</h2>
+<p>Đây là quy trình vận hành khuyến nghị cho người dùng nghiệp vụ.</p>
+<ol>
+<li>Đăng nhập hệ thống.</li>
+<li>Vào <code>DocXML</code> để nhập hồ sơ mới.</li>
+<li>Kiểm tra kết quả cảnh báo và rà soát từng lỗi.</li>
+<li>Nếu cần, mở <code>ChiTiet</code> hoặc <code>SuaFileXML</code> để kiểm tra/chỉnh sửa.</li>
+<li>Lưu hồ sơ vào <code>KhoLuuTru</code>.</li>
+<li>Cuối ngày hoặc cuối ca, mở <code>BaoCaoVaThongKe</code> để xem tỷ lệ lỗi và tổng hợp nhanh.</li>
+</ol>
+<h2>7. Hướng dẫn chi tiết theo từng phân hệ</h2>
+<h2>7.1. Màn hình <code>DocXML</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Nhập một hoặc nhiều hồ sơ XML BHYT.</li>
+<li>Chạy kiểm tra rule engine ngay sau khi nạp dữ liệu.</li>
+</ul>
+<h3>Quan hệ với Tổng quan</h3>
+<ul>
+<li>Có thể <strong>nạp XML ngay trên <code>TongQuan</code></strong> (batch, xem bảng QPS) hoặc vào <strong><code>DocXML</code></strong> để làm việc chi tiết theo từng luồng màn hình đọc file. Tùy đơn vị, một trong hai điểm vào được dùng thường xuyên hơn; dữ liệu sau khi lưu đều gắn với <strong>kho lưu trữ</strong> cục bộ.</li>
+</ul>
+<h3>Các bước thực hiện (<code>DocXML</code>)</h3>
+<ol>
+<li>Vào <code>DocXML</code> từ <code>TongQuan</code> (thanh ĐIỀU HƯỚNG).</li>
+<li>Chọn chức năng nhập file.</li>
+<li>Chọn một hoặc nhiều tệp XML từ máy.</li>
+<li>Chờ hệ thống đọc dữ liệu và bóc tách XML1 đến XML6.</li>
+<li>Xem danh sách cảnh báo, lỗi hoặc thông tin kiểm tra hiển thị trên màn hình.</li>
+</ol>
+<h3>Kết quả mong đợi</h3>
+<ul>
+<li>Hồ sơ được phân tích thành các bảng XML nội bộ.</li>
+<li>Các lỗi phát hiện được gắn theo rule và mức độ.</li>
+<li>Người dùng có thể quyết định lưu hồ sơ, sửa hồ sơ hoặc bỏ qua.</li>
+</ul>
+<h3>Lưu ý nghiệp vụ</h3>
+<ul>
+<li>Nếu nhập nhiều hồ sơ, nên kiểm tra các lỗi nghiêm trọng trước.</li>
+<li>Với hồ sơ không có lỗi nhưng cần lưu trữ phục vụ thống kê, vẫn nên đưa vào kho.</li>
+</ul>
+<h2>7.2. Màn hình <code>ChiTiet</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Xem chi tiết một hồ sơ theo <code>MA_LK</code>.</li>
+<li>Rà soát dữ liệu đầu vào và các cảnh báo đã sinh ra.</li>
+</ul>
+<h3>Cách sử dụng</h3>
+<ol>
+<li>Mở hồ sơ từ danh sách nhập mới hoặc từ kho lưu trữ.</li>
+<li>Chọn hồ sơ cần xem.</li>
+<li>Quan sát các thông tin tổng hợp, bảng XML liên quan và danh sách lỗi.</li>
+<li>Nếu cần chỉnh sửa, chuyển sang <code>SuaFileXML</code>.</li>
+</ol>
+<h2>7.3. Màn hình <code>SuaFileXML</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Hiệu chỉnh hồ sơ XML sau khi phát hiện lỗi.</li>
+<li>Chạy kiểm tra lại trước khi lưu.</li>
+</ul>
+<h3>Quy trình khuyến nghị</h3>
+<ol>
+<li>Từ <code>ChiTiet</code>, chọn chỉnh sửa hồ sơ.</li>
+<li>Cập nhật trường dữ liệu cần sửa.</li>
+<li>Lưu tạm.</li>
+<li>Chạy lại kiểm tra.</li>
+<li>Chỉ lưu chính thức khi lỗi nghiêm trọng đã được xử lý hoặc đã xác định rõ lý do giữ nguyên.</li>
+</ol>
+<h3>Lưu ý</h3>
+<ul>
+<li>Không nên chỉnh hàng loạt mà không có đối chiếu nguồn gốc hồ sơ.</li>
+<li>Với các lỗi liên quan pháp lý hoặc quyền lợi BHYT, nên có bước xác nhận nội bộ trước khi sửa.</li>
+</ul>
+<h2>7.4. Màn hình <code>KhoLuuTru</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Quản lý toàn bộ hồ sơ đã nhập vào hệ thống.</li>
+<li>Tìm kiếm và truy xuất hồ sơ cho báo cáo hoặc kiểm tra lại.</li>
+</ul>
+<h3>Cách sử dụng</h3>
+<ol>
+<li>Vào <code>KhoLuuTru</code>.</li>
+<li>Tìm hồ sơ theo <code>MA_LK</code> hoặc tiêu chí hiển thị có sẵn.</li>
+<li>Chọn hồ sơ cần mở.</li>
+<li>Vào <code>ChiTiet</code> hoặc tái sử dụng hồ sơ cho báo cáo.</li>
+</ol>
+<h3>Thực hành tốt</h3>
+<ul>
+<li>Nên chuẩn hóa quy trình đặt tên hoặc đối chiếu <code>MA_LK</code> trước khi lưu kho.</li>
+<li>Không xóa hồ sơ khỏi kho nếu còn phục vụ thống kê hoặc hậu kiểm.</li>
+</ul>
+<h2>7.5. Màn hình <code>BaoCaoVaThongKe</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Tổng hợp chất lượng hồ sơ trong kho.</li>
+<li>Thống kê lỗi theo thời gian, khoa, bác sĩ và quy tắc.</li>
+</ul>
+<h3>Quy trình sử dụng</h3>
+<ol>
+<li>Vào <code>BaoCaoVaThongKe</code>.</li>
+<li>Chờ hệ thống tải toàn bộ dữ liệu kho.</li>
+<li>Chọn khoảng thời gian nhanh hoặc khoảng tùy chỉnh.</li>
+<li>Nếu cần, chọn nhóm lỗi cụ thể.</li>
+<li>Theo dõi KPI đầu vào và đầu ra.</li>
+<li>Xem từng tab phân tích.</li>
+<li>Xuất Excel nếu cần báo cáo cho quản lý.</li>
+</ol>
+<h3>Ý nghĩa các nhóm thông tin</h3>
+<ul>
+<li>Hồ sơ trong kho: toàn bộ dữ liệu hiện có.</li>
+<li>Hồ sơ trong kỳ: dữ liệu thuộc khoảng thời gian đang lọc.</li>
+<li>Hồ sơ có lỗi: số hồ sơ có ít nhất một lỗi sau khi lọc.</li>
+<li>Tổng lỗi: tổng số lần vi phạm.</li>
+<li>Tỷ lệ lỗi hồ sơ: mức độ sai lỗi theo hồ sơ.</li>
+<li>Chi phí ước tính: giá trị nội bộ để ưu tiên xử lý, không phải quyết toán chính thức.</li>
+</ul>
+<h3>Các tab quan trọng</h3>
+<ul>
+<li>Tổng quan.</li>
+<li>Theo khoa.</li>
+<li>Theo bác sĩ.</li>
+<li>Theo quy tắc.</li>
+<li>Xu hướng.</li>
+</ul>
+<h3>Khi nào nên dùng báo cáo</h3>
+<ul>
+<li>Cuối ngày để rà soát chất lượng nhập liệu.</li>
+<li>Cuối tuần để phát hiện khoa hoặc bác sĩ có tỷ lệ lỗi cao.</li>
+<li>Trước khi làm báo cáo quản trị nội bộ.</li>
+</ul>
+<h2>7.6. Màn hình <code>QuanLyLuat</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Quản trị bộ luật đang dùng trong hệ thống.</li>
+<li>Theo dõi trạng thái rule, nội dung cảnh báo và điều kiện.</li>
+</ul>
+<h3>Khi sử dụng</h3>
+<ul>
+<li>Khi cần kiểm tra vì sao một lỗi được sinh ra.</li>
+<li>Khi cần rà soát rule mới hoặc xác minh bộ seed hiện hành.</li>
+</ul>
+<h3>Lưu ý</h3>
+<ul>
+<li>Chỉ nhân sự được phân quyền mới nên sửa rule.</li>
+<li>Với rule sinh từ Excel hoặc thuộc nhóm hardcoded, phải tuân thủ quy trình thay đổi trước khi can thiệp.</li>
+</ul>
+<h2>7.7. Màn hình <code>QuanLyQuyTacOnOff</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Bật hoặc tắt từng quy tắc (ON/OFF) mà không sửa mã nguồn.</li>
+<li><strong>Sửa nội dung hiển thị</strong> (tên quy tắc, cảnh báo, nhóm cảnh báo…) cho cả quy tắc <strong>mẫu</strong> (built-in / hardcoded): thay đổi được lưu dưới dạng <strong>ghi đè cục bộ</strong>; <strong>mã luật</strong> của quy tắc mẫu không đổi để tránh lệch map.</li>
+<li><strong>Ẩn</strong> quy tắc mẫu khỏi danh sách quản trị khi cần giảm nhiễu; có thể <strong>hiện lại</strong> từ khối “Quy tắc mẫu đã ẩn”.</li>
+<li>Quy tắc <strong>nhập tay</strong> có thể <strong>xóa</strong> khỏi danh sách (khác với quy tắc mẫu: trên dòng mẫu dùng <strong>Ẩn</strong> thay vì xóa).</li>
+</ul>
+<h3>Các tab nội dung (ví dụ)</h3>
+<p>Theo nhóm nghiệp vụ: <strong>Cấu trúc XML</strong>, <strong>Hành chính</strong>, <strong>Chuyển tuyến</strong>, <strong>Hợp đồng</strong>, <strong>Công khám</strong>, <strong>DVKT/CĐHA</strong>, <strong>Máu</strong>, <strong>Thuốc</strong>, <strong>Giường bệnh</strong>, <strong>Nhân sự</strong>, <strong>Phẫu thuật/Thủ thuật</strong>. Chọn tab đúng nhóm trước khi tìm mã luật.</p>
+<h3>Các bước sử dụng</h3>
+<ol>
+<li>Vào <code>QuanLyQuyTacOnOff</code> từ <code>TongQuan</code> (hoặc từ nút <strong>Mở Rule ON/OFF</strong> / <strong>Đúng vị trí rule</strong> khi xử lý lỗi trên dashboard).</li>
+<li>Chọn <strong>tab</strong> phù hợp với loại quy tắc (hoặc đúng tab gợi ý khi mở từ một dòng lỗi).</li>
+<li>Tìm dòng theo <strong>mã luật</strong> hoặc <strong>tên quy tắc</strong>.</li>
+<li>Dùng <strong>công tắc ON/OFF</strong> để bật/tắt quy tắc đó trong lần kiểm tra tiếp theo (sau khi lưu / áp dụng theo giao diện).</li>
+<li><strong>Sửa</strong>: mở form sửa để chỉnh nội dung hiển thị hoặc ghi chú; với quy tắc mẫu, không đổi <strong>mã luật</strong>.</li>
+<li><strong>Ẩn</strong> (quy tắc mẫu): ẩn khỏi danh sách quản lý; khôi phục bằng mục <strong>Hiện lại</strong> trong khối quy tắc đã ẩn.</li>
+<li>Sau khi thay đổi lớn: chạy lại kiểm tra trên vài hồ sơ mẫu hoặc script QA nội bộ (<code>qa:on-off-match</code>, v.v.) nếu đơn vị có quy trình.</li>
+</ol>
+<h3>Cách dùng an toàn</h3>
+<ol>
+<li>Xác định rule hoặc nhóm rule cần giảm nhiễu.</li>
+<li>Đánh giá ảnh hưởng nghiệp vụ (tắt rule có thể làm mất cảnh báo quan trọng).</li>
+<li>Đổi trạng thái ON/OFF hoặc chỉnh ghi đè nội dung có kiểm soát.</li>
+<li>Chạy lại kiểm thử hoặc audit mẫu để xác nhận không làm lệch kết quả ngoài ý muốn.</li>
+</ol>
+<h2>7.8. Màn hình <code>QuanLyDanhMuc</code> và <code>DanhMucBYTMain</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Quản lý danh mục nội bộ và danh mục chuẩn tham chiếu.</li>
+<li>Hỗ trợ đối chiếu mã dịch vụ, thuốc, vật tư và danh mục liên quan.</li>
+</ul>
+<h3>Khuyến nghị sử dụng</h3>
+<ul>
+<li>Chỉ cập nhật khi có nguồn danh mục đã được phê duyệt.</li>
+<li>Ghi nhận thời điểm và người cập nhật khi thay đổi dữ liệu tham chiếu.</li>
+</ul>
+<h2>7.9. Màn hình <code>QuanLyChuyenMon</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Quản lý nội dung chuyên môn, phác đồ hoặc quy trình hỗ trợ kiểm tra.</li>
+<li>Có thể bao gồm các chức năng con như <strong>tương tác thuốc</strong> (rà soát cặp thuốc, cảnh báo tương tác) tùy cấu hình đơn vị.</li>
+</ul>
+<h3>Khuyến nghị</h3>
+<ul>
+<li>Chỉ đội chuyên môn hoặc quản trị viên được phép chỉnh sửa.</li>
+<li>Mọi cập nhật nên có tài liệu tham chiếu đi kèm.</li>
+</ul>
+<h2>7.9a. Màn hình <code>MappingNghiepVu</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Thiết lập hoặc kiểm tra <strong>ánh xạ</strong> giữa mã danh mục nội bộ và mã/ nhóm dùng trong kiểm tra.</li>
+</ul>
+<h3>Khuyến nghị</h3>
+<ul>
+<li>Thay đổi mapping sau khi có quyết định của đầu mối dữ liệu; kiểm tra lại trên vài hồ sơ mẫu.</li>
+</ul>
+<h2>7.9b. Màn hình <code>ThuVien</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Đọc <strong>tài liệu Markdown/HTML</strong> đã chuẩn bị cho đơn vị (hướng dẫn, tri thức huấn luyện).</li>
+</ul>
+<h3>Lưu ý</h3>
+<ul>
+<li>Nội dung Thư viện phụ thuộc bản đã đồng bộ (<code>npm run tai_lieu:prepare</code> trên môi trường build).</li>
+</ul>
+<h2>7.9c. Màn hình <code>TriThucTuGiamDinh</code> và <code>TroLyTriThuc</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li><strong>Tri thức từ kiểm tra:</strong> tra cứu / gợi ý gắn với kết quả kiểm tra (theo thiết kế màn hình).</li>
+<li><strong>Trợ lý tri thức:</strong> hỏi đáp trên kho tài liệu nội bộ (RAG) khi được bật.</li>
+</ul>
+<h3>Khuyến nghị</h3>
+<ul>
+<li>Dùng như hỗ trợ tra cứu; quyết định nghiệp vụ vẫn thuộc người có thẩm quyền.</li>
+</ul>
+<h2>7.9d. Màn hình <code>CongHIS</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Kiểm tra hoặc vận hành luồng tiếp nhận dữ liệu từ <strong>HIS</strong> (theo URL/cấu hình trong <code>app.json</code>).</li>
+</ul>
+<h3>Khuyến nghị</h3>
+<ul>
+<li>Do IT hoặc đầu mối tích hợp thao tác; xác nhận mạng nội bộ và chứng thư kết nối.</li>
+</ul>
+<h2>7.10. Các màn hình <code>XML1</code> đến <code>XML6</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Xem và quản lý dữ liệu chi tiết theo từng bảng XML.</li>
+<li>Hỗ trợ đối chiếu cấu trúc trường dữ liệu.</li>
+</ul>
+<h3>Khi sử dụng</h3>
+<ul>
+<li>Khi cần kiểm tra đúng/sai của từng trường cụ thể.</li>
+<li>Khi cần giải thích vì sao rule engine đọc ra một giá trị nào đó.</li>
+</ul>
+<h2>7.11. Màn hình <code>Helper</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Cung cấp công cụ vận hành cho quản trị viên.</li>
+</ul>
+<h3>Các thao tác thường dùng</h3>
+<ul>
+<li>Kiểm tra Firebase đang bật hay tắt.</li>
+<li>Đồng bộ dataset lên Firebase.</li>
+<li>Tải dataset từ Firebase về máy.</li>
+<li>Sao lưu dữ liệu hệ thống.</li>
+<li>Phục hồi dữ liệu từ file backup.</li>
+<li>Kiểm tra hoặc dọn dữ liệu cloud lỗi.</li>
+</ul>
+<h3>Khuyến nghị thao tác</h3>
+<ul>
+<li>Sao lưu trước khi thay đổi dữ liệu rule hoặc danh mục.</li>
+<li>Chỉ đồng bộ cloud sau khi đã kiểm tra dữ liệu local ổn định.</li>
+</ul>
+<h2>7.12. Màn hình <code>PhanQuyenTruyCap</code></h2>
+<h3>Mục đích</h3>
+<ul>
+<li>Tạo tài khoản.</li>
+<li>Gán quyền cho người dùng.</li>
+<li>Khóa/mở khóa tài khoản.</li>
+</ul>
+<h3>Quy trình gợi ý</h3>
+<ol>
+<li>Tạo tài khoản bằng email chuẩn.</li>
+<li>Gán vai trò phù hợp.</li>
+<li>Kiểm tra quyền màn hình theo nhu cầu thực tế.</li>
+<li>Đăng nhập thử bằng tài khoản đó nếu cần xác minh.</li>
+</ol>
+<h2>8. Hướng dẫn cho quản trị viên hệ thống</h2>
+<h2>8.1. Sao lưu dữ liệu</h2>
+<p>Thực hiện định kỳ:</p>
+<ol>
+<li>Vào <code>Helper</code>.</li>
+<li>Chọn chức năng xuất backup.</li>
+<li>Lưu file vào vị trí an toàn.</li>
+<li>Đặt tên file theo ngày và môi trường.</li>
+</ol>
+<p>Khuyến nghị:</p>
+<ul>
+<li>Sao lưu trước mỗi lần cập nhật dataset luật.</li>
+<li>Sao lưu hằng ngày nếu đơn vị thao tác nhiều hồ sơ.</li>
+</ul>
+<h2>8.2. Phục hồi dữ liệu</h2>
+<ol>
+<li>Mở <code>Helper</code>.</li>
+<li>Chọn chức năng nhập backup.</li>
+<li>Chọn đúng file sao lưu.</li>
+<li>Xác nhận phục hồi.</li>
+<li>Kiểm tra lại danh mục, luật, kho hồ sơ và phân quyền sau khi phục hồi.</li>
+</ol>
+<h2>8.3. Đồng bộ Firebase</h2>
+<p>Điều kiện:</p>
+<ul>
+<li><code>firebase.enabled</code> đã bật.</li>
+<li>Cấu hình kết nối hợp lệ.</li>
+<li>Tài khoản cloud đủ quyền.</li>
+</ul>
+<p>Các bước:</p>
+<ol>
+<li>Vào <code>Helper</code>.</li>
+<li>Chọn chức năng đồng bộ mong muốn.</li>
+<li>Chờ hệ thống hoàn tất quá trình chunk và ghi cloud.</li>
+<li>Theo dõi thông báo thành công/thất bại.</li>
+</ol>
+<h2>8.4. Chạy Python service</h2>
+<p>Khi cần audit lai hoặc smoke test:</p>
+<pre><code class="language-bash">npm run py:start
+npm run qa:python-service
+</code></pre>
+<p>Kiểm tra kết quả:</p>
+<ul>
+<li>Service phản hồi <code>GET /health</code>.</li>
+<li>Smoke test trả PASS cho các kịch bản đã cài sẵn.</li>
+</ul>
+<h2>8.5. Phân quyền người dùng mới</h2>
+<p>Quy trình đề xuất:</p>
+<ol>
+<li>Tạo tài khoản mới.</li>
+<li>Gán role nền.</li>
+<li>Gán quyền màn hình bổ sung nếu cần.</li>
+<li>Kiểm tra tài khoản không nhìn thấy các phân hệ ngoài phạm vi.</li>
+</ol>
+<h2>9. Xử lý các tình huống thường gặp</h2>
+<h2>9.1. Không đăng nhập được</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li>Tài khoản có tồn tại không.</li>
+<li>Phiên cũ có bị lỗi hay không.</li>
+<li>Người dùng có bị khóa không.</li>
+<li>Cấu hình xác thực cloud có đang gây lỗi ngoài ý muốn hay không.</li>
+</ul>
+<h2>9.2. Nhập XML nhưng không thấy kết quả</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li>File XML có đúng định dạng không.</li>
+<li>File có bị rỗng hoặc mã hóa lỗi không.</li>
+<li>Rule engine có bị tắt hàng loạt do cấu hình ON/OFF không.</li>
+</ul>
+<h2>9.3. Hồ sơ không xuất hiện trong kho</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li>Người dùng đã bấm lưu hồ sơ chưa.</li>
+<li><code>MA_LK</code> có bị trùng với hồ sơ cũ không.</li>
+<li>Trình duyệt có chặn IndexedDB hay không.</li>
+</ul>
+<h2>9.4. Báo cáo không có dữ liệu</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li>Kho lưu trữ đã có hồ sơ chưa.</li>
+<li>Bộ lọc thời gian có quá hẹp không.</li>
+<li>Hồ sơ có <code>NGAY_VAO</code> hợp lệ không.</li>
+</ul>
+<h2>9.5. Không đồng bộ được Firebase</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li><code>firebase.enabled</code>.</li>
+<li><code>projectId</code>, <code>apiKey</code>, <code>appId</code>.</li>
+<li>Chế độ auth đang là anonymous hay email/password.</li>
+<li>Quyền role cloud của tài khoản.</li>
+<li>Kết nối mạng.</li>
+</ul>
+<h2>9.6. Python service không phản hồi</h2>
+<p>Kiểm tra:</p>
+<ul>
+<li>Service đã chạy cổng <code>8000</code> chưa.</li>
+<li><code>expo.extra.pythonService.baseUrl</code> có đúng không.</li>
+<li>Có firewall hoặc chặn mạng nội bộ không.</li>
+</ul>
+<h2>10. Thực hành tốt khi vận hành</h2>
+<ul>
+<li>Chỉ bật/tắt rule sau khi có đánh giá tác động.</li>
+<li>Không chỉnh trực tiếp dữ liệu rule production mà không sao lưu.</li>
+<li>Nên kiểm tra một lô mẫu sau mỗi thay đổi danh mục hoặc rule.</li>
+<li>Định kỳ xem tab xu hướng để phát hiện lỗi tăng bất thường.</li>
+<li>Với lỗi nghiêm trọng liên quan quyền lợi BHYT, cần có bước xác nhận chuyên môn trước khi chốt hồ sơ.</li>
+</ul>
+<h2>11. Checklist vận hành đề xuất</h2>
+<h2>11.1. Checklist đầu ngày</h2>
+<ol>
+<li>Đăng nhập và kiểm tra ứng dụng chạy ổn định.</li>
+<li>Xác nhận có thể mở <code>DocXML</code>, <code>KhoLuuTru</code>, <code>BaoCaoVaThongKe</code>.</li>
+<li>Nếu có dùng cloud, kiểm tra nhanh Firebase/Python service.</li>
+</ol>
+<h2>11.2. Checklist trong ngày</h2>
+<ol>
+<li>Nhập hồ sơ XML theo đợt.</li>
+<li>Xử lý lỗi nghiêm trọng trước.</li>
+<li>Lưu hồ sơ đã rà soát vào kho.</li>
+<li>Ghi nhận các bất thường chưa thể xử lý để theo dõi tiếp.</li>
+</ol>
+<h2>11.3. Checklist cuối ngày</h2>
+<ol>
+<li>Mở <code>BaoCaoVaThongKe</code> và xem KPI chính.</li>
+<li>Xác định khoa, bác sĩ hoặc rule có xu hướng tăng lỗi.</li>
+<li>Sao lưu dữ liệu nếu khối lượng thay đổi lớn.</li>
+</ol>
+<h2>11.4. Checklist hằng tuần cho quản trị viên</h2>
+<ol>
+<li>Rà soát tài khoản và quyền truy cập.</li>
+<li>Kiểm tra tình trạng đồng bộ cloud.</li>
+<li>Kiểm tra danh mục và trạng thái rule ON/OFF.</li>
+<li>Chạy smoke test Python service nếu đang dùng mô hình lai.</li>
+</ol>
+<h2>12. Câu hỏi thường gặp</h2>
+<h3>Hỏi: Có thể dùng hệ thống khi mất mạng không?</h3>
+<p>Trả lời: Có. Hệ thống được thiết kế local-first. Các chức năng nhập hồ sơ, kiểm tra và lưu kho chủ yếu làm việc cục bộ. Các chức năng cloud chỉ cần khi đồng bộ hoặc phục hồi dữ liệu.</p>
+<h3>Hỏi: Có bắt buộc mở Python service không?</h3>
+<p>Trả lời: Không. Python service là lớp mở rộng. Luồng cơ bản của ứng dụng vẫn chạy được mà không cần service này.</p>
+<h3>Hỏi: Tại sao cùng một rule nhưng kết quả thay đổi sau khi cập nhật seed?</h3>
+<p>Trả lời: Vì seed luật và migration seed có thể thay đổi biểu thức hoặc dữ liệu rule. Khi có cập nhật seed, dữ liệu đã lưu cũ cũng có thể được cập nhật theo cơ chế migration.</p>
+<h3>Hỏi: Vì sao tài khoản vào được dashboard nhưng không vào được một màn hình cụ thể?</h3>
+<p>Trả lời: Người dùng đã đăng nhập nhưng không có quyền cho màn hình đó trong RBAC. Hệ thống sẽ tự đưa về <code>TongQuan</code>.</p>
+<h3>Hỏi: Bản portable khác gì bản chạy trên trình duyệt?</h3>
+<p>Trả lời: Portable là ứng dụng <strong>Electron</strong> đóng gói sẵn giao diện web; chạy như chương trình Windows, không cần cài Node.js. Bản web mở bằng trình duyệt (Chrome, Edge…). Dữ liệu vẫn <strong>local-first</strong> (IndexedDB trên desktop embed tương tự web).</p>
+<h3>Hỏi: Cảnh báo XML_49, XML_53, XML_109, XML_143 nghĩa là gì (tóm tắt cho người dùng nghiệp vụ)?</h3>
+<p>Trả lời (không thay thế tài liệu pháp lý):  </p>
+<ul>
+<li><strong>XML_49:</strong> tổng tiền BHYT trả trên XML1 không khớp tổng phần BHYT ghi trên các dòng chi tiết (theo trường <code>T_BHTT</code> dòng).  </li>
+<li><strong>XML_53:</strong> tổng <strong>tiền thuốc</strong> khai trên XML1 (<code>T_THUOC</code>) không khớp tổng tiền thuốc trên XML2 (nhóm thuốc thường dùng), tính theo <strong>phần BHYT ưu tiên</strong> trên từng dòng.  </li>
+<li><strong>XML_109:</strong> tổng thành tiền BHYT toàn chi tiết lớn hơn tổng thành tiền BV (mức gộp — bất thường nghiêm trọng).  </li>
+<li><strong>XML_143:</strong> trên <strong>một dòng</strong> thuốc/DV, thành tiền BHYT không được cao hơn thành tiền bệnh viện (vượt quá ngưỡng làm tròn).</li>
+</ul>
+<p>Khi cần tắt tạm hoặc chỉnh hiển thị: dùng <strong>Quy tắc ON/OFF</strong> (đúng tab gợi ý).</p>
+<h2>13. Kết luận</h2>
+<p>Hệ thống CDSS BHYT được thiết kế để phục vụ quy trình kiểm tra hồ sơ XML BHYT theo hướng thực dụng: nhập liệu, phát hiện lỗi, chỉnh sửa, lưu kho, thống kê và đồng bộ khi cần. Ngoài các phân hệ cốt lõi, người dùng có thể dùng <strong>Thư viện</strong>, <strong>Trợ lý tri thức</strong>, <strong>Mapping nghiệp vụ</strong> và <strong>Cổng HIS</strong> (khi được triển khai). Người dùng nghiệp vụ nên tuân thủ luồng chuẩn nhập XML, rà soát lỗi, lưu kho và theo dõi báo cáo. Quản trị viên cần tập trung vào phân quyền đúng, sao lưu định kỳ, kiểm soát rule/danh mục, và xác nhận các tích hợp ngoài (Firebase, Python, HIS) ở trạng thái ổn định.</p>
+
+  </main>
+</body>
+</html>

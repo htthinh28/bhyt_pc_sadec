@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 2</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_thuoc_dot2.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 2</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này mở rộng bộ huấn luyện nhóm <code>THUOC</code> sau đợt 1, tập trung vào các mẫu suy luận có giá trị thực chiến cao hơn:</p>
+<ul>
+<li>cấp dư theo định mức chung</li>
+<li>cấp dư dựa trên y lệnh thực tế</li>
+<li>chỉ định thuốc theo ICD-10</li>
+<li>chống chỉ định lâm sàng</li>
+<li>tần suất chuẩn theo dạng dùng</li>
+<li>mối liên hệ giữa thuốc cản quang và dịch vụ chẩn đoán hình ảnh</li>
+</ul>
+<h2>2. Nguồn gốc tri thức</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li><code>ma_nguon/tien_ich/luat_thuoc_hardcoded.jsx</code></li>
+<li><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code></li>
+</ul>
+<h2>3. Thẻ tri thức mẫu đợt 2</h2>
+<hr>
+<h2>Thẻ 7. Allopurinol / Agigout 300</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Allopurinol</li>
+<li>Nhóm nghiệp vụ: Thuốc điều trị Gout / sỏi uric</li>
+<li>Nguồn tài liệu: <code>THUOC_19</code>, <code>THUOC_20</code>, <code>THUOC_21</code></li>
+<li>Độ tin cậy: cao trong phạm vi seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Hệ thống kiểm tra Allopurinol ở 3 mặt: chống chỉ định suy thận/suy gan nặng, cấp dư số lượng, và đúng chỉ định điều trị Gout hoặc sỏi acid uric.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.59&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu có <code>N18.4</code>, <code>N18.5</code>, <code>K72</code> thì cảnh báo chống chỉ định theo seed hiện tại.</li>
+<li>Nếu số lượng cấp vượt <code>CALC_SL_MOI_NGAY * SO_NGAY</code> thì coi là cấp dư.</li>
+<li>Nếu không có <code>M10</code>, <code>N20</code> hoặc mô tả Gout / sỏi thận acid uric thì nguy cơ xuất toán cao do sai chỉ định.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Phải tách rõ 3 nhánh lỗi: chống chỉ định, cấp dư, sai chỉ định.</li>
+<li>Với thuốc điều trị mạn tính, số lượng và chẩn đoán đều quan trọng, không được kiểm tra đơn lẻ.</li>
+</ul>
+<hr>
+<h2>Thẻ 8. Ambroxol</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Ambroxol</li>
+<li>Nhóm nghiệp vụ: Thuốc long đờm / điều trị hô hấp</li>
+<li>Nguồn tài liệu: <code>THUOC_22</code>, <code>THUOC_23</code>, <code>THUOC_24</code>, <code>THUOC_25</code></li>
+<li>Độ tin cậy: cao trong phạm vi seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Ambroxol đang được kiểm tra theo dạng dùng và bối cảnh lâm sàng:<ul>
+<li>viên: tối đa 3 lần/ngày</li>
+<li>chai/siro: cảnh báo khi &gt; 3 lần/ngày</li>
+<li>chống chỉ định ở loét dạ dày tiến triển</li>
+<li>chỉ thanh toán cho nhóm viêm hô hấp hoặc ho</li>
+</ul>
+</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.988&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.DON_VI_TINH</code></li>
+<li><code>CALC_TAN_SUAT</code></li>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Viên Ambroxol dùng <code>&gt; 3 lần/ngày</code> là sai phác đồ.</li>
+<li>Siro/chai <code>&gt; 3 lần/ngày</code> là cảnh báo cần xác minh thêm.</li>
+<li>Nếu có <code>K25</code>, <code>K26</code> thì xem là chống chỉ định.</li>
+<li>Nếu không có <code>J06</code>, <code>J20</code>, <code>R05</code> hoặc mô tả viêm hô hấp/ho thì có nguy cơ xuất toán.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Cùng một mã thuốc nhưng cách diễn giải phải phụ thuộc dạng dùng.</li>
+<li>Luôn phân biệt cảnh báo lâm sàng với lỗi xuất toán BHYT.</li>
+</ul>
+<hr>
+<h2>Thẻ 9. Bacillus subtilis / DOMUVAR</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: DOMUVAR</li>
+<li>Nhóm nghiệp vụ: Thuốc vi sinh đường ruột</li>
+<li>Nguồn tài liệu: <code>THUOC_62</code>, <code>THUOC_63</code></li>
+<li>Độ tin cậy: cao trong phạm vi seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>DOMUVAR được hệ thống kiểm tra ở 2 mặt: chống chỉ định tắc ruột và chỉ định thanh toán theo nhóm tiêu chảy/loạn khuẩn ruột.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.718&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu có <code>K56</code> thì coi là chống chỉ định theo rule seed.</li>
+<li>Nếu không có <code>A09</code>, <code>K59.1</code>, <code>R19.7</code> hoặc mô tả tiêu chảy / rối loạn nhu động ruột thì nguy cơ xuất toán do sai chỉ định.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>DOMUVAR là ví dụ tốt cho kiểu thuốc dễ bị dùng “hỗ trợ” nhưng không đủ căn cứ thanh toán BHYT.</li>
+<li>Cần kiểm tra cả chẩn đoán chính, chẩn đoán kèm và chẩn đoán ra viện, không chỉ một trường.</li>
+</ul>
+<hr>
+<h2>Thẻ 10. Kiểm tra thuốc cấp dư theo định mức chung</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Cấp dư thuốc theo định mức tính toán</li>
+<li>Nhóm nghiệp vụ: Kiểm tra số lượng cấp phát</li>
+<li>Nguồn tài liệu: <code>THUOC_416</code></li>
+<li>Độ tin cậy: cao trong phạm vi seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Rule <code>THUOC_416</code> kiểm tra xem số lượng thuốc có vượt định mức được tính từ số lượng mỗi ngày và số ngày điều trị hay không.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code></li>
+<li>Điều kiện áp dụng: <code>SO_LUONG &gt; (CALC_SL_MOI_NGAY * SO_NGAY)</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>SO_LUONG</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu số lượng cấp lớn hơn định mức kỳ vọng thì coi là cấp dư.</li>
+<li>Đây là rule phù hợp khi engine đã tính được định mức ngày điều trị chuẩn hóa.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Rule này là lớp kiểm tra tổng quát, hữu ích để rà nhiều thuốc.</li>
+<li>Khi gặp ca thực tế, cần so sánh nó với <code>THUOC_417</code> để xem nên tin vào định mức tính toán hay y lệnh trực tiếp trong XML.</li>
+</ul>
+<hr>
+<h2>Thẻ 11. Kiểm tra thuốc cấp dư dựa trên y lệnh</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Cấp dư thuốc theo y lệnh thực tế</li>
+<li>Nhóm nghiệp vụ: Kiểm tra số lượng cấp phát theo kê đơn cụ thể</li>
+<li>Nguồn tài liệu: <code>THUOC_417</code></li>
+<li>Độ tin cậy: rất cao cho huấn luyện ca thực chiến vì dễ giải thích cho nghiệp vụ</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Rule <code>THUOC_417</code> so trực tiếp số lượng đã kê với số lượng đáng ra phải có theo <code>SL_MOI_NGAY * SO_NGAY</code> trong chính dòng XML2.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code></li>
+<li>Điều kiện áp dụng: <code>XML2.SO_LUONG &gt; (XML2.SL_MOI_NGAY * XML2.SO_NGAY)</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>XML2.SL_MOI_NGAY</code></li>
+<li><code>XML2.SO_NGAY</code></li>
+<li>đơn vị dùng thuốc như <code>Lọ</code>, <code>Ống</code>, <code>Viên</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là rule dễ trình bày nhất cho người nghiệp vụ vì công thức đơn giản và nằm ngay trên y lệnh.</li>
+<li>Nếu số lượng kê vượt tích <code>SL_MOI_NGAY * SO_NGAY</code> thì có căn cứ rõ ràng để cảnh báo xuất toán.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Khi có dữ liệu <code>SL_MOI_NGAY</code> và <code>SO_NGAY</code> rõ ràng, ưu tiên dùng cách giải thích của <code>THUOC_417</code>.</li>
+<li>Đây là rule rất hợp để dạy AI cách đọc sai lệch thuốc theo hồ sơ thực tế.</li>
+</ul>
+<hr>
+<h2>Thẻ 12. Thuốc cản quang và dịch vụ CĐHA</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Thuốc cản quang</li>
+<li>Nhóm nghiệp vụ: Liên hệ XML2 thuốc với XML3 dịch vụ chẩn đoán hình ảnh</li>
+<li>Nguồn tài liệu: <code>THUOC_464</code>, <code>THUOC_465</code></li>
+<li>Độ tin cậy: cao trong phạm vi seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Nếu đã dùng thuốc cản quang, hồ sơ phải có ghi nhận tiền sử dị ứng và phải có dịch vụ chẩn đoán hình ảnh tương ứng.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code>, đối chiếu <code>XML1</code> và <code>XML3</code></li>
+<li>Điều kiện áp dụng:<ul>
+<li><code>XML2.MA_NHOM == &#39;CAN_QUANG&#39;</code></li>
+<li><code>COUNT_IF(XML3, MA_NHOM IN (&#39;3&#39;,&#39;7&#39;))</code></li>
+</ul>
+</li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.MA_NHOM</code></li>
+<li><code>XML1.GHI_CHU_DI_UNG</code></li>
+<li><code>XML3.MA_NHOM</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu thiếu thông tin tiền sử dị ứng thì cảnh báo chất lượng/JCI.</li>
+<li>Nếu có thuốc cản quang mà không có DVKT chẩn đoán hình ảnh tương ứng thì có nguy cơ xuất toán.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Đây là kiểu rule giao cắt nhiều XML, rất phù hợp để nâng AI từ đọc thuốc đơn thuần sang đọc quy trình kiểm tra.</li>
+<li>Thuốc cản quang thường không thể kết luận chỉ từ XML2 mà phải đối chiếu XML3.</li>
+</ul>
+<h2>4. Cách dùng bộ thẻ đợt 2</h2>
+<p>Nên dùng đợt 2 theo thứ tự:</p>
+<ol>
+<li>Học <code>THUOC_416</code> và <code>THUOC_417</code> trước để nắm kiểu lỗi cấp dư.</li>
+<li>Học <code>THUOC_63</code> với DOMUVAR để nắm sai chỉ định thanh toán.</li>
+<li>Học Allopurinol và Ambroxol để luyện kiểu suy luận đa điều kiện.</li>
+<li>Học nhóm cản quang để tập đối chiếu liên XML.</li>
+</ol>
+<h2>5. Bước tiếp theo khuyến nghị</h2>
+<p>Sau tài liệu này, nên tiếp tục thêm:</p>
+<ul>
+<li>nhóm kháng sinh và thuốc tim mạch</li>
+<li>nhóm thuốc liên quan cản quang/phẫu thuật</li>
+<li>nhóm false positive hoặc false negative đã gặp tại đơn vị</li>
+</ul>
+
+  </main>
+</body>
+</html>

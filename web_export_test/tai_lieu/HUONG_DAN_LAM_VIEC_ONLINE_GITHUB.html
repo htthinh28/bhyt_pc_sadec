@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌐 Hướng Dẫn Làm Việc Nhóm Online với GitHub</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>HUONG_DAN_LAM_VIEC_ONLINE_GITHUB.md</code> · Thư viện CDSS BHYT</div>
+    <h1>🌐 Hướng Dẫn Làm Việc Nhóm Online với GitHub</h1>
+<p><strong>Ngày tạo:</strong> 06/04/2026
+<strong>Version:</strong> 1.0</p>
+<hr>
+<h2>📌 Tổng Quan</h2>
+<p>Dự án AI CDSS BHYT bây giờ hỗ trợ <strong>làm việc nhóm hoàn toàn online</strong> thông qua:</p>
+<ul>
+<li>✅ GitHub version control</li>
+<li>✅ GitHub Actions CI/CD</li>
+<li>✅ GitHub Issues &amp; Discussions</li>
+<li>✅ Pull Requests review</li>
+<li>✅ Development Containers (Dev Containers)</li>
+<li>✅ Live collaboration workspace</li>
+</ul>
+<hr>
+<h2>🚀 Setup Nhanh (5 phút)</h2>
+<h3><strong>Bước 1: Fork &amp; Clone</strong></h3>
+<pre><code class="language-bash"># 1. Vào https://github.com/htthinh28/ung-dung-cdss-bhyt
+# 2. Click &quot;Fork&quot; button
+# 3. Clone fork của bạn
+git clone https://github.com/YOUR_USERNAME/ung-dung-cdss-bhyt.git
+cd ung_dung_cdss_bhyt
+</code></pre>
+<h3><strong>Bước 2: Setup Dev Environment (Chọn 1 cách)</strong></h3>
+<p><strong>Cách A: VS Code Dev Container (Recommended)</strong></p>
+<pre><code>1. Cài đặt VS Code
+2. Cài đặt extension: &quot;Dev Containers&quot;
+3. Mở folder này trong VS Code
+4. Click &quot;Reopen in Container&quot;
+5. Chờ setup tự động (~5 phút)
+</code></pre>
+<p><strong>Cách B: Manual Setup</strong></p>
+<pre><code class="language-bash"># Node
+npm install --legacy-peer-deps
+
+# Python
+python -m venv venv
+venv\Scripts\activate
+pip install -r python_service/requirements.txt
+</code></pre>
+<h3><strong>Bước 3: Chạy Ứng Dụng</strong></h3>
+<pre><code class="language-bash"># Terminal 1
+npm start
+
+# Terminal 2
+python -m uvicorn python_service.app.main:app --reload
+</code></pre>
+<p><strong>Truy cập:</strong> <a href="http://localhost:8080">http://localhost:8080</a></p>
+<hr>
+<h2>👥 Quy Trình Làm Việc Nhóm</h2>
+<h3><strong>Scenario: Bạn muốn thêm tính năng mới</strong></h3>
+<h4>1️⃣ <strong>Tạo Issue</strong></h4>
+<pre><code>Vào: https://github.com/htthinh28/ung-dung-cdss-bhyt/issues
+Click: &quot;New Issue&quot;
+Chọn: &quot;Feature request&quot;
+Mô tả: Tính năng bạn muốn làm
+Label: enhancement
+Assignee: Chính bạn
+</code></pre>
+<h4>2️⃣ <strong>Tạo Branch</strong></h4>
+<pre><code class="language-bash">git checkout -b feature/issue-123-feature-name
+# Ví dụ: git checkout -b feature/123-add-new-audit-rule
+</code></pre>
+<h4>3️⃣ <strong>Code &amp; Commit</strong></h4>
+<pre><code class="language-bash"># Cập nhật code
+nano ma_nguon/new_file.jsx
+
+# Commit (tuân theo Conventional Commits)
+git add .
+git commit -m &quot;feat(audit): add new antibiotic detection rule&quot;
+</code></pre>
+<h4>4️⃣ <strong>Push &amp; Tạo PR</strong></h4>
+<pre><code class="language-bash">git push origin feature/123-add-new-audit-rule
+</code></pre>
+<p>Sau đó trên GitHub:</p>
+<ul>
+<li>Click &quot;Compare &amp; pull request&quot;</li>
+<li>Fill PR template</li>
+<li>Link đến issue: <code>Fixes #123</code></li>
+<li>Click &quot;Create pull request&quot;</li>
+</ul>
+<h4>5️⃣ <strong>Code Review</strong></h4>
+<pre><code>Reviewers sẽ:
+✓ Kiểm tra code
+✓ Chạy CI/CD tests tự động
+✓ Comment hoặc approve
+✓ Merge sau khi approve
+</code></pre>
+<h4>6️⃣ <strong>Tracking</strong></h4>
+<pre><code>Trên GitHub Issues:
+- Issue sẽ tự động close khi PR merge
+- Assignees nhận notification
+- Labels tự động update
+</code></pre>
+<hr>
+<h2>🔄 GitHub Actions (CI/CD Tự Động)</h2>
+<p>Mọi khi bạn push, GitHub sẽ tự động:</p>
+<h3><strong>Test &amp; Build</strong></h3>
+<pre><code class="language-yaml">✅ npm install
+✅ npm lint
+✅ Python tests
+✅ Code quality scan
+</code></pre>
+<h3><strong>View Results</strong></h3>
+<pre><code>Vào: GitHub repo → &quot;Actions&quot; tab
+Xem: Workflow status
+Check: Build logs
+</code></pre>
+<h3><strong>Deployment</strong></h3>
+<pre><code>Khi merge vào main:
+1. Chạy full test suite
+2. Tạo release artifact
+3. Comment trên commit
+4. Ready để deploy
+</code></pre>
+<hr>
+<h2>💬 Collaboration Features</h2>
+<h3><strong>Issues (Nhận việc)</strong></h3>
+<pre><code>Vào Issues tab → Filter by:
+- &quot;good first issue&quot; - Cho người mới
+- &quot;help wanted&quot; - Cần assistance
+- Assign to yourself
+</code></pre>
+<h3><strong>Discussions (Thảo luận)</strong></h3>
+<pre><code>Vào Discussion tab → Create:
+- Ideas: Ý tưởng mới
+- Q&amp;A: Hỏi đáp
+- Announcements: Thông báo chính thức
+</code></pre>
+<h3><strong>Draft PRs (Nháp)</strong></h3>
+<pre><code>Không ready merge?
+1. Tạo PR như bình thường
+2. Click &quot;Convert to draft&quot;
+3. Sau khi ready: &quot;Mark ready for review&quot;
+</code></pre>
+<h3><strong>Code Reviews</strong></h3>
+<pre><code>Khi review PR:
+1. Click &quot;Files changed&quot;
+2. Hover trên line cần comment
+3. Click + icon → &quot;Start review&quot;
+4. Click &quot;Approve&quot; hoặc &quot;Request changes&quot;
+</code></pre>
+<hr>
+<h2>📊 Real-Time Collaboration</h2>
+<h3><strong>Sync Mới Nhất từ Main</strong></h3>
+<p>Trước khi push, lấy code mới nhất:</p>
+<pre><code class="language-bash"># Fetch updates
+git fetch origin main
+
+# Check differences
+git diff main..HEAD
+
+# Merge nếu cần
+git pull origin main
+</code></pre>
+<hr>
+<h3><strong>Conflict Resolution</strong></h3>
+<p>Nếu merge conflict:</p>
+<pre><code class="language-bash"># Git sẽ đánh dấu conflict
+git status
+
+# Mở file, fix conflict, sau đó:
+git add .
+git commit -m &quot;fix: resolve merge conflict&quot;
+git push origin branch-name
+</code></pre>
+<hr>
+<h2>🎯 Best Practices</h2>
+<h3>✅ DO:</h3>
+<ul>
+<li>✓ Tạo issues trước code</li>
+<li>✓ 1 branch = 1 tính năng</li>
+<li>✓ Commit messages rõ ràng</li>
+<li>✓ Pull latest trước push</li>
+<li>✓ Test trước push</li>
+<li>✓ Cross-review code</li>
+</ul>
+<h3>❌ DON&#39;T:</h3>
+<ul>
+<li>✗ Push trực tiếp vào main</li>
+<li>✗ Commit secrets (.env, keys)</li>
+<li>✗ Large files (&gt;100MB)</li>
+<li>✗ Merge conflict không resolve</li>
+<li>✗ Skip tests</li>
+<li>✗ Commit messy code</li>
+</ul>
+<hr>
+<h2>🔐 Permissions &amp; Access</h2>
+<h3><strong>Read Access</strong> (Có thể clone &amp; PR)</h3>
+<pre><code>Vào: Settings → Manage access
+Click &quot;Add people&quot;
+Role: &quot;Contributor&quot;
+</code></pre>
+<h3><strong>Write Access</strong> (Có thể push &amp; merge)</h3>
+<pre><code>Người official team → cấp write access
+Merge only thông qua approved PR
+</code></pre>
+<h3><strong>Admin Access</strong> (Quản lý settings)</h3>
+<pre><code>Project owner &amp; core maintainers
+</code></pre>
+<hr>
+<h2>📱 GitHub Mobile</h2>
+<p>Quản lý project từ điện thoại:</p>
+<ul>
+<li>Tải <strong>GitHub Mobile app</strong></li>
+<li>Login với GitHub account</li>
+<li>View issues, PRs, notifications</li>
+<li>Comment &amp; review on-the-go</li>
+</ul>
+<hr>
+<h2>🌍 Remote Development (Online IDE)</h2>
+<h3><strong>GitHub Codespaces</strong> (Recommended)</h3>
+<pre><code>1. Vào repo → Code button
+2. Choose &quot;Codespaces&quot;
+3. Click &quot;Create codespace on main&quot;
+4. Wait ~2 min for setup
+5. Full VS Code in browser!
+</code></pre>
+<p><strong>Lợi ích:</strong></p>
+<ul>
+<li>✅ Dev environment không cần cài local</li>
+<li>✅ Sync với repo tự động</li>
+<li>✅ Access từ bất kỳ máy</li>
+<li>✅ Powerful computing</li>
+</ul>
+<h3><strong>Gitpod</strong> (Alternative)</h3>
+<pre><code>Prepend &quot;gitpod.io/#/&quot; vào URL:
+https://gitpod.io/#/https://github.com/htthinh28/ung-dung-cdss-bhyt
+</code></pre>
+<hr>
+<h2>📈 Project Board (Kanban)</h2>
+<p>Organize work với GitHub Projects:</p>
+<pre><code>Vào: Projects tab
+Create new → &quot;Kanban&quot;
+Add Issues as cards
+Drag-drop stages:
+  📝 Backlog
+  🔨 In Progress
+  👀 In Review
+  ✅ Done
+</code></pre>
+<hr>
+<h2>🔔 Notifications</h2>
+<h3><strong>Stay Updated:</strong></h3>
+<pre><code>Vào: Settings (⚙️) → Notifications
+Choose:
+- Issues mention you
+- PR review requested
+- Merged PRs
+- Workflow runs
+</code></pre>
+<h3><strong>Unsubscribe:</strong></h3>
+<pre><code>PR/Issue &gt; Unwatch
+Email &gt;Manage subscription
+</code></pre>
+<hr>
+<h2>📝 Status Board Template</h2>
+<h3><strong>Weekly Standup (bạn có thể dùng)</strong></h3>
+<pre><code class="language-markdown">## Week of 06/04/2026
+
+### Completed ✅
+- [ ] Task 1
+- [ ] Task 2
+
+### In Progress 🔨
+- [ ] Task 3
+- [ ] Task 4
+
+### Blocked 🚫
+- Issue: ...
+- Needed: ...
+
+### Next Week 📅
+- [ ] Task 5
+- [ ] Task 6
+</code></pre>
+<hr>
+<h2>🎓 Resources</h2>
+<ul>
+<li><strong>GitHub Docs</strong>: <a href="https://docs.github.com">https://docs.github.com</a></li>
+<li><strong>Conventional Commits</strong>: <a href="https://www.conventionalcommits.org">https://www.conventionalcommits.org</a></li>
+<li><strong>Git Cheatsheet</strong>: <a href="https://git-scm.com/cheatsheet">https://git-scm.com/cheatsheet</a></li>
+<li><strong>Dev Containers</strong>: <a href="https://containers.dev">https://containers.dev</a></li>
+</ul>
+<hr>
+<h2>🆘 Help</h2>
+<p>Vấn đề? Click liên kết:</p>
+<ol>
+<li><strong>GitHub Docs</strong>: <a href="https://docs.github.com/en/issues">https://docs.github.com/en/issues</a></li>
+<li><strong>Community</strong>: Ask in Discussions tab</li>
+<li><strong>Issues</strong>: Create bug report</li>
+<li><strong>Email</strong>: Contact maintainers</li>
+</ol>
+<hr>
+<h2>✅ Checklist Ngày Đầu</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Fork &amp; clone repo</li>
+<li><input disabled="" type="checkbox"> Setup dev environment</li>
+<li><input disabled="" type="checkbox"> Read CONTRIBUTING.md</li>
+<li><input disabled="" type="checkbox"> Test run locally</li>
+<li><input disabled="" type="checkbox"> Create first issue</li>
+<li><input disabled="" type="checkbox"> Create first branch</li>
+<li><input disabled="" type="checkbox"> Make first commit</li>
+<li><input disabled="" type="checkbox"> Create first PR</li>
+<li><input disabled="" type="checkbox"> Review &amp; merge</li>
+</ul>
+<hr>
+<p><strong>🎉 Chào mừng bạn vào team!</strong></p>
+<p>Let&#39;s build <strong>AI CDSS BHYT</strong> together! 🚀</p>
+
+  </main>
+</body>
+</html>

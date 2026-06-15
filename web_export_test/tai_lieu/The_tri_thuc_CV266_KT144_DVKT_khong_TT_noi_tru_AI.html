@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KT144 — DVKT CHỈ NGOẠI TRÚ, KHÔNG TÁCH THU KÈM TIỀN GIƯỜNG NỘI TRÚ (CV266) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV266_KT144_DVKT_khong_TT_noi_tru_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KT144 — DVKT CHỈ NGOẠI TRÚ, KHÔNG TÁCH THU KÈM TIỀN GIƯỜNG NỘI TRÚ (CV266) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Nguồn:</strong> Công văn 266 — chuyên đề Trung tâm Kiểm soát BHYT, <strong>PL01 / KT144</strong> (<em>DVKT không TT nội trú</em>), tệp tham chiếu <strong>15/09/2025</strong>.<br><strong>Mã từ chối gợi ý:</strong> S.005.430  </p>
+<hr>
+<h2>1. Nguyên tắc</h2>
+<ul>
+<li>Các DVKT trong <strong>Bảng 1</strong> chỉ được thanh toán trong <strong>ngoại trú</strong> (theo QĐ phê duyệt giá).</li>
+<li><strong>Không</strong> thanh toán tách các DVKT đó trong <strong>điều trị nội trú</strong> nếu đợt đã <strong>thanh toán tiền giường</strong>.</li>
+</ul>
+<h2>2. Bảng mã DVKT (Bảng 1 — đối soát engine)</h2>
+<table>
+<thead>
+<tr>
+<th>MA_CP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>03.1681.0075</td>
+</tr>
+<tr>
+<td>03.1690.0075</td>
+</tr>
+<tr>
+<td>03.1703.0075</td>
+</tr>
+<tr>
+<td>03.2387.0212</td>
+</tr>
+<tr>
+<td>03.2388.0212</td>
+</tr>
+<tr>
+<td>03.2389.0212</td>
+</tr>
+<tr>
+<td>03.2390.0212</td>
+</tr>
+<tr>
+<td>03.2391.0215</td>
+</tr>
+<tr>
+<td>03.3826.0075</td>
+</tr>
+<tr>
+<td>03.4246.0198</td>
+</tr>
+<tr>
+<td>10.9004.0075</td>
+</tr>
+<tr>
+<td>11.0089.0215</td>
+</tr>
+<tr>
+<td>14.0111.0075</td>
+</tr>
+<tr>
+<td>14.0112.0075</td>
+</tr>
+<tr>
+<td>14.0116.0075</td>
+</tr>
+<tr>
+<td>14.0192.0075</td>
+</tr>
+<tr>
+<td>14.0203.0075</td>
+</tr>
+<tr>
+<td>14.0204.0075</td>
+</tr>
+<tr>
+<td>14.0290.0212</td>
+</tr>
+<tr>
+<td>14.0291.0212</td>
+</tr>
+<tr>
+<td>15.0302.0075</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Neo mã nguồn</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHUYEN_DE_XML130_NOI_TRU_CO_KHOANG_NAM_VIEN</code></td>
+<td>Nội trú / ban ngày (03/09/04) có NGAY_VAO — NGAY_RA.</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_GIUONG</code></td>
+<td>Có dòng XML3 tên gợi giường (proxy «thanh toán tiền giường»).</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_DVKT_KHONG_TT_NOI_TRU_CV266_KT144</code></td>
+<td>Có ít nhất một dòng XML3 <code>MA_DICH_VU</code>/<code>MA_DV</code> trùng Bảng 1.</td>
+</tr>
+<tr>
+<td><strong><code>Chuyen_de_609</code></strong> / <code>CHUYEN_DE-609</code></td>
+<td>Ba điều kiện trên <strong>cùng</strong> đợt.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Cập nhật khi BYT đổi mã: sửa chuỗi <code>m === &#39;…&#39;</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> và bảng trên.</em></p>
+
+  </main>
+</body>
+</html>

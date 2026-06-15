@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CDSS — Mapping ICD ↔ danh mục thuốc / DVKT BV (nâng cấp, tách biệt)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>CDSS_mapping_ICD_DM_thuoc_DVKT_nang_cap.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CDSS — Mapping ICD ↔ danh mục thuốc / DVKT BV (nâng cấp, tách biệt)</h1>
+<p><strong>Mục đích:</strong> Kiểm tra gợi ý chuyên môn khi <strong>đã có</strong> bảng ánh xạ ICD → mã <code>MA_THUOC</code> / <code>MA_DICH_VU</code> trùng <strong>danh mục nội bộ BV</strong> (M03 / M05 trong seed hệ thống).</p>
+<p><strong>Mặc định:</strong> Hai quy tắc <strong><code>CDSS_DM_UPGRADE_01</code></strong> và <strong><code>CDSS_DM_UPGRADE_02</code></strong> ở trạng thái <strong>OFF</strong> trong <strong>Quản lý quy tắc ON/OFF</strong> — không ảnh hưởng hành vi cũ cho đến khi bật và có dữ liệu mapping.</p>
+<hr>
+<h2>1. Dữ liệu</h2>
+<table>
+<thead>
+<tr>
+<th>Khóa lưu trữ</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CDSS_DATA_ICD_DM_GOI_Y_V1</code></td>
+<td>Mảng dòng mapping (JSON / chunked như các CDSS_DATA khác)</td>
+</tr>
+<tr>
+<td><code>CDSS_COLS_ICD_DM_GOI_Y_V1</code></td>
+<td>Tiêu đề cột (tùy chọn)</td>
+</tr>
+</tbody></table>
+<p><strong>File seed mặc định (rỗng):</strong> <code>ma_nguon/chuyen_mon/phac_do_benh_vien/cdss_icd_dm_goi_y_upgrade.seed.json</code></p>
+<p><strong>Cột dòng:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cột</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>MA_ICD</code></td>
+<td>Mã ICD đã chuẩn hóa (bỏ dấu chấm), khớp cách gom ICD trên XML1</td>
+</tr>
+<tr>
+<td><code>MA_THUOC_GOI_Y</code></td>
+<td>Một hoặc nhiều mã thuốc, phân tách bằng <code>;</code> hoặc <code>,</code> — <strong>phải tồn tại</strong> trong <code>MAP_THUOC_BV</code></td>
+</tr>
+<tr>
+<td><code>MA_DVKT_GOI_Y</code></td>
+<td>Một hoặc nhiều mã DVKT, phân tách tương tự — <strong>phải tồn tại</strong> trong <code>MAP_DVKT_BV</code></td>
+</tr>
+<tr>
+<td><code>GHI_CHU</code></td>
+<td>Tuỳ chọn (ghi chú nội bộ; chưa dùng trong cảnh báo)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Logic (module <code>cdss_dm_matching_upgrade.jsx</code>)</h2>
+<ul>
+<li>Với mỗi ICD trên hồ sơ (chính/kèm) <strong>có</strong> dòng mapping:  <ul>
+<li>Nếu danh sách thuốc gợi ý (sau khi lọc theo DM BV) <strong>không rỗng</strong> và <strong>không</strong> có mã nào xuất hiện trên <strong>XML2</strong> → cảnh báo <strong><code>CDSS_DM_UPGRADE_01</code></strong> (Info).  </li>
+<li>Tương tự DVKT trên <strong>XML3</strong> → <strong><code>CDSS_DM_UPGRADE_02</code></strong>.</li>
+</ul>
+</li>
+<li>Mã trong mapping <strong>không</strong> có trong danh mục BV → bỏ qua mã đó (tránh cảnh báo sai do cấu hình).</li>
+</ul>
+<hr>
+<h2>3. Bật sử dụng</h2>
+<ol>
+<li>Nạp dữ liệu mapping vào <code>CDSS_DATA_ICD_DM_GOI_Y_V1</code> (tương lai có thể thêm màn nhập / import; hiện có thể đồng bộ qua cùng cơ chế chunk như danh mục khác).</li>
+<li>Trong <strong>Quản lý quy tắc ON/OFF</strong>, bật <strong>ON</strong> cho <code>CDSS_DM_UPGRADE_01</code> và/hoặc <code>CDSS_DM_UPGRADE_02</code>.</li>
+</ol>
+<hr>
+<h2>4. Giới hạn</h2>
+<ul>
+<li>Chỉ kiểm tra <strong>mã</strong> đã có trên XML2/XML3; không đọc văn bản phác đồ tự do.</li>
+<li>Không thay thế kiểm tra viên; mức <strong>Info</strong> — đối chiếu nghiệp vụ BV.</li>
+</ul>
+
+  </main>
+</body>
+</html>

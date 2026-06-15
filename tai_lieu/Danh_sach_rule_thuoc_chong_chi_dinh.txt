@@ -1,0 +1,108 @@
+THUOC_02: [Acetyl leucin] Chống chỉ định lâm sàng
+THUOC_05: [Aciclovir] Chống chỉ định lâm sàng
+THUOC_08: [Adrenalin] Chống chỉ định lâm sàng
+THUOC_13: [Alfuzosin] Chống chỉ định lâm sàng
+THUOC_16: [Alimemazin tartrat] Chống chỉ định
+THUOC_19: [Allopurinol] Chống chỉ định lâm sàng
+THUOC_24: [Ambroxol HCl] Chống chỉ định lâm sàng
+THUOC_27: [Amiodaron] Chống chỉ định lâm sàng
+THUOC_29: [Amitriptylin] Chống chỉ định lâm sàng
+THUOC_32: [Amlodipin + valsartan] Chống chỉ định lâm sàng
+THUOC_35: [Amlodipin] Chống chỉ định lâm sàng
+THUOC_37: [Amlodipine + Lisinopril] Chống chỉ định lâm sàng
+THUOC_40: [Amoxicilin + acid clavulanic] Chống chỉ định lâm sàng
+THUOC_43: [Amoxicillin] Chống chỉ định lâm sàng
+THUOC_47: [Atorvastatin + ezetimibe] Chống chỉ định lâm sàng
+THUOC_50: [Atorvastatin] Chống chỉ định lâm sàng
+THUOC_53: [Atropin sulfat] Chống chỉ định lâm sàng
+THUOC_57: [Azithromycin] Chống chỉ định lâm sàng
+THUOC_60: [Bacillus clausii] Chống chỉ định lâm sàng
+THUOC_62: [Bacillus subtilis] Chống chỉ định lâm sàng
+THUOC_65: [Betahistin] Chống chỉ định lâm sàng
+THUOC_71: [Bromhexin] Chống chỉ định lâm sàng
+THUOC_75: [Budesonid, Formoterol] Chống chỉ định lâm sàng
+THUOC_81: [Carvedilol] Chống chỉ định lâm sàng
+THUOC_84: [Cefazolin] Chống chỉ định lâm sàng
+THUOC_88: [Cefdinir] Chống chỉ định lâm sàng
+THUOC_91: [Cefixim] Chống chỉ định lâm sàng
+THUOC_94: [Cefpodoxim] Chống chỉ định lâm sàng
+THUOC_97: [Celecoxib] Chống chỉ định lâm sàng
+THUOC_101: [Cetirizin] Chống chỉ định lâm sàng
+THUOC_103: [Cinnarizin] Chống chỉ định lâm sàng
+THUOC_106: [Clindamycin] Chống chỉ định lâm sàng
+THUOC_109: [Clopidogrel] Chống chỉ định lâm sàng
+THUOC_112: [Clotrimazol] Chống chỉ định lâm sàng
+THUOC_115: [Colchicin] Chống chỉ định lâm sàng
+THUOC_118: [Desloratadin] Chống chỉ định lâm sàng
+THUOC_122: [Diacerein] Chống chỉ định lâm sàng
+THUOC_125: [Diệp hạ châu đắng...] Chống chỉ định lâm sàng
+THUOC_127: [Diosmectit] Chống chỉ định lâm sàng
+THUOC_130: [Diosmin; Hesperidin] Chống chỉ định
+THUOC_134: [Diphenhydramin] Chống chỉ định
+THUOC_138: [Domperidon] Chống chỉ định lâm sàng
+THUOC_144: [Eperison HCl] Chống chỉ định lâm sàng
+THUOC_149: [Esomeprazol] Chống chỉ định lâm sàng
+THUOC_152: [Etifoxin] Chống chỉ định lâm sàng
+THUOC_155: [Etoricoxib] Chống chỉ định lâm sàng
+THUOC_159: [Famotidin] Chống chỉ định lâm sàng
+THUOC_163: [Felodipin] Chống chỉ định lâm sàng
+THUOC_166: [Fenofibrat] Chống chỉ định lâm sàng
+THUOC_170: [Fexofenadin hydroclorid] Chống chỉ định lâm sàng
+THUOC_173: [Fluconazol] Chống chỉ định lâm sàng
+THUOC_176: [Flunarizin] Chống chỉ định lâm sàng
+THUOC_183: [Furosemid] Chống chỉ định lâm sàng
+THUOC_186: [Gabapentin] Chống chỉ định lâm sàng
+THUOC_195: [Gliclazid] Chống chỉ định lâm sàng
+THUOC_197: [Glimepiride] Chống chỉ định lâm sàng
+THUOC_201: [Glucosamin] Chống chỉ định lâm sàng
+THUOC_206: [Húng chanh, Núc nác, Cineol] Chống chỉ định lâm sàng
+THUOC_208: [Hyoscin N – butylbromid] Chống chỉ định
+THUOC_212: [Ibuprofen] Chống chỉ định lâm sàng
+THUOC_215: [Insulin glargine] Chống chỉ định lâm sàng
+THUOC_217: [Isosorbid mononitrat] Chống chỉ định lâm sàng
+THUOC_220: [Kali chloride] Chống chỉ định lâm sàng
+THUOC_224: [Kẽm gluconat] Chống chỉ định lâm sàng
+THUOC_227: [Ketoprofen] Chống chỉ định lâm sàng
+THUOC_230: [Ketorolac] Chống chỉ định lâm sàng
+THUOC_232: [L-Ornithin - L- aspartat] Chống chỉ định lâm sàng
+THUOC_234: [Lá sen,Vông nem...] Chống chỉ định lâm sàng
+THUOC_238: [Lactobacillus acidophilus] Chống chỉ định
+THUOC_239: [Levocetirizin] Chống chỉ định lâm sàng
+THUOC_241: [Levofloxacin] Chống chỉ định lâm sàng
+THUOC_245: [Lidocain] Chống chỉ định lâm sàng
+THUOC_254: [Meloxicam] Chống chỉ định lâm sàng
+THUOC_258: [Mesalamin] Chống chỉ định lâm sàng
+THUOC_261: [Metformin] Chống chỉ định lâm sàng
+THUOC_266: [Methylprednisolon] Chống chỉ định lâm sàng
+THUOC_268: [Metoclopramid] Chống chỉ định
+THUOC_271: [Metoprolol] Chống chỉ định lâm sàng
+THUOC_275: [Metronidazol] Chống chỉ định lâm sàng
+THUOC_280: [N-Acetylcystein] Chống chỉ định lâm sàng
+THUOC_285: [Naloxon] Chống chỉ định lâm sàng
+THUOC_287: [Natri bicarbonat] Chống chỉ định lâm sàng
+THUOC_289: [Natri montelukast] Chống chỉ định lâm sàng
+THUOC_291: [Nebivolol] Chống chỉ định lâm sàng
+THUOC_295: [Nefopam] Chống chỉ định lâm sàng
+THUOC_297: [Neostigmin methylsulfat] Chống chỉ định lâm sàng
+THUOC_304: [Nifedipin] Chống chỉ định lâm sàng
+THUOC_310: [Paracetamol] Chống chỉ định lâm sàng
+THUOC_314: [Perindopril + amlodipin] Chống chỉ định lâm sàng
+THUOC_317: [Piracetam] Chống chỉ định lâm sàng
+THUOC_320: [Protease +Amylase + Lipase] Chống chỉ định lâm sàng
+THUOC_323: [Racecadotril] Chống chỉ định lâm sàng
+THUOC_328: [Rosuvastatin] Chống chỉ định lâm sàng
+THUOC_333: [Rotundin] Chống chỉ định lâm sàng
+THUOC_337: [Salmeterol + Fluticason] Chống chỉ định lâm sàng
+THUOC_339: [Sắt (III)] Chống chỉ định lâm sàng
+THUOC_341: [Sắt fumarat + Acid Folic] Chống chỉ định lâm sàng
+THUOC_344: [Simethicon] Chống chỉ định lâm sàng
+THUOC_349: [Sulfoguaiacol + Codein] Chống chỉ định
+THUOC_352: [Telmisartan + hydroclorothiazid] Chống chỉ định lâm sàng
+THUOC_354: [Telmisartan] Chống chỉ định lâm sàng
+THUOC_357: [Terbutalin] Chống chỉ định lâm sàng
+THUOC_362: [Trimetazidin] Chống chỉ định lâm sàng
+THUOC_364: [Ursodeoxycholic acid] Chống chỉ định lâm sàng
+THUOC_371: [Vitamin B1 + B6 + B12] Chống chỉ định
+THUOC_373: [Vitamin B6 + magnesi lactat] Chống chỉ định lâm sàng
+THUOC_377: [Vitamin C] Chống chỉ định lâm sàng
+THUOC_379: [Vitamin E] Chống chỉ định lâm sàng

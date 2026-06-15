@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tri thức AI &amp; triển khai thực chiến — CHUYEN_DE theo XML130</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Tri thức AI &amp; triển khai thực chiến — CHUYEN_DE theo XML130</h1>
+<p>Phiên bản đồng bộ: <code>CHUYEN_DE_XML130_CONVERSION_VERSION</code> trong <code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code> · manifest <code>scripts/chuyen_de_batch_manifest.json</code>.</p>
+<h2>0. Trình tự bắt buộc (mọi thay đổi quy tắc CHUYEN_DE)</h2>
+<p>Thực hiện <strong>theo đúng thứ tự</strong>; bước sau chỉ thực hiện khi bước trước đạt (hoặc đã ghi nhận ngoại lệ có kiểm soát).</p>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Nội dung</th>
+<th>Công cụ / chứng cứ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 — Tạo quy tắc</strong></td>
+<td>Sửa <code>DIEU_KIEN</code> / <code>CANH_BAO</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>; script lô <code>scripts/patch_chuyen_de_batchN_dieukien.mjs</code> nếu cần</td>
+<td>PR / diff</td>
+</tr>
+<tr>
+<td><strong>2 — Kiểm tra</strong></td>
+<td>Đọ lại cú pháp biểu thức; <code>npm run chuyen-de:sync-placeholder-registry</code></td>
+<td><code>scripts/chuyen_de_placeholder_registry.json</code></td>
+</tr>
+<tr>
+<td><strong>3 — Audit</strong></td>
+<td>Rà trường XML + schema</td>
+<td><code>npm run qa:rule-schema</code></td>
+</tr>
+<tr>
+<td><strong>4 — Kiểm thử</strong></td>
+<td>Hồi quy fixture + một claim XML thật</td>
+<td><code>npm run qa:audit-fixtures</code> + <code>node scripts/run_claim_audit.js &lt;file.xml&gt; --out=...</code></td>
+</tr>
+<tr>
+<td><strong>5 — Huấn luyện AI</strong></td>
+<td>Cập nhật <code>tai_lieu/</code> (mục 5 dưới) + <code>npm run tai_lieu:prepare</code></td>
+<td>Thư viện / RAG đồng bộ</td>
+</tr>
+<tr>
+<td><strong>6 — Thực chiến</strong></td>
+<td>Staging → đối chiếu tên DV/ICD BV → quyết định ON/OFF theo placeholder</td>
+<td>Checklist nghiệp vụ</td>
+</tr>
+</tbody></table>
+<h2>1. Phân lớp điều kiện (để AI / kỹ thuật không hiểu nhầm)</h2>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Biểu hiện trong mã</th>
+<th>Hành vi trên hồ sơ XML có <code>MA_LK</code></th>
+<th>Coi là “thực chiến”?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A — XML130 / engine</strong></td>
+<td><code>XML1.…</code>, <code>CURRENT.…</code>, <code>COUNT_IF(DS_XML3, …)</code>, <code>TO_NUMBER(XML1.TUOI_NAM)</code></td>
+<td>Có thể <strong>bật cảnh báo</strong> khi khớp từ khóa/ICD</td>
+<td>Có — cần rà soát từ khóa <code>TEN_DICH_VU</code> theo BV</td>
+</tr>
+<tr>
+<td><strong>B — Placeholder</strong></td>
+<td><code>DIEU_KIEN: CHUYEN_DE_XML130_CHO_XU_LY_SAU</code> (= biểu thức luôn sai khi có <code>MA_LK</code>)</td>
+<td><strong>Không</strong> phát cảnh báo</td>
+<td><strong>Không</strong> — chỉ giữ cấu trúc quy tắc + CANH_BAO; phải có lộ trình thay bằng A hoặc handler</td>
+</tr>
+<tr>
+<td><strong>C — Cần API / đa hồ sơ / phiếu giấy</strong></td>
+<td>Thường đang ở dạng B cho đến khi có nguồn dữ liệu</td>
+<td>Không</td>
+<td>Thiết kế riêng (OFF hoặc module ngoài XML130)</td>
+</tr>
+</tbody></table>
+<p>Danh sách id loại B được <strong>tự động</strong> hóa: <code>npm run chuyen-de:sync-placeholder-registry</code> → <code>scripts/chuyen_de_placeholder_registry.json</code>.</p>
+<h2>2. Các lô gần nhất — gợi ý cho AI khi giải thích / huấn luyện</h2>
+<h3>Lô 6 (376 … 450)</h3>
+<p>Đa số <strong>loại B</strong>; ví dụ loại <strong>A</strong>: <strong>380, 382, 383, 391, 406, 407, 386, 418, 424, 447</strong> (chi tiết xem lịch sử commit / <code>patch_chuyen_de_batch6</code>).</p>
+<h3>Lô 7 (451 … 525) — thuốc / XML2 / PHCN / giới tính</h3>
+<ul>
+<li>Đa số: <strong>loại B</strong> (<code>ma_thuoc</code>, <code>has_dvkt</code> ký hiệu Excel, API giả).</li>
+<li>Đã chuyển <strong>loại A</strong> (một phần — vẫn cần đối chiếu tên DV &amp; quy ước <code>MA_GIOI_TINH</code> tại BV):<ul>
+<li><strong>468</strong> — Proetz / hút mũi + không J32/J01/J02 trên XML1.</li>
+<li><strong>473</strong> — Khám + nội soi lấy dị vật (<code>COUNT_IF</code>).</li>
+<li><strong>490</strong> — Tuổi ≥ 16 + từ khóa xoa bóp trẻ bại não.</li>
+<li><strong>492</strong> — Xoa bóp liệt VII + điện châm mặt.</li>
+<li><strong>500</strong> — <code>MA_GIOI_TINH == &#39;1&#39;</code> + từ khóa SA phụ khoa / tử cung / buồng trứng (Nam chỉ định sai).</li>
+<li><strong>501</strong> — <code>MA_GIOI_TINH == &#39;2&#39;</code> + PSA (Nữ chỉ định sai).</li>
+<li><strong>502</strong> — Nam + Beta-hCG + không <code>C62</code> trên XML1.</li>
+<li><strong>508</strong> — Nội soi dạ dày HP + test hơi thở HP.</li>
+<li><strong>509</strong> — Tuổi &gt; 16 + giường nhi (từ khóa).</li>
+<li><strong>525</strong> — XQ sọ/mặt (thẳng/nghiêng) + xương chũm (hai nhóm <code>COUNT_IF</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cảnh báo mapping giới tính:</strong> Repo dùng <code>String(XML1.MA_GIOI_TINH) == &#39;1&#39;</code> cho <strong>Nam</strong> và <code>&#39;2&#39;</code> cho <strong>Nữ</strong> trong các mã trên; nếu HIS đổi quy ước, phải chỉnh điều kiện và tài liệu huấn luyện.</p>
+<h3>Lô 8 (526 … 603) — hành chính / API / đa BN</h3>
+<ul>
+<li>Đa số: <strong>loại B</strong> (<code>check_api_*</code>, <code>count_*_cung_thoi</code>, <code>ma_khoa_kham</code>, phiếu giả, XML2 thuốc không có trong <code>DS_XML2</code> của luật này).</li>
+<li>Đã chuyển <strong>loại A</strong> (từ khóa <code>TEN_DICH_VU</code> / <code>TEN_VAT_TU</code> — cần rà BV): <strong>526</strong> (ICU/HSCC không can thiệp nặng), <strong>532</strong> (truyền máu không hòa hợp), <strong>533</strong> (KHX không nẹp/vít trên XML5), <strong>536</strong> (Stapler trùng PT dạ dày), <strong>542</strong> (SA thai 3D/4D + <code>TYLE_TT</code>), <strong>543</strong> (cắt polyp không GPB), <strong>548</strong> (soi tươi + nhuộm âm đạo), <strong>551</strong> (Mantoux không nghi lao), <strong>556–557</strong> (tách XN niệu / SA bụng + SA thai), <strong>560</strong> (Na/K/Cl máu tách), <strong>563–564</strong> (Amidan người lớn / CNHH trẻ &lt; 5 tuổi), <strong>571–572</strong> (SA ổ bụng sai ICD / đo thủy tinh + SA mắt).</li>
+<li>Script tái lập: <code>scripts/patch_chuyen_de_batch8_dieukien.mjs</code>.</li>
+</ul>
+<h2>3. Quy trình CI / QA (khớp mục 0 — bước 3–4)</h2>
+<pre><code class="language-bash">npm run lint
+npm run qa:rule-schema
+npm run qa:audit-fixtures
+node scripts/run_claim_audit.js tai_nguyen/ip/PC022601214_IP26000001.xml --out=test_xml/claim_audit_smoke.xml
+</code></pre>
+<ul>
+<li><strong><code>lint</code></strong>: <code>expo lint</code> + encoding/font.</li>
+<li><strong><code>qa:rule-schema</code></strong>: tham chiếu <code>XMLn.TRUONG</code> trong <code>DIEU_KIEN</code> so với schema cột QĐ 130 → <code>test_xml/rule_xml_schema_audit.json</code>.</li>
+<li><strong><code>qa:audit-fixtures</code></strong>: 10 file <code>test_xml/audit_*.json</code> — hồi quy MA_LK.</li>
+<li><strong>Claim audit</strong>: <code>run_claim_audit.js</code> <strong>bắt buộc</strong> có đường dẫn XML130; <code>npm run qa:claim-audit</code> không truyền file nên chỉ in usage.</li>
+</ul>
+<p>Tùy chọn: <code>npm run qa:xml-real</code>.</p>
+<h2>4. Huấn luyện AI (RAG / trợ lý)</h2>
+<p>Sau khi <strong><code>npm run tai_lieu:prepare</code></strong>, các file trong <code>tai_lieu/</code> (gồm tài liệu này) vào Thư viện. Prompt gợi ý cho mô hình:</p>
+<ul>
+<li><em>“Phân loại quy tắc CHUYEN_DE-XXX theo tài liệu Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien: điều kiện có chạy trên XML130 không, hay placeholder? Nêu rủi ro báo giả nếu tên DV khác BV.”</em></li>
+<li><em>“Liệt kê đúng thứ tự 6 bước triển khai (mục 0) trước khi coi quy tắc là thực chiến.”</em></li>
+<li><em>“Trên dashboard QPS, lỗi nào vào nhóm Vi phạm cấu trúc XML (<code>CAU_TRUC_XML</code>) thay vì Xuất toán / Cảnh báo CDSS? Đối chiếu <code>The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md</code>.”</em></li>
+</ul>
+<p>Khi trả lời người dùng cuối: nhấn mạnh khớp <strong>tên dịch vụ</strong> phụ thuộc BV; cần <strong>mẫu XML thật</strong> để hiệu chỉnh từ khóa.</p>
+<p><strong>Bổ sung dashboard:</strong> Báo cáo vi phạm <strong>cấu trúc dữ liệu XML</strong> (QĐ 3176 / tiền xử lý <code>kiem_tra_xml</code>, mã <code>STRUCT-*</code>, <code>XMLn-…</code>) được tách lớp hiển thị và lọc riêng so với cảnh báo engine CHUYEN_DE / CDSS — xem <a href="./The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md">The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md</a>.</p>
+<h2>5. Triển khai thực chiến (sản phẩm — khớp mục 0 bước 6)</h2>
+<ol>
+<li>Merge mã + chạy đủ <strong>mục 0 (bước 1–4)</strong> và <strong>mục 3</strong> trên nhánh release.</li>
+<li>Trên staging: nạp <strong>XML mẫu thật</strong> (đã ẩn danh) và đếm: số cảnh báo CHUYEN_DE mới / trùng / false positive.</li>
+<li>Với quy tắc <strong>B</strong> còn nhiều: cân nhắc <code>TRANG_THAI: &#39;OFF&#39;</code> theo <code>tai_lieu/Kiem_soat_placeholder_CHUYEN_DE_XML130.md</code> cho đến khi có điều kiện loại A hoặc handler.</li>
+<li>Đồng bộ Thư viện / RAG: sau mỗi lần sửa <code>tai_lieu/*.md</code>: <code>npm run tai_lieu:prepare</code> (<strong>mục 0 bước 5</strong>).</li>
+</ol>
+<h2>6. Tham chiếu nhanh file</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code></td>
+<td>Luật CHUYEN_DE</td>
+</tr>
+<tr>
+<td><code>scripts/chuyen_de_batch_manifest.json</code></td>
+<td>Trạng thái từng lô</td>
+</tr>
+<tr>
+<td><code>scripts/chuyen_de_placeholder_registry.json</code></td>
+<td>Id placeholder (tự động)</td>
+</tr>
+<tr>
+<td><code>tai_lieu/Kiem_soat_placeholder_CHUYEN_DE_XML130.md</code></td>
+<td>Chính sách placeholder</td>
+</tr>
+<tr>
+<td><code>tai_lieu/The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md</code></td>
+<td>Phân loại <code>CAU_TRUC_XML</code> vs CDSS; chip QPS</td>
+</tr>
+<tr>
+<td><code>scripts/patch_chuyen_de_batch6_dieukien.mjs</code></td>
+<td>Script tái lập lô 6 (tham khảo)</td>
+</tr>
+<tr>
+<td><code>scripts/patch_chuyen_de_batch7_dieukien.mjs</code></td>
+<td>Script tái lập lô 7 (tham khảo)</td>
+</tr>
+<tr>
+<td><code>scripts/patch_chuyen_de_batch8_dieukien.mjs</code></td>
+<td>Script tái lập lô 8 (tham khảo)</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU OP26000908 - AMOXICLAV ĐIỀU TRỊ UỐNG VÀ NGUY CƠ RULE QUÁ HẸP</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_OP26000908_Amoxiclav_dieu_tri_uong.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU OP26000908 - AMOXICLAV ĐIỀU TRỊ UỐNG VÀ NGUY CƠ RULE QUÁ HẸP</h1>
+<p>Phiên bản tài liệu: 1.1<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Ca này dùng để huấn luyện AI về <code>kháng sinh điều trị đường uống</code>, đồng thời dạy AI cách phát hiện một <code>rule chỉ định BHYT có nguy cơ quá hẹp</code> so với bối cảnh tai mũi họng thực tế.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>XML gốc: <code>tai_nguyen/op/PC022101042_OP26000908.xml</code></li>
+<li>Audit trước sửa: <code>test_xml/audit_OP26000908_20260405_232932.json</code></li>
+<li>Audit sau sửa: <code>test_xml/audit_OP26000908_20260406_075900.json</code></li>
+<li>Rule seed liên quan:<ul>
+<li><code>THUOC_40</code></li>
+<li><code>THUOC_41</code></li>
+<li><code>THUOC_42</code></li>
+<li><code>THUOC_436</code></li>
+</ul>
+</li>
+</ul>
+<h2>3. Bối cảnh hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>OP26000908</code></li>
+<li>Thuốc chính: <code>Cepmox-Clav 875 mg/125 mg</code></li>
+<li>Đường dùng: <code>uống</code></li>
+<li>Chẩn đoán chính: <code>H72</code></li>
+<li>Chẩn đoán kèm theo có <code>H66.9</code>, <code>J30.3</code>, <code>K21</code></li>
+</ul>
+<p>Điểm quan trọng:</p>
+<ul>
+<li>Hồ sơ có yếu tố <code>viêm tai giữa không đặc hiệu</code>.</li>
+<li>Đây là bối cảnh tai mũi họng mà lâm sàng thực tế có thể vẫn dùng <code>Amoxicillin/Clavulanate</code>.</li>
+</ul>
+<h2>4. Dữ liệu thuốc thật đã xác nhận</h2>
+<ul>
+<li><code>TEN_THUOC = Cepmox-Clav 875 mg/125 mg</code></li>
+<li><code>LIEU_DUNG = 1 Viên/lần * 3 lần/ngày * 7 ngày [3 Viên/ngày]</code></li>
+</ul>
+<h2>5. Kết quả audit và thay đổi sau rà chỉ định</h2>
+<p>Trước khi mở rộng rule, các cảnh báo nổi bật là:</p>
+<ul>
+<li><code>THUOC_41</code> trên <code>Cepmox-Clav</code></li>
+<li><code>DM-THUOC-04</code> về đơn giá vượt giá trúng thầu nội bộ</li>
+<li><code>THUOC_436</code> về tên thương mại không ghi INN trong ngoặc ở ngoại trú</li>
+</ul>
+<p>Riêng <code>THUOC_41</code> khi đó kết luận:</p>
+<ul>
+<li>thuốc chỉ được thanh toán cho nhóm <code>J01, J03, J06, J15, J20, L01</code></li>
+<li>hồ sơ này không khớp đầy đủ với danh sách đó</li>
+</ul>
+<p>Sau khi rà lại theo bối cảnh tai mũi họng và cập nhật rule:</p>
+<ul>
+<li><code>THUOC_41</code> đã được mở rộng để nhận <code>H66</code> và chuỗi <code>viêm tai giữa</code></li>
+<li>audit giảm từ <code>11</code> xuống <code>10</code> cảnh báo</li>
+<li>ca không còn bị xuất toán bởi <code>THUOC_41</code></li>
+</ul>
+<h2>6. Vấn đề cốt lõi cần AI học</h2>
+<p>Rule <code>THUOC_41</code> trước đây hẹp ở chỗ:</p>
+<ul>
+<li>chấp nhận nhiều nhóm nhiễm khuẩn hô hấp và da</li>
+<li>nhưng chưa bao phủ rõ nhóm <code>tai mũi họng</code> như <code>viêm tai giữa</code></li>
+</ul>
+<p>Do đó AI phải tách 2 tầng kết luận:</p>
+<ol>
+<li><code>Theo rule cũ</code>, hồ sơ bị cảnh báo là hợp logic engine.</li>
+<li><code>Theo bối cảnh nghiệp vụ</code>, đây là ca có nguy cơ false positive nên cần mở rộng rule nếu đơn vị xác nhận viêm tai giữa là chỉ định phù hợp.</li>
+<li><code>Theo trạng thái hiện tại</code>, ca đã được xử lý đúng hơn trong engine nhưng vẫn cần rà tiếp các ICD tai mũi họng lân cận.</li>
+</ol>
+<h2>7. Kết luận huấn luyện mẫu</h2>
+<p>Kết luận chuẩn sau khi đã sửa và kiểm thử lại nên là:</p>
+<ol>
+<li>Đây là ca <code>Amoxicillin/Clavulanate đường uống</code> trong bối cảnh tai mũi họng.</li>
+<li><code>THUOC_41</code> trước đây bắn cảnh báo vì bộ ICD chưa bao phủ rõ <code>H66.9</code>, nhưng hiện đã được nới theo hướng phù hợp hơn.</li>
+<li>Ca này thích hợp để dạy AI cách phân biệt giữa:<ul>
+<li><code>rule đang chạy đánh như thế nào</code></li>
+<li><code>nghiệp vụ thực tế có thể rộng hơn rule</code></li>
+</ul>
+</li>
+</ol>
+<h2>8. Điều AI cần đề xuất kiểm tra thêm</h2>
+<ol>
+<li>Đơn vị có chấp nhận thêm các mã tai mũi họng nào ngoài <code>H66</code> là căn cứ phù hợp cho <code>Amoxicillin/Clavulanate</code> trong phạm vi thanh toán hiện hành hay không.</li>
+<li>Có cần mở rộng tiếp regex hoặc danh sách ICD của <code>THUOC_41</code> theo khoản 3 Điều 8 TT 37/2024 và tài liệu chỉ định hợp lệ hay không.</li>
+<li>Nếu mở rộng tiếp, cần giới hạn đến đâu để tránh kéo rule quá rộng ngoài phạm vi thanh toán BHYT.</li>
+</ol>
+<h2>9. Bài học huấn luyện</h2>
+<h3>9.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Một rule chỉ định quá hẹp có thể tạo false positive dù dữ liệu lâm sàng không hề vô lý.</li>
+</ul>
+<h3>9.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Không sửa trực tiếp bằng cách tắt rule.</li>
+<li>Cần rà theo <code>nhóm bệnh</code>, <code>tài liệu thanh toán</code>, <code>ca thật</code>, rồi mới mở rộng danh sách ICD hoặc regex.</li>
+</ul>
+<h3>9.3. Bài học cho AI</h3>
+<ul>
+<li>Khi gặp các ca tai mũi họng như <code>H66.9</code>, AI phải biết đặt nghi vấn về <code>độ phủ của rule</code> chứ không chỉ lặp lại kết luận xuất toán.</li>
+</ul>
+
+  </main>
+</body>
+</html>

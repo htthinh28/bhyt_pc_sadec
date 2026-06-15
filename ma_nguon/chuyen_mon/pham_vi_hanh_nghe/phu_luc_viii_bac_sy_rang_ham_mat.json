@@ -1,0 +1,2090 @@
+[
+  {
+    "stt": "1.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật dịch chuyển dây thần kinh răng dưới để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "2.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương tự thân để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "3.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương nhân tạo để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "4.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương hỗn hợp để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "5.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật đặt xương nhân tạo và màng sinh học quanh Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "6.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "7.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nâng sàn xoang hàm sử dụng vật liệu tự thân để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "8.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nâng sàn xoang hàm sử dụng vật liệu nhân tạo để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "9.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nâng sàn xoang hàm sử dụng vật liệu hỗn hợp để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "10.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tách xương để cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "11.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy ghép Implant tức thì sau nhổ răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "12.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tăng lợi sừng hóa quanh Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "13.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật đặt lưới Titanium tái tạo xương có hướng dẫn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "14.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Máng hướng dẫn phẫu thuật cấy ghép Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "15.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương ổ răng bằng ghép xương tự thân lấy trong miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "16.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương ổ răng bằng ghép xương tự thân lấy ngoài miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "17.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương ổ răng bằng màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "18.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương ổ răng bằng ghép xương đông khô",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "19.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương ổ răng bằng ghép vật liệu thay thế xương",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "20.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương sống hàm bằng ghép xương tự thân lấy trong miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "21.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương sống hàm bằng ghép xương tự thân lấy ngoài miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "22.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương sống hàm bằng ghép xương đông khô và đặt màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "23.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương sống hàm bằng ghép xương nhân tạo và đặt màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "24.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khuyết hổng chẽ chân răng bằng đặt màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "25.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khuyết hổng chẽ chân răng bằng ghép xương nhân tạo và đặt màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "26.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật che phủ chân răng bằng vạt trượt đẩy sang bên có ghép niêm mạc",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "27.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật che phủ chân răng bằng ghép vạt niêm mạc toàn phần",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "28.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật che phủ chân răng bằng ghép mô liên kết dưới biểu mô",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "29.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật che phủ chân răng bằng vạt trượt đẩy sang bên",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "30.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật che phủ chân răng bằng đặt màng sinh học",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "31.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật vạt niêm mạc làm tăng chiều cao lợi dính",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "32.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép biểu mô và mô liên kết làm tăng chiều cao lợi dính",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "33.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt lợi điều trị túi quanh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "34.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật vạt điều trị túi quanh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "35.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nạo túi lợi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "36.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tạo hình nhú lợi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "37.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liên kết cố định răng lung lay bằng nẹp kim loại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "38.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Liên kết cố định răng lung lay bằng dây cung kim loại và Composite",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "39.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị áp xe quanh răng cấp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "40.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị áp xe quanh răng mạn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "41.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị viêm quanh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "42.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chích áp xe lợi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "43.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy cao răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "44.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng siêu âm và hàn kín hệ thống ống tủy bằng Gutta percha nguội.",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "45.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng siêu âm và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "46.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng Laser và hàn kín hệ thống ống tủy bằng Gutta percha nguội",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "47.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng Laser và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "48.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng kính hiển vi và hàn kín hệ thống ống tủy bằng Gutta percha nguội",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "49.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng có sử dụng kính hiển vi và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "50.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nguội",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "51.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "52.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nguội có sử dụng trâm xoay cầm tay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "53.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy có sử dụng trâm xoay cầm tay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "54.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nguội có sử dụng trâm xoay máy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "55.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng và hàn kín hệ thống ống tủy bằng Gutta percha nóng chảy có sử dụng trâm xoay máy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "56.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp tủy bằng MTA",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "57.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp tủy bằng Hydroxit canxi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "58.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy tủy buồng răng vĩnh viễn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "59.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng thủng sàn bằng MTA",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "60.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng ngoài miệng (răng bị bật, nhổ)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "61.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy lại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "62.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nội nha có cắt bỏ chân răng và một phần thân răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "63.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nội nha - hàn ngược ống tủy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "64.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Amalgam có sử dụng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "65.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Composite có sử dụng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "66.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Glasslonomer Cement (GIC) có sử dụng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "67.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Glasslonomer Cement (GIC) kết hợp Composite",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "68.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Composite",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "69.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Amalgam",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "70.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị sâu ngà răng phục hồi bằng Glasslonomer Cement",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "71.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi cổ răng bằng Glasslonomer Cement",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "72.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi cổ răng bằng Composite",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "73.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi thân răng có sử dụng pin ngà",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "74.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi cổ răng bằng Glasslonomer Cement (GIC) có sử dụng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "75.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi cổ răng bằng Composite có sử dụng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "76.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi thân răng bằng Inlay/Onlay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "77.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi thân răng có sử dụng chốt chân răng bằng các vật liệu khác nhau",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "78.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Veneer Composite trực tiếp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "79.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tẩy trắng răng tủy sống có sử dụng đèn Plasma",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "80.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tẩy trắng răng tủy sống bằng Laser",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "81.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tẩy trăng răng nội tủy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "82.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tẩy trắng răng tủy sống bằng máng thuốc",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "83.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị nhạy cảm ngà bằng máng với thuốc chống ê buốt",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "84.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị nhạy cảm ngà bằng thuốc bôi (các loại)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "85.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ kim loại thường gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "86.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ Titanium gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "87.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ kim loại quý gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "88.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ toàn phần gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "89.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ kim loại thường gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "90.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ Titanium gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "91.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ kim loại quý gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "92.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ toàn phần gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "93.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ kim loại thường gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "94.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ Titanium gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "95.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ kim loại quý gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "96.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ Cercon gắn bằng ốc vít trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "97.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ toàn phần gắn bằng ốc vít trên Implants",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "98.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ kim loại thường gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "99.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ Titanium gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "100.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ kim loại quý gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "101.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ toàn phần gắn bằng cement trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "102.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả toàn phần dạng cúc bấm tựa trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "103.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả toàn phần dạng thanh ngang tựa trên Implant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "104.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp nhựa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "105.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp kim loại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "106.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp hợp kim thường cẩn nhựa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "107.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp hợp kim thường cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "108.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp hợp kim Titanium cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "109.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ toàn phần",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "110.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp kim loại quý cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "111.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chụp sứ Cercon",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "112.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu nhựa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "113.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu hợp kim thường",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "114.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu kim loại cẩn nhựa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "115.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu kim loại cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "116.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu hợp kim Titanium cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "117.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu kim loại quý cẩn sứ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "118.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ toàn phần",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "119.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cầu sứ Cercon",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "120.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chốt cùi đúc kim loại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "121.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cùi đúc Titanium",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "122.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cùi đúc kim loại quý",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "123.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Inlay/Onlay kim loại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "124.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Inlay/Onlay hợp kim Titanium",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "125.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Inlay/Onlay kim loại quý",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "126.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Inlay/Onlay sứ toàn phần",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "127.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Veneer Composite gián tiếp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "128.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Veneer sứ toàn phần",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "129.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả tháo lắp bán phần nền nhựa thường",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "130.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả tháo lắp toàn phần nền nhựa thường",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "131.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả tháo lắp bán phần nền nhựa dẻo",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "132.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm giả tháo lắp toàn phần nền nhựa dẻo",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "133.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm khung kim loại",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "134.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàm khung Titanium",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "135.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Máng hở mặt nhai",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "136.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị thói quen nghiến răng bằng máng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "137.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tháo cầu răng giả",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "138.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tháo chụp răng giả",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "139.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sửa hàm giả gãy",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "140.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thêm răng cho hàm giả tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "141.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thêm móc cho hàm giả tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "142.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đệm hàm nhựa thường",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "143.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ cố định điều trị thói quen xấu mút môi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "144.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ cố định điều trị thói quen xấu đẩy lưỡi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "145.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ cố định điều trị thói quen xấu mút ngón tay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "146.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy lại khoảng bằng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "147.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nong rộng hàm bằng khí cụ cố định nong nhanh",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "148.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nong rộng hàm bằng khí cụ cố định Quad-Helix",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "149.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh mất cân xứng hàm chiều trước sau bằng khí cụ chức năng cố định Forsus",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "150.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh mất cân xứng hàm chiều trước sau bằng khí cụ chức năng cố định MARA",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "151.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng/hàm dùng lực ngoài miệng sử dụng Headgear",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "152.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị chỉnh hình răng mặt sử dụng khí cụ Facemask và ốc nong nhanh",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "153.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng/hàm dùng lực ngoài miệng sử dụng Chincup",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "154.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Duy trì kết quả điều trị nắn chỉnh răng bằng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "155.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ cố định Nance làm neo chặn trong điều trị nắn chỉnh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "156.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng cung ngang khẩu cái (TPA) làm neo chặn trong điều trị nắn chỉnh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "157.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng có sử dụng neo chặn bằng khí cụ cố định cung lưỡi (LA)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "158.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng sử dụng neo chặn bằng Microimplant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "159.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng xoay sử dụng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "160.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng ngầm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "161.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng lạc chỗ sử dụng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "162.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Giữ khoảng răng bằng khí cụ cố định cung ngang vòm khẩu cái (TPA)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "163.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Giữ khoảng bằng khí cụ cố định Nance",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "164.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Giữ khoảng bằng khí cụ cố định cung lưỡi (LA)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "165.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh mũi - cung hàm trước phẫu thuật điều trị khe hở môi - vòm miệng giai đoạn sớm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "166.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh cung hàm trước phẫu thuật điều trị khe hở môi - vòm miệng giai đoạn sớm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "167.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh mũi trước phẫu thuật điều trị khe hở môi - vòm miệng giai đoạn sớm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "168.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Làm dài thân răng lâm sàng sử dụng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "169.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Dán mắc cài trực tiếp sử dụng chất gắn hóa trùng hợp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "170.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Dán mắc cài trực tiếp sử dụng chất gắn quang trùng hợp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "171.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Gắn mắc cài mặt lưỡi bằng kỹ thuật gián tiếp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "172.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Gắn mắc cài mặt ngoài bằng kỹ thuật gián tiếp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "173.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng mắc cài tự buộc trong nắn chỉnh răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "174.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Làm lún các răng cửa hàm dưới sử dụng dây cung bẻ Loop L hoặc dây cung đảo ngược",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "175.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Làm lún các răng cửa hàm dưới sử dụng dây cung tiện ích (Utility Archwire) và cung phụ làm lún răng cửa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "176.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Làm trồi các răng hàm nhỏ hàm dưới sử dụng khí cụ gắn chặt",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "177.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đóng khoảng răng sử dụng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "178.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều chỉnh độ nghiêng răng bằng khí cụ cố định",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "179.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh khối tiền hàm trước phẫu thuật cho trẻ khe hở môi-vòm miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "180.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đóng khoảng bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "181.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nong rộng hàm bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "182.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh mất cân xứng hàm chiều trước sau bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "183.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Duy trì kết quả điều trị nắn chỉnh răng bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "184.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng xoay sử dụng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "185.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Giữ khoảng răng bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "186.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn chỉnh răng bằng hàm tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "187.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Làm lún các răng cửa hàm dưới sử dụng khí cụ tháo lắp tấm cắn (Bite plate) hoặc mặt phẳng cắn phía trước (Anterior plane)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "188.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Đóng khoảng răng bằng khí cụ tháo lắp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "189.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ tháo lắp điều trị thói quen xấu mút môi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "190.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ tháo lắp điều trị thói quen xấu đẩy lưỡi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "191.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ tháo lắp điều trị thói quen xấu mút ngón tay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "192.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sử dụng khí cụ tháo lắp điều trị thói quen xấu thở đường miệng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "193.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Gắn band",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "194.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Máng điều trị đau khớp thái dương hàm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "195.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Máng nâng khớp cắn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "196.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Mài chỉnh khớp cắn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "197.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng lạc chỗ",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "198.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng ngầm",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "199.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng khôn mọc lệch hàm trên",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "200.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng khôn mọc lệch hàm dưới",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "201.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng khôn mọc lệch có cắt thân",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "202.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng khôn mọc lệch có cắt thân chia chân răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "203.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ răng vĩnh viễn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "204.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ răng vĩnh viễn lung lay",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "205.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ chân răng vĩnh viễn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "206.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ răng thừa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "207.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nhổ răng có tạo hình xương ổ răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "208.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tạo hình xương ổ răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "209.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật mở xương cho răng mọc",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "210.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nạo quanh cuống răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "211.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt cuống răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "212.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt, nạo xương ổ răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "213.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cắt lợi xơ cho răng mọc",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "214.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cắt lợi trùm răng khôn hàm dưới",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "215.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cắt lợi di động để làm hàm giả",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "216.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt phanh lưỡi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "217.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt phanh môi",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "218.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt phanh má",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "219.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chuyển răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "220.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy lại răng bị bật khỏi ổ răng",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "221.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị viêm quanh thân răng cấp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "222.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trám bít hố rãnh với Glasslonomer Cement quang trùng hợp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "223.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trám bít hố rãnh với Composite hóa trùng hợp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "224.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trám bít hố rãnh với Composite quang trùng hợp",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "225.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trám bít hố rãnh bằng nhựa Sealant",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "226.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Trám bít hố rãnh bằng Glasslonomer Cement",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "227.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hàn răng không sang chấn với Glasslonomer Cement",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "228.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phòng ngừa sâu răng với thuốc bôi bề mặt",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "229.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Dự phòng sâu răng bằng máng có Gel Fluor",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "230.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị răng sữa viêm tủy có hồi phục",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "231.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Lấy tủy buồng răng sữa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "232.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị tủy răng sữa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "233.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị đóng cuống răng bằng Canxi Hydroxit",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "234.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị đóng cuống răng bằng MTA",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "235.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị răng sữa sâu ngà phục hồi bằng Amalgam",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "236.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị răng sữa sâu ngà phục hồi bằng Glasslonomer Cement",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "237.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phục hồi thân răng sữa bằng chụp thép làm sẵn",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "238.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ răng sữa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "239.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhổ chân răng sữa",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "240.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chích Apxe lợi trẻ em",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "241.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị viêm lợi trẻ em (do mảng bám)",
+    "nhom": "A. RĂNG"
+  },
+  {
+    "stt": "242.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "243.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "244.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "245.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng vật liệu thay thế",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "246.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng ghép xương, sụn tự thân",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "247.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort I bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "248.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort I bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "249.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort I bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "250.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort II bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "251.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort II bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "252.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort II bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "253.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort III bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "254.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort III bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "255.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy Lefort III bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "256.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị can sai xương hàm trên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "257.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị can sai xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "258.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị can sai xương gò má",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "259.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật chỉnh hình xương hàm trên một bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "260.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật chỉnh hình xương hàm trên hai bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "261.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật chỉnh hình xương hàm dưới một bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "262.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật chỉnh hình xương hàm dưới hai bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "263.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật chỉnh hình xương 2 hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "264.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị dính khớp thái dương hàm 1 bên bằng ghép xương - sụn tự thân",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "265.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị dính khớp thái dương hàm 1 bên bằng ghép vật liệu thay thế",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "266.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị dính khớp thái dương hàm 2 bên bằng ghép xương - sụn tự thân",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "267.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị dính khớp thái dương hàm 2 bên bằng vật liệu thay thế",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "268.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương hàm dưới bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "269.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương hàm dưới bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "270.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương hàm dưới bằng nẹp vít tư tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "271.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "272.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "273.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "274.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy cung tiếp bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "275.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy cung tiếp bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "276.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy cung tiếp bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "277.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má - cung tiếp bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "278.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má - cung tiếp bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "279.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương gò má - cung tiếp bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "280.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị gãy xương gò má - cung tiếp bằng nắn chỉnh (có gây tê hoặc gây tê)",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "281.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương chính mũi bằng chỉ thép",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "282.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương chính mũi bằng nẹp vít hợp kim",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "283.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương chính mũi bằng nẹp vít tự tiêu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "284.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy xương chính mũi bằng các vật liệu thay thế",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "285.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị gãy xương hàm dưới bằng máng phẫu thuật",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "286.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị gãy xương hàm dưới bằng cung cố định 2 hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "287.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị gãy xương hàm dưới băng buộc nút Ivy cố định 2 hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "288.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị gãy xương hàm dưới bằng vít neo chặn cố định 2 hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "289.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị gãy lồi cầu xương hàm dưới bằng lấy bỏ lồi cầu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "290.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị bảo tồn gẫy lồi cầu xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "291.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị đa chấn thương vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "292.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị đa chấn thương vùng hàm mặt có ghép sụn xương tự thân",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "293.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị đa chấn thương vùng hàm mặt có ghép vật liệu thay thế",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "294.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật lấy dị vật vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "295.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị vết thương phần mềm vùng hàm mặt có thiếu hổng tổ chức",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "296.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị vết thương phần mềm vùng hàm mặt không thiếu hổng tổ chức",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "297.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị vết thương vùng hàm mặt do hỏa khí",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "298.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cố định tạm thời sơ cứu gãy xương hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "299.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Dẫn lưu máu tụ vùng miệng - hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "300.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sơ cứu gãy xương vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "301.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sơ cứu vết thương phần mềm vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "302.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tái tạo xương hàm dưới ghép xương bằng kỹ thuật vi phẫu",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "303.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khuyết hổng phần mềm vùng hàm mặt bằng vi phẫu thuật",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "304.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt đường rò luân nhĩ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "305.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt đường rò môi dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "306.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật lấy sỏi ống Wharton tuyến dưới hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "307.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật nối ống tuyến điều trị rò tuyến nước bọt mang tai",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "308.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tạo đường dẫn trong miệng điều trị rò tuyến nước bọt mang tai",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "309.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị viêm tuyến mang tai bằng bơm rửa thuốc qua lỗ ống tuyến",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "310.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương tự thân tức thì sau cắt đoạn xương hàm trên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "311.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương bằng vật liệu thay thế tức thì sau cắt đoạn xương hàm trên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "312.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương tự thân tự do tức thì sau cắt đoạn xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "313.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt đoạn xương hàm dưới không đặt nẹp giữ chỗ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "314.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật ghép xương với khung nẹp hợp kim tức thì sau cắt đoạn xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "315.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Gây tê vùng điều trị cơn đau thần kinh V ngoại biên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "316.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nhánh ổ mắt của dây thần kinh V",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "317.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nhánh dưới hàm của dây thần kinh V",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "318.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tạo hình các khuyết hổng lớn vùng hàm mặt bằng vạt da cơ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "319.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt bỏ tuyến nước bọt mang tai bảo tồn thần kinh VII",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "320.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt u men xương hàm dưới giữ lại bờ nền",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "321.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt lồi xương",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "322.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật làm sâu ngách tiền đình",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "323.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật mở xoang hàm để lấy chóp răng hoặc răng ngầm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "324.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị viêm xoang hàm do răng",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "325.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật lấy xương chết, nạo rò điều trị viêm xương hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "326.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị hoại tử xương hàm do tia xạ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "327.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị hoại tử xương và phần mềm vùng hàm mặt do tia xạ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "328.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nang do răng xương hàm trên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "329.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nang không do răng xương hàm trên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "330.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nang do răng xương hàm trên có can thiệp xoang",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "331.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nang do răng xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "332.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật cắt nang không do răng xương hàm dưới",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "333.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật rạch dẫn lưu viêm tẩy lan tỏa vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "334.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật rạch dẫn lưu áp xe nông vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "335.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn sai khớp thái dương hàm",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "336.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn sai khớp thái dương hàm dưới gây mê",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "337.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nắn sai khớp thái dương hàm đến muộn có gây tê",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "338.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chọc thăm dò u, nang vùng hàm mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "339.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị u lợi bằng Laser",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "340.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điều trị viêm lợi miệng loét hoại tử cấp",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "341.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở môi một bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "342.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở môi hai bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "343.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở chéo mặt một bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "344.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở chéo mặt hai bên",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "345.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở vòm miệng không toàn bộ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "346.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở vòm miệng toàn bộ",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "347.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật điều trị khe hở ngang mặt",
+    "nhom": "B. HÀM MẶT"
+  },
+  {
+    "stt": "348.",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phẫu thuật tháo nẹp, vít",
+    "nhom": "B. HÀM MẶT"
+  }
+]

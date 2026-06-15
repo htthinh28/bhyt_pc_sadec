@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📦 HƯỚNG DẪN ĐÓNG GÓI ỨNG DỤNG</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>HUONG_DAN_DONG_GOI_NHANH.md</code> · Thư viện CDSS BHYT</div>
+    <h1>📦 HƯỚNG DẪN ĐÓNG GÓI ỨNG DỤNG</h1>
+<p><strong>Ngày tạo:</strong> 06/04/2026</p>
+<hr>
+<h2>🖥️ Thành phẩm demo nội bộ — Windows, offline, không cài đặt (Portable)</h2>
+<p>Dùng <strong>Electron + bản web export</strong> (<code>dist/</code>): một file chạy được, không cần <code>npm install</code> trên máy demo.</p>
+<h3>Trên máy build (có Node.js + npm)</h3>
+<ol>
+<li><p>Mở terminal tại thư mục gốc repo.</p>
+</li>
+<li><p>Chạy <strong>chỉ bản Portable</strong> (nhanh hơn bản đầy <code>desktop:build:win</code> vì không tạo NSIS):</p>
+<pre><code class="language-bash">npm run desktop:build:win-portable
+</code></pre>
+<p>Hoặc <strong>một click</strong> (ghi ra <code>packaging/out_portable/</code>): chạy <code>packaging/build_portable_full.bat</code>.</p>
+<p><code>desktop:export</code> trước khi đóng gói đã gồm: <code>tai_lieu:prepare</code>, chỉ mục huấn luyện, chỉ mục <code>tai_nguyen/</code>, rồi <code>expo export</code>. Export nhanh không cần chỉ mục: <code>npm run desktop:export:light</code>.</p>
+</li>
+<li><p><strong>File thành phẩm</strong> nằm trong thư mục tạm (tránh lỗi khi repo trên Google Drive):</p>
+<ul>
+<li>Mặc định: <code>%TEMP%\cdss-bhyt-release-desktop\</code></li>
+<li>Hoặc đặt trước khi build: <code>set CDSS_RELEASE_OUT=D:\PhatHanh\CDSS_BHYT_demo</code> rồi chạy lại lệnh trên.</li>
+</ul>
+</li>
+<li><p>Tìm file dạng <code>CDSS-BHYT-Phuong-Chau-&lt;version&gt;-Windows-x64.exe</code> (Portable) — copy sang USB hoặc máy demo, <strong>chạy trực tiếp</strong>, không cần cài đặt.</p>
+</li>
+</ol>
+<h3>Ghi chú</h3>
+<ul>
+<li><strong>Offline (không cài đặt):</strong> đúng với máy demo — không cần Node/Python.</li>
+<li><strong>Mạng:</strong> giao diện và tài liệu <code>public/tai_lieu</code> đi kèm bản đóng gói; nếu tính năng trong app gọi Firebase/API/HIS thì vẫn cần mạng nội bộ hoặc cấu hình tương ứng (không thuộc phạm vi file <code>.exe</code>).</li>
+<li>Build đầy đủ (Portable + NSIS): <code>npm run desktop:build:win</code>.</li>
+</ul>
+<hr>
+<h2>⚡ CÁCH NHANH NHẤT (3 bước)</h2>
+<h3><strong>Bước 1:</strong> Mở File Explorer</h3>
+<pre><code>C:\Users\admin\Documents\Google Drive\
+</code></pre>
+<h3><strong>Bước 2:</strong> Click Chuột Phải vào Thư Mục <code>ung_dung_cdss_bhyt</code></h3>
+<pre><code>✅ Chọn: &quot;Send to&quot; → &quot;Compressed folder&quot;
+hoặc
+✅ Chọn: &quot;7-Zip&quot; → &quot;Add to archive&quot;
+</code></pre>
+<h3><strong>Bước 3:</strong> Đợi Hoàn Thành</h3>
+<pre><code>✅ File sẽ tạo: ung_dung_cdss_bhyt.zip (~50-100MB)
+✅ Copy file ZIP sang USB/Email/Cloud
+✅ Gửi sang máy khác
+</code></pre>
+<hr>
+<h2>❌ <strong>LOẠI BỎ NHỮNG THỨ NÀY TRƯỚC KHI GÓI</strong></h2>
+<p>Nếu cùi bắp, hãy <strong>xóa tạm</strong> các thư mục này trước khi gói:</p>
+<pre><code>❌ node_modules/        (sẽ cài lại với npm install)
+❌ venv/                (sẽ tạo lại với python -m venv)
+❌ .git/                (cache git, không cần)
+❌ .env                 (config cá nhân)
+❌ *.log                (log files)
+</code></pre>
+<p><strong>Cách xóa:</strong></p>
+<pre><code class="language-bash">cd ung_dung_cdss_bhyt
+
+REM Windows
+rmdir /s /q node_modules
+rmdir /s /q venv
+rmdir /s /q .git
+</code></pre>
+<hr>
+<h2>🔧 <strong>CÁCH CHUYÊN NGHIỆP (Dùng Script)</strong></h2>
+<h3>Cách 1: Dùng Script Windows (Batch)</h3>
+<p>Clic hai lần vào file này:</p>
+<pre><code>dong_goi_ung_dung.bat
+</code></pre>
+<p>Script sẽ tự động:</p>
+<ul>
+<li>✅ Loại bỏ <code>node_modules</code>, <code>venv</code>, <code>.git</code></li>
+<li>✅ Nén thành ZIP</li>
+<li>✅ Ghi tên ngày/giờ</li>
+</ul>
+<h3>Cách 2: Dùng PowerShell</h3>
+<pre><code class="language-powershell"># Mở PowerShell ở thư mục project
+cd &quot;C:\Users\admin\Documents\Google Drive\ung_dung_cdss_bhyt&quot;
+
+# Chạy lệnh này:
+Compress-Archive -Path . -DestinationPath &quot;..\ung_dung_cdss_bhyt_backup.zip&quot; -Force `
+  -Update -WarningAction SilentlyContinue -ErrorAction Stop | `
+  Where-Object { $_ -NotMatch &#39;node_modules|venv|\.git&#39; }
+</code></pre>
+<h3>Cách 3: Dùng 7-Zip (CLI)</h3>
+<pre><code class="language-bash"># Giả sử 7-Zip đã cài
+
+cd &quot;C:\Users\admin\Documents\Google Drive&quot;
+
+7z a -r -x!node_modules -x!venv -x!.git ^
+  ung_dung_cdss_bhyt.zip ung_dung_cdss_bhyt\
+</code></pre>
+<hr>
+<h2>📊 <strong>DỮ LIỆU CẦN GỬI VỀ MÁY MỚI</strong></h2>
+<h3>✅ CẶP GỬI (CẦN THIẾT)</h3>
+<table>
+<thead>
+<tr>
+<th>Thư mục</th>
+<th>Dung lượng</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ma_nguon/</code></td>
+<td>~10MB</td>
+<td>React Native code</td>
+</tr>
+<tr>
+<td><code>python_service/</code></td>
+<td>~5MB</td>
+<td>FastAPI backend</td>
+</tr>
+<tr>
+<td><code>tai_lieu/</code></td>
+<td>~2MB</td>
+<td>Knowledge base</td>
+</tr>
+<tr>
+<td><code>test_xml/</code></td>
+<td>~5MB</td>
+<td>Test data</td>
+</tr>
+<tr>
+<td><code>server.js</code></td>
+<td>5KB</td>
+<td>Express wrapper</td>
+</tr>
+<tr>
+<td><code>package.json</code></td>
+<td>5KB</td>
+<td>Node config</td>
+</tr>
+<tr>
+<td><code>requirements.txt</code></td>
+<td>2KB</td>
+<td>Python config</td>
+</tr>
+<tr>
+<td><strong>.git/</strong></td>
+<td>~50MB</td>
+<td>Version control (tùy chọn)</td>
+</tr>
+</tbody></table>
+<p><strong>Tổng:</strong> ~80-120MB (không có node_modules)</p>
+<h3>❌ KHÔNG CẦN GỬI</h3>
+<table>
+<thead>
+<tr>
+<th>Thư mục</th>
+<th>Dung lượng</th>
+<th>Tại sao</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>node_modules/</code></td>
+<td>~800MB</td>
+<td>Cài lại với <code>npm install</code></td>
+</tr>
+<tr>
+<td><code>venv/</code></td>
+<td>~500MB</td>
+<td>Tạo lại với <code>python -m venv</code></td>
+</tr>
+<tr>
+<td><code>.env</code></td>
+<td>~1KB</td>
+<td>Config cá nhân mỗi máy</td>
+</tr>
+<tr>
+<td><code>.log</code></td>
+<td>~100MB</td>
+<td>Log files, không cần</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🚀 <strong>SAU KHI GỬI SANG MÁY MỚI</strong></h2>
+<h3>Máy Mới Nhận File ZIP:</h3>
+<pre><code class="language-bash"># 1. Giải nén
+unzip ung_dung_cdss_bhyt.zip
+cd ung_dung_cdss_bhyt
+
+# 2. Cài Node dependencies
+npm install --legacy-peer-deps
+
+# 3. Tạo Python venv
+python -m venv venv
+venv\Scripts\activate
+
+# 4. Cài Python dependencies
+pip install -r python_service/requirements.txt
+
+# 5. Chạy ứng dụng
+node server.js
+# (Terminal khác) python -m uvicorn ...
+</code></pre>
+<hr>
+<h2>📈 <strong>TỐI ƯU HÓA KÍCH THƯỚC</strong></h2>
+<p>Nếu muốn nhỏ nhất, hãy loại bỏ:</p>
+<pre><code class="language-bash"># Windows
+rmdir /s /q node_modules
+rmdir /s /q venv
+rmdir /s /q .git
+del .env
+del *.log
+</code></pre>
+<p><strong>Trước:</strong> 1.5GB → <strong>Sau:</strong> 100-120MB ✅</p>
+<hr>
+<h2>📋 <strong>CHECKLIST TRƯỚC GỬI</strong></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Xóa <code>node_modules/</code> (nếu cần nhỏ)</li>
+<li><input disabled="" type="checkbox"> Xóa <code>venv/</code> (nếu cần nhỏ)</li>
+<li><input disabled="" type="checkbox"> Xóa <code>.env</code> (không public config)</li>
+<li><input disabled="" type="checkbox"> Xóa <code>*.log</code></li>
+<li><input disabled="" type="checkbox"> Kiểm tra <code>package.json</code> &amp; <code>requirements.txt</code> tồn tại</li>
+<li><input disabled="" type="checkbox"> Kiểm tra <code>server.js</code> tồn tại</li>
+<li><input disabled="" type="checkbox"> Gói ZIP thành công</li>
+<li><input disabled="" type="checkbox"> Copy hoặc upload file ZIP</li>
+</ul>
+<hr>
+<h2>💡 <strong>MẸO NHANH</strong></h2>
+<h3>Nếu máy A &amp; B trên LAN, dùng Git:</h3>
+<pre><code class="language-bash"># Máy A (hiện tại)
+git push origin main
+
+# Máy B (máy mới)
+git clone https://your-repo.git
+cd ung_dung_cdss_bhyt
+npm install --legacy-peer-deps
+pip install -r python_service/requirements.txt
+</code></pre>
+<h3>Nếu không có Git, dùng ZIP là cớ tốt nhất.</h3>
+<hr>
+<p><strong>✅ Bây giờ sẵn sàng để gửi! 🎉</strong></p>
+
+  </main>
+</body>
+</html>

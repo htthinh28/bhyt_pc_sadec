@@ -1,0 +1,518 @@
+{
+  "version": "1.1.0",
+  "savedAt": "2026-04-13T03:47:12.418Z",
+  "files": {
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png": {
+      "sha256": "9adb8c5efca932e2b732b293da813bd2e31952263056bce9e2517fec0f0b6a76",
+      "size": 653
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png": {
+      "sha256": "84cf5eb3b20250f69e0e4733beb4da5f417f0682892a5ad1b5e62570753c21b1",
+      "size": 207
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png": {
+      "sha256": "d03a5cd7a66ef10c5147916f9d5878b2d0a0a5ad46f405a31cd9967efaa55afd",
+      "size": 220
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@2x.png": {
+      "sha256": "ab5613d2ce70fa67c5926e831353664945199fc195fa6fe76c5fe3cec452e31a",
+      "size": 334
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@3x.png": {
+      "sha256": "c4e54e6a0a7de636aa153378fbc62ea4a41695bfedf807f90df7b18ffd733f67",
+      "size": 502
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55@4x.png": {
+      "sha256": "c86bb485eee687e06c500fc4234f51a6784b4530c2ae11d0c76481110bce3105",
+      "size": 645
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png": {
+      "sha256": "b1bc1810ca23e2c38cd76971c43591d726161061240d8b792b05757196ddb528",
+      "size": 141
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@2x.png": {
+      "sha256": "cbdf9213e55f65c48d076acd8423b7c9aee4f1b81101ff6c95a38c4cd8a86461",
+      "size": 201
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@3x.png": {
+      "sha256": "d05c9d30d79f45a78e5585a2e7ec67c6a06a883dd9137e1d5059e8c87b33ce76",
+      "size": 266
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7@4x.png": {
+      "sha256": "2325c53a73e54c438cbbc60dffdd8b513d471ba42e2f56713ef404b95e0ca1fc",
+      "size": 332
+    },
+    "assets/node_modules/@react-navigation/elements/lib/module/assets/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png": {
+      "sha256": "5d075e0c287c4f4441b5b5c8fc7ea5cd27c11bb617ecea09755955bcb1889083",
+      "size": 928
+    },
+    "favicon.ico": {
+      "sha256": "60b3746c47991372b321d1384a76e24edb7ae1236006af09a511144c19322704",
+      "size": 14510
+    },
+    "index.html": {
+      "sha256": "41efe2d493a7e0e4927f0ca4ea7ffc46cc9a20eb6eae114f35a4937f20b86041",
+      "size": 1227
+    },
+    "metadata.json": {
+      "sha256": "aa5f19cc84d41c0f8c70ececb2bc82e863227ea1e121632aca879eb616056991",
+      "size": 49
+    },
+    "tai_lieu/Bai_tap_phat_trien_ky_nang_giam_dinh_AI.html": {
+      "sha256": "1aeb6cde960aaaa17ab5cc0b9accf0424e958dbb7f4b1f8e0f51b5d539de88df",
+      "size": 13960
+    },
+    "tai_lieu/Bang_neo_phien_huan_luyen_dvkt_va_engine.html": {
+      "sha256": "4f928a9db0bca53d18208a059bc5a618678e9ac853d4157acb0d876f21957d76",
+      "size": 6618
+    },
+    "tai_lieu/Bang_neo_phien_huan_luyen_thuoc_va_engine.html": {
+      "sha256": "73373b7ff4d7faaee84763a9c5db9c3c6415216f73fa1305093cb40aa769f9bc",
+      "size": 5109
+    },
+    "tai_lieu/Bang_neo_phien_huan_luyen_vtyt_va_engine.html": {
+      "sha256": "fea939dc612ea9ce90812815f66156146eb671f031c6d1a6eb2a032ac2be8dbb",
+      "size": 6606
+    },
+    "tai_lieu/Ban_ghi_rasoat_quy_tac_audit_predeploy_2026-04-09.html": {
+      "sha256": "0418ec5abfb3ff6f58f10dc36bf598d9297a24b7a94e83a3502d9bbc7f50018d",
+      "size": 8466
+    },
+    "tai_lieu/Bat_dau_test_10_ca_chi_tiet.html": {
+      "sha256": "9aa429d0c43d1dddf1fe5317041fb0f37c8f1bd9dc864bb28340ba8146c21a30",
+      "size": 9709
+    },
+    "tai_lieu/Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.html": {
+      "sha256": "cf29f2e0c264e0c127b4ecff822492513101b1fea403a557e6b8a6a584f07087",
+      "size": 9481
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.html": {
+      "sha256": "1e3065da4e28420f366d0355ea647e7e7bb25a2ef01c6800f08c66ae8a87c722",
+      "size": 8527
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.html": {
+      "sha256": "55f4dab73074164972dc73ac458a1b24877316864817593132d78b4d09f6fee7",
+      "size": 6867
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000339_Biofazolin_du_phong_phu_khoa.html": {
+      "sha256": "456da47adbb86bc7552a33ab0c10ba6c1c21812240d7ffe929409fe548106c10",
+      "size": 6067
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000339_Mekoferrat_sai_chan_doan.html": {
+      "sha256": "c4592bea6af35c996ebb2ac413b117befb3124f2f08a07bbd2d1990e67186e99",
+      "size": 13684
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.html": {
+      "sha256": "331837b420aa441d47c0adaa5803989741bcd57d75e3313920c96aaf33e8049c",
+      "size": 5619
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.html": {
+      "sha256": "7b369f2f3530ba84edef1ef97c92a57ccf7e51b9eec3a6791451de74f71ef785",
+      "size": 12091
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.html": {
+      "sha256": "e7bb8e94e733402915ea9a45e8314d1ba2eb8408900d79b8f0b341c0d3215cf6",
+      "size": 5590
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000538_CDHA_101_ma_may_XQ.html": {
+      "sha256": "22b91ca039b24c64733116894455475a159a8e6c51ad405523f09eb88162f52c",
+      "size": 4386
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.html": {
+      "sha256": "0b575d9657c010a83e11d4f0fabe8c7009ec67dd05bf0d8f3d8063dd0cb7e5ef",
+      "size": 4527
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000589_Cefotaxime_dieu_tri_tiem.html": {
+      "sha256": "9625a67a4e512224fb325a244b57fb7694d764ab4c0eea6dbabb1d5a1ac5fe85",
+      "size": 6505
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.html": {
+      "sha256": "36a27575c2499002650062348c514e2fbbebc5d502cf2f99a37e2a18af6dad90",
+      "size": 4080
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000589_Loi_hanh_chinh_chenh_tien.html": {
+      "sha256": "bf63a87ef7b03193b7dbfde90b2962b75569ddf4e08e0b6aee4e87f188c916ee",
+      "size": 16592
+    },
+    "tai_lieu/Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.html": {
+      "sha256": "d7bdd5ebe6c6e5c0d13c2d6dbaf98010fc797a8d2237dfaec12f35faa6c79569",
+      "size": 5669
+    },
+    "tai_lieu/Ca_huan_luyen_mau_403244_ICD10_phan_nhom_chuyen_mon.html": {
+      "sha256": "79d2adebfe43db598cd2cb4d2364b87821d3847fb831610866edf40bef8ec08e",
+      "size": 6232
+    },
+    "tai_lieu/Ca_huan_luyen_mau_403244_PTTT_noi_soi_gay_me.html": {
+      "sha256": "e576f807cefa6670ed54fab2c185ac3c61d3e5b5a1fffe67c5fa51079691601c",
+      "size": 8340
+    },
+    "tai_lieu/Ca_huan_luyen_mau_403244_Vi_pham_phap_ly_BHYT.html": {
+      "sha256": "daa0d63aaa7d0a60e4c177b36ddc117630b42c2e078ef82842c0e9842441559c",
+      "size": 25357
+    },
+    "tai_lieu/Ca_huan_luyen_mau_403521_Cefazolin_du_phong_san_khoa.html": {
+      "sha256": "f4ae37a67e567a1ae1e00929777861c510a2a67f6255accc81811e374d5d6357",
+      "size": 8709
+    },
+    "tai_lieu/Ca_huan_luyen_mau_403538_THUOC_345_MOGASTIC.html": {
+      "sha256": "eaf299fa52307ad7d7e47e3afee7ed0ff1a644299b46fd5e453ef9555cf10685",
+      "size": 10605
+    },
+    "tai_lieu/Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.html": {
+      "sha256": "7e3bee131ddb51a0bf21e5ddd7f5a6398f8c4b26a4510a3273f95ec3eacc3cb4",
+      "size": 5511
+    },
+    "tai_lieu/Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.html": {
+      "sha256": "00e8e30d3e19e76ebbd41a7ab935ac6ead9fb646823b776f644d533e2cbbc325",
+      "size": 5101
+    },
+    "tai_lieu/Ca_huan_luyen_mau_OP26000282_I10_tang_huyet_ap.html": {
+      "sha256": "a7b7cf36dcd70d5d943112560d4f57252267f21e074919b7600a9f76d5d19204",
+      "size": 5157
+    },
+    "tai_lieu/Ca_huan_luyen_mau_OP26000908_Amoxiclav_dieu_tri_uong.html": {
+      "sha256": "fca94b8962a1f1b82a394975bcc1e54238fdbf68f8aea44c5b18561774f9566f",
+      "size": 6913
+    },
+    "tai_lieu/Ca_huan_luyen_mau_OP26000908_Loi_an_toan_lieu_cao.html": {
+      "sha256": "527bc433a71bde3054052249e08d45de3516dfc65c97b6c15cd49ce72e242fea",
+      "size": 16892
+    },
+    "tai_lieu/Ca_huan_luyen_mau_OP26000908_THUOC_267_Medlon_Methylprednisolon_ICD.html": {
+      "sha256": "a133c7baafff6650f033b51e10551371f16ebd8491bc745b42c8e6e4530e1834",
+      "size": 4188
+    },
+    "tai_lieu/Ca_huan_luyen_mau_OP26001050_Ciprofloxacin_ngoai_tru.html": {
+      "sha256": "bf774f68028293d25402ed24e369e7c9b2cb515ed9cf271930ff3114637a64c7",
+      "size": 5183
+    },
+    "tai_lieu/Ca_huan_luyen_mau_TRAINHL03_THUOC_418_CLN_THUOC_04.html": {
+      "sha256": "323e4641771b674cacd1d0c426da3787cd6a842d8c0ebe58d62c138ce865e995",
+      "size": 3367
+    },
+    "tai_lieu/Ca_huan_luyen_mau_TRAINHL419_THUOC_419.html": {
+      "sha256": "f6e2dff9f7644df48b379c7c6398fbc58509c26ad5cb2abfc2933017b7b60856",
+      "size": 2894
+    },
+    "tai_lieu/CDSS_mapping_ICD_DM_thuoc_DVKT_nang_cap.html": {
+      "sha256": "675d896f85f52f4487548aada540bd249b678efa8e7545775ea5b17f0bcd990b",
+      "size": 4663
+    },
+    "tai_lieu/Checklist_TT12_2026_Dieu10_khoan1_map_XML130.html": {
+      "sha256": "b7c3301a3d9e9735a023dfd40a4e1784ecf2243478b5ea782a411286762c1d2a",
+      "size": 8190
+    },
+    "tai_lieu/Chi_muc_Luat_BHYT_Rule_Giam_dinh.html": {
+      "sha256": "3433545e02e3ceb700890cdca1217df22be1a2241a8937a0dc0f9b57c80a1182",
+      "size": 16325
+    },
+    "tai_lieu/Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.html": {
+      "sha256": "546b0ca33e35ff18d07aadf5c5e9fb5552a8eb4eed3c2afc21b31c29521352ca",
+      "size": 10802
+    },
+    "tai_lieu/Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.html": {
+      "sha256": "becfac365429dcbbc49b66b2d3b681c9841d4b1ba3950a61bf5ee7336980714d",
+      "size": 15824
+    },
+    "tai_lieu/Cong_van_266_TTKS_chuyen_de_loi_giam_dinh_BHXH.html": {
+      "sha256": "d979d77c2638c97603e4811031aaf13e5cc2d93d94b9dfadde03483aaff84a86",
+      "size": 6065
+    },
+    "tai_lieu/Dac_ta_he_thong_CDSS_BHYT_20260405.docx": {
+      "sha256": "4eb99367e2fdd81a7875fd76373f18c2dd962558be4e55ed9f0133b48a56bf1d",
+      "size": 48436
+    },
+    "tai_lieu/Dac_ta_he_thong_CDSS_BHYT_20260405.html": {
+      "sha256": "f9dbabc7872c1d495f9fe3f61b6e0494ff0c929f27804fe149b9475c2c95da19",
+      "size": 32569
+    },
+    "tai_lieu/Danh_sach_10_ca_test_va_du_lieu_chi_tiet.html": {
+      "sha256": "50849e253c0804e536a7f0f06b24fd4c2eb0e90e1fc9d1aa57b0add9a75268b4",
+      "size": 19169
+    },
+    "tai_lieu/Giao_ban_ket_noi_Python_service_CDSS.docx": {
+      "sha256": "13a9f364bf2d1b98281f5a4c82e233a46eb7353add30482768129f413afe4cf7",
+      "size": 37992
+    },
+    "tai_lieu/Giao_ban_ket_noi_Python_service_CDSS.html": {
+      "sha256": "55088dcdb56ef58f9e7e13fa210abfdcb42f69075df90a4d99642f65c8e6b517",
+      "size": 4526
+    },
+    "tai_lieu/Goi_du_lieu_huan_luyen_AI_thuc_chien.html": {
+      "sha256": "168b50d054436ac418cfa659704096306efa9816c9d8b8b5ac6ac4cd36c89eeb",
+      "size": 9110
+    },
+    "tai_lieu/Huan_luyen_phien_02_THUOC_391_Cursor_OpenClaw.html": {
+      "sha256": "701b29b609d5587a527d78cd849e354620718aed9b54f4ab66ce9a2ddeda3fe0",
+      "size": 8198
+    },
+    "tai_lieu/Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.html": {
+      "sha256": "347881fe9de3d9fbaea421421ef12d10841e6889e9c13b9e5e67269c7440b121",
+      "size": 8186
+    },
+    "tai_lieu/Huan_luyen_phien_04_THUOC_419_hang_BV.html": {
+      "sha256": "bdeac2cbf2fcbeb6f0568889453219d0a54ce5375a57fd820dc6da9037bbfe48",
+      "size": 8342
+    },
+    "tai_lieu/Huan_luyen_phien_05_THUOC_416_vs_417_Cursor_OpenClaw.html": {
+      "sha256": "f536722ff5a0a34acbfbeaa9ba6ec3f9375dc732ec34674306259f98c4963cb5",
+      "size": 7391
+    },
+    "tai_lieu/Huan_luyen_phien_CDSS_chuyen_mon_FileMau_v4.html": {
+      "sha256": "f143ef6acd9e6703a2a8e00b5cec36c36dcca408bbba7d95bdd052cfcce46dfc",
+      "size": 6746
+    },
+    "tai_lieu/Huan_luyen_phien_DVKT_VBHN17_Cursor.html": {
+      "sha256": "b9ba6b9f4d7e9dbbf447507c70d49925d7890923ccd5cef23fd50fb0d9469971",
+      "size": 25701
+    },
+    "tai_lieu/Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.html": {
+      "sha256": "f731776a9ef15ca0980da62259c169a5fe7e410624310ebddadad12554482696",
+      "size": 11859
+    },
+    "tai_lieu/Huan_luyen_phien_VTYT_du_phong_Cursor.html": {
+      "sha256": "c7d4e04ed04bd7c00cb88e7e9abaa9008339a00df5839bf399ff67e263da5423",
+      "size": 8513
+    },
+    "tai_lieu/Huong_dan_chay_test_AI_chi_tiet.html": {
+      "sha256": "be8cc9a767fa1aa36ebd966efef0a1967b4c5750d690068ca03dd8a1f7ae37c3",
+      "size": 20277
+    },
+    "tai_lieu/Huong_dan_chay_thu_AI_va_danh_gia.html": {
+      "sha256": "4eb99376ef3f0e5d31cf84d83e826146d8e19ffa2c4d240c41457d60363b71dd",
+      "size": 16758
+    },
+    "tai_lieu/Huong_dan_cho_nguoi_khong_chuyen_CNTT.html": {
+      "sha256": "67e1ce0238886de01d9bcc249cf00b6207230f2eeca5d3c09b28d800f188b523",
+      "size": 12197
+    },
+    "tai_lieu/HUONG_DAN_CONG_TAC_VA_CAI_DAT_MAY_MOI.html": {
+      "sha256": "93dce2f9399c9c3c755122da12121c633744e5b7d7ade2048007a2ba95497226",
+      "size": 9667
+    },
+    "tai_lieu/HUONG_DAN_DONG_GOI_NHANH.html": {
+      "sha256": "39a7ee0b32e2902666f6ba5f707c996d4aefd39868140be1de1d8353b4f07af6",
+      "size": 9045
+    },
+    "tai_lieu/Huong_dan_dung_AI_CDSS_BHYT.html": {
+      "sha256": "41f1a7ce08e5ec0418af6d06c9e2286b1612f7b371f61fb394755e8650ed5dc2",
+      "size": 8500
+    },
+    "tai_lieu/Huong_dan_huan_luyen_audit_thuc_chien_va_phac_do_CDSS.html": {
+      "sha256": "08cd1d94f0f74229ec10c81cff70b08151797c549320f080f0294c5f29a8b1cb",
+      "size": 7174
+    },
+    "tai_lieu/HUONG_DAN_LAM_VIEC_ONLINE_GITHUB.html": {
+      "sha256": "4a5975e5641944d4fea3d21935ce21111b5842399db1422f661f09ba3c749b04",
+      "size": 11417
+    },
+    "tai_lieu/Huong_dan_su_dung_CDSS_BHYT_20260405.docx": {
+      "sha256": "7d091c1facca92da0731a216afbe80d963a163a86c875e8fb9471537f8f5e66c",
+      "size": 46583
+    },
+    "tai_lieu/Huong_dan_su_dung_CDSS_BHYT_20260405.html": {
+      "sha256": "c64f4b16df8c1c46b6361ebd96e0cdcaee78641027c7795324a0ef6234a6de9b",
+      "size": 29691
+    },
+    "tai_lieu/Huong_dan_tai_nguyen_XML_thuc_chien_AI.html": {
+      "sha256": "8d46c4c106a6af7c7896ba076748f77655ecf8f311c566e6a5cb2b1313e4579c",
+      "size": 6140
+    },
+    "tai_lieu/Huong_dan_truy_cap_ung_dung_tren_mang_noi_bo.html": {
+      "sha256": "a4724fe341c29d423ea9c6e4dca76169d9a55105ff1721df1d39b28e0ca4e200",
+      "size": 7432
+    },
+    "tai_lieu/Khung_chat_luong_giam_dinh_DVKT_VBHN17.html": {
+      "sha256": "84deb83004b08b085a4000de7eed2999191e75795b130c9077c5e26b149de87f",
+      "size": 6806
+    },
+    "tai_lieu/Kiem_soat_placeholder_CHUYEN_DE_XML130.html": {
+      "sha256": "992041335c470b6a4601affca6f97e032666cc602669cabd0d375abd135a2d73",
+      "size": 3710
+    },
+    "tai_lieu/Ky_nang_cot_loi_giam_dinh_AI_BHYT.html": {
+      "sha256": "47e60a52b531a56bec5f8dc7c3b87e9426bd4291853d29b25bc73661d1bc3b70",
+      "size": 8382
+    },
+    "tai_lieu/Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.html": {
+      "sha256": "306ef2575dd497ce6a67eeb89b8090d2aaa9e7b779d4e73a6d1976e7460cbd58",
+      "size": 20784
+    },
+    "tai_lieu/Lo_trinh_viet_lai_CHUYEN_DE_theo_XML130.html": {
+      "sha256": "5aff5332c46a26100a2080d4d1fc435c3e7d169fafbf21d339eb7ab706de9516",
+      "size": 9468
+    },
+    "tai_lieu/Mau_the_tri_thuc_giam_dinh_BHYT.html": {
+      "sha256": "b2a6f6f47b56815c64b3fe325913c202a1f037b27f5e5db4f820f0d06004281d",
+      "size": 2720
+    },
+    "tai_lieu/Phien_lam_viec_chung_Cursor_va_OpenClaw.html": {
+      "sha256": "494aba3c07706ec93f4fe576806f2c055ff6ee723702cd3f46bfc5128c3ca843",
+      "size": 9565
+    },
+    "tai_lieu/Phuong_an_trien_khai_Phac_do_Chuyen_mon_CLS_kiem_soat_chuoi.html": {
+      "sha256": "854412156a8ba6a9450bd86086834aeb556de89b5f18ff6a2fcaa6ca0454f956",
+      "size": 11004
+    },
+    "tai_lieu/Prompt_mau_chuan_hoa_BHYT_Cursor_OpenClaw.html": {
+      "sha256": "3cc65ee7fdd3d6fddc0b557a5c43523df0af3be5fbf132dd27895d870e17d463",
+      "size": 1257
+    },
+    "tai_lieu/QUICK_START_ONLINE_COLLABORATION.html": {
+      "sha256": "f4a57a8cfe0499b6274af949b7bc87c7276a1411e1f791e73d93751abb7d78ae",
+      "size": 7692
+    },
+    "tai_lieu/Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.html": {
+      "sha256": "8e8b8077f4fd8ef7eef3b5533755659595393a7d6596e882a8a86d7e94e34106",
+      "size": 9178
+    },
+    "tai_lieu/Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.html": {
+      "sha256": "e2bc955511e1099e3417431a03e8279265770920c0c8106a2f477896e1689577",
+      "size": 20423
+    },
+    "tai_lieu/Quy_trinh_prompt_huan_luyen_AI_BHYT.html": {
+      "sha256": "f8ac70f788e8faab56b9a27a2d3a1533b47f14cff5b16d00516713fab031ef6c",
+      "size": 5940
+    },
+    "tai_lieu/Ra_soat_ca_khang_sinh_tu_XML_thuc_20260405.html": {
+      "sha256": "4658e4b635d0c60f784089979f3a6173e42160c713cdf67a77ac010251af28f3",
+      "size": 14012
+    },
+    "tai_lieu/Ra_soat_khoang_trong_rule_khang_sinh_20260405.html": {
+      "sha256": "4933f635c6a0385fd69f140a92e6ea585358bd9c79cf869e9c24e3b6dafdb9f3",
+      "size": 11864
+    },
+    "tai_lieu/Sprint_60p_huan_luyen_giam_dinh_thuoc_Cursor_OpenClaw.html": {
+      "sha256": "4ddbb0b19f828e21420ef9e472d9ef3248bdf2b2b55b8aa5fc48b73e71a4c6b1",
+      "size": 8811
+    },
+    "tai_lieu/The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.html": {
+      "sha256": "1ce94a67ebd306135d4b8455fab3f84f00e94153b323a6918120c157a7c0bba2",
+      "size": 10223
+    },
+    "tai_lieu/The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.html": {
+      "sha256": "6c9972e19173ccb04c6e92138339438136cfeccf7366e3bbd43125751b853eeb",
+      "size": 10786
+    },
+    "tai_lieu/The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.html": {
+      "sha256": "6ba2c9ddc227b52d196cfbcffd9b3f92e93274d4dab8e68dc0c7925703da3fde",
+      "size": 10687
+    },
+    "tai_lieu/The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.html": {
+      "sha256": "f08220abff31360c5b1455367a7806a84380a99f562262ae49632067a21e65fd",
+      "size": 12778
+    },
+    "tai_lieu/The_tri_thuc_doi_chieu_177_04032026_bao_cao_vs_xml_AI.html": {
+      "sha256": "fc87bbf80c3bea62fa580b1271ef0dcb5756a0dcfc3d28b2f958ca0178c863c4",
+      "size": 6700
+    },
+    "tai_lieu/The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.html": {
+      "sha256": "2d0c8d2287d4e82a30e62849748ec3c25e087a02bf4b04dce7ccd1b214c21825",
+      "size": 22039
+    },
+    "tai_lieu/The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.html": {
+      "sha256": "da17aa356966603f75485befbc3c7faf77c916c58c3f6a4ecfdbd9c29d76af75",
+      "size": 9319
+    },
+    "tai_lieu/The_tri_thuc_hop_dong_KCB_BHYT_BV_Phuong_Chau_2026.html": {
+      "sha256": "8b9fa611993a5488ad6d39e368c815af6dfc15eca1d77a29cad42494616baa80",
+      "size": 7937
+    },
+    "tai_lieu/The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.html": {
+      "sha256": "1b74940e083e3ab23c981fd374c736c6b712b6890703af70de673d5a34eef6bc",
+      "size": 11887
+    },
+    "tai_lieu/The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.html": {
+      "sha256": "2915dfa5d3d9245bba3750307b6415da1d077ea769ff05eb2627b80c97cf67bc",
+      "size": 10510
+    },
+    "tai_lieu/The_tri_thuc_kiem_soat_sai_thuoc_AI.html": {
+      "sha256": "ac192bee70f3a175169518ac81522292e4a795e7b128e7be326a04184b134a05",
+      "size": 12062
+    },
+    "tai_lieu/The_tri_thuc_luan_van_Ho_Tan_Thinh_BHYT_Soc_Trang_2018_2019.html": {
+      "sha256": "9ef5d4b98763b5627ac6d8e5c2c8e9839fd6235892f554001b65049553b43048",
+      "size": 10294
+    },
+    "tai_lieu/The_tri_thuc_mau_hanh_chinh_BHYT.html": {
+      "sha256": "922422220bb137d51404eb72e68f4181a5bc9953f6f330d365f98c207e9fd543",
+      "size": 17370
+    },
+    "tai_lieu/The_tri_thuc_mau_luat_BHYT_2008_2024.html": {
+      "sha256": "def5e8b5cfc814518271a8063cd1d488defd9d5f8d045b7dae8d90218f7aa929",
+      "size": 14681
+    },
+    "tai_lieu/The_tri_thuc_mau_luat_BHYT_2008_2025.html": {
+      "sha256": "d387d415ea3d43063f593856d72081c1306433bd7323877144c3c144188359c6",
+      "size": 58790
+    },
+    "tai_lieu/The_tri_thuc_mau_Nghi_Dinh_188_2025.html": {
+      "sha256": "1c2bdd4b8324790d7537a528643f98289d37e5656acede1efb32689e67b6ce8c",
+      "size": 24438
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_chuyen_mon_I10_tang_huyet_ap_dot1.html": {
+      "sha256": "4b7fd9257989e7c1d71bffe7b8f03236ccf7ac1b2d7cd90cda27141723e800ba",
+      "size": 15967
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_chuyen_mon_icd10_dot1.html": {
+      "sha256": "cfe33bb86356c269daf7be7dd75c0748bf89ed3832a992eacecfd3f9ee82cf48",
+      "size": 7403
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_pttt_dot1.html": {
+      "sha256": "51ef34cae708a90dfd6b1f49b31e6240c8055935715315c17e4e31d7f02b45bc",
+      "size": 7235
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot1.html": {
+      "sha256": "db1eafcea62e43da75d7f422eb0e238361c455822832d7d13fe4ce951162441a",
+      "size": 21167
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot2.html": {
+      "sha256": "6406b6bb26b381fd0437b16cda6fdc2b9e86e2b3e7683ee80cd680212cec05af",
+      "size": 13270
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot3_tim_mach.html": {
+      "sha256": "babf7e392fbb01f1609708626dc0287d3be6ac66cd614b0f12a21dbbd64acd46",
+      "size": 10642
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot4_khang_sinh.html": {
+      "sha256": "3f8a0cef384683ed804fabe47bd735bc0b51810f04d7914bcbde8659b815eda6",
+      "size": 17281
+    },
+    "tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot5_ngoai_tru_ke_don_va_gia.html": {
+      "sha256": "2a98d480cb927c73fb3d26a035c70925fb51e93fdf261fbe020df7f0b8304c6d",
+      "size": 5812
+    },
+    "tai_lieu/The_tri_thuc_mau_thanh_toan_thuoc_BHYT.html": {
+      "sha256": "98756d869df2c6f18884e09fc90084f8735625b3358a7505cd22e93c5028d895",
+      "size": 35213
+    },
+    "tai_lieu/The_tri_thuc_phac_do_CDSS_chuyen_mon_giam_dinh_BHYT.html": {
+      "sha256": "ce16741f498a3de4a40c35c8dda7018cbb72ba256067b439b237c393e95f9345",
+      "size": 2741
+    },
+    "tai_lieu/The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.html": {
+      "sha256": "7b9747a358bf010cd6dbd3b868d266f0bc81f73242833cdcfce6561db119fa1f",
+      "size": 16541
+    },
+    "tai_lieu/The_tri_thuc_phap_ly_quan_ly_su_dung_khang_sinh.html": {
+      "sha256": "986f52156c2347f05c17120c6c33e5401ce292d3c18bd127b55eb08eb6202456",
+      "size": 16697
+    },
+    "tai_lieu/The_tri_thuc_quy_dinh_CLVT_BVPCST_2025_giam_dinh_AI.html": {
+      "sha256": "26b06818b4a07b5f188b57a8fb0cbb20cf69a77334e14edf778b2e982f386108",
+      "size": 6604
+    },
+    "tai_lieu/Thuc_chien_tong_hop_xml2_ip_AI.html": {
+      "sha256": "34219180c7b9ff585da9dd0a9815c86153fbd0e7a6a7e9bf1bb9613102f4171d",
+      "size": 4665
+    },
+    "tai_lieu/Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien.html": {
+      "sha256": "05e9d7eaa3c3923dd107198ad124ea916e500df94b0918417a43abb4f9ba15d0",
+      "size": 11381
+    },
+    "_expo/static/js/web/index-a2a19dc9b126a8e9a375d508def30674.js": {
+      "sha256": "5650e2ee709ef1edc602c95db36d222645e5b30e2674d32fe21488bbba9f0fad",
+      "size": 13714229
+    }
+  }
+}

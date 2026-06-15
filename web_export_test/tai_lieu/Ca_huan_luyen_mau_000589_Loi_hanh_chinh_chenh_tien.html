@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN: LỖI HÀNH CHÍNH - CHÊNH LỆCH TỔNG TIỀN</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000589_Loi_hanh_chinh_chenh_tien.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN: LỖI HÀNH CHÍNH - CHÊNH LỆCH TỔNG TIỀN</h1>
+<p>Phiên bản: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Ca này dạy AI cách phát hiện và xử lý <strong>lỗi hành chính lớn nhất</strong> - <strong>CHÊNH LỆCH TỔNG TIỀN THANH TOÁN</strong> - khi XML1 (khai báo) ≠ XML2 (chi tiết).</p>
+<p>Trọng tâm:</p>
+<ul>
+<li>Hiểu loại lỗi hành chính dự báo sớm</li>
+<li>Biết phân biệt &quot;lỗi kế toán đơn giản&quot; vs &quot;gian lận tiềm ẩn&quot;</li>
+<li>Cách xử lý theo Nghị định 188/2025 (từ chối tạm thời + yêu cầu xác minh)</li>
+</ul>
+<hr>
+<h2>2. Hồ sơ ví dụ</h2>
+<table>
+<thead>
+<tr>
+<th>Thông tin</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MA_LK</strong></td>
+<td>000589</td>
+</tr>
+<tr>
+<td><strong>NGAY_VAO</strong></td>
+<td>2026-03-08</td>
+</tr>
+<tr>
+<td><strong>NGAY_RA</strong></td>
+<td>2026-03-10</td>
+</tr>
+<tr>
+<td><strong>MA_BENH_CHINH</strong></td>
+<td>J18.9 (Viêm phổi)</td>
+</tr>
+<tr>
+<td><strong>LOAI_KCB</strong></td>
+<td>3 (nội trú, 2 ngày)</td>
+</tr>
+<tr>
+<td><strong>Tổng chi phí KCB</strong></td>
+<td>18.560.000đ</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Phát hiện lỗi chênh lệch</h2>
+<h3>3.1. Dữ liệu từ XML1 (khai báo tổng)</h3>
+<pre><code class="language-XML">&lt;XML1&gt;
+  &lt;T_THUOC&gt;12.864.000&lt;/T_THUOC&gt;          ← Tổng tiền thuốc XML1
+  &lt;T_XETNGHIEM&gt;3.200.000&lt;/T_XETNGHIEM&gt;   ← Tổng tiền XN XML1
+  &lt;T_DVKT&gt;2.496.000&lt;/T_DVKT&gt;             ← Tổng tiền DV kỹ thuật XML1
+  &lt;T_GIUONG&gt;0&lt;/T_GIUONG&gt;                 ← Tiền giường (ko có)
+  &lt;TONG_TIEN&gt;18.560.000&lt;/TONG_TIEN&gt;      ← TỔNG CỘNG
+&lt;/XML1&gt;
+</code></pre>
+<p><strong>Giải thích:</strong></p>
+<ul>
+<li>XML1 là <strong>tài liệu tóm tắt</strong> (header của hồ sơ)</li>
+<li>Ghi tổng tiền từng nhóm dịch vụ</li>
+</ul>
+<h3>3.2. Dữ liệu từ XML2 (danh sách chi tiết thuốc)</h3>
+<pre><code class="language-XML">Dòng 1: Cefotaxime 1g x 3 lần/ngày x 2 ngày
+  SO_LUONG = 6 (lọ)
+  GIA_THANH_TOAN = 35.000đ/lọ
+  THANH_TIEN = 210.000đ
+
+Dòng 2: Amoxiclav 625mg x 3 lần/ngày x 2 ngày
+  SO_LUONG = 6 (viên)
+  GIA_THANH_TOAN = 8.500đ/viên
+  THANH_TIEN = 51.000đ
+
+Dòng 3: Paracetamol 500mg x 3 lần/ngày x 2 ngày
+  SO_LUONG = 6 (viên)
+  GIA_THANH_TOAN = 1.200đ/viên
+  THANH_TIEN = 7.200đ
+
+... (nhiều dòng khác)
+
+TỔNG XML2: 4.932.000đ (chỉ tính được 4.93 triệu)
+</code></pre>
+<h3>3.3. Phát hiện chênh lệch</h3>
+<pre><code>XML1.T_THUOC (khai báo): 12.864.000đ
+XML2_TOTAL (chi tiết):    4.932.000đ
+━━━━━━━━━━━━━━━━━━━━━━━
+CHÊNH LỆCH:   7.932.000đ  (+161%)
+</code></pre>
+<p><strong>Diễn giải:</strong></p>
+<ul>
+<li>Bệnh viện <strong>khai báo</strong> tổng tiền thuốc là 12.86 triệu</li>
+<li>Nhưng <strong>danh sách chi tiết</strong> XML2 chỉ <strong>tính được</strong> 4.93 triệu</li>
+<li><strong>Thiếu 7.93 triệu (61%)</strong> - đây là lỗi rất lớn</li>
+</ul>
+<hr>
+<h2>4. Căn cứ pháp lý</h2>
+<h3>4.1. Luật cơ sở</h3>
+<p><strong>Luật BHYT 75/2014, Điều 16:</strong></p>
+<blockquote>
+<p>&quot;Thanh toán chi phí phải đúng thủ tục, đầy đủ dữ liệu, có sự phù hợp giữa tài liệu khai báo và chứng từ chi tiết.&quot;</p>
+</blockquote>
+<p><strong>Ý nghĩa:</strong></p>
+<ul>
+<li>Bệnh viện phải cung cấp <strong>đầy đủ chi tiết</strong> cho mỗi khoản chi phí</li>
+<li>Không được khai báo <strong>lơ lửng</strong> (không có chi tiết)</li>
+<li>Tổng XML1 phải <strong>khớp chiếu được</strong> với tổng XML2</li>
+</ul>
+<h3>4.2. Quyết định triển khai</h3>
+<p><strong>Quyết định 130/QĐ-BYT (Cấu trúc XML):</strong></p>
+<blockquote>
+<p>&quot;XML1 là bản tóm tắt. XML2 là danh sách chi tiết. Chúng phải khớp nhau.&quot;</p>
+</blockquote>
+<p><strong>Quyết định 3618/QĐ-BHXH (Xác minh dữ liệu):</strong></p>
+<blockquote>
+<p>&quot;BHXH có quyền kiểm tra <strong>tính nhất quán giữa khai báo tổng và chi tiết</strong>. Nếu không nhất quán → không thanh toán cho phần chênh lệch.&quot;</p>
+</blockquote>
+<h3>4.3. Nghị định 188/2025</h3>
+<p><strong>Điều 1 (Định nghĩa lỗi hành chính):</strong></p>
+<blockquote>
+<p>&quot;Sai lạc hành chính bao gồm lỗi kế toán, chênh lệch số liệu, không nhất quán dữ liệu.&quot;</p>
+</blockquote>
+<p><strong>Điều 2.1 (Điều kiện từ chối):</strong></p>
+<blockquote>
+<p>&quot;BHXH có quyền từ chối thanh toán nếu phát hiện <strong>chênh lệch lớn hơn 10%</strong>.&quot;</p>
+</blockquote>
+<p><strong>Ứng dụng vào hồ sơ này:</strong></p>
+<ul>
+<li>Chênh lệch 61% &gt;&gt; 10% → <strong>hoàn toàn có quyền từ chối</strong></li>
+<li>Từ chối được làm <strong>tạm thời</strong> (yêu cầu giải thích) hoặc <strong>vĩnh viễn</strong> (nếu không giải thích được)</li>
+</ul>
+<hr>
+<h2>5. Cách xử lý theo quy trình</h2>
+<h3>5.1. Bước 1: Xác nhận chênh lệch</h3>
+<p><strong>Tính toán:</strong></p>
+<ul>
+<li>XML1.T_THUOC = 12.864.000đ</li>
+<li>∑XML2.THANH_TIEN = 4.932.000đ</li>
+<li>Chênh lệch = 7.932.000đ (61%)</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>CHÊNH LỆCH LỚNHƠN 10% → LỖI HÀNH CHÍNH NẶNG</strong></p>
+<h3>5.2. Bước 2: Xác định lỗi</h3>
+<p><strong>Ba khả năng:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Khả năng</th>
+<th>Nguyên nhân</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Lỗi nhập liệu XML1</strong></td>
+<td>Bệnh viện ghi sai tổng tiền</td>
+<td>Yêu cầu sửa XML1</td>
+</tr>
+<tr>
+<td><strong>Thiếu dữ liệu XML2</strong></td>
+<td>Bệnh viện quên kê đầy đủ thuốc</td>
+<td>Yêu cầu bổ sung XML2</td>
+</tr>
+<tr>
+<td><strong>Gian lận</strong></td>
+<td>Bệnh viện cố tình khai cao</td>
+<td>Báo cáo, xử phạt</td>
+</tr>
+</tbody></table>
+<h3>5.3. Bước 3: Quyết định tạm thời</h3>
+<p><strong>Vì không thể xác định ngay lỗi hay gian lận → từ chối tạm thời</strong></p>
+<p><strong>Phương án:</strong></p>
+<ol>
+<li><strong>Từ chối thanh toán tạm thời</strong> cho phần chênh lệch (7.93 triệu)</li>
+<li><strong>Yêu cầu bệnh viện trong 15 ngày:</strong><ul>
+<li>Giải thích: 7.93 triệu đó từ đâu?</li>
+<li>Cung cấp hóa đơn/chứng từ gốc</li>
+<li>Sửa lại XML (tùy chọn: sửa XML1 xuống, hay sửa XML2 lên)</li>
+</ul>
+</li>
+</ol>
+<h3>5.4. Bước 4: Xem xét lại</h3>
+<p><strong>Nếu bệnh viện giải thích được:</strong></p>
+<ul>
+<li>Hóa đơn có, chi tiết rõ ràng → <strong>thanh toán phần chênh lệch</strong></li>
+<li>Sửa XML để khớp → <strong>thanh toán toàn bộ</strong></li>
+</ul>
+<p><strong>Nếu bệnh viện không giải thích:</strong></p>
+<ul>
+<li>Quá hạn 15 ngày mà không trả lời → <strong>XUẤT TOÁN 7.93 triệu</strong></li>
+<li>Trả lời nhưng không thuyết phục → <strong>XUẤT TOÁN bộ (tùy mức)</strong></li>
+</ul>
+<hr>
+<h2>6. Quyết định kiểm tra chi tiết</h2>
+<pre><code>QUYẾT ĐỊNH KIỂM TRA - LỖI HÀNH CHÍNH: CHÊNH LỆCH TỔNG TIỀN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ma LK: 000589
+Cơ sở Y tế: [Bệnh viện X]
+Ngày phát hành: 06/04/2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+I. KẾT LUẬN CHUNG
+
+Khai báo tổng tiền thanh toán: 18.560.000đ
+
+Kiểm tra phát hiện:
+- Lỗi hành chính: CHÊNH LỆCH TỔNG TIỀN THUỐC
+
+Quyết định:
+- TỪ CHỐI THANH TOÁN TẠM THỜI cho phần chênh lệch
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+II. CHI TIẾT LỖI
+
+### Mô tả lỗi:
+
+Hồ sơ 000589 có chênh lệch lớn giữa khai báo tổng và chi tiết:
+
+XML1 (Khai báo tóm tắt):
+  T_THUOC = 12.864.000đ
+
+XML2 (Danh sách chi tiết):
+  TỔNG = 4.932.000đ
+
+Chênh lệch: 7.932.000đ (61%)
+
+### Căn cứ pháp lý:
+
+- Luật BHYT 75/2014, Điều 16: &quot;Thanh toán phải đúng thủ tục, đầy đủ dữ liệu, nhất quán&quot;
+- Quyết định 130/QĐ-BYT: &quot;Cấu trúc XML bắt buộc, XML1 (tóm tắt) phải khớp XML2 (chi tiết)&quot;
+- Quyết định 3618/QĐ-BHXH: &quot;Kiểm tra tính nhất quán giữa khai báo tổng và chi tiết&quot;
+- Nghị định 188/2025, Điều 1: &quot;Sai lạc hành chính bao gồm chênh lệch số liệu&quot;
+- Nghị định 188/2025, Điều 2.1: &quot;Từ chối thanh toán nếu phát hiện chênh lệch &gt; 10%&quot;
+
+### Phân tích:
+
+Chênh lệch 61% vượt far vượt qua 10% → lỗi hành chính NẶNG
+
+Ba khả năng:
+1. Lỗi nhập liệu XML1 (bệnh viện ghi sai tổng)
+2. Thiếu dữ liệu XML2 (bệnh viện quên kê chi tiết)
+3. Lỗi kế toán (sai sót trong tính toán)
+
+Hiện không thể xác định ngay lỗi hay gian lận → Từ chối tạm thời.
+
+### Quyết định:
+
+⛔ TỪ CHỐI THANH TOÁN TẠM THỜI
+
+Chi tiết:
+- Thanh toán tạm thời: 4.932.000đ (phần có chi tiết trong XML2)
+- Từ chối tạm thời: 7.932.000đ (phần chênh lệch)
+- Thời hạn: Chờ bệnh viện giải thích trong **15 ngày**
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+III. YÊU CẦU ĐỐI VỚI BỆNH VIỆN
+
+Trong vòng 15 ngày kể từ ngày nhận quyết định này, bệnh viện phải:
+
+1. **Giải thích chênh lệch 7.932.000đ:**
+   - Tiền đó từ nhóm dịch vụ nào? (thuốc, XN, hay DV khác?)
+   - Có hóa đơn/chứng từ không?
+
+2. **Cung cấp chứng cứ:**
+   - Hóa đơn gốc hoặc sao chép được xác thực
+   - Dữ liệu chi tiết từ hệ thống kế toán
+
+3. **Lựa chọn sửa lại:**
+
+   **Tùy chọn A:** Sửa XML1 (giảm khai báo tổng)
+   - Nếu XML2 đúng → Sửa T_THUOC từ 12.864.000đ xuống 4.932.000đ
+   - Sửa TONG_TIEN từ 18.560.000đ xuống 10.628.000đ
+   - → Thanh toán 10.628.000đ
+
+   **Tùy chọn B:** Bổ sung XML2 (thêm chi tiết)
+   - Nếu thực tế cấp 12.86 triệu → Bổ sung danh sách thuốc thêm 7.93 triệu
+   - Cung cấp hóa đơn gốc cho phần bổ sung
+   - → Thanh toán 18.560.000đ
+
+4. **Gửi lại hồ sơ** trong hạn 15 ngày
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IV. THỜI GIAN XỬ LÝ
+
+| Bước | Hạn chế |
+|------|---------|
+| Bệnh viện gửi giải thích | 15 ngày |
+| BHXH xem xét lại | 15 ngày |
+| **Tổng cộng** | **30 ngày** |
+
+Nếu **quá thời hạn mà bệnh viện chưa giải thích → XUẤT TOÁN 7.932.000đ**
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+V. HƯỚNG DẪN PHÚC ĐÁP
+
+Theo Nghị định 188/2025, bệnh viện có quyền phúc đáp:
+
+- **Hạn chế:** 30 ngày kể từ ngày nhận quyết định
+- **Lý do:** Nếu không đồng ý với quyết định từ chối tạm thời
+
+Cách phúc đáp:
+1. Viết tờ phúc đáp, nêu rõ lý do không đồng ý
+2. Kèm theo chứng cứ (hóa đơn gốc, sao chép xác thực, etc.)
+3. Gửi cho BHXH trong 30 ngày
+
+BHXH sẽ xem xét phúc đáp trong 30 ngày và trả lời.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HẾT
+</code></pre>
+<hr>
+<h2>7. Bài học rút ra cho AI</h2>
+<h3>7.1. Dấu hiệu &quot;cảnh báo đỏ&quot; khi gặp lỗi hành chính</h3>
+<table>
+<thead>
+<tr>
+<th>Dấu hiệu</th>
+<th>Ý nghĩa</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chênh lệch &gt; 10%</td>
+<td>Lỗi lớn</td>
+<td>Từ chối tạm</td>
+</tr>
+<tr>
+<td>Chênh lệch 10-30%</td>
+<td>Lỗi trung bình</td>
+<td>Kiểm soát chặt</td>
+</tr>
+<tr>
+<td>Chênh lệch &lt; 10%</td>
+<td>Lỗi nhỏ</td>
+<td>Cảnh báo</td>
+</tr>
+</tbody></table>
+<h3>7.2. Phân biệt &quot;Lỗi đơn giản&quot; vs &quot;Gian lận tiềm ẩn&quot;</h3>
+<p><strong>Lỗi đơn giản:</strong></p>
+<ul>
+<li>Chênh lệch nhỏ (1-5%)</li>
+<li>Bệnh viện giải thích được ngay</li>
+<li>Sửa lại XML, thanh toán bình thường</li>
+</ul>
+<p><strong>Gian lận tiềm ẩn:</strong></p>
+<ul>
+<li>Chênh lệch lớn (50%+)</li>
+<li>Bệnh viện không giải thích được</li>
+<li>Không có hóa đơn gốc</li>
+<li>→ Báo cáo cơ quan chức năng</li>
+</ul>
+<p><strong>Ca này là &quot;gian lận tiềm ẩn&quot; - chênh lệch 61%, đáng báo cáo</strong></p>
+<h3>7.3. Cách viết quyết định lỗi hành chính</h3>
+<p><strong>Mẫu:</strong></p>
+<pre><code>&quot;Hồ sơ có chênh lệch [X] giữa XML1 ([Y]đ) và XML2 ([Z]đ).
+
+Căn cứ pháp lý: [Luật], [QĐ], [Nghị định]
+
+Xử lý:
+- TỪ CHỐI THANH TOÁN TẠM THỜI cho phần chênh lệch [X]đ
+- YÊU CẦU bệnh viện trong 15 ngày: [Giải thích cụ thể]
+- Nếu không giải thích → XUẤT TOÁN [X]đ&quot;
+</code></pre>
+<hr>
+<h2>8. Prompt học tập</h2>
+<h3>Prompt 1: Phát hiện lỗi</h3>
+<pre><code>&quot;Hồ sơ 000589 có T_THUOC XML1 = 12.864.000đ, XML2 = 4.932.000đ
+Chênh lệch là bao nhiêu phần trăm? Đây có phải lỗi hành chính không?&quot;
+</code></pre>
+<h3>Prompt 2: Xác định xử lý</h3>
+<pre><code>&quot;Nếu chênh lệch 61%, AI nên:
+A) Thanh toán toàn bộ
+B) Từ chối toàn bộ
+C) Từ chối tạm + yêu cầu giải thích
+
+Tại sao? Cited Luật/QĐ nào?&quot;
+</code></pre>
+<h3>Prompt 3: Soạn quyết định</h3>
+<pre><code>&quot;Soạn quyết định kiểm tra cho lỗi chênh lệch này,
+bao gồm: Lỗi, Căn cứ pháp lý, Xử lý, Yêu cầu bệnh viện&quot;
+</code></pre>
+<hr>
+<h2>9. Ghi chú cuối</h2>
+<ul>
+<li><strong>Lỗi hành chính là &quot;lớp chắn đầu tiên&quot;</strong> - nếu lỗi hành chính lớn, không kiểm tra tiếp lỗi chuyên môn</li>
+<li><strong>Từ chối tạm thời ≠ xuất toán vĩnh viễn</strong> - phải cho bệnh viện cơ hội giải thích</li>
+<li><strong>Chênh lệch lớn là dấu hiệu gian lận</strong> - nên báo cáo, không chỉ từ chối</li>
+<li><strong>Theo Nghị định 188/2025, quyết định phải rõ ràng</strong> - nêu chính xác lỗi, luật, giải pháp</li>
+</ul>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QUY TẮC KIỂM SOÁT VÀ KIỂM TRA CÁC LỖI HÀNH CHÍNH TRONG KHÁM CHỮA BỆNH BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>QUY TẮC KIỂM SOÁT VÀ KIỂM TRA CÁC LỖI HÀNH CHÍNH TRONG KHÁM CHỮA BỆNH BHYT</h1>
+<p>Phiên bản: 1.0<br>Ngày: 10/04/2026<br>Phạm vi: <strong>KCB BHYT</strong> (hồ sơ điện tử XML130 / luồng CDSS trong repo) — <strong>bổ sung</strong> cho huấn luyện AI và vận hành; <strong>không</strong> thay thế văn bản pháp lý, QĐ BYT/BHXH hoặc hợp đồng KCB.</p>
+<hr>
+<h2>1. Mục tiêu</h2>
+<p>Thiết lập <strong>một khung thống nhất</strong> để:</p>
+<ol>
+<li><strong>Kiểm soát</strong> (phát hiện sớm): phân loại lỗi hành chính theo <strong>tầng kiểm tra</strong> và <strong>nguồn rule</strong> trong hệ thống.  </li>
+<li><strong>Kiểm tra</strong> (kết luận có kiểm soát): phân biệt <strong>lỗi cấu trúc / dữ liệu</strong>, <strong>lỗi quyền lợi &amp; thu chi</strong>, <strong>lỗi phạm vi KCB</strong>; tránh gộp một cụm “sai hành chính” mơ hồ.</li>
+</ol>
+<hr>
+<h2>2. Bốn tầng kiểm tra (trong repo)</h2>
+<table>
+<thead>
+<tr>
+<th>Tầng</th>
+<th>Nội dung</th>
+<th>Vị trí mã / tài liệu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A. Cấu trúc &amp; trường bắt buộc</strong></td>
+<td>Đủ cột, kiểu dữ liệu, ràng buộc liên trường theo <strong>QĐ 3176 + QĐ 130</strong>; bổ sung trường bắt buộc tối thiểu (XML1…XML6).</td>
+<td><code>ma_nguon/tien_ich/kiem_tra_xml.jsx</code> (<code>TRUONG_BAT_BUOC_BO_SUNG</code>, <code>CAU_TRUC_DU_LIEU</code>)</td>
+</tr>
+<tr>
+<td><strong>B. Hành chính “cứng” trên XML1</strong></td>
+<td>Thẻ hết hạn, KSK/ngoài phạm vi quỹ (gợi ý Điều 23), sơ sinh–mã mẹ, giới tính chuẩn 130.</td>
+<td><code>ma_nguon/quy_tac/luat_hanh_chinh.jsx</code> — <code>KIEM_TRA_LUAT_HANH_CHINH</code></td>
+</tr>
+<tr>
+<td><strong>C. Nghiệp vụ BHYT — seed <code>HC_*</code></strong></td>
+<td>Đối tượng, tuyến CS, mức hưởng, đồng chi trả, mã Z/XN, v.v.; bật/tắt <strong>ON/OFF</strong> từng dòng.</td>
+<td><code>ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx</code> (nguồn Excel: <code>DuLieu_LUAT_HANH_CHINH (7).xlsx</code> trong pipeline sinh seed)</td>
+</tr>
+<tr>
+<td><strong>D. Luật ghép / hợp đồng / JCI (HD_*, XML_*, …)</strong></td>
+<td>Không thuộc hết Mục 2 nhưng cùng lớp “hành chính–hồ sơ” trên toàn hồ sơ.</td>
+<td><code>dong_co_giam_dinh.jsx</code>, các seed Mục khác — tra cứu theo <code>ma_luat</code> trong audit</td>
+</tr>
+</tbody></table>
+<p><strong>Nguyên tắc thứ tự khi giải thích:</strong> <strong>A → B → C → D</strong> (trừ khi lỗi A đã làm sai toàn bộ định danh — xử lý A trước).</p>
+<hr>
+<h2>3. Phân loại lỗi hành chính (ma trận tra nhanh)</h2>
+<table>
+<thead>
+<tr>
+<th>Mã nhóm</th>
+<th>Ví dụ hiện tượng</th>
+<th>Tầng</th>
+<th>Gợi ý mã / nơi tra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Hồ sơ / định danh</strong></td>
+<td>Thiếu <code>MA_THE_BHYT</code>, sai <code>MA_LK</code> mẹ–con</td>
+<td>A, B</td>
+<td><code>kiem_tra_xml</code>, <code>luat_hanh_chinh</code></td>
+</tr>
+<tr>
+<td><strong>Thời gian thẻ</strong></td>
+<td>Vào viện sau <code>GT_THE_DEN</code></td>
+<td>B</td>
+<td><code>luat_hanh_chinh</code></td>
+</tr>
+<tr>
+<td><strong>Đối tượng &amp; thu chi</strong></td>
+<td>Thu BNCCT khi đủ điều kiện 100%</td>
+<td>C</td>
+<td><code>HC_06</code>–<code>HC_13</code>, …</td>
+</tr>
+<tr>
+<td><strong>Tuyến / hình thức CS</strong></td>
+<td>PKĐK khu vực, quân dân y, tuyến cơ sở</td>
+<td>C</td>
+<td><code>HC_07</code>, <code>HC_08</code>, <code>HC_11</code>, …</td>
+</tr>
+<tr>
+<td><strong>Phạm vi không TT quỹ</strong></td>
+<td>Khám sức khỏe / theo yêu cầu (từ khóa)</td>
+<td>B</td>
+<td><code>luat_hanh_chinh</code> Điều 23</td>
+</tr>
+<tr>
+<td><strong>Cấu trúc file</strong></td>
+<td>Thiếu trường bắt buộc XML1</td>
+<td>A</td>
+<td><code>XML1-REQ-*</code>, <code>kiem_tra_xml</code></td>
+</tr>
+</tbody></table>
+<p><em>Chi tiết từng <code>HC_*</code>: đọc cột <code>CANH_BAO</code>, <code>DIEU_KIEN</code>, <code>TRANG_THAI</code> trong seed — không tự thêm Điều luật nếu không có trong cảnh báo.</em></p>
+<hr>
+<h2>4. Quy trình kiểm tra (5 bước)</h2>
+<ol>
+<li><strong>Xác thực file:</strong> Parser XML130, có lỗi cấu trúc nghiêm trọng → ghi nhận tầng <strong>A</strong> trước.  </li>
+<li><strong>Đọc XML1:</strong> Thẻ, hạn, <code>MA_DOITUONG_KCB</code>, <code>MA_LOAI_KCB</code>, <code>MA_CSKCB</code>, mốc <code>NGAY_VAO</code> / <code>NGAY_RA</code>, các chỉ tiêu tổng chi.  </li>
+<li><strong>Áp tầng B:</strong> Chạy / đọc kết quả rule từ <code>KIEM_TRA_LUAT_HANH_CHINH</code> (nếu có trong pipeline kiểm tra).  </li>
+<li><strong>Áp tầng C:</strong> Với mỗi cảnh báo <code>HC_*</code>, đối chiếu <strong>điều kiện seed</strong> với dữ liệu thật; kiểm tra rule <strong>OFF</strong> (không có nghĩa hồ sơ “sạch”).  </li>
+<li><strong>Tổng hợp kết luận:</strong> Tách <strong>blocking</strong> vs <strong>cảnh báo</strong>; nêu <strong>chứng từ cần bổ sung</strong> (giấy chuyển tuyến, miễn CCT, v.v.) khi engine chỉ gợi ý.</li>
+</ol>
+<hr>
+<h2>5. Kiểm soát cấu hình (vận hành)</h2>
+<ul>
+<li><strong>Bật/tắt rule:</strong> Module quản lý quy tắc ON/OFF trong ứng dụng — nhóm <strong>Hành chính</strong>; đồng bộ với <code>TRANG_THAI</code> trong seed.  </li>
+<li><strong>Đổi điều kiện / thêm <code>HC_*</code>:</strong> Sửa nguồn <strong>Excel</strong> (nếu quy trình đơn vị dùng) → tái sinh seed → chạy <strong>QA</strong> (mục 6).  </li>
+<li><strong>Không</strong> chỉnh tay seed trong repo trừ khi có quy trình review (ghi rõ trong commit / ghi chú seed).</li>
+</ul>
+<hr>
+<h2>6. Kiểm thử sau khi chỉnh quy tắc hành chính</h2>
+<pre><code class="language-text">npm run qa:audit-fixtures
+npm run qa:on-off-match
+</code></pre>
+<hr>
+<h2>7. Tài liệu huấn luyện AI (đọc cùng)</h2>
+<table>
+<thead>
+<tr>
+<th>Tài liệu</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md">The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</a></td>
+<td>Phân loại lỗi thẻ &amp; quyền lợi</td>
+</tr>
+<tr>
+<td><a href="./Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md">Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</a></td>
+<td>Phiên neo XML1 + HC</td>
+</tr>
+<tr>
+<td><a href="./The_tri_thuc_mau_hanh_chinh_BHYT.md">The_tri_thuc_mau_hanh_chinh_BHYT.md</a></td>
+<td>Quy trình hành chính tổng quan</td>
+</tr>
+<tr>
+<td><a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a></td>
+<td>Nền luật</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. Phân biệt “kiểm soát” và “kiểm tra” (trong ngữ cảnh CDSS)</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Ý nghĩa gọn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Kiểm soát</strong></td>
+<td>Hệ thống / quy tắc <strong>phát hiện</strong> theo điều kiện đã cài — có thể false positive.</td>
+</tr>
+<tr>
+<td><strong>Kiểm tra</strong></td>
+<td>Người có năng lực nghiệp vụ (hoặc AI <strong>có kiểm chứng</strong>) <strong>kết luận</strong> sau khi đối chiếu quy định + chứng từ; có thể <strong>bác</strong> cảnh báo nếu đủ căn cứ.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Tài liệu này cố định <strong>khung quy tắc</strong>; mọi thay đổi seed hoặc luật gộp phải cập nhật phiên bản và chạy QA.</em></p>
+
+  </main>
+</body>
+</html>

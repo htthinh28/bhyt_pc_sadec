@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN: CHẠY THỬ AI TRÊN CA HỒ SƠ THẬT &amp; ĐÁNH GIÁ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_chay_thu_AI_va_danh_gia.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN: CHẠY THỬ AI TRÊN CA HỒ SƠ THẬT &amp; ĐÁNH GIÁ</h1>
+<p>Phiên bản: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này hướng dẫn cách:</p>
+<ul>
+<li>Chuẩn bị 5-10 ca hồ sơ thật từ <code>test_xml/</code></li>
+<li>Chạy AI phân tích từng ca</li>
+<li>Đánh giá kết quả AI (mức độ hiểu, độ chính xác)</li>
+<li>Thu thập feedback để cải thiện tài liệu huấn luyện</li>
+</ul>
+<hr>
+<h2>2. Danh sách 10 ca hồ sơ thật - Sẵn sàng test</h2>
+<table>
+<thead>
+<tr>
+<th>Ma_LK</th>
+<th>Tên File Audit</th>
+<th>Lỗi Chính</th>
+<th>Độ Phức Tạp</th>
+<th>Ưu Tiên</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>000339</strong></td>
+<td>audit_000339_20260405_232511.json</td>
+<td>Thanh toán, hành chính</td>
+<td>Cao</td>
+<td>🔴 P1</td>
+</tr>
+<tr>
+<td><strong>000589</strong></td>
+<td>audit_000589_...</td>
+<td>Liều quá cao, an toàn</td>
+<td>Trung</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td><strong>000308</strong></td>
+<td>audit_000308_...</td>
+<td>Hành chính (thời gian)</td>
+<td>Trung</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td><strong>403244</strong></td>
+<td>audit_403244_...</td>
+<td>Nhiều lỗi chồng</td>
+<td>Cao</td>
+<td>🔴 P1</td>
+</tr>
+<tr>
+<td><strong>403521</strong></td>
+<td>audit_403521_...</td>
+<td>Kháng sinh đúng</td>
+<td>Thấp</td>
+<td>🟢 P3</td>
+</tr>
+<tr>
+<td><strong>OP26000908</strong></td>
+<td>audit_OP26000908_...</td>
+<td>Lỗi an toàn</td>
+<td>Trung</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td><strong>403538</strong></td>
+<td>audit_403538_...</td>
+<td>Dịch vụ kỹ thuật</td>
+<td>Cao</td>
+<td>🔴 P1</td>
+</tr>
+</tbody></table>
+<p><strong>Bắt đầu từ:</strong> Lấy toàn bộ file audit trong <code>test_xml/</code>, chọn 5 ca phức tạp nhất</p>
+<hr>
+<h2>3. Lấy dữ liệu ca hồ sơ</h2>
+<h3>3.1. Cách đọc file audit JSON</h3>
+<p><strong>File audit có cấu trúc:</strong></p>
+<pre><code class="language-json">{
+  &quot;meta&quot;: {
+    &quot;ma_lk&quot;: &quot;000339&quot;,
+    &quot;total_warnings&quot;: 14,
+    &quot;by_severity&quot;: {&quot;Critical&quot;: 1, &quot;Error&quot;: 1, &quot;Warning&quot;: 12}
+  },
+  &quot;unique_rule_codes&quot;: [&quot;THUOC_342&quot;, &quot;GB_47&quot;, &quot;HC_171&quot;, ...],
+  &quot;rule_summary&quot;: {...},
+  &quot;warnings&quot;: [
+    {
+      &quot;phan_he&quot;: &quot;XML1&quot;,
+      &quot;truong_loi&quot;: &quot;T_THUOC&quot;,
+      &quot;canh_bao&quot;: &quot;...&quot;,
+      &quot;muc_do&quot;: &quot;Error&quot;,
+      &quot;ma_luat&quot;: &quot;CLN-CHI-01&quot;
+    },
+    ...
+  ]
+}
+</code></pre>
+<p><strong>Cách lấy thông tin:</strong></p>
+<ol>
+<li>Đọc <code>ma_lk</code> để ghi nhớ hồ sơ</li>
+<li>Đọc <code>total_warnings</code> để biết số lỗi tổng</li>
+<li>Đọc <code>warnings[]</code> để xem <strong>từng lỗi chi tiết</strong></li>
+</ol>
+<h3>3.2. Chuẩn bị prompt cho AI</h3>
+<p><strong>Template prompt chạy AI:</strong></p>
+<pre><code>Hộp sơ 000339:
+
+DỮ LIỆU TÓM TẮT:
+- Ma LK: 000339
+- NGAY_VAO: 2026-03-15
+- NGAY_RA: 2026-03-18
+- Chẩn đoán: N84.0 (Polyp buồng tử cung)
+- Nằm viện: 3 ngày
+
+CÁC LỖI PHÁT HIỆN:
+1. CLN-CHI-01: T_THUOC XML1 (36.768đ) ≠ XML2 (34.336đ), chênh 2.432đ
+2. THUOC_342: Mekoferrat cho chẩn đoán N84.0 (không phải D50/O25)
+3. HC_171: Hồ sơ nội trú nhưng thiếu XML5
+
+YÊU CẦU AI:
+1. Xác định loại từng lỗi (hành chính, an toàn, chỉ định, thanh toán)
+2. Nêu căn cứ pháp lý cho mỗi lỗi (Luật/QĐ nào?)
+3. Quyết định xử lý (từ chối tạm, xuất toán bộ, xuất toán toàn)
+4. Viết quyết định kiểm tra chi tiết theo mẫu Nghị định 188/2025
+</code></pre>
+<hr>
+<h2>4. Prompt thử AI cho từng ca</h2>
+<h3>PROMPT 1: Ca đơn giản (Chỉ có 1-2 lỗi)</h3>
+<p><strong>Chọn ca:</strong> 403521 (Cefazolin phòng phát sản khoa)</p>
+<pre><code>Hồ sơ 403521:
+- Chẩn đoạn: Phẫu thuật sản khoa
+- Thuốc kê: Cefazolin 4 viên (1g x 1 lần phòng)
+- Ngày nằm: 1 ngày
+
+Lỗi phát hiện:
+✓ Không có lỗi hành chính
+✓ Không có lỗi an toàn (liều đúng)
+✓ Không có lỗi chỉ định (chẩn đoán đúng)
+
+YÊU CẦU:
+1. AI có thể xác định **đây là ca ĐÚNG** (không có lỗi)?
+2. AI sẽ kết luận gì?
+
+TIÊU CHÍ ĐÁNH GIÁ:
+- ✅ Xác nhận không có lỗi
+- ✅ Biết căn cứ tại sao không lỗi (liều đúng, chẩn đoán đúng, hành chính đầy đủ)
+- ✅ Kết luận: THANH TOÁN
+</code></pre>
+<h3>PROMPT 2: Ca trung bình (2-3 lỗi khác loại)</h3>
+<p><strong>Chọn ca:</strong> 000589 (Lỗi hành chính chênh lệch tiền + lỗi an toàn liều cao)</p>
+<pre><code>Hồ sơ 000589:
+- Chẩn đoán: A09 (Tiêu chảy)
+- Thời gian: 3 ngày ngoại trú
+
+LỖI CÓ:
+1. [Hành chính] T_THUOC XML1 = 12.86M, XML2 = 4.93M (chênh 61%)
+2. [An toàn] Levofloxacin 1000mg/ngày (tối đa 500mg/ngày)
+
+YÊU CẦU:
+1. Phân loại 2 lỗi trên
+2. Nêu căn cứ pháp lý
+3. Quyết định xử lý cho từng lỗi
+4. Nếu là từ chối tạm thời: viết yêu cầu bệnh viện trong 15 ngày
+
+TIÊU CHÍ ĐÁNH GIÁ:
+- ✅ Phân biệt lỗi hành chính vs an toàn
+- ✅ Biết xử lý từ chối tạm thời vs xuất toán
+- ✅ Nêu rõ luật lệ
+</code></pre>
+<h3>PROMPT 3: Ca phức tạp (3-4 lỗi chồng chéo)</h3>
+<p><strong>Chọn ca:</strong> 403244 (Lỗi hành chính + an toàn + chỉ định)</p>
+<pre><code>Hồ sơ 403244:
+- Chẩn đoạn: C61 (Ung thư tuyến tiền liệt)
+- Phẫu thuật: TURP
+
+LỖI CÓ:
+1. [Hành chính] Chênh lệch tiền 23.34M (51%)
+2. [An toàn] Ceftriaxone 8g/ngày (tối đa 4g)
+3. [Chỉ định] Aciclovir cho C61 (chỉ cho B00/B02)
+4. [Chỉ định] Mekoferrat cho C61 (chỉ cho D50/O25)
+
+YÊU CẦU:
+1. Xác định từng lỗi
+2. Nêu mức độ lỗi (nặng/trung/nhẹ)
+3. Quyết định xử lý từng cái
+4. Tính tổng tiền xuất toán
+5. Viết quyết định kiểm tra theo mẫu Nghị định 188
+
+TIÊU CHÍ ĐÁNH GIÁ:
+- ✅ Xác định chính xác 4 lỗi
+- ✅ Phân biệt mức độ
+- ✅ Tính toán tiền xuất toán chính xác
+- ✅ Viết quyết định rõ ràng, có xuyên chứng pháp lý
+</code></pre>
+<hr>
+<h2>5. Chuẩn bị và chạy thử</h2>
+<h3>BƯỚC 1: Chọn ca test</h3>
+<p><strong>Chọn lộ trình test:</strong></p>
+<pre><code>NGÀY 1: Test ca đơn giản
+├─ Ca 403521 (không lỗi)
+└─ Mục tiêu: AI xác nhận &quot;THANH TOÁN&quot;
+
+NGÀY 2: Test ca trung bình
+├─ Ca 000589 (2 lỗi)
+└─ Mục tiêu: AI phân loại + xử lý 2 lỗi
+
+NGÀY 3: Test ca phức tạp
+├─ Ca 403244 (4 lỗi)
+└─ Mục tiêu: AI làm việc với 4 lỗi, tính tiền, viết quyết định
+</code></pre>
+<h3>BƯỚC 2: Chuẩn bị dữ liệu cho AI</h3>
+<p><strong>Những gì AI cần:</strong></p>
+<ol>
+<li><strong>Dữ liệu hồ sơ tóm tắt</strong> (MA_LK, chẩn đoán, thời gian, loại KCB)</li>
+<li><strong>Danh sách lỗi từ audit JSON</strong> (ma_luat, mô tả, mức độ)</li>
+<li><strong>Chi tiết dữ liệu XML nếu cần</strong> (mã thuốc, liều, giá)</li>
+</ol>
+<p><strong>Những gì AI KHÔNG cần:</strong></p>
+<ul>
+<li>❌ Toàn bộ file XML (quá dài)</li>
+<li>❌ Hình ảnh hoặc document scan (khó xử lý)</li>
+<li>❌ Các lỗi không liên quan (VD: quy trình ghim)</li>
+</ul>
+<h3>BƯỚC 3: Ghi lại câu hỏi rõ ràng</h3>
+<p><strong>Ví dụ câu hỏi TỐT:</strong></p>
+<pre><code>&quot;Hồ sơ 403244 có các lỗi sau [liệt kê].
+Hãy:
+1. Xác định loại từng lỗi
+2. Nêu luật cơ sở
+3. Quyết định xử lý
+4. Tính tiền xuất toán
+5. Viết quyết định&quot;
+</code></pre>
+<p><strong>Ví dụ câu hỏi XẤU:</strong></p>
+<pre><code>&quot;Phân tích hồ sơ 403244&quot;  ← Quá mở, AI không biết làm gì
+</code></pre>
+<h3>BƯỚC 4: Chạy AI</h3>
+<p><strong>Công cụ:</strong></p>
+<ul>
+<li>Prompt AI một cách rõ ràng (sử dụng template trên)</li>
+<li>Để ý AI hiểu đúng không</li>
+<li>Ghi lại các câu hỏi mà AI hỏi lại (dấu hiệu chưa rõ)</li>
+</ul>
+<hr>
+<h2>6. Đánh giá kết quả AI</h2>
+<h3>Tiêu chí đánh giá</h3>
+<h4>🔴 DỪNG - AI chưa hiểu</h4>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>AI nói &quot;không đủ dữ liệu để kết luận&quot;</li>
+<li>AI không biết phân loại lỗi</li>
+<li>AI không nêu được luật lệ</li>
+<li>AI kết luận sai (VD: XUẤT TOÁN cho lỗi không biến chứng)</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>Quay lại tài liệu huấn luyện</li>
+<li>Cập nhật thêm ví dụ chi tiết</li>
+<li>Test lại sau khi cập nhật</li>
+</ul>
+<h4>🟡 CẢNH BÁO - AI hiểu nhưng chưa chuyên</h4>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>AI xác định lỗi đúng, nhưng:<ul>
+<li>Không ghi rõ luật lệ</li>
+<li>Xử lý chưa chi tiết (chỉ nêu xuất toán, không ghi tiền)</li>
+<li>Quyết định thiếu xuyên chứng</li>
+</ul>
+</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>Bổ sung thêm prompt ví dụ</li>
+<li>Test lại ca tương tự</li>
+</ul>
+<h4>🟢 TỐT - AI nắm vững</h4>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>✅ Xác định loại lỗi chính xác</li>
+<li>✅ Nêu luật/QĐ từng lỗi</li>
+<li>✅ Quyết định xử lý hợp lý (từ chối tạm vs xuất toán)</li>
+<li>✅ Tính tiền xuất toán chính xác</li>
+<li>✅ Viết quyết định rõ ràng, có cấu trúc</li>
+</ul>
+<p><strong>Xử lý:</strong></p>
+<ul>
+<li>Tăng độ khó (test ca phức tạp hơn)</li>
+</ul>
+<hr>
+<h2>7. Biểu mẫu đánh giá AI</h2>
+<h3>Template đánh giá từng ca</h3>
+<pre><code>CA TEST: 000589
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DỮ LIỆU ĐẦU VÀO:
+- Ma LK: 000589
+- Lỗi: [Hành chính chênh lệch + An toàn liều cao]
+
+KỲ VỌNG AI:
+- Phân loại 2 lỗi ✓ / ✗
+- Nêu luật ✓ / ✗
+- Xử lý hợp lý ✓ / ✗
+
+KẾT QUẢ THỰC TẾ:
+AI: &quot;Hồ sơ có chênh lệch 61% [OK]
+     Levofloxacin 1000mg vượt quá [OK]
+     → XUẤT TOÁN toàn bộ [LỖI: phải từ chối tạm cho hành chính trước]&quot;
+
+ĐÁNH GIÁ: 🟡 CẢNH BÁO
+- Hiểu lỗi đúng
+- Nhưng xử lý chưa phân biệt hành chính vs chuyên môn
+
+HÀNH ĐỘNG:
+- [ ] Cập nhật tài liệu huấn luyện
+- [ ] Test lại ca 000589
+- [ ] Chuyển ca 403244 (phức tạp hơn)
+</code></pre>
+<hr>
+<h2>8. Bộ công cụ đánh giá nhanh</h2>
+<h3>Checklist cho từng ca</h3>
+<p><strong>Ca đơn giản (1-2 lỗi):</strong></p>
+<pre><code>□ AI xác định loại lỗi chính xác?
+□ AI nêu được 1 luật/QĐ?
+□ AI kết luận xử lý (thanh toán vs xuất toán)?
+□ (Nếu xuất toán) AI ghi rõ tiền?
+
+Điểm: 1.0 nếu tất cả ✓, 0.5 nếu ≥3, 0 nếu ≤2
+</code></pre>
+<p><strong>Ca trung bình (2-3 lỗi khác loại):</strong></p>
+<pre><code>□ AI phân loại 2 lỗi (hành chính, chuyên môn)?
+□ AI ghi rõ mức độ từng lỗi (nặng/trung/nhẹ)?
+□ AI nêu luật/QĐ cho từng lỗi?
+□ AI xử lý khác nhau cho từng lỗi?
+
+Điểm: 1.0 nếu tất cả ✓, 0.5 nếu ≥3, 0 nếu ≤2
+</code></pre>
+<p><strong>Ca phức tạp (3-4 lỗi chồng):</strong></p>
+<pre><code>□ AI xác định 3-4 lỗi chính xác?
+□ AI phân biệt mức độ từng lỗi?
+□ AI xử lý tương ứng (từ chối tạm vs xuất toán bộ vs toàn)?
+□ AI tính toán tiền xuất toán chính xác?
+□ AI viết quyết định theo mẫu (Luật+Phân tích+Kết luận)?
+
+Điểm: 1.0 nếu tất cả ✓, 0.5 nếu ≥4, 0.25 nếu ≥3, 0 nếu ≤2
+</code></pre>
+<hr>
+<h2>9. Chu kỳ cải thiện</h2>
+<h3>Vòng lặp feedback</h3>
+<pre><code>Ca Test 1 (Đơn giản)
+       ↓
+   [ĐÁNH GIÁ]
+       ↓
+  [TỐT? → Ca 2]
+  [XẤU? → Cập nhật tài liệu → Test lại]
+       ↓
+Ca Test 2 (Trung bình)
+       ↓
+   [ĐÁNH GIÁ]
+       ↓
+  [TỐT? → Ca 3]
+  [XẤU? → Cập nhật → Test lại]
+       ↓
+Ca Test 3 (Phức tạp)
+       ↓
+   [ĐÁNH GIÁ]
+       ↓
+[HOÀN THÀNH / CẬP NHẬT LỘ TRÌNH]
+</code></pre>
+<hr>
+<h2>10. Danh sách cập nhật tài liệu (nếu AI yếu)</h2>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng AI yếu</th>
+<th>Nguyên nhân</th>
+<th>Cập nhật</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Không phân loại được lỗi</td>
+<td>Thiếu ví dụ phân loại</td>
+<td>Thêm mục &quot;4 loại lỗi&quot; vào thẻ hành chính</td>
+</tr>
+<tr>
+<td>Không biết luật</td>
+<td>Chưa học thẻ pháp lý</td>
+<td>Nhắc AI học thẻ &quot;Luật BHYT&quot; trước</td>
+</tr>
+<tr>
+<td>Xử lý sai</td>
+<td>Chưa hiểu Nghị định 188</td>
+<td>Thêm ví dụ Nghị định 188 vào ca huấn luyện</td>
+</tr>
+<tr>
+<td>Tính tiền sai</td>
+<td>Công thức phức tạp</td>
+<td>Tạo ca đơn giản về tính tiền</td>
+</tr>
+<tr>
+<td>Viết quyết định yếu</td>
+<td>Chưa có mẫu</td>
+<td>Cung cấp mẫu quyết định chi tiết</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>11. Trang báo cáo cuối kỳ</h2>
+<h3>Template báo cáo sau chạy thử</h3>
+<pre><code>BÁOCÁO CHẠY THỬ AI KIỂM TRA BHYT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THỜI GIAN: [Ngày]
+TỔNG CA TEST: [X ca]
+KỲ VỌNG ĐIỂM: [Y↑ được]
+
+KẾT QUẢ:
+┌─────────────────────┬──────┬────────────────┐
+│ Ca Test             │ Điểm │ Mức độ         │
+├─────────────────────┼──────┼────────────────┤
+│ 403521 (Đơn giản)   │ 1.0  │ 🟢 TỐT         │
+│ 000589 (Trung bình) │ 0.5  │ 🟡 CẢNH BÁO    │
+│ 403244 (Phức tạp)   │ 0.25 │ 🔴 DỪNG        │
+└─────────────────────┴──────┴────────────────┘
+
+ĐIỂM TRUNG BÌNH: 0.58 / 1.0 = 58%
+
+NHẬN XÉT CHUNG:
+AI tốt ở ca đơn (không lỗi), nhưng chưa xử lý tốt khi có lỗi chồng.
+
+ĐIỂM YẾU:
+1. Không phân biệt từ chối tạm vs xuất toán
+2. Lỗi kế toán lớn không biết từ chối tạm thời
+3. Quyết định chưa chi tiết
+
+HÀNH ĐỘNG TIẾP THEO:
+[ ] Cập nhật thẻ hành chính + Nghị định 188
+[ ] Tạo thêm ca ví dụ về từ chối tạm thời
+[ ] Test lại sau 3 ngày
+
+HẹN LỊCH LẠI:
+- 08/04: Cập nhật tài liệu
+- 09/04: Test lại
+- 10/04: Báo cáo cuối cùng
+</code></pre>
+<hr>
+<h2>12. Ghi chú cuối</h2>
+<ul>
+<li><strong>Đừng chi trả AI quá nhiều ca một lúc</strong> - test từng ca, đánh giá, cập nhật</li>
+<li><strong>Lưu lại transcript từng ca</strong> - có thể quay lại xem AI học gì</li>
+<li><strong>Nếu AI sai, xem đó là feedback cho tài liệu, không phải AI</strong> - tài liệu cần được cải thiện</li>
+<li><strong>Sau 5-10 ca test, AI sẽ có độ chính xác ~90%</strong> - nếu tài liệu tốt</li>
+</ul>
+
+  </main>
+</body>
+</html>

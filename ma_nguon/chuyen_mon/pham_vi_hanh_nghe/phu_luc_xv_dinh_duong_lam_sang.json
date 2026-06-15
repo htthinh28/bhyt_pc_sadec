@@ -1,0 +1,590 @@
+[
+  {
+    "stt": "1",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sàng lọc nguy cơ dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng bằng chỉ số nhân trắc cho các giai đoạn phát triển của trẻ dưới 5 tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người từ 5 đến 19 tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người trưởng thành.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người cao tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng tổng thể bằng các công cụ dinh dưỡng chuyên biệt;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá lớp mỡ dưới da để xác định tình trạng dinh dưỡng;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá khối cơ ngoại vi để xác định tình trạng dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá và phân tích thành phần cơ thể.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá suy giảm khối cơ ở người cao tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá cơ tứ đầu đùi bằng siêu âm để xác định tình trạng dinh dưỡng..",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phối hợp, hội chẩn với bác sĩ điều trị trong việc đưa ra chế độ dinh dưỡng phù hợp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhận định, đánh giá khẩu phần dinh dưỡng trong 24 giờ qua",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi khẩu phần dinh dưỡng trong 24 giờ.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo chuyển hóa năng lượng cơ bản gián tiếp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo trọng lượng cơ thể cho người bệnh nặng bằng dụng cụ chuyên biệt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đánh giá chiều cao bằng chiều dài cẳng chân ở các đối tượng đặc biệt.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật phát hiện nhanh an toàn thực phẩm.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng nhu cầu các vitamin và khoáng chất cho người bệnh nuôi dưỡng bằng đường truyền tĩnh mạch",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng thành phần các chất sinh năng lượng nuôi dưỡng qua đường tĩnh mạch toàn phần.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý đơn thuần.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý phối hợp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý đặc biệt (trước, trong và sau ghép tạng)",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh trước phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng qua đường tiêu hóa cho người bệnh sau phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho nuôi dưỡng qua ống thông (dạ dày/ruột non).",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "27",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật pha trộn các chất dinh dưỡng để nuôi dưỡng bằng đường tiêu hóa.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "28",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật pha trộn các chất dinh dưỡng để nuôi dưỡng bằng đường tĩnh mạch,",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "29",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng các giai đoạn phát triển của trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "30",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng ăn qua ống thông",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "31",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng cho người bệnh tập phục hồi chức năng nuốt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "32",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh có rối loạn về nuốt ăn",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "33",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh ăn qua sonde",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "34",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tư vấn, hướng dẫn chế độ dinh dưỡng cho người bệnh khi điều trị nội trú",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "35",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hướng dẫn chế độ ăn phù hợp tại nhà cho người bệnh trước khi xuất viện.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "36",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Truyền thông giáo dục về dinh dưỡng cho người bệnh;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "37",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nghiên cứu khoa học về dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "38",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Các kỹ thuật của Bác sỹ đa khoa",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "1",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sàng lọc nguy cơ dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng bằng chỉ số nhân trắc cho các giai đoạn phát triển của trẻ dưới 5 tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người từ 5 đến 19 tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người trưởng thành.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người cao tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá tình trạng dinh dưỡng tổng thể bằng các công cụ dinh dưỡng chuyên biệt;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá lớp mỡ dưới da để xác định tình trạng dinh dưỡng;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá khối cơ ngoại vi để xác định tình trạng dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá và phân tích thành phần cơ thể.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá suy giảm khối cơ ở người cao tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá cơ tứ đầu đùi bằng siêu âm để xác định tình trạng dinh dưỡng..",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Phối hợp, hội chẩn với bác sĩ điều trị trong việc đưa ra chế độ dinh dưỡng phù hợp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhận định, đánh giá khẩu phần dinh dưỡng trong 24 giờ qua",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi khẩu phần dinh dưỡng trong 24 giờ.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo chuyển hóa năng lượng cơ bản gián tiếp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo trọng lượng cơ thể cho người bệnh nặng bằng dụng cụ chuyên biệt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đánh giá chiều cao bằng chiều dài cẳng chân ở các đối tượng đặc biệt.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật phát hiện nhanh an toàn thực phẩm.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý đơn thuần.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý phối hợp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh trước phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng qua đường tiêu hóa cho người bệnh sau phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho nuôi dưỡng qua ống thông (dạ dày/ruột non).",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật pha trộn các chất dinh dưỡng để nuôi dưỡng bằng đường tiêu hóa.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật pha trộn các chất dinh dưỡng để nuôi dưỡng bằng đường tĩnh mạch,",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng các giai đoạn phát triển của trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "27",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng ăn qua ống thông",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "28",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng cho người bệnh tập phục hồi chức năng nuốt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "29",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh có rối loạn về nuốt ăn",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "30",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh ăn qua sonde",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "31",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tư vấn, hướng dẫn chế độ dinh dưỡng cho người bệnh khi điều trị nội trú",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "32",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hướng dẫn chế độ ăn phù hợp tại nhà cho người bệnh trước khi xuất viện.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "33",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Truyền thông giáo dục về dinh dưỡng cho người bệnh;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "34",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nghiên cứu khoa học về dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "1",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Sàng lọc nguy cơ dinh dưỡng.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện kỹ thuật đánh giá tình trạng dinh dưỡng bằng chỉ số nhân trắc cho các giai đoạn phát triển của trẻ dưới 5 tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện kỹ thuật đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người từ 5 đến 19 tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện kỹ thuật đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người trưởng thành.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thực hiện kỹ thuật đánh giá tình trạng dinh dưỡng theo chỉ số nhân trắc cho người cao tuổi",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Khám, đánh giá suy giảm khối cơ ở người cao tuổi.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhận định, đánh giá khẩu phần dinh dưỡng trong 24 giờ qua",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Theo dõi khẩu phần dinh dưỡng trong 24 giờ.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo chuyển hóa năng lượng cơ bản gián tiếp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật đo trọng lượng cơ thể cho người bệnh nặng bằng dụng cụ chuyên biệt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật phát hiện nhanh an toàn thực phẩm.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý đơn thuần.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh có bệnh lý phối hợp.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho người bệnh trước phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng qua đường tiêu hóa cho người bệnh sau phẫu thuật.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xây dựng chế độ dinh dưỡng cho nuôi dưỡng qua ống thông (dạ dày/ruột non).",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật pha trộn các chất dinh dưỡng để nuôi dưỡng bằng đường tiêu hóa.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng các giai đoạn phát triển của trẻ",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng ăn qua ống thông",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Chế biến chế độ dinh dưỡng cho người bệnh tập phục hồi chức năng nuốt",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh có rối loạn về nuốt ăn",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Kỹ thuật cho người bệnh ăn qua sonde",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tư vấn, hướng dẫn chế độ dinh dưỡng cho người bệnh khi điều trị nội trú",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hướng dẫn chế độ ăn phù hợp tại nhà cho người bệnh trước khi xuất viện.",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Truyền thông giáo dục về dinh dưỡng cho người bệnh;",
+    "nhom": "KHÁC"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Tham gia nghiên cứu khoa học về dinh dưỡng.",
+    "nhom": "KHÁC"
+  }
+]

@@ -1,0 +1,1106 @@
+{
+  "timestamp": "2026-04-09T09:31:39.433Z",
+  "dryRun": false,
+  "turnedOff": [
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_385",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_386",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_395",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_399",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_400",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_401",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_406",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_408",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_409",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_410",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_415",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_420",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_421",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_426",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_428",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_430",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_433",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_435",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_443",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_451",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_453",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_455",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_456",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_458",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_460",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_463",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_464",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_468",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_473",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_474",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_475",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_477",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_478",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_480",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_482",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_484",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_486",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_498",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_499",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_500",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_502",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_503",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_508",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_509",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_510",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_511",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_512",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_513",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_516",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_517",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_518",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_521",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_522",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_523",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_524",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_528",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_531",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_535",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_537",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "ma_luat": "THUOC_538",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_09",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_10",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_16",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_17",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_18",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_21",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_26",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_28",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_29",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_30",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_50",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_53",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_54",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_56",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_85",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_87",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_88",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_89",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_91",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_103",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_115",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_117",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_118",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_124",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_128",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_131",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_134",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_135",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_138",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_142",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_143",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_144",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_156",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_161",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_165",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_167",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_197",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_211",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_233",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_235",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_hanh_chinh_muc2.jsx",
+      "ma_luat": "HC_241",
+      "source": "JSON_SEED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_01",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_08",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_09",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_10",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_13",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_14",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_17",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_19",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_22",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_25",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_29",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_30",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_33",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_35",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_38",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_40",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_42",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_46",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_52",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_58",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_62",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_73",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_80",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_84",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_85",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_86",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_88",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_89",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_91",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_96",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_106",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_111",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_112",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_117",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_118",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_125",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_126",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_127",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_128",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_129",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_135",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_137",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_141",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_142",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_143",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_144",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_149",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_151",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_159",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_161",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_167",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_173",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_192",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_195",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_197",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_198",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_200",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_201",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_203",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_207",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_208",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_213",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_216",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_218",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_219",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_220",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_221",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_227",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_228",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_234",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_235",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_236",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_237",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_239",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_241",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_247",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_248",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_257",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_259",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_260",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_261",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_262",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_263",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_264",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_265",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_267",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_270",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_271",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_272",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_273",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_274",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_275",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_276",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_279",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_282",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_285",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_287",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_291",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_294",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_298",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_299",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_302",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_303",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_306",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_308",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "ma_luat": "CDHA_330",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cong_kham_hardcoded.jsx",
+      "ma_luat": "CK_05",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cong_kham_hardcoded.jsx",
+      "ma_luat": "CK_34",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cong_kham_hardcoded.jsx",
+      "ma_luat": "CK_55",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_04",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_05",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_20",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_39",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_53",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_54",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_55",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "ma_luat": "GB_57",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_hop_dong_hardcoded.jsx",
+      "ma_luat": "HD_08",
+      "source": "HARDCODED"
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_hop_dong_hardcoded.jsx",
+      "ma_luat": "HD_09",
+      "source": "HARDCODED"
+    }
+  ]
+}

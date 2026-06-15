@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bài tập phát triển kỹ năng kiểm tra cho AI</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Bài tập phát triển kỹ năng kiểm tra cho AI</h1>
+<p><strong>Phiên bản:</strong> 1.4<br><strong>Ngày:</strong> 09/04/2026<br><strong>Cách dùng:</strong> Bài <strong>1–7</strong> là tình huống giả; bài <strong>8–10</strong> bám <strong>audit JSON thật</strong> trong repo; bài <strong>11–13</strong> neo <strong>chuẩn hóa VTYT</strong> / <strong>giới hạn CSDL</strong> / <strong>bảng neo</strong>. Yêu cầu AI trả lời theo <strong>cấu trúc</strong>: (1) Phân loại lớp A–D trong <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a> §3 — (2) Dữ liệu cần mở — (3) <strong>Không</strong> kết luận gì nếu thiếu gì — (4) Câu hỏi cho người nghiệp vụ (nếu có).</p>
+<hr>
+<h2>Bài 1 — Nhiều <code>ma_luat</code> trên một <code>MA_LK</code></h2>
+<p><strong>Tình huống:</strong> Một hồ sơ audit có <code>THUOC_391</code> (2 dòng), <code>DVKT_2587</code>, <code>HC_171</code> cùng lúc.</p>
+<p><strong>Yêu cầu:</strong> Giải thích vì sao đây <strong>không phải một lỗi duy nhất</strong>; nêu thứ tự xem xét hợp lý (hành chính trước hay chuyên môn trước?) và <strong>một câu</strong> tại sao.</p>
+<p><strong>Gợi ý đáp án (không bắt buộc khớp từng chữ):</strong> Ba nhóm rule độc lập (XML2 vs XML3 vs cấu trúc hồ sơ); thường ưu tiên <strong>HC</strong> (thiếu XML5/Schema) nếu ảnh hưởng tính hợp lệ hồ sơ, nhưng tùy quy trình đơn vị.</p>
+<hr>
+<h2>Bài 2 — <code>dieu_kien</code> = <code>BUILT-IN</code></h2>
+<p><strong>Tình huống:</strong> Cảnh báo có <code>dieu_kien: &quot;BUILT-IN&quot;</code>, <code>ma_luat: &quot;CLN-GIUONG-01&quot;</code>.</p>
+<p><strong>Yêu cầu:</strong> AI phải nói được <strong>BUILT-IN</strong> gợi ý điều gì về nguồn rule; không được giả định có <strong>dòng seed</strong> trong <code>du_lieu_luat_pttt_muc11.jsx</code>.</p>
+<p><strong>Gợi ý:</strong> Rule tích hợp trong động cơ / luật built-in — tra cứu theo <code>ma_luat</code> trong <code>dong_co_giam_dinh.jsx</code> hoặc module built-in tương ứng.</p>
+<hr>
+<h2>Bài 3 — Cùng XML3 <code>index</code>, hai <code>DVKT_*</code></h2>
+<p><strong>Tình huống:</strong> Hai cảnh báo <code>DVKT_2587</code> và <code>DVKT_2588</code> cùng <code>index</code> XML3.</p>
+<p><strong>Yêu cầu:</strong> Giải thích <strong>một dòng DV</strong> có thể kích hoạt hai rule** vì điều kiện khác nhau** (chỉ định vs thuốc kèm gói).</p>
+<p><strong>Gợi ý:</strong> So sánh điều kiện seed: ICD/XML1 vs tập XML2.</p>
+<hr>
+<h2>Bài 4 — <code>DVKT-OP-09</code> vs <code>DVKT_2696</code></h2>
+<p><strong>Tình huống:</strong> Người mới hỏi “hai mã đều là DVKT trên XML3, có gì khác?”</p>
+<p><strong>Yêu cầu:</strong> Phân biệt <strong>nguồn</strong> (<code>dvkt_op_giam_dinh</code> + operator <code>CHECK_INTERNAL_APPROVAL</code> vs seed PTTT <code>du_lieu_luat_pttt_muc11.jsx</code>) và <strong>dạng mã</strong> (<code>DVKT-OP-xx</code> có dấu gạch ngang vs <code>DVKT_</code> số).</p>
+<p><strong>Gợi ý:</strong> <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>.</p>
+<hr>
+<h2>Bài 5 — Thiếu Phụ lục Excel BYT</h2>
+<p><strong>Tình huống:</strong> AI được hỏi “Dịch vụ X có được BHYT thanh toán 100% không?” nhưng <strong>không</strong> có bảng Phụ lục, chỉ có <code>TYLE_TT</code> trên XML3.</p>
+<p><strong>Yêu cầu:</strong> Viết <strong>câu trả lời đúng chuẩn</strong> (không bịa %): nêu cần đối chiếu gì thêm.</p>
+<p><strong>Gợi ý:</strong> Neo Điều 2 (tỷ lệ) + Cột Phụ lục tại <strong>thời điểm</strong> hồ sơ; nếu không có Phụ lục thì không chốt %.</p>
+<hr>
+<h2>Bài 6 — Mốc TT 39 / 01/01/2025</h2>
+<p><strong>Tình huống:</strong> Hồ sơ có ngày vào <strong>20/12/2024</strong>, ngày ra <strong>05/01/2025</strong>, có chỉ định DV liên quan <strong>Điều 4b</strong> (tiền khám).</p>
+<p><strong>Yêu cầu:</strong> Liệt kê <strong>các thời điểm</strong> cần làm rõ trước khi áp điểm HL TT 39 (không cần kết luận thanh toán cụ thể).</p>
+<p><strong>Gợi ý:</strong> Ngày chỉ định DV, ngày ra viện, định nghĩa “một lượt KCB” — xem <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> mục 11.5.</p>
+<hr>
+<h2>Bài 7 — Ẩn danh hóa khi họp hoặc chat</h2>
+<p><strong>Tình huống:</strong> User dán nhầm họ tên + Số thẻ BHYT vào prompt.</p>
+<p><strong>Yêu cầu:</strong> Nêu <strong>một</strong> hành động đúng của AI và <strong>một</strong> câu nhắc lịch sự.</p>
+<p><strong>Gợi ý:</strong> Từ chối xử lý PII; yêu cầu MA_LK/XML đã khử danh tính hoặc chỉ mô tả cấu trúc.</p>
+<hr>
+<h2>Bài 8 — Audit thật: <code>MA_LK</code> <strong>000308</strong> (PTTT + THUOC + HC)</h2>
+<p><strong>Nguồn trong repo:</strong> <code>test_xml/audit_000308_20260405_083942.json</code> — ca mẫu: <a href="./Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md">Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md</a>.</p>
+<p><strong>Yêu cầu:</strong></p>
+<ol>
+<li>Đọc <code>meta.ma_lk</code>, <code>unique_rule_codes</code> (hoặc <code>rule_summary</code>) — liệt kê <strong>các nhóm mã</strong> (DVKT / THUOC / HC / HD).  </li>
+<li>Với <strong><code>DVKT_2587</code></strong> và <strong><code>DVKT_2588</code></strong>: chỉ ra <strong><code>index</code></strong> XML3 <strong>trùng nhau</strong> trong <code>warnings</code> — giải thích vì sao <strong>một dòng DV</strong> có hai cảnh báo.  </li>
+<li>Giải thích <strong>một câu</strong> vì sao <strong><code>THUOC_391</code></strong> (cùng audit) <strong>không</strong> “thay thế” hay “hợp nhất” với <strong><code>DVKT_2588</code></strong> khi phân tích.</li>
+</ol>
+<p><strong>Gợi ý:</strong> XML2 vs XML3; điều kiện seed khác nhau — xem <code>dieu_kien</code> trong JSON nếu cần.</p>
+<hr>
+<h2>Bài 9 — Audit thật: <code>MA_LK</code> <strong>000375</strong> (<code>DVKT-OP-09</code> + HC)</h2>
+<p><strong>Nguồn:</strong> <code>test_xml/audit_000375_20260405_065828.json</code> — ca: <a href="./Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md">Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md</a>.</p>
+<p><strong>Yêu cầu:</strong></p>
+<ol>
+<li>Tìm cảnh báo có <code>ma_luat</code> dạng <strong><code>DVKT-OP-09</code></strong> — nêu <strong>nguồn rule</strong> (no-code / <code>CHECK_INTERNAL_APPROVAL</code>) theo đúng phân biệt trong <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>.  </li>
+<li>Chọn <strong>một</strong> cảnh báo <strong><code>HC_*</code></strong> trong cùng file — gán lớp <strong>A–D</strong> và <strong>một câu</strong> vì sao đó <strong>không</strong> phải “lỗi danh mục DVKT nội bộ”.</li>
+</ol>
+<p><strong>Gợi ý:</strong> <code>phan_he</code> / <code>truong_loi</code> trong từng object <code>warnings</code>.</p>
+<hr>
+<h2>Bài 10 — Audit thật: <code>MA_LK</code> <strong>000502</strong> (<code>CDHA_164</code> + nhiều nhóm)</h2>
+<p><strong>Nguồn:</strong> <code>test_xml/audit_000502_20260404_192348.json</code> — ca: <a href="./Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md">Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md</a>.</p>
+<p><strong>Yêu cầu:</strong></p>
+<ol>
+<li>Xác nhận có <strong><code>CDHA_164</code></strong> — nêu <code>index</code> XML3 (nếu có trong JSON).  </li>
+<li>Liệt kê <strong>ít nhất hai</strong> <code>ma_luat</code> khác <code>CDHA_164</code> trong cùng audit — phân loại nhanh <strong>CĐHA hardcoded</strong> vs <strong>HC</strong> vs <strong>DVKT/PTTT</strong> (dựa trên tiền tố mã).  </li>
+<li><strong>Một câu</strong> so sánh ý nghiệp vụ: <strong><code>CDHA_164</code></strong> vs <strong><code>CLN-GIUONG-01</code></strong> nếu cả hai xuất hiện (hoặc giải thích vì sao không thể gộp).</li>
+</ol>
+<p><strong>Gợi ý:</strong> <code>luat_cdha_hardcoded.jsx</code> vs luật giường built-in — ca mẫu có ghi “song song”.</p>
+<hr>
+<h2>Bài 11 — <code>XML1.T_VTYT</code> trong <strong>dự án này</strong> ≠ “chỉ tiền vật tư”</h2>
+<p><strong>Tình huống:</strong> Kiểm tra viên thấy cảnh báo gắn <code>truong_loi: T_VTYT</code> / <code>CLN-CHI-02</code> và hỏi AI: “Có phải hồ sơ sai <strong>vật tư</strong>?”</p>
+<p><strong>Yêu cầu:</strong> Giải thích theo <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>3</strong>: trong <code>dong_co_giam_dinh.jsx</code>, <code>T_VTYT</code> XML1 đối chiếu với <strong>tổng tiền XML3</strong> theo quy ước dự án — <strong>không</strong> tự suy ra chỉ các dòng <code>MA_VAT_TU</code>.</p>
+<p><strong>Gợi ý:</strong> Đọc comment mã nguồn <code>giamDinhTongChiPhi</code>; phân biệt với rule lệch tiền <strong>chỉ dòng có <code>MA_VAT_TU</code></strong> trong <code>du_lieu_luat_du_lieu_muc1.jsx</code> (nếu được hỏi thêm).</p>
+<hr>
+<h2>Bài 12 — Hỏi “mã vật tư X có được BHYT thanh toán không?” khi <strong>chưa có</strong> rule <code>DM-VTYT-*</code></h2>
+<p><strong>Tình huống:</strong> Người dùng đưa một <code>MA_VAT_TU</code> (hoặc tên vật tư) và yêu cầu AI <strong>chốt %</strong> và <strong>điều kiện</strong> theo VBHN 14.</p>
+<p><strong>Yêu cầu:</strong> AI phải nêu rõ: (1) <strong>Trong repo hiện tại không có</strong> bộ seed kiểm tra <strong><code>DM-VTYT-*</code></strong> — không thể “tra engine” như DVKT/thuốc; (2) để trả lời đúng nghiệp vụ cần <strong>Phụ lục / bảng điều kiện</strong> tại thời điểm hồ sơ hoặc tài liệu BYT ngoài phiên; (3) <strong>không</strong> bịa cột điều kiện hay %.</p>
+<p><strong>Gợi ý:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>0</strong>; <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a> §<strong>4.2</strong> (khi sau này có CSDL).</p>
+<hr>
+<h2>Bài 13 — <code>CLN-CHI-02</code> vs <code>XML_54</code>: hai cách đối chiếu <code>T_VTYT</code></h2>
+<p><strong>Tình huống:</strong> Hai cảnh báo đều nói về <strong>lệch tiền</strong> gắn trường <strong><code>T_VTYT</code></strong> trên XML1, nhưng người mới nhầm là <strong>cùng một rule</strong>.</p>
+<p><strong>Yêu cầu:</strong> Dựa <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a> và <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>3</strong>:<br>(1) Nêu <strong><code>CLN-CHI-02</code></strong> đối chiếu <code>XML1.T_VTYT</code> với <strong>tổng nào</strong> trên XML3.<br>(2) Nêu <strong><code>XML_54</code></strong> (<code>du_lieu_luat_du_lieu_muc1.jsx</code>) đối chiếu <code>T_VTYT</code> với <strong>tổng nào</strong> (điều kiện dòng XML3).<br>(3) <strong>Một câu</strong> vì sao hai công thức <strong>khác nhau</strong> và không được gộp giải thích.</p>
+<p><strong>Gợi ý:</strong> Ghi chú seed <code>XML_54</code> — chỉ cộng dòng có <code>MA_VAT_TU</code>.</p>
+<hr>
+<h2>Liên kết nền</h2>
+<ul>
+<li>Kỹ năng cốt lõi: <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>  </li>
+<li>Chuẩn hóa DVKT: <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>  </li>
+<li>Lộ trình tổng: <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a>  </li>
+<li>VTYT — chuẩn hóa: <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> · bảng neo: <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a> · khung dự phòng: <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a></li>
+</ul>
+
+  </main>
+</body>
+</html>

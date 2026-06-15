@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phiên huấn luyện AI — CDSS phác đồ Chuyên môn (FileMau v4)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_CDSS_chuyen_mon_FileMau_v4.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phiên huấn luyện AI — CDSS phác đồ Chuyên môn (FileMau v4)</h1>
+<p><strong>Mục tiêu:</strong> neo quy trình nạp <strong>FileMau_PhacDo_CDSS 4.xlsx</strong>, quy tắc <strong>CDSS_CM_01/02</strong>, kiểm tra thực chiến và tích lũy tri thức từ kết quả kiểm tra.</p>
+<hr>
+<h2>1. Nhập CDSS vào module Chuyên môn</h2>
+<ol>
+<li>Mở <strong>Tổng quan → Chuyên môn → Phác đồ Phương Châu</strong> (component <code>PhacDoBenhVien</code>).</li>
+<li>Trên Web: <strong>Import</strong> file <code>FileMau_PhacDo_CDSS 4.xlsx</code> (sheet <code>Template</code>); dữ liệu gộp với bảng hiện có — <strong>ưu tiên nội dung file mới</strong> cho trùng mã ICD (<code>phac_do_cdss_columns.js</code>).</li>
+<li><strong>Developer / đồng bộ repo:</strong> chạy từ thư mục gốc dự án:<pre><code class="language-bash">npm run phac-do:rebuild-seed -- &quot;C:/đường/dẫn/FileMau_PhacDo_CDSS 4.xlsx&quot;
+</code></pre>
+Cập nhật <code>ma_nguon/chuyen_mon/phac_do_benh_vien/du_lieu_phac_do_cdss_guidelines.seed.json</code> (gộp với seed cũ, không tự xóa mã chỉ có ở kho trước).</li>
+</ol>
+<hr>
+<h2>2. Quy tắc kiểm tra (Luật dữ liệu — seed)</h2>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Mặc định</th>
+<th>Ý nghĩa (đã chuẩn hóa)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CDSS_CM_01</strong></td>
+<td>ON (Info)</td>
+<td>Chỉ xác nhận <strong>có khóa ICD trên XML1 trùng bảng phác đồ</strong> — nhắc tra cứu thủ công; <strong>không</strong> so nội dung phác đồ với thuốc/DVKT.</td>
+</tr>
+<tr>
+<td><strong>CDSS_CM_02</strong></td>
+<td>OFF (Warning)</td>
+<td>Có kho nhưng <strong>không khóa ICD nào</strong> trùng — gợi ý bổ sung dữ liệu; không kết luận sai điều trị.</td>
+</tr>
+</tbody></table>
+<p>Nguồn seed: <code>ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx</code>. Chi tiết giới hạn kỹ thuật: <strong>§4.1</strong> trong <code>The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</code>. Bật/tắt tại <strong>Quản lý quy tắc ON/OFF</strong>.</p>
+<hr>
+<h2>3. Tri thức huấn luyện AI (thẻ chuẩn)</h2>
+<ul>
+<li><strong>The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</strong> — vai trò CDSS vs DM DVKT, ánh xạ XML1 ↔ cột phác đồ, hàm engine, prompt mẫu.</li>
+<li><strong>Phuong_an_trien_khai_Phac_do_Chuyen_mon_CLS_kiem_soat_chuoi.md</strong> — kiểm soát theo chuỗi chẩn đoán → CLS → thuốc/DVKT → tái khám; tầng rule có cấu trúc + giao việc AI (schema I/O).</li>
+<li>Sau chỉnh sửa: <code>npm run tai_lieu:prepare</code> để đồng bộ <code>public/tai_lieu/</code>.</li>
+</ul>
+<hr>
+<h2>4. Kho tri thức trong ứng dụng</h2>
+<ul>
+<li><strong>Bảng phác đồ:</strong> AsyncStorage / IndexedDB — khóa <code>CDSS_DATA_PHAC_DO_V3</code>, <code>CDSS_COLS_PHAC_DO_V3</code>.</li>
+<li><strong>Tri thức từ kiểm tra:</strong> màn <strong>Tri thức từ kiểm tra</strong> (<code>tri_thuc_tu_giam_dinh.jsx</code>) — ghi bài học / xác nhận đúng-sai cảnh báo sau khi chạy engine trên hồ sơ.</li>
+</ul>
+<hr>
+<h2>5. Kiểm tra thực chiến (CLI + thư mục <code>tai_nguyen/ip</code>)</h2>
+<p>Script <code>run_claim_audit.js</code> đã nạp <strong>luật dữ liệu đầy đủ</strong> và <strong>kho phác đồ</strong> từ seed JSON (để rule CDSS_CM hoạt động giống app).</p>
+<pre><code class="language-bash">node scripts/run_claim_audit.js &quot;tai_nguyen/ip/&lt;file&gt;.xml&quot; --out=test_xml/audit_&lt;ma&gt;.json --focus=CDSS_CM_01,CDSS_CM_02
+</code></pre>
+<p><strong>Lưu ý:</strong> Cảnh báo <strong>CDSS_CM_01</strong> chỉ xuất hiện khi mã ICD đã gom từ XML1 <strong>trùng</strong> một khóa trong <code>MAP_PHAC_DO_CDSS</code> (chuẩn hóa bỏ dấu chấm). Ví dụ hồ sơ có chẩn đoán <strong>A04.9</strong> → khóa <strong>A049</strong>; nếu kho chỉ có dòng <strong>A04</strong> hoặc <strong>A49</strong> (khác nội dung chuẩn), engine có thể <strong>không</strong> bật Info — đó là hành vi đúng thiết kế, không phải lỗi import.</p>
+<hr>
+<h2>6. Kết quả kiểm tra → kinh nghiệm cho AI</h2>
+<ol>
+<li>Sau khi xem cảnh báo trên <strong>Chi tiết ca bệnh</strong> hoặc file audit JSON, kiểm tra viên ghi nhận tại <strong>Tri thức từ kiểm tra</strong> (tóm tắt, bài học, tùy chọn JSON xác nhận đúng/sai từng mã luật).</li>
+<li>Dữ liệu cục bộ (<code>CDSS_TRI_THUC_GD_V1</code>) phục vụ RAG / đọc lại trong module Trợ lý tri thức — <strong>không</strong> thay thế quyết định pháp lý; dùng để huấn luyện và cải thiện độ phù hợp rule theo thời gian.</li>
+</ol>
+<hr>
+<h2>Trạng thái nạp mẫu (11/04/2026)</h2>
+<ul>
+<li><strong>File nguồn:</strong> <code>FileMau_PhacDo_CDSS 4.xlsx</code> (sheet <code>Template</code>, 100 dòng dữ liệu sau dòng mẫu).</li>
+<li><strong>Seed sau gộp:</strong> <strong>348</strong> mã ICD duy nhất trong <code>du_lieu_phac_do_cdss_guidelines.seed.json</code>.</li>
+<li><strong>Audit mẫu:</strong> <code>test_xml/audit_ip_sample_cdss_cm_20260411.json</code> — ví dụ <strong>CDSS_CM_01 = 0</strong> trên một hồ sơ IP khi ICD chuẩn hóa không trùng kho (xem mục 5).</li>
+</ul>
+
+  </main>
+</body>
+</html>

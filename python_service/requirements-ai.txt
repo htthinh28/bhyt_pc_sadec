@@ -1,0 +1,9 @@
+# Bổ sung cho LLM Unsloth-compatible (Hugging Face). Cài sau requirements.txt:
+#   pip install -r requirements-ai.txt
+# PyTorch: nên cài bản có CUDA khớp máy — xem https://pytorch.org/get-started/locally/
+torch>=2.2,<3
+transformers>=4.44,<5
+accelerate>=0.33,<1
+bitsandbytes>=0.43,<1
+safetensors>=0.4,<1
+huggingface_hub>=0.23,<1

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE TRI THUC MAU NHOM CHUYEN MON I10 - TANG HUYET AP (DOT 1)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_chuyen_mon_I10_tang_huyet_ap_dot1.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THE TRI THUC MAU NHOM CHUYEN MON I10 - TANG HUYET AP (DOT 1)</h1>
+<p>Phien ban tai lieu: 1.3<br>Ngay cap nhat: 06/04/2026</p>
+<h2>1. Muc tieu</h2>
+<p>Dot nay huan luyen AI theo truc chuyen mon <code>I10</code> (tang huyet ap), tap trung vao:</p>
+<ul>
+<li>doc dung quan he giua <code>MA_BENH_CHINH</code> va <code>MA_BENH_KT</code></li>
+<li>doi chieu chi dinh/chong chi dinh cua thuoc tim mach</li>
+<li>tach ro loi chuyen mon voi loi hanh chinh, gia thuoc, ke toan</li>
+</ul>
+<h2>2. Nguon tri thuc</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> (cum <code>THUOC_32</code> den <code>THUOC_38</code>)</li>
+<li><code>tai_lieu/The_tri_thuc_mau_nhom_thuoc_dot3_tim_mach.md</code></li>
+<li><code>test_xml/audit_OP26000282_20260406_224330.json</code></li>
+<li><code>tai_nguyen/op/PC022515584_OP26000282.xml</code></li>
+<li>Khuyen cao VSH/VNHA 2022 (tom tat): <code>tang huyet ap.pdf</code> (tai lieu do nguoi dung cung cap)</li>
+<li>Huong dan AHA/ACC va cac hoi lien quan (2025), <em>Circulation</em>: <a href="https://www.ahajournals.org/doi/10.1161/CIR.0000000000001356">doi:10.1161/CIR.0000000000001356</a> — thay the huong dan ACC/AHA 2017; ban tom luoc trong <code>The I10-7</code> phuc vu <strong>huan luyen / doi chieu quoc te</strong>, khong tu dong thay quy dinh BHYT hay VSH neu chua co chi dao noi bo.</li>
+</ul>
+<h2>3. Khung suy luan cho ho so I10</h2>
+<p>AI phai di theo thu tu:</p>
+<ol>
+<li>Xac dinh <code>I10</code> nam o benh chinh hay benh kem.</li>
+<li>Neu co <code>I10</code>, mo cum rule tim mach va thuoc ha ap.</li>
+<li>Kiem tra benh kem nguy co cao (vi du: <code>I95.1</code>, <code>O21</code>, <code>N18.4</code>, <code>N18.5</code>, <code>K72</code>) de danh gia chong chi dinh.</li>
+<li>Cuoi cung moi tong hop nhom loi hanh chinh/ke toan (INN, gia trung thau, lech tong tien).</li>
+</ol>
+<h2>4. The tri thuc mau I10</h2>
+<hr>
+<h2>The I10-1. Nhan dien truc chuyen mon tang huyet ap</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Co <code>I10</code> trong <code>MA_BENH_CHINH</code> hoac <code>MA_BENH_KT</code> la dau hieu can bat che do phan tich tim mach.</li>
+</ul>
+<h3>Du lieu can kiem tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_VAO</code>, <code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Neu <code>I10</code> la benh chinh -&gt; tim mach la truc phan tich chinh.</li>
+<li>Neu <code>I10</code> la benh kem -&gt; tim mach la benh nen, can dieu chinh ket luan an toan dieu tri.</li>
+</ul>
+<hr>
+<h2>The I10-2. Kiem tra chi dinh thuoc ha ap theo ICD10</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Thuoc nhom ha ap chi hop le khi co bang chung tang huyet ap (<code>I10</code>) hoac mo ta tuong duong.</li>
+</ul>
+<h3>Rule tham chieu</h3>
+<ul>
+<li><code>THUOC_33</code> (cho <code>40.30.501</code>)</li>
+<li><code>THUOC_36</code> (cho <code>40.491</code>)</li>
+<li><code>THUOC_38</code> (cho <code>40.30.497</code>)</li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Khong co <code>I10</code> trong ICD va khong co mo ta tang huyet ap -&gt; nguy co xuat toan theo chi dinh.</li>
+<li>Co <code>I10</code> -&gt; uu tien xac nhan chi dinh, sau do moi kiem tra tiep lop chong chi dinh/lieu.</li>
+</ul>
+<hr>
+<h2>The I10-3. Kiem tra lop chong chi dinh trong ca tang huyet ap</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Co <code>I10</code> khong dong nghia voi thanh toan tu dong. Van phai soat ma benh kem nguy co.</li>
+</ul>
+<h3>Rule tham chieu</h3>
+<ul>
+<li><code>THUOC_32</code>, <code>THUOC_35</code>, <code>THUOC_37</code></li>
+</ul>
+<h3>Cum ma nguy co can uu tien</h3>
+<ul>
+<li><code>I95.1</code> (ha huyet ap tu the)</li>
+<li><code>O21</code> (thai ky)</li>
+<li><code>N18.4</code>, <code>N18.5</code> (suy than nang)</li>
+<li><code>K72</code> (suy gan)</li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Co ma nguy co -&gt; nang muc canh bao chuyen mon, khong ket luan &quot;an toan&quot; du chi dinh dung.</li>
+</ul>
+<hr>
+<h2>The I10-4. Tach nhom loi chuyen mon va nhom loi hanh chinh/tai chinh</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Trong ca <code>I10</code>, co the dong thoi co:<ul>
+<li>loi chuyen mon (chi dinh/chong chi dinh)</li>
+<li>loi hanh chinh ke don (<code>THUOC_436</code>)</li>
+<li>loi gia thuoc (<code>DM-THUOC-04</code>)</li>
+<li>loi ke toan tong hop (<code>XML_53</code>)</li>
+</ul>
+</li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Khong dung loi hanh chinh de phu dinh chi dinh chuyen mon.</li>
+<li>Khong dung chi dinh dung de bo qua loi gia/ke toan.</li>
+</ul>
+<hr>
+<h2>The I10-5. Nguong chan doan va muc tieu dieu tri theo VSH/VNHA 2022</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Chan doan THA tai phong kham: <code>HATT &gt;= 140</code> va/hoac <code>HATTr &gt;= 90</code>.</li>
+<li>HA binh thuong-cao (tien THA): <code>130-139/85-89</code>.</li>
+<li>Con THA: <code>&gt;= 180/120</code>, can danh gia ton thuong co quan dich de xu tri khan cap/cap cuu.</li>
+</ul>
+<h3>Nguong ngoai phong kham can nho</h3>
+<ul>
+<li>HATN nguong THA: <code>&gt;= 135/85</code></li>
+<li>HALT 24h nguong THA: <code>&gt;= 130/80</code></li>
+</ul>
+<h3>Muc tieu dieu tri can uu tien trong giam dinh</h3>
+<ul>
+<li>THA khong benh dong mac: muc tieu phong kham thuong den <code>&lt;140/80</code> (co the ha den <code>&lt;130/80</code> neu dung nap).</li>
+<li>THA co benh dong mac/nguy co cao: uu tien muc tieu <code>&lt;130/80</code> neu dung nap.</li>
+<li>Tuoi cao can ca the hoa muc tieu theo dung nap va tinh trang gia yeu.</li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Khong ket luan &quot;that bai dieu tri&quot; chi dua 1 lan do HA.</li>
+<li>Can doi chieu boi canh: tuoi, benh dong mac, dung nap, va du lieu HATN/HALT neu co.</li>
+</ul>
+<hr>
+<h2>The I10-6. Chien luoc thuoc nen cho nhom I10 (tham chieu huan luyen)</h2>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Khuyen cao VSH/VNHA 2022 uu tien phoi hop som, lieu thap:<ul>
+<li><code>A + C</code> hoac <code>A + D</code></li>
+<li>neu can: <code>A + C + D</code></li>
+</ul>
+</li>
+<li>Trong do:<ul>
+<li><code>A</code>: UCMC hoac CTTA</li>
+<li><code>C</code>: chen kenh canxi</li>
+<li><code>D</code>: loi tieu (uu tien thiazide-like)</li>
+</ul>
+</li>
+</ul>
+<h3>Diem canh bao quan trong</h3>
+<ul>
+<li>Khong khuyen cao phoi hop 2 thuoc uc che he RAS cung luc.</li>
+<li>Thai ky: chong chi dinh nhom uc che RAS (UCMC/CTTA/uc che renin truc tiep/MRA).</li>
+</ul>
+<h3>Cach suy luan dung</h3>
+<ul>
+<li>Neu ho so co thuoc ha ap, AI uu tien doi chieu xem co di dung truc A/C/D va co vi pham chong chi dinh theo benh kem khong.</li>
+<li>Van phai tach rieng loi ke don INN, gia thuoc, tong hop chi phi (khong tron vao ket luan chuyen mon I10).</li>
+</ul>
+<hr>
+<h2>The I10-7. Phan loai HA va muc tieu dieu tri theo AHA/ACC 2025 (<em>Circulation</em>)</h2>
+<p>Nguon day du: <a href="https://www.ahajournals.org/doi/10.1161/CIR.0000000000001356">10.1161/CIR.0000000000001356</a> (ban huong dan chung ve phong ngua, phat hien, danh gia va quan ly THA nguoi lon, 2025).</p>
+<h3>Menh de cot loi</h3>
+<ul>
+<li>Huong dan 2025 <strong>thay the</strong> ban ACC/AHA 2017; nhan manh tiep can <strong>theo nguy co tim mach</strong>, bo sung cong cu <strong>PREVENT</strong> (uoc tinh nguy co 10 nam) khi can quyet dinh dieu tri o vung HA “vua phai”.</li>
+<li>Phan loai HA (trung binh, thuong la trung binh nhieu lan do) trong ban huong dan:<ul>
+<li><strong>Binh thuong</strong>: <code>&lt;120/80</code></li>
+<li><strong>Cao binh thuong (Elevated)</strong>: HATT <code>120–129</code> <strong>va</strong> HATTr <code>&lt;80</code></li>
+<li><strong>THA giai doan 1</strong>: HATT <code>130–139</code> <strong>hoac</strong> HATTr <code>80–89</code></li>
+<li><strong>THA giai doan 2</strong>: HATT <code>&gt;=140</code> <strong>hoac</strong> HATTr <code>&gt;=90</code></li>
+</ul>
+</li>
+<li><strong>Muc tieu dieu tri tong quat</strong>: uu tien dat <strong><code>&lt;130/80</code></strong> cho nguoi lon, co <strong>ca the hoa</strong> khi benh nhan cham soc dai han / du kien song gioi han / hoac thai ky (theo phan huong dan rieng trong tai lieu goc).</li>
+</ul>
+<h3>Khoi thuoc: khi nao xem xet thuoc (tom tat de huan luyen)</h3>
+<ul>
+<li><strong>Bat dau thuoc</strong> khi HA trung binh <strong><code>&gt;=140/90</code></strong>, <strong>hoac</strong></li>
+<li>Khi <strong><code>&gt;=130/80</code></strong> neu co mot trong cac dieu kien: benh tim mach lam sang, dot quy/TIA truoc day, dai thao duong, benh than man, <strong>hoac</strong> nguy co tim mach 10 nam <strong><code>&gt;=7.5%</code></strong> theo <strong>PREVENT</strong> (tuy ban tom tat huong dan).</li>
+<li>Voi nguoi <strong><code>130–139/80–89</code></strong> ma <strong>nguy co thap hon</strong> (&lt;7.5%): thuong <strong>uu tien doi song 3–6 thang</strong> truoc khi xem xet thuoc neu HA van khong dat.</li>
+</ul>
+<h3>So sanh nhanh voi VSH/VNHA 2022 (trong giam dinh / huan luyen)</h3>
+<table>
+<thead>
+<tr>
+<th>Noi dung</th>
+<th>VSH/VNHA 2022 (file I10-5)</th>
+<th>AHA/ACC 2025 (I10-7)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chan doan THA phong kham (nguong chinh)</td>
+<td><code>&gt;=140/90</code></td>
+<td>Giai doan 2: <code>&gt;=140/90</code>; giai doan 1: <code>130–139</code> hoac <code>80–89</code></td>
+</tr>
+<tr>
+<td>Tien THA / cao binh thuong</td>
+<td><code>130–139/85–89</code></td>
+<td>Elevated <code>120–129/&lt;80</code>; Stage 1 nhu tren</td>
+</tr>
+<tr>
+<td>Muc tieu dieu tri</td>
+<td><code>&lt;140/80</code> hoac chat hon <code>&lt;130/80</code> tuy dong mac</td>
+<td>Uu tien <code>&lt;130/80</code> tong quat, co ca the hoa</td>
+</tr>
+<tr>
+<td>Tiep can quyet dinh thuoc</td>
+<td>Theo phac do VN</td>
+<td>Them <strong>nguy co</strong> (PREVENT, dong mac) o vung <code>130–139/80–89</code></td>
+</tr>
+</tbody></table>
+<h3>Cach suy luan dung (BHYT + CDSS)</h3>
+<ul>
+<li><strong>Giam dinh thanh toan / rule seed</strong>: van lay <strong>XML + luat noi bo + VSH/tai lieu BYT</strong> lam chuan hanh dong (muc 7.1).</li>
+<li><strong>Giai thich chuyen mon / dao tao AI</strong>: co the trich <strong>AHA/ACC 2025</strong> de noi ro vi sao mot ho so “HA vua phai” van co the can dieu tri manh hon o he thong tiep can theo nguy co My — tranh nham la mau thuan “sai” voi VN ma la <strong>khac nguon huong dan</strong>.</li>
+<li>Khong ket luan “sai chi dinh” chi vi lech so voi AHA neu <strong>rule BHYT va ICD</strong> chua gan voi nguong do.</li>
+</ul>
+<h2>5. Prompt huan luyen de tai su dung</h2>
+<pre><code class="language-text">Phan tich ho so theo nhom I10:
+1) Xac dinh vai tro I10 (benh chinh hay benh kem).
+2) Doi chieu thuoc tim mach voi rule chi dinh/chong chi dinh.
+3) Tach rieng nhom loi hanh chinh, gia thuoc, ke toan.
+4) Ket luan theo 3 lop: chuyen mon, hanh chinh, tai chinh.
+</code></pre>
+<h2>6. Ket luan dot I10-1</h2>
+<p>Sau dot nay, AI can dat:</p>
+<ol>
+<li>Nhan dien dung cau truc benh hoc I10 trong ho so.</li>
+<li>Ket luan dung lop chi dinh/chong chi dinh cua thuoc ha ap.</li>
+<li>Khong tron lan giua loi chuyen mon va loi thanh toan/du lieu.</li>
+</ol>
+<h2>7. De xuat thong nhat (ap dung cho toan bo huan luyen I10 / ICD10)</h2>
+<p>Muc nay thong nhat cac huong da lam truoc do thanh <strong>mot quy uoc duy nhat</strong> cho AI va nguoi dieu phoi huan luyen.</p>
+<h3>7.1. Thu tu uu tien nguon chan ly</h3>
+<p>Khi ket luan giu lieu ho so BHYT, ap dung thu tu sau (tu cao xuong thap):</p>
+<ol>
+<li><strong>Du lieu XML + audit thuc</strong> trong repo (<code>tai_nguyen/</code>, <code>test_xml/audit_*.json</code>) — nguon su that ve ho so dang xet.</li>
+<li><strong>Rule engine dang chay</strong> — <code>du_lieu_luat_thuoc_muc8.jsx</code> va cac luat lien quan: ket qua canh bao la hanh vi he thong that.</li>
+<li><strong>Khuyen cao chuyen mon trong nuoc</strong> (VSH/VNHA 2022, file <code>tang huyet ap.pdf</code>) — dung de <strong>giai thich nghiep vu, phan bien false positive/false negative, huong dieu tri/huan luyen</strong>, khong thay the tu dong rule thanh toan neu chua sua ma.</li>
+<li><strong>Khuyen cao quoc te bo sung</strong> (AHA/ACC 2025, <code>The I10-7</code>) — chi de <strong>doi chieu, cap nhat tri thuc, giai thich da nguon</strong>; khong tu dong thay the (3) neu chua co chi dao noi bo.</li>
+<li><strong>Tai lieu BHYT thanh toan</strong> (15/VBHN-BYT, TT...) — khi rule hoac canh bao da dan chung trong <code>co_so_phap_ly</code> cua audit.</li>
+</ol>
+<p>Neu <strong>khuyen cao chuyen mon</strong> va <strong>dieu kien rule</strong> khac nhau: AI phai neu ro hai tang — <em>theo engine hien tai</em> va <em>theo huong chuyen mon VSH</em> — va ghi <em>can ra soat rule / cap nhat seed</em> neu don vi dong y. Neu khac <strong>VSH</strong> va <strong>AHA/ACC 2025</strong>: ghi ro <em>hai khung huong dan</em> (trong nuoc vs quoc te), khong gop mot dong.</p>
+<h3>7.2. Luong suy luan thong nhat cho moi ho so co I10</h3>
+<p>Gom mot day duy nhat, khong tach nhanh tuy hung:</p>
+<table>
+<thead>
+<tr>
+<th>Buoc</th>
+<th>Noi dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Doc <code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>, mo ta chan doan (vao/ra) — tham <code>The_tri_thuc_mau_nhom_chuyen_mon_icd10_dot1.md</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gan vai tro I10: chinh / kem / nen</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Doi chieu thuoc ha ap voi seed <code>THUOC_32</code>–<code>THUOC_38</code> (chi dinh, chong chi dinh, lieu/tan suat)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Can bang voi VSH 2022 va (neu can) AHA/ACC 2025 (<code>I10-7</code>): nguong, muc tieu, tiep can nguy co — chi khi huong dan huan luyen / giai thich, khong ghi de buoc 3 neu chua co rule tuong ung</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tach canh bao: chuyen mon vs hanh chinh (<code>THUOC_436</code>) vs tai chinh (<code>DM-THUOC-04</code>, <code>XML_53</code>)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ket luan: theo <strong>lop</strong> + <strong>muc chac chan</strong> (chac chan / tam thoi / thieu du lieu)</td>
+</tr>
+</tbody></table>
+<h3>7.3. Dau ra huan luyen thong nhat moi dot</h3>
+<p>Moi dot nen co dung <strong>hai san pham</strong> (trung voi <code>Quy_trinh_prompt_huan_luyen_AI_BHYT.md</code>):</p>
+<ul>
+<li><strong>Mot file the tri thuc</strong> theo chuyen de (vd: file I10 nay, hoac mo rong dot 2).</li>
+<li><strong>Mot ca thuc</strong> (XML + audit) minh hoa.</li>
+</ul>
+<h3>7.4. Buoc tiep theo da thong nhat</h3>
+<ol>
+<li><strong>Dot I10-2</strong>: bo sung the theo tinh huong dac biet tu VSH (thai ky, benh than man, dot quy, nguoi cao tuoi) — map sang ICD10 / truong XML khi co.</li>
+<li><strong>Moi lan co PDF/phac do moi</strong>: trich vao <code>tai_lieu/</code> + cap nhat muc 2 (nguon) + them the hoac tieu muc trong file chuyen de tuong ung.</li>
+<li><strong>Khi sua rule</strong>: bat buoc co ca kiem thu audit va ca huan luyen cap nhat, tranh chi sua theo ly thuyet.</li>
+</ol>
+
+  </main>
+</body>
+</html>

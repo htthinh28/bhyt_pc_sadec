@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 403244 - PTTT - NỘI SOI ĐẠI TRỰC TRÀNG GÂY MÊ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_403244_PTTT_noi_soi_gay_me.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 403244 - PTTT - NỘI SOI ĐẠI TRỰC TRÀNG GÂY MÊ</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Đây là ca huấn luyện hoàn chỉnh được dựng theo đúng tinh thần của quy trình prompt trọn gói: chọn một chủ đề hẹp, bám trên XML thật và audit thật, rồi chốt thành tài liệu tái sử dụng.</p>
+<p>Ca này tập trung vào nhóm <code>PTTT</code> và dịch vụ:</p>
+<ul>
+<li><code>02.0261.0319</code> Nội soi đại trực tràng toàn bộ ống mềm có dùng thuốc gây mê</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>XML gốc: <code>tai_nguyen/xml/QD130_94170_202603_202603191032_PC-022603360.xml</code></li>
+<li>Audit: <code>test_xml/audit_403244_20260405_224614.json</code></li>
+<li>Rule liên quan:<ul>
+<li><code>CLN-PTTT-02</code></li>
+<li><code>CLN-PTTT-05</code></li>
+<li><code>CLN-PTTT-13</code></li>
+<li><code>DVKT_0259</code></li>
+<li><code>DVKT_2587</code> (thay thế ví dụ mã đã gỡ khỏi seed; xem <code>Khung_chat_luong_giam_dinh_DVKT_VBHN17.md</code>)</li>
+</ul>
+</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>403244</code></li>
+<li>Hồ sơ nội trú</li>
+<li>Chẩn đoán chính: <code>K52.3</code></li>
+<li>Chẩn đoán kèm có <code>K63.5</code>, <code>K21</code>, <code>E11</code>, <code>I10</code>, <code>R10.4</code></li>
+<li>Chẩn đoán ra viện có mô tả:<ul>
+<li>viêm đại tràng không xác định</li>
+<li>polyp đại tràng</li>
+<li>polyp đại tràng cắt qua nội soi</li>
+</ul>
+</li>
+</ul>
+<p>Điểm quan trọng:</p>
+<ul>
+<li>hồ sơ có dấu vết rõ ràng của can thiệp nội soi liên quan đại tràng</li>
+<li>nhưng dữ liệu PTTT và chứng cứ đi kèm chưa đầy đủ</li>
+</ul>
+<h2>4. Dữ liệu thật đã xác nhận từ XML</h2>
+<h3>4.1. XML1</h3>
+<p>Đã xác nhận:</p>
+<ul>
+<li><code>MA_LOAI_KCB = 03</code></li>
+<li><code>MA_PTTT_QT</code> đang để trống</li>
+<li><code>NGAY_VAO = 202603160638</code></li>
+<li><code>NGAY_RA = 202603191100</code></li>
+</ul>
+<h3>4.2. XML3</h3>
+<p>Có dòng dịch vụ:</p>
+<ul>
+<li><code>STT = 9</code></li>
+<li><code>MA_DICH_VU = 02.0261.0319</code></li>
+<li><code>TEN_DICH_VU = Nội soi đại trực tràng toàn bộ ống mềm có dùng thuốc gây mê</code></li>
+<li><code>MA_NHOM = 18</code></li>
+<li><code>MA_PTTT_QT</code> để trống</li>
+<li><code>MA_BAC_SI = 001513/CT-GPHN</code></li>
+<li><code>NGUOI_THUC_HIEN = 001513/CT-GPHN</code></li>
+<li><code>NGAY_YL = 202603160816</code></li>
+<li><code>NGAY_TH_YL = 202603160816</code></li>
+</ul>
+<h3>4.3. XML5</h3>
+<p>Audit cho thấy XML5 chưa có tóm tắt <code>PHAU_THUAT</code> phù hợp cho dòng PTTT này.</p>
+<h2>5. Kết quả audit trọng tâm</h2>
+<p>Audit ghi nhận 11 cảnh báo. Trong đó cụm quan trọng nhất cho ca này là:</p>
+<ol>
+<li><code>CLN-PTTT-02</code></li>
+<li><code>CLN-PTTT-05</code></li>
+<li><code>CLN-PTTT-13</code></li>
+<li><code>DVKT_0259</code></li>
+</ol>
+<p>Chi tiết nghiệp vụ:</p>
+<h3>5.1. <code>CLN-PTTT-02</code></h3>
+<ul>
+<li>XML3 có <code>1</code> dòng PTTT nhưng XML1 chưa khai <code>MA_PTTT_QT</code>.</li>
+</ul>
+<h3>5.2. <code>CLN-PTTT-05</code></h3>
+<ul>
+<li>Dòng <code>02.0261.0319</code> trong XML3 chưa khai <code>MA_PTTT_QT</code> ở cả XML3 và XML1.</li>
+</ul>
+<h3>5.3. <code>CLN-PTTT-13</code></h3>
+<ul>
+<li>XML3 có PTTT nhưng XML5 chưa ghi tóm tắt phẫu thuật/thủ thuật <code>PHAU_THUAT</code>.</li>
+</ul>
+<h3>5.4. <code>DVKT_0259</code></h3>
+<ul>
+<li>Nội soi đại trực tràng có gây mê cần tối thiểu 2 nhân viên.</li>
+<li>Audit cho rằng phần chứng cứ nhân sự ở bảng liên quan chưa đạt mức tối thiểu mong đợi.</li>
+</ul>
+<h2>6. Kết luận mẫu mà AI nên rút ra</h2>
+<p>Kết luận chuẩn cho ca này nên là:</p>
+<ol>
+<li>Hồ sơ <code>403244</code> có một dịch vụ PTTT rõ ràng ở XML3 là nội soi đại trực tràng có dùng thuốc gây mê.</li>
+<li>Dữ liệu PTTT đang thiếu ở cả cấp hồ sơ và cấp dòng vì <code>MA_PTTT_QT</code> trống ở XML1 lẫn XML3.</li>
+<li>Hồ sơ cũng thiếu lớp chứng cứ tóm tắt thực hiện trên XML5, làm yếu căn cứ thanh toán kỹ thuật.</li>
+<li>Ngoài thiếu mã hóa, audit còn cảnh báo thiếu cấu hình/chứng cứ nhân sự tối thiểu cho kỹ thuật có gây mê.</li>
+<li>Đây là ca điển hình cho lỗi “kỹ thuật có làm nhưng hồ sơ điện tử chưa đủ chứng cứ và chưa đủ mã hóa”, không phải ca để kết luận đơn thuần là sai chẩn đoán.</li>
+</ol>
+<h2>7. Điều AI phải tránh</h2>
+<p>AI không nên tự kết luận rằng:</p>
+<ul>
+<li>dịch vụ này chắc chắn không được thực hiện</li>
+<li>hoặc chắc chắn là gian lận</li>
+</ul>
+<p>Lý do:</p>
+<ul>
+<li>dữ liệu hiện có chỉ cho phép kết luận chắc về <strong>thiếu chứng cứ/mã hóa hồ sơ</strong>, chưa đủ để khẳng định bản chất chuyên môn thực tế ngoài bệnh án giấy hay nguồn khác.</li>
+</ul>
+<h2>8. Bài học huấn luyện cho AI</h2>
+<h3>8.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Với PTTT, lỗi thường nằm ở chỗ thiếu chứng cứ và thiếu đối chiếu liên bảng, không chỉ ở chẩn đoán.</li>
+</ul>
+<h3>8.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Khi gặp nhóm <code>PTTT</code>, AI phải đọc liên thông ít nhất <code>XML1</code>, <code>XML3</code>, <code>XML5</code>.</li>
+<li>Không được dừng ở một bảng duy nhất.</li>
+</ul>
+<h3>8.3. Bài học quy trình</h3>
+<ul>
+<li>Trình tự đúng:<ol>
+<li>xác định dịch vụ PTTT ở XML3</li>
+<li>kiểm tra <code>MA_PTTT_QT</code> ở XML1 và XML3</li>
+<li>kiểm tra tóm tắt <code>PHAU_THUAT</code> ở XML5</li>
+<li>kiểm tra nhân sự/vật tư đi kèm nếu seed rule yêu cầu</li>
+<li>mới chốt kết luận</li>
+</ol>
+</li>
+</ul>
+<h2>9. Vì sao đây là một đợt huấn luyện trọn gói tốt</h2>
+<p>Ca này phù hợp để dùng như một vòng huấn luyện hoàn chỉnh vì nó có đủ 3 lớp:</p>
+<ul>
+<li>dữ liệu XML thật trong repo</li>
+<li>audit thật sinh từ đúng file đó</li>
+<li>cả built-in rule và seed rule cùng tham gia</li>
+</ul>
+<p>Nó giúp AI học được cách làm việc không chỉ với thuốc, mà còn với dịch vụ kỹ thuật và hồ sơ chứng từ thực hiện.</p>
+<h2>10. Prompt gợi ý để dùng lại ca này</h2>
+<ul>
+<li><code>/Chuong Trinh Huan Luyen AI BHYT Chu de PTTT, dung ho so 403244 va tap trung noi soi dai truc trang gay me</code></li>
+<li><code>/Mo Phong Ca Giam Dinh BHYT Ho so 403244, phan tich CLN-PTTT-02, CLN-PTTT-05, CLN-PTTT-13, DVKT_0259</code></li>
+<li><code>/Phan Tich XML BHYT Theo Ho So MA_LK 403244, doi chieu XML1 XML3 XML5 cho dich vu 02.0261.0319</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

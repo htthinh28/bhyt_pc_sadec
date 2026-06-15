@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000538 — CDHA_101 — MÃ MÁY THIẾT BỊ (MA_MAY) TRÊN DỊCH VỤ CĐHA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000538_CDHA_101_ma_may_XQ.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000538 — CDHA_101 — MÃ MÁY THIẾT BỊ (MA_MAY) TRÊN DỊCH VỤ CĐHA</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 09/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI nhận diện <strong><code>CDHA_101</code></strong>: <strong>mã máy</strong> (<code>XML3.MA_MAY</code>) không đạt định dạng (quá ngắn hoặc mã giả <strong>12345</strong>) trên dịch vụ <strong>không phải khám</strong> (tên DV không chứa “KHÁM”) — lỗi <strong>dữ liệu danh mục thiết bị</strong>, ảnh hưởng <strong>quyết toán BHXH</strong> theo tinh thần cảnh báo.</p>
+<p><strong>Không nhầm</strong> với:</p>
+<ul>
+<li>cảnh báo <strong>chuyển tuyến</strong> <code>CLN-CT-01</code> / <code>CLN-CT-02</code> (cùng hồ sơ);</li>
+<li>rule <strong>DVKT seed PTTT</strong> — khác nguồn (<code>luat_cdha_hardcoded</code> vs <code>du_lieu_luat_pttt_muc11</code>).</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000538_20260404_221726.json</code></li>
+<li>XML gốc (meta): <code>…\ip\PC022602579_IP26000243.xml</code></li>
+<li>Rule: <code>ma_nguon/tien_ich/luat_cdha_hardcoded.jsx</code> — id <code>CDHA-101</code>.</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <strong>000538</strong></li>
+<li>Có <strong><code>CDHA_101</code></strong> × 1 — dịch vụ ví dụ trong audit: <strong>Chụp X-quang ngực thẳng [số hóa 1 phim]</strong> (<code>index</code> XML3: <strong>1</strong>).</li>
+</ul>
+<p><strong>Cùng hồ sơ:</strong> <code>CLN-CT-01</code>, <code>CLN-CT-02</code>, <code>HC_171</code>, <code>HC_181</code>, <code>HD_10</code>.</p>
+<h2>4. Rule đích: CDHA_101</h2>
+<ul>
+<li><strong>Mã:</strong> <code>CDHA_101</code></li>
+<li><strong>Tên:</strong> Kiểm soát mã máy &quot;Rác&quot;</li>
+<li><strong>Điều kiện:</strong><br><code>(LEN(XML3.MA_MAY) &lt; 5 OR XML3.MA_MAY == &#39;12345&#39;) AND !(XML3.TEN_DICH_VU || &#39;&#39;).toUpperCase().includes(&#39;KHÁM&#39;)</code></li>
+<li><strong>Cảnh báo (gốc):</strong> Mã máy trang thiết bị không đúng định dạng hoặc mã giả định — BHXH có thể từ chối quyết toán.</li>
+</ul>
+<h2>5. Bài tập cho AI</h2>
+<ol>
+<li>Vì sao điều kiện <strong>loại trừ</strong> tên DV có chữ <strong>“KHÁM”</strong>? (Gợi ý: phân biệt công khám với CĐHA có máy.)</li>
+<li>Đề xuất <strong>một</strong> hành động sửa dữ liệu tại kho <strong>thiết bị / HIS</strong> (không cần số máy thật — chỉ mô tả loại việc).</li>
+<li>Chỉ ra <strong>một</strong> cảnh báo khác trong cùng audit <strong>không</strong> liên quan <code>MA_MAY</code>.</li>
+</ol>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Bảng neo: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a></li>
+<li>Hardcoded CĐHA (toàn bộ danh sách trong repo): <code>ma_nguon/tien_ich/luat_cdha_hardcoded.jsx</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phiên huấn luyện 03 — Đơn thuốc ngoại trú &gt;30 ngày: THUOC_418 vs CLN-THUOC-04</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phiên huấn luyện 03 — Đơn thuốc ngoại trú &gt;30 ngày: THUOC_418 vs CLN-THUOC-04</h1>
+<p><strong>Mục phiên:</strong> AI và kiểm tra viên phân biệt <strong>hai lớp kiểm tra</strong> cùng chủ đề “đơn dài ngày” ngoại trú: rule <strong>seed</strong> <code>THUOC_418</code> và rule <strong>built-in</strong> <code>CLN-THUOC-04</code>; tránh gộp nghĩa hoặc kết luận sai khi chỉ nhìn <code>SO_NGAY</code> trên XML2.</p>
+<p><strong>QA gợi ý trước/sau phiên:</strong> <code>npm run qa:audit-fixtures</code> (snapshot 10 file chuẩn). <strong>Ca + audit huấn luyện:</strong> <a href="./Ca_huan_luyen_mau_TRAINHL03_THUOC_418_CLN_THUOC_04.md">Ca_huan_luyen_mau_TRAINHL03_THUOC_418_CLN_THUOC_04.md</a> — <code>npm run qa:claim-audit</code> đã nạp seed <code>LUAT_THUOC</code> (xem <code>scripts/claim_audit_entry.jsx</code>).</p>
+<p><strong>Neo engine (bắt buộc):</strong> dòng phiên <strong>03</strong> trong <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.</p>
+<hr>
+<h2>1. Hai tầng trong engine (neo tài liệu + mã)</h2>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Nguồn</th>
+<th>Ý tưởng điều kiện (tóm tắt)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>THUOC_418</strong></td>
+<td>Seed <code>du_lieu_luat_thuoc_muc8.jsx</code></td>
+<td>Ngoại trú (<code>MA_LOAI_KCB == &#39;1&#39;</code>), <code>XML2.SO_NGAY &gt; 30</code>, <strong>loại trừ</strong> một số <code>MA_BENH_CHINH</code> (I10, E11, E10, B20) và <strong>loại trừ</strong> chẩn đoán ra viện khớp regex (tăng huyết áp, đái tháo đường, HIV, …). → <strong>Xuất toán</strong> theo cảnh báo seed.</td>
+</tr>
+<tr>
+<td><strong>CLN-THUOC-04</strong></td>
+<td>Built-in <code>dong_co_giam_dinh.jsx</code> → <code>giamDinhThuoc</code></td>
+<td>Ngoại trú, <code>max(SO_NGAY_DTRI, SO_NGAY) &gt; 30</code> và <strong>không</strong> thuộc danh mục ICD được phép kê &gt;30 ngày — phụ thuộc <code>dm.BO_QUY_TAC_ICD10_KE_DON_TREN_30_NGAY</code> và <code>isClaimAllowedPrescriptionOver30Days</code>.</td>
+</tr>
+</tbody></table>
+<p>Chi tiết built-in: <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> §3.1 (bảng <code>CLN-THUOC-04</code>).</p>
+<p><strong>Seed THUOC_418 (trích nguyên văn điều kiện + cảnh báo):</strong></p>
+<ul>
+<li><code>DIEU_KIEN</code>:<br><code>XML1.MA_LOAI_KCB == &#39;1&#39; AND XML2.SO_NGAY &gt; 30 AND XML1.MA_BENH_CHINH NOT IN (&#39;I10&#39;,&#39;E11&#39;,&#39;E10&#39;,&#39;B20&#39;) AND XML1.CHAN_DOAN_RV NOT REGEXP &#39;(?i)(TĂNG HUYẾT ÁP|CAO HUYẾT ÁP|ĐÁI THÁO ĐƯỜNG|ĐÁI THÁO ĐƯỜNG TÝP 1|HIV)&#39;</code></li>
+<li><code>CANH_BAO</code>:<br><code>⛔ [XUẤT TOÁN]: Đơn thuốc ngoại trú vượt quá 30 ngày (trừ bệnh mạn tính quy định tại Phụ lục TT 26/2025).</code></li>
+</ul>
+<hr>
+<h2>2. Việc làm trong <strong>Cursor</strong> (20–30 phút)</h2>
+<ol>
+<li>Mở <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> §3.1 — đọc dòng <strong>CLN-THUOC-04</strong>.  </li>
+<li>Trong <code>du_lieu_luat_thuoc_muc8.jsx</code>, tìm <code>SEED_THUOC_418</code> — đối chiếu với bảng §1 file này.  </li>
+<li><strong>Câu hỏi tự kiểm:</strong> Một hồ sơ có thể <strong>chỉ</strong> trúng CLN-THUOC-04 mà <strong>không</strong> trúng THUOC_418 (hoặc ngược lại) trong lý thuyết? Ghi <strong>2 bullet</strong> lý do (gợi ý: <code>MA_BENH_CHINH</code> vs danh mục dm; <code>CHAN_DOAN_RV</code> vs <code>isClaimAllowedPrescriptionOver30Days</code>; <code>SO_NGAY</code> vs <code>SO_NGAY_DTRI</code>).  </li>
+<li>(Tuỳ chọn) Tìm trong <code>dong_co_giam_dinh.jsx</code> chuỗi <code>CLN-THUOC-04</code> hoặc <code>KE_DON_TREN_30</code> — một câu mô tả “dữ liệu master cần có”.</li>
+</ol>
+<hr>
+<h2>3b. Ví dụ huấn luyện — không kết luận vội</h2>
+<ol>
+<li><strong>ICD chính I10, đơn 45 ngày</strong> — THUOC_418 <strong>không</strong> kích (NOT IN I10); CLN-THUOC-04 <strong>có thể</strong> vẫn xét tùy <code>isClaimAllowedPrescriptionOver30Days</code> và bảng ICD. AI <strong>không</strong> được nói “hết lỗi” chỉ vì một trong hai không báo.  </li>
+<li><strong><code>MA_LOAI_KCB</code> không phải <code>&#39;1&#39;</code></strong> — THUOC_418 <strong>không</strong> áp; đơn dài ngày <strong>nội trú/ảnh khác</strong> do rule khác xử lý.  </li>
+<li><strong>Chẩn đoán RV chứa từ khóa tăng huyết áp (text)</strong> — THUOC_418 có thể <strong>tắt</strong> nhờ <code>CHAN_DOAN_RV</code> regex; nếu encoding/ký tự XML khác chuẩn, <strong>regex có thể không khớp</strong> → rủi ro báo nhầm; cần kiểm tra thực tế trường trên XML.</li>
+</ol>
+<hr>
+<h2>4. Việc làm trong <strong>OpenClaw</strong> (dán lần lượt)</h2>
+<p><strong>Bước A — Bảng đối chiếu</strong></p>
+<pre><code class="language-text">Workspace: ung_dung_cdss_bhyt.
+Đọc tai_lieu/Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md và tai_lieu/The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md (§3.1).
+
+Xuất bảng: Tiêu chí | THUOC_418 | CLN-THUOC-04 (nguồn, điều kiện chính, mức độ cảnh báo nếu suy từ tài liệu).
+Thêm 4 câu hỏi phân biệt cho kiểm tra viên.
+Không PII; không sửa file.
+</code></pre>
+<p><strong>Bước B — Rủi ro triển khai</strong></p>
+<pre><code class="language-text">Dựa trên §3b của tai_lieu/Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md, liệt kê 5 rủi ro khi AI tự động kết luận &quot;đơn &gt;30 ngày vi phạm&quot; mà không đọc XML1/XML2 đủ trường.
+</code></pre>
+<p><strong>Bước C — Đề xuất ca mẫu tương lai</strong></p>
+<pre><code class="language-text">Đề xuất cấu trúc 1 file Ca_huan_luyen_mau_*_THUOC_418.md (metadata, bảng XML1/XML2 giả, kỳ vọng THUOC_418 vs CLN-THUOC-04). Không cần ghi file, chỉ outline markdown.
+</code></pre>
+<hr>
+<h2>5. Đánh dấu hoàn thành phiên</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Đã đọc §1–§3b và ghi 2 bullet “khác biệt hai tầng”  </li>
+<li><input disabled="" type="checkbox"> OpenClaw đã trả lời A–C (lưu biên bộ nội bộ nếu cần)  </li>
+<li><input disabled="" type="checkbox"> (Khuyến nghị) Lên kế hoạch thêm 1 audit <code>test_xml/</code> có <code>THUOC_418</code> hoặc <code>CLN-THUOC-04</code></li>
+</ul>
+<hr>
+<p><em>Phiên trước:</em> <a href="./Huan_luyen_phien_02_THUOC_391_Cursor_OpenClaw.md">Huan_luyen_phien_02_THUOC_391_Cursor_OpenClaw.md</a><br><em>Phiên sau:</em> <a href="./Huan_luyen_phien_04_THUOC_419_hang_BV.md">Huan_luyen_phien_04_THUOC_419_hang_BV.md</a></p>
+
+  </main>
+</body>
+</html>

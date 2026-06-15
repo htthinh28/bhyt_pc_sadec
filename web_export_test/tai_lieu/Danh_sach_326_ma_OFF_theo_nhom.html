@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Danh sách 326 mã quy tắc seed OFF (theo nhóm file)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Danh_sach_326_ma_OFF_theo_nhom.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Danh sách 326 mã quy tắc seed OFF (theo nhóm file)</h1>
+<p>Nguồn: <code>test_xml/rule_trang_thai_audit.json</code> (sinh bởi <code>node scripts/audit_quy_tac_trang_thai.js</code>).</p>
+<p><strong>Ghi chú:</strong> OFF ở đây là <code>TRANG_THAI: OFF</code> trong <strong>mã nguồn/seed</strong> — không bao gồm ghi đè ON/OFF trên thiết bị (<code>AsyncStorage</code> / Quản lý quy tắc).</p>
+<hr>
+<h2>Luật dữ liệu / cấu trúc XML (LUAT_DU_LIEU — muc1)</h2>
+<p><strong>File:</strong> <code>du_lieu_luat_du_lieu_muc1.jsx</code>  (6 mã)</p>
+<p><strong>Lý do nhóm:</strong> Các mã XML_* / CDSS_CM_* tắt trong seed để hạn chế cảnh báo khi trường dữ liệu hiếm, chuẩn chưa thống nhất, hoặc cần triển khai thêm logic/đối soát trước khi bật hàng loạt.</p>
+<h3>CDSS_CM_02</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CDSS Chuyên môn — Có kho phác đồ nhưng không có khóa ICD nào trên XML1 trùng bảng (sau gộp)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>XML_78</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sơ sinh vs Giấy chứng sinh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>XML_82</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu hồ sơ sơ sinh (XML8)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>XML_105</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tóm tắt HSBA rỗng (XML7)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>XML_128</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML2 có thứ tự dòng không liên tục</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>XML_136</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML3 có thứ tự dòng không liên tục</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật hành chính XML1 (muc2)</h2>
+<p><strong>File:</strong> <code>du_lieu_luat_hanh_chinh_muc2.jsx</code>  (140 mã)</p>
+<p><strong>Lý do nhóm:</strong> Nhiều quy tắc HC_* để OFF trong seed: chờ đủ ngữ cảnh (portal, VNeID, đa nguồn), giảm báo sai trên dữ liệu thực tế chưa chuẩn, hoặc chỉ bật khi cơ sở đã cấu hình kiểm tra tương ứng.</p>
+<h3>HC_04</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bắt buộc ghi chú lâm sàng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_09</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Miễn cùng chi trả (5 năm LT)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_10</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Cấp cứu (Bất kỳ cơ sở nào)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_16</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngoại trú trái tuyến (Cấp tỉnh)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_17</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Nội trú trái tuyến (Cấp tỉnh)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_21</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trẻ sơ sinh chưa có thẻ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_26</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chuyển tuyến cấp cứu (NĐ 188)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_27</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tỷ lệ thanh toán VTYT thay thế</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_28</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tỷ lệ thanh toán Thuốc 50%</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_29</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> VTYT Thủy tinh thể nhân tạo</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_30</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tỷ lệ VTYT Máy tạo nhịp tim</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_31</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Họ tên chứa ký tự đặc biệt</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_33</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai cấu trúc mã thẻ BHYT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_34</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngày sinh lớn hơn ngày hiện tại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_35</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trẻ em TE nhưng tuổi &gt; 6</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_36</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thẻ HS/SV nhưng tuổi &gt; 28</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_38</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã tỉnh trong địa chỉ sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_44</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giờ vào khoa trước giờ tiếp đón</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_45</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Y lệnh sau khi bệnh nhân đã ra viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_48</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã khoa phòng không đúng chuẩn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_50</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã tai nạn thương tích sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_51</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đơn vị tính thuốc không chuẩn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_53</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chuyển tuyến thiếu số hồ sơ chuyển</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_54</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tuyến cơ sở KCB ban đầu sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_55</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Cấp cứu nhưng mã lý do vào viện sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_56</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngày cấp GCT sau ngày vào viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_57</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã cơ sở chuyển đi không tồn tại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_61</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai lệch tổng tiền XML1 và XML3</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_64</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ mổ trùng bác sĩ gây mê</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_66</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai phiên bản XML 130</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_67</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã cơ sở KCB trong file sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_70</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thừa tệp tin không quy định</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_72</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chẩn đoán ICD-10 tiếng Việt không dấu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_73</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bệnh nhân quốc tịch nước ngoài thiếu hộ chiếu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_75</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Gửi hồ sơ chậm quá 7 ngày</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_77</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trẻ em thiếu số định danh cá nhân</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_78</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu số định danh khi dùng VNeID</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_79</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã dân tộc sai chuẩn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_81</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thẻ mã vùng K1/K2/K3 thiếu nơi sống</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_84</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thẻ BHYT hết hạn tại thời điểm y lệnh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_85</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy chuyển tuyến thiếu mã nơi đi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_87</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chuyển tuyến không đúng thẩm quyền</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_88</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu mã số hồ sơ chuyển tuyến</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_89</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chẩn đoán nơi đi mâu thuẫn nơi đến</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_90</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã thuốc không có trong danh mục thầu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_91</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc phóng xạ thiếu mã an toàn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_93</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc tự bào chế thiếu bảng kê</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_97</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy ra viện thiếu chữ ký lãnh đạo</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_100</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tổng tiền thanh toán sai công thức</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_101</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền xét nghiệm XML1 và XML3 lệch</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_102</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền chẩn đoán hình ảnh lệch</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_103</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chi phí vận chuyển vượt định mức</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_108</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ ký hồ sơ không phải điều trị</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_109</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tên file XML sai quy định</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_110</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> File XML chứa ký tự BOM</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_112</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai mã bảng dữ liệu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_113</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bệnh nhân không có cân nặng/chiều cao</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_114</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu ghi chú dị ứng tại XML1</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_115</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã định danh đơn thuốc điện tử sai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_116</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chênh lệch tiền thuốc do làm tròn &gt; 10đ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_117</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu ngày kết thúc đợt điều trị</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_118</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trẻ sơ sinh chưa có tên (Con bà...)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_120</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bệnh nhân nội trú thiếu nhóm máu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_122</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chữ ký số hết hạn tại ngày ký</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_123</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thẻ quân nhân (QN) thiếu đơn vị quản lý</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_124</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thẻ trẻ em (TE) không có ngày đủ 6 tuổi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_126</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thời gian vào khoa sau y lệnh đầu tiên</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_128</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Điều trị nội trú thiếu mã bác sĩ cho bệnh kèm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_129</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ra viện diện trốn viện (Lý do 4)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_131</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thông tuyến huyện sai mức hưởng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_133</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy hẹn khám lại thiếu chữ ký BS</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_134</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chuyển tuyến diện cấp cứu mâu thuẫn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_135</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy chuyển tuyến quá hạn 1 năm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_137</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Dịch vụ kỹ thuật thiếu mã theo TT22</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_138</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đơn giá thuốc bệnh viện tự thầu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_139</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy nghỉ dưỡng thai thiếu số tuần</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_140</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tóm tắt hồ sơ thiếu hướng điều trị tiếp</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_141</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Biên bản PTTT thiếu mã gây mê</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_142</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Kết quả CLS thiếu giá trị bình thường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_143</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hồ sơ tử vong thiếu thời điểm tử vong</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_144</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền xét nghiệm XML1 âm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_145</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Lỗi tính tiền BHTT cho đối tượng nghèo</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_146</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chi phí chênh lệch giá (Nguồn khác)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_148</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai lệch số tiền miễn giảm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_149</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giám đốc chưa ký duyệt hồ sơ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_150</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngày ký điện tử trước ngày lập bảng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_152</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã khoa lập hồ sơ không tồn tại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_153</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BN nhi thiếu tên người giám hộ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_155</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền khám lượt 3 trở đi tính BHYT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_156</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai mã hình thức vào viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_158</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám bằng hình ảnh thẻ trên VssID</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_159</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BN từ chối cung cấp CCCD</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_161</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai logic mã thẻ tạm và số định danh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_163</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai định dạng Ngày giờ y lệnh (Phút lẻ)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_164</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tổng tiền thanh toán bị làm tròn sai số</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_165</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bệnh nhân ra viện nhưng hồ sơ chưa đóng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_166</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tệp XML thiếu mã ký số cơ quan</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_167</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Diễn biến lâm sàng sau giờ tử vong</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_168</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giờ kết thúc mổ sau giờ ra viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_170</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thời gian gây mê vượt quá 24h</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_172</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giấy ra viện thiếu mã bệnh chính</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_174</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tổng tiền giường lệch với chi tiết</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_175</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tổng chi phí bằng 0 (Nội trú)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_177</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã PTTT quốc tế không chuẩn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_178</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đơn vị tính thuốc chứa số</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_180</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ mổ và bác sĩ điều trị khác nhau</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_182</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Người lập bảng và bác sĩ điều trị trùng nhau</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_183</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chữ ký số bệnh viện bị thiếu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_184</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngày ký hồ sơ sau ngày gửi cổng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_187</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Có tạng hiến nhưng thiếu mã tạng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_188</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu giấy chứng sinh (Bé sơ sinh)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_189</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Nghỉ dưỡng thai quá 10 ngày/lần</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_191</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tên bảng dữ liệu viết thường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_192</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> File XML chứa ký tự lạ (Non-UTF8)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_195</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu thông tin cổng tiếp nhận (Portal)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_196</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Dùng CCCD nhưng thiếu ngày cấp</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_197</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Địa chỉ thường trú và tạm trú trùng nhau</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_198</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai mã tỉnh cấp thẻ BHYT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_201</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ điều trị nghỉ việc vẫn có tên</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_202</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hồ sơ ra viện quá hạn đẩy cổng (&gt; 15 ngày)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_203</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tệp XML bị virus hoặc mã độc</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_209</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giờ vào khoa sau giờ ra viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_211</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Ngày cấp GCT trùng ngày ra viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_219</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai lệch tiền DVKT (XML1 vs XML3)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_222</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Mã bác sĩ chứa ký tự đặc biệt</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_224</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ mổ trùng bác sĩ phụ mổ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_226</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trẻ em dùng mã định danh sai cấu trúc</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_227</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu ảnh chân dung xác thực VNeID</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_228</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BN trên 80 tuổi thiếu đối tượng ưu tiên</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_229</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu giấy chứng nhận phẫu thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_231</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu thông tin người đỡ đẻ (Sản)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_233</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hồ sơ có thuốc gây nghiện thiếu số đơn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_234</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BN nội trú chưa đánh giá nguy cơ té ngã</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_235</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu mã vùng thẻ (K1, K2, K3)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_236</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền khám lần 2 cùng chuyên khoa</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_239</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tên thẻ XML chứa ký tự tiếng Việt</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_240</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hồ sơ gửi lại thiếu mã lý do</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_241</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BN chết trước khi vào viện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_243</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ điều trị bị khóa tài khoản</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HC_244</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hồ sơ chưa qua bước kiểm soát nội bộ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật PTTT (muc11)</h2>
+<p><strong>File:</strong> <code>du_lieu_luat_pttt_muc11.jsx</code>  (1 mã)</p>
+<p><strong>Lý do nhóm:</strong> Quy tắc PTTT seed OFF khi điều kiện cần bổ sung danh mục/tham số nội bộ trước khi vận hành.</p>
+<h3>DVKT_1634</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chỉ định - SA Doppler ĐM, TM chi dưới (18.0045.0004)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật thuốc (muc8)</h2>
+<p><strong>File:</strong> <code>du_lieu_luat_thuoc_muc8.jsx</code>  (12 mã)</p>
+<p><strong>Lý do nhóm:</strong> Một số THUOC_* tắt trong seed do rủi ro dương tính giả (định dạng đơ, thay thế thuốc), cần rà soát từng BV hoặc chờ chuẩn hóa mã/HIS.</p>
+<h3>THUOC_387</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Amoxicilin/Clavulanic: Liều Nhi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_400</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đơn thuốc điện tử sai định dạng mã</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_442</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Methylprednisolon: Liều/24h</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_443</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Người mua hộ thuốc thiếu định danh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_477</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc đắt tiền (&gt;10 triệu/lọ)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_486</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc gây nghiện BN nhi &lt; 12 tuổi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_511</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc thay thế dịch vụ (Cùng mã)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_512</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc thay thế khác hoạt chất</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_513</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc thay thế thiếu mã DVKT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_515</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc tự chế từ vị thuốc (Giá)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_516</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thuốc tự mua - Thiếu số hóa đơn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>THUOC_537</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> JCI Safety: Trường thông tin dị ứng không được để trống</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật CĐHA / DVKT (CDHA_*)</h2>
+<p><strong>File:</strong> <code>luat_cdha_hardcoded.jsx</code>  (109 mã)</p>
+<p><strong>Lý do nhóm:</strong> Khối lớn CDHA_* OFF: chủ yếu liên quan MRI/CT/DSA/cản quang, XML4/XML130 chi tiết, JCI, thời gian trả KQ — thường thiếu trường hoặc dễ báo giả; giữ OFF đến khi có dữ liệu đủ và kiểm thử (có phần trùng chính sách MRI/DSA trong quy_tac_on_off_noi_bo).</p>
+<h3>CDHA_01</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML 5: Phim và XML 3: Số lượng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_07</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML 130: Chứng chỉ hành nghề BS</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_08</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML 130: Chữ ký số của BS đọc KQ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_09</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XML 130: Chữ ký số Bác sĩ đọc</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_10</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang xương và VTYT: Thùng chì</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_13</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang và VTYT: Tấm nhận ảnh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_14</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang và Chỉ số liều tia (DAP/DLP)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_17</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang tại giường và Khoa thực hiện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_19</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang phổi và Thai sản</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_22</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang ngực và Vật tư tấm cảm biến</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_25</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> X-quang Kỹ thuật số (DR) và Phim ướt</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_29</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> VTYT: Kim chọc dò dưới SA</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_30</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> VTYT: Bộ dây bơm tiêm điện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_33</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Tiền sử dị ứng thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_35</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu phiếu kết quả CĐHA</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_38</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thể tích thuốc cản quang và Cân nặng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_40</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sinh thiết dưới hướng dẫn SA</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_42</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm và Bơm tiêm điện (Contrast)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_46</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm tim và Chỉ số EF</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_52</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm thai và Tuổi thai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_58</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm độ mờ da gáy (NT)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_62</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm Doppler và Thai nhi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_73</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Siêu âm bụng và Nhịn ăn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_80</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI và Thai kỳ (Tam cá nguyệt 1)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_84</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI và Cam kết JCI (Sàng lọc)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_85</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI và Cam kết JCI</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_86</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI và An toàn tiền sử kim loại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_88</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI Tuyến yên và Prolactin máu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_89</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI Tuyến yên và Kết quả nội tiết</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_91</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI Tim và Vật tư điện cực</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_96</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> MRI khớp có tiêm thuốc đối quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_106</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hiệu lực xét nghiệm Creatinine</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_111</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đối soát số lượng phim X-quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_112</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Đối soát nội soi và kết quả hình ảnh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_113</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Độ dài mô tả kết quả (XML4)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_116</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Định dạng URL DICOM 130</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_117</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Dự phòng dị ứng thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_118</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT/MRI và Thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_125</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT-Scanner và Liều thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_126</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT-Scanner và Dị ứng tôm/cua</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_127</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT-Scanner và Chỉ số HA tâm thu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_128</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT-Scanner và Chỉ số GFR</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_129</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT-Scanner và Chỉ số Creatinine</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_135</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT Mạch vành và Chỉ số Creatinine</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_137</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CT Bụng và Chỉ định Nhịn ăn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_141</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang và In phim</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_142</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang và Đối soát Phim hỏng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_143</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang và Đối soát Phim hỏng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_144</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang và Chỉ số BMI</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_149</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang thực quản cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_151</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang số hóa và phim thường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_159</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp X-quang chi và Bên tổn thương</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_161</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp tử cung vòi trứng (HSG) và Thai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_167</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp DSA và Vật tư can thiệp</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_173</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chụp CT và Đối soát mã BS chỉ định</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_192</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> An toàn tia xạ cho Phụ nữ có thai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_195</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [XML 130] Tên phim và Kích thước phim</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_197</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [XML 130] Mã hóa loại thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_198</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [XML 130] Đối soát mã máy theo Khoa</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_200</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [XML 130] Đối soát BS chỉ định</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_201</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [XML 130] Định dạng giá trị eGFR</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_203</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Vật tư] CT &amp; Bơm tiêm điện</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_207</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] TAT trả KQ X-quang tại giường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_208</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] TAT trả KQ X-quang tại giường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_213</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Siêu âm kiểm tra sau mổ nội trú</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_216</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Hiệu lực X-quang phổi tiền phẫu nội trú</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_218</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Hiệu lực Creatinine điều trị nội trú</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_219</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Hiệu lực Creatinine (Ngoại trú)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_220</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Chụp X-quang Sản phụ khoa</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_221</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Chụp MRI sau phẫu thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_227</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [SOP] X-quang thực quản cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_228</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [SOP] Siêu âm ổ bụng &amp; Nhịn ăn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_234</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] KTV thực hiện X-quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_235</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] KTV thực hiện đo loãng xương</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_236</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] KTV ký XML 130 (XML3)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_237</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] KTV ký thực hiện CT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_239</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] Chứng chỉ an toàn bức xạ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_241</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] CCHN BS can thiệp</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_247</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] BS Hội chẩn Kỹ thuật cao</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_248</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Người hành nghề] BS Hội chẩn ca khó</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_257</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Kỹ thuật] MRI &amp; Bảng kiểm kim loại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_259</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [JCI] Vòng tay dị ứng &amp; Chỉ định CQ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_260</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [JCI] Báo động Tràn khí màng phổi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_261</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Vật tư tấm nhận ảnh (Cassette)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_262</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Vật tư nút mạch (Coil/Glue)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_263</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Vật tư kim sinh thiết</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_264</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Vật tư Catheter trong DSA</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_265</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Tốc độ tiêm thuốc cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_267</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Thuốc tiền mê nhi khoa</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_270</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Thông báo kết quả giá trị báo động</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_271</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Thông báo kết quả báo động</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_272</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Thông báo giá trị cảnh báo</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_273</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Theo dõi sau tiêm cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_274</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Theo dõi sau tiêm cản quang</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_275</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Siêu âm thai và Tuổi mẹ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_276</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Siêu âm doppler mạch rốn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_279</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Kiểm tra vật tư che chắn chì</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_282</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Creatinine và CT Hệ tiết niệu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_285</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Điều kiện] Chỉ số lọc cầu thận (eGFR) Nhi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_287</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] X-quang và Có thai (Tam cá 1)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_291</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] SA đầu dò âm đạo (Nữ)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_294</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] MRI và Mảnh đạn/Kim loại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_298</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] MRI và Dị vật kim loại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_299</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] MRI và Chứng sợ buồng kín</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_302</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] CT và Phản vệ độ III</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_303</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] CT có cản quang và Suy thận</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_306</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] CT cản quang &amp; Phản vệ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_308</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Chống CĐ] Cần cản quang &amp; Suy thận</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CDHA_330</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Can thiệp] Sinh thiết &amp; Đông máu</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật công khám (CK_*)</h2>
+<p><strong>File:</strong> <code>luat_cong_kham_hardcoded.jsx</code>  (12 mã)</p>
+<p><strong>Lý do nhóm:</strong> Một số CK_* OFF vì cần ngữ cảnh ngoài một hồ sơ (batch nhiều lượt, map chuyên môn, COUNT_VISIT) hoặc chờ chuẩn hóa DM_KHAM/DM_* — xem comment trong luat_cong_kham_hardcoded.jsx từng mã.</p>
+<h3>CK_05</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám chuyên khoa tại khoa lâm sàng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_23</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Công khám vượt định mức 2.000.000đ/năm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_25</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CCHN bác sĩ Nhi khoa khám người lớn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_26</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám bệnh mạn tính quá 12 lần/năm</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_27</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Công khám bệnh án mạn tính</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_34</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu chữ ký số trên hồ sơ khám</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_36</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CCHN bác sĩ không phù hợp khoa</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_38</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám chuyên khoa tại khoa không tương ứng</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_46</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám bệnh vượt tuyến kỹ thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_51</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bác sĩ khám vượt quá 02 cơ sở/ngày</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_52</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trùng lặp công khám cùng giờ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>CK_55</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Điều trị nội trú (mã 03/09) không qua khoa khám</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật kiểm tra chuyên đề (Chuyen_de_*)</h2>
+<p><strong>File:</strong> <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>  (10 mã)</p>
+<p><strong>Lý do nhóm:</strong> Các mã Chuyen_de_* OFF trong seed: điều kiện nhạy hoặc cần kiểm thử vàng / tạm khóa theo rà soát nội bộ trước khi bật lại.</p>
+<h3>Chuyen_de_024</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> XN thường quy sai quy định trước mổ Phaco</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_082</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Có thanh toán DVKT nhưng thiếu Y lệnh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_095</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Bảng kê chi phí KCB lập sai quy định</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_272</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Trưởng khoa/Phụ trách ICU sai chứng chỉ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_288</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Dịch vụ ngoài danh mục tương đương</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_310</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu chữ ký Phiếu công khai DVKT/Thuốc</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_325</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thanh toán DVKT chưa được phê duyệt giá</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_393</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu chữ ký Phiếu công khai</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_498</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám lại trái tuyến không giấy chuyển</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>Chuyen_de_514</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Cấp cứu nhưng hồ sơ không ghi nhận</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật giường (GB_*)</h2>
+<p><strong>File:</strong> <code>luat_giuong_hardcoded.jsx</code>  (17 mã)</p>
+<p><strong>Lý do nhóm:</strong> GB_* OFF khi logic giường/khoa/công suất cần khớp cấu hình BV hoặc tránh cảnh báo trên XML chưa đầy đủ.</p>
+<h3>GB_02</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường điều trị nội trú (mã 03/09) và mã bệnh nhẹ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_04</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường và Ngày phẫu thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_05</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Hậu phẫu] Giường và Ngày phẫu thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_20</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [BHYT] Giường và thẻ sắp hết hạn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_28</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Sản khoa] Giường con nằm cùng mẹ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_34</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Hồi sức] Giường ICU và Máy thở</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_39</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường Nhi tại khoa người lớn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_53</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Đơn giá] Giường nội trú ban ngày (mã 04)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_54</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Đơn giá] Giường nằm ghép 3 người</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_55</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Đơn giá] Giường nằm ghép 2 người</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_56</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường và Đơn giá giường ghép 2</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_57</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường nội trú ban ngày (mã 04) và Mã giường BHYT</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_63</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Trùng lặp] Nhiều giường trong 1 ngày</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_67</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Logic] Ngày vào muộn hơn ngày mổ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_68</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Giường và Thời gian phẫu thuật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_71</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Chuyển khoa và Tính ngày giường</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>GB_76</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> [Thời gian] Nằm viện tối thiểu 4 giờ</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật hợp đồng / tổng hợp (HD_*)</h2>
+<p><strong>File:</strong> <code>luat_hop_dong_hardcoded.jsx</code>  (6 mã)</p>
+<p><strong>Lý do nhóm:</strong> HD_* OFF khi kiểm tra phụ thuộc quy ước gửi dữ liệu, ngày nghỉ, hoặc tiêu chí JCI chưa áp dụng đồng loạt.</p>
+<h3>HD_03</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám bệnh ngày Chủ nhật</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HD_07</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Gửi dữ liệu chậm (sau khi ra viện)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HD_08</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Khám sức khỏe/Theo yêu cầu (Điều 23 Luật BHYT)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HD_09</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Sai mã phương thức thanh toán</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HD_10</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>HD_11</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Dịch vụ ngoài danh mục phê duyệt</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<hr>
+<h2>Luật nhân sự (NS_*)</h2>
+<p><strong>File:</strong> <code>luat_nhan_su_hardcoded.jsx</code>  (13 mã)</p>
+<p><strong>Lý do nhóm:</strong> NS_* OFF: phạm vi hành nghề và map nhân sự–DVKT cần danh mục đăng ký SYT/HIS đầy đủ; bật sau khi BV nạp DM nhân sự và kiểm tra khớp.</p>
+<h3>NS_02</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Kiểm tra nhân sự có trong DM đăng ký hành nghề</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_03</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BS Y khoa - Phạm vi hành nghề (PL V, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_04</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BS YHCT - Phạm vi hành nghề (PL VI, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_05</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BS RHM - Phạm vi hành nghề (PL VIII, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_06</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BS Chuyên khoa - Phạm vi hành nghề (PL IX, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_07</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Điều dưỡng - Phạm vi hành nghề (PL XII, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_08</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Hộ sinh - Phạm vi hành nghề (PL XIII, TT 32)</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_09</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Kiểm tra phân cấp kỹ thuật theo vị trí chuyên môn</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_11</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Kê thuốc đặc trị - BS không có quyền kê</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_12</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> CCHN hết hạn hoặc bị thu hồi</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_13</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> DVKT ngoài DMDC BHYT hoặc ngoài phạm vi CSKCB</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_14</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> BS chỉ định ≠ BS thực hiện - Thiếu y lệnh</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+<h3>NS_15</h3>
+<ul>
+<li><strong>Tên quy tắc:</strong> Nhân sự không đăng ký tại CSKCB hiện tại</li>
+<li><strong>Vì sao OFF (ở mức seed):</strong> Trong file nguồn, quy tắc được khai báo với <code>TRANG_THAI: OFF</code> — engine <strong>không</strong> phát cảnh báo từ mã này cho đến khi đổi seed sang ON hoặc bật qua Quản lý ON/OFF (nếu mã được quản trị).</li>
+<li><strong>Gợi ý nghiệp vụ:</strong> Thường là tạm khóa vì thiếu trường XML đủ tin cậy, cần batch/hồ sơ giấy, hoặc rủi ro dương tính giả — bật khi đã rà soát với dữ liệu thật tại BV.</li>
+</ul>
+
+  </main>
+</body>
+</html>

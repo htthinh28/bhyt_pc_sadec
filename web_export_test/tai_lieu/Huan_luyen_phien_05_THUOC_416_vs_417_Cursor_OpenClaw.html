@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phiên huấn luyện 05 — THUOC_416 vs THUOC_417: hai “cấp dư” trong seed</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_05_THUOC_416_vs_417_Cursor_OpenClaw.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phiên huấn luyện 05 — THUOC_416 vs THUOC_417: hai “cấp dư” trong seed</h1>
+<p><strong>Mục phiên:</strong> AI (và người đào tạo) phân biệt <strong>hai rule cùng họ “cấp dư”</strong> trong <code>du_lieu_luat_thuoc_muc8.jsx</code>: một dùng <strong><code>CALC_SL_MOI_NGAY</code></strong> (engine suy từ <code>LIEU_DUNG</code> / chuẩn hoá), một dùng <strong><code>SL_MOI_NGAY</code> trên XML2</strong> — và hiểu <strong>cùng một lớp lọc</strong> <code>locCanhBaoDuongTinhGiaTheoNguCanh</code> áp cho cả hai (đơn vị, làm tròn, <code>max(CALC, SL)</code>).</p>
+<p><strong>Neo engine (bắt buộc):</strong> dòng phiên <strong>05</strong> trong <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.</p>
+<p><strong>Neo chỉ mục:</strong> <a href="./The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md">The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</a> — §4 (làm giàu XML2), §5 (lọc <code>THUOC_416</code> / <code>THUOC_417</code>).</p>
+<hr>
+<h2>1. Seed — so sánh trực tiếp</h2>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th><code>TEN_QUY_TAC</code> (rút gọn)</th>
+<th><code>DIEU_KIEN</code> (ý niệm)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>THUOC_416</strong></td>
+<td>Kiểm tra Thuốc cấp dư</td>
+<td><code>SO_LUONG &gt; (CALC_SL_MOI_NGAY * SO_NGAY)</code></td>
+</tr>
+<tr>
+<td><strong>THUOC_417</strong></td>
+<td>Kiểm tra thuốc cấp dư (Dựa trên y lệnh)</td>
+<td><code>XML2.SO_LUONG &gt; (XML2.SL_MOI_NGAY * XML2.SO_NGAY)</code></td>
+</tr>
+</tbody></table>
+<p>Nguồn: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> — <code>SEED_THUOC_416</code>, <code>SEED_THUOC_417</code>.</p>
+<p><strong>Bài học huấn luyện:</strong> Cùng là “cấp dư”, nhưng <strong>tử số / mẫu số trong biểu thức seed khác nhau</strong>. Trong engine hiện tại, <code>enrichXML2Data</code> có thể <strong>đồng nhất</strong> CALC và SL từ cùng parse <code>LIEU_DUNG</code> — nên khó có audit XML tối giản <strong>chỉ</strong> <code>THUOC_416</code> mà không đụng <code>THUOC_417</code>; ưu tiên đối chiếu <a href="./Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md">ca 000589</a> cho <code>THUOC_417</code>.</p>
+<hr>
+<h2>2. Hành vi engine sau seed (cùng file <code>dong_co_giam_dinh.jsx</code>)</h2>
+<ol>
+<li><strong>Ngưỡng “y lệnh thực tế” khi lọc:</strong> Với <code>THUOC_417</code> và <code>THUOC_416</code>, trước khi giữ cảnh báo, engine kiểm tra <code>max(CALC_SL_MOI_NGAY, SL_MOI_NGAY)</code> và <code>SO_NGAY</code> — nếu không suy ra được liều/ngày &gt; 0 và số ngày &gt; 0 thì <strong>bỏ cảnh báo</strong>.</li>
+<li><strong>Lọc đơn vị:</strong> <code>coLechDonViYLenhVaCapPhatThuoc</code> — giống nhóm <code>THUOC_391</code> (phiên 02).</li>
+<li><strong>Lọc làm tròn:</strong> <code>laVuotNguongDoLamTronThuoc</code> — nếu “dư” chỉ do <strong>làm tròn lên 1 đơn vị rời rạc</strong> khi tích y lệnh có phần thập phân, cảnh báo có thể <strong>không hiển thị</strong>.</li>
+</ol>
+<p>Chi tiết bảng lọc: <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> §5.</p>
+<hr>
+<h2>3. Ca mẫu / audit trong repo</h2>
+<ul>
+<li><a href="./Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md">Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</a> — <code>THUOC_417</code>, audit <code>test_xml/audit_000589_*.json</code>.</li>
+<li><strong>THUOC_416:</strong> xem §1 — cần mở rộng enrich hoặc hồ sơ thật để tách CALC vs SL khai trên XML.</li>
+</ul>
+<hr>
+<h2>4. Việc làm trong <strong>Cursor</strong> (20–30 phút)</h2>
+<ol>
+<li>Mở seed <code>SEED_THUOC_416</code> và <code>SEED_THUOC_417</code> trong <code>du_lieu_luat_thuoc_muc8.jsx</code> — chép <strong>nguyên văn</strong> hai dòng <code>DIEU_KIEN</code>.</li>
+<li>Trong <code>dong_co_giam_dinh.jsx</code>, tìm khối <code>THUOC_417</code> / <code>THUOC_416</code> trong <code>locCanhBaoDuongTinhGiaTheoNguCanh</code> — ghi <strong>một câu</strong> về <code>max(CALC_SL_MOI_NGAY, SL_MOI_NGAY)</code>.</li>
+<li>(Tuỳ chọn) Đọc <code>laVuotNguongDoLamTronThuoc</code> — ví dụ số minh hoạ làm tròn.</li>
+</ol>
+<hr>
+<h2>5. Việc làm trong <strong>OpenClaw</strong> (dán lần lượt)</h2>
+<p><strong>Bước A — Phân biệt hai rule</strong></p>
+<pre><code class="language-text">Workspace: ung_dung_cdss_bhyt.
+Đọc tai_lieu/Huan_luyen_phien_05_THUOC_416_vs_417_Cursor_OpenClaw.md và tai_lieu/The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md (§4–§5).
+
+Xuất:
+(1) Bảng 3 cột: Khái niệm | THUOC_416 | THUOC_417
+(2) 3 bullet: Khi nào chỉ một trong hai có thể kích hoạt (không PII).
+Không sửa file.
+</code></pre>
+<p><strong>Bước B — Giải thích cho kiểm tra viên</strong></p>
+<pre><code class="language-text">Giải thích tiếng Việt đơn giản (tối đa 8 câu): &quot;Cấp dư theo CALC&quot; vs &quot;cấp dư theo SL trên XML&quot;, và vì sao audit vẫn có thể không có THUOC_417 sau lọc làm tròn.
+</code></pre>
+<p><strong>Bước C — Chuẩn bị ca THUOC_416 (outline)</strong></p>
+<pre><code class="language-text">Đề xuất outline file Ca_huan_luyen_mau_*_THUOC_416.md: metadata, bảng trường XML2 cần, kỳ vọng có THUOC_416 mà không nhầm với 417. Không ghi file.
+</code></pre>
+<hr>
+<h2>6. Đánh dấu hoàn thành phiên</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Đã ghi nhận sự khác biệt <strong>CALC_SL</strong> vs <strong>SL_MOI_NGAY</strong> trong seed  </li>
+<li><input disabled="" type="checkbox"> Đã đọc §5 chỉ mục engine (lọc đơn vị + làm tròn)  </li>
+<li><input disabled="" type="checkbox"> OpenClaw đã trả lời A–C</li>
+</ul>
+<hr>
+<p><em>Phiên trước:</em> <a href="./Huan_luyen_phien_04_THUOC_419_hang_BV.md">Huan_luyen_phien_04_THUOC_419_hang_BV.md</a></p>
+
+  </main>
+</body>
+</html>

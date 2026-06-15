@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LỘ TRÌNH HUẤN LUYỆN AI KIỂM TRA BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>LỘ TRÌNH HUẤN LUYỆN AI KIỂM TRA BHYT</h1>
+<p>Phiên bản tài liệu: 2.1<br>Ngày cập nhật: 17/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Tài liệu này mô tả cách huấn luyện AI từng bước để hỗ trợ tốt nghiệp vụ kiểm tra BHYT trong bối cảnh dự án <code>ung_dung_cdss_bhyt</code>.</p>
+<p>Mục tiêu huấn luyện không phải là “nhồi hết mọi kiến thức một lần”, mà là xây dựng dần 4 năng lực:</p>
+<ul>
+<li>Hiểu hệ thống đang chạy và luồng dữ liệu thật.</li>
+<li>Hiểu luật, danh mục, quy tắc và điểm kiểm soát nghiệp vụ.</li>
+<li>Hiểu quy trình xử lý hồ sơ từ nhập XML đến kiểm tra, sửa và báo cáo.</li>
+<li>Rút kinh nghiệm từ các ca thực tế để nâng chất lượng suy luận.</li>
+</ul>
+<h2>2. Nguyên tắc huấn luyện</h2>
+<ul>
+<li>Luôn ưu tiên mã nguồn đang chạy là nguồn sự thật cao nhất của hệ thống.</li>
+<li>Kiến thức pháp lý và nghiệp vụ phải được chuẩn hóa thành từng đơn vị nhỏ, không nạp bằng mô tả dài lan man.</li>
+<li>Mỗi lần huấn luyện nên xoay quanh một chủ đề, một loại lỗi, một nhóm rule hoặc một ca hồ sơ cụ thể.</li>
+<li>AI chỉ đáng tin khi có thể chỉ ra được: nguồn tri thức, điều kiện áp dụng, ngoại lệ, và cách kiểm chứng.</li>
+<li>Mọi kiến thức quan trọng nên được lưu thành tài liệu hoặc “thẻ tri thức”, không chỉ nằm trong hội thoại tạm thời.</li>
+<li><strong>Kỹ năng kiểm tra đa nhóm</strong> (đọc cảnh báo, phân loại A–D, an toàn dữ liệu): <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>; <strong>bài tập có gợi ý</strong>: <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a>.</li>
+</ul>
+<h2>3. Kiến trúc huấn luyện đề xuất</h2>
+<p>Huấn luyện AI cho kiểm tra BHYT nên đi theo 4 tầng tri thức.</p>
+<h3>3.1. Tầng 1: Nền hệ thống</h3>
+<p>AI phải nắm các nội dung nền sau:</p>
+<ul>
+<li>Kiến trúc hệ thống CDSS BHYT.</li>
+<li>Màn hình nào là luồng thật đang chạy.</li>
+<li>XML1 đến XML6 đang được quản lý như thế nào.</li>
+<li>Rule engine, báo cáo, DocXML, Sua XML, kho lưu trữ kết nối với nhau ra sao.</li>
+<li><strong>Phân tách</strong> trên dashboard QPS giữa cảnh báo CDSS và <strong>vi phạm cấu trúc dữ liệu XML</strong> (chip “Vi phạm cấu trúc XML”, mã nội bộ <code>CAU_TRUC_XML</code>): <a href="./The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md">The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md</a>.</li>
+</ul>
+<p>Nguồn dùng để nạp:</p>
+<ul>
+<li><code>tai_lieu/Dac_ta_he_thong_CDSS_BHYT_20260405.md</code></li>
+<li><code>App.jsx</code></li>
+<li><code>ma_nguon/dieu_huong/tuyen_duong.jsx</code></li>
+<li>Các file trong <code>ma_nguon/man_hinh</code>, <code>ma_nguon/tien_ich</code>, <code>ma_nguon/quy_tac</code></li>
+</ul>
+<p>Kết quả mong muốn:</p>
+<ul>
+<li>AI trả lời đúng màn hình thật, đường đi dữ liệu và chỗ nên sửa.</li>
+<li>AI không nhầm scaffold <code>app/</code> với luồng nghiệp vụ thật.</li>
+</ul>
+<h3>3.2. Tầng 2: Nền nghiệp vụ BHYT</h3>
+<p>AI phải nắm được lớp khái niệm nghiệp vụ cốt lõi:</p>
+<ul>
+<li>Hồ sơ BHYT là gì.</li>
+<li>Vai trò của XML1 đến XML6.</li>
+<li>Mối liên hệ giữa chẩn đoán, dịch vụ kỹ thuật, thuốc, vật tư, ngày y lệnh, ngày kết quả, bác sĩ, khoa phòng, đối tượng, nơi đăng ký KCB.</li>
+<li>Mục tiêu của kiểm tra: phát hiện sai, thiếu, bất thường, không phù hợp quy định hoặc nguy cơ bị xuất toán.</li>
+</ul>
+<p>Nguồn dùng để nạp:</p>
+<ul>
+<li>Tài liệu nội bộ nghiệp vụ.</li>
+<li>Quyết định, công văn, hướng dẫn chuyên đề.</li>
+<li>Bộ tài liệu quản lý và sử dụng kháng sinh dùng làm nguồn chuẩn khi huấn luyện nhóm thuốc và nhóm PTTT có dùng kháng sinh:<ul>
+<li><code>Quyết định 5631/QĐ-BYT năm 2020</code> về tài liệu hướng dẫn thực hiện quản lý sử dụng kháng sinh trong bệnh viện.</li>
+<li><code>Sổ tay hướng dẫn thực hiện chương trình quản lý sử dụng kháng sinh dành cho bệnh viện tuyến huyện</code> ban hành kèm <code>Quyết định số 2115/QĐ-BYT ngày 11/05/2023</code>.</li>
+<li><code>Hướng dẫn sử dụng kháng sinh</code> bản cập nhật cuối khi in <code>09/01/2015</code> từ Cục Quản lý Khám, chữa bệnh.</li>
+<li><code>British National Formulary - BNF 85</code> dùng như nguồn tham khảo liều và nguyên tắc kháng sinh trẻ em.</li>
+<li><code>15/VBHN-BYT năm 2025</code> dùng như nguồn đối chiếu phạm vi thanh toán thuốc BHYT, trong đó có kháng sinh.</li>
+</ul>
+</li>
+<li>Các ca hồ sơ thực tế đã xử lý trong đơn vị.</li>
+</ul>
+<p>Kết quả mong muốn:</p>
+<ul>
+<li>AI không chỉ đọc được cấu trúc dữ liệu mà còn hiểu dữ liệu đó ảnh hưởng gì về mặt kiểm tra.</li>
+</ul>
+<h3>3.3. Tầng 3: Tầng luật và quy tắc</h3>
+<p>Đây là lớp quan trọng nhất cho nghiệp vụ kiểm tra.</p>
+<p>AI cần được huấn luyện theo từng đơn vị luật nhỏ, mỗi đơn vị gồm:</p>
+<ul>
+<li>Tên rule hoặc nhóm rule.</li>
+<li>Mục tiêu kiểm tra.</li>
+<li>Điều kiện áp dụng.</li>
+<li>Điều kiện loại trừ.</li>
+<li>Dữ liệu đầu vào liên quan.</li>
+<li>Mức độ rủi ro hoặc ảnh hưởng chi phí.</li>
+<li>Cách giải thích cho người nghiệp vụ.</li>
+<li>Hồ sơ mẫu minh họa đúng/sai.</li>
+</ul>
+<p>Nguồn dùng để nạp:</p>
+<ul>
+<li>File seed luật.</li>
+<li><code>luat_*_hardcoded.jsx</code>.</li>
+<li>Kết quả audit thực tế trong <code>test_xml/</code>.</li>
+<li>Biên bản xử lý các ca false positive và false negative.</li>
+</ul>
+<p>Kết quả mong muốn:</p>
+<ul>
+<li>AI biết một rule đang kiểm tra điều gì.</li>
+<li>AI giải thích được vì sao rule đánh đúng hoặc đánh sai.</li>
+<li>AI đề xuất cách kiểm tra lại an toàn trước khi sửa rule.</li>
+</ul>
+<h3>3.4. Tầng 4: Tầng ca thực chiến</h3>
+<p>Đây là lớp biến AI từ “biết lý thuyết” thành “làm được việc”.</p>
+<p>Mỗi ca thực chiến nên nạp theo mẫu:</p>
+<ul>
+<li>Bối cảnh hồ sơ.</li>
+<li>Vấn đề phát hiện.</li>
+<li>Rule liên quan.</li>
+<li>Dữ liệu đã kiểm tra.</li>
+<li>Cách kết luận đúng/sai.</li>
+<li>Cách sửa hoặc cách báo cáo.</li>
+<li>Bài học rút ra.</li>
+</ul>
+<p>Nguồn dùng để nạp:</p>
+<ul>
+<li>Hồ sơ thật đã ẩn thông tin nhạy cảm nếu cần.</li>
+<li>JSON audit.</li>
+<li>Ảnh chụp lỗi, màn hình báo cáo, bản trước/sau sửa XML.</li>
+</ul>
+<p>Kết quả mong muốn:</p>
+<ul>
+<li>AI có thể trợ giúp ở mức hồ sơ cụ thể chứ không chỉ nêu lý thuyết chung.</li>
+</ul>
+<h2>4. Quy trình huấn luyện theo từng bước</h2>
+<h3>Bước 1: Chốt bộ tài liệu gốc</h3>
+<p>Anh cần xác định rõ “nguồn tri thức chuẩn” để AI học từ đó.</p>
+<p>Ít nhất nên có 4 nhóm:</p>
+<ul>
+<li>Tài liệu hệ thống.</li>
+<li>Tài liệu nghiệp vụ BHYT.</li>
+<li>Tài liệu luật/rule/công văn.</li>
+<li>Ca thực tế đã xử lý.</li>
+</ul>
+<p>Yêu cầu:</p>
+<ul>
+<li>Mỗi tài liệu phải có tên, ngày cập nhật, độ tin cậy, và phạm vi áp dụng.</li>
+<li>Nếu có mâu thuẫn giữa tài liệu và mã nguồn, phải đánh dấu rõ.</li>
+<li>Với nhóm kháng sinh, nên chốt sẵn một bộ nguồn ưu tiên để tránh học lẫn giữa tài liệu cũ và tài liệu đang dùng tại bệnh viện.</li>
+</ul>
+<h3>Bước 2: Chuẩn hóa thành thẻ tri thức</h3>
+<p>Không nên đưa cả văn bản dài cho AI rồi kỳ vọng AI nhớ tốt.</p>
+<p>Thay vào đó, mỗi mảng tri thức nên được chuẩn hóa thành “thẻ tri thức” gồm:</p>
+<ul>
+<li>Chủ đề.</li>
+<li>Mệnh đề nghiệp vụ chính.</li>
+<li>Điều kiện áp dụng.</li>
+<li>Dữ liệu cần xem.</li>
+<li>Ngoại lệ.</li>
+<li>Cách kiểm chứng.</li>
+<li>Ví dụ đúng/sai.</li>
+</ul>
+<p>Đây là bước quan trọng nhất để AI học có cấu trúc.</p>
+<h3>Bước 3: Dạy theo nhóm chủ đề nhỏ</h3>
+<p>Không huấn luyện một lần cho toàn bộ BHYT.</p>
+<p>Nên chia theo đợt:</p>
+<ul>
+<li>Đợt 1: hiểu XML và luồng hệ thống.</li>
+<li>Đợt 2: lỗi hành chính và dữ liệu cơ bản — <strong>khung kiểm soát &amp; kiểm tra:</strong> <a href="./Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md">Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md</a>; <strong>thẻ BHYT, hạn thẻ, đối tượng, mức hưởng, đồng chi trả:</strong> <a href="./The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md">The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</a>; phiên <a href="./Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md">Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</a>; quy trình hành chính <a href="./The_tri_thuc_mau_hanh_chinh_BHYT.md">The_tri_thuc_mau_hanh_chinh_BHYT.md</a>.</li>
+<li>Đợt 3: thuốc (khung “sai thuốc”: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>; <strong>chỉ mục engine</strong> <code>CLN-THUOC-*</code> / lọc <code>THUOC_391|417</code>: <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code>; <strong>đa dạng danh mục BV</strong>: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>; <strong>DM nội bộ + đối chiếu tiền + DMBV-THUOC-</strong><em>: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>; <strong>tương tác thuốc XML2 / cặp A–B / TUONGTAC_</strong></em>: <a href="./The_tri_thuc_tuong_tac_thuoc_XML2_AI.md">The_tri_thuc_tuong_tac_thuoc_XML2_AI.md</a> — audit: <code>npm run qa:tuong-tac-audit</code>; ca <code>Ca_huan_luyen_mau_*</code>, <code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code>, <code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code>, <code>Ca_huan_luyen_mau_OP26000908_THUOC_267_Medlon_Methylprednisolon_ICD.md</code>, <code>Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.md</code>, <code>Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.md</code>, <code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code>).</li>
+<li>Đợt 4: <strong>dịch vụ kỹ thuật (DVKT)</strong> — <strong>chuẩn hóa suy luận AI</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>; <strong>Danh mục 1 / 2 chi tiết</strong> <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a> · <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>; <strong>kiểm soát lỗi DVKT theo VBHN 17</strong> <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a>; thẻ <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>; chuỗi văn bản mục <strong>11.5</strong> <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>; <strong>phiên huấn luyện + lộ trình ca</strong> <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> (mục A–J); <strong>bảng neo</strong> <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>; ca mẫu theo thứ tự: <code>000308</code> (gói PTTT <code>DVKT_2587/2588</code>) → <code>000502</code> (<code>CDHA_164</code>) → <code>000538</code> (<code>CDHA_101</code>) → <code>000375</code> (<code>DVKT-OP-09</code>).</li>
+<li><strong>VTYT (vật tư y tế):</strong> <strong>chuẩn hóa suy luận AI</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> (§<strong>0</strong>: <strong>chưa</strong> có seed <strong><code>DM-VTYT-*</code></strong> trong CSDL); <strong>bảng neo</strong> <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a>; trong repo <strong>chưa</strong> có <code>audit_*</code> chuyên VTYT trong <code>test_xml/</code> — <strong>khung + lộ trình bổ sung rule</strong> <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a> §<strong>4</strong> và mục <strong>11.6</strong> <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>; tạm <strong>luyện đọc danh mục + điều kiện</strong> qua Đợt 3 (thuốc) như đã neo ở 11.6.</li>
+<li>Đợt 5: chỉ định cận lâm sàng.</li>
+<li>Đợt 6: nội trú, ngày giường, thủ thuật, phẫu thuật.</li>
+<li>Đợt 7: nhóm chuyên đề hay bị xuất toán tại đơn vị.</li>
+</ul>
+<h3>Bước 4: Dạy bằng ca thật</h3>
+<p>Sau khi có nền tri thức, mỗi tuần nên đưa cho AI một số ca thật:</p>
+<ul>
+<li>1 ca đánh đúng.</li>
+<li>1 ca đánh sai false positive.</li>
+<li>1 ca lọt lỗi false negative.</li>
+<li>1 ca khó cần giải thích nghiệp vụ.</li>
+</ul>
+<p>Sau mỗi ca, yêu cầu AI trả lời:</p>
+<ul>
+<li>Vấn đề là gì.</li>
+<li>Rule nào liên quan.</li>
+<li>Căn cứ dữ liệu nào.</li>
+<li>Kết luận đúng nhất là gì.</li>
+<li>Nếu sửa hệ thống thì sửa ở đâu.</li>
+</ul>
+<h3>Bước 5: Bắt AI tự rút kinh nghiệm</h3>
+<p>Mỗi ca sau khi xử lý nên ép AI tạo phần “bài học rút ra” gồm:</p>
+<ul>
+<li>Dấu hiệu nhận biết sớm.</li>
+<li>Điều kiện dễ nhầm.</li>
+<li>Ngoại lệ cần nhớ.</li>
+<li>Câu hỏi kiểm tra nhanh cho các ca tương tự sau này.</li>
+</ul>
+<h3>Bước 6: Đánh giá định kỳ</h3>
+<p>Mỗi 1 đến 2 tuần nên đánh giá lại AI bằng bộ ca kiểm tra riêng.</p>
+<p>Tiêu chí đánh giá:</p>
+<ul>
+<li>Xác định đúng màn hình/luồng dữ liệu.</li>
+<li>Gọi đúng rule hoặc nhóm rule.</li>
+<li>Giải thích đúng căn cứ nghiệp vụ.</li>
+<li>Không bịa thông tin khi dữ liệu thiếu.</li>
+<li>Đề xuất bước kiểm chứng hợp lý.</li>
+</ul>
+<h2>5. Cách tổ chức dữ liệu huấn luyện</h2>
+<p><strong>Gói thực chiến (repo + kho động + chỉ mục JSON):</strong> <a href="./Goi_du_lieu_huan_luyen_AI_thuc_chien.md">Goi_du_lieu_huan_luyen_AI_thuc_chien.md</a> · chạy <code>node scripts/build_huan_luyen_index.mjs</code> để cập nhật <code>tai_lieu/_index_kho_huan_luyen_AI.json</code>. <strong>XML thật trong <code>tai_nguyen/</code>:</strong> <a href="./Huong_dan_tai_nguyen_XML_thuc_chien_AI.md">Huong_dan_tai_nguyen_XML_thuc_chien_AI.md</a> · <code>npm run tai_lieu:index-tai-nguyen</code> → <code>_index_tai_nguyen_xml.json</code>.</p>
+<p>Nên tổ chức dữ liệu huấn luyện theo 3 loại.</p>
+<h3>5.1. Tài liệu nền</h3>
+<p>Ví dụ:</p>
+<ul>
+<li>đặc tả hệ thống</li>
+<li>hướng dẫn sử dụng</li>
+<li>mô tả màn hình</li>
+<li>mô tả kho dữ liệu và storage</li>
+<li>bộ hướng dẫn quản lý sử dụng kháng sinh và kháng sinh dự phòng đang được ưu tiên áp dụng</li>
+</ul>
+<p>Riêng với mảng kháng sinh, bộ nguồn nền nên ưu tiên:</p>
+<ul>
+<li><code>Quyết định 5631/QĐ-BYT năm 2020</code></li>
+<li><code>Quyết định 2115/QĐ-BYT ngày 11/05/2023</code> và sổ tay kèm theo cho bệnh viện tuyến huyện</li>
+<li><code>Hướng dẫn sử dụng kháng sinh</code> bản cập nhật cuối khi in <code>09/01/2015</code></li>
+<li><code>British National Formulary - BNF 85</code> cho tri thức nhi khoa</li>
+<li><code>15/VBHN-BYT năm 2025</code> cho phạm vi thanh toán thuốc BHYT</li>
+</ul>
+<h3>5.2. Thẻ tri thức nghiệp vụ</h3>
+<p>Mỗi thẻ nên là một đơn vị nhỏ, ví dụ:</p>
+<ul>
+<li>kiểm tra ngày y lệnh và ngày kết quả</li>
+<li>mối liên hệ giữa XML3 và XML5</li>
+<li>điều kiện hợp lệ của thuốc theo đối tượng</li>
+<li>logic cảnh báo nội trú/ngày giường</li>
+</ul>
+<h3>5.3. Ca học từ thực tế</h3>
+<p>Mỗi ca nên có:</p>
+<ul>
+<li>đầu bài</li>
+<li>dữ liệu</li>
+<li>kết luận đúng</li>
+<li>lỗi AI cũ từng mắc nếu có</li>
+<li>bài học rút ra</li>
+</ul>
+<h2>6. Những việc AI nên làm sau khi được huấn luyện</h2>
+<p>Nếu huấn luyện đúng, AI nên làm tốt các việc sau:</p>
+<ul>
+<li>giải thích một rule theo ngôn ngữ nghiệp vụ</li>
+<li>phân tích một hồ sơ XML theo <code>MA_LK</code></li>
+<li>so sánh trước/sau khi sửa hồ sơ</li>
+<li>chỉ ra file mã nguồn hoặc tầng logic liên quan</li>
+<li>hỗ trợ soạn báo cáo nghiệp vụ sau khi chỉnh hồ sơ</li>
+<li>hỗ trợ rà soát an toàn trước khi sửa rule hoặc commit</li>
+</ul>
+<h2>7. Những việc không nên kỳ vọng quá sớm</h2>
+<ul>
+<li>Không nên kỳ vọng AI tự thay thế hoàn toàn chuyên gia kiểm tra.</li>
+<li>Không nên để AI tự diễn giải quy định pháp lý mà không có nguồn hoặc ca minh họa.</li>
+<li>Không nên để AI sửa rule diện rộng nếu chưa có ca kiểm chứng.</li>
+<li>Không nên dạy AI bằng dữ liệu lẫn lộn, không ghi rõ đúng sai và ngoại lệ.</li>
+</ul>
+<h2>8. Kế hoạch triển khai 4 tuần</h2>
+<h3>Tuần 1</h3>
+<ul>
+<li>Chốt bộ tài liệu gốc.</li>
+<li>Hoàn thiện bộ prompt và agent.</li>
+<li>Tạo 10 đến 20 thẻ tri thức đầu tiên về kiến trúc, XML, dashboard, DocXML, Sua XML, báo cáo.</li>
+</ul>
+<h3>Tuần 2</h3>
+<ul>
+<li>Tạo thẻ tri thức cho 1 đến 2 nhóm rule quan trọng nhất tại đơn vị.</li>
+<li>Nạp 5 đến 10 ca audit thực tế.</li>
+<li>Bắt đầu đánh giá AI bằng câu hỏi đối chiếu hồ sơ cụ thể.</li>
+</ul>
+<h3>Tuần 3</h3>
+<ul>
+<li>Mở rộng sang nhóm thuốc, DVKT, chỉ định, nội trú hoặc nhóm có nhiều xuất toán.</li>
+<li>Chuẩn hóa false positive và false negative thành bài học.</li>
+</ul>
+<h3>Tuần 4</h3>
+<ul>
+<li>Đánh giá lại toàn bộ.</li>
+<li>Loại bỏ tri thức mơ hồ.</li>
+<li>Bổ sung mẫu báo cáo, mẫu giải thích nghiệp vụ, mẫu chuẩn bị commit/sửa rule.</li>
+</ul>
+<h2>9. Cách làm việc khuyến nghị với AI</h2>
+<p>Khi huấn luyện, anh nên dùng mẫu lệnh theo hướng sau:</p>
+<ul>
+<li>“Trích 1 thẻ tri thức từ tài liệu này.”</li>
+<li>“Giải thích rule này theo ngôn ngữ nghiệp vụ.”</li>
+<li>“Cho biết dữ liệu nào cần kiểm tra để kết luận rule này đúng hay sai.”</li>
+<li>“Biến ca audit này thành bài học huấn luyện cho AI.”</li>
+<li>“So sánh hai hồ sơ trước và sau sửa, rút ra dấu hiệu cần nhớ.”</li>
+</ul>
+<h2>10. Kết luận</h2>
+<p>Muốn AI làm tốt nghiệp vụ kiểm tra BHYT, cần huấn luyện theo hệ thống:</p>
+<ul>
+<li>từ kiến trúc</li>
+<li>sang nghiệp vụ</li>
+<li>sang luật/rule</li>
+<li>sang ca thực chiến</li>
+</ul>
+<p>Không có một prompt đơn lẻ nào thay thế được quá trình này. Cách đúng là xây “bộ nhớ có cấu trúc” cho AI bằng tài liệu nền, thẻ tri thức và ca thực tế đã kiểm chứng.</p>
+
+  </main>
+</body>
+</html>

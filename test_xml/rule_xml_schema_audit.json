@@ -1,0 +1,1132 @@
+{
+  "timestamp": "2026-04-23T11:34:08.377Z",
+  "schemaTables": {
+    "XML1": [
+      "CAN_NANG",
+      "CAN_NANG_CON",
+      "CHAN_DOAN_RV",
+      "CHAN_DOAN_VAO",
+      "DIA_CHI",
+      "DIEN_THOAI",
+      "DU_PHONG",
+      "GHI_CHU",
+      "GIAY_CHUYEN_TUYEN",
+      "GIOI_TINH",
+      "GT_THE_DEN",
+      "GT_THE_TU",
+      "HO_TEN",
+      "KET_QUA_DTRI",
+      "LY_DO_VNT",
+      "LY_DO_VV",
+      "MAHUYEN_CU_TRU",
+      "MATINH_CU_TRU",
+      "MAXA_CU_TRU",
+      "MA_BENH_CHINH",
+      "MA_BENH_KT",
+      "MA_BENH_YHCT",
+      "MA_BN",
+      "MA_CSKCB",
+      "MA_DANTOC",
+      "MA_DKBD",
+      "MA_DOITUONG_KCB",
+      "MA_HSBA",
+      "MA_KHOA",
+      "MA_KHUVUC",
+      "MA_LK",
+      "MA_LOAI_KCB",
+      "MA_LOAI_RV",
+      "MA_LY_DO_VNT",
+      "MA_NGHE_NGHIEP",
+      "MA_NOI_DEN",
+      "MA_NOI_DI",
+      "MA_PTTT_QT",
+      "MA_QUOCTICH",
+      "MA_TAI_NAN",
+      "MA_THE_BHYT",
+      "MA_TTDV",
+      "NAM_NAM_LIEN_TUC",
+      "NAM_QT",
+      "NGAY_MIEN_CCT",
+      "NGAY_RA",
+      "NGAY_SINH",
+      "NGAY_TAI_KHAM",
+      "NGAY_TTOAN",
+      "NGAY_VAO",
+      "NGAY_VAO_NOI_TRU",
+      "NHOM_MAU",
+      "PP_DIEU_TRI",
+      "SO_CCCD",
+      "SO_NGAY_DTRI",
+      "STT",
+      "THANG_QT",
+      "T_BHTT",
+      "T_BHTT_GDV",
+      "T_BNCCT",
+      "T_BNTT",
+      "T_NGUONKHAC",
+      "T_THUOC",
+      "T_TONGCHI_BH",
+      "T_TONGCHI_BV",
+      "T_VTYT"
+    ],
+    "XML2": [
+      "CACH_DUNG",
+      "DANG_BAO_CHE",
+      "DON_GIA",
+      "DON_VI_TINH",
+      "DUONG_DUNG",
+      "DU_PHONG",
+      "HAM_LUONG",
+      "LIEU_DUNG",
+      "MA_BAC_SI",
+      "MA_CSKCB_THUOC",
+      "MA_DICH_VU",
+      "MA_KHOA",
+      "MA_LK",
+      "MA_NHOM",
+      "MA_PP_CHEBIEN",
+      "MA_PTTT",
+      "MA_THUOC",
+      "MUC_HUONG",
+      "NGAY_TH_YL",
+      "NGAY_YL",
+      "NGUON_CTRA",
+      "PHAM_VI",
+      "SO_DANG_KY",
+      "SO_LUONG",
+      "STT",
+      "TEN_THUOC",
+      "THANH_TIEN_BH",
+      "THANH_TIEN_BV",
+      "TT_THAU",
+      "TYLE_TT_BH",
+      "T_BHTT",
+      "T_BNCCT",
+      "T_BNTT",
+      "T_NGUONKHAC",
+      "T_NGUONKHAC_CL",
+      "T_NGUONKHAC_NSNN",
+      "T_NGUONKHAC_VTNN",
+      "T_NGUONKHAC_VTTN",
+      "VET_THUONG_TP"
+    ],
+    "XML3": [
+      "DON_GIA_BH",
+      "DON_GIA_BV",
+      "DON_VI_TINH",
+      "DU_PHONG",
+      "GOI_VTYT",
+      "MA_BAC_SI",
+      "MA_BENH",
+      "MA_BENH_YHCT",
+      "MA_DICH_VU",
+      "MA_GIUONG",
+      "MA_HIEU_SP",
+      "MA_KHOA",
+      "MA_LK",
+      "MA_MAY",
+      "MA_NHOM",
+      "MA_PTTT",
+      "MA_PTTT_QT",
+      "MA_VAT_TU",
+      "MA_XANG_DAU",
+      "MUC_HUONG",
+      "NGAY_KQ",
+      "NGAY_TH_YL",
+      "NGAY_YL",
+      "NGUOI_THUC_HIEN",
+      "PHAM_VI",
+      "PP_VO_CAM",
+      "SO_LUONG",
+      "STT",
+      "TAI_SU_DUNG",
+      "TEN_DICH_VU",
+      "TEN_VAT_TU",
+      "THANH_TIEN_BH",
+      "THANH_TIEN_BV",
+      "TT_THAU",
+      "TYLE_TT_BH",
+      "TYLE_TT_DV",
+      "T_BHTT",
+      "T_BNCCT",
+      "T_BNTT",
+      "T_NGUONKHAC",
+      "T_NGUONKHAC_CL",
+      "T_NGUONKHAC_NSNN",
+      "T_NGUONKHAC_VTNN",
+      "T_NGUONKHAC_VTTN",
+      "T_TRANTT",
+      "VET_THUONG_TP",
+      "VI_TRI_TH_DVKT"
+    ],
+    "XML4": [
+      "DON_VI_DO",
+      "DU_PHONG",
+      "GIA_TRI",
+      "KET_LUAN",
+      "MA_BS_DOC_KQ",
+      "MA_CHI_SO",
+      "MA_DICH_VU",
+      "MA_LK",
+      "MO_TA",
+      "NGAY_KQ",
+      "STT",
+      "TEN_CHI_SO",
+      "TEN_DICH_VU"
+    ],
+    "XML5": [
+      "DIEN_BIEN",
+      "DU_PHONG",
+      "HOI_CHAN",
+      "MA_BAC_SI",
+      "MA_KHOA",
+      "MA_LK",
+      "NGAY_YL",
+      "PHAU_THUAT",
+      "STT"
+    ],
+    "XML6": [
+      "CAN_NANG",
+      "CHIEU_CAO",
+      "DIA_CHI",
+      "DU_PHONG",
+      "GHI_CHU",
+      "GIOI_TINH",
+      "GT_THE_DEN",
+      "GT_THE_TU",
+      "HO_TEN",
+      "KQ_XNTL_VR",
+      "KQ_XN_HIV",
+      "LY_DO_NGUNG_BD",
+      "MA_BAC_SI",
+      "MA_BENH_CHINH",
+      "MA_BENH_KT",
+      "MA_BN",
+      "MA_CD_BD",
+      "MA_CSKCB",
+      "MA_DANTOC",
+      "MA_DKBD",
+      "MA_DOITUONG_KCB",
+      "MA_KHOA",
+      "MA_LK",
+      "MA_LOAI_BN",
+      "MA_LOAI_KCB",
+      "MA_LOAI_RV",
+      "MA_LY_DO_NGUNG_BD",
+      "MA_NGHE_NGHIEP",
+      "MA_PHAC_DO_BD",
+      "MA_PHU_PHAC_DO",
+      "MA_QUOCTICH",
+      "MA_THE_BHYT",
+      "MA_TTDV",
+      "MA_TT_LAM_SANG",
+      "NGAY_BAT_DAU_PHAC_DO",
+      "NGAY_CD_BD",
+      "NGAY_HEN_TAI_KHAM",
+      "NGAY_KET_THUC_PHAC_DO",
+      "NGAY_KQ_XN_TLVR",
+      "NGAY_RA",
+      "NGAY_SINH",
+      "NGAY_TTOAN",
+      "NGAY_VAO",
+      "SO_CCCD",
+      "SO_NGAY_CAP_THUOC",
+      "STT",
+      "THOI_DIEM_XN_HIV"
+    ]
+  },
+  "engineExtraFields": {
+    "XML1": {},
+    "XML2": {},
+    "XML3": {}
+  },
+  "summary": {
+    "unknownFieldCount": 135,
+    "unknownTableCount": 0
+  },
+  "details": [
+    {
+      "file": "ma_nguon\\tien_ich\\luat_du_lieu_hardcoded.jsx",
+      "missing": false,
+      "blocks": 0,
+      "issues": []
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_hanh_chinh_hardcoded.jsx",
+      "missing": false,
+      "blocks": 0,
+      "issues": []
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_thuoc_hardcoded.jsx",
+      "missing": false,
+      "blocks": 0,
+      "issues": []
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cdha_hardcoded.jsx",
+      "missing": false,
+      "blocks": 332,
+      "issues": [
+        {
+          "table": "XML5",
+          "field": "SO_LUONG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 0
+        },
+        {
+          "table": "XML1",
+          "field": "MA_BAC_SI_DIEU_TRI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 6
+        },
+        {
+          "table": "XML4",
+          "field": "CHU_KY_SO_BS_DOC",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 7
+        },
+        {
+          "table": "XML4",
+          "field": "CHU_KY_SO_BS",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 8
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 9
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 12
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_LIEU_TIA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 13
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_DT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 16
+        },
+        {
+          "table": "XML1",
+          "field": "CO_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 18
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 21
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 24
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 28
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 29
+        },
+        {
+          "table": "XML1",
+          "field": "DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 32
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 34
+        },
+        {
+          "table": "XML2",
+          "field": "SO_LUONG_THUOC_CQ",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 37
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 39
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 41
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_EF",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 45
+        },
+        {
+          "table": "XML4",
+          "field": "TUOI_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 51
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_SINH_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 57
+        },
+        {
+          "table": "XML4",
+          "field": "TUOI_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 61
+        },
+        {
+          "table": "XML3",
+          "field": "THOI_GIAN_YL",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 72
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_SINH_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 79
+        },
+        {
+          "table": "XML1",
+          "field": "PHIEU_SANG_LOC_MRI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 83
+        },
+        {
+          "table": "XML1",
+          "field": "PHIEU_CAM_KET",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 84
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_PHAU_THUAT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 85
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 87
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 88
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 90
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 95
+        },
+        {
+          "table": "XML4",
+          "field": "NGAY_XN_CREATININE",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 105
+        },
+        {
+          "table": "XML5",
+          "field": "SO_LUONG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 110
+        },
+        {
+          "table": "XML4",
+          "field": "HINH_ANH",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 111
+        },
+        {
+          "table": "XML4",
+          "field": "DUONG_DAN_DICOM",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 115
+        },
+        {
+          "table": "XML1",
+          "field": "DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 116
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 117
+        },
+        {
+          "table": "XML2",
+          "field": "SO_LUONG_THUOC_CQ",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 124
+        },
+        {
+          "table": "XML1",
+          "field": "DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 125
+        },
+        {
+          "table": "XML1",
+          "field": "HUYET_AP_TAM_THU",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 126
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_GFR",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 127
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_CREATININE",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 128
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 134
+        },
+        {
+          "table": "XML1",
+          "field": "DIEN_BIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 136
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 140
+        },
+        {
+          "table": "XML5",
+          "field": "GHI_CHU",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 141
+        },
+        {
+          "table": "XML5",
+          "field": "GHI_CHU",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 142
+        },
+        {
+          "table": "XML1",
+          "field": "BMI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 143
+        },
+        {
+          "table": "XML1",
+          "field": "DIEN_BIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 148
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 150
+        },
+        {
+          "table": "XML3",
+          "field": "MO_TA_CHI_TIET",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 158
+        },
+        {
+          "table": "XML1",
+          "field": "CO_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 160
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 166
+        },
+        {
+          "table": "XML3",
+          "field": "MA_BS_CHI_DINH",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 172
+        },
+        {
+          "table": "XML1",
+          "field": "CO_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 191
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 194
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_THUC_HIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 197
+        },
+        {
+          "table": "XML3",
+          "field": "MA_BS_CHI_DINH",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 199
+        },
+        {
+          "table": "XML4",
+          "field": "MA_BS_THUC_HIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 199
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 200
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 202
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_DT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 206
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_DT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 207
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_PTTT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 212
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_PTTT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 212
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_PTTT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 215
+        },
+        {
+          "table": "XML4",
+          "field": "NGAY_XN_CREA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 217
+        },
+        {
+          "table": "XML4",
+          "field": "NGAY_XN_CREATININE",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 218
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_SINH_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 219
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_PTTT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 220
+        },
+        {
+          "table": "XML1",
+          "field": "DIEN_BIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 226
+        },
+        {
+          "table": "XML1",
+          "field": "DIEN_BIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 227
+        },
+        {
+          "table": "XML3",
+          "field": "MA_KTV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 233
+        },
+        {
+          "table": "XML3",
+          "field": "MA_KTV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 234
+        },
+        {
+          "table": "XML3",
+          "field": "MA_KTV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 235
+        },
+        {
+          "table": "XML3",
+          "field": "MA_KTV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 236
+        },
+        {
+          "table": "XML3",
+          "field": "MA_KTV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 238
+        },
+        {
+          "table": "XML4",
+          "field": "MA_BS_THUC_HIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 240
+        },
+        {
+          "table": "XML1",
+          "field": "MA_BS_HOI_CHAN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 246
+        },
+        {
+          "table": "XML1",
+          "field": "MA_BS_HOI_CHAN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 247
+        },
+        {
+          "table": "XML1",
+          "field": "BANG_KIEM_AN_TOAN_MRI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 256
+        },
+        {
+          "table": "XML1",
+          "field": "CO_DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 258
+        },
+        {
+          "table": "XML1",
+          "field": "TG_BAO_KQ",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 259
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 260
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 261
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 262
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 263
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 264
+        },
+        {
+          "table": "XML2",
+          "field": "THUOC_TIEN_ME",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 266
+        },
+        {
+          "table": "XML1",
+          "field": "TEN_NGUOI_NHAN_TIN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 269
+        },
+        {
+          "table": "XML1",
+          "field": "TG_BAO_KQ_KHAN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 270
+        },
+        {
+          "table": "XML1",
+          "field": "THOI_GIAN_BAO_CRITICAL",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 271
+        },
+        {
+          "table": "XML1",
+          "field": "THOI_GIAN_THEO_DOI_SAU_TIEM",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 272
+        },
+        {
+          "table": "XML1",
+          "field": "TG_THEO_DOI_30P",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 273
+        },
+        {
+          "table": "XML1",
+          "field": "CO_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 274
+        },
+        {
+          "table": "XML4",
+          "field": "TUOI_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 275
+        },
+        {
+          "table": "XML5",
+          "field": "MA_VTYT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 278
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 281
+        },
+        {
+          "table": "XML1",
+          "field": "CHIEU_CAO",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 284
+        },
+        {
+          "table": "XML1",
+          "field": "CO_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 286
+        },
+        {
+          "table": "XML1",
+          "field": "NGAY_SINH_THAI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 286
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_SAN_KHOA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 290
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_BENH",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 293
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_PHAU_THUAT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 297
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_TAM_LY",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 298
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 301
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_GFR",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 302
+        },
+        {
+          "table": "XML1",
+          "field": "TIEN_SU_DI_UNG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 305
+        },
+        {
+          "table": "XML4",
+          "field": "CHI_SO_GFR",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 307
+        },
+        {
+          "table": "XML4",
+          "field": "MA_DV",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 329
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_cong_kham_hardcoded.jsx",
+      "missing": false,
+      "blocks": 58,
+      "issues": [
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_VAO",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 4
+        },
+        {
+          "table": "XML1",
+          "field": "MA_BAC_SI_KY",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 33
+        },
+        {
+          "table": "XML1",
+          "field": "MA_TTDKY",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 33
+        },
+        {
+          "table": "XML1",
+          "field": "MA_TUYEN_KCB",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 45
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_VAO",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 54
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_nhan_su_hardcoded.jsx",
+      "missing": false,
+      "blocks": 15,
+      "issues": [
+        {
+          "table": "XML1",
+          "field": "MA_BAC_SI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 10
+        },
+        {
+          "table": "XML1",
+          "field": "MA_BAC_SI",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 13
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giuong_hardcoded.jsx",
+      "missing": false,
+      "blocks": 77,
+      "issues": [
+        {
+          "table": "XML3",
+          "field": "NGAY_YL_GIUONG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 3
+        },
+        {
+          "table": "XML3",
+          "field": "NGAY_YL_GIUONG",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 4
+        },
+        {
+          "table": "XML1",
+          "field": "GIA_TRI_DEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 19
+        },
+        {
+          "table": "XML1",
+          "field": "MA_KHOA_DT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 38
+        },
+        {
+          "table": "XML3",
+          "field": "THANH_TIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 52
+        },
+        {
+          "table": "XML3",
+          "field": "DON_GIA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 52
+        },
+        {
+          "table": "XML3",
+          "field": "THANH_TIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 53
+        },
+        {
+          "table": "XML3",
+          "field": "DON_GIA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 53
+        },
+        {
+          "table": "XML3",
+          "field": "THANH_TIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 54
+        },
+        {
+          "table": "XML3",
+          "field": "DON_GIA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 54
+        },
+        {
+          "table": "XML3",
+          "field": "THANH_TIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 55
+        },
+        {
+          "table": "XML3",
+          "field": "THANH_TIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 56
+        },
+        {
+          "table": "XML3",
+          "field": "DON_GIA",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 56
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_hop_dong_hardcoded.jsx",
+      "missing": false,
+      "blocks": 23,
+      "issues": [
+        {
+          "table": "XML1",
+          "field": "MA_LYDO_VVIEN",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 7
+        },
+        {
+          "table": "XML1",
+          "field": "MA_PTTT",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 8
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\luat_giam_dinh_chuyen_de_hardcoded.jsx",
+      "missing": false,
+      "blocks": 386,
+      "issues": []
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_du_lieu_muc1.jsx",
+      "missing": false,
+      "blocks": 115,
+      "issues": [
+        {
+          "table": "XML1",
+          "field": "T_NGOAIDS",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 3
+        },
+        {
+          "table": "XML1",
+          "field": "T_NGOAIDS",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 89
+        }
+      ]
+    },
+    {
+      "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
+      "missing": false,
+      "blocks": 536,
+      "issues": [
+        {
+          "table": "XML1",
+          "field": "T_NGOAIDS",
+          "reason": "UNKNOWN_FIELD",
+          "blockIndex": 534
+        }
+      ]
+    }
+  ]
+}

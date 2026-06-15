@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ca huấn luyện mẫu — TRAINHL03: THUOC_418 và CLN-THUOC-04</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_TRAINHL03_THUOC_418_CLN_THUOC_04.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Ca huấn luyện mẫu — TRAINHL03: THUOC_418 và CLN-THUOC-04</h1>
+<p><strong>Mục đích:</strong> Neo phiên huấn luyện <strong>03</strong> với <strong>audit thật</strong> từ engine (<code>chayGiamDinhToanDienV15</code>), có đồng thời <strong>luật seed</strong> <code>THUOC_418</code> và <strong>built-in</strong> <code>CLN-THUOC-04</code> (cùng bối cảnh “đơn &gt;30 ngày ngoại trú, ICD không thuộc nhóm được kê dài”).</p>
+<p><strong>Dữ liệu (ẩn danh, tổng hợp):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MA_LK</td>
+<td><code>TRAINHL03</code></td>
+</tr>
+<tr>
+<td>XML nguồn</td>
+<td><code>test_xml/huan_luyen/TRAINHL03_OP30.xml</code></td>
+</tr>
+<tr>
+<td>Audit</td>
+<td><code>test_xml/audit_TRAINHL03_20260408.json</code></td>
+</tr>
+<tr>
+<td>MA_LOAI_KCB</td>
+<td><code>1</code> (ngoại trú)</td>
+</tr>
+<tr>
+<td>MA_BENH_CHINH</td>
+<td><code>J06</code> (tránh ICD được phép kê &gt;30 ngày trong danh mục nội bộ)</td>
+</tr>
+<tr>
+<td>SO_NGAY (XML2)</td>
+<td><code>35</code> — <strong>phải khớp</strong> với <code>LIEU_DUNG</code> sao cho <code>enrichXML2Data</code> <strong>không</strong> ghi đè <code>SO_NGAY</code> xuống &lt;30 (ví dụ ghi rõ “trong 35 ngày” trong liều dùng)</td>
+</tr>
+</tbody></table>
+<p><strong>Kỳ vọng trong audit (focus):</strong></p>
+<ul>
+<li><code>THUOC_419</code>: 0  </li>
+<li><code>THUOC_418</code>: ≥1  </li>
+<li><code>CLN-THUOC-04</code>: ≥1</li>
+</ul>
+<p><strong>Ghi chú kỹ thuật:</strong> <code>npm run qa:claim-audit</code> nạp seed luật thuốc (<code>damBaoSeedLuatThuocMuc8</code>) để bộ luật động <code>LUAT_THUOC</code> có trong môi trường Node — xem <code>scripts/claim_audit_entry.jsx</code>.</p>
+<p><strong>Neo:</strong> <a href="./Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md">Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md</a>, <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.</p>
+
+  </main>
+</body>
+</html>

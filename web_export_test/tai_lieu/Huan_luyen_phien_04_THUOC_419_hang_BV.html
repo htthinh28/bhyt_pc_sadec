@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phiên huấn luyện 04 — THUOC_419: Hạng bệnh viện vs danh mục thuốc</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_04_THUOC_419_hang_BV.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phiên huấn luyện 04 — THUOC_419: Hạng bệnh viện vs danh mục thuốc</h1>
+<p><strong>Mục phiên:</strong> AI hiểu rule <strong>THUOC_419</strong> là so sánh <strong>ngưỡng hạng tối thiểu trên danh mục thuốc</strong> (<code>DM_THUOC.HANG_BV_MIN</code>) với <strong>hạng cơ sở KCB</strong> (<code>CSKCB.HANG_BV</code>) trong ngữ cảnh engine — và <strong>liên hệ</strong> với tra cứu <strong>Phụ lục I cột (4)–(7)</strong> trong thẻ thanh toán thuốc (không thay thế đối chiếu pháp lý tay).</p>
+<p><strong>Neo pháp lý / nghiệp vụ:</strong> <a href="./The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md">The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</a> (§3.4 Phụ lục I; §3.5 <code>MA_CSKCB</code> 94170 — cột <strong>(6)</strong> cho Phương Châu).</p>
+<p><strong>Neo mã:</strong> <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> — <code>SEED_THUOC_419</code>.</p>
+<p><strong>Ca + audit:</strong> <a href="./Ca_huan_luyen_mau_TRAINHL419_THUOC_419.md">Ca_huan_luyen_mau_TRAINHL419_THUOC_419.md</a> — engine dùng evaluator đặc biệt <code>THUOC_419</code> + cột <code>HANG_BV_MIN</code> trên danh mục thuốc BV + trường <code>CSKCB_HANG_BV</code> trên XML1 (huấn luyện).</p>
+<p><strong>Neo engine (bắt buộc):</strong> dòng phiên <strong>04</strong> trong <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.</p>
+<hr>
+<h2>1. Seed THUOC_419 (trích)</h2>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MA_LUAT</strong></td>
+<td><code>THUOC_419</code></td>
+</tr>
+<tr>
+<td><strong>TEN_QUY_TAC</strong></td>
+<td>Hạng bệnh viện thấp hơn quy định</td>
+</tr>
+<tr>
+<td><strong>DIEU_KIEN</strong></td>
+<td><code>DM_THUOC.HANG_BV_MIN &lt; CSKCB.HANG_BV</code></td>
+</tr>
+<tr>
+<td><strong>CANH_BAO</strong></td>
+<td><code>⛔ [VBHN 15]: Thuốc chỉ được sử dụng tại bệnh viện hạng Đặc biệt, hạng I. Bệnh viện hạng hiện tại không đủ điều kiện thanh toán.</code></td>
+</tr>
+</tbody></table>
+<p><strong>Bài học huấn luyện:</strong> Cảnh báo gốc nêu <strong>Đặc biệt / I</strong>; điều kiện kỹ thuật lại là <strong>hai biến số</strong> từ DM và CSKCB. AI <strong>không</strong> được giải thích ngược đời số hạng nếu chưa biết <strong>quy ước mã số</strong> trong danh mục nội bộ (thứ tự số nhỏ = hạng cao hay thấp). Khi huấn luyện, yêu cầu dev/kiểm tra <strong>chỉ rõ bảng tra</strong> hoặc đoạn mã gán <code>CSKCB.HANG_BV</code>.</p>
+<p><strong>Gợi ý tra cứu trong repo:</strong> Trong seed luật khác có dùng <code>CSKCB.HANG_BV == &#39;1&#39;</code> (ví dụ <code>du_lieu_luat_hanh_chinh_muc2.jsx</code>) — cho thấy <code>HANG_BV</code> thường là <strong>mã dạng chuỗi</strong> trong ngữ cảnh rule; riêng <code>THUOC_419</code> dùng toán tử <strong><code>&lt;</code></strong> giữa <code>HANG_BV_MIN</code> và <code>HANG_BV</code> — cần xác nhận engine <strong>so sánh số hay chuỗi</strong> trước khi diễn giải nghiệp vụ.</p>
+<hr>
+<h2>2. Việc làm trong <strong>Cursor</strong> (20–30 phút)</h2>
+<ol>
+<li>Đọc <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> §3.4–3.5 — ghi <strong>một câu</strong> liên hệ “cột Phụ lục I” với “hạng BV trên XML/danh mục”.  </li>
+<li>Trong repo, tìm chỗ <strong>nạp</strong> <code>CSKCB</code> / <code>HANG_BV</code> cho luật động (gợi ý từ khóa: <code>CSKCB</code>, <code>HANG_BV</code>, <code>MA_CSKCB</code> trong <code>dong_co_giam_dinh.jsx</code> hoặc file map CSKCB). Ghi <strong>đường dẫn file + tên hàm/biến</strong> nếu tìm thấy; nếu không, ghi “cần hỏi maintainer”.  </li>
+<li>So sánh <strong>một dòng</strong> ý nghĩa: <em>khi nào <code>HANG_BV_MIN &lt; HANG_BV</code> đúng với câu chữ “BV hiện tại không đủ hạng”</em> — chỉ trả lời sau khi đã xác nhận quy ước số (không bịa).</li>
+</ol>
+<hr>
+<h2>3b. Ví dụ huấn luyện — cẩn trọng</h2>
+<ol>
+<li><strong>Thiếu <code>HANG_BV_MIN</code> trên dòng danh mục thuốc</strong> — điều kiện có thể <strong>không xác định</strong> hoặc hành vi mặc định khác; AI không kết luận “đúng hạng” chỉ vì không thấy cảnh báo.  </li>
+<li><strong>Cơ sở chi nhánh / mã CSKCB đổi</strong> — <code>MA_CSKCB</code> 94170 và quy ước <strong>cột (6)</strong> Phụ lục I (thẻ tri thức nội bộ) là <strong>bối cảnh Phương Châu</strong>; cơ sở khác phải tra <strong>đúng hạng</strong> trong danh mục BHXH + Phụ lục I cho từng hoạt chất.  </li>
+<li><strong>Chỉ định ICD đúng nhưng hạng BV sai</strong> — vẫn có thể <strong>xuất toán thanh toán</strong> theo Phụ lục I dù lâm sàng hợp lý; AI phân biệt <strong>an toàn kê đơn</strong> vs <strong>điều kiện BHYT thanh toán</strong>.</li>
+</ol>
+<hr>
+<h2>4. Việc làm trong <strong>OpenClaw</strong> (dán lần lượt)</h2>
+<p><strong>Bước A — Liên hệ thẻ tri thức và seed</strong></p>
+<pre><code class="language-text">Workspace: ung_dung_cdss_bhyt.
+Đọc tai_lieu/Huan_luyen_phien_04_THUOC_419_hang_BV.md và tai_lieu/The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md (§3.4, §3.5).
+
+Xuất:
+(1) 5 bullet: Phụ lục I cột (4)–(7) liên quan gì đến THUOC_419 trong engine?
+(2) Bảng: Khái niệm | Nguồn dữ liệu (XML/DM) | Rủi ro khi AI suy diễn.
+Không PII; không sửa file.
+</code></pre>
+<p><strong>Bước B — Giải thích cho kiểm tra viên</strong></p>
+<pre><code class="language-text">Giải thích bằng tiếng Việt đơn giản (8 câu tối đa): THUOC_419 là gì, khác gì với việc chỉ nhìn MA_THUOC trên XML2.
+</code></pre>
+<p><strong>Bước C — Outline ca mẫu tương lai</strong></p>
+<pre><code class="language-text">Đề xuất outline file Ca_huan_luyen_mau_*_THUOC_419.md: metadata, bảng giả XML1 (MA_CSKCB), DM thuốc (HANG_BV_MIN), kỳ vọng có/không cảnh báo. Không ghi file.
+</code></pre>
+<hr>
+<h2>5. Đánh dấu hoàn thành phiên</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Đã xác minh (từ mã hoặc maintainer) <strong>quy ước số hạng</strong> cho <code>HANG_BV</code> / <code>HANG_BV_MIN</code>  </li>
+<li><input disabled="" type="checkbox"> Đã đọc §3.4–3.5 thẻ thanh toán thuốc  </li>
+<li><input disabled="" type="checkbox"> OpenClaw đã trả lời A–C</li>
+</ul>
+<hr>
+<p><em>Phiên trước:</em> <a href="./Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md">Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md</a><br><em>Phiên sau:</em> <a href="./Huan_luyen_phien_05_THUOC_416_vs_417_Cursor_OpenClaw.md">Huan_luyen_phien_05_THUOC_416_vs_417_Cursor_OpenClaw.md</a></p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KIỂM TRA TỰ ĐỘNG CDSS (ENGINE — CHUYÊN ĐỀ — DVKT-OP)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_AI_giam_dinh_CDSS_engine_Chuyen_de_DVKT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KIỂM TRA TỰ ĐỘNG CDSS (ENGINE — CHUYÊN ĐỀ — DVKT-OP)</h1>
+<p>Phiên bản tài liệu: <strong>1.0</strong><br>Ngày cập nhật: <strong>26/04/2026</strong><br>Đối tượng: <strong>AI hỗ trợ kiểm tra BHYT</strong> (RAG, chat, phân tích cảnh báo) — <strong>không thay</strong> quyết định BHXH / thanh toán thực tế.</p>
+<p>Độ tin cậy: <strong>trung bình → cao</strong> tùy từng quy tắc (xem cột “Bản chất” bên dưới).</p>
+<hr>
+<h2>1. Mệnh đề cốt lõi</h2>
+<ul>
+<li><p><strong>Kiểm tra trong app</strong> = tập hợp <strong>cảnh báo</strong> sinh ra từ <strong>mã nguồn</strong> khi đọc <strong>XML130</strong> (và danh mục nội bộ đã nạp), không phải “kết luận xuất toán” của cơ quan BHXH.</p>
+</li>
+<li><p><strong>Hai dòng chính</strong> cần phân biệt khi giải thích cho người dùng:</p>
+<ol>
+<li><strong>Luật động / chuyên đề</strong> (<code>dong_co_giam_dinh.jsx</code> + <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>, …) — biểu thức DSL hoặc handler, nhiều chỗ là <strong>heuristic XML130</strong>.</li>
+<li><strong>DVKT-OP</strong> (<code>dvkt_op_giam_dinh.jsx</code>) — kiểm tra phạm vi hành nghề, danh mục DVKT nội bộ, neo VBHN 17/BYT.</li>
+</ol>
+</li>
+<li><p><strong>Nguyên tắc an toàn cho AI:</strong> Luôn nói rõ <strong>“gợi kiểm tra / proxy trên XML”</strong> khi điều kiện không đọc được hợp đồng KCB, C79, sổ phê duyệt giường thực tế của BHXH.</p>
+</li>
+</ul>
+<hr>
+<h2>2. Phạm vi dữ liệu</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>XML / dữ liệu</th>
+<th>Ghi chú cho AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hồ sơ đợt KCB</td>
+<td>XML1 … XML15 (theo mẫu QĐ 130 / 3176)</td>
+<td>XML1: thông tin BN, loại KCB, ngày vào/ra, MA_KHOA, …</td>
+</tr>
+<tr>
+<td>Danh mục CSKCB</td>
+<td>Bảng khoa (M01), DVKT, thuốc, … nạp qua <code>taiDanhMucHeThong()</code></td>
+<td>Khóa <code>MAP_KHOA_BV</code>, <code>MAP_DVKT_BV</code>, … trong <code>dong_co_giam_dinh.jsx</code></td>
+</tr>
+<tr>
+<td>Luật chuyên đề</td>
+<td><code>MA_LUAT</code> dạng <code>Chuyen_de_*</code>, tab <code>LUAT_GIAM_DINH_CHUYEN_DE</code></td>
+<td>Nhiều rule đã chuyển sang điều kiện XML130; xem <code>CHUYEN_DE_XML130_CONVERSION_VERSION</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Luồng engine (để AI neo đúng “tầng” cảnh báo)</h2>
+<ul>
+<li><strong>V3 tổng hợp:</strong> <code>chayBoMayGiamDinhV3</code> trong <code>dong_co_giam_dinh.jsx</code> — nạp danh mục, dựng ngữ cảnh rule động (<code>taoNguCanhRuleDong</code>), duyệt tab luật, gọi <code>evaluateRule</code> và tích hợp <strong>DVKT-OP</strong>.</li>
+<li><strong>Chuẩn hóa từng rule:</strong> <code>chuanHoaRuleDong</code> — suy ra <code>targetTable</code> (XML1/XML3/…) từ <code>phanhe</code> + chuỗi <code>DIEU_KIEN</code> (ưu tiên bảng chi tiết khi có <code>XMLn.</code> trong điều kiện).</li>
+<li><strong>Biên dịch điều kiện:</strong> <code>bienDichDieuKienLuatDong</code> → <code>taoHamDieuKienLuatDong</code> — hàm nội bộ hệ thống (<code>SYS_KEYWORDS_RULE_DONG</code>, helpers inject trong <code>new Function(…)</code>).</li>
+</ul>
+<p><strong>Gợi ý câu hỏi AI phải tự hỏi:</strong> “Cảnh báo này gắn <strong>bảng XML nào</strong> và <strong>có phụ thuộc danh mục nội bộ</strong> không?”</p>
+<hr>
+<h2>4. Thẻ con: Chuyên đề 166 — vượt công suất giường &amp; TT22 (proxy)</h2>
+<ul>
+<li><p><strong>Mã:</strong> <code>Chuyen_de_166</code> (<code>CHUYEN_DE-166</code> trong hardcoded).</p>
+</li>
+<li><p><strong>Ý nghiệp vụ (mục tiêu kiểm tra):</strong> Gợi ý trường hợp <strong>nội trú</strong> có <strong>ngày giường BHYT</strong> (theo neo KT221 trên XML3) <strong>vượt</strong> tổng giường phê duyệt ghi trong <strong>danh mục khoa</strong> (cột <code>GIUONG_PD</code>, <code>GIUONG_TK</code>, …) theo <code>XML1.MA_KHOA</code>, đồng thời các dòng giường BHYt vẫn khai <strong>tỷ lệ thanh toán đầy đủ</strong> (heuristic: <code>TYLE_TT</code> / <code>TY_LE_TT</code> ≥ 95 hoặc trống; <code>MUC_HUONG</code> ≥ 90 hoặc trống) — <strong>proxy</strong> cho “chưa phản ánh giảm giá khi vượt công suất” theo tinh thần <strong>TT 22/2023/TT-BYT</strong> (kế thừa TT 39/2018).</p>
+</li>
+<li><p><strong>Điều kiện kỹ thuật (tóm tắt):</strong> Hằng <code>CHUYEN_DE_166_DIEU_KIEN_TT22_XML130_M01</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>; handler <code>CHUYEN_DE_166_VI_PHAM_TT22_PROXY(XML1, DS_XML3)</code> được inject trong <code>taoHamDieuKienLuatDong</code>.</p>
+</li>
+<li><p><strong>Dữ liệu chính:</strong> <code>XML1.MA_LOAI_KCB</code>, <code>NGAY_VAO</code>, <code>NGAY_RA</code>, <code>MA_KHOA</code>; <code>DS_XML3</code> (<code>MA_NHOM</code>, <code>MA_DICH_VU</code>/<code>MA_DV</code>, <code>TEN_DICH_VU</code>, <code>SO_LUONG</code>, <code>NGUON_CTRA</code>/<code>MUC_HUONG</code>, <code>TYLE_TT</code>, …); hàng khoa trong <code>MAP_KHOA_BV</code>.</p>
+</li>
+<li><p><strong>Điểm dễ nhầm (AI):</strong></p>
+<ul>
+<li>Coi cảnh báo = <strong>BHXH đã xác định xuất toán</strong> → <strong>sai</strong>; đây là <strong>rule nội bộ + heuristic</strong>.</li>
+<li>Bỏ qua chữ <strong>“Heuristic / proxy / M01 nội bộ”</strong> trong <code>CANH_BAO</code> / <code>GHI_CHU</code> → dễ <strong>thổi phồng</strong> mức độ chắc chắn.</li>
+</ul>
+</li>
+<li><p><strong>Ví dụ suy luận đúng:</strong> “Hệ thống so <strong>tổng ngày giường BHYT trên XML3</strong> với <strong>tổng cột giường trong DM khoa</strong> theo <code>MA_KHOA</code>; nếu vượt và tỷ lệ dòng vẫn đầy đủ thì <strong>gợi</strong> đối chiếu TT22 và hợp đồng KCB — cần hồ sơ giấy / C79 nếu kết luận cứng.”</p>
+</li>
+</ul>
+<hr>
+<h2>5. Phân loại độ tin cậy gợi ý cho AI</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Ví dụ mã</th>
+<th>Bản chất</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Neo mã + DM rõ ràng</td>
+<td>Nhiều <code>DVKT-OP-*</code>, <code>HC_*</code> có trường XML đủ</td>
+<td>Cao hơn — vẫn cần đối chiếu nhân sự / chỉ định</td>
+</tr>
+<tr>
+<td>Chuyên đề XML130 đã viết lại</td>
+<td><code>Chuyen_de_*</code> có <code>DIEU_KIEN</code> dài, ghi rõ COUNT_IF/SUM_IF</td>
+<td>Trung bình — phụ thuộc tên DVKT/HIS</td>
+</tr>
+<tr>
+<td>Placeholder</td>
+<td><code>CHUYEN_DE_XML130_CHO_XU_LY_SAU</code></td>
+<td>Engine <strong>cố ý không phát</strong> — không diễn giải là đã kiểm tra</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Kiểm chứng / mã nguồn tham chiếu</h2>
+<table>
+<thead>
+<tr>
+<th>Nội dung</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engine V3, rule động, <code>MAP_KHOA_BV</code>, inject proxy 166</td>
+<td><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code></td>
+</tr>
+<tr>
+<td>Quy tắc chuyên đề, phiên bản chuyển đổi XML130</td>
+<td><code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code></td>
+</tr>
+<tr>
+<td>Kiểm tra DVKT-OP</td>
+<td><code>ma_nguon/tien_ich/dvkt_op_giam_dinh.jsx</code></td>
+</tr>
+<tr>
+<td>Khung chat / VBHN DVKT</td>
+<td><code>tai_lieu/Khung_chat_luong_giam_dinh_DVKT_VBHN17.md</code></td>
+</tr>
+<tr>
+<td>Mẫu thẻ tri thức</td>
+<td><code>tai_lieu/Mau_the_tri_thuc_giam_dinh_BHYT.md</code></td>
+</tr>
+<tr>
+<td>Thực chiến chuyên đề</td>
+<td><code>tai_lieu/Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien.md</code></td>
+</tr>
+</tbody></table>
+<p><strong>Test nhanh sau khi sửa luật:</strong> <code>npm run qa:claim-audit-smoke</code> (một file XML mẫu trong <code>tai_nguyen/ip/</code>).</p>
+<hr>
+<h2>7. Bài học rút ra cho AI (bắt buộc áp dụng khi trả lời)</h2>
+<ol>
+<li>Luôn phân tách <strong>“máy phát hiện gì trên XML”</strong> vs <strong>“cần thêm chứng từ nào để kết luận”</strong>.</li>
+<li>Với <strong>công suất giường / TT22:</strong> nhắc <strong>hợp đồng KCB</strong>, <strong>phụ lục giường BHXH</strong>, <strong>C79</strong> — không khẳng định mức giảm % nếu không có trong hồ sơ.</li>
+<li>Trích dẫn <strong>mã luật</strong> (<code>ma_luat</code>, <code>ten_quy_tac</code>) khi giải thích để người dùng đối chiếu màn Quản lý quy tắc.</li>
+<li>Nếu người dùng hỏi “có đúng BHXH không?” → trả lời: <strong>XML + rule nội bộ không thay thế kiểm tra BHXH</strong>; đề xuất bước đối chiếu cụ thể (trường XML, DM, văn bản).</li>
+</ol>
+<hr>
+<h2>8. Metadata cho indexer / RAG (tùy chọn)</h2>
+<ul>
+<li><strong>Từ khóa:</strong> CDSS, kiểm tra tự động, XML130, Chuyen_de_166, TT22, công suất giường, MAP_KHOA_BV, DVKT-OP, VBHN 17, heuristic, proxy M01.</li>
+<li><strong>Loại thẻ:</strong> quy trình + quy tắc đại diện + ranh giới tin cậy.</li>
+</ul>
+
+  </main>
+</body>
+</html>

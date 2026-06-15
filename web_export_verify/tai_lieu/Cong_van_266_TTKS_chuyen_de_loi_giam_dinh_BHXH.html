@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Công văn 266 (chuyên đề) — lỗi kiểm tra / từ chối thanh toán BHXH–BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Cong_van_266_TTKS_chuyen_de_loi_giam_dinh_BHXH.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Công văn 266 (chuyên đề) — lỗi kiểm tra / từ chối thanh toán BHXH–BHYT</h1>
+<p>Tài liệu này <strong>đối chiếu</strong> danh mục lỗi mà Trung tâm Kiểm soát thanh toán BHXH, BHYT điện tử dùng trong <strong>chuyên đề kiểm tra</strong> (kèm Công văn 266 dạng <code>…/TTKS-NV</code>), cụ thể từ:</p>
+<ul>
+<li><strong>Phụ lục 01</strong> (<code>PL1_CD_chuyentinh.docx</code>): dịch vụ kỹ thuật thanh toán <strong>không đúng quy định</strong> (tách/ghép DVKT theo <strong>điểm a khoản 4 Điều 4 TT 35/2016/TT-BYT</strong>, điều kiện <strong>TT 35/2016</strong> và <strong>TT 39/2024/TT-BYT</strong>, v.v.).</li>
+<li><strong>Phụ lục 02</strong> (<code>PL2_CD chuyentinh.docx</code>): <strong>thuốc</strong> thanh toán không đúng quy định (tham chiếu <strong>TT 20/2022</strong> Phụ lục I, <strong>TT 05/2015</strong> Đông y, <strong>TT 37/2024</strong> Điều 8, thuốc đã kết cấu trong giá DVKT, ngoài danh mục BHYT, …).</li>
+</ul>
+<p>File Word gốc thường nằm ngoài repo (ví dụ thư mục Google Drive BHYT). Trong repo đã lưu bản trích chữ thuần và chỉ mục có cấu trúc để tra cứu và bảo trì.</p>
+<h2>Mã trong phụ lục</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Ý nghĩa thông thường</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>KT…</strong></td>
+<td>Mã <strong>chuyên đề</strong> (kỹ thuật / DVKT hoặc nhóm lỗi liên quan kỹ thuật). Có biến thể như <code>KT01_1</code>, <code>KT02P1</code>.</td>
+</tr>
+<tr>
+<td><strong>TH…</strong></td>
+<td>Mã chuyên đề nhóm <strong>thuốc</strong> (Phụ lục 02).</td>
+</tr>
+<tr>
+<td><strong>S.xxx.yyy</strong> / <strong>T.xxx.yyy</strong></td>
+<td><strong>Mã lý do từ chối</strong> (theo hệ thống mã kiểm tra; <code>S</code> thường gắn sai phạm về nội dung thanh toán, <code>T</code> gắn kỹ thuật/quy trình tùy ngữ cảnh phụ lục).</td>
+</tr>
+</tbody></table>
+<p>Khi đối chiếu với <strong>XML điện tử</strong>: các lỗi thuốc thường liên quan <strong>XML2</strong>; lỗi DVKT thường liên quan <strong>XML3</strong> (và ngữ cảnh PTTT, danh mục kỹ thuật, điều kiện thanh toán từng mã).</p>
+<h2>Dữ liệu trong repo</h2>
+<table>
+<thead>
+<tr>
+<th>Đường dẫn</th>
+<th>Mô tả</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>tai_lieu/_extract_cv266/PL1_plain.txt</code></td>
+<td>Nội dung trích từ Phụ lục 01 (UTF-8).</td>
+</tr>
+<tr>
+<td><code>tai_lieu/_extract_cv266/PL2_plain.txt</code></td>
+<td>Nội dung trích từ Phụ lục 02 (UTF-8).</td>
+</tr>
+<tr>
+<td><code>tai_lieu/_extract_cv266/cv266_pl_index.json</code></td>
+<td>Chỉ mục: <code>maChuyenDe</code>, <code>maLyDo</code>, <code>noiDung</code> (rút gọn), <code>nguon</code> (<code>PL1</code> / <code>PL2</code>).</td>
+</tr>
+<tr>
+<td><code>scripts/parse_cv266_phuluc.js</code></td>
+<td>Parse lại từ hai file <code>.txt</code> trên; chạy: <code>node scripts/parse_cv266_phuluc.js</code>.</td>
+</tr>
+</tbody></table>
+<p>Số mục (sau lần generate gần đây): khoảng <strong>58</strong> dòng PL1 + <strong>36</strong> dòng PL2, <strong>94</strong> bản ghi duy nhất trong JSON (một số cặp mã + nội dung có thể trùng giữa nguồn nếu trích lỗi; khóa gộp dùng tiền tố nội dung).</p>
+<h2>Liên hệ với engine CDSS trong mã nguồn</h2>
+<p>Luật <strong>kiểm tra chuyên đề</strong> chạy trong ứng dụng lấy từ <code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code>, được sinh từ Excel qua <code>scripts/gen_hardcoded_rules.js</code> (sheet <code>LUAT_GIAM_DINH_CHUYEN_DE</code>). <strong>Không</strong> chỉnh tay file hardcoded; khi cần bổ sung quy tắc có điều kiện (DIEU_KIEN), cập nhật nguồn Excel rồi generate lại.</p>
+<p>File <code>cv266_pl_index.json</code> phục vụ <strong>tra cứu, huấn luyện, audit</strong> và đồng bộ nội dung cảnh báo với <strong>mã lý do / mã chuyên đề</strong> mà BHXH công bố trong phụ lục Công văn 266 — không thay thế toàn bộ 600+ luật logic trong Excel trừ khi được map từng mục sang điều kiện kỹ thuật.</p>
+<h2>Tái tạo <code>.txt</code> từ <code>.docx</code> (khi có file gốc)</h2>
+<p>Trên Windows, nếu đường dẫn tiếng Việt gây lỗi console, có thể: giải nén <code>word/document.xml</code> từ <code>.docx</code>, chuyển thẻ thành xuống dòng, ghi UTF-8 vào <code>PL1_plain.txt</code> / <code>PL2_plain.txt</code>, sau đó chạy lại <code>parse_cv266_phuluc.js</code>.</p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run vercel:build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=6144",
+      "NPM_CONFIG_PRODUCTION": "false"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!_expo|assets|favicon\\.ico|tai_lieu/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

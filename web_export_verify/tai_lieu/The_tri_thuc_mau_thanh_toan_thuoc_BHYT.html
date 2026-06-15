@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU: THANH TOÁN THUỐC BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU: THANH TOÁN THUỐC BHYT</h1>
+<p>Phiên bản tài liệu: 1.3<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Thẻ tri thức này nạp cho AI khái niệm về <strong>thanh toán thuốc</strong> trong bối cảnh kiểm tra BHYT - tức là kiểm soát xem:</p>
+<ul>
+<li>Thuốc có nằm trong danh mục thanh toán BHYT hay không?</li>
+<li>Chẩn đoán/bệnh của bệnh nhân có nằm trong phạm vi thanh toán của thuốc này hay không?</li>
+<li>Liều, tần suất, số lượng có phù hợp hướng dẫn sử dụng được phép BHYT hay không?</li>
+<li>Ngày y lệnh, ngày kết quả có hợp lệ để thanh toán hay không?</li>
+</ul>
+<p><strong>Khác biệt quan trọng:</strong></p>
+<ul>
+<li><strong>An toàn kê đơn</strong> (an toàn lâm sàng) = điều kiện sử dụng an toàn từ góc độ y học.</li>
+<li><strong>Thanh toán</strong> = điều kiện được BHYT chấp nhận trả tiền.</li>
+</ul>
+<p>Một thuốc có thể an toàn (đúng liều, đúng bệnh nhân) nhưng vẫn <strong>không được thanh toán</strong> nếu:</p>
+<ul>
+<li><strong>Hoạt chất có trong Phụ lục I</strong> nhưng <strong>cơ sở khám chữa bệnh không đúng hạng</strong> so với cột <strong>(4), (5), (6), (7)</strong> của đúng dòng hoạt chất (đường dùng/dạng dùng).</li>
+<li><strong>Không thỏa điều kiện hoặc tỷ lệ thanh toán</strong> ghi tại cột <strong>(8)</strong> của Phụ lục I (và các ghi chú kèm theo).</li>
+<li>Chẩn đoán không nằm trong phạm vi chỉ định thanh toán của thuốc đó (thường chi tiết hóa tại cột (8) và văn bản dẫn chiếu).</li>
+<li>Số lượng cấp vượt quá hướng dẫn thanh toán.</li>
+<li>Không có đủ giấy tờ hoặc điều kiện hành chính.</li>
+</ul>
+<h2>2. Nguồn gốc tri thức</h2>
+<p>Tài liệu nền:</p>
+<ul>
+<li><strong>Văn bản hợp nhất 15/VBHN-BYT năm 2024</strong> — hợp nhất các Thông tư về <strong>Danh mục và tỷ lệ, điều kiện thanh toán</strong> đối với thuốc hóa dược, sinh phẩm, thuốc phóng xạ và chất đánh dấu thuộc phạm vi BHYT. <strong>Phụ lục I</strong> quy định cấu trúc cột <strong>(1)–(8)</strong> cho từng hoạt chất (đường dùng, phân hạng cơ sở, điều kiện/tỷ lệ). Đọc toàn văn và bảng Phụ lục I: <a href="https://thuvienphapluat.vn/van-ban/Bao-hiem/Van-ban-hop-nhat-15-VBHN-BYT-2024-Thong-tu-dieu-kien-thanh-toan-sinh-pham-huong-bao-hiem-y-te-636108.aspx">Văn bản hợp nhất 15/VBHN-BYT 2024 trên Thư viện Pháp luật</a>.</li>
+<li><strong>Thông tư 20/2022/TT-BYT</strong> (và các văn sửa đổi được hợp nhất) — bản gốc kèm <strong>Phụ lục I</strong> đính kèm danh mục thuốc; khi tra cứu <strong>cột (4)–(8)</strong> phải dùng <strong>bản Phụ lục I hiện hành</strong> (file Excel/PDF Bộ Y tế hoặc bản hợp nhất mới nhất).</li>
+<li><strong>Quyết định 130/QĐ-BYT</strong> — Cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT  </li>
+<li><strong>Nghị định 188/2025/NĐ-CP</strong> — Quy định thanh toán chi phí KCB BHYT  </li>
+<li><strong>Quyết định 5631/QĐ-BYT năm 2020</strong> — Hướng dẫn quản lý sử dụng kháng sinh trong BV</li>
+</ul>
+<p><strong>Ghi chú kỹ thuật CDSS:</strong> Engine dự án (<code>du_lieu_luat_thuoc_muc8.jsx</code>, <code>dong_co_giam_dinh.jsx</code>) <strong>có thể chưa</strong> mã hóa đầy đủ từng ô cột (4)–(8) cho mọi hoạt chất; kiểm tra viên và AI vẫn phải <strong>đối chiếu Phụ lục I</strong> khi kết luận thanh toán theo <strong>hạng bệnh viện</strong> và <strong>điều kiện cột (8)</strong>.</p>
+<p>Mã nguồn:</p>
+<ul>
+<li><code>ma_nguon/tien_ich/luat_thuoc_hardcoded.jsx</code> - Wrapper kiểm tra thanh toán thuốc</li>
+<li><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> - Engine ánh xạ dữ liệu từ XML</li>
+<li><code>ma_nguon/man_hinh/DocXML.jsx</code> - Màn hình hiển thị chi tiết hồ sơ</li>
+</ul>
+<p>Audit thực tế:</p>
+<ul>
+<li>Folder <code>test_xml/</code> - Các file audit JSON từ hồ sơ thật đã xử lý</li>
+</ul>
+<h2>3. Khái niệm nền</h2>
+<h3>3.1. Danh mục thuốc BHYT</h3>
+<p>Không phải <strong>tất cả</strong> thuốc kê trong hóa đơn được BHYT thanh toán.</p>
+<ul>
+<li>Mỗi thuốc có một <strong>mã thuốc</strong> (<code>MA_THUOC</code>) trong XML2.</li>
+<li>Mỗi thuốc phải được ghi tên, hàm lượng, số lượng, giá thanh toán.</li>
+<li>BHYT chỉ thanh toán những thuốc nằm trong <strong>danh mục bảo hiểm được phê duyệt</strong>.</li>
+</ul>
+<p><strong>Ví dụ:</strong></p>
+<ul>
+<li>Biofazolin 1gam/vial (code 40.166) được BHYT thanh toán nếu đúng chỉ định.</li>
+<li>Vitamin B1 400mg (code giả định) không được BHYT thanh toán ngay cả khi an toàn và có chỉ định rõ.</li>
+</ul>
+<h3>3.2. Phạm vi thanh toán của một thuốc</h3>
+<p>Mỗi thuốc có <strong>danh sách bệnh/chẩn đoán</strong> được BHYT chấp nhận thanh toán.</p>
+<p>Ví dụ với <strong>Cefazolin</strong> (antibiotics phòng phát):</p>
+<ul>
+<li>Được thanh toán cho: phòng phát nhiễm khuẩn sau phẫu thuật, sau sinh.</li>
+<li><strong>Không được thanh toán cho</strong>: chẩn đoán viêm họng, tiêu chảy không rõ nguyên nhân.</li>
+</ul>
+<p>Nếu bác sĩ kê Cefazolin cho viêm họng, thì:</p>
+<ul>
+<li>Dữ liệu XML2 sẽ có mã thuốc <strong>40.??? (Cefazolin)</strong>.</li>
+<li>Dữ liệu XML1 sẽ có <strong>MA_BENH_CHINH = &quot;J02&quot;</strong> (viêm họng cấp).</li>
+<li>Hệ thống kiểm tra sẽ cảnh báo: <strong>&quot;XUẤT TOÁN: Cefazolin không được thanh toán cho chẩn đoán viêm họng&quot;</strong>.</li>
+</ul>
+<h3>3.3. Liên hệ giữa XML1 và XML2 trong thanh toán</h3>
+<ul>
+<li><strong>XML1</strong> chứa chẩn đoán chính, chẩn đoán kèm, chẩn đoán ra viện, thông tin bệnh nhân.</li>
+<li><strong>XML2</strong> chứa danh sách thuốc kê, liều, tần suất, số lượng, giá đơn vị, thành tiền.</li>
+</ul>
+<p>Để kiểm tra thanh toán, <strong>phải kết hợp cả hai</strong>:</p>
+<ol>
+<li>Lấy mã thuốc từ XML2.</li>
+<li>Lấy chẩn đoán từ XML1.</li>
+<li>Kiểm tra <strong>hạng cơ sở KCB</strong> so với <strong>cột (4)–(7)</strong> của đúng dòng hoạt chất trong Phụ lục I.</li>
+<li>Kiểm tra <strong>cột (8)</strong> — điều kiện thanh toán, <strong>tỷ lệ</strong> thanh toán (nếu có), ghi chú (ví dụ giới hạn tuyến, đối tượng, tài liệu kèm theo).</li>
+<li>Kiểm tra xem chẩn đoán / chỉ định có nằm trong phạm vi thanh toán <strong>theo Phụ lục I cột (8) và văn bản dẫn chiếu</strong> không.</li>
+<li>Kiểm tra xem liều, tần suất, số lượng có phù hợp hướng dẫn không.</li>
+<li>Kiểm tra xem ngày y lệnh có khớp với ngày bệnh nhân nằm viện/khám hay không.</li>
+</ol>
+<h3>3.4. Phụ lục I — cột (1) đến (8) (văn bản hợp nhất 15/VBHN-BYT)</h3>
+<p>Theo quy định tại văn bản hợp nhất (Điều hướng dẫn cấu trúc danh mục Phụ lục I), <strong>mỗi dòng</strong> là một hoạt chất (cột 2) với <strong>đường dùng, dạng dùng</strong> (cột 3). AI cần tra <strong>đúng dòng</strong> (cùng hoạt chất + đường/dạng dùng), không chỉ tra tên thương mại trên XML2.</p>
+<table>
+<thead>
+<tr>
+<th>Cột</th>
+<th>Nội dung (ý chính)</th>
+<th>Ý nghĩa kiểm tra thanh toán</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>(1)</strong></td>
+<td>STT</td>
+<td>Thứ tự trong danh mục.</td>
+</tr>
+<tr>
+<td><strong>(2)</strong></td>
+<td>Tên hoạt chất (INN hoặc tên được cấp phép)</td>
+<td>Khóa tra cứu chính; đối chiếu mã thuốc BYT / hoạt chất trong hồ sơ.</td>
+</tr>
+<tr>
+<td><strong>(3)</strong></td>
+<td>Đường dùng, dạng dùng</td>
+<td>Phải khớp cách dùng thực tế (uống, tiêm, …); khác đường dùng có thể là <strong>dòng khác</strong> trong Phụ lục.</td>
+</tr>
+<tr>
+<td><strong>(4)</strong></td>
+<td>Hạng bệnh viện — <strong>Đặc biệt và I</strong></td>
+<td>Chỉ các cơ sở thuộc nhóm này được thanh toán thuốc nếu dòng đó <strong>chỉ</strong> mở tại cột (4) (theo ký hiệu/quy ước trong bảng Phụ lục).</td>
+</tr>
+<tr>
+<td><strong>(5)</strong></td>
+<td>Hạng bệnh viện — <strong>II</strong></td>
+<td>Tương tự cho hạng II.</td>
+</tr>
+<tr>
+<td><strong>(6)</strong></td>
+<td>Hạng bệnh viện — <strong>III và IV</strong> (và một số cơ sở tương đương theo văn bản, kể cả PKĐK thuộc BV/TTYT có phân tuyến trước 01/01/2025 như quy định)</td>
+<td>Phạm vi rộng hơn hạng I; vẫn phải khớp <strong>đúng cột</strong> với hạng thực tế của nơi KCB. <em>Tri thức nội bộ dự án:</em> <strong>Bệnh viện Quốc tế Phương Châu</strong> áp tra cứu theo <strong>cột (6)</strong> — xem §3.5.</td>
+</tr>
+<tr>
+<td><strong>(7)</strong></td>
+<td><strong>PKĐK/PK chuyên khoa/Nhà hộ sinh tư</strong> chưa phân tuyến (trước 01/01/2025), <strong>TYT xã</strong>, y tế cơ quan, tương đương</td>
+<td>Tuyến cơ sở; thuốc chỉ ghi dấu tại (7) thì BV hạng I <strong>không</strong> tự động được quyền thanh toán nếu văn bản không cho phép — phải đọc <strong>đúng ô</strong> trên dòng hoạt chất.</td>
+</tr>
+<tr>
+<td><strong>(8)</strong></td>
+<td><strong>Điều kiện thanh toán, tỷ lệ thanh toán, ghi chú</strong></td>
+<td>Nơi ghi <strong>điều kiện đặc thù</strong> (ICD, tuyến, đối tượng, phác đồ, hồ sơ kèm theo, mức % thanh toán, v.v.). <strong>Chỉ định lâm sàng đúng nhưng không thỏa cột (8)</strong> → BHYT <strong>không</strong> thanh toán (hoặc chỉ thanh toán một phần theo tỷ lệ).</td>
+</tr>
+</tbody></table>
+<p><strong>Thuốc Phụ lục II</strong> (phóng xạ, chất đánh dấu): theo văn bản hợp nhất, <strong>không phân hạng bệnh viện</strong> theo cột (4)–(7) như Phụ lục I; chỉ tại cơ sở <strong>được cấp phép</strong> — AI tách biệt khỏi logic Phụ lục I.</p>
+<h3>3.5. Tri thức nội bộ: Bệnh viện Quốc tế Phương Châu — tra Phụ lục I theo <strong>cột (6)</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Giá trị (chuẩn hồ sơ XML / BHXH)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tên cơ sở</td>
+<td><strong>Bệnh viện Quốc tế Phương Châu Sóc Trăng</strong></td>
+</tr>
+<tr>
+<td><strong><code>MA_CSKCB</code></strong></td>
+<td><strong><code>94170</code></strong></td>
+</tr>
+</tbody></table>
+<p>Khi <code>XML1.MA_CSKCB === &#39;94170&#39;</code> (sau khi chuẩn hóa chuỗi), áp dụng quy tắc <strong>Phụ lục I — cột (6)</strong> như dưới đây. <em>(Một số bản scan hợp đồng hoặc trích lỗi có thể ghi khác; lấy <strong>94170</strong> làm mã đối chiếu với XML475/XML điện tử và danh mục CSKCB BHXH.)</em></p>
+<p>Trong phạm vi <strong>kiểm tra và CDSS</strong> của dự án (Tập đoàn Y tế / <strong>Bệnh viện Quốc tế Phương Châu</strong>, ví dụ cơ sở Sóc Trăng trong cấu hình ứng dụng), khi đối chiếu <strong>được thanh toán thuốc BHYT theo hạng cơ sở</strong> với bảng Phụ lục I, AI và kiểm tra viên lấy <strong>nhóm cột (6)</strong> làm cột hạng bệnh viện áp dụng: tức là chỉ những hoạt chất có <strong>quy định thanh toán tại cột 6</strong> (theo ký hiệu/quy ước của file Phụ lục) mới nằm trong phạm vi thanh toán thuốc BHYT cho tuyến này — <strong>không</strong> được suy diễn quyền thuốc của cột <strong>(4)</strong> hay <strong>(5)</strong> nếu trên dòng đó không có dấu hiệu cho phép cột (6) hoặc tương đương theo bảng.</p>
+<p><strong>Định nghĩa pháp lý của cột (6)</strong> (trích theo cấu trúc Phụ lục I, văn bản hợp nhất <strong>15/VBHN-BYT</strong> — mục giải thích cột 4, 5, 6, 7):</p>
+<blockquote>
+<p><strong>Cột 6</strong> — <em>Bệnh viện hạng III và hạng IV, bao gồm cả phòng khám đa khoa thuộc bệnh viện đa khoa hoặc thuộc trung tâm y tế quận, huyện, thị xã, thành phố trực thuộc tỉnh, thành phố trực thuộc trung ương, phòng khám đa khoa, phòng khám chuyên khoa, nhà hộ sinh tư nhân đã được cơ quan nhà nước có thẩm quyền phân tuyến chuyên môn kỹ thuật tương đương tuyến III trước ngày 01 tháng 01 năm 2025 sử dụng các thuốc quy định tại cột 6.</em></p>
+</blockquote>
+<p><strong>Cách dùng trong suy luận AI:</strong></p>
+<ol>
+<li>Xác định <code>MA_CSKCB</code> trên XML1 — với <strong>Phương Châu Sóc Trăng</strong> là <strong><code>94170</code></strong> — hoặc tên cơ sở khớp <strong>Bệnh viện Quốc tế Phương Châu</strong> (hoặc chi nhánh được quy ước cùng nhóm hạng).  </li>
+<li>Với từng dòng thuốc, sau khi đã khóa <strong>đúng dòng</strong> Phụ lục I (cột 2–3), kiểm tra ô <strong>cột (6)</strong> và tiếp tục <strong>cột (8)</strong>.  </li>
+<li>Nếu thuốc chỉ mở tại cột <strong>(4)</strong> hoặc <strong>(5)</strong> mà <strong>không</strong> thuộc phạm vi cột <strong>(6)</strong> theo bảng → coi là <strong>không đủ điều kiện thanh toán BHYT tại cơ sở Phương Châu</strong> (xuất toán hoặc tự túc, tùy nghiệp vụ và hồ sơ).</li>
+</ol>
+<p><em>Lưu ý:</em> Phân hạng hành chính chi tiết của từng chi nhánh lấy từ <strong>quyết định phân hạng / hợp đồng KCB / danh mục CSKCB</strong>; thẻ này chỉ cố định <strong>quy tắc tra Phụ lục I = cột (6)</strong> cho thương hiệu <strong>Phương Châu</strong> trong ngữ cảnh huấn luyện AI của dự án.</p>
+<h2>4. Các kiểu lỗi thanh toán thuốc</h2>
+<h3>4.1. Lỗi: Thuốc không nằm trong danh mục BHYT</h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Mã thuốc không được BHYT phê duyệt.</li>
+<li>Thường là đông dược, vitamin, thực phẩm bổ sung.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>XUẤT TOÁN : Thuốc không nằm trong danh mục thanh toán BHYT. Bệnh viện cần hoàn lại [số tiền].</strong></p>
+<p><strong>Ví dụ:</strong></p>
+<pre><code>- Mã THUOC: 40.XYZ (không tồn tại trong danh mục)
+- Ten THUOC: &quot;Vitamin PP 50mg&quot;
+- So LUONG: 30
+- Gia thanh toan: 5.000đ/viên
+- Thanh tien: 150.000đ
+
+Kết luận: XUẤT TOÁN 150.000đ
+</code></pre>
+<h3>4.2. Lỗi: Chẩn đoán không nằm trong phạm vi thanh toán</h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Thuốc có trong danh mục BHYT.</li>
+<li>Nhưng chẩn đoán bệnh nhân không nằm trong danh sách được phép thanh toán cho thuốc này.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>XUẤT TOÁN : [Tên thuốc] không được thanh toán cho chẩn đoán [ICD-10]. Danh mục thanh toán chỉ bao gồm [danh sách bệnh được phép].</strong></p>
+<p><strong>Ví dụ:</strong></p>
+<pre><code>- Ma THUOC: 40.398 (Cefazolin)
+- MA_BENH_CHINH: &quot;J02&quot; (Viêm họng cấp)
+- So LUONG: 4
+- Gia thanh toan: 15.000đ
+- Thanh tien: 60.000đ
+
+Kết luận: XUẤT TOÁN 60.000đ
+
+Giải thích: &quot;Cefazolin được thanh toán chỉ cho phòng phát nhiễm khuẩn sau phẫu thuật hoặc sản khoa, không được thanh toán cho viêm họng cấp&quot;
+</code></pre>
+<h3>4.3. Lỗi: Số lượng cấp vượt hướng dẫn</h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Thuốc, chẩn đoán đều đúng.</li>
+<li>Nhưng số lượng cấp/liều dùng vượt quá hướng dẫn thanh toán của BHYT.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⚠️ <strong>XUẤT TOÁN BỘ: Số lượng [Tên thuốc] vượt quá hướng dẫn thanh toán. Cấp [X đơn vị], được phép [Y đơn vị]. Xuất toán [Z đơn vị].</strong></p>
+<p><strong>Ví dụ:</strong></p>
+<pre><code>- Ma THUOC: 40.260 (Aciclovir)
+- MA_BENH_CHINH: &quot;B02&quot; (Zona - đúng chẩn đoán)
+- So LUONG: 100 viên (phần vượt không đúng)
+- Huong dan thanh toan: 50 viên cho chẩn đoán Zona trong 1 lượt điều trị
+- Gia thanh toan: 2.000đ/viên
+- Thanh tien XML: 200.000đ
+- Thanh tien BHYT được: 100.000đ
+
+Kết luận: XUẤT TOÁN BỘ: xuất 100.000đ
+</code></pre>
+<h3>4.4. Lỗi: Ngày sử dụng không hợp lệ</h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Ngày y lệnh ngoài khoảng nằm viện/điều trị.</li>
+<li>Ngày y lệnh sau ngày ra viện.</li>
+<li>Ngày kết quả trước ngày y lệnh.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>XUẤT TOÁN : Ngày y lệnh không hợp lệ. Ngày y lệnh [X] ngoài khoảng nằm viện [từ A đến B].</strong></p>
+<h3>4.5. Lỗi: Đúng hoạt chất và chỉ định nhưng sai <strong>hạng cơ sở KCB</strong> (cột 4–7)</h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Dòng hoạt chất trong <strong>Phụ lục I</strong> chỉ cho phép thanh toán tại <strong>một nhóm hạng</strong> (ví dụ chỉ có dấu/quy ước tại cột <strong>(4)</strong> — BV đặc biệt và I).</li>
+<li>Cơ sở KCB thực tế là <strong>hạng III/IV</strong> hoặc <strong>tuyến xã</strong> (cột <strong>(6)</strong> hoặc <strong>(7)</strong>) — <strong>không</strong> được quyền thanh toán dòng đó theo Phụ lục.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>XUẤT TOÁN: Thuốc [hoạt chất] theo Phụ lục I chỉ được thanh toán BHYT tại cơ sở hạng […], không phù hợp hạng cơ sở […].</strong></p>
+<p><strong>Lưu ý cho AI:</strong> Hạng BV của cơ sở thường lấy từ <strong>danh mục CSKCB</strong> / quyết định phân hạng, không phải từ một trường đơn lẻ trong XML2; cần <code>MA_CSKCB</code> (XML1) rồi tra ngoài hồ sơ.</p>
+<h3>4.6. Lỗi: Không thỏa <strong>điều kiện hoặc tỷ lệ</strong> tại cột <strong>(8)</strong></h3>
+<p><strong>Dấu hiệu:</strong></p>
+<ul>
+<li>Cột <strong>(8)</strong> ghi điều kiện (ví dụ: chỉ thanh toán kèm ICD/hồ sơ chuyên khoa, giới hạn tuyến, tỷ lệ %, số ngày tối đa, v.v.).</li>
+<li>Hồ sơ <strong>không đáp ứng</strong> đúng toàn bộ điều kiện ghi tại <strong>(8)</strong> và văn bản được dẫn chiếu.</li>
+</ul>
+<p><strong>Kết luận:</strong> ⛔ <strong>XUẤT TOÁN (hoặc xuất toán phần chênh)</strong> theo đúng quy định tại cột <strong>(8)</strong> — có thể là <strong>0%</strong> hoặc <strong>tỷ lệ bộ phận</strong> nếu văn bản quy định tỷ lệ.</p>
+<h2>5. Cách kiểm tra thanh toán từng bước</h2>
+<p>Khi gặp một dòng thuốc trong XML2, AI nên kiểm tra theo <strong>quy trình chuỗi</strong> này:</p>
+<h3>Bước 1: Kiểm tra tiêu chuẩn hành chính</h3>
+<p><strong>Câu hỏi:</strong> &quot;Hồ sơ có đủ dữ liệu để kiểm tra thanh toán không?&quot;</p>
+<ul>
+<li>Có <code>MA_THUOC</code>?</li>
+<li>Có <code>SO_LUONG</code>?</li>
+<li>Có <code>GIA_THANH_TOAN</code>?</li>
+<li>Có <code>NGAY_Y_LENH</code>?</li>
+<li>XML1 có <code>MA_BENH_CHINH</code>?</li>
+<li>XML1 có <code>NGAY_VAO</code> và <code>NGAY_RA</code>?</li>
+<li>XML1 có <code>MA_CSKCB</code> (hoặc tương đương) để <strong>tra hạng/tuyến cơ sở</strong> phục vụ bước 3?</li>
+</ul>
+<p>Nếu thiếu → <strong>KIỂM TRA: Dữ liệu hồ sơ thiếu <code>[trường nào]</code>, không thể kết luận thanh toán</strong> (đặc biệt nếu thiếu cơ sở để đối chiếu cột (4)–(7)).</p>
+<h3>Bước 2: Kiểm tra danh mục (Phụ lục I)</h3>
+<p><strong>Câu hỏi:</strong> &quot;Hoạt chất + đường dùng/dạng dùng có nằm trong <strong>Phụ lục I</strong> (cột 1–3) của danh mục thanh toán BHYT hiện hành không?&quot;</p>
+<ul>
+<li>Nếu không → <strong>XUẤT TOÁN: Thuốc không nằm trong danh mục thanh toán BHYT.</strong></li>
+<li>Nếu có → Ghi nhận <strong>đúng dòng</strong> Phụ lục (để tra cột 4–8) → Sang bước 3.</li>
+</ul>
+<h3>Bước 3: Kiểm tra <strong>hạng cơ sở KCB</strong> với cột <strong>(4), (5), (6), (7)</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Cơ sở nơi kê thuốc thuộc <strong>hạng/tuyến</strong> nào, và trên dòng Phụ lục I đó có <strong>được phép</strong> thanh toán tại hạng đó không?&quot;</p>
+<ul>
+<li>Xác định hạng BV / tuyến cơ sở (từ <code>MA_CSKCB</code> + danh mục hành chính / quyết định phân hạng).</li>
+<li>Đối chiếu với <strong>dấu hiệu/quy ước</strong> tại cột <strong>(4)–(7)</strong> của <strong>cùng dòng</strong> hoạt chất.</li>
+<li>Nếu không khớp → <strong>XUẤT TOÁN: Không đúng hạng bệnh viện/tuyến được thanh toán thuốc này theo Phụ lục I.</strong></li>
+<li>Nếu khớp → Sang bước 4.</li>
+</ul>
+<h3>Bước 4: Kiểm tra cột <strong>(8)</strong> — điều kiện và <strong>tỷ lệ</strong> thanh toán</h3>
+<p><strong>Câu hỏi:</strong> &quot;Toàn bộ điều kiện, ghi chú và tỷ lệ tại cột <strong>(8)</strong> đã thỏa chưa?&quot;</p>
+<ul>
+<li>Đọc kỹ <strong>(8)</strong>: ICD, đối tượng, hồ sơ đính kèm, giới hạn liều/ngày, <strong>% thanh toán</strong>, v.v.</li>
+<li>Nếu không thỏa → <strong>XUẤT TOÁN</strong> hoặc <strong>điều chỉnh số tiền BHYT</strong> theo tỷ lệ quy định.</li>
+<li>Nếu thỏa → Sang bước 5.</li>
+</ul>
+<h3>Bước 5: Kiểm tra phạm vi chẩn đoán / chỉ định (kết hợp ICD và văn bản)</h3>
+<p><strong>Câu hỏi:</strong> &quot;Chẩn đoán và chỉ định có nằm trong phạm vi thanh toán <strong>sau khi</strong> đã thỏa (3)(4)?&quot;</p>
+<ul>
+<li>Đối chiếu <code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>, <code>CHAN_DOAN_RV</code> với <strong>cột (8)</strong> và các rule seed trong hệ thống.</li>
+<li>Nếu không → <strong>XUẤT TOÁN: [Hoạt chất] không được thanh toán cho tình huống lâm sàng / ICD này.</strong></li>
+<li>Nếu có → Sang bước 6.</li>
+</ul>
+<h3>Bước 6: Kiểm tra liều và số lượng</h3>
+<p><strong>Câu hỏi:</strong> &quot;Liều, tần suất, số lượng có phù hợp hướng dẫn không?&quot;</p>
+<ul>
+<li>Kiểm tra: <code>TONG_LIEU_24H</code> có vượt liều tối đa?</li>
+<li>Kiểm tra: <code>TAN_SUAT</code> có phù hợp hướng dẫn?</li>
+<li>Kiểm tra: <code>SO_LUONG</code> có khớp <code>SO_NGAY</code> × tần suất / y lệnh?</li>
+<li>Kiểm tra: <code>SO_LUONG</code> có vượt hướng dẫn thanh toán (kể cả ghi trong <strong>(8)</strong>)?</li>
+</ul>
+<p>Nếu vượt → <strong>XUẤT TOÁN BỘ hoặc XUẤT TOÁN TOÀN BỘ tùy mức độ.</strong><br>Nếu không vượt → Sang bước 7.</p>
+<h3>Bước 7: Kiểm tra ngày hợp lệ</h3>
+<p><strong>Câu hỏi:</strong> &quot;Ngày y lệnh có nằm trong khoảng nằm viện/điều trị không?&quot;</p>
+<ul>
+<li>Kiểm tra: <code>NGAY_Y_LENH</code> có &gt;= <code>NGAY_VAO</code>?</li>
+<li>Kiểm tra: <code>NGAY_Y_LENH</code> có &lt;= <code>NGAY_RA</code>?</li>
+</ul>
+<p>Nếu không → <strong>XUẤT TOÁN: Ngày y lệnh không hợp lệ.</strong><br>Nếu có → <strong>THANH TOÁN ĐÚNG</strong> (về chuỗi kiểm tra này; vẫn có thể còn lỗi hành chính/DVKT khác ngoài thuốc).</p>
+<h2>6. Dữ liệu cần kiểm tra trong XML</h2>
+<h3>Từ XML1 (thông tin bệnh nhân, chẩn đoán, cơ sở)</h3>
+<ul>
+<li><code>MA_CSKCB</code> - Mã cơ sở KCB (dùng tra <strong>hạng bệnh viện / tuyến</strong> để đối chiếu cột <strong>(4)–(7)</strong> Phụ lục I; thường cần <strong>danh mục CSKCB</strong> hoặc dữ liệu nội bộ, không suy diễn từ mã thuốc)</li>
+<li><code>MA_BENH_CHINH</code> - Chẩn đoán chính theo ICD-10</li>
+<li><code>MA_BENH_KT</code> - Chẩn đoán kèm / nền tảng</li>
+<li><code>CHAN_DOAN_RV</code> - Chẩn đoán ra viện (nếu có)</li>
+<li><code>NGAY_VAO</code> - Ngày vào viện/khám</li>
+<li><code>NGAY_RA</code> - Ngày ra viện/khám</li>
+</ul>
+<h3>Từ XML2 (danh sách thuốc)</h3>
+<ul>
+<li><code>MA_THUOC</code> - Mã thuốc (key để tra danh mục)</li>
+<li><code>TEN_THUOC</code> - Tên thuốc (dùng để xác nhận)</li>
+<li><code>SO_LUONG</code> - Số lượng cấp</li>
+<li><code>GIA_THANH_TOAN</code> - Giá thanh toán BHYT / 1 đơn vị</li>
+<li><code>THANH_TIEN</code> - Tổng tiền = SO_LUONG * GIA_THANH_TOAN</li>
+<li><code>NGAY_Y_LENH</code> - Ngày của y lệnh dùng thuốc</li>
+<li><code>TONG_LIEU_24H</code> - Tổng liều trong 24 giờ (nếu hệ thống tính)</li>
+<li><code>TAN_SUAT</code> - Tần suất dùng (lần/ngày)</li>
+</ul>
+<h2>7. Ví dụ cụ thể: Kiểm tra thanh toán Biofazolin</h2>
+<h3>7.1. Thông tin thuốc</h3>
+<ul>
+<li><strong>Tên:</strong> Biofazolin (Cefazolin Sodium)</li>
+<li><strong>Mã:</strong> 40.166</li>
+<li><strong>Liều:</strong> 1g/vial</li>
+<li><strong>Danh mục BHYT:</strong> Có, được phê duyệt</li>
+<li><strong>Phạm vi thanh toán:</strong> Phòng phát nhiễm khuẩn sau phẫu thuật, sau sinh. <strong>Không bao gồm</strong>: chẩn đoán viêm họng, viêm phổi cộng đồng, tiêu chảy.</li>
+</ul>
+<h3>7.2. Trường hợp 1: Thanh toán ĐÚNG</h3>
+<pre><code>Hồ sơ: MA_LK = 403521
+Chẩn đoán: MA_BENH_CHINH = &quot;Z33&quot; (Phẩu thuật sản khoa)
+Phòng phát: Dùng Biofazolin 1g x 2 lần trước/sau phẫu thuật (4 viên bán)
+NGAY_Y_LENH: 2026-03-15 (nằm trong ngày nằm viện)
+
+XML2:
+- MA_THUOC: 40.166
+- SO_LUONG: 4
+- GIA_THANH_TOAN: 15.000đ
+- THANH_TIEN: 60.000đ
+
+Kiểm tra:
+✅ Bước 1: Đủ dữ liệu
+✅ Bước 2: Biofazolin (hoạt chất tương ứng) có trong Phụ lục I — đúng đường dùng/dạng dùng
+✅ Bước 3: Hạng/tuyến cơ sở KCB khớp cột (4)–(7) của dòng đó *(giả định BV đủ hạng theo Phụ lục)*
+✅ Bước 4: Cột (8) không loại trừ trường hợp này *(cần đọc bảng thật cho từng kỳ hiệu lực)*
+✅ Bước 5: Z33 nằm trong phạm vi thanh toán (phẫu thuật sản khoa)
+✅ Bước 6: 4 viên = 2 lần x 2 lần/ngày phòng phát, không quá liều
+✅ Bước 7: NGAY_Y_LENH hợp lệ
+
+Kết luận: ✅ THANH TOÁN ĐÚNG 60.000đ
+</code></pre>
+<h3>7.3. Trường hợp 2: Sai chẩn đoán → XUẤT TOÁN</h3>
+<pre><code>Hồ sơ: MA_LK = 000339
+Chẩn đoán: MA_BENH_CHINH = &quot;J02&quot; (Viêm họng cấp)
+Kê: Biofazolin 1g x 1 lần/ngày x 3 ngày
+
+XML2:
+- MA_THUOC: 40.166
+- SO_LUONG: 3
+- GIA_THANH_TOAN: 15.000đ
+- THANH_TIEN: 45.000đ
+
+Kiểm tra:
+✅ Bước 1: Đủ dữ liệu
+✅ Bước 2: Biofazolin trong Phụ lục I
+✅ Bước 3–4: *(giả định cơ sở và cột (8) không chặn — nếu sai hạng hoặc (8) vẫn xuất toán dù ICD đúng)*
+❌ Bước 5: J02 (viêm họng) KHÔNG nằm trong phạm vi thanh toán chỉ định
+
+Kết luận: ⛔ XUẤT TOÁN 45.000đ
+Giải thích: &quot;Cefazolin không được thanh toán cho chẩn đoán viêm họng. Danh mục thanh toán chỉ bao gồm phòng phát nhiễm khuẩn sau phẫu thuật và sau sinh&quot;
+</code></pre>
+<h2>8. Lỗi thường AI mắc phải khi kiểm tra thanh toán</h2>
+<h3>Lỗi 1: Nhầm lẫn &quot;an toàn&quot; với &quot;thanh toán&quot;</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Liều Aciclovir đúng và không vướng chống chỉ định, nên có thể thanh toán.&quot;</li>
+<li><strong>Đúng:</strong> &quot;Liều Aciclovir an toàn, nhưng chẩn đoán bệnh nhân là viêm họng, không nằm trong phạm vi thanh toán. Do đó XUẤT TOÁN.&quot;</li>
+</ul>
+<h3>Lỗi 2: Quên kiểm tra chẩn đoán kèm hoặc chẩn đoán ra viện</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;MA_BENH_CHINH là viêm họng, nên Biofazolin xuất toán.&quot;</li>
+<li><strong>Đúng:</strong> &quot;Cần kiểm tra MA_BENH_KT (bệnh kèm) và CHAN_DOAN_RV. Nếu có ghi &#39;phẩu thuật sản khoa&#39; ở chẩn đoán kèm, thì Biofazolin vẫn có thể thanh toán.&quot;</li>
+</ul>
+<h3>Lỗi 3: Không biết danh mục thanh toán của từng thuốc</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Vì không tìm thấy danh mục thuốc trong repo, nên không thể kết luận được.&quot;</li>
+<li><strong>Đúng:</strong> &quot;Cần tham khảo <strong>Phụ lục I</strong> trong văn bản hợp nhất <strong>15/VBHN-BYT</strong> (bản mới nhất) hoặc file danh mục BYT/BV cập nhật — đặc biệt cột <strong>(4)–(8)</strong>.&quot;</li>
+</ul>
+<h3>Lỗi 4: Tính toán số lượng sai</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Cấp 10 viên cho 5 ngày, mỗi ngày 1 viên. Không có lỗi.&quot;</li>
+<li><strong>Đúng:</strong> &quot;5 ngày x 1 viên/ngày = 5 viên được phép. Cấp 10 viên → XUẤT TOÁN BỘ 5 viên.&quot;</li>
+</ul>
+<h3>Lỗi 5: Chỉ tra ICD hoặc chỉ tra “có trong danh mục”, bỏ qua <strong>hạng BV</strong> và cột <strong>(8)</strong></h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Thuốc có trong danh mục và đúng bệnh → thanh toán.&quot;</li>
+<li><strong>Đúng:</strong> &quot;Phải tra <strong>đủ dòng Phụ lục I</strong>: (4)–(7) so với hạng cơ sở KCB, rồi <strong>(8)</strong> cho điều kiện và tỷ lệ. Thiếu một trong hai có thể <strong>không được BHYT thanh toán</strong> dù chỉ định lâm sàng hợp lý.&quot;</li>
+</ul>
+<h2>9. Cách dạy AI là gì</h2>
+<h3>Câu hỏi AI nên tự trả lời khi kiểm tra một dòng thuốc</h3>
+<ol>
+<li>&quot;Mã thuốc / hoạt chất + chẩn đoán + <strong>mã cơ sở KCB</strong> là gì?&quot; → Tìm hiểu dữ liệu</li>
+<li>&quot;Dòng Phụ lục I (cột 2–3) có khớp hoạt chất và đường dùng không?&quot; → Biết danh mục</li>
+<li>&quot;Hạng/tuyến cơ sở có khớp <strong>cột (4)–(7)</strong> của dòng đó không?&quot; → Phân hạng thanh toán</li>
+<li>&quot;Cột <strong>(8)</strong> yêu cầu điều kiện hoặc tỷ lệ gì — hồ sơ đã đủ chưa?&quot; → Điều kiện &amp; tỷ lệ BHYT</li>
+<li>&quot;Chẩn đoán / chỉ định có được phép trong phạm vi thanh toán (sau (8)) không?&quot; → Quy tắc lâm sàng – thanh toán</li>
+<li>&quot;Liều/số lượng có phù hợp không?&quot; → Tính toán</li>
+<li>&quot;Ngày hợp lệ không?&quot; → Kiểm tra niên đại</li>
+<li>&quot;Kết luận cuối cùng: thanh toán đủ / tỷ lệ / xuất toán?&quot; → Quyết định</li>
+</ol>
+<h3>Biến ca nào thành bài học?</h3>
+<p>Nên sử dụng <strong>ca XUẤT TOÁN</strong> để dạy AI nhận ra sai lầm, không chỉ ca thanh toán đúng:</p>
+<ul>
+<li>1 ca xuất toán vì sai chẩn đoán</li>
+<li>1 ca xuất toán vì số lượng quá (bộ hoặc toàn bộ)</li>
+<li>1 ca xuất toán vì thuốc không danh mục</li>
+<li>1 ca xuất toán vì <strong>sai hạng BV</strong> so với cột (4)–(7) hoặc vì <strong>không thỏa cột (8)</strong></li>
+<li>1 ca thanh toán đúng (để AI biết pattern tích cực)</li>
+</ul>
+<h2>10. Bước tiếp theo</h2>
+<p>Sau khi tiêu hóa thẻ này, nên:</p>
+<ol>
+<li><p><strong>Tạo danh sách 10 thuốc thường xuyên gây xuất toán tại BV</strong> với phạm vi thanh toán của mỗi thuốc</p>
+</li>
+<li><p><strong>Chọn từng thuốc, làm 1 ca XUẤT TOÁN + 1 ca THANH TOÁN ĐÚNG</strong> để AI học đối lập</p>
+</li>
+<li><p><strong>Kiểm tra quy trình XML -&gt; audit -&gt; kiểm tra thanh toán</strong> bằng cách lấy audit JSON thật</p>
+</li>
+<li><p><strong>Cập nhật các rule kiểm tra thanh toán</strong> trong <code>luat_thuoc_hardcoded.jsx</code> nếu cần bổ sung logic mới</p>
+</li>
+<li><p><strong>Phân tầng “sai thuốc”</strong> (chỉ định vs liều vs số lượng cấp vs kháng sinh vs hành chính): xem <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>, bảng đa nhóm danh mục BV <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>, <strong>bản đồ engine</strong> <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code>, và các ca mẫu (<code>000308</code>, <code>000589</code>, <code>IP26000139</code>, …).</p>
+</li>
+</ol>
+<hr>
+<h2>Ghi chú</h2>
+<p>Tài liệu này không thay thế quyết định của kiểm tra viên chuyên gia. Nó chỉ là hướng dẫn AI để:</p>
+<ul>
+<li>Hiểu từng bước kiểm tra thanh toán</li>
+<li>Biết tư duy khi gặp sai lầm thanh toán</li>
+<li>Hỏi câu đúng để tra cứu danh mục khi cần</li>
+<li>Giải thích rõ ràng cho người dùng tại sao xuất toán</li>
+</ul>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bảng neo — phiên huấn luyện VTYT ↔ engine (repo)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Bang_neo_phien_huan_luyen_vtyt_va_engine.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Bảng neo — phiên huấn luyện VTYT ↔ engine (repo)</h1>
+<p><strong>Trạng thái:</strong> Trong CSDL rule <strong>chưa có</strong> cảnh báo tiền tố <strong><code>DM-VTYT-*</code></strong> — bảng này neo <strong>những gì đang có</strong> liên quan vật tư, và chỗ <strong>điền sau</strong> khi có seed thật. <strong>Chuẩn hóa suy luận AI:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> (§<strong>0</strong>). <strong>Lộ trình nạp rule:</strong> <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a> §<strong>4.2</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Mục / phiên</th>
+<th>MA_LUAT hoặc điểm neo</th>
+<th>File mã / nguồn</th>
+<th>Thẻ tri thức / văn bản</th>
+<th>Ca mẫu / audit</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Khung pháp lý + prefix</strong></td>
+<td><em>(sẵn mapping)</em> <code>DM-VTYT-…</code> → <code>CO_SO_PHAP_LY_VTYT</code></td>
+<td><code>dong_co_giam_dinh.jsx</code> — <code>VAN_BAN_HANH_CHINH_HIEN_HANH.VBHN_VTYT</code>, <code>CO_SO_PHAP_LY_THEO_PREFIX_MA_LUAT</code></td>
+<td><a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> §<strong>11.6</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>VTYT ↔ DVKT (kết cấu / trùng gói)</strong></td>
+<td><code>DVKT-OP-08</code> (ghi chú); lỗi khi tách VTYT trái ghi chú DVKT</td>
+<td><code>dvkt_op_giam_dinh.jsx</code> — <code>extractVtytLines</code>, <code>checkGhiChu</code>, <code>DEFAULT_DVKT_RULES</code></td>
+<td><a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a> (kết cấu vật tư)</td>
+<td><a href="./Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md">Ca 000375 DVKT-OP-09</a> — cùng engine; <code>audit_000375_*.json</code></td>
+</tr>
+<tr>
+<td><strong>Tổng tiền XML1 vs toàn bộ XML3</strong></td>
+<td><code>CLN-CHI-02</code> — <code>XML1.T_VTYT</code> so với <strong>tổng</strong> <code>THANH_TIEN_BV</code> mọi dòng XML3 (quy ước dự án)</td>
+<td><code>dong_co_giam_dinh.jsx</code> — <code>giamDinhTongChiPhi</code></td>
+<td><a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>3</strong></td>
+<td><em>(audit có <code>CLN-CHI-02</code>)</em></td>
+</tr>
+<tr>
+<td><strong>Lệch <code>T_VTYT</code> chỉ với dòng có <code>MA_VAT_TU</code></strong></td>
+<td><code>XML_54</code> — <em>Lệch tiền VTYT (T_VTYT)</em></td>
+<td><code>du_lieu_luat_du_lieu_muc1.jsx</code> (<code>SEED_DULIEU_54</code>)</td>
+<td>Ghi chú seed: chỉ cộng dòng XML3 <strong>có</strong> <code>MA_VAT_TU</code> + <code>THANH_TIEN_BV</code>; <strong>khác</strong> công thức <code>CLN-CHI-02</code></td>
+<td><em>(audit tùy chọn)</em></td>
+</tr>
+<tr>
+<td><strong>Công khám + VTYT thay thế (XML5)</strong></td>
+<td><code>CK_15</code></td>
+<td><code>luat_cong_kham_hardcoded.jsx</code></td>
+<td>Mục 11.6; XML5 <code>MA_VTYT</code></td>
+<td><em>(chưa có fixture chuyên)</em></td>
+</tr>
+</tbody></table>
+<h3>Hàng dự phòng — <strong>khi đã có</strong> seed <code>DM-VTYT-*</code></h3>
+<table>
+<thead>
+<tr>
+<th>MA_LUAT (ví dụ)</th>
+<th>File seed / bảng</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DM-VTYT-…</code></td>
+<td><em>(điền)</em> <code>du_lieu_luat_*.jsx</code> hoặc cơ chế rule động đội dự án dùng</td>
+<td>Thêm dòng vào bảng trên + <code>test_xml/audit_*.json</code> + cập nhật <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>0</strong>.</td>
+</tr>
+</tbody></table>
+<h3>Phân biệt nhanh (AI)</h3>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Có trong repo hiện tại?</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>DM-VTYT-*</code></strong> (kiểm tra theo danh mục TT 04 / VBHN 14)</td>
+<td><strong>Chưa</strong> — chỉ có sẵn <strong>căn cứ pháp lý</strong> khi có <code>ma_luat</code></td>
+<td>Không mô tả như đã “tra được từng mã” trong engine</td>
+</tr>
+<tr>
+<td><strong>VTYT gắn DVKT</strong> (<code>checkGhiChu</code>, <code>DVKT-OP-08</code>)</td>
+<td><strong>Có</strong> (nhánh DVKT no-code)</td>
+<td>Vẫn là rule <strong>DVKT</strong>, không thay thế bảng điều kiện VTYT đầy đủ</td>
+</tr>
+<tr>
+<td><strong><code>MA_VAT_TU</code> trên XML3</strong></td>
+<td>Có schema + parser</td>
+<td>Điều kiện thanh toán theo Phụ lục: <strong>văn bản BYT</strong> + (sau này) seed</td>
+</tr>
+</tbody></table>
+<p><strong>QA:</strong> <code>npm run qa:audit-fixtures</code>, <code>npm run qa:on-off-match</code> sau khi thêm rule/audit — giống <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>.</p>
+<p><strong>Bảng DVKT:</strong> <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a> · <strong>Bảng thuốc:</strong> <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a></p>
+<hr>
+<p><em>Cập nhật khi có dòng <code>DM-VTYT-*</code> đầu tiên trong audit hoặc trong seed.</em></p>
+
+  </main>
+</body>
+</html>

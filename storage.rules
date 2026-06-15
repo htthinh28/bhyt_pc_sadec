@@ -1,0 +1,67 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userOrgId() {
+      return signedIn() ? request.auth.token.org_id : null;
+    }
+
+    function hasRole(roles) {
+      return signedIn() && request.auth.token.role in roles;
+    }
+
+    function isSameOrg(orgId) {
+      return signedIn() && userOrgId() == orgId;
+    }
+
+    function canReadOrg(orgId) {
+      return isSameOrg(orgId) && hasRole(['ADMIN', 'AUDITOR', 'OPERATOR', 'REVIEWER', 'USER']);
+    }
+
+    function canWriteOrg(orgId) {
+      return isSameOrg(orgId) && hasRole(['ADMIN', 'AUDITOR', 'OPERATOR']);
+    }
+
+    function canAdminOrg(orgId) {
+      return isSameOrg(orgId) && hasRole(['ADMIN']);
+    }
+
+    function isXmlFile() {
+      return request.resource.contentType.matches('application/xml.*')
+        || request.resource.contentType.matches('text/xml.*');
+    }
+
+    function isJsonFile() {
+      return request.resource.contentType.matches('application/json.*');
+    }
+
+    function isSizeUnder(limitMb) {
+      return request.resource.size <= limitMb * 1024 * 1024;
+    }
+
+    match /orgs/{orgId}/claims/{claimId}/xml/{fileName} {
+      allow read: if canReadOrg(orgId);
+      allow create, update: if canWriteOrg(orgId) && isXmlFile() && isSizeUnder(20);
+      allow delete: if canAdminOrg(orgId);
+    }
+
+    match /orgs/{orgId}/datasets/dvkt/{fileName} {
+      allow read: if canReadOrg(orgId);
+      allow create, update: if canWriteOrg(orgId) && isJsonFile() && isSizeUnder(50);
+      allow delete: if canAdminOrg(orgId);
+    }
+
+    match /orgs/{orgId}/claim_results/{claimId}/{fileName} {
+      allow read: if canReadOrg(orgId);
+      allow create, update: if canWriteOrg(orgId) && isJsonFile() && isSizeUnder(20);
+      allow delete: if canAdminOrg(orgId);
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

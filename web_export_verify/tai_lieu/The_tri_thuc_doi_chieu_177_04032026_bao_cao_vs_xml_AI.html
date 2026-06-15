@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thẻ tri thức — Đối chiếu báo cáo vi phạm vs hồ sơ XML (gói 177, 04/03/2026)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_doi_chieu_177_04032026_bao_cao_vs_xml_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Thẻ tri thức — Đối chiếu báo cáo vi phạm vs hồ sơ XML (gói 177, 04/03/2026)</h1>
+<p><strong>Nguồn:</strong> <code>Bao_Cao_Vi_Pham_1775831407982.xlsx</code> (sheet <code>DS_Loi</code>) và thư mục <code>tai_nguyen/177 - 04032026</code> (177 file XML kiểm tra).</p>
+<p><strong>Mục tiêu huấn luyện AI:</strong> Phân biệt cảnh báo đúng pháp lý BHYT / đúng nghiệp vụ kế toán XML với cảnh báo hợp đồng nội bộ, JCI, hoặc artefact kỹ thuật (dương tính giả).</p>
+<hr>
+<h2>1. Kết quả đối chiếu cơ học XML1 (tổng tiền)</h2>
+<ul>
+<li>Trên <strong>toàn bộ 177 hồ sơ</strong>, giá trị <code>T_TONGCHI_BV</code> <strong>khớp</strong> với tổng các nguồn (làm tròn float không đáng kể) khi tính bằng số học từ XML giải mã.</li>
+<li>Báo cáo Excel lại ghi <strong>132 dòng</strong> <code>THUOC_538</code> (một dòng / một <code>Mã LK</code> trong nhiều trường hợp).</li>
+<li><strong>Nguyên nhân kỹ thuật đã xử lý trong seed:</strong> biểu thức cũ <code>XML1.T_BHTT + XML1.T_BNTT + ...</code> trong môi trường JavaScript có thể <strong>cộng nối chuỗi</strong> nếu trường đọc ra là string, tạo chênh lệch lớn giả; đồng thời cần <strong>TO_NUMBER</strong> cho từng hạng và <strong>cộng <code>T_NGOAIDS</code></strong> cho khớp nội dung cảnh báo và nghiệp vụ BHXH.</li>
+</ul>
+<p><strong>Hành vi mong đợi sau chỉnh:</strong> <code>THUOC_538</code> chỉ bật khi thật sự lệch tiền sau chuẩn hóa số.</p>
+<p><strong>Chuẩn hóa đồng bộ (10/04/2026):</strong> Cùng một công thức cân đối <code>T_TONGCHI_BV</code> với <code>T_BHTT + T_BNTT + T_BNCCT + T_NGUONKHAC + T_NGOAIDS</code> (mọi hạng <code>TO_NUMBER</code>) được áp cho <code>XML_04</code>, <code>XML_107</code> (LUAT_DU_LIEU), <code>HC_242</code> (LUAT_HANH_CHINH), <code>THUOC_538</code> (LUAT_THUOC), và hàm <code>tinhChenhTongChi</code> trong <code>dong_co_giam_dinh.jsx</code> (lớp lọc dương tính giả / <code>tongChiCanBang</code>).</p>
+<hr>
+<h2>2. Quy tắc proxy JCI trên <code>GHI_CHU</code> (THUOC_537)</h2>
+<ul>
+<li>QĐ 3176 <strong>không có</strong> trường “dị ứng” riêng; rule dùng <code>IS_EMPTY(XML1.GHI_CHU)</code> làm proxy.</li>
+<li>Trong gói 177, <strong>mọi</strong> hồ sơ có <code>GHI_CHU</code> trống → gần <strong>100%</strong> phát sinh cảnh báo, <strong>không</strong> phản ánh vi phạm Luật BHYT.</li>
+</ul>
+<p><strong>Huấn luyện AI:</strong> Đánh nhãn loại cảnh báo là <strong>an toàn/JCI / quy trình nội bộ</strong>, không gán nhãn “xuất toán BHYT”. Trong seed đã <strong>tắt (OFF)</strong> rule này để giảm nhiễu; bật lại chỉ khi có quy ước HIS điền thông tin dị ứng vào <code>GHI_CHU</code>.</p>
+<hr>
+<h2>3. Hợp đồng / JCI trên CLS (HD_10)</h2>
+<ul>
+<li>Rule: thiếu <code>CHI_SO_XN_BT</code> trên XML4 — thuộc <strong>cam kết Hợp đồng / JCI</strong>, không phải điều kiện thanh toán BHYT trong Luật/QĐ 130 một-một.</li>
+<li>Báo cáo có nhiều dòng <code>HD_10</code>; để AI không học nhầm “thiếu chỉ số” = “trái BHYT”, trong <code>LUAT_HOP_DONG</code> đã <strong>tắt (OFF)</strong>; bật lại trong kỳ audit chất lượng/HĐ.</li>
+</ul>
+<hr>
+<h2>4. Mẫu cảnh báo thuốc cố định tên biệt dược (THUOC_311)</h2>
+<ul>
+<li>Điều kiện theo <strong>mã DM</strong> <code>40.48</code> (Paracetamol).</li>
+<li>Cảnh báo cũ ghi cứng “Hapacol 650” trong khi cùng mã có thể là sản phẩm khác (ví dụ AGIMOL) → <strong>sai ngữ nghĩa hiển thị</strong>, dễ gây mất lòng tin người đọc.</li>
+</ul>
+<p><strong>Chuẩn hóa:</strong> Dùng mô tả nhóm hoạt chất + placeholder <code>{TEN_THUOC}</code> theo dòng XML2.</p>
+<hr>
+<h2>5. Top mã luật trong báo cáo (tham chiếu ưu tiên rà)</h2>
+<table>
+<thead>
+<tr>
+<th>Mã luật</th>
+<th>Ghi chú ngắn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>THUOC_537</td>
+<td>Proxy JCI — đã OFF</td>
+</tr>
+<tr>
+<td>THUOC_538</td>
+<td>Kế toán tổng — đã sửa công thức TO_NUMBER + T_NGOAIDS</td>
+</tr>
+<tr>
+<td>THUOC_451</td>
+<td>Rà theo từng ca (không đổi trong lượt này)</td>
+</tr>
+<tr>
+<td>HD_10</td>
+<td>Hợp đồng/JCI — đã OFF</td>
+</tr>
+<tr>
+<td>THUOC_63, THUOC_417, …</td>
+<td>Đối chiếu ICD + mã thuốc từng dòng XML2</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Gợi ý nhãn cho tập huấn luyện</h2>
+<ul>
+<li><strong><code>dung_phap_ly_bhyt</code>:</strong> Vi phạm có thể map TT/QĐ/Luật BHYT hoặc QĐ 130 cấu trúc dữ liệu bắt buộc.</li>
+<li><strong><code>nghiep_vu_ke_toan_xml</code>:</strong> Lệch tiền tổng/ chi tiết sau khi chuẩn hóa số.</li>
+<li><strong><code>hop_dong_jci_noibo</code>:</strong> Chỉ áp khi bối cảnh là HĐ BV hoặc audit JCI.</li>
+<li><strong><code>canh_bao_hien_thi</code>:</strong> Sai tên thuốc / nhầm template — sửa copy, không đổi kết luận ICD.</li>
+</ul>
+<hr>
+<p><em>Cập nhật: 10/04/2026 — đồng bộ với chỉnh sửa <code>du_lieu_luat_thuoc_muc8.jsx</code> và <code>luat_hop_dong_hardcoded.jsx</code>.</em></p>
+
+  </main>
+</body>
+</html>

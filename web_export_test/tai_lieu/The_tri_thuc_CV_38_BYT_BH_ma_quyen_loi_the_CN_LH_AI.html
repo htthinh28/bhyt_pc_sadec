@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: CÔNG VĂN 38/BYT-BH — CHUYỂN MÃ QUYỀN LỢI THẺ BHYT (CN, LH) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV_38_BYT_BH_ma_quyen_loi_the_CN_LH_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: CÔNG VĂN 38/BYT-BH — CHUYỂN MÃ QUYỀN LỢI THẺ BHYT (CN, LH) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Văn bản gốc (Bộ Y tế):</strong> Công văn số <strong>38/BYT-BH</strong> ngày <strong>06/01/2026</strong> — <em>Về việc chuyển đổi mã quyền lợi đối tượng tham gia bảo hiểm y tế theo Nghị quyết số 261/2025/QH15</em> (bản PDF ký số thường mang số đăng ký <strong>688054</strong> trên văn bản đính kèm).<br><strong>Tham chiếu công khai (trích đầy đủ điểm nghiệp vụ):</strong> <a href="https://www.luatvietnam.vn/bao-hiem/cong-van-38-byt-bh-2026-chuyen-doi-ma-quyen-loi-doi-tuong-tham-gia-bao-hiem-y-te-423121-d6.html">LuatVietnam — Công văn 38/BYT-BH 2026</a>.</p>
+<hr>
+<h2>1. Căn cứ pháp lý (tóm tắt điều cần kiểm tra)</h2>
+<ul>
+<li><strong>Nghị quyết 261/2025/QH15</strong>, hiệu lực <strong>01/01/2026</strong> — điểm <strong>a</strong> khoản <strong>1</strong> Điều <strong>2</strong>: người tham gia BHYT thuộc <strong>hộ gia đình cận nghèo</strong> và người <strong>cao tuổi từ đủ 75 tuổi</strong> trở lên <strong>đang hưởng trợ cấp hưu trí xã hội</strong> được áp dụng <strong>100%</strong> chi phí KCB <strong>trong phạm vi</strong> được hưởng.</li>
+<li><strong>Công văn 38/BYT-BH</strong>: đề nghị <strong>BHXH Việt Nam</strong> chuyển đổi <strong>mã quyền lợi</strong> (ký tự <strong>thứ 3</strong> trên chuỗi <code>MA_THE_BHYT</code> theo QĐ 130 / QĐ 1018):<ul>
+<li>Đối tượng <strong>CN</strong> (hộ cận nghèo): từ mã quyền lợi <strong>3</strong> (95%) → <strong>2</strong> (100%) kể từ <strong>01/01/2026</strong>.</li>
+<li>Đối tượng <strong>LH</strong> (≥75 tuổi, trợ cấp hưu trí xã hội): từ mã quyền lợi <strong>4</strong> (80%) → <strong>2</strong> (100%) kể từ <strong>01/01/2026</strong>.</li>
+</ul>
+</li>
+<li><strong>Cơ sở KCB</strong>: tra cứu thẻ, bảo đảm quyền lợi; vướng mắc phối hợp <strong>kiểm tra BHYT</strong> và <strong>BHXH</strong> (theo CV).</li>
+</ul>
+<hr>
+<h2>2. Neo kỹ thuật trong CDSS (repo)</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>KY_HIEU_SO_THU_BA_THE_BHYT(XML1)</code></td>
+<td>Đúng <strong>ký tự thứ 3</strong> đang ghi trên XML (in trên thẻ / khai báo).</td>
+</tr>
+<tr>
+<td><code>KY_HIEU_SO_THU_BA_THE_CHO_TYLE_TT(XML1)</code></td>
+<td>Ký tự thứ 3 <strong>dùng suy tỷ lệ</strong> <code>T_BHTT</code> / <code>T_TONGCHI_BH</code>: từ <strong>01/01/2026</strong>, <strong>CN+3 → coi như 2</strong>, <strong>LH+4 → coi như 2</strong> (hồ sơ có thể chưa cập nhật kịp ký tự in).</td>
+</tr>
+<tr>
+<td><code>BANG_HAI_KY_TU_THEO_KY_HIEU_SO3</code></td>
+<td>Cho phép <strong>CN</strong> và <strong>LH</strong> khớp nhóm mức <strong>2</strong> (và LH thêm nhóm <strong>4</strong>) để <strong>HC_250</strong> không báo sai khi thẻ đã chuyển mức.</td>
+</tr>
+<tr>
+<td>Seed <strong><code>HC_25</code></strong></td>
+<td>Cảnh báo tỷ lệ cho thẻ <strong>CN</strong> (nội dung cập nhật dẫn chiếu CV 38 / NQ 261).</td>
+</tr>
+<tr>
+<td>Seed <strong><code>HC_251</code></strong></td>
+<td>Cảnh báo tỷ lệ cho thẻ <strong>LH</strong> (mới).</td>
+</tr>
+<tr>
+<td><code>layThongTinMucHuongTuThe(XML1)</code></td>
+<td><code>benefitCode</code> / <code>benefitPercent</code> theo <strong>ký hiệu sau quy đổi</strong> (phục vụ <strong>HC-06d</strong>).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Gợi ý suy luận cho AI</h2>
+<ol>
+<li><strong>Không</strong> nhầm “ký tự in trên XML” với “mức quyền lợi phải áp dụng” sau <strong>01/01/2026</strong> đối với <strong>CN</strong> và <strong>LH</strong> — ưu tiên đọc engine qua <code>KY_HIEU_SO_THU_BA_THE_CHO_TYLE_TT</code>.</li>
+<li>Hồ sơ <strong>trước 01/01/2026</strong> (mốc <code>NGAY_VAO</code> / <code>NGAY_RA</code> / <code>NGAY_TTOAN</code> trong engine): <strong>không</strong> quy đổi 3→2 hay 4→2 theo CV 38.</li>
+<li><strong>QĐ 1018/QĐ-BHXH</strong> vẫn là khung <strong>1–5</strong> cho các đối tượng khác; CV 38 chỉ <strong>điều chỉnh nhóm CN và LH</strong> theo NQ 261.</li>
+</ol>
+<hr>
+<p><em>Cập nhật khi có văn bản sửa đổi / hướng dẫn liên tịch BHXH — Bộ Y tế bổ sung sau CV 38.</em></p>
+
+  </main>
+</body>
+</html>

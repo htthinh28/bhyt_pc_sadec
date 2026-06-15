@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "generated_at": "2026-04-04T12:23:48.381Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022303311_IP26000207.xml",
+    "ma_lk": "000502",
+    "total_warnings": 6,
+    "by_severity": {
+      "Warning": 6
+    },
+    "focus_summary": {}
+  },
+  "unique_rule_codes": [
+    "CDHA_164",
+    "CLN-GIUONG-01",
+    "HC_130",
+    "HC_171",
+    "HC_65",
+    "HD_10"
+  ],
+  "rule_summary": {
+    "CDHA_164": 1,
+    "CLN-GIUONG-01": 1,
+    "HC_130": 1,
+    "HC_171": 1,
+    "HC_65": 1,
+    "HD_10": 1
+  },
+  "warnings": [
+    {
+      "id": "CDHA_164",
+      "phan_he": "XML3",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⚠️ [QUẢN TRỊ]: Người bệnh điều trị nội trú (mã 03/09) chờ chụp MRI quá 3 ngày. Ảnh hưởng đến TAT và thời gian điều trị trung bình. Chi tiết dịch vụ: [K27.1939] Giường Ngoại khoa loại 3 Hạng III - Khoa Phụ - Sản. Nhân sự liên quan: 006998/HCM-GPHN (006998/HCM-GPHN); Chức danh: 1; Phạm vi: 113.",
+      "muc_do": "Warning",
+      "index": 16,
+      "ma_luat": "CDHA_164",
+      "ten_quy_tac": "Chụp MRI và Thời gian chờ điều trị nội trú (mã 03/09)",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND DATEDIFF_DAY(XML1.NGAY_VAO, XML3.NGAY_YL) > 3",
+      "co_so_phap_ly": ""
+    },
+    {
+      "phan_he": "XML1",
+      "index": -1,
+      "truong_loi": "SO_NGAY_DTRI",
+      "canh_bao": "Tổng ngày giường XML3 [4.5] không khớp SO_NGAY_DTRI XML1 [3]. Chênh 1.5 ngày (QĐ 130 khoản 3.2). Dòng giường XML3: [K27.1918] Giường Nội khoa loại 2 Hạng III - Khoa Phụ - Sản: 0,5 ngày; [K27.1939] Giường Ngoại khoa loại 3 Hạng III - Khoa Phụ - Sản: 0,5 ngày; [K27.1939] Giường Ngoại khoa loại 3 Hạng III - Khoa Phụ - Sản: 1 ngày.",
+      "muc_do": "Warning",
+      "ma_luat": "CLN-GIUONG-01",
+      "ten_quy_tac": "Số ngày giường",
+      "dieu_kien": "BUILT-IN",
+      "co_so_phap_ly": "17/VBHN-BYT (31/12/2024): danh mục và điều kiện thanh toán DVKT thuộc phạm vi BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_130",
+      "phan_he": "XML1",
+      "truong_loi": "SO_NGAY_DTRI",
+      "canh_bao": "⛔ Lỗi kế toán: Số ngày điều trị khai báo không khớp với khoảng cách ngày vào - ngày ra.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_130",
+      "ten_quy_tac": "Tổng ngày điều trị lệch Ngày vào/ra",
+      "dieu_kien": "XML1.SO_NGAY_DTRI != DATEDIFF_DAY(XML1.NGAY_VAO, XML1.NGAY_RA)",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_171",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi hồ sơ: Điều trị nội trú bắt buộc phải có dữ liệu diễn biến bệnh hàng ngày (XML5).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_171",
+      "ten_quy_tac": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND COUNT(XML5) == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_65",
+      "phan_he": "XML1",
+      "truong_loi": "NGAY_TTOAN",
+      "canh_bao": "⛔ Lỗi logic: Ngày ký điện tử hồ sơ không thể xảy ra trước khi bệnh nhân ra viện.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_65",
+      "ten_quy_tac": "Ngày ký hồ sơ trước ngày ra viện",
+      "dieu_kien": "XML1.NGAY_TTOAN < XML1.NGAY_RA",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HD_10",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ JCI Audit: Kết quả cận lâm sàng thiếu dải chỉ số bình thường, vi phạm tiêu chuẩn chất lượng cam kết trong Hợp đồng.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HD_10",
+      "ten_quy_tac": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "dieu_kien": "COUNT_IF(XML4, IS_EMPTY(item.CHI_SO_XN_BT)) > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    }
+  ]
+}

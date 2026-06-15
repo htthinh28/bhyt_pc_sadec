@@ -1,0 +1,5990 @@
+[
+  {
+    "stt": "1",
+    "ma_tt43": "8.1",
+    "ten_ky_thuat": "Mai hoa châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "2",
+    "ma_tt43": "8.2",
+    "ten_ky_thuat": "Hào châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "3",
+    "ma_tt43": "8.3",
+    "ten_ky_thuat": "Mãng châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "4",
+    "ma_tt43": "8.4",
+    "ten_ky_thuat": "Nhĩ châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "5",
+    "ma_tt43": "8.5",
+    "ten_ky_thuat": "Điện châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "6",
+    "ma_tt43": "8.6",
+    "ten_ky_thuat": "Thủy châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "7",
+    "ma_tt43": "8.7",
+    "ten_ky_thuat": "Cấy chỉ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "8",
+    "ma_tt43": "8.8",
+    "ten_ky_thuat": "Ôn châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "9",
+    "ma_tt43": "8.9",
+    "ten_ky_thuat": "Cứu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "10",
+    "ma_tt43": "8.10",
+    "ten_ky_thuat": "Chích lể",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "11",
+    "ma_tt43": "8.11",
+    "ten_ky_thuat": "Laser châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "12",
+    "ma_tt43": "8.12",
+    "ten_ky_thuat": "Từ châm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "13",
+    "ma_tt43": "8.13",
+    "ten_ky_thuat": "Kéo nắn cột sống cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "14",
+    "ma_tt43": "8.14",
+    "ten_ky_thuat": "Kéo nắn cột sống thắt lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "15",
+    "ma_tt43": "8.15",
+    "ten_ky_thuat": "Sắc thuốc thang và đóng gói thuốc bằng máy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "16",
+    "ma_tt43": "8.16",
+    "ten_ky_thuat": "Nắn, bó gãy xương cẳng tay bằng phương pháp YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "17",
+    "ma_tt43": "8.17",
+    "ten_ky_thuat": "Nắn, bó gãy xương cánh tay bằng phương pháp YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "18",
+    "ma_tt43": "8.18",
+    "ten_ky_thuat": "Nắn, bó gãy xương cẳng chân bằng phương pháp YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "19",
+    "ma_tt43": "8.19",
+    "ten_ky_thuat": "Xông thuốc bằng máy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "20",
+    "ma_tt43": "8.20",
+    "ten_ky_thuat": "Xông hơi thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "21",
+    "ma_tt43": "8.21",
+    "ten_ky_thuat": "Xông khói thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "22",
+    "ma_tt43": "8.22",
+    "ten_ky_thuat": "Sắc thuốc thang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "23",
+    "ma_tt43": "8.23",
+    "ten_ky_thuat": "Ngâm thuốc YHCT toàn thân",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "24",
+    "ma_tt43": "8.24",
+    "ten_ky_thuat": "Ngâm thuốc YHCT bộ phận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "25",
+    "ma_tt43": "8.25",
+    "ten_ky_thuat": "Đặt thuốc YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "26",
+    "ma_tt43": "8.26",
+    "ten_ky_thuat": "Bó thuốc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "27",
+    "ma_tt43": "8.27",
+    "ten_ky_thuat": "Chườm ngải",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "28",
+    "ma_tt43": "8.28",
+    "ten_ky_thuat": "Luyện tập dưỡng sinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "29",
+    "ma_tt43": "8.483",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt bằng tay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "30",
+    "ma_tt43": "8.484",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt bằng máy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "31",
+    "ma_tt43": "8.485",
+    "ten_ky_thuat": "Giác hơi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "32",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "33",
+    "ma_tt43": "8.486",
+    "ten_ky_thuat": "Nắn bó trật khớp bằng phương pháp YHCT",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "34",
+    "ma_tt43": "3.4178",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn đại tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "35",
+    "ma_tt43": "3.4179",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị sa trực tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "36",
+    "ma_tt43": "8.162",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "37",
+    "ma_tt43": "8.163",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "38",
+    "ma_tt43": "8.164",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "39",
+    "ma_tt43": "8.165",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "40",
+    "ma_tt43": "8.166",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt dây VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "41",
+    "ma_tt43": "8.167",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "42",
+    "ma_tt43": "8.168",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "43",
+    "ma_tt43": "8.169",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "44",
+    "ma_tt43": "8.170",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "45",
+    "ma_tt43": "8.171",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "46",
+    "ma_tt43": "8.172",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị nôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "47",
+    "ma_tt43": "8.173",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "48",
+    "ma_tt43": "8.174",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "49",
+    "ma_tt43": "8.175",
+    "ten_ky_thuat": "Điện nhĩ châm hỗ trợ điều trị viêm Amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "50",
+    "ma_tt43": "8.176",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "51",
+    "ma_tt43": "8.177",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "52",
+    "ma_tt43": "8.178",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng dạ dày-tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "53",
+    "ma_tt43": "8.179",
+    "ten_ky_thuat": "Điện nhĩ châm phục hồi chức năng cho trẻ bại liệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "54",
+    "ma_tt43": "8.180",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "55",
+    "ma_tt43": "8.181",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng tự kỷ ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "56",
+    "ma_tt43": "8.182",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "57",
+    "ma_tt43": "8.183",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị phục hồi chức năng ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "58",
+    "ma_tt43": "8.184",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị cơn đau quặn thận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "59",
+    "ma_tt43": "8.185",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "60",
+    "ma_tt43": "8.186",
+    "ten_ky_thuat": "Điện nhĩ châm điều di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "61",
+    "ma_tt43": "8.187",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "62",
+    "ma_tt43": "8.188",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "63",
+    "ma_tt43": "8.189",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị bí đái cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "64",
+    "ma_tt43": "8.190",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "65",
+    "ma_tt43": "8.191",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "66",
+    "ma_tt43": "8.192",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "67",
+    "ma_tt43": "8.193",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "68",
+    "ma_tt43": "8.194",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau dây thần kinh V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "69",
+    "ma_tt43": "8.195",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "70",
+    "ma_tt43": "8.196",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "71",
+    "ma_tt43": "8.197",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "72",
+    "ma_tt43": "8.198",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "73",
+    "ma_tt43": "8.199",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "74",
+    "ma_tt43": "8.200",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "75",
+    "ma_tt43": "8.201",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "76",
+    "ma_tt43": "8.202",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "77",
+    "ma_tt43": "8.203",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "78",
+    "ma_tt43": "8.204",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm kết mạc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "79",
+    "ma_tt43": "8.205",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "80",
+    "ma_tt43": "8.206",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "81",
+    "ma_tt43": "8.207",
+    "ten_ky_thuat": "Điện nhĩ châm hỗ trợ điều trị nghiện ma túy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "82",
+    "ma_tt43": "8.208",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "83",
+    "ma_tt43": "8.209",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "84",
+    "ma_tt43": "8.210",
+    "ten_ky_thuat": "Điện nhĩ châm hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "85",
+    "ma_tt43": "8.211",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "86",
+    "ma_tt43": "8.212",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "87",
+    "ma_tt43": "8.213",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "88",
+    "ma_tt43": "8.214",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "89",
+    "ma_tt43": "8.215",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "90",
+    "ma_tt43": "8.216",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "91",
+    "ma_tt43": "8.217",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "92",
+    "ma_tt43": "8.218",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "93",
+    "ma_tt43": "8.219",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "94",
+    "ma_tt43": "8.220",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "95",
+    "ma_tt43": "8.221",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt rễ, đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "96",
+    "ma_tt43": "8.222",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "97",
+    "ma_tt43": "8.223",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "98",
+    "ma_tt43": "8.224",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "99",
+    "ma_tt43": "8.225",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm đau do Zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "100",
+    "ma_tt43": "8.226",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "101",
+    "ma_tt43": "8.227",
+    "ten_ky_thuat": "Điện nhĩ châm điều trị chứng tíc cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "102",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "103",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "104",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "105",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "106",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "107",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "108",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị nói ngọng, nói lắp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "109",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "110",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "111",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị tổn thương rễ và đám rối và dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "112",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "113",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị chắp lẹo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "114",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau mỏi cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "115",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị đau ngực sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "116",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng cánh tay cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "117",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị bệnh phổi tắc nghẽn mãn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "118",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị bệnh lý cao huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "119",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị bệnh dây thần kinh mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "120",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị thoái hóa cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "121",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị hội chứng ruột kích thích",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "122",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị loạn trương lực cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "123",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị thoát vị đĩa đệm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "124",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị viêm cột sống dính khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "125",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị parkinson",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "126",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện nhĩ châm điều trị suy nhược thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "127",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "128",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị bí tiểu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "129",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "130",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị chắp lẹo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "131",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị chứng tíc cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "132",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị cơn đau quặn thận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "133",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "134",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "135",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "136",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau dây thần kinh V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "137",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "138",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "139",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "140",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau mỏi cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "141",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau ngực sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "142",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "143",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "144",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "145",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "146",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "147",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm đau do Zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "148",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "149",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "150",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "151",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "152",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "153",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng dạ dày-tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "154",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "155",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "156",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "157",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "158",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "159",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "160",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "161",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "162",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "163",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt dây VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "164",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "165",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "166",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "167",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt rễ, đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "168",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "169",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "170",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "171",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "172",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị nói ngọng, nói lắp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "173",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị nôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "174",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "175",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "176",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "177",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "178",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "179",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "180",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "181",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "182",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "183",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "184",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "185",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "186",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "187",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "188",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "189",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị tổn thương rễ và đám rối và dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "190",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "191",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "192",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "193",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "194",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "195",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm kết mạc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "196",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "197",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "198",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "199",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "200",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm hỗ trợ điều trị nghiện ma túy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "201",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "202",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ châm hỗ trợ điều trị viêm Amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "203",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "204",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị bí tiểu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "205",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "206",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị chắp lẹo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "207",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị chứng tíc cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "208",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị cơn đau quặn thận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "209",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "210",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "211",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "212",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau dây thần kinh V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "213",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "214",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "215",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "216",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau mỏi cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "217",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau ngực sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "218",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "219",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "220",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "221",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "222",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "223",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm đau do Zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "224",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "225",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "226",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "227",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "228",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "229",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng dạ dày-tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "230",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "231",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "232",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "233",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "234",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "235",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "236",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "237",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "238",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "239",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt dây VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "240",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "241",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "242",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "243",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt rễ, đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "244",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "245",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "246",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "247",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "248",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị nói ngọng, nói lắp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "249",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị nôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "250",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "251",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "252",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "253",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "254",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "255",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "256",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "257",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "258",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "259",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "260",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "261",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "262",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "263",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "264",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "265",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị tổn thương rễ và đám rối và dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "266",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "267",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "268",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "269",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "270",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "271",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm kết mạc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "272",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "273",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "274",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "275",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "276",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán hỗ trợ điều trị nghiện ma túy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "277",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "278",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Nhĩ dán hỗ trợ điều trị viêm Amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "279",
+    "ma_tt43": "3.4181",
+    "ten_ky_thuat": "Cấy chỉ điều trị sa trực tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "280",
+    "ma_tt43": "8.228",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "281",
+    "ma_tt43": "8.229",
+    "ten_ky_thuat": "Cấy chỉ điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "282",
+    "ma_tt43": "8.230",
+    "ten_ky_thuat": "Cấy chỉ điều trị viêm mũi dị ứng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "283",
+    "ma_tt43": "8.231",
+    "ten_ky_thuat": "Cấy chỉ điều trị sa dạ dày",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "284",
+    "ma_tt43": "8.232",
+    "ten_ky_thuat": "Cấy chỉ châm điều trị hội chứng dạ dày- tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "285",
+    "ma_tt43": "8.233",
+    "ten_ky_thuat": "Cấy chỉ điều trị mày đay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "286",
+    "ma_tt43": "8.234",
+    "ten_ky_thuat": "Cấy chỉ hỗ trợ điều trị vẩy nến",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "287",
+    "ma_tt43": "8.235",
+    "ten_ky_thuat": "Cấy chỉ điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "288",
+    "ma_tt43": "8.236",
+    "ten_ky_thuat": "Cấy chỉ điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "289",
+    "ma_tt43": "8.237",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng tự kỷ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "290",
+    "ma_tt43": "8.238",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt do tổn thương đám rối cánh tay ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "291",
+    "ma_tt43": "8.239",
+    "ten_ky_thuat": "Cấy chỉ điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "292",
+    "ma_tt43": "8.240",
+    "ten_ky_thuat": "Cấy chỉ châm điều trị phục hồi chức năng vận động ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "293",
+    "ma_tt43": "8.241",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng thắt lưng- hông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "294",
+    "ma_tt43": "8.242",
+    "ten_ky_thuat": "Cấy chỉ điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "295",
+    "ma_tt43": "8.243",
+    "ten_ky_thuat": "Cấy chỉ điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "296",
+    "ma_tt43": "8.244",
+    "ten_ky_thuat": "Cấy chỉ điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "297",
+    "ma_tt43": "8.245",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "298",
+    "ma_tt43": "8.246",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "299",
+    "ma_tt43": "8.247",
+    "ten_ky_thuat": "Cấy chỉ điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "300",
+    "ma_tt43": "8.248",
+    "ten_ky_thuat": "Cấy chỉ điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "301",
+    "ma_tt43": "8.249",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt dây thần kinh VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "302",
+    "ma_tt43": "8.250",
+    "ten_ky_thuat": "Cấy chỉ điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "303",
+    "ma_tt43": "8.251",
+    "ten_ky_thuat": "Cấy chỉ điều trị đau thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "304",
+    "ma_tt43": "8.252",
+    "ten_ky_thuat": "Cấy chỉ điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "305",
+    "ma_tt43": "8.253",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "306",
+    "ma_tt43": "8.254",
+    "ten_ky_thuat": "Cấy chỉ điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "307",
+    "ma_tt43": "8.255",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "308",
+    "ma_tt43": "8.256",
+    "ten_ky_thuat": "Cấy chỉ điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "309",
+    "ma_tt43": "8.257",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "310",
+    "ma_tt43": "8.258",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "311",
+    "ma_tt43": "8.259",
+    "ten_ky_thuat": "Cấy chỉ điều trị hỗ trợ cai nghiện ma túy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "312",
+    "ma_tt43": "8.260",
+    "ten_ky_thuat": "Cấy chỉ điều trị hỗ trợ cai nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "313",
+    "ma_tt43": "8.261",
+    "ten_ky_thuat": "Cấy chỉ điều trị hỗ trợ cai nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "314",
+    "ma_tt43": "8.262",
+    "ten_ky_thuat": "Cấy chỉ điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "315",
+    "ma_tt43": "8.263",
+    "ten_ky_thuat": "Cấy chỉ điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "316",
+    "ma_tt43": "8.264",
+    "ten_ky_thuat": "Cấy chỉ điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "317",
+    "ma_tt43": "8.265",
+    "ten_ky_thuat": "Cấy chỉ hỗ trợ điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "318",
+    "ma_tt43": "8.266",
+    "ten_ky_thuat": "Cấy chỉ điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "319",
+    "ma_tt43": "8.267",
+    "ten_ky_thuat": "Cấy chỉ điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "320",
+    "ma_tt43": "8.268",
+    "ten_ky_thuat": "Cấy chỉ điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "321",
+    "ma_tt43": "8.269",
+    "ten_ky_thuat": "Cấy chỉ điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "322",
+    "ma_tt43": "8.270",
+    "ten_ky_thuat": "Cấy chỉ điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "323",
+    "ma_tt43": "8.271",
+    "ten_ky_thuat": "Cấy chỉ điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "324",
+    "ma_tt43": "8.272",
+    "ten_ky_thuat": "Cấy chỉ điều trị đau bụng kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "325",
+    "ma_tt43": "8.273",
+    "ten_ky_thuat": "Cấy chỉ điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "326",
+    "ma_tt43": "8.274",
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "327",
+    "ma_tt43": "8.275",
+    "ten_ky_thuat": "Cấy chỉ điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "328",
+    "ma_tt43": "8.276",
+    "ten_ky_thuat": "Cấy chỉ điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "329",
+    "ma_tt43": "8.277",
+    "ten_ky_thuat": "Cấy chỉ điều trị rối loạn tiểu tiện không tự chủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "330",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "331",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "332",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị lác cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "333",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "334",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị viêm da cơ địa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "335",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "336",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng cánh tay cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "337",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cất chỉ điều trị parkinson",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "338",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị bệnh phổi tắc nghẽn mãn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "339",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị bệnh lý cao huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "340",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ châm điều trị bệnh dây thần kinh mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "341",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị loạn trương lực cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "342",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị viêm cột sống dính khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "343",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị hội chứng ruột kích thích",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "344",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị bệnh đĩa đệm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "345",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "346",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "347",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cấy chỉ hỗ trợ điều trị thoái hóa cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "348",
+    "ma_tt43": "3.4182",
+    "ten_ky_thuat": "Điện châm điều trị sa trực tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "349",
+    "ma_tt43": "8.278",
+    "ten_ky_thuat": "Điện châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "350",
+    "ma_tt43": "8.279",
+    "ten_ky_thuat": "Điện châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "351",
+    "ma_tt43": "8.280",
+    "ten_ky_thuat": "Điện châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "352",
+    "ma_tt43": "8.281",
+    "ten_ky_thuat": "Điện châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "353",
+    "ma_tt43": "8.282",
+    "ten_ky_thuat": "Điện châm điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "354",
+    "ma_tt43": "8.283",
+    "ten_ky_thuat": "Điện châm điều trị viêm amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "355",
+    "ma_tt43": "8.284",
+    "ten_ky_thuat": "Điện châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "356",
+    "ma_tt43": "8.285",
+    "ten_ky_thuat": "Điện châm điều trị phục hồi chức năng cho trẻ bại liệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "357",
+    "ma_tt43": "8.286",
+    "ten_ky_thuat": "Điện châm điều trị hỗ trợ bệnh tự kỷ trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "358",
+    "ma_tt43": "8.287",
+    "ten_ky_thuat": "Điện châm điều trị liệt tay do tổn thương đám rối cánh tay ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "359",
+    "ma_tt43": "8.288",
+    "ten_ky_thuat": "Điện châm điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "360",
+    "ma_tt43": "8.289",
+    "ten_ky_thuat": "Điện châm điều trị phục hồi chức năng vận động ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "361",
+    "ma_tt43": "8.290",
+    "ten_ky_thuat": "Điện châm điều trị cơn đau quặn thận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "362",
+    "ma_tt43": "8.291",
+    "ten_ky_thuat": "Điện châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "363",
+    "ma_tt43": "8.292",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "364",
+    "ma_tt43": "8.293",
+    "ten_ky_thuat": "Điện châm điều trị bí đái cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "365",
+    "ma_tt43": "8.294",
+    "ten_ky_thuat": "Điện châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "366",
+    "ma_tt43": "8.295",
+    "ten_ky_thuat": "Điện châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "367",
+    "ma_tt43": "8.296",
+    "ten_ky_thuat": "Điện châm điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "368",
+    "ma_tt43": "8.297",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "369",
+    "ma_tt43": "8.298",
+    "ten_ky_thuat": "Điện châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "370",
+    "ma_tt43": "8.299",
+    "ten_ky_thuat": "Điện châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "371",
+    "ma_tt43": "8.300",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "372",
+    "ma_tt43": "8.301",
+    "ten_ky_thuat": "Điện châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "373",
+    "ma_tt43": "8.302",
+    "ten_ky_thuat": "Điện châm điều trị chắp lẹo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "374",
+    "ma_tt43": "8.303",
+    "ten_ky_thuat": "Điện châm điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "375",
+    "ma_tt43": "8.304",
+    "ten_ky_thuat": "Điện châm điều trị viêm kết mạc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "376",
+    "ma_tt43": "8.305",
+    "ten_ky_thuat": "Điện châm điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "377",
+    "ma_tt43": "8.306",
+    "ten_ky_thuat": "Điện châm điều trị lác cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "378",
+    "ma_tt43": "8.307",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "379",
+    "ma_tt43": "8.308",
+    "ten_ky_thuat": "Điện châm hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "380",
+    "ma_tt43": "8.309",
+    "ten_ky_thuat": "Điện châm hỗ trợ điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "381",
+    "ma_tt43": "8.310",
+    "ten_ky_thuat": "Điện châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "382",
+    "ma_tt43": "8.311",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "383",
+    "ma_tt43": "8.312",
+    "ten_ky_thuat": "Điện châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "384",
+    "ma_tt43": "8.313",
+    "ten_ky_thuat": "Điện châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "385",
+    "ma_tt43": "8.314",
+    "ten_ky_thuat": "Điện châm điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "386",
+    "ma_tt43": "8.315",
+    "ten_ky_thuat": "Điện châm điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "387",
+    "ma_tt43": "8.316",
+    "ten_ky_thuat": "Điện châm điều trị liệt do tổn thương đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "388",
+    "ma_tt43": "8.317",
+    "ten_ky_thuat": "Điện châm điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "389",
+    "ma_tt43": "8.318",
+    "ten_ky_thuat": "Điện châm điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "390",
+    "ma_tt43": "8.319",
+    "ten_ky_thuat": "Điện châm điều trị giảm đau do zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "391",
+    "ma_tt43": "8.320",
+    "ten_ky_thuat": "Điện châm điều trị liệt do viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "392",
+    "ma_tt43": "8.321",
+    "ten_ky_thuat": "Điện châm điều trị chứng tic cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "393",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "394",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "395",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "396",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "397",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau dây thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "398",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau dây V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "399",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "400",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "401",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "402",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "403",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị giảm thính giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "404",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "405",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "406",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "407",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt dây thanh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "408",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "409",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt do viêm não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "410",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "411",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt nửa người sau đột quỵ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "412",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "413",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "414",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị nói ngọng, nói lắp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "415",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị nôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "416",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "417",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị rụng tóc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "418",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "419",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "420",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "421",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "422",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "423",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "424",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "425",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị viêm dạ dày tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "426",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "427",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "428",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị bệnh lý cao huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "429",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị parkinson",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "430",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị hội chứng cánh tay cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "431",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị bệnh phổi tắc nghẽn mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "432",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị bệnh đĩa đệm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "433",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị hội chứng dạ dày tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "434",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị thoái hóa cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "435",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị rối loạn giấc ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "436",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị loạn trương lực cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "437",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị viêm cột sống dính khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "438",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị hội chứng ruột kích thích",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "439",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị bệnh thần kinh ngoại vi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "440",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị bệnh dây thần kinh mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "441",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt tứ chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "442",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị chậm phát triển tâm thần và vận động",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "443",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị liệt các dây thần kinh sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "444",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Điện châm điều trị di chứng viêm não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "445",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "446",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị bí tiểu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "447",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "448",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị chắp lẹo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "449",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị chứng tic cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "450",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị cơn đau quặn thận",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "451",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "452",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "453",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau dây thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "454",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau dây V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "455",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "456",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "457",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "458",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "459",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "460",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "461",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "462",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm đau do zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "463",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "464",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "465",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "466",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "467",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "468",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "469",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "470",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "471",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "472",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "473",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "474",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "475",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị lác cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "476",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "477",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "478",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt dây thanh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "479",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "480",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt do tổn thương đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "481",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt do viêm não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "482",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "483",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt nửa người sau đột quỵ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "484",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "485",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị liệt VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "486",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "487",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị mụn trứng cá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "488",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "489",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị nói ngọng, nói lắp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "490",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị nôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "491",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "492",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "493",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "494",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "495",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "496",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "497",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "498",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị rụng tóc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "499",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "500",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "501",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "502",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "503",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "504",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "505",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "506",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "507",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "508",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "509",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "510",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "511",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "512",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "513",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm dạ dày tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "514",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "515",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm kết mạc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "516",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "517",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "518",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "519",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "520",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm hỗ trợ điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "521",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Hào châm hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "522",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị bí tiểu cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "523",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị cảm mạo",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "524",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị chứng tic cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "525",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "526",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau dây thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "527",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau dây V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "528",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "529",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "530",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "531",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "532",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị giảm đau do zona",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "533",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "534",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "535",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị giảm thính giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "536",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng dạ dày-tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "537",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "538",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng ống cổ tay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "539",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "540",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng thắt lưng hông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "541",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "542",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "543",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "544",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "545",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "546",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "547",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "548",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt dây thần kinh VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "549",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt dây thanh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "550",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt do viêm não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "551",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt nửa người sau đột quỵ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "552",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "553",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "554",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "555",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị phục hồi chức năng cho trẻ bại liệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "556",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "557",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "558",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn thần kinh chức năng sau chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "559",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "560",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "561",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "562",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "563",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "564",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị thất ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "565",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "566",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị tổn thương đám rối dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "567",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị trào ngược dạ dày thực quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "568",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "569",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "570",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm amidan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "571",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "572",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm đa rễ, đa dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "573",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "574",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "575",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Laser châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "576",
+    "ma_tt43": "3.4183",
+    "ten_ky_thuat": "Thủy châm điều trị sa trực tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "577",
+    "ma_tt43": "8.322",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng thắt lưng- hông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "578",
+    "ma_tt43": "8.323",
+    "ten_ky_thuat": "Thủy châm điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "579",
+    "ma_tt43": "8.324",
+    "ten_ky_thuat": "Thủy châm điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "580",
+    "ma_tt43": "8.325",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "581",
+    "ma_tt43": "8.326",
+    "ten_ky_thuat": "Thủy châm điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "582",
+    "ma_tt43": "8.327",
+    "ten_ky_thuat": "Thủy châm điều trị cảm mạo, cúm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "583",
+    "ma_tt43": "8.328",
+    "ten_ky_thuat": "Thủy châm điều trị viêm amydan",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "584",
+    "ma_tt43": "8.329",
+    "ten_ky_thuat": "Thủy châm điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "585",
+    "ma_tt43": "8.330",
+    "ten_ky_thuat": "Thủy châm điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "586",
+    "ma_tt43": "8.331",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng dạ dày tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "587",
+    "ma_tt43": "8.332",
+    "ten_ky_thuat": "Thủy châm điều trị sa dạ dày",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "588",
+    "ma_tt43": "8.333",
+    "ten_ky_thuat": "Thủy châm điều trị trĩ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "589",
+    "ma_tt43": "8.334",
+    "ten_ky_thuat": "Thủy châm hỗ trợ điều trị bệnh vẩy nến",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "590",
+    "ma_tt43": "8.335",
+    "ten_ky_thuat": "Thủy châm điều trị mày đay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "591",
+    "ma_tt43": "8.336",
+    "ten_ky_thuat": "Thủy châm điều trị bệnh viêm mũi dị ứng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "592",
+    "ma_tt43": "8.337",
+    "ten_ky_thuat": "Thủy châm điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "593",
+    "ma_tt43": "8.338",
+    "ten_ky_thuat": "Thủy châm điều trị bại liệt trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "594",
+    "ma_tt43": "8.339",
+    "ten_ky_thuat": "Thủy châm điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "595",
+    "ma_tt43": "8.340",
+    "ten_ky_thuat": "Thủy châm điều trị liệt trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "596",
+    "ma_tt43": "8.341",
+    "ten_ky_thuat": "Thủy châm điều trị bệnh tự kỷ ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "597",
+    "ma_tt43": "8.342",
+    "ten_ky_thuat": "Thủy châm điều trị liệt do tổn thương đám rối cánh tay ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "598",
+    "ma_tt43": "8.343",
+    "ten_ky_thuat": "Thủy châm điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "599",
+    "ma_tt43": "8.344",
+    "ten_ky_thuat": "Thủy châm điều trị phục hồi chức năng vận động ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "600",
+    "ma_tt43": "8.345",
+    "ten_ky_thuat": "Thủy châm điều trị cơn động kinh cục bộ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "601",
+    "ma_tt43": "8.346",
+    "ten_ky_thuat": "Thủy châm điều trị sa tử cung",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "602",
+    "ma_tt43": "8.347",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "603",
+    "ma_tt43": "8.348",
+    "ten_ky_thuat": "Thủy châm điều trị thống kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "604",
+    "ma_tt43": "8.349",
+    "ten_ky_thuat": "Thủy châm điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "605",
+    "ma_tt43": "8.350",
+    "ten_ky_thuat": "Thủy châm điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "606",
+    "ma_tt43": "8.351",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "607",
+    "ma_tt43": "8.352",
+    "ten_ky_thuat": "Thủy châm điều trị đau vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "608",
+    "ma_tt43": "8.353",
+    "ten_ky_thuat": "Thủy châm điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "609",
+    "ma_tt43": "8.354",
+    "ten_ky_thuat": "Thủy châm điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "610",
+    "ma_tt43": "8.355",
+    "ten_ky_thuat": "Thủy châm điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "611",
+    "ma_tt43": "8.356",
+    "ten_ky_thuat": "Thủy châm điều trị liệt dây thần kinh VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "612",
+    "ma_tt43": "8.357",
+    "ten_ky_thuat": "Thủy châm điều trị đau dây thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "613",
+    "ma_tt43": "8.358",
+    "ten_ky_thuat": "Thủy châm điều trị thất vận ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "614",
+    "ma_tt43": "8.359",
+    "ten_ky_thuat": "Thủy châm điều trị đau dây V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "615",
+    "ma_tt43": "8.360",
+    "ten_ky_thuat": "Thủy châm điều trị đau liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "616",
+    "ma_tt43": "8.361",
+    "ten_ky_thuat": "Thủy châm điều trị loạn chức năng do chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "617",
+    "ma_tt43": "8.362",
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "618",
+    "ma_tt43": "8.363",
+    "ten_ky_thuat": "Thủy châm điều trị khàn tiếng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "619",
+    "ma_tt43": "8.364",
+    "ten_ky_thuat": "Thủy châm điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "620",
+    "ma_tt43": "8.365",
+    "ten_ky_thuat": "Thủy châm điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "621",
+    "ma_tt43": "8.366",
+    "ten_ky_thuat": "Thủy châm điều trị liệt hai chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "622",
+    "ma_tt43": "8.367",
+    "ten_ky_thuat": "Thủy châm điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "623",
+    "ma_tt43": "8.368",
+    "ten_ky_thuat": "Thủy châm hỗ trợ điều trị nghiện ma túy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "624",
+    "ma_tt43": "8.369",
+    "ten_ky_thuat": "Thủy châm hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "625",
+    "ma_tt43": "8.370",
+    "ten_ky_thuat": "Thủy châm hỗ trợ điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "626",
+    "ma_tt43": "8.371",
+    "ten_ky_thuat": "Thủy châm điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "627",
+    "ma_tt43": "8.372",
+    "ten_ky_thuat": "Thủy châm điều trị rối loạn tiêu hóa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "628",
+    "ma_tt43": "8.373",
+    "ten_ky_thuat": "Thủy châm điều trị đau răng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "629",
+    "ma_tt43": "8.374",
+    "ten_ky_thuat": "Thủy châm điều trị táo bón kéo dài",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "630",
+    "ma_tt43": "8.375",
+    "ten_ky_thuat": "Thủy châm hỗ trợ điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "631",
+    "ma_tt43": "8.376",
+    "ten_ky_thuat": "Thủy châm điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "632",
+    "ma_tt43": "8.377",
+    "ten_ky_thuat": "Thủy châm điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "633",
+    "ma_tt43": "8.378",
+    "ten_ky_thuat": "Thủy châm điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "634",
+    "ma_tt43": "8.380",
+    "ten_ky_thuat": "Thủy châm điều trị đau hố mắt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "635",
+    "ma_tt43": "8.381",
+    "ten_ky_thuat": "Thủy châm điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "636",
+    "ma_tt43": "8.382",
+    "ten_ky_thuat": "Thủy châm điều trị lác cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "637",
+    "ma_tt43": "8.383",
+    "ten_ky_thuat": "Thủy châm điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "638",
+    "ma_tt43": "8.384",
+    "ten_ky_thuat": "Thủy châm điều trị viêm bàng quang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "639",
+    "ma_tt43": "8.385",
+    "ten_ky_thuat": "Thủy châm điều trị di tinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "640",
+    "ma_tt43": "8.386",
+    "ten_ky_thuat": "Thủy châm điều trị liệt dương",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "641",
+    "ma_tt43": "8.387",
+    "ten_ky_thuat": "Thủy châm điều trị rối loạn tiểu tiện",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "642",
+    "ma_tt43": "8.388",
+    "ten_ky_thuat": "Thủy châm điều trị bí đái cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "643",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh đơn dây thần kinh chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "644",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh đơn dây thần kinh chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "645",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh đa dây thần kinh ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "646",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị rối loạn vận động",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "647",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị run vô căn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "648",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng ống cổ chân",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "649",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng ống cổ tay",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "650",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "651",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị parkinson",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "652",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh đĩa đệm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "653",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng cánh tay cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "654",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh phổi tắc nghẽn mãn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "655",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm bệnh lý cao huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "656",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh dây thần kinh mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "657",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị viêm cột sống dính khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "658",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "659",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị thoái hóa cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "660",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị bệnh thần kinh ngoại vi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "661",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị đau thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "662",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị loạn trương lực cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "663",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị hội chứng ruột kích thích",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "664",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị chậm phát triển tâm thần và vận động",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "665",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Thủy châm điều trị liệt tứ chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "666",
+    "ma_tt43": "8.389",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "667",
+    "ma_tt43": "8.390",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "668",
+    "ma_tt43": "8.391",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt nửa người do tai biến mạch máu não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "669",
+    "ma_tt43": "8.392",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng thắt lưng- hông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "670",
+    "ma_tt43": "8.393",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt do viêm não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "671",
+    "ma_tt43": "8.394",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "672",
+    "ma_tt43": "8.395",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt phục hồi chức năng vận động ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "673",
+    "ma_tt43": "8.396",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị cứng khớp chi trên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "674",
+    "ma_tt43": "8.397",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị cứng khớp chi dưới",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "675",
+    "ma_tt43": "8.398",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị choáng, ngất",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "676",
+    "ma_tt43": "8.399",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị bệnh tự kỷ ở trẻ em",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "677",
+    "ma_tt43": "8.400",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị chứng ù tai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "678",
+    "ma_tt43": "8.401",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị giảm khứu giác",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "679",
+    "ma_tt43": "8.402",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt do bệnh của cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "680",
+    "ma_tt43": "8.403",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt hỗ trợ điều trị nghiện rượu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "681",
+    "ma_tt43": "8.404",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt hỗ trợ điều trị nghiện thuốc lá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "682",
+    "ma_tt43": "8.405",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt hỗ trợ điều trị nghiện ma tuý",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "683",
+    "ma_tt43": "8.406",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị tâm căn suy nhược",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "684",
+    "ma_tt43": "8.407",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng ngoại tháp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "685",
+    "ma_tt43": "8.408",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau đầu, đau nửa đầu",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "686",
+    "ma_tt43": "8.409",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị mất ngủ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "687",
+    "ma_tt43": "8.410",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng stress",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "688",
+    "ma_tt43": "8.411",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị thiểu năng tuần hoàn não mạn tính",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "689",
+    "ma_tt43": "8.412",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị tổn thương rễ, đám rối và dây thần kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "690",
+    "ma_tt43": "8.413",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị tổn thương dây thần kinh V",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "691",
+    "ma_tt43": "8.414",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt dây thần kinh số VII ngoại biên",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "692",
+    "ma_tt43": "8.415",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị sụp mi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "693",
+    "ma_tt43": "8.416",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm thần kinh thị giác sau giai đoạn cấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "694",
+    "ma_tt43": "8.417",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị lác cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "695",
+    "ma_tt43": "8.418",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị giảm thị lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "696",
+    "ma_tt43": "8.419",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng tiền đình",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "697",
+    "ma_tt43": "8.420",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị giảm thính lực",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "698",
+    "ma_tt43": "8.421",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm mũi xoang",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "699",
+    "ma_tt43": "8.422",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hen phế quản",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "700",
+    "ma_tt43": "8.423",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt hỗ trợ điều trị tăng huyết áp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "701",
+    "ma_tt43": "8.424",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị huyết áp thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "702",
+    "ma_tt43": "8.425",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau thần kinh liên sườn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "703",
+    "ma_tt43": "8.426",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng dạ dày- tá tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "704",
+    "ma_tt43": "8.427",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị nấc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "705",
+    "ma_tt43": "8.428",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm khớp dạng thấp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "706",
+    "ma_tt43": "8.429",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau do thoái hóa khớp",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "707",
+    "ma_tt43": "8.430",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau lưng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "708",
+    "ma_tt43": "8.431",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị viêm quanh khớp vai",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "709",
+    "ma_tt43": "8.432",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng vai gáy",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "710",
+    "ma_tt43": "8.433",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị chứng tic cơ mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "711",
+    "ma_tt43": "8.434",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn cảm giác đầu chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "712",
+    "ma_tt43": "8.435",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị tắc tia sữa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "713",
+    "ma_tt43": "8.436",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn kinh nguyệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "714",
+    "ma_tt43": "8.437",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau bụng kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "715",
+    "ma_tt43": "8.438",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng tiền mãn kinh",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "716",
+    "ma_tt43": "8.439",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị táo bón",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "717",
+    "ma_tt43": "8.440",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn tiêu hoá",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "718",
+    "ma_tt43": "8.441",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn cảm giác nông",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "719",
+    "ma_tt43": "8.442",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị bí đái cơ năng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "720",
+    "ma_tt43": "8.443",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn thần kinh thực vật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "721",
+    "ma_tt43": "8.444",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị béo phì",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "722",
+    "ma_tt43": "8.445",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị rối loạn chức năng vận động do chấn thương sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "723",
+    "ma_tt43": "8.446",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt tứ chi do chấn thương cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "724",
+    "ma_tt43": "8.447",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị giảm đau sau phẫu thuật",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "725",
+    "ma_tt43": "8.448",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị giảm đau do ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "726",
+    "ma_tt43": "8.449",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đái dầm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "727",
+    "ma_tt43": "8.450",
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng phân ly",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "728",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị đau thần kinh tọa",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "729",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị parkinson",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "730",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị bệnh dây thần kinh mặt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "731",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị thoái hóa cột sống",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "732",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị hội chứng cánh tay cổ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "733",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị loạn trương lực cơ",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "734",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị sa trực tràng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "735",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị sa dạ dày",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "736",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị thất ngôn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "737",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt tứ chi",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "738",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp bấm huyệt điều trị liệt các dây thần kinh sọ não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "739",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Xoa bóp tam tự kinh điều trị suy dinh dưỡng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "740",
+    "ma_tt43": "8.451",
+    "ten_ky_thuat": "Cứu điều trị hội chứng thắt lưng- hông thể phong hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "741",
+    "ma_tt43": "8.452",
+    "ten_ky_thuat": "Cứu điều trị đau đầu, đau nửa đầu thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "742",
+    "ma_tt43": "8.453",
+    "ten_ky_thuat": "Cứu điều trị nấc thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "743",
+    "ma_tt43": "8.454",
+    "ten_ky_thuat": "Cứu điều trị ngoại cảm phong hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "744",
+    "ma_tt43": "8.455",
+    "ten_ky_thuat": "Cứu điều trị khàn tiếng thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "745",
+    "ma_tt43": "8.456",
+    "ten_ky_thuat": "Cứu điều trị rối loạn cảm giác đầu chi thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "746",
+    "ma_tt43": "8.457",
+    "ten_ky_thuat": "Cứu điều trị liệt chi trên thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "747",
+    "ma_tt43": "8.458",
+    "ten_ky_thuat": "Cứu điều trị liệt chi dưới thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "748",
+    "ma_tt43": "8.459",
+    "ten_ky_thuat": "Cứu điều trị liệt nửa người thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "749",
+    "ma_tt43": "8.460",
+    "ten_ky_thuat": "Cứu điều trị liệt dây thần kinh số VII ngoại biên thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "750",
+    "ma_tt43": "8.461",
+    "ten_ky_thuat": "Cứu điều trị đau vai gáy cấp thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "751",
+    "ma_tt43": "8.462",
+    "ten_ky_thuat": "Cứu điều trị giảm thính lực thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "752",
+    "ma_tt43": "8.463",
+    "ten_ky_thuat": "Cứu hỗ trợ điều trị bệnh tự kỷ thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "753",
+    "ma_tt43": "8.464",
+    "ten_ky_thuat": "Cứu điều trị chậm phát triển trí tuệ ở trẻ bại não",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "754",
+    "ma_tt43": "8.465",
+    "ten_ky_thuat": "Cứu điều trị di tinh thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "755",
+    "ma_tt43": "8.466",
+    "ten_ky_thuat": "Cứu điều trị liệt dương thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "756",
+    "ma_tt43": "8.467",
+    "ten_ky_thuat": "Cứu điều trị rối loạn tiểu tiện thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "757",
+    "ma_tt43": "8.468",
+    "ten_ky_thuat": "Cứu điều trị bí đái thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "758",
+    "ma_tt43": "8.469",
+    "ten_ky_thuat": "Cứu điều trị sa tử cung thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "759",
+    "ma_tt43": "8.470",
+    "ten_ky_thuat": "Cứu điều trị đau bụng kinh thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "760",
+    "ma_tt43": "8.471",
+    "ten_ky_thuat": "Cứu điều trị rối loạn kinh nguyệt thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "761",
+    "ma_tt43": "8.472",
+    "ten_ky_thuat": "Cứu điều trị đái dầm thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "762",
+    "ma_tt43": "8.473",
+    "ten_ky_thuat": "Cứu điều trị đau lưng thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "763",
+    "ma_tt43": "8.474",
+    "ten_ky_thuat": "Cứu điều trị giảm khứu giác thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "764",
+    "ma_tt43": "8.475",
+    "ten_ky_thuat": "Cứu điều trị rối loạn thần kinh thực vật thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "765",
+    "ma_tt43": "8.476",
+    "ten_ky_thuat": "Cứu điều trị cảm cúm thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "766",
+    "ma_tt43": "8.477",
+    "ten_ky_thuat": "Cứu điều trị rối loạn tiêu hóa thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "767",
+    "ma_tt43": "8.478",
+    "ten_ky_thuat": "Cứu hỗ trợ điều trị nghiện ma túy thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "768",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị giảm đau trong ung thư",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "769",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị đau dây thần kinh liên sườn thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "770",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị viêm phế quản thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "771",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị viêm phổi thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "772",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị bệnh đường hô hấp thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "773",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị đau dây V thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "774",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị viêm dạ dày thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "775",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị bạch biến",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "776",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị mụn cóc",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "777",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị nấm móng",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "778",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị đau thần kinh tọa thể phong hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "779",
+    "ma_tt43": null,
+    "ten_ky_thuat": "Cứu điều trị hội chứng cánh tay cổ thể hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "780",
+    "ma_tt43": "8.479",
+    "ten_ky_thuat": "Giác hơi điều trị ngoại cảm phong hàn",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "781",
+    "ma_tt43": "8.480",
+    "ten_ky_thuat": "Giác hơi điều trị ngoại cảm phong nhiệt",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "782",
+    "ma_tt43": "8.481",
+    "ten_ky_thuat": "Giác hơi điều trị các chứng đau",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "783",
+    "ma_tt43": "8.482",
+    "ten_ky_thuat": "Giác hơi điều trị cảm cúm",
+    "nhom": "Y HỌC CỔ TRUYỀN"
+  },
+  {
+    "stt": "784",
+    "ma_tt43": "17.11",
+    "ten_ky_thuat": "Điều trị bằng tia hồng ngoại",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "785",
+    "ma_tt43": "17.16",
+    "ten_ky_thuat": "Điều trị bằng nhiệt nóng (chườm nóng)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "786",
+    "ma_tt43": "17.17",
+    "ten_ky_thuat": "Điều trị bằng nhiệt lạnh (chườm lạnh)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "787",
+    "ma_tt43": "17.31",
+    "ten_ky_thuat": "Tập nằm đúng tư thế cho người bệnh liệt nửa người",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "788",
+    "ma_tt43": "17.35",
+    "ten_ky_thuat": "Tập lăn trở khi nằm",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "789",
+    "ma_tt43": "17.36",
+    "ten_ky_thuat": "Tập thay đổi tư thế từ nằm sang ngồi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "790",
+    "ma_tt43": "17.41",
+    "ten_ky_thuat": "Tập đi với thanh song song",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "791",
+    "ma_tt43": "17.42",
+    "ten_ky_thuat": "Tập đi với khung tập đi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "792",
+    "ma_tt43": "17.43",
+    "ten_ky_thuat": "Tập đi với nạng (nạng nách, nạng khuỷu)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "793",
+    "ma_tt43": "17.44",
+    "ten_ky_thuat": "Tập đi với gậy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "794",
+    "ma_tt43": "17.47",
+    "ten_ky_thuat": "Tập lên, xuống cầu thang",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "795",
+    "ma_tt43": "17.48",
+    "ten_ky_thuat": "Tập đi trên các địa hình khác nhau (dốc, sỏi, gồ ghề,…)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "796",
+    "ma_tt43": "17.54",
+    "ten_ky_thuat": "Tập vận động chủ động",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "797",
+    "ma_tt43": "17.55",
+    "ten_ky_thuat": "Tập vận động tự do tứ chi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "798",
+    "ma_tt43": "17.63",
+    "ten_ky_thuat": "Tập với thang tường",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "799",
+    "ma_tt43": "17.65",
+    "ten_ky_thuat": "Tập với ròng rọc",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "800",
+    "ma_tt43": "17.66",
+    "ten_ky_thuat": "Tập với dụng cụ quay khớp vai",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "801",
+    "ma_tt43": "17.67",
+    "ten_ky_thuat": "Tập với dụng cụ chèo thuyền",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "802",
+    "ma_tt43": "17.70",
+    "ten_ky_thuat": "Tập với ghế tập mạnh cơ Tứ đầu đùi",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "803",
+    "ma_tt43": "17.71",
+    "ten_ky_thuat": "Tập với xe đạp tập",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "804",
+    "ma_tt43": "17.75",
+    "ten_ky_thuat": "Tập ho có trợ giúp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "805",
+    "ma_tt43": "3.15",
+    "ten_ky_thuat": "Vận động trị liệu cho người bệnh bất động tại giường",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "806",
+    "ma_tt43": "11.122",
+    "ten_ky_thuat": "Khám bệnh nhân phục hồi chức năng sau bỏng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "807",
+    "ma_tt43": "11.102",
+    "ten_ky_thuat": "Khám di chứng bỏng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "808",
+    "ma_tt43": "17.12",
+    "ten_ky_thuat": "Điều trị bằng Laser công suất thấp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "809",
+    "ma_tt43": "17.21",
+    "ten_ky_thuat": "Điều trị bằng Laser công suất thấp vào điểm vận động và huyệt đạo",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "810",
+    "ma_tt43": "17.28",
+    "ten_ky_thuat": "Điều trị bằng Parafin",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "811",
+    "ma_tt43": "17.30",
+    "ten_ky_thuat": "Điều trị bằng xông hơi (tắm hơi)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "812",
+    "ma_tt43": "17.32",
+    "ten_ky_thuat": "Thủy trị liệu toàn thân (bể bơi, bồn ngâm)",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "813",
+    "ma_tt43": "17.33",
+    "ten_ky_thuat": "Điều trị bằng nước khoáng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "814",
+    "ma_tt43": "17.34",
+    "ten_ky_thuat": "Thủy trị liệu có thuốc",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "815",
+    "ma_tt43": "17.39",
+    "ten_ky_thuat": "Điều trị chườm ngải cứu",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "816",
+    "ma_tt43": "17.53",
+    "ten_ky_thuat": "Tập dưỡng sinh",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "817",
+    "ma_tt43": "17.54",
+    "ten_ky_thuat": "Kỹ thuật thư giãn",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "818",
+    "ma_tt43": "17.56",
+    "ten_ky_thuat": "Kỹ thuật đặt tư thế đúng cho người bệnh liệt nửa người",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "819",
+    "ma_tt43": "17.57",
+    "ten_ky_thuat": "Tập nằm đúng tư thế cho người bệnh liệt tủy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "820",
+    "ma_tt43": "17.69",
+    "ten_ky_thuat": "Tập đi với bàn xương cá",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "821",
+    "ma_tt43": "17.93",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp vùng",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "822",
+    "ma_tt43": "17.95",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp toàn thân",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "823",
+    "ma_tt43": "17.97",
+    "ten_ky_thuat": "Kỹ thuật xoa bóp bằng máy",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "824",
+    "ma_tt43": "17.236",
+    "ten_ky_thuat": "Thử cơ bằng tay",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "825",
+    "ma_tt43": "17.237",
+    "ten_ky_thuat": "Đo tầm vận động khớp",
+    "nhom": "PHỤC HỒI CHỨC NĂNG"
+  },
+  {
+    "stt": "826",
+    "ma_tt43": "1.1",
+    "ten_ky_thuat": "Theo dõi huyết áp liên tục không xâm nhập tại giường ≤ 8 giờ",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "827",
+    "ma_tt43": "1.2",
+    "ten_ky_thuat": "Ghi điện tim cấp cứu tại giường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "828",
+    "ma_tt43": "1.10",
+    "ten_ky_thuat": "Chăm sóc catheter tĩnh mạch",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "829",
+    "ma_tt43": "1.11",
+    "ten_ky_thuat": "Chăm sóc catheter động mạch",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "830",
+    "ma_tt43": "1.28",
+    "ten_ky_thuat": "Theo dõi SPO2 liên tục tại giường ≤ 8 giờ",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "831",
+    "ma_tt43": "1.323",
+    "ten_ky_thuat": "Chăm sóc catheter tĩnh mạch trung tâm",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "832",
+    "ma_tt43": "2.85",
+    "ten_ky_thuat": "Điện tim thường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "833",
+    "ma_tt43": "2.95",
+    "ten_ky_thuat": "Holter điện tâm đồ",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "834",
+    "ma_tt43": "2.96",
+    "ten_ky_thuat": "Holter huyết áp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "835",
+    "ma_tt43": "2.109",
+    "ten_ky_thuat": "Nghiệm pháp gắng sức điện tâm đồ",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "836",
+    "ma_tt43": "3.46",
+    "ten_ky_thuat": "Theo dõi huyết áp liên tục tại giường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "837",
+    "ma_tt43": "3.47",
+    "ten_ky_thuat": "Theo dõi điện tim liên tục tại giường",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "838",
+    "ma_tt43": "3.51",
+    "ten_ky_thuat": "Ép tim ngoài lồng ngực",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "839",
+    "ma_tt43": "3.113",
+    "ten_ky_thuat": "Cấp cứu ngừng tuần hoàn hô hấp",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "840",
+    "ma_tt43": "3.4191",
+    "ten_ky_thuat": "Theo dõi tim thai",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "841",
+    "ma_tt43": "3.4193",
+    "ten_ky_thuat": "Đo độ bão hòa oxy máu qua da",
+    "nhom": "HỆ TUẦN HOÀN"
+  },
+  {
+    "stt": "842",
+    "ma_tt43": "1.53",
+    "ten_ky_thuat": "Đặt canuyn mũi hầu, miệng hầu",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "843",
+    "ma_tt43": "1.54",
+    "ten_ky_thuat": "Hút đờm qua ống nội khí quản/canuyn mở khí quản bằng ống thông một lần ở người bệnh không thở máy (một lần hút)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "844",
+    "ma_tt43": "1.55",
+    "ten_ky_thuat": "Hút đờm qua ống nội khí quản/canuyn mở khí quản bằng ống thông một lần ở người bệnh có thở máy (một lần hút)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "845",
+    "ma_tt43": "1.57",
+    "ten_ky_thuat": "Thở oxy qua gọng kính (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "846",
+    "ma_tt43": "1.58",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ không có túi (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "847",
+    "ma_tt43": "1.59",
+    "ten_ky_thuat": "Thở ô xy qua mặt nạ có túi có hít lại (túi không có van) (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "848",
+    "ma_tt43": "1.60",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ có túi không hít lại (túi có van) (≤ 8 giờ)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "849",
+    "ma_tt43": "1.64",
+    "ten_ky_thuat": "Thủ thuật Heimlich (lấy dị vật đường thở) cho người lớn và trẻ em",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "850",
+    "ma_tt43": "1.65",
+    "ten_ky_thuat": "Bóp bóng Ambu qua mặt nạ",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "851",
+    "ma_tt43": "1.75",
+    "ten_ky_thuat": "Chăm sóc ống nội khí quản (một lần)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "852",
+    "ma_tt43": "1.78",
+    "ten_ky_thuat": "Rút ống nội khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "853",
+    "ma_tt43": "1.79",
+    "ten_ky_thuat": "Rút canuyn khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "854",
+    "ma_tt43": "1.80",
+    "ten_ky_thuat": "Thay canuyn mở khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "855",
+    "ma_tt43": "1.81",
+    "ten_ky_thuat": "Đánh giá mức độ nặng của cơn hen phế quản bằng peak flow meter",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "856",
+    "ma_tt43": "1.82",
+    "ten_ky_thuat": "Đánh giá mức độ nặng của COPD bằng FEV1 (một lần)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "857",
+    "ma_tt43": "1.85",
+    "ten_ky_thuat": "Vận động trị liệu hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "858",
+    "ma_tt43": "1.87",
+    "ten_ky_thuat": "Khí dung thuốc qua thở máy (một lần)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "859",
+    "ma_tt43": "1.88",
+    "ten_ky_thuat": "Làm ẩm đường thở qua máy phun sương mù",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "860",
+    "ma_tt43": "1.154",
+    "ten_ky_thuat": "Theo dõi các thông số cơ học phổi ≤ 8 giờ",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "861",
+    "ma_tt43": "1.157",
+    "ten_ky_thuat": "Cố định lồng ngực do chấn thương gãy xương sườn",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "862",
+    "ma_tt43": "1.158",
+    "ten_ky_thuat": "Cấp cứu ngừng tuần hoàn hô hấp cơ bản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "863",
+    "ma_tt43": "1.305",
+    "ten_ky_thuat": "Chăm sóc bệnh nhân thở máy",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "864",
+    "ma_tt43": "1.309",
+    "ten_ky_thuat": "Vệ sinh khử khuẩn máy thở",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "865",
+    "ma_tt43": "1.310",
+    "ten_ky_thuat": "Lấy bệnh phẩm dịch phế quản qua ống nội khí quản, mở khí quản bằng ống hút thường để xét nghiệm ở bệnh nhân thở máy",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "866",
+    "ma_tt43": "1.311",
+    "ten_ky_thuat": "Lấy bệnh phẩm dịch phế quản qua ống hút đờm có đầu bảo vệ để xét nghiệm ở bệnh nhân thở máy",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "867",
+    "ma_tt43": "2.28",
+    "ten_ky_thuat": "Kỹ thuật ho có điều khiển",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "868",
+    "ma_tt43": "2.29",
+    "ten_ky_thuat": "Kỹ thuật tập thở cơ hoành",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "869",
+    "ma_tt43": "2.30",
+    "ten_ky_thuat": "Kỹ thuật ho khạc đờm bằng khí dung nước muối ưu trương",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "870",
+    "ma_tt43": "2.31",
+    "ten_ky_thuat": "Kỹ thuật vỗ rung dẫn lưu tư thế",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "871",
+    "ma_tt43": "2.32",
+    "ten_ky_thuat": "Khí dung thuốc giãn phế quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "872",
+    "ma_tt43": "2.33",
+    "ten_ky_thuat": "Lấy máu động mạch quay làm xét nghiệm",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "873",
+    "ma_tt43": "2.60",
+    "ten_ky_thuat": "Nghiệm pháp đi bộ 6 phút",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "874",
+    "ma_tt43": "3.87",
+    "ten_ky_thuat": "Theo dõi độ bão hòa ô xy (SPO2) liên tục tại giường",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "875",
+    "ma_tt43": "3.88",
+    "ten_ky_thuat": "Thăm dò chức năng hô hấp",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "876",
+    "ma_tt43": "3.89",
+    "ten_ky_thuat": "Khí dung thuốc cấp cứu",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "877",
+    "ma_tt43": "3.90",
+    "ten_ky_thuat": "Khí dung thuốc thở máy",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "878",
+    "ma_tt43": "3.102",
+    "ten_ky_thuat": "Chăm sóc lỗ mở khí quản",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "879",
+    "ma_tt43": "3.105",
+    "ten_ky_thuat": "Thổi ngạt",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "880",
+    "ma_tt43": "3.108",
+    "ten_ky_thuat": "Thở oxy gọng kính",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "881",
+    "ma_tt43": "3.109",
+    "ten_ky_thuat": "Thở oxy lưu lượng cao qua mặt nạ không túi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "882",
+    "ma_tt43": "3.110",
+    "ten_ky_thuat": "Thở oxy qua mặt nạ có túi",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "883",
+    "ma_tt43": "3.111",
+    "ten_ky_thuat": "Thở oxy qua ống chữ T (T-tube)",
+    "nhom": "HỆ HÔ HẤP"
+  },
+  {
+    "stt": "884",
+    "ma_tt43": "1.203",
+    "ten_ky_thuat": "Ghi điện cơ cấp cứu",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "885",
+    "ma_tt43": "1.213",
+    "ten_ky_thuat": "Điều trị co giật liên tục ≤ 8 giờ",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "886",
+    "ma_tt43": "1.214",
+    "ten_ky_thuat": "Điều trị giãn cơ trong cấp cứu ≤ 8 giờ",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "887",
+    "ma_tt43": "2.128",
+    "ten_ky_thuat": "Chăm sóc mắt ở người bệnh liệt VII ngoại biên (một lần)",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "888",
+    "ma_tt43": "2.140",
+    "ten_ky_thuat": "Điều trị trạng thái động kinh",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "889",
+    "ma_tt43": "2.149",
+    "ten_ky_thuat": "Gội đầu cho người bệnh trong các bệnh thần kinh tại giường",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "890",
+    "ma_tt43": "2.150",
+    "ten_ky_thuat": "Hút đờm hầu họng",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "891",
+    "ma_tt43": "2.151",
+    "ten_ky_thuat": "Lấy máu tĩnh mạch bẹn",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "892",
+    "ma_tt43": "2.152",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh liên tục bằng máy, truyền thức ăn qua thực quản, dạ dày",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "893",
+    "ma_tt43": "2.163",
+    "ten_ky_thuat": "Thay băng các vết loét hoại tử rộng sau TBMMN",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "894",
+    "ma_tt43": "2.164",
+    "ten_ky_thuat": "Theo dõi SPO2 liên tục tại giường",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "895",
+    "ma_tt43": "2.165",
+    "ten_ky_thuat": "Vệ sinh răng miệng bệnh nhân thần kinh tại giường",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "896",
+    "ma_tt43": "2.166",
+    "ten_ky_thuat": "Xoa bóp phòng chống loét trong các bệnh thần kinh (một ngày)",
+    "nhom": "HỆ THẦN KINH"
+  },
+  {
+    "stt": "897",
+    "ma_tt43": "1.215",
+    "ten_ky_thuat": "Gây nôn cho người bệnh ngộ độc qua đường tiêu hóa",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "898",
+    "ma_tt43": "1.216",
+    "ten_ky_thuat": "Đặt ống thông dạ dày",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "899",
+    "ma_tt43": "1.218",
+    "ten_ky_thuat": "Rửa dạ dày cấp cứu",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "900",
+    "ma_tt43": "1.221",
+    "ten_ky_thuat": "Thụt tháo",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "901",
+    "ma_tt43": "1.222",
+    "ten_ky_thuat": "Thụt giữ",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "902",
+    "ma_tt43": "1.224",
+    "ten_ky_thuat": "Cho ăn qua ống thông dạ dày (một lần)",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "903",
+    "ma_tt43": "1.225",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua ống thông dạ dày bằng bơm tay (một lần)",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "904",
+    "ma_tt43": "1.229",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh bằng đường truyền tĩnh mạch ngoại biên ≤ 8 giờ",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "905",
+    "ma_tt43": "2.242",
+    "ten_ky_thuat": "Chọc dò dịch ổ bụng xét nghiệm",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "906",
+    "ma_tt43": "2.337",
+    "ten_ky_thuat": "Thụt thuốc qua đường hậu môn",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "907",
+    "ma_tt43": "2.338",
+    "ten_ky_thuat": "Thụt tháo chuẩn bị sạch đại tràng",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "908",
+    "ma_tt43": "2.339",
+    "ten_ky_thuat": "Thụt tháo phân",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "909",
+    "ma_tt43": "3.178",
+    "ten_ky_thuat": "Đặt sonde hậu môn",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "910",
+    "ma_tt43": "3.180",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh bằng đường truyền tĩnh mạch ngoại biên",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "911",
+    "ma_tt43": "3.181",
+    "ten_ky_thuat": "Nuôi dưỡng người bệnh qua Catheter thực quản dạ dày băng bơm tay",
+    "nhom": "HỆ TIÊU HOÁ"
+  },
+  {
+    "stt": "912",
+    "ma_tt43": "1.245",
+    "ten_ky_thuat": "Cân người bệnh tại giường bằng cân treo hay cân điện tử",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "913",
+    "ma_tt43": "1.249",
+    "ten_ky_thuat": "Giải stress cho người bệnh",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "914",
+    "ma_tt43": "1.250",
+    "ten_ky_thuat": "Kiểm soát đau trong cấp cứu",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "915",
+    "ma_tt43": "1.251",
+    "ten_ky_thuat": "Lấy máu tĩnh mạch, tiêm thuốc tĩnh mạch (một lần chọc kim qua da)",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "916",
+    "ma_tt43": "1.252",
+    "ten_ky_thuat": "Truyền thuốc, dịch tĩnh mạch ≤ 8 giờ",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "917",
+    "ma_tt43": "1.260",
+    "ten_ky_thuat": "Chăm sóc mắt ở người bệnh hôn mê (một lần)",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "918",
+    "ma_tt43": "1.262",
+    "ten_ky_thuat": "Gội đầu cho người bệnh tại giường",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "919",
+    "ma_tt43": "1.264",
+    "ten_ky_thuat": "Tắm cho người bệnh tại giường",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "920",
+    "ma_tt43": "1.266",
+    "ten_ky_thuat": "Xoa bóp phòng chống loét",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "921",
+    "ma_tt43": "1.268",
+    "ten_ky_thuat": "Phục hồi chức năng vận động, nói, nuốt cho người bệnh cấp cứu ≤ 8 giờ",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "922",
+    "ma_tt43": "1.269",
+    "ten_ky_thuat": "Băng ép bất động sơ cứu rắn cắn",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "923",
+    "ma_tt43": "1.270",
+    "ten_ky_thuat": "Ga rô hoặc băng ép cầm máu",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "924",
+    "ma_tt43": "1.274",
+    "ten_ky_thuat": "Điều trị giải độc ngộ độc rượu cấp",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "925",
+    "ma_tt43": "1.275",
+    "ten_ky_thuat": "Băng bó vết thương",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "926",
+    "ma_tt43": "1.276",
+    "ten_ky_thuat": "Cố định tạm thời người bệnh gãy xương",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "927",
+    "ma_tt43": "1.277",
+    "ten_ky_thuat": "Cố định cột sống cổ bằng nẹp cứng",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "928",
+    "ma_tt43": "1.278",
+    "ten_ky_thuat": "Vận chuyển người bệnh cấp cứu",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "929",
+    "ma_tt43": "1.279",
+    "ten_ky_thuat": "Vận chuyển người bệnh chấn thương cột sống thắt lưng",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "930",
+    "ma_tt43": "3.186",
+    "ten_ky_thuat": "Chiếu đèn điều trị vàng da sơ sinh",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "931",
+    "ma_tt43": "3.191",
+    "ten_ky_thuat": "Xét nghiệm đường máu mao mạch tại giường",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "932",
+    "ma_tt43": "3.192",
+    "ten_ky_thuat": "Thay băng cho các vết thương hoại tử rộng",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "933",
+    "ma_tt43": "3.198",
+    "ten_ky_thuat": "Vệ sinh răng miệng đặc biệt",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "934",
+    "ma_tt43": "3.203",
+    "ten_ky_thuat": "Cầm máu (vết thương chảy máu)",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "935",
+    "ma_tt43": "3.206",
+    "ten_ky_thuat": "Định nhóm máu tại giường",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "936",
+    "ma_tt43": "3.204",
+    "ten_ky_thuat": "Vận chuyển người bệnh an toàn",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "937",
+    "ma_tt43": "3.210",
+    "ten_ky_thuat": "Tiêm truyền thuốc",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "938",
+    "ma_tt43": "1.363",
+    "ten_ky_thuat": "Điều trị giảm nồng độ canxi máu",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "939",
+    "ma_tt43": "14.288",
+    "ten_ky_thuat": "Test lẩy bì",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "940",
+    "ma_tt43": "14.289",
+    "ten_ky_thuat": "Test nội bì",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "941",
+    "ma_tt43": "14.290",
+    "ten_ky_thuat": "Tiêm trong da; tiêm dưới da; tiêm bắp thịt",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "942",
+    "ma_tt43": "14.291",
+    "ten_ky_thuat": "Tiêm tĩnh mạch, truyền tĩnh mạch",
+    "nhom": "TOÀN THÂN"
+  },
+  {
+    "stt": "943",
+    "ma_tt43": "3.133",
+    "ten_ky_thuat": "Thông tiểu",
+    "nhom": "HỆ THẬN TIẾT NIỆU"
+  },
+  {
+    "stt": "944",
+    "ma_tt43": "2.188",
+    "ten_ky_thuat": "Đặt sonde bàng quang",
+    "nhom": "HỆ THẬN TIẾT NIỆU"
+  },
+  {
+    "stt": "945",
+    "ma_tt43": "2.195",
+    "ten_ky_thuat": "Đo lượng nước tiểu 24 giờ",
+    "nhom": "HỆ THẬN TIẾT NIỆU"
+  },
+  {
+    "stt": "946",
+    "ma_tt43": "3.4246",
+    "ten_ky_thuat": "Tháo bột các loại",
+    "nhom": "HỆ CƠ XƯƠNG KHỚP"
+  },
+  {
+    "stt": "947",
+    "ma_tt43": "2.628",
+    "ten_ky_thuat": "Theo dõi và chăm sóc người bệnh sốc phản vệ 72 giờ đầu",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "948",
+    "ma_tt43": "2.646",
+    "ten_ky_thuat": "Vỗ rung cho người bệnh Hen phế quản",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "949",
+    "ma_tt43": "2.647",
+    "ten_ky_thuat": "Vỗ rung cho người bệnh Lupus ban đỏ hệ thống",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "950",
+    "ma_tt43": "2.648",
+    "ten_ky_thuat": "Vỗ rung cho người bệnh Xơ cứng bì",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "951",
+    "ma_tt43": "2.649",
+    "ten_ky_thuat": "Tập vận động cho người bệnh Xơ cứng bì",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "952",
+    "ma_tt43": "2.650",
+    "ten_ky_thuat": "Xoa bóp cho người bệnh Xơ cứng bì",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "953",
+    "ma_tt43": "2.651",
+    "ten_ky_thuat": "Xoa bóp và nhiệt trị liệu cho người bệnh Lupus ban đỏ hệ thống có hội chứng Raynaud",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "954",
+    "ma_tt43": "2.652",
+    "ten_ky_thuat": "Xoa bóp và nhiệt trị liệu cho người bệnh Xơ cứng bì có hội chứng Raynaud",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "955",
+    "ma_tt43": "3.4198",
+    "ten_ky_thuat": "Test dưới da với thuốc",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "956",
+    "ma_tt43": "3.4199",
+    "ten_ky_thuat": "Test dưới da với vacxin",
+    "nhom": "DỊ ỨNG - MIỄN DỊCH LÂM SÀNG"
+  },
+  {
+    "stt": "957",
+    "ma_tt43": "5.225",
+    "ten_ky_thuat": "Thay băng trên người bệnh đái tháo đường",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "958",
+    "ma_tt43": "5.231",
+    "ten_ky_thuat": "Chích rạch, dẫn lưu ổ áp xe trên người bệnh đái tháo đường",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "959",
+    "ma_tt43": "5.234",
+    "ten_ky_thuat": "Cắt móng chân, chăm sóc móng trên người bệnh đái tháo đường",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "960",
+    "ma_tt43": "5.239",
+    "ten_ky_thuat": "Hướng dẫn kỹ thuật tiêm Insulin",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "961",
+    "ma_tt43": "5.240",
+    "ten_ky_thuat": "Hướng dẫn tự chăm sóc bàn chân",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "962",
+    "ma_tt43": "5.241",
+    "ten_ky_thuat": "Tư vấn chế độ dinh dưỡng và tập luyện",
+    "nhom": "NỘI TIẾT"
+  },
+  {
+    "stt": "963",
+    "ma_tt43": "11.5",
+    "ten_ky_thuat": "Thay băng điều trị vết bỏng dưới 10% diện tích cơ thể ở người lớn",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "964",
+    "ma_tt43": "11.10",
+    "ten_ky_thuat": "Thay băng điều trị vết bỏng dưới 10% diện tích cơ thể ở trẻ em",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "965",
+    "ma_tt43": "11.12",
+    "ten_ky_thuat": "Thay băng và chăm sóc vùng lấy da",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "966",
+    "ma_tt43": "11.77",
+    "ten_ky_thuat": "Khám bệnh nhân bỏng, chẩn đoán diện tích và độ sâu bỏng bằng lâm sàng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "967",
+    "ma_tt43": "11.79",
+    "ten_ky_thuat": "Sơ cứu, cấp cứu tổn thương bỏng nhiệt",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "968",
+    "ma_tt43": "11.80",
+    "ten_ky_thuat": "Xử lí tại chỗ kì đầu tổn thương bỏng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "969",
+    "ma_tt43": "11.81",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng do vôi tôi nóng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "970",
+    "ma_tt43": "11.82",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng acid",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "971",
+    "ma_tt43": "11.83",
+    "ten_ky_thuat": "Sơ cấp cứu bỏng do dòng điện",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "972",
+    "ma_tt43": "11.89",
+    "ten_ky_thuat": "Đặt dây truyền dịch ngoại vi điều trị bệnh nhân bỏng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "973",
+    "ma_tt43": "11.116",
+    "ten_ky_thuat": "Thay băng điều trị vết thương mạn tính",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "974",
+    "ma_tt43": "11.138",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do cóng lạnh",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "975",
+    "ma_tt43": "11.139",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do kiềm và các hóa chất khác",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "976",
+    "ma_tt43": "11.140",
+    "ten_ky_thuat": "Sơ cấp cứu bệnh nhân bỏng do tia xạ",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "977",
+    "ma_tt43": "11.171",
+    "ten_ky_thuat": "Điều trị vết thương mạn tính bằng đèn hồng ngoại",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "978",
+    "ma_tt43": "11.176",
+    "ten_ky_thuat": "Kỹ thuật xoay chuyển bệnh nhân dự phòng loét tỳ đè",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "979",
+    "ma_tt43": "11.177",
+    "ten_ky_thuat": "Kỹ thuật massage tại chỗ trong chăm sóc vết thương mạn tính",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "980",
+    "ma_tt43": "3.1515",
+    "ten_ky_thuat": "Ngâm rửa vết bỏng bằng nước mát sạch, băng ép, trong sơ cứu, cấp cứu tổn thương bỏng kỳ đầu.",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "981",
+    "ma_tt43": "2.653",
+    "ten_ky_thuat": "Chăm sóc da cho người bệnh dị ứng thuốc nặng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "982",
+    "ma_tt43": "5.1",
+    "ten_ky_thuat": "Chăm sóc người bệnh Pemphigus nặng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "983",
+    "ma_tt43": "5.2",
+    "ten_ky_thuat": "Chăm sóc bệnh nhân dị ứng thuốc nặng",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "984",
+    "ma_tt43": "5.3",
+    "ten_ky_thuat": "Điều trị bệnh da bằng ngâm, tắm",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "985",
+    "ma_tt43": "5.43",
+    "ten_ky_thuat": "Điều trị sẹo lõm bằng TCA (trichloacetic acid)",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "986",
+    "ma_tt43": "5.71",
+    "ten_ky_thuat": "Đắp mặt nạ điều trị một số bệnh da",
+    "nhom": "DA VÀ LỚP BAO PHỦ"
+  },
+  {
+    "stt": "987",
+    "ma_tt43": "14.223",
+    "ten_ky_thuat": "Khám lâm sàng mắt",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "988",
+    "ma_tt43": "14.260",
+    "ten_ky_thuat": "Đo thị lực",
+    "nhom": "MẮT"
+  },
+  {
+    "stt": "989",
+    "ma_tt43": "15.58",
+    "ten_ky_thuat": "Làm thuốc tai",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "990",
+    "ma_tt43": "15.59",
+    "ten_ky_thuat": "Lấy nút biểu bì ống tai ngoài",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "991",
+    "ma_tt43": "15.146",
+    "ten_ky_thuat": "Rút meche, rút merocel hốc mũi",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "992",
+    "ma_tt43": "15.147",
+    "ten_ky_thuat": "Hút rửa mũi, xoang sau mổ",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "993",
+    "ma_tt43": "15.212",
+    "ten_ky_thuat": "Lấy dị vật họng miệng",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "994",
+    "ma_tt43": "15.222",
+    "ten_ky_thuat": "Khí dung mũi họng",
+    "nhom": "TAI MŨI HỌNG"
+  },
+  {
+    "stt": "995",
+    "ma_tt43": "16.41",
+    "ten_ky_thuat": "Điều trị viêm quanh răng",
+    "nhom": "RĂNG HÀM MẶT"
+  },
+  {
+    "stt": "996",
+    "ma_tt43": "16.42",
+    "ten_ky_thuat": "Chích áp xe lợi",
+    "nhom": "RĂNG HÀM MẶT"
+  },
+  {
+    "stt": "997",
+    "ma_tt43": "16.300",
+    "ten_ky_thuat": "Sơ cứu gãy xương vùng hàm mặt",
+    "nhom": "RĂNG HÀM MẶT"
+  },
+  {
+    "stt": "998",
+    "ma_tt43": "16.301",
+    "ten_ky_thuat": "Sơ cứu vết thương phần mềm vùng hàm mặt",
+    "nhom": "RĂNG HÀM MẶT"
+  }
+]

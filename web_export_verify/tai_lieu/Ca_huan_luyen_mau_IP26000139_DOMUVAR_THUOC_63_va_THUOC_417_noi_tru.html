@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU IP26000139 — THUOC_63 (DOMUVAR) + THUOC_417 HÀNG LOẠT — NỘI TRÚ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU IP26000139 — THUOC_63 (DOMUVAR) + THUOC_417 HÀNG LOẠT — NỘI TRÚ</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI trên hồ sơ <strong>nội trú</strong> có <strong>đồng thời</strong>:</p>
+<ul>
+<li><strong><code>THUOC_63</code></strong> ×3: probiotic <strong>DOMUVAR</strong> (<code>40.718</code>) — cổng <strong>ICD + mô tả</strong> (Bacillus subtilis trong seed).</li>
+<li><strong><code>THUOC_417</code></strong> ×5: <strong>cấp dư</strong> so với y lệnh, minh họa bằng <strong>Cefotaxime</strong> (<code>40.173</code>) lặp nhiều dòng.</li>
+<li>Cảnh báo <strong>không thuốc</strong> đi kèm: <code>CDHA_164</code> (MRI chờ), <code>HC_171</code>, <code>HC_224</code>, <code>HC_97</code>, <code>HD_10</code>, <code>XML_19</code>, <code>XML_54</code>, <code>XML_121</code>.</li>
+</ul>
+<p>Mục tiêu nghiệp vụ: AI <strong>tách checklist</strong> theo phân hệ; không gom “16 cảnh báo” thành một kết luận chung.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_PC022300479_IP26000139.json</code></li>
+<li><code>meta.claim_path</code>: <code>PC022300479_IP26000139.xml</code> (đường dẫn máy người dùng trong snapshot).</li>
+<li><strong>Lưu ý:</strong> <code>meta.ma_lk</code> trong file JSON có thể ghi <strong><code>000434</code></strong> (lệch với tên file IP) — khi huấn luyện, ưu tiên <strong>tên file + <code>claim_path</code></strong> làm định danh ca.</li>
+</ul>
+<h2>3. Snapshot rule (từ JSON)</h2>
+<ul>
+<li><code>total_warnings</code>: <strong>16</strong></li>
+<li><code>unique_rule_codes</code>: <code>CDHA_164</code>, <code>HC_171</code>, <code>HC_224</code>, <code>HC_97</code>, <code>HD_10</code>, <code>THUOC_417</code>, <code>THUOC_63</code>, <code>XML_121</code>, <code>XML_19</code>, <code>XML_54</code></li>
+</ul>
+<h2>4. Map nhanh THUOC_63 → index XML2</h2>
+<p>Theo các block <code>warnings</code> trong audit mẫu:</p>
+<ul>
+<li><code>THUOC_63</code> tại index <strong>0</strong>, <strong>1</strong>, <strong>7</strong> (cùng mã <code>40.718</code> DOMUVAR).</li>
+</ul>
+<p><strong>Bài tập:</strong> Giải thích vì sao <strong>một rule ICD</strong> có thể <strong>lặp</strong> nhiều lần (nhiều dòng kê cùng hoạt chất / nhiều đợt).</p>
+<h2>5. THUOC_417 — Cefotaxime</h2>
+<ul>
+<li>Nhiều cảnh báo gắn index <strong>3</strong>, <strong>4</strong>, <strong>5</strong>, … (đối chiếu đầy đủ trong JSON).</li>
+<li>Điều kiện seed kiểu: <code>SO_LUONG &gt; SL_MOI_NGAY * SO_NGAY</code> (sau enrich).</li>
+</ul>
+<p>So sánh với ca ngoại trú <strong><code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code></strong> (cùng nhóm cấp dư nhưng bối cảnh khác).</p>
+<h2>6. XML_121 và CLN-THUOC-01</h2>
+<ul>
+<li><code>XML_121</code>: trùng kê <strong>trong cùng ngày y lệnh</strong> (mức XML1 / logic tổng hợp — xem text cảnh báo trong JSON).</li>
+<li>Khác <strong><code>CLN-THUOC-01</code></strong> (trùng <code>MA_THUOC</code> trên đơn <strong>ngoại trú</strong> trong <code>giamDinhThuoc</code>). AI cần <strong>không nhầm</strong> hai mã.</li>
+</ul>
+<h2>7. Liên kết</h2>
+<ul>
+<li>Chỉ mục engine (lọc <code>THUOC_417</code> / đơn vị): <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code>  </li>
+<li>DOMUVAR ngoại trú + THUOC_417: <code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code>  </li>
+<li>Đa nhóm + XML_121: <code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code>  </li>
+<li>Khung “sai thuốc”: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

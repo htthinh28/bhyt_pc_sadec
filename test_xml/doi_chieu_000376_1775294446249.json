@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022115527_IP26000081.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775294253040.xlsx",
+    "maLK": "000376",
+    "durationMinutes": 4220,
+    "reportRowCount": 20,
+    "summary": {
+      "CAN_XAC_MINH_THEM": 18,
+      "HOP_LY": 2
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "O36.5;",
+    "mucThe": "4"
+  },
+  "rows": [
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT-OP-09",
+      "QUY_TAC": "Danh mục nội bộ được phê duyệt",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT-OP-09",
+      "QUY_TAC": "Danh mục nội bộ được phê duyệt",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT-OP-09",
+      "QUY_TAC": "Danh mục nội bộ được phê duyệt",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT-OP-09",
+      "QUY_TAC": "Danh mục nội bộ được phê duyệt",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_19",
+      "QUY_TAC": "Diễn biến rỗng (XML5)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_55",
+      "QUY_TAC": "Mã khoa không thống nhất (Nội trú)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_58",
+      "QUY_TAC": "Mức hưởng XML1 vs XML2/3",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_86",
+      "QUY_TAC": "Thiếu trường bắt buộc trong XML2",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_87",
+      "QUY_TAC": "Thiếu trường bắt buộc trong XML3",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "XML_105",
+      "QUY_TAC": "Tóm tắt HSBA rỗng (XML7)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "HC_130",
+      "QUY_TAC": "Tổng ngày điều trị lệch Ngày vào/ra",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "HC_171",
+      "QUY_TAC": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co chi so xet nghiem co gia tri nhung thieu dai chi so binh thuong"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "CK_03",
+      "QUY_TAC": "Định mức bàn khám theo giờ thực tế",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "THUOC_85",
+      "QUY_TAC": "[Cefazolin] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "THUOC_342",
+      "QUY_TAC": "[Sắt fumarat + Acid Folic] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "THUOC_342",
+      "QUY_TAC": "[Sắt fumarat + Acid Folic] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "GB_36",
+      "QUY_TAC": "Giường bệnh nội trú/nội trú ban ngày và Vòng tay (JCI)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT_0261",
+      "QUY_TAC": "Chỉ định - Tổng phân tích nước tiểu (23.0206.1596)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000376",
+      "MA_LUAT": "DVKT_0261",
+      "QUY_TAC": "Chỉ định - Tổng phân tích nước tiểu (23.0206.1596)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

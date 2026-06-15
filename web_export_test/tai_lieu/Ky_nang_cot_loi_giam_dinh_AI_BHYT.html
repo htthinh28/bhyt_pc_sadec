@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kỹ năng cốt lõi kiểm tra BHYT cho AI (đa nhóm rule)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Kỹ năng cốt lõi kiểm tra BHYT cho AI (đa nhóm rule)</h1>
+<p><strong>Phiên bản:</strong> 1.3<br><strong>Ngày:</strong> 09/04/2026<br><strong>Phạm vi:</strong> Bổ sung cho mọi <strong>đợt</strong> huấn luyện (thuốc, DVKT, VTYT, hành chính…) — <strong>không</strong> thay thế thẻ tri thức chuyên đề hay văn bản pháp lý.</p>
+<hr>
+<h2>1. Mục tiêu</h2>
+<p>Rèn cho AI các <strong>thói quen suy luận</strong> giống kiểm tra viên có kinh nghiệm:</p>
+<ul>
+<li>Đọc <strong>cảnh báo</strong> như một <strong>bản ghi có cấu trúc</strong>, không như văn tự do.</li>
+<li>Phân <strong>loại vấn đề</strong> trước khi “kết luận xuất toán”.</li>
+<li><strong>Không</strong> suy diễn khi <strong>thiếu dữ liệu</strong> hoặc <strong>thiếu Phụ lục / HĐ KCB</strong>.</li>
+<li><strong>Tôn trọng</strong> ranh giới CDSS: hỗ trợ quyết định, không thay <strong>người có thẩm quyền</strong>.</li>
+</ul>
+<hr>
+<h2>2. Đọc một dòng cảnh báo (audit / engine)</h2>
+<p>Một bản ghi điển hình thường có các khía cạnh sau (tên trường có thể lệch theo pipeline):</p>
+<table>
+<thead>
+<tr>
+<th>Khía cạnh</th>
+<th>Câu hỏi AI cần trả lời được</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Phân hệ</strong> (<code>phan_he</code>)</td>
+<td>Lỗi gắn <strong>XML1 / XML2 / XML3 / …</strong> nào? Ảnh hưởng cách mở hồ sơ.</td>
+</tr>
+<tr>
+<td><strong>Chỉ số dòng</strong> (<code>index</code>)</td>
+<td>Cảnh báo gắn <strong>dòng thứ mấy</strong> trong bảng đó (-1 thường là cấp hồ sơ).</td>
+</tr>
+<tr>
+<td><strong>Mã luật</strong> (<code>ma_luat</code>)</td>
+<td>Thuộc <strong>nhóm nào</strong> (THUOC_, DVKT_, CDHA_, HC_, DVKT-OP-, CLN-, …)?</td>
+</tr>
+<tr>
+<td><strong>Điều kiện</strong> (<code>dieu_kien</code>)</td>
+<td>Là biểu thức seed, <code>BUILT-IN</code>, hay <strong>tên operator</strong> (no-code)?</td>
+</tr>
+<tr>
+<td><strong>Căn cứ</strong> (<code>co_so_phap_ly</code>)</td>
+<td>Có chuỗi trích dẫn không — nếu rỗng, vẫn có thể neo thủ công vào thẻ tri thức.</td>
+</tr>
+</tbody></table>
+<p><strong>Lỗi thường gặp của AI:</strong> gộp nhiều cảnh báo khác <code>ma_luat</code> thành “một lỗi chung”; nhầm <strong>cùng MA_LK</strong> với <strong>cùng nguyên nhân</strong>.</p>
+<hr>
+<h2>3. Phân loại nhanh (trước khi giải thích sâu)</h2>
+<table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Dấu hiệu</th>
+<th>Hành vi gợi ý của AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A — Chất lượng dữ liệu / schema</strong></td>
+<td>HC_, QĐ 130, trường trống, ngày lệch</td>
+<td>Ưu tiên <strong>sửa dữ liệu</strong> hoặc nhắc thiếu file XML.</td>
+</tr>
+<tr>
+<td><strong>B — Khớp danh mục / giá / tuyến</strong></td>
+<td>DVKT-OP-*, một phần THUOC_/DM</td>
+<td>Đối chiếu <strong>DM nội bộ / BYT</strong> + thời điểm.</td>
+</tr>
+<tr>
+<td><strong>C — Nghiệp vụ lâm sàn / chỉ định</strong></td>
+<td>Chỉ định vs ICD, gói PT, “hợp lý”</td>
+<td><strong>Không</strong> kết luận một chiều; đưa <strong>câu hỏi</strong> cho BS/điều dưỡng.</td>
+</tr>
+<tr>
+<td><strong>D — Hợp đồng / JCI / nội bộ BV</strong></td>
+<td>HD_, một phần cảnh báo chất lượng</td>
+<td>Phân biệt <strong>BHYT tự động</strong> vs <strong>cam kết nội bộ</strong>.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. An toàn dữ liệu và phong cách trả lời</h2>
+<ul>
+<li><strong>Không</strong> đưa Họ tên, Số thẻ BHYT, CCCD, địa chỉ đầy đủ vào phân tích công khai; dùng <strong>mã giả / MA_LK</strong> đã ẩn danh.</li>
+<li><strong>Không</strong> chế tạo <strong>giá, %, số liệu Phụ lục</strong> nếu không có trong hồ sơ hoặc bảng tra cứu được trích dẫn.</li>
+<li>Khi thiếu dữ liệu: nói rõ <strong>thiếu gì</strong> và <strong>cần mở trường nào</strong> — tốt hơn là đoán.</li>
+</ul>
+<hr>
+<h2>5. Liên kết chuyên đề (đi sâu từng nhóm)</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Tài liệu chuẩn hóa / lộ trình</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DVKT</strong></td>
+<td><a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>, <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a>, <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>, <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a>, <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a>, <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a></td>
+</tr>
+<tr>
+<td><strong>Thuốc</strong></td>
+<td><a href="./The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md">The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</a>, <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a></td>
+</tr>
+<tr>
+<td><strong>Thẻ BHYT &amp; quyền lợi NB (hành chính)</strong></td>
+<td><a href="./Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md">Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md</a> (<strong>khung quy tắc</strong>), <a href="./The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md">The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</a>, <a href="./Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md">Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</a>, <a href="./The_tri_thuc_mau_hanh_chinh_BHYT.md">The_tri_thuc_mau_hanh_chinh_BHYT.md</a></td>
+</tr>
+<tr>
+<td><strong>Luật nền + mốc văn bản</strong></td>
+<td><a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a></td>
+</tr>
+<tr>
+<td><strong>VTYT</strong> (chưa có fixture audit trong repo)</td>
+<td><a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a>; <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a>; mục <strong>11.6</strong> mau_luat; <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Kiểm thử sau khi chỉnh rule</h2>
+<ul>
+<li><code>npm run qa:audit-fixtures</code>  </li>
+<li><code>npm run qa:on-off-match</code></li>
+</ul>
+<p>Chi tiết vận hành: <a href="./Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.md">Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.md</a>.</p>
+<hr>
+<p><em>Tài liệu này có thể mở rộng thêm ví dụ theo từng đợt huấn luyện; giữ ngắn để làm “lớp kỹ năng chung” trước khi đọc thẻ chuyên đề.</em></p>
+
+  </main>
+</body>
+</html>

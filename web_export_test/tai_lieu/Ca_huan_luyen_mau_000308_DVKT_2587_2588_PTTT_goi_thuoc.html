@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000308 — DVKT_2587 &amp; DVKT_2588 — GÓI PTTT VÀ THUỐC TÊ/MÊ (XML2)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000308 — DVKT_2587 &amp; DVKT_2588 — GÓI PTTT VÀ THUỐC TÊ/MÊ (XML2)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 09/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI <strong>phân tầng kiểm tra DVKT</strong> trên cùng một dòng <strong>XML3</strong> (gói phẫu thuật), kết hợp <strong>XML1</strong> (chẩn đoán) và <strong>XML2</strong> (thuốc), <strong>không nhầm</strong> với:</p>
+<ul>
+<li>cảnh báo thuốc <strong>THUOC_391</strong> (cùng hồ sơ — khác bảng dữ liệu và ý nghĩa);</li>
+<li>rule hành chính <strong>HC_</strong>* / hợp đồng <strong>HD_</strong>* (khác phân hệ).</li>
+</ul>
+<p>Trọng tâm: <strong><code>DVKT_2587</code></strong> (chỉ định — ICD) và <strong><code>DVKT_2588</code></strong> (thực hiện — thuốc tê/mê trong gói).</p>
+<p><strong>Neo pháp lý (khung, không thay Phụ lục):</strong> Điều kiện thanh toán DVKT theo <strong>Danh mục / gói</strong> thường kèm <strong>ghi chú giá</strong> (đã/không kết cấu thuốc–oxy) — thẻ tổng quát: <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a> (Điều 2–4, <strong>4a</strong> về cấu trúc giá và tránh thu trùng).</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000308_20260405_083942.json</code></li>
+<li>XML gốc (meta audit): <code>…\ip\PC022209964_IP26000013.xml</code> — nếu không có trong repo, dùng <strong>warnings</strong> trong JSON làm sự thật vận hành.</li>
+<li>Seed rule: <code>ma_nguon/tien_ich/du_lieu_luat_pttt_muc11.jsx</code> — các mục <code>DVKT_2587</code>, <code>DVKT_2588</code>.</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <strong>000308</strong></li>
+<li><code>total_warnings</code>: <strong>8</strong> (snapshot)</li>
+<li>Trên <strong>cùng một dòng XML3</strong> (<code>index</code> <strong>4</strong>): xuất hiện <strong>cả hai</strong> <code>DVKT_2587</code> và <code>DVKT_2588</code> (cùng <code>MA_DICH_VU</code> gói <strong>13.0002.0672_GT</strong> — Phẫu thuật lấy thai lần hai trở lên).</li>
+</ul>
+<p><strong>Tóm ý cảnh báo (trích tinh thần audit):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Lớp kiểm tra</th>
+<th>Ý chính</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DVKT_2587</strong></td>
+<td>Chỉ định / ICD</td>
+<td>Cần mã chẩn đoán <strong>O82</strong> (sinh mổ) khi dùng gói này — điều kiện gắn <strong>XML1.MA_BENH</strong></td>
+</tr>
+<tr>
+<td><strong>DVKT_2588</strong></td>
+<td>Thực hiện / thuốc trong gói</td>
+<td>Gói ghi <strong>chưa bao gồm thuốc tê/mê</strong> — phải có <strong>Bupivacain</strong> (hoặc nhóm <strong>GAY_ME</strong>) trên <strong>XML2</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Cùng hồ sơ</strong> (để AI <strong>không gộp</strong> nghĩa khi huấn luyện chéo):</p>
+<ul>
+<li><strong>THUOC_391</strong> × 3 — dòng thuốc <strong>Biofazolin</strong> (XML2), không phải logic gói DVKT.</li>
+<li><strong>HC_130</strong>, <strong>HC_171</strong>, <strong>HD_10</strong> — hồ sơ / JCI.</li>
+</ul>
+<h2>4. Rule đích trong seed</h2>
+<h3>4.1. DVKT_2587 — Chỉ định</h3>
+<ul>
+<li><strong>Mã:</strong> <code>DVKT_2587</code></li>
+<li><strong>Tên:</strong> Chỉ định - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)</li>
+<li><strong>Điều kiện (seed):</strong><br><code>XML3.MA_DICH_VU == &#39;13.0002.0672_GT&#39; AND NOT (XML1.MA_BENH STARTS_WITH &#39;O82&#39;)</code></li>
+<li><strong>Cảnh báo (gốc seed):</strong> 🔴 Cần mã: O82 (Sinh bằng mổ đẻ).</li>
+</ul>
+<h3>4.2. DVKT_2588 — Thực hiện</h3>
+<ul>
+<li><strong>Mã:</strong> <code>DVKT_2588</code></li>
+<li><strong>Tên:</strong> Thực hiện - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)</li>
+<li><strong>Điều kiện (seed):</strong><br><code>XML3.MA_DICH_VU == &#39;13.0002.0672_GT&#39; AND COUNT_IF(DS_XML2, item =&gt; item.TEN_THUOC CONTAINS &#39;Bupivacain&#39; OR item.MA_NHOM_THUOC == &#39;GAY_ME&#39;) == 0</code></li>
+<li><strong>Cảnh báo (gốc seed):</strong> Xuất toán khi thiếu thuốc tê tủy sống hoặc thuốc mê trong <strong>XML2</strong> (theo mô tả gói “chưa bao gồm…”).</li>
+</ul>
+<h3>4.3. Ý nghĩa nghiệp vụ cho AI</h3>
+<ul>
+<li><strong>2587</strong> kiểm tra <strong>tính nhất quán chẩn đoán–dịch vụ</strong> (O82 vs gói sinh mổ).</li>
+<li><strong>2588</strong> kiểm tra <strong>điều kiện bổ sung thuốc</strong> khi <strong>giá gói không kết cấu</strong> thuốc tê/mê — cần <strong>đối chiếu mô tả gói trong danh mục đơn vị</strong>, không chỉ nhìn một dòng XML3.</li>
+</ul>
+<h2>5. Dữ liệu bắt buộc phải xem</h2>
+<ul>
+<li><strong>XML3:</strong> <code>MA_DICH_VU</code> dòng <code>index</code> <strong>4</strong>, text cảnh báo (mã gói, nhân sự — đã ẩn trong audit mẫu).</li>
+<li><strong>XML1:</strong> <code>MA_BENH</code> (prefix O82 hay không).</li>
+<li><strong>XML2:</strong> toàn bộ dòng — có <strong>Bupivacain</strong> hoặc <code>MA_NHOM_THUOC == &#39;GAY_ME&#39;</code> hay không; <strong>tách biệt</strong> với kiểm tra <strong>Biofazolin</strong> cho THUOC_391.</li>
+</ul>
+<h2>6. Bài tập cho AI (sau khi nạp audit)</h2>
+<ol>
+<li>Xác nhận <strong>cùng <code>index</code> XML3</strong> cho <strong>DVKT_2587</strong> và <strong>DVKT_2588</strong>; giải thích vì sao <strong>hai rule</strong> có thể đồng thời bật.</li>
+<li>Viết một đoạn phân biệt <strong>DVKT_2588</strong> với <strong>THUOC_391</strong> (điều kiện seed, phân hệ XML2 vs liên kết gói–XML2).</li>
+<li>(Nâng cao) Chỉ ra <strong>một</strong> câu hỏi nghiệp vụ cho <strong>điều dưỡng gây mê</strong> và <strong>một</strong> cho <strong>khoa dữ liệu</strong> nếu O82 đúng nhưng vẫn báo 2587 (gợi ý: nhập sai <code>MA_BENH</code>, nhiều ICD, thứ tự khai báo).</li>
+</ol>
+<h2>7. Bài học rút ra</h2>
+<ul>
+<li><strong>Gói DVKT (PTTT)</strong> thường cần <strong>XML1 + XML3 (+ XML2)</strong> — AI không kết luận “chỉ sai DVKT” mà bỏ chẩn đoán hoặc thuốc kèm gói.</li>
+<li>Chuỗi <strong><code>CO_SO_PHAP_LY_DVKT</code></strong> trong engine có thể trống trên một số cảnh báo seed — huấn luyện vẫn cần <strong>neo VBHN + Phụ lục đơn vị</strong> khi giải thích cho người.</li>
+</ul>
+<h2>8. Liên kết</h2>
+<ul>
+<li>Phiên tổng quát DVKT: <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a></li>
+<li>Ca THUOC cùng MA_LK (khác trọng tâm): <a href="./Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.md">Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.md</a></li>
+<li>Bảng neo DVKT ↔ engine: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a></li>
+</ul>
+
+  </main>
+</body>
+</html>

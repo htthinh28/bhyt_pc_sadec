@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHỈ MỤC: LUẬT BHYT → RULE KIỂM TRA (2024-2025)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Chi_muc_Luat_BHYT_Rule_Giam_dinh.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CHỈ MỤC: LUẬT BHYT → RULE KIỂM TRA (2024-2025)</h1>
+<p>Phiên bản: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>Mục đích</h2>
+<p>Tài liệu này là <strong>bản đồ</strong> giúp AI nhanh chóng tra cứu:</p>
+<ul>
+<li><strong>&quot;Rule này dựa vào luật nào?&quot;</strong></li>
+<li><strong>&quot;Loại lỗi nào thuộc Luật 75/2014 vs Luật 07/2023?&quot;</strong></li>
+<li><strong>&quot;Đây là sai phạm hành chính hay chuyên môn?&quot;</strong></li>
+</ul>
+<hr>
+<h2>PHẦN 1: LIÊN KẾT LUẬT → LOẠI LỖI</h2>
+<h3>Luật BHYT 75/2014 (Cơ sở chính)</h3>
+<h4>Điều 15: &quot;Thanh toán chi phí phù hợp với bệnh lý, chẩn đoán, hướng dẫn sử dụng&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ THUOC_01 (Liều Acetyl leucin &gt; 2000mg) → SAI PHÁC ĐỒ</li>
+<li>✅ THUOC_04 (Liều Aciclovir &gt; 4000mg) → NGUY HIỂM</li>
+<li>✅ THUOC_07 (Tần suất Aciclovir &gt; 5 lần) → SAI PHÁC ĐỒ</li>
+<li>✅ THUOC_12 (Liều Albendazol &gt; 200mg ở trẻ &lt; 10kg) → NGUY HIỂM</li>
+<li>✅ THUOC_342 (Mekoferrat cho D50/O25 mà bệnh nhân không có) → XUẤT TOÁN</li>
+<li>✅ CLN-CHI-01 (Chênh lệch tổng tiền thuốc) → LỖI NẶNG</li>
+</ul>
+<p><strong>Tóm gọn:</strong> Rule về liều, tần suất, chỉ định đều dựa vào <strong>Điều 15</strong> - thanh toán phù hợp</p>
+<h4>Điều 16: &quot;Thanh toán phải đúng thủ tục, đầy đủ dữ liệu, không vi phạm hành chính&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ XML1-REQ-NGAY_RA (Thiếu trường NGAY_RA) → LỖI NẶNG</li>
+<li>✅ GB_47 (NGAY_RA &lt; NGAY_VAO) → LỖI NẶNG</li>
+<li>✅ GB_75 (Nằm viện &lt; 4 giờ) → XUẤT TOÁN</li>
+<li>✅ HC_130 (Số ngày điều trị không khớp NGAY_VAO/RA) → LỖI KẾ TOÁN</li>
+<li>✅ HC_43 (Giờ ra &lt; giờ vào) → LỖI LOGIC</li>
+<li>✅ HC_246 (Định dạng ngày không đúng 12 ký tự) → LỖI FORMAT</li>
+</ul>
+<p><strong>Tóm gọn:</strong> Rule về dữ liệu, thủ tục, logic dữ liệu đều dựa vào <strong>Điều 16</strong> - đúng thủ tục</p>
+<hr>
+<h3>Luật BHYT 07/2023/QH15 (Sửa đổi, hiệu lực 01/06/2024)</h3>
+<h4>Điều 25: &quot;BHXH có quyền kiểm tra, từ chối thanh toán sai lạc&quot;</h4>
+<p><strong>Ý nghĩa:</strong></p>
+<ul>
+<li>Mở rộng quyền từ chối thanh toán từ &quot;hành chính&quot; sang &quot;chuyên môn&quot;</li>
+<li>Cho phép kiểm tra <strong>50% hồ sơ bình thường</strong> (ngẫu kiểm)</li>
+<li>Bắt buộc kiểm tra <strong>100% hồ sơ có dấu hiệu sai sót</strong></li>
+</ul>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ Tất cả rule THUOC_* (kiểm tra chuyên môn)</li>
+<li>✅ Tất cả rule PTTT_* (kiểm tra chuyên môn)</li>
+</ul>
+<h4>Điều 26: &quot;Xử lý sai phạm - quyền phúc đáp&quot;</h4>
+<p><strong>Ý nghĩa:</strong></p>
+<ul>
+<li>Bệnh viện có quyền <strong>phúc đáp</strong> trong <strong>30 ngày</strong></li>
+<li>BHXH phải <strong>xem xét lại</strong> và trả lời</li>
+<li>Nếu BHXH <strong>từ chối sai</strong>, phải thanh toán + <strong>lãi 0,1%/ngày</strong></li>
+</ul>
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+<li>Khi từ chối thanh toán, quyết định phải <strong>có xuyên chứng pháp lý rõ ràng</strong></li>
+<li>Không được chỉ nói &quot;không đúng&quot; mà phải nêu &quot;sai ở đâu, căn cứ là gì&quot;</li>
+</ul>
+<hr>
+<h3>Quyết định 5631/QĐ-BYT năm 2020 (Quản lý sử dụng kháng sinh)</h3>
+<h4>Điều 2: &quot;Không vượt liều tối đa khuyến cáo&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ THUOC_04 (Aciclovir &gt; 4000mg/ngày)</li>
+<li>✅ THUOC_01 (Acetyl leucin &gt; 2000mg/ngày)</li>
+<li>✅ Tất cả rule kiểm tra liều</li>
+</ul>
+<h4>Điều 3: &quot;Phân biệt dự phòng vs điều trị&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ Tất cả rule để xác định context phẫu thuật</li>
+<li>✅ Rule về thời lượng dùng kháng sinh</li>
+</ul>
+<h4>Điều 4: &quot;Kiểm tra tương tác, chống chỉ định&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ THUOC_02 (Acetyl leucin vs thai kỳ)</li>
+<li>✅ THUOC_05 (Aciclovir vs suy thận nặng)</li>
+<li>✅ THUOC_08 (Adrenalin vs tăng huyết áp)</li>
+</ul>
+<hr>
+<h3>15/VBHN-BYT năm 2025 (Danh mục bảo hiểm)</h3>
+<h4>Điều 1: &quot;Danh sách thuốc được thanh toán&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ THUOC_342 (Mekoferrat chỉ cho D50, O25)</li>
+<li>✅ THUOC_03 (Gikanin chỉ cho H81, R42)</li>
+<li>✅ THUOC_06 (Aciclovir chỉ cho B00, B02)</li>
+<li>✅ THUOC_10 (Adrenalin chỉ cho T81.1, R57, I46)</li>
+</ul>
+<hr>
+<h3>Quyết định 130/QĐ-BYT (Cấu trúc dữ liệu XML)</h3>
+<h4>Điều 1: &quot;Cấu trúc XML bắt buộc&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ XMLn-REQ-* (tất cả rule kiểm tra trường bắt buộc)</li>
+<li>✅ HC_246 (Định dạng ngày 12 ký tự)</li>
+</ul>
+<hr>
+<h3>Nghị định 188/2025/NĐ-CP (Quy trình kiểm tra mới)</h3>
+<h4>Điều 1: &quot;Định nghĩa sai lạc: hành chính, chuyên môn, thanh toán&quot;</h4>
+<p><strong>Rule liên quan:</strong></p>
+<ul>
+<li>✅ <strong>Lỗi hành chính:</strong> XMLn-REQ-<em>, HC_</em>, GB_*</li>
+<li>✅ <strong>Lỗi chuyên môn-an toàn:</strong> THUOC_* (liều), PTTT_* (an toàn)</li>
+<li>✅ <strong>Lỗi chuyên môn-chỉ định:</strong> THUOC_* (chẩn đoán), quy định chỉ định</li>
+<li>✅ <strong>Lỗi thanh toán hình thức:</strong> CLN-CHI-01, kiểm tra tính nhất quán</li>
+</ul>
+<h4>Điều 2: &quot;Từ chối thanh toán phải có xuyên chứng pháp lý&quot;</h4>
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+<li>Mỗi quyết định xuất toán phải nêu:<ol>
+<li><strong>Rule code</strong> (VD: THUOC_342)</li>
+<li><strong>Loại lỗi</strong> (VD: Chỉ định sai)</li>
+<li><strong>Căn cứ pháp lý</strong> (VD: Luật 75/2014 + 15/VBHN-2025)</li>
+<li><strong>Xử lý cụ thể</strong> (VD: Xuất toán 150.000đ)</li>
+</ol>
+</li>
+</ul>
+<h4>Điều 3: &quot;Quy trình kiểm tra&quot;</h4>
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+<li>BHXH phải kiểm tra <strong>50%</strong> hồ sơ bình thường</li>
+<li>Phải kiểm tra <strong>100%</strong> hồ sơ có dấu hiệu sai</li>
+<li>Phải phản hồi <strong>trong 90 ngày</strong></li>
+</ul>
+<h4>Điều 4: &quot;Quyền phúc đáp&quot;</h4>
+<p><strong>Ứng dụng:</strong></p>
+<ul>
+<li>Bệnh viện phúc đáp trong <strong>30 ngày</strong></li>
+<li>BHXH phải xem xét lại trong <strong>30 ngày</strong></li>
+<li>Nếu thắng, thanh toán trong <strong>15 ngày</strong> + <strong>lãi 0,1%/ngày</strong></li>
+</ul>
+<hr>
+<h2>PHẦN 2: LIÊN KẾT LOẠI LỖI → LUẬT</h2>
+<h3>Loại 1: Lỗi Hành Chính (Dữ liệu sai/thiếu)</h3>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Luật BHYT 75/2014, <strong>Điều 16</strong></li>
+<li>Quyết định 130/QĐ-BYT (Cấu trúc XML)</li>
+<li>Nghị định 188/2025, <strong>Điều 1</strong> (định nghĩa lỗi hành chính)</li>
+</ul>
+<p><strong>Rule ví dụ:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Mô tả</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XML1-REQ-NGAY_RA</td>
+<td>Thiếu ngày ra</td>
+<td>LỖI NẶNG → Từ chối tạm</td>
+</tr>
+<tr>
+<td>GB_47</td>
+<td>NGAY_RA &lt; NGAY_VAO</td>
+<td>LỖI NGARNG → Từ chối tạm</td>
+</tr>
+<tr>
+<td>HC_246</td>
+<td>Định dạng ngày sai</td>
+<td>LỖI FORMAT → Từ chối tạm</td>
+</tr>
+<tr>
+<td>CLN-CHI-01</td>
+<td>Chênh lệch tổng tiền</td>
+<td>LỖI KẾ TOÁN → Kiểm soát chặt</td>
+</tr>
+</tbody></table>
+<p><strong>Xử lý chung:</strong></p>
+<ul>
+<li>Từ chối thanh toán <strong>tạm thời</strong> (yêu cầu xác minh)</li>
+<li>Hoặc từ chối <strong>vĩnh viễn</strong> nếu không sửa được</li>
+</ul>
+<hr>
+<h3>Loại 2: Lỗi Chuyên Môn - An Toàn (Liều/tần suất sai)</h3>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Luật BHYT 75/2014, <strong>Điều 15</strong> (thanh toán theo hướng dẫn)</li>
+<li>Quyết định 5631/QĐ-BYT (Quản lý kháng sinh)</li>
+<li>Nghị định 188/2025, <strong>Điều 2.2</strong> (sai phạm chuyên môn)</li>
+</ul>
+<p><strong>Rule ví dụ:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Mô tả</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>THUOC_01</td>
+<td>Acetyl leucin &gt; 2000mg</td>
+<td>SAI PHÁC ĐỒ → Cảnh báo</td>
+</tr>
+<tr>
+<td>THUOC_04</td>
+<td>Aciclovir &gt; 4000mg</td>
+<td>NGUY HIỂM → Cảnh báo + Xem xét</td>
+</tr>
+<tr>
+<td>THUOC_07</td>
+<td>Aciclovir &gt; 5 lần/ngày</td>
+<td>SAI PHÁC ĐỒ → Xuất toán</td>
+</tr>
+</tbody></table>
+<p><strong>Xử lý chung:</strong></p>
+<ul>
+<li><strong>Cảnh báo</strong> nếu chỉ vượt nhẹ</li>
+<li><strong>Xuất toán bộ</strong> nếu vượt đáng kể</li>
+<li><strong>Xuất toán toàn bộ</strong> nếu quá nguy hiểm</li>
+</ul>
+<hr>
+<h3>Loại 3: Lỗi Chuyên Môn - Chỉ Định (Chẩn đoán sai)</h3>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Luật BHYT 75/2014, <strong>Điều 15</strong> (phù hợp bệnh lý)</li>
+<li><strong>15/VBHN-BYT năm 2025</strong> (danh mục bảo hiểm, phạm vi thanh toán)</li>
+<li>Quyết định 123/2020/NĐ-CP (phạm vi dịch vụ/thuốc được phép)</li>
+<li>Nghị định 188/2025, <strong>Điều 2.3</strong> (sai chỉ định)</li>
+</ul>
+<p><strong>Rule ví dụ:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Mô tả</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>THUOC_03</td>
+<td>Gikanin cho H81/R42</td>
+<td>XUẤT TOÁN</td>
+</tr>
+<tr>
+<td>THUOC_06</td>
+<td>Aciclovir cho B00/B02</td>
+<td>XUẤT TOÁN</td>
+</tr>
+<tr>
+<td>THUOC_10</td>
+<td>Adrenalin cho T81.1/R57/I46</td>
+<td>XUẤT TOÁN</td>
+</tr>
+<tr>
+<td>THUOC_342</td>
+<td>Mekoferrat cho D50/O25</td>
+<td>XUẤT TOÁN</td>
+</tr>
+</tbody></table>
+<p><strong>Xử lý chung:</strong></p>
+<ul>
+<li><strong>XUẤT TOÁN TOÀN BỘ</strong> cho hầu hết lỗi chỉ định</li>
+<li><strong>Cho phúc đáp</strong> nếu bệnh viện thêm chẩn đoán hợp lệ</li>
+</ul>
+<hr>
+<h3>Loại 4: Lỗi Thanh Toán Hình Thức (Số lượng/giá sai)</h3>
+<p><strong>Căn cứ pháp lý:</strong></p>
+<ul>
+<li>Luật BHYT 75/2014, <strong>Điều 16</strong> (đúng thủ tục, chính xác)</li>
+<li>Quyết định 123/2020/NĐ-CP (tỷ lệ, mức thanh toán)</li>
+<li>Nghị định 188/2025, <strong>Điều 1</strong> (xác minh kế toán)</li>
+</ul>
+<p><strong>Rule ví dụ:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Mô tả</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CLN-CHI-01</td>
+<td>Chênh lệch tổng tiền</td>
+<td>Kiểm soát chặt</td>
+</tr>
+<tr>
+<td>Số lượng quá</td>
+<td>Cấp 10 nhưng hướng dẫn 5</td>
+<td>Xuất toán bộ</td>
+</tr>
+<tr>
+<td>Giá sai</td>
+<td>Giá tính 20.000đ, danh mục 15.000đ</td>
+<td>Xuất toán bộ</td>
+</tr>
+</tbody></table>
+<p><strong>Xử lý chung:</strong></p>
+<ul>
+<li><strong>Xuất toán bộ</strong> theo lượng/tiền sai</li>
+<li><strong>Ghi rõ</strong> bao nhiêu tiền cần hoàn</li>
+</ul>
+<hr>
+<h2>PHẦN 3: BẢNG TRA CỨU NHANH</h2>
+<h3>Nếu AI gặp rule XYZ, hãy tra:</h3>
+<pre><code>THUOC_01 (Acetyl leucin &gt; 2g)
+  → Luật: 75/2014 Điều 15
+  → QĐ: 5631/QĐ-BYT
+  → Loại: An toàn
+  → Xử lý: Cảnh báo / SAI PHÁC ĐỒ
+
+THUOC_03 (Gikanin cho H81/R42)
+  → Luật: 75/2014 Điều 15
+  → QĐ: 15/VBHN-BYT
+  → Loại: Chỉ định
+  → Xử lý: XUẤT TOÁN
+
+CLN-CHI-01 (Chênh lệch tiền)
+  → Luật: 75/2014 Điều 16
+  → QĐ: 130/QĐ-BYT, 3618/QĐ-BHXH
+  → Loại: Hành chính
+  → Xử lý: Kiểm soát chặt
+
+GB_47 | HC_43 (NGAY_RA &lt; NGAY_VAO)
+  → Luật: 75/2014 Điều 16
+  → QĐ: 130/QĐ-BYT
+  → Loại: Hành chính
+  → Xử lý: LỖI NẶNG, từ chối tạm
+</code></pre>
+<hr>
+<h2>PHẦN 4: CÁCH DÙNG CHỈ MỤC NÀY</h2>
+<h3>Khi kiểm tra một hồ sơ:</h3>
+<p><strong>Bước 1:</strong> Xác định rule bị vi phạm</p>
+<ul>
+<li>VD: THUOC_342 (Mekoferrat sai chẩn đoán)</li>
+</ul>
+<p><strong>Bước 2:</strong> Tra chỉ mục</p>
+<ul>
+<li>Loại: Chỉ định</li>
+<li>Luật: 75/2014 Điều 15 + 15/VBHN-2025</li>
+<li>Xử lý: XUẤT TOÁN</li>
+</ul>
+<p><strong>Bước 3:</strong> Viết quyết định</p>
+<ul>
+<li>&quot;Theo Luật BHYT 75/2014 Điều 15 và 15/VBHN-BYT năm 2025...&quot;</li>
+<li>&quot;Thuốc X chỉ được thanh toán cho Y&quot;</li>
+<li>&quot;Bệnh nhân không có Y → XUẤT TOÁN&quot;</li>
+</ul>
+<p><strong>Bước 4:</strong> Nêu xuyên chứng pháp lý</p>
+<ul>
+<li>Luật cơ sở</li>
+<li>Quyết định triển khai</li>
+<li>Phạm vi áp dụng từ danh mục</li>
+</ul>
+<hr>
+<h2>PHẦN 5: BIỂU ĐỒ TÓM GỌN</h2>
+<pre><code>                    LUẬT BHYT 75/2014
+                           |
+                    (nền tảng chính)
+                           |
+                ┌──────────┼──────────┐
+                |          |          |
+            Điều 15    Điều 16    Điều 18
+            (nội dung) (hành chính) (quyền lợi)
+                |          |          |
+                |          |          |
+        Thanh toán   Đúng thủ tục   Giới hạn
+        phù hợp      &amp; dữ liệu      thanh toán
+            |          |          |
+            |          |          |
+     QĐ 5631, 123  QĐ 130, 3618  15/VBHN-2025
+     (hướng dẫn)  (cấu trúc)    (danh mục)
+            |          |          |
+            ↓          ↓          ↓
+        Rule           Rule         Rule
+      THUOC_*      HC_*, GB_*    THUOC_*
+      PTTT_*       XML*          (chỉ định)
+     (liều, TDS)   (dữ liệu)
+</code></pre>
+<hr>
+<h2>PHẦN 6: CẬP NHẬT KHI LỚP LUẬT THAY ĐỔI</h2>
+<p>Nếu sau này có:</p>
+<ul>
+<li><strong>Luật BHYT mới</strong> → Cập nhật &quot;LIÊN KẾT LUẬT → LOẠI LỖI&quot;</li>
+<li><strong>Quyết định mới</strong> → Thêm vào bảng tương ứng</li>
+<li><strong>Rule mới</strong> → Thêm vào &quot;BẢNG TRA CỨU NHANH&quot;</li>
+</ul>
+<hr>
+<h2>Ghi chú cuối</h2>
+<p>Chỉ mục này giúp AI:</p>
+<ol>
+<li><strong>Nhanh chóng</strong> tìm căn cứ pháp lý cho mỗi rule</li>
+<li><strong>Dễ dàng</strong> giải thích quyết định cho bệnh viện</li>
+<li><strong>Nhất quán</strong> trong cách trích dẫn luật lệ</li>
+</ol>
+<p>Hãy dùng nó khi viết quyết định về từ chối thanh toán, để đảm bảo <strong>xuyên chứng pháp lý rõ ràng</strong>.</p>
+
+  </main>
+</body>
+</html>

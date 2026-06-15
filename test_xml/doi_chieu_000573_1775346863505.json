@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022200433_IP26000278.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775346489903.xlsx",
+    "maLK": "000573",
+    "durationMinutes": 5904,
+    "reportRowCount": 17,
+    "summary": {
+      "CAN_XAC_MINH_THEM": 17
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "K60.5;I10;K59.0;K64.8;K21.9",
+    "mucThe": "4",
+    "maLoaiRv": "1",
+    "giayChuyenTuyen": "",
+    "maNoiDi": "",
+    "maNoiDen": "",
+    "hasInvalidCdhaMachineCode": false
+  },
+  "rows": [
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "",
+      "QUY_TAC": "",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM CHUYÊN MÔN ICD10 ĐỢT 1</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_chuyen_mon_icd10_dot1.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM CHUYÊN MÔN ICD10 ĐỢT 1</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Đợt này chuyển trọng tâm huấn luyện sang suy luận chuyên môn dựa trên:</p>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li>mô tả chẩn đoán vào/ra viện</li>
+</ul>
+<p>Mục tiêu là để AI không chỉ đọc rule đơn lẻ, mà biết phân nhóm hồ sơ theo chuyên môn trước khi kết luận kiểm tra.</p>
+<h2>2. Nguồn tri thức</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li>các case huấn luyện thuốc và PTTT đã có trong <code>tai_lieu/</code></li>
+<li>audit thật có đa bệnh kèm (ví dụ: <code>test_xml/audit_403244_20260405_224614.json</code>)</li>
+</ul>
+<h2>3. Khung suy luận ICD10 theo nhóm chuyên môn</h2>
+<p>AI phải làm theo thứ tự:</p>
+<ol>
+<li>Chuẩn hóa ICD10 chính và ICD10 kèm (tách theo <code>;</code>, loại ký tự nhiễu, giữ tiền tố 3-4 ký tự).</li>
+<li>Phân nhóm chuyên môn theo ICD10 chính.</li>
+<li>Kiểm tra ICD10 kèm có làm đổi ngữ cảnh chuyên môn hoặc chống chỉ định không.</li>
+<li>Chỉ sau đó mới đối chiếu rule thanh toán/an toàn.</li>
+</ol>
+<h2>4. Thẻ tri thức mẫu đợt ICD10-1</h2>
+<hr>
+<h2>Thẻ ICD-CM1. Trục chuyên môn chính từ MA_BENH_CHINH</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li><code>MA_BENH_CHINH</code> là trục chuyên môn chính để chọn tuyến suy luận đầu tiên (tim mạch, hô hấp, tiêu hóa, tiết niệu, sản khoa...).</li>
+</ul>
+<h3>2. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.CHAN_DOAN_VAO</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>3. Cách suy luận đúng</h3>
+<ul>
+<li>Không dùng thuốc/dịch vụ để đoán chuyên môn trước ICD10 chính.</li>
+<li>Nếu mã chính mơ hồ hoặc không chuẩn, hạ mức chắc chắn và yêu cầu đối chiếu mô tả chẩn đoán.</li>
+</ul>
+<hr>
+<h2>Thẻ ICD-CM2. MA_BENH_KT là lớp điều chỉnh quyết định kiểm tra</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li><code>MA_BENH_KT</code> không phải thông tin phụ. Đây là lớp điều kiện có thể:<ul>
+<li>mở rộng chỉ định hợp lệ</li>
+<li>tạo chống chỉ định</li>
+<li>tăng mức rủi ro chuyên môn</li>
+</ul>
+</li>
+</ul>
+<h3>2. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li>tập ICD10 chống chỉ định/điều kiện trong rule</li>
+</ul>
+<h3>3. Cách suy luận đúng</h3>
+<ul>
+<li>Luôn kiểm tra đồng thời ICD chính và ICD kèm.</li>
+<li>Nếu ICD chính không khớp chỉ định nhưng ICD kèm khớp, kết luận phải là &quot;cần đối chiếu chỉ định mở rộng&quot;, không xuất toán vội.</li>
+</ul>
+<hr>
+<h2>Thẻ ICD-CM3. Ưu tiên ICD10 trước, mô tả text hỗ trợ sau</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Khi kiểm tra chuyên môn, thứ tự bằng chứng là:<ol>
+<li>ICD10 có cấu trúc (<code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>)  </li>
+<li>mô tả text (<code>CHAN_DOAN_VAO</code>, <code>CHAN_DOAN_RV</code>)</li>
+</ol>
+</li>
+</ul>
+<h3>2. Cách suy luận đúng</h3>
+<ul>
+<li>Chỉ dùng regex mô tả chẩn đoán để giảm false positive khi ICD chưa đủ bao phủ.</li>
+<li>Không để text ghi đè hoàn toàn ICD10 nếu không có căn cứ rõ.</li>
+</ul>
+<hr>
+<h2>Thẻ ICD-CM4. Bản đồ nhóm chuyên môn từ tiền tố ICD10</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>AI nên map nhanh ICD10 vào nhóm chuyên môn để điều phối phân tích:<ul>
+<li><code>I*</code>: tim mạch</li>
+<li><code>J*</code>: hô hấp</li>
+<li><code>K*</code>: tiêu hóa</li>
+<li><code>N*</code>: tiết niệu - sinh dục</li>
+<li><code>O*</code>: sản khoa</li>
+<li><code>E*</code>: nội tiết - chuyển hóa</li>
+<li><code>M*</code>: cơ xương khớp</li>
+<li><code>L*</code>: da liễu</li>
+</ul>
+</li>
+</ul>
+<h3>2. Cách suy luận đúng</h3>
+<ul>
+<li>Dùng nhóm chuyên môn để chọn cụm rule phù hợp và cách giải thích nghiệp vụ.</li>
+<li>Không dùng map nhóm để thay thế kết luận pháp lý thanh toán.</li>
+</ul>
+<hr>
+<h2>Thẻ ICD-CM5. Ma trận kết luận chuyên môn</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Kết luận kiểm tra theo ICD10 nên đi theo ma trận:<ul>
+<li><strong>Khớp chỉ định + không có chống chỉ định</strong> -&gt; ưu tiên thanh toán</li>
+<li><strong>Không khớp chỉ định</strong> -&gt; nguy cơ xuất toán</li>
+<li><strong>Khớp chỉ định nhưng có ICD chống chỉ định</strong> -&gt; cảnh báo an toàn/chuyên môn cao</li>
+<li><strong>Dữ liệu ICD mơ hồ hoặc xung đột</strong> -&gt; từ chối tạm, yêu cầu bổ sung chứng cứ</li>
+</ul>
+</li>
+</ul>
+<h3>2. Cách suy luận đúng</h3>
+<ul>
+<li>Luôn ghi rõ mức chắc chắn: chắc chắn / tạm thời / cần bổ sung dữ liệu.</li>
+</ul>
+<h2>5. Prompt vận hành khuyến nghị</h2>
+<p>Mẫu prompt huấn luyện theo ICD10 chuyên môn:</p>
+<pre><code>Hãy phân tích hồ sơ theo 4 bước:
+1) Tách MA_BENH_CHINH và MA_BENH_KT.
+2) Xác định nhóm chuyên môn chính.
+3) Đối chiếu ICD10 với điều kiện chỉ định/chống chỉ định của các rule liên quan.
+4) Kết luận theo ma trận: thanh toán / cảnh báo / xuất toán / từ chối tạm.
+Yêu cầu nêu rõ dữ liệu nào đã đủ và dữ liệu nào còn thiếu.
+</code></pre>
+<h2>6. Kết luận đợt ICD10-1</h2>
+<p>Sau đợt này, AI phải đạt tối thiểu 3 năng lực:</p>
+<ol>
+<li>đọc đúng quan hệ giữa <code>MA_BENH_CHINH</code> và <code>MA_BENH_KT</code></li>
+<li>phân nhóm chuyên môn trước khi kết luận rule</li>
+<li>tránh kết luận quá mức khi dữ liệu ICD10 chưa đủ chắc chắn</li>
+</ol>
+
+  </main>
+</body>
+</html>

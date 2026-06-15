@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>⚡ Chức Năng Làm Việc Online - Quick Start</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>QUICK_START_ONLINE_COLLABORATION.md</code> · Thư viện CDSS BHYT</div>
+    <h1>⚡ Chức Năng Làm Việc Online - Quick Start</h1>
+<p><strong>Ngày tạo:</strong> 06/04/2026
+<strong>Status:</strong> ✅ Live</p>
+<hr>
+<h2>🎯 Tính Năng Chính</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>GitHub Codespaces</strong></td>
+<td>✅ Live</td>
+<td>Online IDE - code từ browser</td>
+</tr>
+<tr>
+<td><strong>Dev Containers</strong></td>
+<td>✅ Live</td>
+<td>1-click setup trong VS Code</td>
+</tr>
+<tr>
+<td><strong>GitHub Actions CI/CD</strong></td>
+<td>✅ Live</td>
+<td>Tự động test &amp; build</td>
+</tr>
+<tr>
+<td><strong>Auto Deploy</strong></td>
+<td>✅ Live</td>
+<td>Deploy artifacts on push</td>
+</tr>
+<tr>
+<td><strong>Issue Templates</strong></td>
+<td>✅ Live</td>
+<td>Bug reports &amp; feature requests</td>
+</tr>
+<tr>
+<td><strong>PR Templates</strong></td>
+<td>✅ Live</td>
+<td>Structured pull requests</td>
+</tr>
+<tr>
+<td><strong>Code Review</strong></td>
+<td>✅ Live</td>
+<td>Built-in PR review system</td>
+</tr>
+<tr>
+<td><strong>Pre-commit Hooks</strong></td>
+<td>✅ Live</td>
+<td>Auto code formatting</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🚀 Setup Nhanh (Chọn 1)</h2>
+<h3><strong>Cách 1: GitHub Codespaces</strong> (Dễ Nhất - 2 phút)</h3>
+<pre><code>1. Vào repo → Code (⌄)
+2. Chọn &quot;Codespaces&quot;
+3. Click &quot;Create codespace on main&quot;
+4. Full VS Code in browser!
+</code></pre>
+<p><strong>Truy cập:</strong> <a href="https://github.com/codespaces">https://github.com/codespaces</a></p>
+<hr>
+<h3><strong>Cách 2: VS Code Dev Container</strong> (Mạnh Mẽ - 5 phút)</h3>
+<pre><code class="language-bash">1. Cài VS Code &amp; &quot;Dev Containers&quot; extension
+2. Clone repo: git clone ...
+3. Mở folder trong VS Code
+4. Click &quot;Reopen in Container&quot;
+5. Chờ setup tự động
+</code></pre>
+<p><strong>Lợi ích:</strong></p>
+<ul>
+<li>Full local power + remote sync</li>
+<li>Offline khi cần</li>
+<li>Desktop IDE experience</li>
+</ul>
+<hr>
+<h3><strong>Cách 3: Manual Setup</strong> (Nếu cần - 10 phút)</h3>
+<pre><code class="language-bash">git clone https://github.com/YOUR_USERNAME/ung-dung-cdss-bhyt.git
+cd ung_dung_cdss_bhyt
+npm install --legacy-peer-deps
+python -m venv venv &amp;&amp; source venv/bin/activate
+pip install -r python_service/requirements.txt
+</code></pre>
+<hr>
+<h2>📋 Workflow Hàng Ngày</h2>
+<h3><strong>1. Báo Cáo Bug</strong></h3>
+<pre><code>Issues → New → Bug Report
+Điền template → Submit
+GitHub sẽ tự track &amp; notify
+</code></pre>
+<h3><strong>2. Thêm Tính Năng</strong></h3>
+<pre><code>Issues → New → Feature Request
+Nếu approved → Tạo branch &amp; PR
+</code></pre>
+<h3><strong>3. Làm Việc</strong></h3>
+<pre><code class="language-bash">git checkout -b feature/issue-123-name
+# Cập nhật code
+git add .
+git commit -m &quot;feat: description&quot;
+git push origin feature/123-name
+</code></pre>
+<h3><strong>4. PR Review</strong></h3>
+<pre><code>GitHub sẽ:
+✅ Chạy tests tự động
+✅ Check code quality
+✅ Notify reviewers
+✅ Merge nếu pass
+</code></pre>
+<hr>
+<h2>🔄 CI/CD Pipeline</h2>
+<h3><strong>Tự động chạy khi:</strong></h3>
+<ul>
+<li>Push code</li>
+<li>Tạo Pull Request</li>
+<li>Merge vào main</li>
+</ul>
+<h3><strong>Checks:</strong></h3>
+<pre><code>✓ Node.js tests (18.x, 20.x)
+✓ Python tests (3.9, 3.10, 3.11)
+✓ Linting (ESLint, pylint)
+✓ Code quality (SonarCloud)
+✓ Security scan (Snyk)
+</code></pre>
+<h3><strong>View Results:</strong></h3>
+<pre><code>Repo → Actions → Chọn workflow
+Kiểm tra status &amp; logs
+</code></pre>
+<hr>
+<h2>📊 Real-Time Collaboration</h2>
+<h3><strong>Issues Tracking</strong></h3>
+<pre><code>Progress → View on:
+- Project Board (Kanban)
+- Issue Status
+- Milestone
+</code></pre>
+<h3><strong>Code Review Inline</strong></h3>
+<pre><code>PR → Files changed
+Click line → Comment
+Request changes / Approve
+</code></pre>
+<h3><strong>Discussions</strong></h3>
+<pre><code>Forum-style chat
+- Ideas
+- Q&amp;A
+- Announcements
+</code></pre>
+<hr>
+<h2>🎓 Câu Hỏi Thường Gặp</h2>
+<h3><strong>Q: Codespaces miễn phí không?</strong></h3>
+<p>A: GitHub tặng 120 core-hours/tháng free</p>
+<h3><strong>Q: Cần phải commit local không?</strong></h3>
+<p>A: Không - Codespaces auto-sync</p>
+<h3><strong>Q: Merge conflict như thế nào?</strong></h3>
+<p>A: GitHub tự detect, you resolve online</p>
+<h3><strong>Q: Deploy từ PR được không?</strong></h3>
+<p>A: Có - Deploy workflow chạy on merge</p>
+<h3><strong>Q: Review code trên mobile được không?</strong></h3>
+<p>A: Có - GitHub Mobile app hỗ trợ</p>
+<hr>
+<h2>🔐 Security</h2>
+<ul>
+<li>✅ No secrets in repo (use .env.example)</li>
+<li>✅ Pre-commit hooks prevent secrets</li>
+<li>✅ Security scan on every PR</li>
+<li>✅ Private by default (fork riêng)</li>
+</ul>
+<hr>
+<h2>📞 Support</h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>How-to question</td>
+<td>Discussions tab</td>
+</tr>
+<tr>
+<td>Bug report</td>
+<td>Issues → Bug Report</td>
+</tr>
+<tr>
+<td>Feature idea</td>
+<td>Issues → Feature Request</td>
+</tr>
+<tr>
+<td>Code help</td>
+<td>PR comments</td>
+</tr>
+<tr>
+<td>Urgent issue</td>
+<td>Email maintainers</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🚀 Next Steps</h2>
+<ol>
+<li><p><strong>Fork repo</strong></p>
+<pre><code>https://github.com/htthinh28/ung-dung-cdss-bhyt
+</code></pre>
+</li>
+<li><p><strong>Open in Codespaces</strong>
+(or Dev Container)</p>
+</li>
+<li><p><strong>Make first contribution</strong></p>
+<pre><code class="language-bash">git checkout -b feature/my-first-feature
+# ... code ...
+git push &amp; create PR
+</code></pre>
+</li>
+<li><p><strong>Get feedback</strong></p>
+<pre><code>Reviewers will comment
+Make changes if needed
+Merge! 🎉
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2>📚 Full Guides</h2>
+<ul>
+<li><strong>CONTRIBUTING.md</strong> - Development workflow</li>
+<li><strong>HUONG_DAN_LAM_VIEC_ONLINE_GITHUB.md</strong> - Detailed Vietnamese guide</li>
+<li><strong>GitHub Docs</strong> - <a href="https://docs.github.com">https://docs.github.com</a></li>
+</ul>
+<hr>
+<h2>✅ You&#39;re All Set!</h2>
+<pre><code>✓ Online IDE ready
+✓ CI/CD automated
+✓ Templates available
+✓ Team collaboration enabled
+✓ Ready to code!
+</code></pre>
+<p><strong>Let&#39;s build together! 🚀</strong></p>
+<hr>
+<p><strong>Questions?</strong> Create a Discussion or Issue!</p>
+
+  </main>
+</body>
+</html>

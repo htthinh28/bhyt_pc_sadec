@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU: THANH TOÁN MEKOFERRAT-B9 SAI CHẨN ĐOÁN</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000339_Mekoferrat_sai_chan_doan.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU: THANH TOÁN MEKOFERRAT-B9 SAI CHẨN ĐOÁN</h1>
+<p>Phiên bản tài liệu: 1.0
+Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Ca này dạy AI cách <strong>phát hiện lỗi thanh toán do sai chẩn đoán</strong> - tức là thuốc có trong danh mục BHYT nhưng <strong>chẩn đoán không nằm trong phạm vi thanh toán</strong> của thuốc đó.</p>
+<p>Trọng tâm:</p>
+<ul>
+<li>Phân biệt &quot;thuốc đúng&quot; và &quot;chẩn đoán đúng với danh mục thanh toán&quot;</li>
+<li>Bước kiểm tra tứng tứng vào chẩn đoán chính, chẩn đoán kèm, chẩn đoán ra viện</li>
+<li>Giải thích tại sao cần xuất toán dù thuốc an toàn</li>
+</ul>
+<hr>
+<h2>2. Thông tin hồ sơ</h2>
+<table>
+<thead>
+<tr>
+<th>Thông tin</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MA_LK</strong></td>
+<td>000339</td>
+</tr>
+<tr>
+<td><strong>NGAY_VAO</strong></td>
+<td>2026-03-15</td>
+</tr>
+<tr>
+<td><strong>NGAY_RA</strong></td>
+<td>2026-03-18</td>
+</tr>
+<tr>
+<td><strong>MA_BENH_CHINH</strong></td>
+<td>N84.0 (Polyp buồng tử cung)</td>
+</tr>
+<tr>
+<td><strong>MA_BENH_KT</strong></td>
+<td>(tìm xem có thêm không)</td>
+</tr>
+<tr>
+<td><strong>MA_LOAI_KCB</strong></td>
+<td>3 (nội trú)</td>
+</tr>
+</tbody></table>
+<p><strong>Bối cảnh lâm sàng:</strong></p>
+<ul>
+<li>Bệnh nhân nữ, chẩn đoán polyp buồng tử cung</li>
+<li>Điều trị: phẫu thuật nội soi cắt polyp</li>
+<li>Nằm viện 3 ngày</li>
+</ul>
+<hr>
+<h2>3. Thuốc lỗi: Mekoferrat-B9 (Sắt Fumarat + Acid Folic)</h2>
+<h3>3.1. Thông tin cơ bản</h3>
+<ul>
+<li><strong>Mã thuốc:</strong> 40.429</li>
+<li><strong>Tên thương mại:</strong> Mekoferrat-B9</li>
+<li><strong>Thành phần:</strong> Sắt fumarat + Acid folic</li>
+<li><strong>Dạng:</strong> Nước</li>
+<li><strong>Mục đích:</strong> Bổ sung sắt, acid folic cho thiếu máu thiếu sắt, suy dinh dưỡng thai kỳ</li>
+<li><strong>Đường dùng:</strong> Uống</li>
+<li><strong>Mã BHYT:</strong> Có</li>
+</ul>
+<h3>3.2. Phạm vi thanh toán BHYT (Theo 15/VBHN-BYT năm 2025)</h3>
+<p><strong>Mekoferrat-B9 được thanh toán CHỈ cho:</strong></p>
+<ul>
+<li><strong>D50:</strong> Thiếu máu thiếu sắt (tất cả thứ cấp)</li>
+<li><strong>O25:</strong> Suy dinh dưỡng trong thai nhân (bổ sung thai kỳ)</li>
+</ul>
+<p><strong>Mekoferrat-B9 KHÔNG được thanh toán cho:</strong></p>
+<ul>
+<li>N84.0 (Polyp buồng tử cung)</li>
+<li>Chẩn đoán phụ khoa khác</li>
+<li>Chẩn đoán phẫu thuật/phụ khoa</li>
+</ul>
+<hr>
+<h2>4. Dữ liệu XML2 (Danh sách thuốc)</h2>
+<pre><code class="language-json">{
+  &quot;MA_THUOC&quot;: &quot;40.429&quot;,
+  &quot;TEN_THUOC&quot;: &quot;Mekoferrat-B9&quot;,
+  &quot;SO_LUONG&quot;: 1,
+  &quot;LIEU_DUNG&quot;: &quot;1 lọ/lần * 1 lần/ngày * 03 ngày [3 lọ/đợt]&quot;,
+  &quot;GIA_THANH_TOAN&quot;: 15000,  // VND/lọ
+  &quot;THANH_TIEN&quot;: 45000,      // 1 lọ x 15000 (lưu ý: tài liệu đề cập chỉ cấp 1 lọ)
+  &quot;NGAY_Y_LENH&quot;: &quot;202603150000&quot;
+}
+</code></pre>
+<p><strong>Nhận xét về liều dùng:</strong></p>
+<ul>
+<li>Kê 1 lọ (hoặc tài liệu audit khác ghi số lượng 3)</li>
+<li>Trong 3 ngày nằm viện</li>
+<li>Mỗi lần 1 lọ, mỗi ngày 1 lần</li>
+</ul>
+<hr>
+<h2>5. Quy trình kiểm tra thanh toán</h2>
+<h3>Bước 1: Kiểm tra hành chính &amp; dữ liệu</h3>
+<p><strong>Câu hỏi:</strong> &quot;Hồ sơ có đủ dữ liệu để kiểm tra không?&quot;</p>
+<p><strong>Trả lời từ hồ sơ:</strong></p>
+<ul>
+<li>✅ Có <code>MA_THUOC</code> = 40.429</li>
+<li>✅ Có <code>SO_LUONG</code> = 1-3 lọ</li>
+<li>✅ Có <code>GIA_THANH_TOAN</code> = 15000 đ/lọ</li>
+<li>✅ Có <code>NGAY_Y_LENH</code> = 2026-03-15 (nằm trong khoảng nằm viện)</li>
+<li>✅ Có <code>MA_BENH_CHINH</code> = N84.0</li>
+</ul>
+<p><strong>Kết luận bước 1:</strong> ✅ <strong>ĐỦ DỮ LIỆU. Tiếp tục sang bước 2.</strong></p>
+<h3>Bước 2: Kiểm tra danh mục</h3>
+<p><strong>Câu hỏi:</strong> &quot;Mekoferrat-B9 có trong danh mục thanh toán BHYT không?&quot;</p>
+<p><strong>Tra cứu:</strong> Danh mục BHYT, mã 40.429</p>
+<p><strong>Kết luận bước 2:</strong> ✅ <strong>CÓ TRONG DANH MỤC. Tiếp tục sang bước 3.</strong></p>
+<h3>Bước 3: Kiểm tra phạm vi chẩn đoán ⭐ <strong>ĐIỂM HỌC CHÍNH</strong></h3>
+<p><strong>Câu hỏi:</strong> &quot;Chẩn đoán <code>N84.0</code> có nằm trong phạm vi thanh toán của Mekoferrat-B9 không?&quot;</p>
+<p><strong>Tra cứu danh mục thanh toán:</strong></p>
+<ul>
+<li>Danh mục cho Mekoferrat-B9 chỉ bao gồm: <strong>D50</strong> hoặc <strong>O25</strong></li>
+<li>Chẩn đoán trong hồ sơ: <strong>N84.0</strong> (Polyp buồng tử cung - phụ khoa)</li>
+</ul>
+<p><strong>So sánh:</strong></p>
+<pre><code>Chẩn đoán hồ sơ: N84.0
+Danh mục thanh toán: [D50, O25]
+Kết quả: N84.0 ∉ {D50, O25}
+</code></pre>
+<p><strong>Kết luận bước 3:</strong> ❌ <strong>KHÔNG. Chẩn đoán N84.0 không nằm trong danh mục thanh toán.</strong></p>
+<h3>Bước 4: (Không cần kiểm tra tiếp vì đã xuất toán ở bước 3)</h3>
+<p>Không cần kiểm tra liều/số lượng vì lỗi đã xảy ra ở chẩn đoán.</p>
+<hr>
+<h2>6. Kết luận cuối cùng</h2>
+<h3>Quyết định</h3>
+<table>
+<thead>
+<tr>
+<th>Yếu tố</th>
+<th>Kết luận</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tình trạng</strong></td>
+<td>⛔ <strong>XUẤT TOÁN TOÀN BỘ</strong></td>
+</tr>
+<tr>
+<td><strong>Số tiền xuất toán</strong></td>
+<td><strong>45.000 đ</strong> (toàn bộ thành tiền)</td>
+</tr>
+<tr>
+<td><strong>Lý do</strong></td>
+<td>Sai chẩn đoán. Mekoferrat-B9 không được thanh toán cho N84.0 (Polyp buồng tử cung)</td>
+</tr>
+</tbody></table>
+<h3>Giải thích chi tiết</h3>
+<p><strong>&quot;Theo 15/VBHN-BYT năm 2025, Mekoferrat-B9 (mã BHYT: 40.429) được thanh toán CHỈ cho bệnh nhân có chẩn đoán:</strong></p>
+<ul>
+<li><strong>D50</strong> (Thiếu máu thiếu sắt)</li>
+<li><strong>O25</strong> (Suy dinh dưỡng thai kỳ)</li>
+</ul>
+<p><strong>Bệnh nhân trong hồ sơ MA_LK=000339 có chẩn đoán chính là N84.0 (Polyp buồng tử cung), thuộc nhóm chẩn đoán phụ khoa không nằm trong danh mục thanh toán của Mekoferrat-B9.</strong></p>
+<p><strong>Do đó, toàn bộ chi phí 45.000 đ cần được xuất toán.</strong></p>
+<p><strong>Bác sĩ/Bệnh viện cần:</strong></p>
+<ul>
+<li>Hoàn lại 45.000 đ cho BHXH</li>
+<li>Kiểm tra xem tại sao bệnh nhân được kê Mekoferrat-B9 trong ca phẫu thuật cắt polyp (dù thuốc an toàn về mặt lâm sàng, nhưng không được phép thanh toán cho bệnh này).&quot;</li>
+</ul>
+<hr>
+<h2>7. Dấu hiệu AI phải nhận biết</h2>
+<p>Khi gặp ca tương tự, AI nên tự kiểm tra:</p>
+<h3>Dấu hiệu 1: &quot;Chẩn đoán không tiêu điểm&quot;</h3>
+<ul>
+<li><strong>Bệnh lý:</strong> Polyp buồng tử cung (phụ khoa)</li>
+<li><strong>Kê thuốc:</strong> Mekoferrat-B9 (bổ sung sắt, chữa thiếu máu)</li>
+<li><strong>Sai lệch:</strong> Bệnh phụ khoa không liên quan trực tiếp đến thiếu máu/suy dinh dưỡng</li>
+</ul>
+<h3>Dấu hiệu 2: &quot;Mục đích dùng không rõ&quot;</h3>
+<ul>
+<li>Nếu đó là <strong>dự phòng hay bổ sung khác</strong>, cần tìm căn cứ không có chẩn đoán D50 hay O25</li>
+</ul>
+<h3>Dấu hiệu 3: &quot;Liệu pháp dài hạn/ngắn hạn không khớp&quot;</h3>
+<ul>
+<li>Mekoferrat-B9 thường dùng liên tục cho thiếu máu</li>
+<li>Kê trong 3 ngày nằm viện phẫu thuật có vẻ <strong>không phải bội bản, có vẻ là bổ sung quá độ</strong></li>
+</ul>
+<hr>
+<h2>8. Lỗi AI thường mắc</h2>
+<h3>Lỗi 1: &quot;Thuốc an toàn nên có thể thanh toán&quot;</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Mekoferrat-B9 an toàn với chẩn đoán N84.0, nên không lỗi&quot;</li>
+<li><strong>Đúng:</strong> &quot;Dù an toàn, nhưng BHYT không thanh toán cho chẩn đoán này, nên phải xuất toán&quot;</li>
+</ul>
+<h3>Lỗi 2: &quot;Quên kiểm tra danh sách chẩn đoán được phép&quot;</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Chẩn đoán phụ khoa với thuốc bổ sung là thường xuyên, nên dùng OK&quot;</li>
+<li><strong>Đúng:</strong> &quot;Phải tra 15/VBHN-BYT để xem danh mục của từng thuốc&quot;</li>
+</ul>
+<h3>Lỗi 3: &quot;Chỉ nhìn mã thuốc không nhìn combo chẩn đoán-thuốc&quot;</h3>
+<ul>
+<li><strong>Sai:</strong> &quot;Mekoferrat-B9 có trong danh mục, nên thanh toán được&quot;</li>
+<li><strong>Đúng:</strong> &quot;Mekoferrat-B9 có trong danh mục, nhưng chỉ với D50 hoặc O25, không phải N84.0&quot;</li>
+</ul>
+<hr>
+<h2>9. Bài học rút ra</h2>
+<h3>Câu hỏi AI phải tự kiểm tra</h3>
+<p>Mỗi lần gặp ca tương tự, AI nên hỏi:</p>
+<ol>
+<li>&quot;Thuốc này là gì?&quot; → <code>Mekoferrat-B9</code> (bổ sung sắt)</li>
+<li>&quot;Chẩn đoán bệnh nhân là gì?&quot; → <code>N84.0</code> (Polyp buồng tử cung)</li>
+<li>&quot;Danh mục thanh toán của Mekoferrat-B9 bao gồm những chẩn đoán nào?&quot; → <code>[D50, O25]</code></li>
+<li>&quot;Chẩn đoán <code>N84.0</code> có trong danh mục không?&quot; → <code>Không</code></li>
+<li>&quot;Kết luận gì?&quot; → <code>XUẤT TOÁN</code></li>
+</ol>
+<h3>Dấu hiệu &quot;cảnh báo ngay&quot;</h3>
+<ul>
+<li>❗ Thuốc bổ sung (sắt, vitamin, acid folic) nhưng không có chẩn đoán tương ứng</li>
+<li>❗ Chẩn đoán là phẫu thuật/thủ thuật, nhưng kê thuốc bộc lộ (không dùng dự phòng)</li>
+<li>❗ Liệu trình ngắn (1-3 ngày) với thuốc thường dùng lâu dài</li>
+</ul>
+<h3>Khi kết luận</h3>
+<p>Luôn nêu rõ <strong>ba yếu tố</strong>:</p>
+<ol>
+<li><strong>Dữ liệu:</strong> &quot;Mã thuốc X, chẩn đoán Y&quot;</li>
+<li><strong>Quy tắc:</strong> &quot;Danh mục thanh toán của X chỉ bao gồm Z&quot;</li>
+<li><strong>Kết luận:</strong> &quot;Do đó, XUẤT TOÁN Z tiền&quot;</li>
+</ol>
+<hr>
+<h2>10. Ngữ cảnh mở rộng</h2>
+<p>Ca này có liên quan đến:</p>
+<ul>
+<li><strong>Rule seed:</strong> <code>THUOC_342</code> trong <code>du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li><strong>Audit:</strong> <code>test_xml/audit_000339_20260405_232511.json</code></li>
+<li><strong>Thẻ tri thức:</strong> <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> (vừa tạo)</li>
+<li><strong>Danh sách tham khảo:</strong> <code>15/VBHN-BYT năm 2025</code> (Phạm vi thanh toán thuốc BHYT)</li>
+</ul>
+<hr>
+<h2>11. Cách dùng ca này để huấn luyện</h2>
+<h3>Dạy &quot;đúng&quot; trước với ca này:</h3>
+<p><strong>Prompt 1 - Bao quát:</strong></p>
+<pre><code>&quot;Hồ sơ 000339 có kê Mekoferrat-B9 cho bệnh nhân N84.0.
+Hãy kiểm tra theo 5 bước từ thẻ tri thức thanh toán thuốc,
+rồi quyết định có thanh toán được hay không.&quot;
+</code></pre>
+<p><strong>Prompt 2 - Sâu hơn:</strong></p>
+<pre><code>&quot;Danh mục thanh toán của Mekoferrat-B9 là gì?
+Chẩn đoán N84.0 có trong danh mục đó không?
+Tại sao cần xuất toán?&quot;
+</code></pre>
+<p><strong>Prompt 3 - So sánh:</strong></p>
+<pre><code>&quot;So sánh:
+- Ca 000339 (N84.0 + Mekoferrat-B9) → XUẤT TOÁN?
+- Ca giả định (D50 + Mekoferrat-B9) → THANH TOÁN?
+Tại sao khác nhau?&quot;
+</code></pre>
+<h3>Sau khi AI hiểu:</h3>
+<p>Hãy chuyển sang <strong>ca false positive</strong> - một ca Mekoferrat-B9 với chẩn đoán D50 hoặc O25 để AI học phản xạ &quot;thanh toán được&quot;.</p>
+<hr>
+<h2>12. Ghi chú</h2>
+<ul>
+<li>Ca này tập trung vào <strong>thanh toán</strong>, không phải an toàn kê đơn</li>
+<li>Dù thuốc an toàn lâm sành nhưng <strong>không được phép thanh toán</strong> vì không khớp danh sách bệnh</li>
+<li>Điểm quan trọng: AI phải biết <strong>tra danh mục bảo hiểm</strong> của từng thuốc để so sánh với chẩn đoán bệnh nhân</li>
+</ul>
+
+  </main>
+</body>
+</html>

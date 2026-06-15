@@ -1,0 +1,41 @@
+================================================================================
+CDSS BHYT — CẬP NHẬT OFFLINE (TỐI GIẢN: MỘT FILE .EXE)
+================================================================================
+
+ĐIỀU KIỆN
+---------
+- Bản CDSS desktop đã được đóng gói lại SAU khi repo có cấu hình "dist" nằm ngoài
+  app.asar (resources/app.asar.unpacked/dist). Bản cũ chưa có cấu trúc này: cần cài
+  lại bản desktop mới một lần, sau đó chỉ dùng file cập nhật bên dưới.
+
+
+MÁY BUILD (có mã nguồn + Node.js)
+---------------------------------
+  npm run desktop:build-simple-update
+
+→ Tạo file:  tai_nguyen/CDSS-BHYT-CapNhat-Offline.exe
+   (file này CHỨA SẴN toàn bộ dist mới — không cần zip kèm theo.)
+
+
+MÁY DÙNG (offline)
+------------------
+1) Đóng ứng dụng CDSS nếu đang mở.
+
+2) Copy CDSS-BHYT-CapNhat-Offline.exe vào CÙNG THƯ MỤC với
+   CDSS-BHYT-Phuong-Chau-...-Windows-x64.exe, rồi chạy file cập nhật.
+
+   Hoặc chạy tay chỉ đích (ví dụ bản cài trong Program Files):
+
+   CDSS-BHYT-CapNhat-Offline.exe --target "C:\...\resources\app.asar.unpacked\dist"
+
+3) Mở lại CDSS — giao diện/tài liệu tĩnh đã là bản mới.
+
+
+GHI CHÚ
+-------
+- Cập nhật này chỉ thay phần web tĩnh (dist). Đổi Electron/shell vẫn cần cài bản
+  desktop đầy đủ mới (npm run desktop:build:win-portable, v.v.).
+- File cũ CDSS-BHYT-ApDungCapNhat-Offline.exe (chỉ áp file .zip) vẫn dùng được
+  nếu cần; phương án khuyến nghị là một file .exe chứa sẵn dist như trên.
+
+================================================================================

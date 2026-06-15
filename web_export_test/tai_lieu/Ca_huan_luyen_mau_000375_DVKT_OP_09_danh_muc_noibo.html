@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000375 — DVKT-OP-09 — DANH MỤC NỘI BỘ (CHECK_INTERNAL_APPROVAL)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000375 — DVKT-OP-09 — DANH MỤC NỘI BỘ (CHECK_INTERNAL_APPROVAL)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 09/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI nhận diện cảnh báo từ <strong>engine DVKT no-code</strong> (<code>dvkt_op_giam_dinh.jsx</code>): mã rule dạng <strong><code>DVKT-OP-xx</code></strong> (có <strong>dấu gạch ngang</strong>), <strong>không</strong> phải seed số <strong><code>DVKT_26xx</code></strong> trong <code>du_lieu_luat_pttt_muc11.jsx</code>.</p>
+<p>Trọng tâm phiên này: <strong><code>DVKT-OP-09</code></strong> — toán tử <strong><code>CHECK_INTERNAL_APPROVAL</code></strong>: dịch vụ <strong>không khớp danh mục nội bộ CSKCB</strong> (bảng <strong>M05</strong> / phê duyệt nội bộ trong cấu hình engine).</p>
+<p><strong>Neo pháp lý (đã gắn trong cảnh báo audit):</strong> VBHN <strong>17</strong> — <strong>Điều 3</strong> khoản 1 điểm a, khoản 2 (điều kiện thực hiện và danh mục); kèm tham chiếu NĐ 188, TT 01/2025, QĐ 3618 — AI dùng để <strong>giải thích hướng tra cứu</strong>, không thay văn bản gốc.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000375_20260405_065828.json</code></li>
+<li>XML gốc (meta): <code>…\ip\PC022112088_IP26000080.xml</code></li>
+<li>Engine: <code>ma_nguon/tien_ich/dvkt_op_giam_dinh.jsx</code> — <code>DEFAULT_DVKT_RULES</code> mục <strong>DVKT-OP-09</strong>; hàm xuất: <code>chayGiamDinhDvktOp</code> / <code>verifyClaimDvktOp</code>.</li>
+<li>Tích hợp luồng kiểm tra: <code>dong_co_giam_dinh.jsx</code> (meta <strong><code>DVKT_OP</code></strong> → nhánh <code>dvkt_op_giam_dinh</code>).</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <strong>000375</strong></li>
+<li><code>total_warnings</code>: <strong>6</strong></li>
+<li><strong><code>DVKT-OP-09</code>:</strong> <strong>2</strong> lần — <strong>XML3</strong> <code>index</code> <strong>0</strong> và <strong>1</strong> (cùng mã dịch vụ minh họa <strong>K27.1918</strong> — giường nội khoa; nội dung cảnh báo: mã <strong>chưa có trong danh mục để đối chiếu</strong>).</li>
+</ul>
+<p><strong>Cùng hồ sơ:</strong> <code>HC_171</code>, <code>HC_46</code>, <code>HC_68</code>, <code>HD_10</code> — AI <strong>không</strong> gộp ý nghĩa với <strong><code>DVKT-OP-09</code></strong>.</p>
+<h2>4. Rule đích trong DEFAULT_DVKT_RULES</h2>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Giá trị (mã nguồn)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>RULE_CODE</strong></td>
+<td><code>DVKT-OP-09</code></td>
+</tr>
+<tr>
+<td><strong>RULE_NAME</strong></td>
+<td>Danh mục nội bộ được phê duyệt</td>
+</tr>
+<tr>
+<td><strong>OPERATOR</strong></td>
+<td><code>CHECK_INTERNAL_APPROVAL</code></td>
+</tr>
+<tr>
+<td><strong>ALERT_MESSAGE (gốc)</strong></td>
+<td>DVKT không nằm trong danh mục nội bộ được phê duyệt.</td>
+</tr>
+</tbody></table>
+<p><strong>Lưu ý:</strong> Trong audit, <code>dieu_kien</code> hiển thị là <strong><code>CHECK_INTERNAL_APPROVAL</code></strong> (tên toán tử). Mức độ trên bản ghi có thể là <strong>Warning</strong> sau chuẩn hóa pipeline — khi đối chiếu seed, xem thêm <code>toMucDo</code> / lọc nội bộ trong <code>dong_co_giam_dinh.jsx</code>.</p>
+<h2>5. Bài tập cho AI</h2>
+<ol>
+<li>Giải thích <strong>một câu</strong> sự khác biệt giữa <strong><code>DVKT-OP-09</code></strong> và <strong><code>DVKT_2587</code></strong> (cùng là “điều kiện” trên XML3 nhưng <strong>nguồn rule</strong> và <strong>bảng dữ liệu</strong> khác nhau).</li>
+<li>Vì sao <strong>hai dòng XML3</strong> (index 0 và 1) có thể <strong>lặp cùng mã</strong> <code>DVKT-OP-09</code>? (Gợi ý: rule chạy <strong>theo từng dòng DVKT</strong>.)</li>
+</ol>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Bảng neo: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a></li>
+<li>Phiên tri thức DVKT: <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a></li>
+</ul>
+
+  </main>
+</body>
+</html>

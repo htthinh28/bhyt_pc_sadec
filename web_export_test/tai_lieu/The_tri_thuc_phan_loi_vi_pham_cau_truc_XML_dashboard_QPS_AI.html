@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thẻ tri thức — Phân loại vi phạm cấu trúc dữ liệu XML (dashboard QPS)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_phan_loi_vi_pham_cau_truc_XML_dashboard_QPS_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Thẻ tri thức — Phân loại vi phạm cấu trúc dữ liệu XML (dashboard QPS)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 17/04/2026<br>Độ tin cậy: cao (bám mã nguồn đang chạy)</p>
+<h2>1. Mục đích</h2>
+<p>Chuẩn hóa tri thức để AI (và người vận hành) <strong>không nhầm</strong> giữa:</p>
+<ul>
+<li>Cảnh báo <strong>nghiệp vụ / CDSS</strong> (xuất toán, cảnh báo, nhắc nhở theo quy tắc ON/OFF, mã <code>XML_*</code> trong engine kiểm tra).</li>
+<li>Báo cáo <strong>vi phạm cấu trúc / định dạng dữ liệu XML</strong> theo lớp kiểm tra QĐ 3176 / QĐ 130 (bảng trường, kiểu dữ liệu, tiền xử lý <code>STRUCT-*</code>, mã dạng <code>XMLn-REQ-…</code>).</li>
+</ul>
+<p>Ứng dụng tách nhóm này thành <strong><code>CAU_TRUC_XML</code></strong> trên dashboard <strong>Danh mục vi phạm phát hiện (QPS)</strong> và trong <strong>tra cứu lỗi chi tiết</strong>.</p>
+<h2>2. Thẻ XML-QPS-01 — Mệnh đề nghiệp vụ</h2>
+<ul>
+<li>Một lỗi được coi là <strong>“Vi phạm cấu trúc XML”</strong> trong thống kê nội bộ khi hàm <code>laLoiCauTrucDuLieuXml</code> trong <code>ma_nguon/tien_ich/thong_ke_loi_dung_chung.jsx</code> trả về đúng, <strong>trước</strong> khi áp dụng nhánh “xuất toán / VI PHẠM” chung — tránh gộp nhầm lỗi kỹ thuật file vào xuất toán nghiệp vụ.</li>
+<li>Nhãn hiển thị người dùng: <strong>“Vi phạm cấu trúc XML”</strong> (<code>nhan_loai_hien_thi</code>).</li>
+</ul>
+<h2>3. Thẻ XML-QPS-02 — Điều kiện nhận diện (kiểm chứng mã)</h2>
+<p>Áp dụng một trong các điều kiện sau (đủ để phân loại <code>CAU_TRUC_XML</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Điều kiện</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mã luật bắt đầu bằng <code>STRUCT</code> (không phân biệt hoa thường ở tiền tố kiểm tra)</td>
+<td>Ví dụ tiền xử lý <code>STRUCT-1</code> từ <code>layLỗiCauTrucTienXuLy</code> trong <code>dong_co_giam_dinh.jsx</code></td>
+</tr>
+<tr>
+<td><code>dieu_kien</code> chuẩn hóa là <strong><code>STATIC</code></strong> và tên quy tắc (sau bỏ dấu) chứa <strong><code>CAU TRUC XML</code></strong></td>
+<td>Khớp <code>ten_quy_tac</code> kiểu <em>Kiểm tra cấu trúc XML theo QĐ3176</em> trong <code>kiem_tra_xml.jsx</code></td>
+</tr>
+<tr>
+<td><code>dieu_kien</code> là <strong><code>STATIC</code></strong> và mã luật khớp mẫu <strong><code>XML</code> + chữ số + <code>-</code></strong></td>
+<td>Ví dụ <code>XML2-REQ-MA_THUOC</code>, <code>XML1-MISSING</code> — lỗi sinh từ engine kiểm tra cấu trúc</td>
+</tr>
+</tbody></table>
+<p><strong>Không</strong> dùng mẫu <code>XML_47</code> (gạch dưới sau <code>XML</code>) làm dấu hiệu duy nhất: đó thường là mã <strong>CDSS</strong>, không phải lớp <code>STATIC</code> của <code>kiem_tra_xml.jsx</code>.</p>
+<h2>4. Thẻ XML-QPS-03 — Thứ tự ưu tiên và chi phí ước tính</h2>
+<p>Trong <code>THU_TU_UU_TIEN_CANH_BAO</code> (file trên):</p>
+<ul>
+<li><code>XUAT_TOAN</code> = 0 (cao nhất trong nhóm “nghiệp vụ thanh toán nặng”).</li>
+<li><code>CAU_TRUC_XML</code> = 1 (tách riêng, hiển thị sau xuất toán, trước cảnh báo nghiệp vụ).</li>
+<li><code>CANH_BAO</code> = 2, <code>NHAC_NHO</code> = 3.</li>
+</ul>
+<p><code>CAU_TRUC_XML</code> có mức <strong>chi phí ước tính</strong> riêng trong <code>tinhChiPhiUocTinhTheoLoi</code> (giữa mức xuất toán và cảnh báo thông thường).</p>
+<h2>5. Thẻ XML-QPS-04 — Giao diện dashboard</h2>
+<p>File <code>ma_nguon/man_hinh/tong_quan.jsx</code>:</p>
+<ul>
+<li>Hai hàng chip lọc (danh mục QPS và tra cứu chi tiết) có thêm mục <strong><code>Vi phạm cấu trúc XML</code></strong> (<code>id: CAU_TRUC_XML</code>).</li>
+<li>Thẻ màu trong bảng quy tắc: style <strong><code>rule_priority_chip_cau_truc_xml</code></strong> (tông indigo).</li>
+<li>Bộ lọc dùng trường <code>loai_hien_thi</code> đã gán khi <code>phangHoaDanhSachLoiChiTiet</code> / <code>tongHopQuyTacTuDanhSachChiTiet</code>.</li>
+</ul>
+<h2>6. Nguồn sinh lỗi cấu trúc (để AI truy vết)</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/kiem_tra_xml.jsx</code> — kiểm tra bảng XML, trường bắt buộc, kiểu, ngày, v.v.; <code>dieu_kien: &#39;STATIC&#39;</code>, <code>ten_quy_tac</code> cố định theo QĐ 3176.</li>
+<li><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> — <code>layLỗiCauTrucTienXuLy</code> gọi <code>kiemTraDinhDangXML</code>, chuẩn hóa thành bản ghi cảnh báo với mã <code>STRUCT-*</code> khi cần.</li>
+</ul>
+<h2>7. Câu hỏi kiểm tra nhanh cho AI</h2>
+<ol>
+<li>Lỗi này có <code>dieu_kien</code> <strong>STATIC</strong> và tên quy tắc “cấu trúc XML” không? → Nếu có, ưu tiên nhóm <strong>Vi phạm cấu trúc XML</strong>, không diễn giải như rule ON/OFF thuần CDSS.</li>
+<li>Mã có dạng <strong><code>XMLn-…</code></strong> (gạch ngang) hay <strong><code>STRUCT…</code></strong> không? → Cùng nhóm cấu trúc.</li>
+<li>Người dùng hỏi về chip trên dashboard QPS — trả lời đúng <strong>năm</strong> mức lọc: Tất cả, Xuất toán, Vi phạm cấu trúc XML, Cảnh báo, Nhắc nhở.</li>
+</ol>
+<h2>8. Đồng bộ Thư viện (module trong app)</h2>
+<p>Sau mỗi lần thêm hoặc sửa file trong <code>tai_lieu/</code>:</p>
+<pre><code class="language-bash">npm run tai_lieu:prepare
+</code></pre>
+<p>Tùy chọn CI / chỉ mục huấn luyện:</p>
+<pre><code class="language-bash">npm run tai_lieu:index-huan-luyen
+</code></pre>
+<p>File này có tiền tố <code>The_tri_thuc_</code> → được ghi nhận trong <code>tai_lieu/_index_kho_huan_luyen_AI.json</code> (nhóm <code>the_tri_thuc</code>).</p>
+<h2>9. Liên kết tài liệu liên quan</h2>
+<ul>
+<li>Chuyên đề XML130 / quy trình QA: <code>Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien.md</code></li>
+<li>Lộ trình huấn luyện tổng: <code>Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</code></li>
+<li>Mẫu thẻ: <code>Mau_the_tri_thuc_giam_dinh_BHYT.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

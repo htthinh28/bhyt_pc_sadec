@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ĐẶC TẢ HỆ THỐNG CDSS BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Dac_ta_he_thong_CDSS_BHYT_20260405.md</code> · Thư viện CDSS BHYT</div>
+    <h1>ĐẶC TẢ HỆ THỐNG CDSS BHYT</h1>
+<p>Phiên bản tài liệu: 3.0<br>Ngày cập nhật: 15/04/2026<br>Phiên bản ứng dụng tham chiếu: <strong>1.1.0</strong> (<code>package.json</code>)<br>Phạm vi áp dụng: mã nguồn hiện có trong dự án <code>ung_dung_cdss_bhyt</code></p>
+<h2>1. Mục đích tài liệu</h2>
+<p>Tài liệu này mô tả lại hệ thống CDSS BHYT theo trạng thái mã nguồn hiện hành, tập trung vào các nội dung sau:</p>
+<ul>
+<li>Xác định mục tiêu, phạm vi và đối tượng sử dụng hệ thống.</li>
+<li>Mô tả kiến trúc kỹ thuật, luồng xử lý và các thành phần tích hợp.</li>
+<li>Chuẩn hóa cách hiểu về các phân hệ nghiệp vụ, kho dữ liệu, rule engine và báo cáo.</li>
+<li>Làm tài liệu bàn giao cho đội phát triển, triển khai, vận hành, kiểm thử và quản trị ứng dụng.</li>
+<li>Tạo mốc tham chiếu khi mở rộng chức năng hoặc đánh giá rủi ro thay đổi.</li>
+</ul>
+<h2>2. Phạm vi hệ thống</h2>
+<p>CDSS BHYT là ứng dụng hỗ trợ tiếp nhận, kiểm tra, lưu trữ, rà soát và thống kê hồ sơ XML BHYT theo định hướng local-first. Hệ thống đang được triển khai với giao diện React Native và có khả năng mở rộng lai với dịch vụ Python FastAPI cho các tác vụ xử lý nặng hoặc AI.</p>
+<p>Phạm vi nghiệp vụ chính gồm:</p>
+<ul>
+<li>Đăng nhập và quản trị phiên làm việc.</li>
+<li>Phân quyền người dùng theo vai trò và ma trận RBAC.</li>
+<li>Nhập hồ sơ XML BHYT và bóc tách dữ liệu XML1 đến XML6.</li>
+<li>Kiểm tra lỗi hành chính, dữ liệu, logic thời gian, đối chiếu chi phí và các quy tắc nghiệp vụ.</li>
+<li>Quản lý kho lưu trữ hồ sơ đã nhập.</li>
+<li>Quản lý danh mục nội bộ, danh mục Bộ Y tế và các bộ luật kiểm tra.</li>
+<li>Theo dõi báo cáo, thống kê chất lượng dữ liệu và xuất Excel.</li>
+<li>Sao lưu, phục hồi và đồng bộ cấu hình/dataset với Firebase khi cần.</li>
+<li>Kết nối HIS và Python service trong mô hình lai.</li>
+<li><strong>Thư viện tài liệu</strong> nội bộ (đồng bộ từ <code>tai_lieu/</code> ra giao diện web/app) và <strong>Trợ lý tri thức (RAG)</strong> khi bật cấu hình.</li>
+<li><strong>Mapping danh mục nghiệp vụ</strong> (catalog mapping) phục vụ đối chiếu mã giữa hệ thống nội bộ và chuẩn dùng chung.</li>
+<li><strong>Đóng gói desktop</strong> (Electron): bản cài NSIS hoặc bản <strong>portable</strong> Windows (<code>.exe</code> không cài đặt), xuất từ <code>dist</code> web đã <code>expo export</code>.</li>
+<li><strong>Cập nhật offline</strong> (tùy triển khai): gói vá hoặc công cụ cập nhật phần giao diện tĩnh — xem <code>tai_lieu/HUONG_DAN_NANG_CAP_OFFLINE.txt</code> và script <code>desktop:*</code> trong <code>package.json</code>.</li>
+<li><strong>Chuyên môn:</strong> phân hệ phác đồ / chuyên môn; module <strong>tương tác thuốc</strong> (<code>ma_nguon/chuyen_mon/tuong_tac_thuoc/</code>) phục vụ rà soát tương tác và quy tắc liên quan khi được cấu hình.</li>
+</ul>
+<p>Ngoài phạm vi tài liệu này:</p>
+<ul>
+<li>Không mô tả chi tiết từng rule nghiệp vụ cấp vi mô trong mọi bảng luật.</li>
+<li>Không thay thế tài liệu nghiệp vụ pháp lý của QĐ 130, QĐ 3176 hoặc các công văn chuyên ngành.</li>
+<li>Không mô tả chi tiết quy trình DevOps cloud production ngoài các thông số đang thể hiện trong repo.</li>
+</ul>
+<h2>3. Đối tượng sử dụng tài liệu</h2>
+<ul>
+<li>Ban triển khai và quản trị hệ thống tại đơn vị.</li>
+<li>Lập trình viên bảo trì và mở rộng ứng dụng.</li>
+<li>Kiểm thử viên cần hiểu luồng dữ liệu và điểm kiểm soát.</li>
+<li>Nhân sự phụ trách dữ liệu, danh mục, rule engine và báo cáo.</li>
+<li>Lãnh đạo kỹ thuật cần nắm cấu trúc tổng thể trước khi phê duyệt thay đổi.</li>
+</ul>
+<h2>4. Từ điển khái niệm</h2>
+<ul>
+<li>CDSS: Clinical Decision Support System, trong dự án này là hệ thống hỗ trợ kiểm soát và rà soát hồ sơ BHYT.</li>
+<li>XML1 đến XML6: các bảng dữ liệu chuẩn tách ra từ hồ sơ XML BHYT mà ứng dụng đang quản lý trực tiếp trong màn hình nghiệp vụ hiện hành.</li>
+<li>Rule engine: cơ chế đánh giá tập luật nhằm phát hiện lỗi dữ liệu, lỗi logic, bất thường chi phí và cảnh báo kiểm tra.</li>
+<li>Hardcoded rules: tập luật sinh từ Excel hoặc viết cố định theo chuyên đề, thường nằm trong các file <code>luat_*_hardcoded.jsx</code>.</li>
+<li>Dynamic rules: tập luật dạng dữ liệu, lưu thành seed/dataset và được biên dịch theo DSL nội bộ bởi <code>dong_co_giam_dinh.jsx</code>.</li>
+<li>Local-first: dữ liệu được ưu tiên lưu và xử lý tại máy người dùng trước, cloud đóng vai trò đồng bộ/phục hồi.</li>
+<li>Kho hồ sơ: nơi lưu toàn bộ hồ sơ XML đã nhập, đã kiểm tra hoặc đang theo dõi.</li>
+</ul>
+<h2>5. Mục tiêu vận hành</h2>
+<p>Hệ thống được xây dựng để giải quyết các nhu cầu sau:</p>
+<ul>
+<li>Giảm lỗi dữ liệu trong hồ sơ XML BHYT trước khi gửi hoặc đối soát.</li>
+<li>Hỗ trợ rà soát các bất thường chi phí và quy tắc kiểm tra ngay tại đơn vị.</li>
+<li>Tập trung hóa các bộ luật, danh mục và cấu hình quản trị trong một ứng dụng thống nhất.</li>
+<li>Cho phép kiểm tra lại hồ sơ sau khi chỉnh sửa mà không phụ thuộc hoàn toàn vào hệ thống ngoài.</li>
+<li>Theo dõi xu hướng lỗi theo khoa, bác sĩ, quy tắc và chi phí ảnh hưởng.</li>
+</ul>
+<h2>6. Tổng quan công nghệ</h2>
+<h3>6.1. Nền tảng chính</h3>
+<ul>
+<li>React Native 0.81.5.</li>
+<li>React 19.1.0.</li>
+<li>Expo SDK 54.</li>
+<li>React Navigation Native Stack.</li>
+<li>Web runtime qua <code>react-native-web</code>.</li>
+</ul>
+<h3>6.2. Lưu trữ và dữ liệu</h3>
+<ul>
+<li>Web: IndexedDB làm kho dữ liệu chính.</li>
+<li>Mobile: AsyncStorage với cơ chế index-detail để tránh giới hạn dung lượng theo key.</li>
+<li>Firebase Firestore và Firebase Auth dùng cho đồng bộ dataset và lưu metadata cloud.</li>
+<li>Tệp Excel được xử lý qua thư viện <code>xlsx</code>.</li>
+</ul>
+<h3>6.3. Tích hợp ngoài</h3>
+<ul>
+<li>Firebase cho đồng bộ dữ liệu cấu hình, dataset và metadata hồ sơ.</li>
+<li>HIS qua REST/WebSocket theo cấu hình trong <code>app.json</code>.</li>
+<li>Python FastAPI cho audit batch hoặc xử lý mở rộng.</li>
+</ul>
+<h3>6.4. Đóng gói desktop (Electron)</h3>
+<ul>
+<li><strong>Electron</strong> (phiên bản cố định trong quy trình đóng gói, ví dụ 35.7.x) + <strong>electron-builder</strong>, cấu hình <code>electron-builder.desktop.yml</code>.</li>
+<li>Luồng chuẩn: <code>npm run tai_lieu:prepare</code> → <code>expo export --platform web</code> → tạo thư mục staging <code>.desktop-staging</code> (chỉ <code>dist</code>, <code>electron-main.cjs</code>, <code>package.json</code> tối giản) → <code>electron-builder</code> ghi artifact (mặc định có thể dùng <code>%TEMP%\cdss-bhyt-release-desktop</code> hoặc <code>CDSS_RELEASE_OUT</code>).</li>
+<li>Target Windows: <strong>portable</strong> (một file <code>.exe</code> chạy trực tiếp) và/hoặc <strong>NSIS</strong> (bản cài). Chi tiết vận hành: <code>packaging/HUONG_DAN_BAN_PORTABLE_DAY_DU.txt</code>.</li>
+</ul>
+<h3>6.5. Thông tin cấu hình nền tảng</h3>
+<ul>
+<li>Tên ứng dụng: <code>CDSS BHYT Phuong Chau</code>.</li>
+<li>Gói Android: <code>com.phuongchau.cdss.bhyt</code>.</li>
+<li>Bundle iOS: <code>com.phuongchau.cdss.bhyt</code>.</li>
+<li>Chế độ giao diện: <code>light</code>.</li>
+</ul>
+<h2>7. Cấu trúc mã nguồn ở mức cao</h2>
+<h3>7.1. Điểm vào thực tế</h3>
+<p>Điểm vào đang dùng trong thực tế là <code>App.jsx</code> và <code>index.js</code>. Theo kiến trúc hiện hành:</p>
+<ul>
+<li><code>App.jsx</code> là entry point ứng dụng đang hoạt động.</li>
+<li><code>ma_nguon/dieu_huong/tuyen_duong.jsx</code> điều phối toàn bộ màn hình nghiệp vụ thật.</li>
+<li>Thư mục <code>app/</code> theo Expo Router vẫn còn chủ yếu là scaffold/starter template, chưa phải lõi nghiệp vụ đang chạy.</li>
+</ul>
+<h3>7.2. Thư mục trọng yếu</h3>
+<ul>
+<li><code>ma_nguon/man_hinh</code>: giao diện nghiệp vụ chính.</li>
+<li><code>ma_nguon/tien_ich</code>: engine, lưu trữ, Firebase, RBAC, XML helper, import/export và nhiều tiện ích lõi.</li>
+<li><code>ma_nguon/dich_vu</code>: lớp gọi dịch vụ bên ngoài, gồm client cho Python service.</li>
+<li><code>ma_nguon/quy_tac</code>: dữ liệu chuẩn tham chiếu cấu trúc XML và tập luật chuyên biệt.</li>
+<li><code>python_service</code>: dịch vụ FastAPI dùng cho mô hình lai.</li>
+<li><code>scripts</code>: script kiểm tra, audit, generate dữ liệu, smoke test và hỗ trợ vận hành.</li>
+<li><code>tai_lieu</code>: tài liệu Markdown/HTML phục vụ Thư viện; sau chỉnh sửa chạy <code>npm run tai_lieu:prepare</code> để đồng bộ <code>public/tai_lieu/</code> và <code>tai_lieu_manifest.json</code>.</li>
+<li><code>ma_nguon/chuyen_mon</code>: module chuyên môn (ví dụ tương tác thuốc).</li>
+<li><code>tai_nguyen</code>: ảnh, biểu tượng và tài nguyên dùng cho app.</li>
+<li><code>test_xml</code>: dữ liệu kết quả audit và mẫu chạy kiểm thử thực tế.</li>
+</ul>
+<h2>8. Kiến trúc logic của hệ thống</h2>
+<p>Hệ thống có thể xem như gồm 5 lớp chính.</p>
+<h3>8.1. Lớp giao diện</h3>
+<p>Thành phần chính:</p>
+<ul>
+<li>Các màn hình trong <code>ma_nguon/man_hinh</code>.</li>
+<li>Dashboard điều hướng vào từng phân hệ.</li>
+<li>Màn hình đọc XML, chi tiết ca bệnh, kho lưu trữ, báo cáo, quản trị luật, danh mục, phân quyền.</li>
+</ul>
+<p>Trách nhiệm:</p>
+<ul>
+<li>Nhập và hiển thị dữ liệu.</li>
+<li>Gọi các utility xử lý cục bộ.</li>
+<li>Điều hướng theo quyền được cấp.</li>
+<li>Hiển thị cảnh báo, kết quả kiểm tra và trạng thái đồng bộ.</li>
+</ul>
+<h3>8.2. Lớp điều hướng và kiểm soát truy cập</h3>
+<p>Thành phần chính:</p>
+<ul>
+<li><code>ma_nguon/dieu_huong/tuyen_duong.jsx</code>.</li>
+<li><code>ma_nguon/tien_ich/phien_dang_nhap.jsx</code>.</li>
+<li><code>ma_nguon/tien_ich/rbac_engine.jsx</code>.</li>
+</ul>
+<p>Trách nhiệm:</p>
+<ul>
+<li>Kiểm tra phiên đăng nhập hợp lệ.</li>
+<li>Khôi phục trạng thái điều hướng đã lưu.</li>
+<li>Áp deep linking trên web và mobile.</li>
+<li>Chặn truy cập vào màn hình không đủ quyền.</li>
+<li>Ép người dùng chưa đăng nhập quay về màn hình đăng nhập.</li>
+</ul>
+<h3>8.3. Lớp nghiệp vụ và đánh giá luật</h3>
+<p>Thành phần chính:</p>
+<ul>
+<li><code>dong_co_giam_dinh.jsx</code>.</li>
+<li><code>dvkt_op_giam_dinh.jsx</code>.</li>
+<li>Các file seed luật dữ liệu và luật chuyên đề.</li>
+<li>Các module hardcoded theo lĩnh vực.</li>
+</ul>
+<p>Trách nhiệm:</p>
+<ul>
+<li>Nhận dữ liệu hồ sơ đã chuẩn hóa.</li>
+<li>Áp điều kiện rule hardcoded hoặc dynamic.</li>
+<li>Gộp cảnh báo, phân mức độ và chuẩn hóa đầu ra cho UI/báo cáo.</li>
+<li>Bổ sung metadata giải trình rule ở đầu ra, tối thiểu gồm <code>namespace_quy_tac</code>, <code>nguon_quy_tac</code>, <code>luong_giai_trinh</code>, <code>tab_quan_tri_goi_y</code> cho các họ rule XML3 khi có thể suy luận an toàn.</li>
+</ul>
+<h3>8.4. Lớp lưu trữ cục bộ</h3>
+<p>Thành phần chính:</p>
+<ul>
+<li><code>kho_du_lieu.jsx</code>.</li>
+<li>AsyncStorage.</li>
+<li>IndexedDB.</li>
+</ul>
+<p>Trách nhiệm:</p>
+<ul>
+<li>Lưu hồ sơ theo <code>MA_LK</code>.</li>
+<li>Truy xuất toàn bộ, truy xuất nhiều hồ sơ hoặc xóa hồ sơ.</li>
+<li>Migration dữ liệu cũ từ localStorage sang IndexedDB trên web.</li>
+<li>Lưu các dataset cấu hình, danh mục và metadata đồng bộ.</li>
+</ul>
+<h3>8.5. Lớp tích hợp ngoài</h3>
+<p>Thành phần chính:</p>
+<ul>
+<li><code>firebase_cloud_bhyt.jsx</code>.</li>
+<li><code>python_service/app/main.py</code>.</li>
+<li><code>ma_nguon/dich_vu/python_service_api.jsx</code>.</li>
+</ul>
+<p>Trách nhiệm:</p>
+<ul>
+<li>Xác thực Firebase.</li>
+<li>Đồng bộ dataset rule engine và metadata hồ sơ lên cloud.</li>
+<li>Đọc dữ liệu từ cloud về cục bộ.</li>
+<li>Gọi Python service cho audit batch hoặc smoke test.</li>
+<li>Kết nối HIS theo cấu hình runtime.</li>
+</ul>
+<h2>9. Điều hướng và bản đồ màn hình</h2>
+<p>Theo <code>tuyen_duong.jsx</code>, hệ thống đang khai báo các route nghiệp vụ sau (thứ tự nhóm):</p>
+<p><strong>Truy cập &amp; hệ thống:</strong> <code>DangNhap</code>, <code>TongQuan</code>, <code>Helper</code>, <code>PhanQuyenTruyCap</code>.</p>
+<p><strong>Kiểm tra hồ sơ:</strong> <code>DocXML</code>, <code>ChiTiet</code>, <code>SuaFileXML</code>, <code>KhoLuuTru</code>.</p>
+<p><strong>Quản trị dữ liệu &amp; danh mục:</strong> <code>QuanLyLuat</code>, <code>QuanLyQuyTacOnOff</code>, <code>QuanLyDanhMuc</code>, <code>MappingNghiepVu</code>, <code>DanhMucBYTMain</code>, <code>QuanLyChuyenMon</code>, <code>ThuVien</code>, <code>TriThucTuGiamDinh</code>, <code>TroLyTriThuc</code>, <code>CongHIS</code>.</p>
+<p><strong>Báo cáo:</strong> <code>BaoCaoVaThongKe</code>.</p>
+<p><strong>XML chi tiết (QĐ 130):</strong> <code>XML1</code> … <code>XML6</code>.</p>
+<p>Deep link (web) — tham chiếu <code>cauHinhLienKet</code> trong <code>tuyen_duong.jsx</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Path web</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DangNhap</code></td>
+<td><code>/login</code></td>
+</tr>
+<tr>
+<td><code>TongQuan</code></td>
+<td><code>/dashboard</code></td>
+</tr>
+<tr>
+<td><code>Helper</code></td>
+<td><code>/helper</code></td>
+</tr>
+<tr>
+<td><code>DocXML</code></td>
+<td><code>/auditing</code></td>
+</tr>
+<tr>
+<td><code>ChiTiet</code></td>
+<td><code>/case-detail/:maLK</code></td>
+</tr>
+<tr>
+<td><code>SuaFileXML</code></td>
+<td><code>/auditing/edit/:maLK</code></td>
+</tr>
+<tr>
+<td><code>KhoLuuTru</code></td>
+<td><code>/archive</code></td>
+</tr>
+<tr>
+<td><code>QuanLyLuat</code></td>
+<td><code>/rules</code></td>
+</tr>
+<tr>
+<td><code>QuanLyQuyTacOnOff</code></td>
+<td><code>/rules/on-off</code></td>
+</tr>
+<tr>
+<td><code>QuanLyDanhMuc</code></td>
+<td><code>/master-data</code></td>
+</tr>
+<tr>
+<td><code>MappingNghiepVu</code></td>
+<td><code>/mapping-nghiep-vu</code></td>
+</tr>
+<tr>
+<td><code>DanhMucBYTMain</code></td>
+<td><code>/danh-muc-byt</code></td>
+</tr>
+<tr>
+<td><code>QuanLyChuyenMon</code></td>
+<td><code>/clinical-guidelines</code></td>
+</tr>
+<tr>
+<td><code>ThuVien</code></td>
+<td><code>/thu-vien</code></td>
+</tr>
+<tr>
+<td><code>TriThucTuGiamDinh</code></td>
+<td><code>/tri-thuc-giam-dinh</code></td>
+</tr>
+<tr>
+<td><code>TroLyTriThuc</code></td>
+<td><code>/tro-ly-tri-thuc</code></td>
+</tr>
+<tr>
+<td><code>CongHIS</code></td>
+<td><code>/his-gateway</code></td>
+</tr>
+<tr>
+<td><code>BaoCaoVaThongKe</code></td>
+<td><code>/reports</code></td>
+</tr>
+<tr>
+<td><code>XML1</code> … <code>XML6</code></td>
+<td><code>/xml/xml1</code> … <code>/xml/xml6</code></td>
+</tr>
+<tr>
+<td><code>PhanQuyenTruyCap</code></td>
+<td><code>/permissions</code></td>
+</tr>
+</tbody></table>
+<h2>10. Mô tả các phân hệ chức năng</h2>
+<h3>10.1. Đăng nhập và quản lý phiên</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Xác thực người dùng.</li>
+<li>Khởi tạo phiên làm việc.</li>
+<li>Khôi phục phiên khi mở lại ứng dụng.</li>
+<li>Chuyển hướng theo trạng thái đăng nhập.</li>
+</ul>
+<p>Yêu cầu chính:</p>
+<ul>
+<li>Tài khoản phải tồn tại và đủ quyền.</li>
+<li>Email được chuẩn hóa khi kiểm tra RBAC.</li>
+<li>Người dùng không hợp lệ không được đi thẳng vào màn hình nội bộ qua deep link.</li>
+</ul>
+<h3>10.2. Tổng quan</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Là màn hình hub sau đăng nhập.</li>
+<li>Điều hướng tới các phân hệ được cấp quyền.</li>
+<li>Hiển thị nhóm chức năng cốt lõi theo vai trò.</li>
+</ul>
+<h3>10.3. Helper hệ thống</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Kiểm tra khả năng đọc/ghi Firebase.</li>
+<li>Đồng bộ cấu hình, danh mục hoặc dataset lên Firebase.</li>
+<li>Tải dữ liệu cloud về cục bộ.</li>
+<li>Sao lưu và phục hồi dữ liệu hệ thống.</li>
+<li>Hỗ trợ vận hành và chẩn đoán sự cố.</li>
+</ul>
+<h3>10.4. Phân quyền truy cập</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Tạo và khóa tài khoản.</li>
+<li>Gán vai trò hoặc binding quyền cho người dùng.</li>
+<li>Quản lý matrix quyền theo màn hình/tác vụ.</li>
+<li>Ép <code>ROLE_ADMIN</code> có full quyền ở cả UI và engine.</li>
+</ul>
+<h3>10.5. Đọc XML và kiểm tra hồ sơ</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Chọn tệp XML đầu vào.</li>
+<li>Bóc tách XML1 đến XML6.</li>
+<li>Chuẩn hóa dữ liệu đầu vào.</li>
+<li>Chạy kiểm tra rule engine.</li>
+<li>Hiển thị lỗi, cảnh báo, mức độ và rule vi phạm.</li>
+</ul>
+<p>Lưu ý kỹ thuật:</p>
+<ul>
+<li>Có chế độ tương thích ngược cho dashboard và màn hình nhập XML.</li>
+<li>Batch dashboard đi qua <code>chayBoMayGiamDinhNhieuHoSoV3</code>.</li>
+</ul>
+<h3>10.6. Chi tiết ca bệnh và sửa XML</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Xem hồ sơ đã nhập theo <code>MA_LK</code>.</li>
+<li>Hiển thị dữ liệu từng bảng XML.</li>
+<li>Chỉnh sửa một số trường cần hiệu chỉnh.</li>
+<li>Chạy lại kiểm tra sau chỉnh sửa.</li>
+</ul>
+<h3>10.7. Kho lưu trữ</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Lưu toàn bộ hồ sơ theo mã liên kết.</li>
+<li>Tìm kiếm, lọc, thống kê hồ sơ đang có.</li>
+<li>Là nguồn dữ liệu cho báo cáo và tái kiểm tra.</li>
+</ul>
+<h3>10.8. Quản lý luật và quy tắc ON/OFF</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Hiển thị dataset luật hiện hành.</li>
+<li>Bật/tắt rule nội bộ.</li>
+<li>Quản trị luật hardcoded theo nhóm.</li>
+<li>Quản trị seed luật dữ liệu.</li>
+</ul>
+<p>Nguyên tắc bảo trì:</p>
+<ul>
+<li>Khi cần giảm nhiễu hoặc vô hiệu hóa rule hardcoded, ưu tiên chỉnh trạng thái ON/OFF trong dữ liệu cấu hình thay vì sửa tay vào artefact sinh từ Excel.</li>
+</ul>
+<h3>10.9. Quản lý danh mục và danh mục Bộ Y tế</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Quản trị danh mục nội bộ.</li>
+<li>Đồng bộ hoặc kiểm tra đối chiếu danh mục chuẩn.</li>
+<li>Quản lý danh mục dùng chung Bộ Y tế theo module hiện hành.</li>
+</ul>
+<h3>10.10. Quản lý chuyên môn</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Quản lý phác đồ, quy trình hoặc nội dung chuyên môn hỗ trợ kiểm tra.</li>
+<li>Kết nối với các rule chuyên đề khi cần.</li>
+</ul>
+<h3>10.11. Báo cáo và thống kê</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Tổng hợp hồ sơ trong kho theo khoảng thời gian.</li>
+<li>Thống kê theo khoa, bác sĩ, quy tắc và xu hướng.</li>
+<li>Tính chi phí ảnh hưởng ước tính.</li>
+<li>Xuất Excel đa sheet.</li>
+</ul>
+<h3>10.12. XML1 đến XML6</h3>
+<p>Chức năng chính:</p>
+<ul>
+<li>Quản trị từng lớp dữ liệu XML chuẩn.</li>
+<li>Cho phép rà soát chi tiết từng bảng.</li>
+<li>Hỗ trợ đối chiếu cấu trúc và trường dữ liệu.</li>
+</ul>
+<h3>10.13. Mapping nghiệp vụ (<code>MappingNghiepVu</code>)</h3>
+<ul>
+<li>Ánh xạ danh mục / mã nghiệp vụ giữa kho nội bộ và chuẩn dùng trong kiểm tra (theo module triển khai).</li>
+</ul>
+<h3>10.14. Thư viện (<code>ThuVien</code>)</h3>
+<ul>
+<li>Hiển thị tài liệu đã chuẩn bị trong <code>tai_lieu/</code> (sau <code>npm run tai_lieu:prepare</code>).</li>
+</ul>
+<h3>10.15. Tri thức từ kiểm tra (<code>TriThucTuGiamDinh</code>)</h3>
+<ul>
+<li>Khai thác tri thức / gợi ý gắn với kết quả kiểm tra (theo thiết kế màn hình).</li>
+</ul>
+<h3>10.16. Trợ lý tri thức (<code>TroLyTriThuc</code>)</h3>
+<ul>
+<li>Trợ lý hội thoại / RAG trên corpus tài liệu nội bộ khi được cấu hình.</li>
+</ul>
+<h3>10.17. Cổng tiếp nhận HIS (<code>CongHIS</code>)</h3>
+<ul>
+<li>Kết nối hoặc kiểm tra luồng dữ liệu từ HIS theo cấu hình <code>app.json</code> (REST/WebSocket).</li>
+</ul>
+<h2>11. Luồng xử lý nghiệp vụ end-to-end</h2>
+<h3>11.1. Luồng khởi động</h3>
+<ol>
+<li>Người dùng mở ứng dụng.</li>
+<li><code>App.jsx</code> khởi tạo theme, font và container.</li>
+<li><code>DieuHuongChinh</code> đọc trạng thái điều hướng đã lưu.</li>
+<li>Hệ thống kiểm tra phiên đăng nhập.</li>
+<li>Nếu có deep link hoặc route không hợp lệ, hệ thống điều chỉnh về màn hình hợp lệ theo quyền.</li>
+</ol>
+<h3>11.2. Luồng nhập và kiểm tra hồ sơ</h3>
+<ol>
+<li>Người dùng vào <code>DocXML</code>.</li>
+<li>Chọn một hoặc nhiều tệp XML.</li>
+<li>Hệ thống bóc tách dữ liệu XML1 đến XML6.</li>
+<li>Dữ liệu được chuẩn hóa và đóng gói thành hồ sơ nội bộ.</li>
+<li>Rule engine được kích hoạt để đánh giá dữ liệu.</li>
+<li>Kết quả lỗi/cảnh báo trả về UI.</li>
+<li>Người dùng có thể lưu vào kho hoặc tiếp tục chỉnh sửa.</li>
+</ol>
+<h3>11.3. Luồng lưu kho</h3>
+<ol>
+<li>Hồ sơ hợp lệ hoặc cần theo dõi được lưu theo <code>MA_LK</code>.</li>
+<li>Trên web, dữ liệu ghi vào IndexedDB store <code>ho_so</code>.</li>
+<li>Trên mobile, dữ liệu ghi vào AsyncStorage theo mô hình index-detail.</li>
+<li>Kho lưu trữ trở thành nguồn dữ liệu đầu vào cho báo cáo và truy xuất sau này.</li>
+</ol>
+<h3>11.4. Luồng báo cáo</h3>
+<ol>
+<li>Module báo cáo đọc toàn bộ hồ sơ từ kho.</li>
+<li>Áp bộ lọc thời gian và nhóm lỗi.</li>
+<li>Tính KPI, tỷ lệ lỗi, chi phí ảnh hưởng và xu hướng.</li>
+<li>Hiển thị dữ liệu theo tab.</li>
+<li>Cho phép xuất Excel.</li>
+</ol>
+<h3>11.5. Luồng đồng bộ cloud</h3>
+<ol>
+<li>Người dùng quản trị mở <code>Helper</code>.</li>
+<li>Hệ thống đọc cấu hình Firebase trong runtime.</li>
+<li>Xác thực anonymous hoặc email/password tùy cấu hình.</li>
+<li>Dataset được chunk và ghi lên Firestore.</li>
+<li>Metadata hash/row_count được lưu cả cục bộ lẫn cloud để đối chiếu trạng thái đồng bộ.</li>
+</ol>
+<h2>12. Lưu trữ dữ liệu nội bộ</h2>
+<h3>12.1. Nguyên tắc chung</h3>
+<ul>
+<li>Lưu trữ cục bộ là nguồn làm việc chính.</li>
+<li>Mọi thao tác phải hoạt động ổn định ngay cả khi không có cloud.</li>
+<li>Dữ liệu cấu hình và metadata cloud chỉ bổ trợ cho đồng bộ/phục hồi.</li>
+</ul>
+<h3>12.2. Web: IndexedDB</h3>
+<p>Theo <code>kho_du_lieu.jsx</code>:</p>
+<ul>
+<li>Tên DB: <code>CDSS_HO_SO_DB</code>.</li>
+<li>Store hồ sơ: <code>ho_so</code> với key path <code>ma_lk</code>.</li>
+<li>Store danh mục: <code>danh_muc</code> với key path <code>key</code>.</li>
+<li>Có cơ chế mở DB, put, bulkPut, getAll, getMany, delete, clear.</li>
+</ul>
+<h3>12.3. Mobile: AsyncStorage</h3>
+<p>Nguyên tắc:</p>
+<ul>
+<li>Dùng AsyncStorage làm kho chính trên mobile.</li>
+<li>Áp cấu trúc index-detail để tránh vượt giới hạn dung lượng trên từng key.</li>
+<li>Lưu thêm trạng thái phiên, RBAC, metadata dataset và các cấu hình phụ trợ.</li>
+</ul>
+<h3>12.4. Migration dữ liệu cũ</h3>
+<p><code>kho_du_lieu.jsx</code> đã có cơ chế migration localStorage sang IndexedDB trên web:</p>
+<ul>
+<li>Chạy một lần duy nhất.</li>
+<li>Đọc index cũ <code>CDSS_KHO_INDEX_MA_LK</code>.</li>
+<li>Di chuyển từng hồ sơ sang IndexedDB.</li>
+<li>Xóa key cũ khỏi localStorage sau khi migrate xong.</li>
+</ul>
+<h2>13. Kiến trúc rule engine</h2>
+<h3>13.1. Nhóm rule đang tồn tại</h3>
+<ul>
+<li>Hardcoded rules sinh từ Excel hoặc chuyên đề.</li>
+<li>Dynamic data rules lưu trong các file seed/dataset.</li>
+<li>Rule no-code cho DVKT.</li>
+<li>Rule batch/liên hồ sơ theo custom evaluator.</li>
+</ul>
+<h3>13.2. Vai trò của engine động</h3>
+<p><code>dong_co_giam_dinh.jsx</code> đóng vai trò biên dịch và thực thi các biểu thức điều kiện theo DSL nội bộ. Engine hiện hỗ trợ batch context cho nhiều hồ sơ cùng đợt và các evaluator đặc thù ở một số nhóm rule.</p>
+<h3>13.3. Dữ liệu đầu vào của engine</h3>
+<ul>
+<li>XML1 đến XML15 ở mức logic engine.</li>
+<li>Dataset chuẩn hóa từ hồ sơ đã nhập.</li>
+<li>Danh mục và tham số hỗ trợ đánh giá.</li>
+</ul>
+<h3>13.4. Quản trị seed luật</h3>
+<p>Seed luật dữ liệu không chỉ nằm ở file dữ liệu mà còn phụ thuộc vào cơ chế migration seed. Khi chỉnh sửa seed cần đảm bảo danh sách <code>MA_LUAT_CAN_CAP_NHAT</code> hoặc <code>MA_LUAT_CAN_XOA</code> được cập nhật để dữ liệu đã lưu cũ cũng nhận thay đổi.</p>
+<h3>13.5. Một số quy tắc đối chiếu tiền tệ điển hình (LUAT_DU_LIEU — minh họa)</h3>
+<p>Các mã sau minh họa <strong>cách hệ thống kiểm tra đồng bộ số liệu</strong> giữa XML1 và chi tiết; biểu thức cụ thể nằm trong seed <code>du_lieu_luat_du_lieu_muc1.jsx</code> và có thể được quản trị ON/OFF:</p>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Ý nghĩa ngắn</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML_49</strong></td>
+<td>So <code>XML1.T_BHTT</code> với tổng <code>T_BHTT</code> trên các dòng XML2/XML3 (chỉ cộng dòng có <code>T_BHTT</code> không rỗng). Cảnh báo khi |chênh| &gt; 1 (đồng).</td>
+</tr>
+<tr>
+<td><strong>XML_53</strong></td>
+<td>So <code>XML1.T_THUOC</code> với tổng tiền thuốc trên XML2 (nhóm <code>MA_NHOM</code> 4, 5): cộng dồn theo thứ tự ưu tiên trên dòng — <code>THANH_TIEN_BH</code> → <code>THANH_TIEN</code> → <code>THANH_TIEN_BV</code> → <code>T_BHTT</code> (cùng logic ưu tiên với built-in đối chiếu tổng tiền thuốc).</td>
+</tr>
+<tr>
+<td><strong>XML_109</strong></td>
+<td>Cảnh báo khi <strong>tổng</strong> <code>THANH_TIEN_BH</code> (XML2+XML3) &gt; <strong>tổng</strong> <code>THANH_TIEN_BV</code> (tức tổng phần BHYT vượt tổng phần BV ở mức gộp).</td>
+</tr>
+<tr>
+<td><strong>XML_143</strong></td>
+<td>Kiểm tra <strong>từng dòng</strong> XML2/XML3: nếu có đủ <code>THANH_TIEN_BH</code> và <code>THANH_TIEN_BV</code> mà <code>THANH_TIEN_BH</code> vượt <code>THANH_TIEN_BV</code> quá ngưỡng (chênh &gt; 1đ) thì báo — thành tiền BHYT không được cao hơn thành tiền BV trên cùng dòng.</td>
+</tr>
+</tbody></table>
+<p>Ngoài ra, engine built-in (<code>dong_co_giam_dinh.jsx</code>) có thể sinh cảnh báo <strong>CLN-CHI-01</strong> (đối chiếu tổng tiền thuốc) với cách lấy tiền dòng tương thích — cần phân biệt nguồn rule khi truy vết.</p>
+<h3>13.6. Chuẩn hóa đầu ra XML3 và rule legacy</h3>
+<ul>
+<li>Từ lớp hậu xử lý của engine, cảnh báo XML3 được phép gắn thêm metadata mô tả nguồn rule mà không làm đổi thứ tự chạy hoặc điều kiện đánh giá.</li>
+<li>Các trường metadata chuẩn hóa đầu ra gồm:<ul>
+<li><code>namespace_quy_tac</code>: nhóm logic nguồn của rule, ví dụ <code>DVKT_OP</code>, <code>CDHA_HARDCODED</code>, <code>PTTT_BUILTIN</code>, <code>GIAM_DINH_CHUYEN_DE</code>.</li>
+<li><code>nguon_quy_tac</code>: module sinh rule/cảnh báo.</li>
+<li><code>luong_giai_trinh</code>: mô tả ngắn đường đi đánh giá để phục vụ UI, báo cáo hoặc audit.</li>
+<li><code>tab_quan_tri_goi_y</code>: tab quản trị rule gần nhất có liên quan khi cần truy vết.</li>
+</ul>
+</li>
+<li>Với các rule hardcoded legacy có cú pháp cũ hoặc alias dữ liệu cũ, hệ thống ưu tiên bổ sung metadata như <code>BIEU_THUC_CHUAN_HOA</code> thay vì sửa trực tiếp <code>DIEU_KIEN</code> nếu việc sửa có nguy cơ làm đổi hành vi runtime.</li>
+<li>Nguyên tắc bắt buộc: chuẩn hóa rule chỉ được phép tác động đến metadata giải thích hoặc biểu thức tham chiếu; không được làm đổi kết quả đánh giá hiện hành nếu chưa có migration nghiệp vụ tương ứng.</li>
+</ul>
+<h2>14. Tích hợp Firebase</h2>
+<h3>14.1. Mục đích</h3>
+<ul>
+<li>Đồng bộ dataset rule engine.</li>
+<li>Lưu metadata dataset cục bộ và cloud.</li>
+<li>Hỗ trợ upload hồ sơ XML và đồng bộ dữ liệu khi cần.</li>
+</ul>
+<h3>14.2. Nguồn cấu hình</h3>
+<p>Cấu hình được đọc từ:</p>
+<ul>
+<li><code>app.json</code>.</li>
+<li><code>expo.extra.firebase</code> runtime.</li>
+<li>Biến môi trường <code>EXPO_PUBLIC_*</code> khi có.</li>
+</ul>
+<h3>14.3. Thông số logic cấu hình</h3>
+<p>Các trường quan trọng:</p>
+<ul>
+<li><code>enabled</code>.</li>
+<li><code>orgId</code>.</li>
+<li><code>authMode</code>.</li>
+<li><code>authEmail</code>.</li>
+<li><code>authPassword</code>.</li>
+<li><code>apiKey</code>.</li>
+<li><code>authDomain</code>.</li>
+<li><code>projectId</code>.</li>
+<li><code>storageBucket</code>.</li>
+<li><code>messagingSenderId</code>.</li>
+<li><code>appId</code>.</li>
+</ul>
+<h3>14.4. Cơ chế kỹ thuật</h3>
+<ul>
+<li>Tự resolve cấu hình ưu tiên từ runtime.</li>
+<li>Hỗ trợ đăng nhập anonymous hoặc email/password.</li>
+<li>Chuẩn hóa dataset key bằng token an toàn.</li>
+<li>Lưu <code>payload_hash</code>, <code>row_count</code>, <code>payload_bytes</code>, <code>updated_at</code>, <code>synced_at</code> ở local meta.</li>
+<li>Chia chunk dữ liệu trước khi ghi cloud để tránh giới hạn Firestore.</li>
+</ul>
+<h2>15. Tích hợp HIS</h2>
+<p>Theo <code>app.json</code>, hệ thống có cấu hình HIS gồm:</p>
+<ul>
+<li><code>restBaseUrl</code>.</li>
+<li><code>websocketUrl</code>.</li>
+<li><code>timeoutMs</code>.</li>
+<li><code>reconnectDelayMs</code>.</li>
+</ul>
+<p>Vai trò:</p>
+<ul>
+<li>Phục vụ tích hợp dữ liệu HIS theo thời gian thực hoặc theo API.</li>
+<li>Cho phép mở rộng luồng tiếp nhận hồ sơ từ nguồn HIS thay vì chỉ nhập file.</li>
+</ul>
+<h2>16. Tích hợp Python service</h2>
+<h3>16.1. Mục đích</h3>
+<p>Python service được đưa vào như một lớp xử lý mở rộng cho mô hình hybrid:</p>
+<ul>
+<li>Giữ UI và local workflow ở React Native/Expo.</li>
+<li>Đẩy các tác vụ xử lý nặng, audit batch hoặc AI sang FastAPI.</li>
+</ul>
+<h3>16.2. Thành phần chính</h3>
+<ul>
+<li><code>python_service/app/main.py</code>.</li>
+<li><code>python_service/requirements.txt</code>.</li>
+<li><code>ma_nguon/dich_vu/python_service_api.jsx</code>.</li>
+</ul>
+<h3>16.3. API mẫu đang có</h3>
+<ul>
+<li><code>GET /health</code>.</li>
+<li><code>POST /api/v1/audit/claims</code>.</li>
+</ul>
+<h3>16.4. Năng lực hiện tại</h3>
+<ul>
+<li>Kiểm tra trùng <code>MA_LK</code> trong batch.</li>
+<li>Trả timestamp xử lý.</li>
+<li>Áp một số rule Python side theo danh sách <code>SUPPORTED_RULES</code>.</li>
+<li>Là scaffold an toàn để chuyển dần xử lý từ app sang service mà không phá luồng cục bộ.</li>
+</ul>
+<h2>17. Bảo mật và phân quyền</h2>
+<h3>17.1. Nguyên tắc truy cập</h3>
+<ul>
+<li>Mọi màn hình quan trọng đều đi qua kiểm tra phiên và RBAC.</li>
+<li>Người dùng chưa đăng nhập không được truy cập phân hệ nội bộ qua deep link.</li>
+<li>Người dùng đã đăng nhập nhưng không đủ quyền sẽ bị điều hướng về <code>TongQuan</code>.</li>
+</ul>
+<h3>17.2. RBAC</h3>
+<p>RBAC gồm:</p>
+<ul>
+<li>Vai trò mặc định.</li>
+<li>Binding người dùng cụ thể theo email.</li>
+<li>Quyền theo màn hình/tác vụ.</li>
+<li>Cơ chế cưỡng bức <code>ROLE_ADMIN</code> full quyền.</li>
+</ul>
+<h3>17.3. Cloud security</h3>
+<ul>
+<li>Firestore rules phải được deploy riêng.</li>
+<li>Vai trò đọc cloud cho Firebase hiện chấp nhận các role như <code>ADMIN</code>, <code>AUDITOR</code>, <code>OPERATOR</code>, <code>REVIEWER</code>, <code>USER</code>.</li>
+<li>Vai trò ghi cloud chặt hơn, chủ yếu là <code>ADMIN</code>, <code>AUDITOR</code>, <code>OPERATOR</code>.</li>
+</ul>
+<h2>18. Vận hành và lệnh kỹ thuật</h2>
+<p>Các lệnh chính hiện có trong <code>package.json</code> (trích — xem file đầy đủ):</p>
+<pre><code class="language-bash">npm install
+npm run start
+npm run web
+npm run android
+npm run ios
+npm run lint
+npm run text:check
+npm run tai_lieu:prepare
+npm run py:install
+npm run py:start
+npm run qa:python-service
+npm run qa:xml-real
+npm run qa:strict-flow
+npm run firebase:deploy-rules
+npm run firebase:emulators
+# Đóng gói desktop (sau khi cài electron / devDependencies)
+npm run desktop:export
+npm run desktop:build:win
+npm run desktop:build:win-portable
+npm run desktop:electron
+</code></pre>
+<p><strong>Ghi chú:</strong> Ứng dụng có thể <strong>warm-up</strong> kết nối Python service ngay sau khi shell sẵn sàng (<code>tuyen_duong.jsx</code>) — không thay thế cấu hình URL service trong Helper/hybrid.</p>
+<h2>19. Yêu cầu phi chức năng</h2>
+<h3>19.1. Khả năng dùng trên nhiều nền tảng</h3>
+<ul>
+<li>Web phải chạy ổn định qua Expo Web.</li>
+<li>Mobile dùng cùng codebase React Native.</li>
+<li>Deep link cần hoạt động cho cả local web và scheme mobile.</li>
+</ul>
+<h3>19.2. Khả năng lưu trữ</h3>
+<ul>
+<li>Web phải đáp ứng hàng nghìn hồ sơ XML thông qua IndexedDB.</li>
+<li>Ứng dụng không được phụ thuộc tuyệt đối vào cloud để thao tác nghiệp vụ hàng ngày.</li>
+</ul>
+<h3>19.3. Khả năng mở rộng</h3>
+<ul>
+<li>Có thể thêm rule mới theo seed hoặc module hardcoded.</li>
+<li>Có thể chuyển dần xử lý nặng sang Python service.</li>
+<li>Có thể mở rộng nguồn dữ liệu từ nhập file sang HIS realtime.</li>
+</ul>
+<h3>19.4. Khả năng bảo trì</h3>
+<ul>
+<li>Cấu trúc mã nghiệp vụ tập trung trong <code>ma_nguon</code>.</li>
+<li>Script QA và text checks hỗ trợ kiểm soát lỗi encoding/diacritics.</li>
+<li>Tài liệu phải được cập nhật đồng bộ khi có thay đổi route, lưu trữ hoặc tích hợp.</li>
+</ul>
+<h2>20. Ràng buộc và giới hạn hiện tại</h2>
+<ul>
+<li>Thư mục <code>app/</code> chưa phản ánh đầy đủ luồng nghiệp vụ thật, nên tài liệu kỹ thuật phải ưu tiên <code>App.jsx</code> và <code>ma_nguon</code>.</li>
+<li>Một phần rule engine dùng dữ liệu sinh từ Excel, có nguy cơ sinh artefact khó đọc hoặc khó bảo trì thủ công.</li>
+<li>Không phải mọi rule DSL đều an toàn nếu biểu thức seed không phù hợp cú pháp engine.</li>
+<li>Cấu hình Firebase/HIS hiện nằm trong app config nên cần quy trình quản trị secrets chặt hơn khi triển khai production rộng.</li>
+</ul>
+<h2>21. Rủi ro kỹ thuật cần theo dõi</h2>
+<ul>
+<li>Chỉnh seed luật mà quên migration seed sẽ làm dữ liệu cũ không cập nhật.</li>
+<li>Bổ sung màn hình mới mà quên khai báo RBAC hoặc deep link sẽ gây truy cập lệch.</li>
+<li>Phụ thuộc quá nhiều vào artefact hardcoded sinh từ Excel có thể làm khó kiểm soát thay đổi theo thời gian.</li>
+<li>Đồng bộ cloud không đúng quyền có thể gây ghi đè dataset hoặc rò rỉ dữ liệu cấu hình.</li>
+<li>Sự chênh lệch giữa schema pháp lý và field nội bộ nếu không được rà soát định kỳ sẽ làm tăng false positive/false negative.</li>
+</ul>
+<h2>22. Đề xuất cải tiến</h2>
+<ul>
+<li>Tách rõ tài liệu dành cho người dùng cuối, quản trị viên và đội kỹ thuật.</li>
+<li>Duy trì changelog riêng cho dataset luật và migration seed.</li>
+<li>Chuẩn hóa bộ test regression cho các rule trọng yếu trước mỗi lần phát hành.</li>
+<li>Rà soát dần để đưa các cấu hình nhạy cảm sang secret manager hoặc môi trường an toàn hơn.</li>
+<li>Cân nhắc gom lại các điểm nhập XML/sửa XML để giảm trùng lặp giao diện trong tương lai.</li>
+</ul>
+<h2>23. Tiêu chí nghiệm thu tài liệu này</h2>
+<p>Tài liệu được xem là đạt khi:</p>
+<ul>
+<li>Phản ánh đúng entry point, route và cấu trúc phân hệ đang chạy.</li>
+<li>Mô tả đầy đủ lưu trữ web/mobile, tích hợp Firebase và Python service.</li>
+<li>Chỉ rõ vai trò của rule engine, dataset và migration seed.</li>
+<li>Hỗ trợ đội kỹ thuật hiểu luồng end-to-end mà không phải suy diễn từ mã nguồn rời rạc.</li>
+</ul>
+<h2>24. Kết luận</h2>
+<p>CDSS BHYT hiện là một hệ thống local-first đa phân hệ, lấy React Native/Expo làm lớp giao diện, IndexedDB/AsyncStorage làm nền tảng dữ liệu cục bộ, Firebase làm lớp đồng bộ, và đang mở rộng theo hướng hybrid với Python service. Giá trị cốt lõi của hệ thống nằm ở khả năng nhập XML, chuẩn hóa dữ liệu, áp rule engine, lưu kho hồ sơ và tổng hợp báo cáo chất lượng. Mọi thay đổi tương lai cần được đánh giá đồng thời trên 4 trục: điều hướng và quyền truy cập, rule engine và seed dataset, lưu trữ cục bộ, và tích hợp ngoài.</p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ca huấn luyện mẫu — TRAINHL419: THUOC_419 (hạng BV vs danh mục thuốc)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_TRAINHL419_THUOC_419.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Ca huấn luyện mẫu — TRAINHL419: THUOC_419 (hạng BV vs danh mục thuốc)</h1>
+<p><strong>Mục đích:</strong> Neo phiên <strong>04</strong> với audit có mã <strong><code>THUOC_419</code></strong>, dùng <strong>hạng cơ sở KCB</strong> khai trong XML1 (<code>CSKCB_HANG_BV</code>) và <strong>HANG_BV_MIN</strong> trên dòng danh mục thuốc nội bộ (<code>MAP_THUOC_BV</code>).</p>
+<p><strong>Dữ liệu (ẩn danh, tổng hợp):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MA_LK</td>
+<td><code>TRAINHL419</code></td>
+</tr>
+<tr>
+<td>XML nguồn</td>
+<td><code>test_xml/huan_luyen/TRAINHL419_hang_BV.xml</code></td>
+</tr>
+<tr>
+<td>Audit</td>
+<td><code>test_xml/audit_TRAINHL419_20260408.json</code></td>
+</tr>
+<tr>
+<td>MA_THUOC</td>
+<td><code>40.558</code> (có <code>HANG_BV_MIN</code> trong seed danh mục BV — cột <code>HANG_BV_MIN</code>, bản ghi cuối trùng mã trong map)</td>
+</tr>
+<tr>
+<td>CSKCB_HANG_BV (XML1)</td>
+<td><code>4</code> — điều kiện <code>minHang &lt; hangCskcb</code> (evaluator đặc biệt trong <code>dong_co_giam_dinh.jsx</code>)</td>
+</tr>
+</tbody></table>
+<p><strong>Kỳ vọng:</strong> <code>THUOC_419</code>: ≥1 trong <code>rule_summary</code>.</p>
+<p><strong>Pháp lý / nghiệp vụ:</strong> <a href="./The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md">The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</a> (Phụ lục I, hạng BV).</p>
+<p><strong>Neo:</strong> <a href="./Huan_luyen_phien_04_THUOC_419_hang_BV.md">Huan_luyen_phien_04_THUOC_419_hang_BV.md</a>.</p>
+
+  </main>
+</body>
+</html>

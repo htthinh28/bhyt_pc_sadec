@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: ĐA DẠNG NHÓM THUỐC DANH MỤC BỆNH VIỆN (HUẤN LUYỆN AI)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: ĐA DẠNG NHÓM THUỐC DANH MỤC BỆNH VIỆN (HUẤN LUYỆN AI)</h1>
+<p>Phiên bản tài liệu: 1.3<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Bệnh viện khai <strong>hàng trăm đến hàng nghìn mã thuốc</strong> (<code>MA_THUOC</code>, <code>TEN_THUOC</code>). AI kiểm tra cần:</p>
+<ul>
+<li>không học “một thuốc một kiểu” rời rạc mà nắm <strong>nhóm chức năng kiểm soát</strong> (chỉ định ICD, liều, số lượng, giá, INN, kháng sinh…);</li>
+<li>tra cứu nhanh: <strong>thuốc ví dụ → mã → rule điển hình → file audit</strong>;</li>
+<li>khi gặp mã lạ, biết <strong>suy ra nhóm</strong> (ví dụ “phối hợp beta-lactam”, “ho thảo dược”) để chọn đúng lớp rule.</li>
+</ul>
+<p>Nguồn rule thực tế: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> + built-in <code>DM-THUOC-*</code>, <code>XML_*</code>.</p>
+<h2>2. Bảng tra nhanh: nhóm dược lý / nghiệp vụ ↔ ví dụ danh mục BV</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Nhóm (mô tả nghiệp vụ)</th>
+<th>Ví dụ tên / biệt dược trong audit</th>
+<th><code>MA_THUOC</code> (ví dụ)</th>
+<th>Rule / cơ chế tiêu biểu</th>
+<th>Audit / ca minh họa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>Kháng sinh phối hợp uống</strong> (beta-lactam + inhibitor)</td>
+<td>Cepmox-Clav, Klamentin</td>
+<td><code>40.155</code></td>
+<td><code>THUOC_41</code> (ICD hô hấp/TMH/da), <code>DM-THUOC-04</code> (giá), <code>THUOC_436</code> (INN ngoại trú)</td>
+<td><code>OP26000908</code>, <code>OP26000282</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Cephalosporin tiêm</strong> (điều trị / nội trú)</td>
+<td>Tenamyd-Cefotaxime, Biofazolin</td>
+<td><code>40.173</code>, <code>40.166</code></td>
+<td><code>THUOC_391</code> (cấp vs y lệnh), ngữ cảnh KS</td>
+<td><code>000589</code>, <code>000308</code>, <code>000339</code> (Biofazolin)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Fluoroquinolon</strong></td>
+<td>Ciprofloxacin (ví dụ ngoại trú)</td>
+<td>(theo hồ sơ)</td>
+<td>Đơn ngoại trú, INN, giá</td>
+<td><code>OP26001050</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Thuốc ho / long đờm (thành phần thảo dược)</strong></td>
+<td>Hoastex</td>
+<td><code>05C.150</code></td>
+<td><code>THUOC_207</code> (J06/J20/R05 + mô tả)</td>
+<td><code>000589</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Men vi sinh / probiotic đường ruột</strong></td>
+<td>DOMUVAR</td>
+<td><code>40.718</code></td>
+<td><code>THUOC_63</code> (A09, K59.1, R19.7…), <code>THUOC_417</code> (cấp dư)</td>
+<td><code>000589</code>, <code>000434</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Paracetamol / giảm đau hạ sốt</strong></td>
+<td>Partamol, Hapacol 650</td>
+<td><code>40.48</code></td>
+<td><code>THUOC_311</code> (R50, R52, M54 + mô tả), <code>DM-THUOC-04</code></td>
+<td><code>OP26000282</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Corticoid hệ thống</strong></td>
+<td>Medlon (Methylprednisolon)</td>
+<td><code>40.775</code></td>
+<td><code>THUOC_267</code> (J45, J44, M05, L50…)</td>
+<td><code>OP26000908</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Simethicon / đầy hơi</strong></td>
+<td>Mogastic, Simecol (Simethicon)</td>
+<td><code>40.750</code></td>
+<td><code>THUOC_345</code> (R14 + mô tả)</td>
+<td><code>403538</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Sắt uống</strong> (thiếu máu)</td>
+<td>Mekoferrat</td>
+<td>(theo seed)</td>
+<td><code>THUOC_342</code> (D50/O25…)</td>
+<td><code>000339</code> (Mekoferrat)</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Thuốc tiêm phối hợp Amoxicillin–clavulan</strong></td>
+<td>Amoxiclav (ngữ cảnh uống/tiêm theo hồ sơ)</td>
+<td><code>40.155</code> (thường gặp)</td>
+<td><code>THUOC_41</code>, có thể kèm hạn mức khác</td>
+<td><code>OP26000908</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Thuốc ức bơm proton</strong></td>
+<td>Esomeprazol</td>
+<td><code>40.678</code></td>
+<td><code>THUOC_436</code> (INN ngoại trú)</td>
+<td><code>OP26000282</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Insulin / hạ đường huyết</strong></td>
+<td>Insuact (ví dụ trong hồ sơ OP)</td>
+<td><code>40.549</code></td>
+<td>Đối chiếu ICD đái tháo đường / nội trú (rule khác trong seed)</td>
+<td><code>OP26000282</code> (bối cảnh đa bệnh)</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Thuốc tim mạch phối hợp</strong></td>
+<td>Troysar AM</td>
+<td><code>40.30.496</code></td>
+<td>Nhóm tim mạch — tra seed + ICD I10–I25…</td>
+<td><code>OP26000282</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>Danh mục nội bộ: giá trúng thầu</strong></td>
+<td>Mọi mã có đơn giá khai báo</td>
+<td><code>XML2.DON_GIA</code></td>
+<td><code>DM-THUOC-04</code></td>
+<td><code>OP26000282</code>, <code>OP26001050</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Chuẩn hóa đơn ngoại trú (TT 26/2025 / INN)</strong></td>
+<td>Nhiều dòng <code>TEN_THUOC</code></td>
+<td>—</td>
+<td><code>THUOC_436</code></td>
+<td><code>OP26001050</code>, <code>OP26000282</code></td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Đồng bộ tổng tiền thuốc</strong></td>
+<td>Toàn bộ XML2</td>
+<td>—</td>
+<td><code>XML_53</code>, <code>CLN-CHI-01</code></td>
+<td><code>OP26000282</code></td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Trùng lặp kê trong ngày</strong></td>
+<td>—</td>
+<td>—</td>
+<td><code>XML_121</code></td>
+<td><code>000589</code> (cùng hồ sơ)</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>Danh mục nội bộ — chưa xác minh (BYT/BV snapshot)</strong></td>
+<td>Tenamyd-Cefotaxime, Clorpheniramin</td>
+<td><code>40.173</code>, <code>40.81</code></td>
+<td><code>DM-THUOC-03</code></td>
+<td><code>audit_000589_20260404_185800</code> — ca <code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code></td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>Vitamin B6 + magnesi (chỉ định ICD)</strong></td>
+<td>Magnesi B6</td>
+<td><code>40.1055</code></td>
+<td><code>THUOC_374</code> (+ có thể <code>THUOC_373</code> chống chỉ định)</td>
+<td><code>ER26000392</code> — <code>Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.md</code></td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Sai lệch cấp vs y lệnh (nội trú — giường/PT)</strong></td>
+<td>Dafodin</td>
+<td><code>40.736</code></td>
+<td><code>THUOC_391</code></td>
+<td><code>000573</code> — <code>Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.md</code></td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>Probiotic + KS cấp dư (nội trú nặng)</strong></td>
+<td>DOMUVAR + Cefotaxime</td>
+<td><code>40.718</code>, <code>40.173</code></td>
+<td><code>THUOC_63</code>, <code>THUOC_417</code></td>
+<td><code>audit_PC022300479_IP26000139.json</code> — <code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code></td>
+</tr>
+</tbody></table>
+<p><em>Bảng có thể mở rộng khi bổ sung ca mới; mỗi dòng mới nên có ít nhất một <code>MA_LK</code> kiểm chứng.</em></p>
+<h2>3. Nguyên tắc gán “nhóm” cho AI</h2>
+<ol>
+<li><strong>Ưu tiên <code>MA_THUOC</code> + <code>TEN_THUOC</code></strong> từ XML2, không đoán hoạt chất nếu tên quá tắt.</li>
+<li><strong>Đọc <code>MA_NHOM</code> / nhóm BHYT</strong> (nếu có) để hỗ trợ phân loại nhưng <strong>không thay rule ICD</strong> đã gắn trong seed.</li>
+<li>Cùng một hoạt chất có thể có <strong>nhiều mã/biệt dược</strong> → rule có thể gắn theo <strong>mã cụ thể</strong> trong <code>du_lieu_luat_thuoc_muc8.jsx</code>.</li>
+<li>Một dòng thuốc có thể chịu <strong>nhiều rule khác loại</strong> (ví dụ vừa <code>THUOC_311</code> vừa <code>DM-THUOC-04</code>).</li>
+</ol>
+<h2>4. Bài lô huấn luyện (20 mục — giao cho AI)</h2>
+<p>Yêu cầu: với mỗi cặp (mã, tên) dưới đây, AI trả lời <strong>ngắn gọn 3 dòng</strong>: (a) nhóm nghiệp vụ, (b) rule seed cần xem trong file Excel/JSX, (c) loại kiểm soát theo <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>.</p>
+<ol>
+<li><code>40.155</code> — Cepmox-Clav / Klamentin  </li>
+<li><code>40.173</code> — Cefotaxime  </li>
+<li><code>40.166</code> — Biofazolin  </li>
+<li><code>05C.150</code> — Hoastex  </li>
+<li><code>40.718</code> — DOMUVAR  </li>
+<li><code>40.48</code> — Partamol / Hapacol  </li>
+<li><code>40.775</code> — Medlon  </li>
+<li><code>40.750</code> — Mogastic / Simecol  </li>
+<li><code>40.678</code> — Esomeprazol  </li>
+<li><code>40.549</code> — Insuact  </li>
+<li><code>40.30.496</code> — Troysar AM  </li>
+<li><code>40.345</code> — (nếu có trong BV — tra danh mục)  </li>
+<li>Mekoferrat — tra mã trong hồ sơ <code>000339</code>  </li>
+<li><code>40.750</code> + chẩn đoán không R14 — <code>THUOC_345</code>  </li>
+<li>Bất kỳ dòng có <code>DON_GIA</code> &gt; giá thầu — <code>DM-THUOC-04</code>  </li>
+<li>Ngoại trú + <code>TEN_THUOC</code> không có <code>(INN)</code> — <code>THUOC_436</code>  </li>
+<li><code>SO_LUONG</code> &lt; <code>SL_MOI_NGAY * SO_NGAY</code> — <code>THUOC_391</code>  </li>
+<li><code>SO_LUONG</code> &gt; <code>SL_MOI_NGAY * SO_NGAY</code> — <code>THUOC_417</code>  </li>
+<li><code>XML1.T_THUOC</code> lệch tổng XML2 — <code>XML_53</code>  </li>
+<li>Kháng sinh tiêm ngắn ngày quanh PTTT — xem <code>Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code></li>
+</ol>
+<h2>5. Prompt mẫu (đa thuốc / một hồ sơ)</h2>
+<ul>
+<li><em>“Đọc <code>audit_000589_20260405_232716.json</code>. Liệt kê từng <strong>mã thuốc</strong> bị cảnh báo, rule tương ứng, và giải thích vì sao đây là các <strong>nhóm kiểm soát khác nhau</strong> (ICD vs số lượng vs trùng kê).”</em></li>
+<li><em>“So sánh danh sách thuốc <code>OP26000282</code> với bảng mục 2: thuốc nào thuộc nhóm giảm đau, nhóm KS, nhóm giá/INN?”</em></li>
+</ul>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Khung phân loại lỗi: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>  </li>
+<li>DM thuốc nội bộ + đối chiếu tiền + <strong>DMBV-THUOC-</strong>*: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>  </li>
+<li>Ca Magnesi B6 / THUOC_374: <code>Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.md</code>  </li>
+<li>Ca Dafodin / THUOC_391 (000573): <code>Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.md</code>  </li>
+<li>Chỉ mục engine thuốc: <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code>  </li>
+<li>Ca nội trú DOMUVAR + THUOC_417: <code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code>  </li>
+<li>Ca một hồ sơ — nhiều nhóm: <code>Ca_huan_luyen_mau_000589_nhieu_nhom_thuoc_mot_ho_so.md</code>  </li>
+<li>Ca <code>DM-THUOC-03</code> (snapshot): <code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code>  </li>
+<li>Ca ngoại trú đa lớp (I10 + nhiều thuốc): <code>Ca_huan_luyen_mau_OP26000282_I10_tang_huyet_ap.md</code>  </li>
+<li>Đợt thẻ thuốc dot1–dot5: <code>The_tri_thuc_mau_nhom_thuoc_dot*.md</code></li>
+</ul>
+<hr>
+<p><em>Cập nhật bảng mục 2 khi đơn vị thêm biệt dược mới hoặc khi seed <code>THUOC_*</code> bổ sung mã.</em></p>
+
+  </main>
+</body>
+</html>

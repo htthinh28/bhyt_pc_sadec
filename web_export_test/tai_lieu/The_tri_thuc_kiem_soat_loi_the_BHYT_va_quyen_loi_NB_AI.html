@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KIỂM SOÁT LỖI THẺ BHYT VÀ QUYỀN LỢI NGƯỜI BỆNH — CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KIỂM SOÁT LỖI THẺ BHYT VÀ QUYỀN LỢI NGƯỜI BỆNH — CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 10/04/2026  </p>
+<p><strong>Khung tổng (4 tầng kiểm tra + quy trình kiểm tra):</strong> <a href="./Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md">Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md</a>.</p>
+<h2>1. Mục đích</h2>
+<p>“Lỗi liên quan thẻ BHYT và quyền lợi người bệnh” <strong>không</strong> gói gọn trong một mã rule. AI cần:</p>
+<ul>
+<li>phân tầng <strong>lỗi dữ liệu thẻ / hạn thẻ</strong> vs <strong>lỗi đối tượng &amp; mức hưởng</strong> vs <strong>lỗi thu đồng chi trả / nguồn chi</strong> vs <strong>lỗi phạm vi KCB không thuộc quỹ</strong> (ví dụ Điều 23 Luật BHYT);</li>
+<li>neo <strong>XML1</strong> (và chỉ tiêu tổng hợp) trước khi kết luận “sai quyền lợi” từ một dòng XML2/XML3;</li>
+<li><strong>không</strong> nhầm <strong>ICD / chẩn đoán</strong> với <strong>nhóm đối tượng thẻ</strong> hoặc <strong>mức hưởng</strong>;</li>
+<li>dùng cảnh báo engine <strong><code>HC_*</code></strong>, <strong><code>XML1-REQ-*</code></strong>, và luồng <strong><code>luat_hanh_chinh.jsx</code></strong> — không bịa <strong>Điều khoản</strong> hay <strong>%</strong> ngoài hồ sơ / seed.</li>
+</ul>
+<p>Tài liệu nền dài hơn: <a href="./The_tri_thuc_mau_hanh_chinh_BHYT.md">The_tri_thuc_mau_hanh_chinh_BHYT.md</a>, <a href="./Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md">Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</a>. Luật tổng quát: <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>.</p>
+<hr>
+<h2>2. Định nghĩa làm việc (cho AI)</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Ý nghĩa trong CDSS / kiểm tra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Thẻ BHYT</strong></td>
+<td>Chuỗi mã trên thẻ — trường <strong><code>MA_THE_BHYT</code></strong> (XML1); kèm <strong><code>GT_THE_TU</code></strong>, <strong><code>GT_THE_DEN</code></strong> (hạn hiệu lực).</td>
+</tr>
+<tr>
+<td><strong>Hết hạn thẻ</strong></td>
+<td>So sánh <strong>ngày vào / ngày khám</strong> với <strong><code>GT_THE_DEN</code></strong> — logic ví dụ trong <code>luat_hanh_chinh.jsx</code> (cảnh báo Critical nếu vào sau hạn).</td>
+</tr>
+<tr>
+<td><strong>Đối tượng KCB</strong></td>
+<td><strong><code>MA_DOITUONG_KCB</code></strong> — khác với ICD; ảnh hưởng cách đọc mức hưởng và luật HC.</td>
+</tr>
+<tr>
+<td><strong>Mức hưởng / quyền lợi</strong></td>
+<td>Theo Luật BHYT (thường gợi ý <strong>Điều 22</strong> trong text rule <code>HC_*</code>); trên hồ sơ: phối hợp <strong>XML1</strong> + dòng chi tiết + chỉ tiêu tổng (<code>T_BHTT</code>, <code>T_BNTT</code>, <code>T_BNCCT</code>, …).</td>
+</tr>
+<tr>
+<td><strong>Đồng chi trả (cùng chi trả)</strong></td>
+<td>Phần người bệnh đóng theo mức hưởng — nhóm rule <strong><code>HC_06</code>–<code>HC_13</code></strong>… (đọc từng dòng seed); không đồng nhất với “BN tự trả toàn bộ”.</td>
+</tr>
+<tr>
+<td><strong>KSK / yêu cầu / ngoài phạm vi quỹ</strong></td>
+<td>Từ khóa trong <strong><code>LY_DO_VV</code></strong>, <strong><code>CHAN_DOAN_VAO</code></strong> — <code>luat_hanh_chinh.jsx</code> (Điều 23).</td>
+</tr>
+<tr>
+<td><strong>Sơ sinh – mã mẹ</strong></td>
+<td><strong><code>MA_LK_ME</code></strong>, <strong><code>MA_LK</code></strong> — trùng sai là lỗi định danh hồ sơ (cùng file).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Phân loại kiểm soát (bảng tra nhanh)</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Loại lỗi / rủi ro</th>
+<th>Dữ liệu ưu tiên</th>
+<th>Gợi ý nguồn rule / mã</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Thiếu / sai <strong>mã thẻ</strong>, định dạng</td>
+<td><code>MA_THE_BHYT</code></td>
+<td><code>XML1-REQ-*</code>, cấu trúc QĐ 130</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Hết hạn</strong> thẻ tại thời điểm KCB</td>
+<td><code>GT_THE_DEN</code>, <code>NGAY_VAO</code> / mốc quy định</td>
+<td><code>luat_hanh_chinh.jsx</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Đối tượng</strong> không khớp chế độ TT</td>
+<td><code>MA_DOITUONG_KCB</code>, tổng chi</td>
+<td><code>HC_07</code>, <code>HC_08</code>, <code>HC_11</code>, …</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Trẻ em / thẻ TE</strong> — mức hưởng đặc thù</td>
+<td><code>MA_THE_BHYT</code> (nhóm mã), tổng <code>T_BNCCT</code></td>
+<td><code>HC_12</code>, <code>HC_13</code>, …</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Chi phí thấp / ngưỡng</strong> — thu BN</td>
+<td>Tổng chi, ngưỡng LCS</td>
+<td><code>HC_06</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>KSK / không thuộc quỹ</strong></td>
+<td><code>LY_DO_VV</code>, <code>CHAN_DOAN_VAO</code></td>
+<td><code>luat_hanh_chinh.jsx</code> Điều 23</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Cân đối nguồn</strong> (BHTT/BNTT/BNCCT)</td>
+<td><code>T_TONGCHI_*</code>, các <code>T_*</code> XML1</td>
+<td>Rule tổng hợp / <code>XML_*</code> (xem seed)</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Giới tính / trường danh mục</strong> chuẩn 130</td>
+<td><code>GIOI_TINH</code></td>
+<td><code>luat_hanh_chinh.jsx</code></td>
+</tr>
+</tbody></table>
+<p><em>Chi tiết từng mã <code>HC_*</code>: <code>du_lieu_luat_hanh_chinh_muc2.jsx</code> — đọc <code>CANH_BAO</code>, không tự thêm số điều.</em></p>
+<hr>
+<h2>4. Nguyên tắc suy luận</h2>
+<ol>
+<li><strong>XML1 trước:</strong> Thẻ, hạn, đối tượng, loại KCB, CSKCB, mốc thời gian — sau mới “xuống” XML2/3.</li>
+<li><strong>Một hồ sơ nhiều lớp:</strong> Cùng lúc có cảnh báo <strong>hết hạn thẻ</strong> và <strong>sai tổng tiền</strong> — giải thích <strong>tách dòng</strong>, không gộp một cụm từ “sai BHYT”.</li>
+<li><strong>“Cảnh báo” ≠ khẳng định gian lận:</strong> Nhiều <code>HC_*</code> mang tính <strong>kiểm tra điều kiện</strong> — cần đối chiếu chứng từ (giấy chuyển tuyến, miễn cùng chi trả, v.v.).</li>
+<li><strong>ON/OFF rule:</strong> Rule tắt → im lặng — không suy “đúng tuyệt đối”.</li>
+<li><strong>Quyền lợi người bệnh</strong> trong pháp lý gồm <strong>được thanh toán đúng</strong> + <strong>không bị thu sai</strong> + <strong>được thông tin</strong> — trong CDSS tập trung <strong>đúng dữ liệu &amp; đúng công thức TT</strong>; tranh chấp pháp lý ngoài phạm vi engine.</li>
+</ol>
+<hr>
+<h2>5. Prompt mẫu (huấn luyện)</h2>
+<ul>
+<li><em>«Liệt kê các cảnh báo liên quan <strong>thẻ / đối tượng / mức hưởng / đồng chi trả</strong> trong audit này; mỗi dòng: <code>ma_luat</code>, trường XML1 chính, một câu kết luận nghiệp vụ.»</em></li>
+<li><em>«Nếu <code>MA_THE_BHYT</code> gợi ý nhóm TE — chỉ rõ rule <code>HC_*</code> nào trong repo đi cùng và điều kiện đủ từ tổng chi (nếu có trong JSON).»</em></li>
+<li><em>«Phân biệt lỗi <strong>hết hạn thẻ</strong> với lỗi <strong>sai tổng BNCCT</strong>: dùng trường nào để chứng minh?»</em></li>
+</ul>
+<hr>
+<h2>6. Ca / tài liệu gắn khung (trong repo)</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Trọng tâm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md">Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</a></td>
+<td>Phiên đầy đủ + bài tập</td>
+</tr>
+<tr>
+<td>Audit có <code>HC_*</code> / <code>XML1-REQ-MA_DOITUONG_KCB</code> (ví dụ <strong>ER26000392</strong>)</td>
+<td>Đa lớp thuốc + hành chính</td>
+</tr>
+<tr>
+<td><code>npm run qa:audit-fixtures</code></td>
+<td>10 ca regression có nhánh HC/HD</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Neo mã nguồn (đọc — không đổi logic tại thẻ này)</h2>
+<table>
+<thead>
+<tr>
+<th>Tệp</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ma_nguon/quy_tac/luat_hanh_chinh.jsx</code></td>
+<td>KSK Điều 23, hết hạn thẻ, MA_LK mẹ-con, giới tính</td>
+</tr>
+<tr>
+<td><code>ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx</code></td>
+<td>Seed <strong><code>HC_*</code></strong></td>
+</tr>
+<tr>
+<td><code>ma_nguon/tien_ich/kiem_tra_xml.jsx</code></td>
+<td>Trường bắt buộc XML1</td>
+</tr>
+<tr>
+<td><code>ma_nguon/quy_tac/quyluat_cautrucdulieu/xml1.jsx</code></td>
+<td>Danh mục cột XML1</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Thẻ này bổ sung lớp “kiểm soát lỗi” song song <a href="./The_tri_thuc_kiem_soat_sai_thuoc_AI.md">The_tri_thuc_kiem_soat_sai_thuoc_AI.md</a> và <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a>; cập nhật khi đổi seed HC hoặc đặc tả XML.</em></p>
+
+  </main>
+</body>
+</html>

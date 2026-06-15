@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lộ trình viết lại toàn bộ CHUYEN_DE theo XML1 / XML3 (QĐ 130)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Lo_trinh_viet_lai_CHUYEN_DE_theo_XML130.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Lộ trình viết lại toàn bộ CHUYEN_DE theo XML1 / XML3 (QĐ 130)</h1>
+<p>Phiên bản: 1.0<br>Ngày: 11/04/2026<br>Trạng thái: <strong>lô 1–8 (toàn bộ 603 mã) đã gán <code>DIEU_KIEN</code> XML130 hoặc placeholder</strong> trong mã nguồn (<code>CHUYEN_DE_XML130_CONVERSION_VERSION</code>, <code>scripts/chuyen_de_batch_manifest.json</code>). Quy tắc còn placeholder: <code>tai_lieu/Kiem_soat_placeholder_CHUYEN_DE_XML130.md</code> + <code>npm run chuyen-de:sync-placeholder-registry</code>.</p>
+<h2>1. Mục tiêu và phạm vi</h2>
+<ul>
+<li><strong>603</strong> quy tắc trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> hiện dùng DSL nội bộ (<code>ma_dvkt</code>, <code>has_dvkt</code>, hàm giả lập…) không tương thích với biến <code>XML1</code>/<code>XML3</code> sau <code>chuanHoaRuleDong</code>.</li>
+<li>Mục tiêu: mỗi quy tắc có <strong><code>DIEU_KIEN</code> chỉ dùng</strong>:<ul>
+<li><code>XML1.&lt;trường&gt;</code> (hồ sơ chung),</li>
+<li><code>XML3.&lt;trường&gt;</code> hoặc <code>CURRENT.&lt;trường&gt;</code> khi bảng mục tiêu là XML3 (một dòng DVKT/VTYT trên XML3),</li>
+<li><code>DS_XML2</code>, <code>DS_XML4</code>, <code>DS_XML5</code>… khi thật sự cần và engine hỗ trợ (<code>COUNT_IF</code>, v.v.),</li>
+<li>toán tử đã hỗ trợ trong <code>dong_co_giam_dinh.jsx</code> (không dùng <code>BETWEEN</code>, <code>FOR_EACH</code>, <code>has_dvkt(&#39;KÝ_HIỆU&#39;)</code> trừ khi đã thêm handler đặc biệt).</li>
+</ul>
+</li>
+</ul>
+<h2>2. Nguyên tắc kỹ thuật</h2>
+<h3>2.1. Bảng mục tiêu (<code>PHAN_HE</code> / suy luận)</h3>
+<ul>
+<li>Engine gán <code>CURRENT</code> = dòng đang xét; với luật XML3, <code>CURRENT</code> là một dòng <code>XML3</code> đã qua <code>prepareData</code>.</li>
+<li>Trong <code>DIEU_KIEN</code> <strong>bắt buộc</strong> có ít nhất một tham chiếu <code>XML1.</code> hoặc <code>XML3.</code> (hoặc <code>CURRENT.</code> kèm ngữ cảnh rõ) để <code>inferTargetTableFromCondition</code> và <code>normalizeTargetTable</code> không mặc định sai bảng.</li>
+<li>Trường DVKT trên XML3: ưu tiên <code>MA_DICH_VU</code> / <code>MA_DV</code> (đồng nghĩa sau chuẩn hóa), <code>TEN_DICH_VU</code>, <code>NHOM_DV</code>, <code>MA_BAC_SI</code>, <code>NGAY_YL</code>, <code>MA_MAY</code>, <code>SO_LUONG</code>, <code>DON_GIA</code>, <code>THANH_TIEN</code>, <code>TYLE_TT</code>… đúng tên cột QĐ 130.</li>
+</ul>
+<h3>2.2. Thay thế <code>ma_dvkt == &#39;KÝ_HIỆU_EXCEL&#39;</code></h3>
+<ul>
+<li>Tra cứu <strong>mã dịch vụ thực</strong> trong danh mục nội bộ M05 / bảng ship (<code>DANH_MUC_DVKT_M05</code>) hoặc liệt kê <code>MA_DICH_VU</code> thực tế của BV.</li>
+<li>Nếu một “ký hiệu” ánh xạ <strong>nhiều mã</strong>: dùng <code>MATCH</code> / <code>IN (...)</code> / <code>String(CURRENT.MA_DV).match(/^(03\.|22\.)/)</code> — cần ghi rõ trong cột ghi chú nội bộ (hoặc trong manifest theo mã).</li>
+</ul>
+<h3>2.3. Quy tắc không thể viết chỉ với XML130</h3>
+<ul>
+<li>Các điều kiện phụ thuộc API BHXH, phiếu giấy, “check_overlap” đa hồ sơ, hoặc biến không có trong XML → <strong>không ép</strong> thành công thức giả; ghi nhận trong manifest <code>status: &quot;blocked&quot;</code> và giữ <strong>OFF</strong> + mô tả dữ liệu thiếu.</li>
+</ul>
+<h3>2.4. Quy tắc thuốc / XML2</h3>
+<ul>
+<li>Nếu nghiệp vụ là thuốc: chuyển <code>PHAN_HE</code> logic sang <strong>XML2</strong> (<code>CURRENT</code> = dòng thuốc), hoặc tách sang bảng <code>LUAT_THUOC</code> / seed thuốc — không nhét vào XML3 nếu không có <code>MA_THUOC</code> trên dòng đó.</li>
+</ul>
+<h2>3. Lô triển khai (8 lô × ~75 mã)</h2>
+<table>
+<thead>
+<tr>
+<th>Lô</th>
+<th>Khoảng <code>id</code> / STT</th>
+<th>Trọng tâm</th>
+<th>Đầu ra mỗi lô</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1</strong></td>
+<td>CHUYEN_DE-001 → ~075</td>
+<td>DVKT đơn: <code>MA_DV</code>/<code>TEN_DV</code> + XML1 <code>MA_GIOI_TINH</code>, <code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code></td>
+<td>PR chỉ sửa <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> + cập nhật manifest</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>~076 → ~150</td>
+<td>Cặp DVKT / <code>COUNT_IF</code> cùng <code>DS_XML3</code></td>
+<td>Kiểm tra hiệu năng <code>COUNT_IF</code></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>~151 → ~225</td>
+<td>Giường, <code>MA_GIUONG</code>, nội trú</td>
+<td>Cần XML1 <code>MA_LOAI_KCB</code> + XML3 dòng giường</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>~226 → ~300</td>
+<td>PT/TT, PTTT (mã gốc Excel → M05)</td>
+<td>Phối hợp <code>dich_vu_ky_thuat</code> / DM BV</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>~301 → ~375</td>
+<td>CDHA/CLS, <code>MA_MAY</code>, nhóm CĐHA</td>
+<td>Đối chiếu <code>luat_cdha_hardcoded</code> tránh trùng</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>~376 → ~450</td>
+<td>XN, chỉ định theo ICD</td>
+<td>Token ICD trong <code>MA_BENH_KT</code> (regex giống THUOC_329)</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>~451 → ~525</td>
+<td>Thuốc + tương tác XML2</td>
+<td>Tách hoặc <code>PHAN_HE</code> XML2</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>~526 → ~603</td>
+<td>Hành chính, đa BN, API — phần còn lại</td>
+<td>Nhiều mục <code>blocked</code> dự kiến</td>
+</tr>
+</tbody></table>
+<p>Số thứ tự “~” là chia đều; điều chỉnh theo nhóm nghiệp vụ khi làm thực tế.</p>
+<h2>4. Checklist cho mỗi mã (trước khi gộp PR)</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <code>DIEU_KIEN</code> không còn <code>ma_dvkt</code>, <code>ma_thuoc</code> (trừ khi đó là <strong>tên cột XML</strong> thật sau chuẩn hóa).</li>
+<li><input disabled="" type="checkbox"> Không còn hàm không tồn tại trong <code>ctx</code> (<code>has_dvkt</code>, <code>check_*</code> giả lập) trừ khi đã có <code>taoBoXuLyRuleDongDacBiet</code> cho <code>MA_LUAT</code> đó.</li>
+<li><input disabled="" type="checkbox"> Chạy thử <code>chuanHoaRuleDong</code> / một hồ sơ XML mẫu (hoặc script audit nội bộ) — không <code>ReferenceError</code>, không luôn false do thiếu trường.</li>
+<li><input disabled="" type="checkbox"> Cập nhật <code>scripts/chuyen_de_batch_manifest.json</code>: <code>status: &quot;done&quot;</code>, <code>commit</code> hoặc ngày.</li>
+</ul>
+<h2>5. Ví dụ mẫu (hướng dẫn — chưa gán cứng vào 603 dòng)</h2>
+<p><strong>Ý đồ nghiệp vụ:</strong> Siêu âm đầu dò âm đạo cho bệnh nhân <strong>nam</strong> là không phù hợp.</p>
+<ul>
+<li><strong>Cũ (DSL):</strong> <code>ma_dvkt == &#39;SIEU_AM_DAU_DO_AM_DAO&#39; AND …</code></li>
+<li><strong>Mới (hướng XML130):</strong> trên từng dòng XML3, dùng giới tính XML1 và tên/mã DVKT thực tế, ví dụ:</li>
+</ul>
+<pre><code class="language-text">String(XML1.MA_GIOI_TINH) == &#39;1&#39;
+AND (
+  String(CURRENT.MA_DV) IN (&#39;03.xxxx.xxxx&#39;,&#39;03.yyyy.yyyy&#39;)
+  OR (
+    String(CURRENT.TEN_DICH_VU).toUpperCase().includes(&#39;ĐẦU DÒ&#39;)
+    AND String(CURRENT.TEN_DICH_VU).toUpperCase().includes(&#39;ÂM ĐẠO&#39;)
+  )
+)
+</code></pre>
+<p>Thay mã <code>03.xxxx…</code> bằng mã M05 đã thống nhất tại BV; phần <code>TEN_DICH_VU</code> chỉ là lớp dự phòng khi chưa có danh sách mã đầy đủ.</p>
+<h2>6. Tệp theo dõi</h2>
+<ul>
+<li><code>scripts/chuyen_de_batch_manifest.json</code> — trạng thái từng lô.</li>
+<li><code>CHUYEN_DE_XML130_CONVERSION_VERSION</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> — đồng bộ phiên bản khi bắt đầu ghi nhận lô hoàn tất trong mã.</li>
+</ul>
+<h2>7. Thống nhất quy trình “thực chiến” (từng bước)</h2>
+<p>Sau khi có <code>DIEU_KIEN</code> XML130 (không placeholder), không coi là đã an toàn thực chiến chỉ vì <code>TRANG_THAI=ON</code> trong seed. Làm lần lượt:</p>
+<ol>
+<li><strong>Điều kiện XML130 thật</strong> — không dùng <code>CHUYEN_DE_XML130_CHO_XU_LY_SAU</code>; engine mới có thể phát cảnh báo trên XML có <code>MA_LK</code>.</li>
+<li><strong>Seed ON</strong> — trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> là <code>TRANG_THAI: &#39;ON&#39;</code> (trừ khi cố ý tắt có ghi chú).</li>
+<li><strong>ON/OFF nội bộ</strong> — nếu mã nằm <code>DANH_SACH_MAU_QUY_TAC_MAC_DINH_OFF</code> trong <code>quy_tac_on_off_noi_bo.jsx</code>, mặc định app vẫn OFF; chỉ triển khai khi BV bật ON có kiểm soát.</li>
+<li><strong>Kiểm thử vàng</strong> — chạy trên XML mẫu / ca huấn luyện; ghi <code>golden_test_refs</code> trong manifest khi có.</li>
+<li><strong>Ký duyệt</strong> — thêm <code>CHUYEN_DE-xxx</code> vào <code>scripts/chuyen_de_thuc_chien_manifest.json</code> (<code>approved_rule_ids</code>, sắp xếp tăng dần), rồi chạy <code>npm run qa:chuyen-de-thuc-chien</code>.</li>
+</ol>
+<p>Lệnh: <code>npm run chuyen-de:sync-eligible-scan</code> (inventory), <code>npm run qa:chuyen-de-placeholder</code>, <code>npm run qa:chuyen-de-thuc-chien</code>.</p>
+<p>Sau mỗi lô merge (đã bỏ placeholder, đã sync registry): <strong><code>npm run chuyen-de:rollout-verify</code></strong> — chạy đồng bộ registry, QA CHUYEN_DE, <strong>lint</strong>, audit lõi (fixture / ON-OFF / schema / claim smoke), chỉ mục huấn luyện AI và <strong><code>tai_lieu:danh-muc-off</code></strong>. Audit trạng thái đầy đủ (console dài): <code>npm run qa:rule-trang-thai</code>.</p>
+<hr>
+<p><em>Các phiên làm việc sau: mở một PR theo đúng một lô; cập nhật manifest và phiên bản; chạy kiểm thử kiểm tra trên mẫu XML trước khi merge.</em></p>
+
+  </main>
+</body>
+</html>

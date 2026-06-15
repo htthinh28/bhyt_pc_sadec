@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "generated_at": "2026-04-04T12:35:17.297Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022602974_ER26000392.xml",
+    "ma_lk": "ER26000392",
+    "total_warnings": 9,
+    "by_severity": {
+      "Critical": 1,
+      "Warning": 8
+    },
+    "focus_summary": {}
+  },
+  "unique_rule_codes": [
+    "HC_06",
+    "THUOC_374",
+    "THUOC_417",
+    "THUOC_436",
+    "XML1-REQ-MA_DOITUONG_KCB"
+  ],
+  "rule_summary": {
+    "HC_06": 1,
+    "THUOC_374": 1,
+    "THUOC_417": 3,
+    "THUOC_436": 3,
+    "XML1-REQ-MA_DOITUONG_KCB": 1
+  },
+  "warnings": [
+    {
+      "phan_he": "XML1",
+      "index": -1,
+      "truong_loi": "MA_DOITUONG_KCB",
+      "canh_bao": "XML1: Thiếu trường bắt buộc [MA_DOITUONG_KCB] theo đặc tả XML hiện hành.",
+      "muc_do": "Critical",
+      "ma_luat": "XML1-REQ-MA_DOITUONG_KCB",
+      "ten_quy_tac": "Kiểm tra cấu trúc XML theo QĐ3176",
+      "dieu_kien": "STATIC"
+    },
+    {
+      "id": "HC_06",
+      "phan_he": "XML1",
+      "truong_loi": "T_TONGCHI_BH",
+      "canh_bao": "⛔ [THU SAI]: Chi phí đợt điều trị dưới 351.000đ (15% LCS), BN phải được hưởng 100%. Cơ sở không được thu tiền cùng chi trả.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_06",
+      "ten_quy_tac": "Chi phí thấp (Dưới 15% LCS)",
+      "dieu_kien": "XML1.T_TONGCHI_BH < (0.15 * 2340000) AND XML1.T_BNCCT > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "THUOC_374",
+      "phan_he": "XML2",
+      "truong_loi": "MA_THUOC",
+      "canh_bao": "⛔ [XUẤT TOÁN]: Thuốc Magnesi B6 chỉ được thanh toán cho chẩn đoán Rối loạn Magne (E83.4) hoặc Co quắp cơ/Chuột rút (R25.2). Chi tiết thuốc: [40.1055] Magnesi B6.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "THUOC_374",
+      "ten_quy_tac": "[Vitamin B6 + magnesi lactat] Kiểm tra Chỉ định ICD-10",
+      "dieu_kien": "XML2.MA_THUOC == '40.1055' AND XML1.MA_BENH_CHINH NOT IN ('E83.4', 'R25.2') AND XML1.MA_BENH_KT NOT LIKE '%E83.4%' AND XML1.MA_BENH_KT NOT LIKE '%R25.2%' AND XML1.CHAN_DOAN_RV NOT REGEXP '(?i)(HẠ MAGIE|CHUỘT RÚT|CO GIẬT CƠ)'",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_417",
+      "phan_he": "XML2",
+      "truong_loi": "SO_LUONG",
+      "canh_bao": "⛔ [XUẤT TOÁN]: Thuốc {TEN_THUOC} cấp dư {DU_QTY} đơn vị. (Kê đơn: {SO_LUONG}, Y lệnh thực tế: {SL_MOI_NGAY} {UNIT}/ngày x {SO_NGAY} ngày). Chi tiết thuốc: [40.576] Collamino 1200.",
+      "muc_do": "Warning",
+      "index": 0,
+      "ma_luat": "THUOC_417",
+      "ten_quy_tac": "Kiểm tra thuốc cấp dư (Dựa trên y lệnh)",
+      "dieu_kien": "XML2.SO_LUONG > (XML2.SL_MOI_NGAY * XML2.SO_NGAY)",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_417",
+      "phan_he": "XML2",
+      "truong_loi": "SO_LUONG",
+      "canh_bao": "⛔ [XUẤT TOÁN]: Thuốc {TEN_THUOC} cấp dư {DU_QTY} đơn vị. (Kê đơn: {SO_LUONG}, Y lệnh thực tế: {SL_MOI_NGAY} {UNIT}/ngày x {SO_NGAY} ngày). Chi tiết thuốc: [40.1055] Magnesi B6.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "THUOC_417",
+      "ten_quy_tac": "Kiểm tra thuốc cấp dư (Dựa trên y lệnh)",
+      "dieu_kien": "XML2.SO_LUONG > (XML2.SL_MOI_NGAY * XML2.SO_NGAY)",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_417",
+      "phan_he": "XML2",
+      "truong_loi": "SO_LUONG",
+      "canh_bao": "⛔ [XUẤT TOÁN]: Thuốc {TEN_THUOC} cấp dư {DU_QTY} đơn vị. (Kê đơn: {SO_LUONG}, Y lệnh thực tế: {SL_MOI_NGAY} {UNIT}/ngày x {SO_NGAY} ngày). Chi tiết thuốc: [05C.135.5] Mimosa Viên an thần.",
+      "muc_do": "Warning",
+      "index": 2,
+      "ma_luat": "THUOC_417",
+      "ten_quy_tac": "Kiểm tra thuốc cấp dư (Dựa trên y lệnh)",
+      "dieu_kien": "XML2.SO_LUONG > (XML2.SL_MOI_NGAY * XML2.SO_NGAY)",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_436",
+      "phan_he": "XML2",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ [TT 26/2025]: Kê đơn ngoại trú phải ghi tên chung quốc tế (INN). Trường hợp ghi tên thương mại phải ghi tên INN trong ngoặc đơn. Chi tiết thuốc: [40.576] Collamino 1200.",
+      "muc_do": "Warning",
+      "index": 0,
+      "ma_luat": "THUOC_436",
+      "ten_quy_tac": "Kiểm tra Tên thuốc (INN)",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '1' AND XML2.TEN_THUOC NOT LIKE '%(%'",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_436",
+      "phan_he": "XML2",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ [TT 26/2025]: Kê đơn ngoại trú phải ghi tên chung quốc tế (INN). Trường hợp ghi tên thương mại phải ghi tên INN trong ngoặc đơn. Chi tiết thuốc: [40.1055] Magnesi B6.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "THUOC_436",
+      "ten_quy_tac": "Kiểm tra Tên thuốc (INN)",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '1' AND XML2.TEN_THUOC NOT LIKE '%(%'",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_436",
+      "phan_he": "XML2",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ [TT 26/2025]: Kê đơn ngoại trú phải ghi tên chung quốc tế (INN). Trường hợp ghi tên thương mại phải ghi tên INN trong ngoặc đơn. Chi tiết thuốc: [05C.135.5] Mimosa Viên an thần.",
+      "muc_do": "Warning",
+      "index": 2,
+      "ma_luat": "THUOC_436",
+      "ten_quy_tac": "Kiểm tra Tên thuốc (INN)",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '1' AND XML2.TEN_THUOC NOT LIKE '%(%'",
+      "co_so_phap_ly": ""
+    }
+  ]
+}

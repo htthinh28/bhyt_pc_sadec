@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE TRI THUC MAU NHOM THUOC DOT 5 - NGOAI TRU KE DON VA GIA THUOC</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_thuoc_dot5_ngoai_tru_ke_don_va_gia.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THE TRI THUC MAU NHOM THUOC DOT 5 - NGOAI TRU KE DON VA GIA THUOC</h1>
+<p>Phien ban tai lieu: 1.0<br>Ngay cap nhat: 06/04/2026</p>
+<h2>1. Muc tieu</h2>
+<p>Dot 5 tap trung vao nhom canh bao thuoc ngoai tru de day AI 3 nang luc:</p>
+<ul>
+<li>phan biet loi hanh chinh/ke toan voi loi chi dinh dieu tri</li>
+<li>doc canh bao theo tung dong thuoc thay vi ket luan gom mot lan</li>
+<li>neu ro muc do chac chan khi du lieu con thieu</li>
+</ul>
+<h2>2. Nguon tri thuc</h2>
+<ul>
+<li><code>test_xml/audit_OP26001050_20260406_223422.json</code></li>
+<li><code>tai_nguyen/op/PC022209289_OP26001050.xml</code></li>
+<li>Rule lien quan trong audit:<ul>
+<li><code>THUOC_436</code></li>
+<li><code>DM-THUOC-04</code></li>
+<li><code>XML_53</code></li>
+<li><code>HC-06d</code></li>
+<li><code>HD_10</code></li>
+</ul>
+</li>
+</ul>
+<h2>3. The tri thuc mau dot 5</h2>
+<hr>
+<h2>The 25. Kiem tra ten thuoc INN trong don ngoai tru</h2>
+<h3>1. Thong tin chung</h3>
+<ul>
+<li>Chu de: ten thuoc trong don ngoai tru</li>
+<li>Nguon: <code>THUOC_436</code></li>
+<li>Kieu suy luan: hanh chinh + chat luong don thuoc</li>
+</ul>
+<h3>2. Menh de nghiep vu cot loi</h3>
+<ul>
+<li>Don ngoai tru phai the hien ten chung quoc te (INN) hoac ten thuong mai kem INN trong ngoac.</li>
+</ul>
+<h3>3. Pham vi ap dung</h3>
+<ul>
+<li>Dieu kien: <code>XML1.MA_LOAI_KCB == &#39;1&#39;</code></li>
+<li>Dau hieu canh bao: <code>XML2.TEN_THUOC</code> khong chua cau truc <code>(...)</code></li>
+</ul>
+<h3>4. Du lieu can kiem tra</h3>
+<ul>
+<li><code>XML1.MA_LOAI_KCB</code></li>
+<li><code>XML2.TEN_THUOC</code> theo tung dong</li>
+</ul>
+<h3>5. Cach suy luan dung</h3>
+<ul>
+<li>Rule nay danh tren tung dong thuoc, co the xuat hien nhieu canh bao trong mot ho so.</li>
+<li>Khong ket luan la &quot;chi dinh sai&quot; chi tu canh bao nay; day la yeu cau chuan hoa ten thuoc.</li>
+</ul>
+<h3>6. Bai hoc cho AI</h3>
+<ul>
+<li>Khi thay nhieu canh bao cung ma rule, can tong hop theo nhom &quot;loi lap theo dong&quot; thay vi coi la nhieu loi ban chat khac nhau.</li>
+</ul>
+<hr>
+<h2>The 26. Don gia thuoc vuot gia trung thau noi bo</h2>
+<h3>1. Thong tin chung</h3>
+<ul>
+<li>Chu de: kiem tra gia thuoc</li>
+<li>Nguon: <code>DM-THUOC-04</code></li>
+<li>Kieu suy luan: tai chinh + thanh toan BHYT</li>
+</ul>
+<h3>2. Menh de nghiep vu cot loi</h3>
+<ul>
+<li>Don gia dong thuoc khai bao vuot gia trung thau noi bo da phe duyet tai co so KCB se la canh bao muc do cao.</li>
+</ul>
+<h3>3. Pham vi ap dung</h3>
+<ul>
+<li>Rule danh tren tung dong <code>XML2</code></li>
+<li>Can doi chieu ma thuoc, don gia va thong tin gia trung thau noi bo</li>
+</ul>
+<h3>4. Du lieu can kiem tra</h3>
+<ul>
+<li><code>XML2.MA_THUOC</code></li>
+<li><code>XML2.DON_GIA</code></li>
+<li>bang gia trung thau noi bo tai co so</li>
+</ul>
+<h3>5. Cach suy luan dung</h3>
+<ul>
+<li>Neu canh bao xuat hien, AI phai uu tien ket luan &quot;rui ro tai chinh can doi chieu hoa don/chung tu&quot;.</li>
+<li>Khong tu dong dien giai thanh loi an toan dieu tri.</li>
+</ul>
+<h3>6. Bai hoc cho AI</h3>
+<ul>
+<li>Phai tach ro &quot;gia khong hop le&quot; voi &quot;thuoc khong hop chi dinh&quot;. Hai nhom nay co huong xu ly khac nhau.</li>
+</ul>
+<hr>
+<h2>The 27. Lech tong tien thuoc XML1 va cong don XML2</h2>
+<h3>1. Thong tin chung</h3>
+<ul>
+<li>Chu de: doi chieu tong hop chi phi thuoc</li>
+<li>Nguon: <code>XML_53</code></li>
+<li>Kieu suy luan: nhat quan du lieu, ke toan ho so</li>
+</ul>
+<h3>2. Menh de nghiep vu cot loi</h3>
+<ul>
+<li>Tong <code>XML1.T_THUOC</code> phai khop voi tong <code>THANH_TIEN_BV</code> cua cac dong thuoc phu hop tai <code>XML2</code>.</li>
+</ul>
+<h3>3. Du lieu can kiem tra</h3>
+<ul>
+<li><code>XML1.T_THUOC</code></li>
+<li>cac dong <code>XML2</code> thuoc nhom thuoc duoc tinh tong</li>
+<li>cong thuc tinh tong ma engine dang ap dung</li>
+</ul>
+<h3>4. Cach suy luan dung</h3>
+<ul>
+<li>Day la canh bao nhat quan du lieu, chua du de ket luan nguyen nhan cuoi cung.</li>
+<li>AI phai ghi ro can doi chieu bo ba: XML1, XML2 va bang tong hop thanh toan.</li>
+</ul>
+<h3>5. Bai hoc cho AI</h3>
+<ul>
+<li>Ket luan dung dang: &quot;co dau hieu lech so lieu canh bao&quot;, khong nen khang dinh ngay la gian lan neu chua doi chieu chung tu goc.</li>
+</ul>
+<h2>4. Ket luan huan luyen dot 5</h2>
+<p>Thu tu doc canh bao de han che nham lan:</p>
+<ol>
+<li>Tach nhom canh bao thanh toan/tai chinh (<code>DM-THUOC-04</code>, <code>XML_53</code>).</li>
+<li>Tach nhom canh bao chuan hoa don ngoai tru (<code>THUOC_436</code>).</li>
+<li>Sau do moi tong hop danh gia xu ly theo muc do rui ro va do chac chan du lieu.</li>
+</ol>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bảng neo — phiên huấn luyện DVKT ↔ engine (repo)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Bang_neo_phien_huan_luyen_dvkt_va_engine.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Bảng neo — phiên huấn luyện DVKT ↔ engine (repo)</h1>
+<p>Mục đích: mỗi phiên DVKT <strong>luôn</strong> trỏ tới <strong>thẻ tri thức VBHN</strong>, <strong>ít nhất một nhóm mã <code>DVKT_*</code> / <code>CDHA_*</code> hoặc gói PTTT</strong>, file <strong>seed/mã</strong>, và <strong>ca mẫu / audit</strong> khi có — tránh học khái niệm 17/VBHN tách khỏi dòng rule thực tế. <strong>Khung suy luận thống nhất cho AI:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Phiên</th>
+<th>MA_LUAT / ví dụ</th>
+<th>File seed hoặc mã chính</th>
+<th>Thẻ tri thức / chỉ mục</th>
+<th>Ca mẫu / audit (nếu có)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">DVKT — 17/VBHN-BYT (tri thức tổng)</a></td>
+<td>Khung Điều 1–4d, DM1–3; rule ví dụ <code>DVKT_*</code>, <code>CDHA_*</code></td>
+<td><code>dvkt_op_giam_dinh.jsx</code> (<code>VBHN_17_META</code>); <code>dong_co_giam_dinh.jsx</code> (<code>CO_SO_PHAP_LY_DVKT</code>, <code>VAN_BAN_HANH_CHINH_HIEN_HANH.VBHN_17</code>); <code>luat_cdha_hardcoded.jsx</code></td>
+<td><a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>; <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> §11.5</td>
+<td><em>(Không bắt buộc một ca — dùng mục F handoff QA)</em></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md">Ca 000308 — Gói PT + ICD + thuốc tê/mê</a></td>
+<td><code>DVKT_2587</code>, <code>DVKT_2588</code></td>
+<td><code>ma_nguon/tien_ich/du_lieu_luat_pttt_muc11.jsx</code>; luồng XML3 + XML1 + XML2 trong <code>dong_co_giam_dinh.jsx</code></td>
+<td>Cùng thẻ DVKT §3.1 điểm b (PTTT), §3.4–4a (gói / không thu trùng)</td>
+<td><code>test_xml/audit_000308_20260405_083942.json</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md">Ca 000502 — MRI, chờ &gt;3 ngày nội trú</a></td>
+<td><code>CDHA_164</code></td>
+<td><code>ma_nguon/tien_ich/luat_cdha_hardcoded.jsx</code> (<code>CDHA-164</code>); meta <code>CDHA_HARDCODED</code> trong <code>dong_co_giam_dinh.jsx</code></td>
+<td>Thẻ DVKT §3.7–4c (ngày điều trị / thời điểm DV); nhãn <strong>quản trị/TAT</strong> trong text cảnh báo</td>
+<td><code>test_xml/audit_000502_20260404_192348.json</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000538_CDHA_101_ma_may_XQ.md">Ca 000538 — MA_MAY “rác”, X-quang</a></td>
+<td><code>CDHA_101</code></td>
+<td><code>luat_cdha_hardcoded.jsx</code> (<code>CDHA-101</code>)</td>
+<td>Chất lượng dữ liệu M06/thiết bị gắn XML3; liên quan kiểm tra <strong>mã máy</strong> theo TT 12 / QĐ 130 (đối chiếu hướng dẫn BHXH)</td>
+<td><code>test_xml/audit_000538_20260404_221726.json</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md">Ca 000375 — DVKT-OP-09 danh mục nội bộ</a></td>
+<td><code>DVKT-OP-09</code> (<code>CHECK_INTERNAL_APPROVAL</code>)</td>
+<td><code>dvkt_op_giam_dinh.jsx</code>; <code>dong_co_giam_dinh.jsx</code> → <code>DVKT_OP</code></td>
+<td>Điều 3 VBHN (điều kiện CS + DM); thẻ <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a> §3.3</td>
+<td><code>test_xml/audit_000375_20260405_065828.json</code></td>
+</tr>
+</tbody></table>
+<h3>Phân biệt nguồn rule (tóm tắt cho AI)</h3>
+<table>
+<thead>
+<tr>
+<th>Tiền tố / nhóm</th>
+<th>Nguồn trong repo</th>
+<th>Ghi chú huấn luyện</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DVKT_*</code> (nhiều mã số)</td>
+<td>Thường <strong>seed PTTT mức 11</strong> <code>du_lieu_luat_pttt_muc11.jsx</code> + pipeline <code>dong_co_giam_dinh.jsx</code></td>
+<td>Gói PT, ICD, thuốc kèm gói — <strong>không</strong> đồng nhất với toàn bộ “VBHN 17” đã mã hóa</td>
+</tr>
+<tr>
+<td><code>CDHA_*</code></td>
+<td><strong><code>luat_cdha_hardcoded.jsx</code></strong></td>
+<td>CĐHA/XN/chất lượng tên–mã–máy; một số mang tính <strong>JCI / nội bộ BV</strong></td>
+</tr>
+<tr>
+<td><code>DVKT-OP-*</code></td>
+<td><strong><code>dvkt_op_giam_dinh.jsx</code></strong> (<code>DEFAULT_DVKT_RULES</code>, operator)</td>
+<td>Toán tử <strong>cố định trong mã</strong> + dữ liệu nền AsyncStorage/Firebase; khác mã <code>DVKT_xxxx</code> (seed PTTT); <code>ma_luat</code> audit: <code>DVKT-OP-xx</code></td>
+</tr>
+</tbody></table>
+<p><strong>Quy tắc soạn phiên mới:</strong> thêm một dòng vào bảng trên; ưu tiên có <strong>audit JSON</strong> trong <code>test_xml/</code> hoặc <code>test_xml/huan_luyen/</code> để lặp lại được.</p>
+<p><strong>QA:</strong> Cùng bộ lệnh repo (<code>npm run qa:audit-fixtures</code>, <code>npm run qa:on-off-match</code>) sau khi chỉnh seed DVKT/PTTT — xem <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> mục F.</p>
+<p><strong>Liên kết bảng thuốc:</strong> <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a></p>
+
+  </main>
+</body>
+</html>

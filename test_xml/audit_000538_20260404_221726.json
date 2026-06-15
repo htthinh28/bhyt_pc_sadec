@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "generated_at": "2026-04-04T15:17:26.870Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022602579_IP26000243.xml",
+    "ma_lk": "000538",
+    "total_warnings": 6,
+    "by_severity": {
+      "Error": 1,
+      "Warning": 5
+    },
+    "focus_summary": {}
+  },
+  "unique_rule_codes": [
+    "CDHA_101",
+    "CLN-CT-01",
+    "CLN-CT-02",
+    "HC_171",
+    "HC_181",
+    "HD_10"
+  ],
+  "rule_summary": {
+    "CDHA_101": 1,
+    "CLN-CT-01": 1,
+    "CLN-CT-02": 1,
+    "HC_171": 1,
+    "HC_181": 1,
+    "HD_10": 1
+  },
+  "warnings": [
+    {
+      "phan_he": "XML1",
+      "index": -1,
+      "truong_loi": "GIAY_CHUYEN_TUYEN",
+      "canh_bao": "Loại ra viện [2] (chuyển tuyến) nhưng GIAY_CHUYEN_TUYEN trống (Thông tư 01/2025/TT-BYT).",
+      "muc_do": "Error",
+      "ma_luat": "CLN-CT-01",
+      "ten_quy_tac": "Giấy chuyển tuyến",
+      "dieu_kien": "BUILT-IN",
+      "co_so_phap_ly": "Thông tư 01/2025/TT-BYT: quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính."
+    },
+    {
+      "id": "CDHA_101",
+      "phan_he": "XML3",
+      "truong_loi": "MA_MAY",
+      "canh_bao": "⛔ [LỖI DỮ LIỆU]: Mã máy trang thiết bị không đúng định dạng hoặc mã giả định. BHXH sẽ từ chối quyết toán. Chi tiết dịch vụ: [18.0119.0028] Chụp X-quang ngực thẳng [số hóa 1 phim]. Nhân sự liên quan: 000286/LA-GPHN (0004168/VL-CCHN); Chức danh: 1; Phạm vi: 103.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "CDHA_101",
+      "ten_quy_tac": "Kiểm soát mã máy \"Rác\"",
+      "dieu_kien": "(LEN(XML3.MA_MAY) < 5 OR XML3.MA_MAY == '12345') AND !(XML3.TEN_DICH_VU || '').toUpperCase().includes('KHÁM')",
+      "co_so_phap_ly": ""
+    },
+    {
+      "phan_he": "XML1",
+      "index": -1,
+      "truong_loi": "MA_NOI_DI",
+      "canh_bao": "Trường hợp chuyển tuyến nhưng MA_NOI_DI trống.",
+      "muc_do": "Warning",
+      "ma_luat": "CLN-CT-02",
+      "ten_quy_tac": "Mã nơi chuyển đến",
+      "dieu_kien": "BUILT-IN",
+      "co_so_phap_ly": "Thông tư 01/2025/TT-BYT: quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính."
+    },
+    {
+      "id": "HC_171",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi hồ sơ: Điều trị nội trú bắt buộc phải có dữ liệu diễn biến bệnh hàng ngày (XML5).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_171",
+      "ten_quy_tac": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND COUNT(XML5) == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_181",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_RV",
+      "canh_bao": "⛔ Lỗi cấu trúc: Mã bệnh viện tuyến trên chuyển đến phải đúng 5 ký tự.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_181",
+      "ten_quy_tac": "Mã khoa chuyển đến sai định dạng",
+      "dieu_kien": "XML1.MA_LOAI_RV == '2' AND LEN(XML1.MA_NOI_DEN) != 5",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HD_10",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ JCI Audit: Kết quả cận lâm sàng thiếu dải chỉ số bình thường, vi phạm tiêu chuẩn chất lượng cam kết trong Hợp đồng.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HD_10",
+      "ten_quy_tac": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "dieu_kien": "COUNT_IF(XML4, IS_EMPTY(item.CHI_SO_XN_BT)) > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022602579_IP26000243.xml",
+    "reportPath": "C:\\Users\\admin\\Documents\\Google Drive\\ung_dung_cdss_bhyt\\test_xml\\mock_bao_cao_000538.xlsx",
+    "maLK": "000538",
+    "durationMinutes": 3197,
+    "reportRowCount": 6,
+    "summary": {
+      "HOP_LY": 6
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "J18.9;A41.9;H60.9",
+    "mucThe": "1",
+    "maLoaiRv": "2",
+    "giayChuyenTuyen": "",
+    "maNoiDi": "",
+    "maNoiDen": "",
+    "hasInvalidCdhaMachineCode": true
+  },
+  "rows": [
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "CLN-CT-01",
+      "QUY_TAC": "Giấy chuyển tuyến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "MA_LOAI_RV=2 nhung GIAY_CHUYEN_TUYEN dang rong"
+    },
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "CDHA_101",
+      "QUY_TAC": "Kiểm soát mã máy \"Rác\"",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "MA_MAY dang la mo ta may/ma gia dinh, khong phai ma thiet bi hop le"
+    },
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "CLN-CT-02",
+      "QUY_TAC": "Mã nơi chuyển đến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "MA_LOAI_RV=2 nhung MA_NOI_DI dang rong"
+    },
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "HC_171",
+      "QUY_TAC": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "HC_181",
+      "QUY_TAC": "Mã khoa chuyển đến sai định dạng",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "MA_LOAI_RV=2 nhung MA_NOI_DEN='(rong)' khong du 5 ky tu"
+    },
+    {
+      "MA_LK": "000538",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co chi so xet nghiem co gia tri nhung thieu dai chi so binh thuong"
+    }
+  ]
+}

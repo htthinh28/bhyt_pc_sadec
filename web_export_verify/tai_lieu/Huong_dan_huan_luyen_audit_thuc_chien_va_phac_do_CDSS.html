@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN: HUẤN LUYỆN AI THỰC CHIẾN — BÁO CÁO VI PHẠM + HỒ SƠ `ip` + PHÁC ĐỒ CDSS</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_huan_luyen_audit_thuc_chien_va_phac_do_CDSS.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN: HUẤN LUYỆN AI THỰC CHIẾN — BÁO CÁO VI PHẠM + HỒ SƠ <code>ip</code> + PHÁC ĐỒ CDSS</h1>
+<p>Phiên bản: 1.0 · Cập nhật: 11/04/2026  </p>
+<h2>1. Mục đích</h2>
+<p>Kết hợp <strong>kết quả kiểm tra xuất ra Excel</strong> (sheet <code>DS_Loi</code>) với <strong>hồ sơ XML thật</strong> trong <code>tai_nguyen/ip/</code> và <strong>kho phác đồ CDSS</strong> (<code>du_lieu_phac_do_cdss_guidelines.seed.json</code>) để:</p>
+<ul>
+<li>Neo <strong>mã lượt (<code>Mã LK</code>)</strong> ↔ file XML ↔ <strong>ICD chính</strong> ↔ <strong>có/không có phác đồ</strong> cho ICD đó;</li>
+<li>Phát hiện <strong>cảnh báo hàng loạt</strong> (cùng mã luật lặp lại nhiều lần) trước khi đưa vào huấn luyện;</li>
+<li>Kiểm soát <strong>dương tính giả</strong> và quyết định <strong>có nên ghi nhận</strong> một loại lỗi làm “bài học hệ thống” hay không.</li>
+</ul>
+<p><strong>Không</strong> thay thế quyết định của kiểm tra viên; dữ liệu nhạy cảm (họ tên, số thẻ) <strong>không</strong> đưa vào file JSON sinh bởi script (chỉ <code>MA_LK</code>, mã luật, đường dẫn file).</p>
+<hr>
+<h2>2. Sinh file nối (máy cục bộ)</h2>
+<p>Sau khi có file báo cáo (ví dụ <code>Bao_Cao_Vi_Pham_*.xlsx</code> trong Downloads):</p>
+<pre><code class="language-bash">node scripts/huan_luyen_merge_audit_bao_cao_voi_ip.mjs &quot;C:/Users/admin/Downloads/Bao_Cao_Vi_Pham_1775878431265.xlsx&quot; ip
+</code></pre>
+<p>Hoặc:</p>
+<pre><code class="language-bash">npm run huan-luyen:merge-audit-ip -- &quot;C:/Users/admin/Downloads/Bao_Cao_Vi_Pham_1775878431265.xlsx&quot; ip
+</code></pre>
+<p><strong>Output:</strong> <code>tai_lieu/_huan_luyen_merge_audit_neo_ip.json</code> (mặc định <strong>gitignore</strong> — không push nếu chính sách không cho phép lộ <code>MA_LK</code>).</p>
+<p>Nội dung gồm: <code>thong_ke</code>, <code>canh_bao_hang_loat_de_ra_soat</code>, <code>chi_tiet_theo_ma_lk</code> (cờ <code>co_phac_do_cdss_cho_icd_chinh</code>, <code>relPath</code>, danh sách <code>ma_luat</code>).</p>
+<hr>
+<h2>3. Ứng dụng tri thức phác đồ CDSS trong thực chiến</h2>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Việc làm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Đọc <code>chi_tiet_theo_ma_lk[]</code>: với từng <code>ma_lk</code> có <code>relPath</code>, mở đúng file trong repo (hoặc import vào CDSS).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>So <strong>ICD chính trên XML1</strong> với cột phác đồ — nếu <code>co_phac_do_cdss_cho_icd_chinh: true</code>, AI có thể đối chiếu <strong>mục tiêu điều trị / điều trị đặc hiệu</strong> với XML2/XML3 (xem <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</a>).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Phân biệt <strong>cảnh báo thanh toán/hành chính</strong> (DM, luật thuốc/DVKT) với <strong>gợi ý chuyên môn phác đồ</strong> — hai lớp câu hỏi khác nhau; không gộp kết luận.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ghi bài học có nhãn vào kho động: màn <strong>Chi tiết ca bệnh</strong> → xác nhận <strong>Đúng/Sai</strong> cảnh báo → export qua <a href="./Goi_du_lieu_huan_luyen_AI_thuc_chien.md">Goi_du_lieu_huan_luyen_AI_thuc_chien.md</a> (<code>CDSS_TRI_THUC_GD_V1</code>).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Kiểm soát dương tính giả (false positive)</h2>
+<ul>
+<li><strong>Đơn ca:</strong> ưu tiên xác nhận thủ công trên <strong>Chi tiết ca bệnh</strong>; chỉ dùng cảnh báo làm nhãn huấn luyện khi đã có <strong>kết luận Đúng/ Sai</strong> gắn <code>ma_luat</code>.</li>
+<li><strong>Nghi ngờ FP:</strong> đối chiếu XML đúng trường rule (<code>Chi tiết XML vi phạm</code> trên báo cáo), đọc lại điều kiện trong <strong>Thiết lập quy tắc</strong>; ghi chú vào <code>bai_hoc</code> / tắt rule tạm nếu cấu hình sai dữ liệu nguồn.</li>
+</ul>
+<hr>
+<h2>5. Lỗi hàng loạt (cùng mã luật trên nhiều hồ sơ)</h2>
+<p>Trường <code>canh_bao_hang_loat_de_ra_soat</code> trong JSON liệt kê các <strong>mã luật</strong> có tần suất cao (ngưỡng script: ≥80 lần hoặc ≥3% tổng dòng báo cáo).</p>
+<p><strong>Trước khi ghi nhận là “lỗi nghiệp vụ lặp lại” cho AI:</strong></p>
+<ol>
+<li>Kiểm tra <strong>đúng một lần</strong> trên mẫu nhỏ: rule có bám đúng dữ liệu XML130 / danh mục nội bộ không?</li>
+<li>Nếu <strong>đúng chuyên môn</strong> (ví dụ cùng chỉ định sai trong đợt KCB): có thể tóm tắt <strong>một</strong> thẻ tri thức chung + vài <code>MA_LK</code> minh họa — tránh nhân bản 151 lần cùng một câu.</li>
+<li>Nếu <strong>sai cấu hình rule / sai mapping</strong>: ưu tiên <strong>sửa engine hoặc tắt rule</strong>; <strong>không</strong> huấn luyện AI “học theo” lỗi hàng loạt do lỗi kỹ thuật.</li>
+</ol>
+<hr>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Gói dữ liệu tổng: <a href="./Goi_du_lieu_huan_luyen_AI_thuc_chien.md">Goi_du_lieu_huan_luyen_AI_thuc_chien.md</a>  </li>
+<li>Phác đồ CDSS: <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</a>  </li>
+<li>XML thực: <a href="./Huong_dan_tai_nguyen_XML_thuc_chien_AI.md">Huong_dan_tai_nguyen_XML_thuc_chien_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu cố định quy trình; file JSON nối báo cáo chỉ là công cụ — quyết định ghi nhận bài học thuộc kiểm tra viên và chính sách đơn vị.</em></p>
+
+  </main>
+</body>
+</html>

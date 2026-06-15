@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KT01.4 — VI KHUẨN NHUỘM SOI vs NUÔI CẤY ĐỊNH DANH (CV266) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV266_KT01_4_VK_nhuom_soi_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KT01.4 — VI KHUẨN NHUỘM SOI vs NUÔI CẤY ĐỊNH DANH (CV266) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Nguồn nghiệp vụ:</strong> Công văn 266 — chuyên đề Trung tâm Kiểm soát BHYT, <strong>PL01 / KT01.4</strong> (<em>Vi khuẩn nhuộm soi</em>), ngày kèm tệp tham chiếu <strong>15/09/2025</strong>.<br><strong>Mã từ chối gợi ý trong văn bản:</strong> S.005.434  </p>
+<hr>
+<h2>1. Nguyên tắc thanh toán (trích ý)</h2>
+<ul>
+<li><strong>Không</strong> thanh toán DVKT <strong>Vi khuẩn nhuộm soi</strong> <strong>đồng thời</strong> với DVKT <strong>Vi khuẩn nuôi cấy định danh</strong> (nhuộm soi đã nằm trong quy trình/luật giá của nuôi cấy định danh theo TT 35/2016 và quy trình <strong>QĐ 26/QĐ-BYT</strong>).</li>
+</ul>
+<h2>2. Bảng mã BYT (đối soát engine)</h2>
+<table>
+<thead>
+<tr>
+<th>Vai trò</th>
+<th>Mã DVKT (BYT)</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nhuộm soi</td>
+<td><strong>24.0001.1714</strong></td>
+<td>Một dòng đủ kích hoạt nhánh «nhuộm soi»</td>
+</tr>
+<tr>
+<td>Nuôi cấy + định danh (thông thường)</td>
+<td><strong>24.0003.1715</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Nuôi cấy + định danh (tự động)</td>
+<td><strong>24.0004.1716</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Nuôi cấy + định danh + kháng thuốc (tự động)</td>
+<td><strong>24.0005.1716</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Vi khuẩn kỵ khí — nuôi cấy + định danh</td>
+<td><strong>24.0010.1692</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2>3. Neo mã nguồn (CDSS)</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_VK_NHUOM_SOI_CV266</code></td>
+<td>Có dòng XML3 khớp mã <strong>24.0001.1714</strong> hoặc tên gợi <strong>nhuộm soi</strong> + <strong>vi khuẩn</strong> / <strong>Gram stain</strong>.</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_VK_NUOI_CAY_DINH_DANH_CV266</code></td>
+<td>Có dòng khớp một trong bốn mã nuôi cấy định danh <strong>hoặc</strong> tên gợi <strong>nuôi cấy</strong> kèm <strong>định danh</strong> / <strong>hệ thống tự động</strong> / <strong>kháng thuốc</strong> / <strong>kỵ khí</strong>.</td>
+</tr>
+<tr>
+<td><strong><code>Chuyen_de_604</code></strong> / <code>CHUYEN_DE-604</code></td>
+<td>Cả hai nhánh trên <strong>cùng</strong> một hồ sơ → cảnh báo xuất toán.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Khi BYT sửa mã: cập nhật bảng mã trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> và thẻ này.</em></p>
+
+  </main>
+</body>
+</html>

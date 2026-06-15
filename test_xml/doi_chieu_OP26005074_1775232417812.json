@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\Da kiem tra\\PC022100669_OP26005074.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775232215306.xlsx",
+    "maLK": "OP26005074",
+    "durationMinutes": 15,
+    "reportRowCount": 4,
+    "summary": {
+      "CAN_XAC_MINH_THEM": 4
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": false,
+    "maBenhAll": "R04.0;J30.3",
+    "mucThe": "4"
+  },
+  "rows": [
+    {
+      "MA_LK": "OP26005074",
+      "MA_LUAT": "HC_06",
+      "QUY_TAC": "Chi phí thấp (Dưới 15% LCS)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26005074",
+      "MA_LUAT": "THUOC_225",
+      "QUY_TAC": "[Kẽm gluconat] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26005074",
+      "MA_LUAT": "THUOC_281",
+      "QUY_TAC": "[N-Acetylcystein] Kiểm tra Chỉ định ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26005074",
+      "MA_LUAT": "THUOC_417",
+      "QUY_TAC": "Kiểm tra thuốc cấp dư (Dựa trên y lệnh)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

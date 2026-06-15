@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phiên huấn luyện — Quy định hành chính bắt buộc trong KCB BHYT (Cursor)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_hanh_chinh_BHYT_bat_buoc_Cursor.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phiên huấn luyện — Quy định hành chính bắt buộc trong KCB BHYT (Cursor)</h1>
+<p><strong>Mục phiên:</strong> AI (và người đào tạo) nắm <strong>tầng hành chính–pháp lý</strong> (thẻ BHYT, đối tượng, mức hưởng, loại KCB, cơ sở KCB, mốc thời gian, tổng chi) trước khi đi sâu lâm sàng/thuốc/DVKT; biết <strong>neo</strong> vào XML1/QĐ 3176 và nhóm luật <strong>HC_</strong> trong repo.</p>
+<p><strong>Bổ sung (phiên mở rộng):</strong> khung <strong>4 tầng + 5 bước kiểm tra</strong> — <a href="./Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md">Quy_tac_kiem_soat_va_giam_dinh_loi_hanh_chinh_KCB_BHYT.md</a>; thẻ kiểm soát lỗi tập trung — <a href="./The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md">The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</a>.</p>
+<p><strong>Căn cứ chung:</strong> Luật BHYT (hiện hành), hướng dẫn thi hành và đặc tả <strong>XML130</strong> — trong repo: <strong>QĐ 3176/QĐ-BYT</strong> + <strong>QĐ 130</strong> (bảng chỉ tiêu), không thay bằng “truyền miệng” hoặc form nội bộ cũ.</p>
+<hr>
+<h2>1. Neo dữ liệu (sự thật trong mã)</h2>
+<h3>1.1. Cột XML1 (bảng tổng hợp đợt KCB)</h3>
+<p>Danh mục cột chuẩn: <code>ma_nguon/quy_tac/quyluat_cautrucdulieu/xml1.jsx</code> — <code>DANH_SACH_COT_XML1</code>.</p>
+<p>AI khi giải thích “bắt buộc” cần phân biệt:</p>
+<ul>
+<li><strong>Bắt buộc theo đặc tả XML / kiểm tra cấu trúc</strong> (cổng BHXH / kiểm tra file): xem <code>ma_nguon/tien_ich/kiem_tra_xml.jsx</code> — <code>TRUONG_BAT_BUOC_BO_SUNG</code> cho <code>XML1</code> (ví dụ <code>MA_LK</code>, <code>MA_BN</code>, <code>HO_TEN</code>, <code>NGAY_SINH</code>, <code>GIOI_TINH</code>, <code>MA_THE_BHYT</code>, <code>MA_DOITUONG_KCB</code>, <code>MA_BENH_CHINH</code>, <code>NGAY_VAO</code>, <code>NGAY_RA</code>, <code>MA_LOAI_KCB</code>, <code>MA_CSKCB</code>, <code>T_TONGCHI_BV</code>, <code>T_TONGCHI_BH</code>, …).</li>
+<li><strong>Bắt buộc theo nghiệp vụ BHYT</strong> (mức hưởng, đối tượng, không thu sai cùng chi trả): thường được diễn giải trong luật/hướng dẫn và được <strong>mô hình hóa</strong> bằng các rule <strong>HC_</strong> trong <code>ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx</code> (kèm <code>luat_hanh_chinh_hardcoded.jsx</code>).</li>
+</ul>
+<h3>1.2. Nhóm luật hành chính (ví dụ neo)</h3>
+<table>
+<thead>
+<tr>
+<th>Mã (ví dụ)</th>
+<th>Ý nghĩa ngắn (đọc thêm trong seed)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>HC_06</strong> …</td>
+<td>Chi phí thấp / ngưỡng LCS — ràng buộc <strong>thu đúng</strong> phần BN (liên quan mức hưởng)</td>
+</tr>
+<tr>
+<td><strong>HC_07</strong>, <strong>HC_08</strong>, <strong>HC_11</strong></td>
+<td>KCB <strong>tuyến cơ sở / PKĐK khu vực / quân dân y</strong> — cảnh báo <strong>không thu cùng chi trả</strong> sai (tham chiếu văn bản trong <code>CANH_BAO</code> từng dòng)</td>
+</tr>
+<tr>
+<td><strong>HC_12</strong>, <strong>HC_13</strong></td>
+<td><strong>Trẻ sơ sinh / thẻ TE</strong> — mức hưởng 100% khi đủ điều kiện</td>
+</tr>
+</tbody></table>
+<p><em>Lưu ý:</em> Tên mã trong seed có dạng <code>HC_01</code> (gạch dưới). Map ON/OFF trong app chuẩn hóa tương đương <code>HC-01</code> — đừng cứng nhắc một kiểu khi đọc cấu hình.</p>
+<hr>
+<h2>2. Khung kiến thức AI phải thuộc (hành chính BHYT)</h2>
+<h3>2.1. Thẻ và đối tượng (XML1)</h3>
+<ul>
+<li><strong>Mã thẻ BHYT</strong> (<code>MA_THE_BHYT</code>): cấu trúc theo quy định hiện hành; nhận biết nhóm <strong>TE</strong>, <strong>HN</strong>, v.v. để gắn với <strong>mức hưởng</strong> và quy tắc ưu tiên (không suy diễn “tự đặt” mã).</li>
+<li><strong>Đối tượng KCB</strong> (<code>MA_DOITUONG_KCB</code>), <strong>mức hưởng</strong> (trên từng dòng chi tiết và/hoặc chỉ tiêu tổng hợp tùy bảng) — phải <strong>khớp</strong> chế độ và văn bản thanh toán.</li>
+<li><strong>Cơ sở đăng ký ban đầu / nơi đăng ký</strong> (khi có trên hồ sơ): không nhầm với <strong>MA_CSKCB</strong> nơi điều trị.</li>
+</ul>
+<h3>2.2. Loại hình KCB (<code>MA_LOAI_KCB</code>)</h3>
+<ul>
+<li>Phân biệt <strong>ngoại trú / nội trú / cấp cứu</strong> (và các mã quy định trong đặc tả) vì ảnh hưởng <strong>tuyến, giá, đơn thuốc, thời hạn</strong> (phần đơn thuốc gắn TT 26 là <strong>luồng khác</strong> nhưng cùng hồ sơ XML).</li>
+</ul>
+<h3>2.3. Thời gian và mốc</h3>
+<ul>
+<li><strong>Ngày vào / ngày ra</strong> (và các mốc nội trú nếu có): logic <strong>nằm trong</strong> khoảng điều trị; chỉ định thuốc/DVKT <strong>ngoài</strong> khoảng đó là cờ chất lượng hồ sơ hoặc sai sót (rule engine có luật thời gian — không gộp vào “hành chính” một cách mơ hồ).</li>
+</ul>
+<h3>2.4. Tổng chi và phân bổ nguồn (XML1)</h3>
+<ul>
+<li><strong>T_TONGCHI_BV</strong>, <strong>T_BHTT</strong>, <strong>T_BNTT</strong>, <strong>T_BNCCT</strong>, <strong>T_NGUONKHAC</strong> — AI khi “đối chiếu kế toán” phải <strong>theo đúng</strong> định nghĩa chỉ tiêu trong QĐ 3176, không dùng thuật ngữ “tổng viện phí” kiểu nội bộ nếu không map được sang cột XML.</li>
+</ul>
+<h3>2.5. Pháp lý tổng quát (ôn nhanh)</h3>
+<ul>
+<li><strong>Luật BHYT</strong> — phạm vi thanh toán, điều kiện <strong>không</strong> thanh toán, trách nhiệm kê khai đúng (xem thẻ: <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>).</li>
+<li>Văn bản <strong>Điều 22</strong> / hướng dẫn <strong>mức hưởng</strong> được <strong>trích trong cảnh báo</strong> từng rule HC (đọc <code>CANH_BAO</code> trong seed, không tự bịa số điều).</li>
+</ul>
+<hr>
+<h2>3. Việc làm trong Cursor (20–35 phút)</h2>
+<ol>
+<li>Mở <code>du_lieu_luat_hanh_chinh_muc2.jsx</code>, lọc các dòng <code>MA_LUAT</code> bắt đầu <code>HC_</code>, đọc <strong>5–7 dòng</strong> có <code>TRANG_THAI: &quot;ON&quot;</code>.</li>
+<li>Mở <code>kiem_tra_xml.jsx</code>, đối chiếu <code>TRUONG_BAT_BUOC_BO_SUNG.XML1</code> với một dòng XML1 mẫu trong <code>test_xml/</code> (nếu có).</li>
+<li>Ghi <strong>3 câu</strong> trả lời ngắn (không PII):<ul>
+<li>Khi nào chỉ cần XML1 là đủ để <strong>bác</strong> một cảnh báo “sai hành chính”?</li>
+<li>Khác biệt giữa <strong>lỗi cấu trúc file</strong> và <strong>lỗi nghiệp vụ BHYT</strong> trong ngữ cảnh app này?</li>
+<li>Một rule HC ghi “100%” — AI cần kiểm tra thêm gì trước khi khẳng định “vi phạm”?</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>4. Ví dụ huấn luyện — tình huống giả (không PII)</h2>
+<ol>
+<li><p><strong>Thẻ TE nhưng có BNCCT &gt; 0 trên tổng hợp</strong><br>Gợi ý neo: <code>HC_13</code> (và các rule mức hưởng liên quan). AI <strong>không</strong> kết luận chỉ từ một dòng tổng mà không xem <strong>đối tượng</strong>, <strong>từng dòng chi tiết</strong>, và <strong>ngoại lệ</strong> (ví dụ một phần chi ngoài phạm vi BHYT).</p>
+</li>
+<li><p><strong>MA_LOAI_KCB = ngoại trú nhưng có chỉ định giống nội trú</strong><br>Đây có thể là <strong>lỗi nhập liệu</strong> hoặc <strong>case hợp lệ</strong> (khám ngoại trú nhưng có tách đợt) — AI <strong>không</strong> đổi MA_LOAI_KCB bằng suy đoán; nêu <strong>cần đối chiếu</strong> chứng từ và luật động khác (HC vs CLN).</p>
+</li>
+<li><p><strong>Chênh lệch T_TONGCHI_BV và tổng nguồn</strong><br>Neo kế toán XML1 và rule tổng hợp (ví dụ trong nhóm dữ liệu Mục 1 / seed XML_*). Phân biệt <strong>làm tròn</strong> với <strong>sai số nghiệp vụ</strong>.</p>
+</li>
+</ol>
+<hr>
+<h2>5. Sai lầm thường gặp (AI cần tránh)</h2>
+<ul>
+<li>Nhầm <strong>mã bệnh ICD</strong> với <strong>đối tượng BHYT</strong> hoặc <strong>mức hưởng</strong>.</li>
+<li>Dùng khái niệm <strong>“đúng tuyến”</strong> mà không neo <strong>MA_LOAI_KCB</strong>, <strong>giấy chuyển</strong>, <strong>CSKCB</strong> theo đúng trường XML.</li>
+<li><strong>Khẳng định xuất toán</strong> chỉ vì một chỉ tiêu trống — trong thực tế có <strong>cảnh báo</strong> vs <strong>chặn cứng</strong>; trong app phụ thuộc pipeline và ON/OFF rule.</li>
+</ul>
+<hr>
+<h2>6. Liên kết nội bộ (đọc thêm)</h2>
+<table>
+<thead>
+<tr>
+<th>Tài liệu / vị trí</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md">The_tri_thuc_kiem_soat_loi_the_BHYT_va_quyen_loi_NB_AI.md</a></td>
+<td><strong>Kiểm soát lỗi</strong> thẻ &amp; quyền lợi — bảng phân loại + prompt</td>
+</tr>
+<tr>
+<td><a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a></td>
+<td>Nền luật</td>
+</tr>
+<tr>
+<td><code>ma_nguon/quy_tac/quyluat_cautrucdulieu/xml1.jsx</code></td>
+<td>Cột XML1</td>
+</tr>
+<tr>
+<td><code>ma_nguon/tien_ich/kiem_tra_xml.jsx</code></td>
+<td>Trường bắt buộc bổ sung theo cấu trúc</td>
+</tr>
+<tr>
+<td><code>ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx</code></td>
+<td>Seed HC_*</td>
+</tr>
+<tr>
+<td>Màn <strong>Quản lý quy tắc ON/OFF</strong> — nhóm Hành chính</td>
+<td>Bật/tắt / ghi chú vận hành</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Phiên tiếp theo (gợi ý)</h2>
+<ul>
+<li>Ghép <strong>một ca XML thật</strong> (đã ẩn PII) chỉ đọc XML1 + map HC: trả lời “cảnh báo nào có thể kích, cái nào cần dữ liệu thêm”.</li>
+<li>Hoặc đối chiếu <strong>TT 26/2025</strong> (đơn thuốc điện tử) với <strong>MA_LOAI_KCB</strong> + trường tái khám trên XML1 — nối với phiên thuốc.</li>
+</ul>
+<hr>
+<p><em>Tài liệu sinh để tiếp nối huấn luyện AI trong workspace CDSS BHYT; cập nhật khi thay đổi seed HC hoặc đặc tả XML.</em></p>
+
+  </main>
+</body>
+</html>

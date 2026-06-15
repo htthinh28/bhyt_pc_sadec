@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test AI kiểm tra BHYT — 10 ca (phần tiếp theo)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Bat_dau_test_10_ca_chi_tiet.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Test AI kiểm tra BHYT — 10 ca (phần tiếp theo)</h1>
+<p>Phiên bản: 2.1<br>Ngày cập nhật: 06/04/2026  </p>
+<p>Tài liệu này <strong>bổ sung</strong> cho <code>Danh_sach_10_ca_test_va_du_lieu_chi_tiet.md</code>: bảng snapshot đồng bộ với JSON trong repo, chi tiết <strong>CA 7–10</strong>, prompt mẫu và cách chạy kiểm tra fixture tự động.</p>
+<hr>
+<h2>1. Kiểm tra fixture nhanh (Node)</h2>
+<p>Trước khi chấm AI, xác nhận 10 file audit chuẩn còn đủ và <code>meta.ma_lk</code> khớp tên file:</p>
+<pre><code class="language-bash">npm run qa:audit-fixtures
+</code></pre>
+<p>Script: <code>scripts/qa_audit_fixtures.js</code> (danh sách đường dẫn cố định trong <code>test_xml/</code>).</p>
+<hr>
+<h2>2. Snapshot cảnh báo theo file JSON (đối chiếu khi test)</h2>
+<p>Số liệu dưới đây lấy từ <code>meta.total_warnings</code> / <code>unique_rule_codes</code> trong từng file tại thời điểm cập nhật tài liệu. Khi chỉnh luật, chạy lại <code>qa:audit-fixtures</code> và cập nhật bảng nếu cần.</p>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>MA_LK</th>
+<th>File audit</th>
+<th>Tổng cảnh báo</th>
+<th>Số mã luật khác nhau</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>403521</td>
+<td>audit_403521_20260405_225230.json</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>000339</td>
+<td>audit_000339_20260405_232511.json</td>
+<td>14</td>
+<td>14</td>
+</tr>
+<tr>
+<td>3</td>
+<td>403538</td>
+<td>audit_403538_20260405_145119.json</td>
+<td>47</td>
+<td>19</td>
+</tr>
+<tr>
+<td>4</td>
+<td>000589</td>
+<td>audit_000589_20260405_232716.json</td>
+<td>8</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td>OP26000908</td>
+<td>audit_OP26000908_20260405_232932.json</td>
+<td>11</td>
+<td>8</td>
+</tr>
+<tr>
+<td>6</td>
+<td>403244</td>
+<td>audit_403244_20260405_224614.json</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>7</td>
+<td>000308</td>
+<td>audit_000308_20260405_083942.json</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>000375</td>
+<td>audit_000375_20260405_065828.json</td>
+<td>6</td>
+<td>5</td>
+</tr>
+<tr>
+<td>9</td>
+<td>000376</td>
+<td>audit_000376_20260404_174042.json</td>
+<td>35</td>
+<td>13</td>
+</tr>
+<tr>
+<td>10</td>
+<td>000502</td>
+<td>audit_000502_20260404_192348.json</td>
+<td>6</td>
+<td>6</td>
+</tr>
+</tbody></table>
+<p><strong>Ghi chú CA 1 (403521):</strong> Trong snapshot hiện tại, engine vẫn báo <strong>8</strong> cảnh báo (PTTT, hành chính, v.v.). Nếu mục tiêu bài test là “hồ sơ sạch”, cần <strong>tách</strong> khỏi file này hoặc tái sinh audit sau khi chỉnh rule — đừng dạy AI rằng 403521 luôn 0 lỗi nếu JSON thực tế khác.</p>
+<hr>
+<h2>3. CA 7 — MA_LK <code>000308</code></h2>
+<ul>
+<li><strong>File:</strong> <code>test_xml/audit_000308_20260405_083942.json</code></li>
+<li><strong>Bối cảnh:</strong> Nội trú; có PT lấy thai lần 2+ (<code>13.0002.0672_GT</code>), thuốc Biofazolin, lỗi hồ sơ/ngày.</li>
+<li><strong>Mã luật (unique):</strong> <code>DVKT_2587</code>, <code>DVKT_2588</code>, <code>HC_130</code>, <code>HC_171</code>, <code>HD_10</code>, <code>THUOC_391</code> (có thể thêm dòng XML chi tiết trong <code>warnings[]</code>).</li>
+<li><strong>Prompt mẫu:</strong></li>
+</ul>
+<pre><code>Kiểm tra hồ sơ MA_LK=000308 theo 5 bước Nghị định 188/2025.
+Đọc audit: test_xml/audit_000308_20260405_083942.json.
+1) Nêu 5 bước và kết luận từng bước.
+2) Liệt kê các nhóm lỗi: chỉ định PT vs mã O82; gói PT thiếu thuốc tê/mê; HC_130, HC_171, HD_10; THUOC_391.
+3) Phân loại: hành chính / thanh toán / chỉ định lâm sàng.
+4) Căn cứ: QĐ 130, NĐ 188 (không bịa mã không có trong audit).
+</code></pre>
+<p><strong>Chấm điểm gợi ý:</strong> đủ 5 bước; nhận diện ≥5/6 nhóm mã; không nhầm với bản audit khác timestamp (<code>085142</code> có 12 cảnh báo — chỉ dùng một file làm chuẩn).</p>
+<hr>
+<h2>4. CA 8 — MA_LK <code>000375</code></h2>
+<ul>
+<li><strong>File:</strong> <code>test_xml/audit_000375_20260405_065828.json</code></li>
+<li><strong>Mã luật (unique):</strong> <code>DVKT-OP-09</code> (2 dòng), <code>HC_171</code>, <code>HC_46</code>, <code>HC_68</code>, <code>HD_10</code></li>
+<li><strong>Prompt mẫu:</strong></li>
+</ul>
+<pre><code>Với MA_LK=000375 và audit audit_000375_20260405_065828.json: giải thích vì sao có HC_171, HD_10 và các mã DVKT-OP-09, HC_46, HC_68; đề xuất thứ tự xử lý khi làm việc với BHXH.
+</code></pre>
+<hr>
+<h2>5. CA 9 — MA_LK <code>000376</code></h2>
+<ul>
+<li><strong>File:</strong> <code>test_xml/audit_000376_20260404_174042.json</code></li>
+<li><strong>Độ phức tạp:</strong> <strong>35</strong> cảnh báo (Critical/Error/Warning) — ca “stress test”.</li>
+<li><strong>Prompt mẫu:</strong></li>
+</ul>
+<pre><code>Case 000376: tổng hợp ý theo 5 bước kiểm tra; không liệt kê hết 35 dòng. Nhóm theo: hành chính XML, danh mục DVKT/thuốc, PTTT/lâm sàng, hợp đồng JCI (HD_*). Nêu 5 lỗi có hệ quả thanh toán lớn nhất (suy luận từ nội dung cảnh báo).
+</code></pre>
+<hr>
+<h2>6. CA 10 — MA_LK <code>000502</code></h2>
+<ul>
+<li><strong>File:</strong> <code>test_xml/audit_000502_20260404_192348.json</code></li>
+<li><strong>Đúng 6 cảnh báo, 6 mã:</strong> <code>CDHA_164</code>, <code>CLN-GIUONG-01</code>, <code>HC_130</code>, <code>HC_171</code>, <code>HC_65</code>, <code>HD_10</code></li>
+<li><strong>Bối cảnh ngắn:</strong> Nội trú Phụ-Sản; MRI chờ &gt;3 ngày; ngày giường XML3 vs <code>SO_NGAY_DTRI</code>; thiếu XML5; <code>NGAY_TTOAN</code> &lt; <code>NGAY_RA</code>; XN thiếu chỉ số bình thường.</li>
+<li><strong>Prompt mẫu:</strong></li>
+</ul>
+<pre><code>MA_LK=000502: audit phát hiện đúng 6 mã [CDHA_164, CLN-GIUONG-01, HC_130, HC_171, HC_65, HD_10].
+Yêu cầu AI giải thích từng mã, map sang XML1/3/4/5, và kết luận mức độ rủi ro xuất toán (không cần tính tiền nếu không có dữ liệu giá trong prompt).
+</code></pre>
+<p><strong>Kỳ vọng:</strong> AI phát hiện ≥5/6 mã và phân loại đúng hướng (CDHA/quản trị vs hành chính vs JCI).</p>
+<hr>
+<h2>7. CA 1–6 (nhắc ngắn)</h2>
+<p>Chi tiết ngữ cảnh và bảng chọn ca “tối nay” xem <code>Danh_sach_10_ca_test_va_du_lieu_chi_tiet.md</code> mục 2–3. Luôn mở đúng <strong>tên file</strong> trong cột snapshot ở mục 2 của tài liệu này.</p>
+<hr>
+<h2>7b. Huấn luyện thuốc mở rộng (ngoài 10 ca chuẩn)</h2>
+<p>Dùng khi cần <strong>tối đa độ phủ</strong> rule <code>THUOC_*</code> / built-in <code>CLN-THUOC-*</code> / <code>DM-THUOC-*</code>:</p>
+<ul>
+<li><strong>Bản đồ engine:</strong> <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code></li>
+<li><strong>Ca nội trú:</strong> <code>audit_PC022300479_IP26000139.json</code> + <code>Ca_huan_luyen_mau_IP26000139_DOMUVAR_THUOC_63_va_THUOC_417_noi_tru.md</code></li>
+<li><strong>Cập nhật danh sách ca phụ:</strong> <code>Danh_sach_10_ca_test_va_du_lieu_chi_tiet.md</code> (mục sau bảng 10 ca)</li>
+</ul>
+<hr>
+<h2>8. Bảng chấm điểm tóm tắt (điền khi chạy test thủ công)</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>MA_LK</th>
+<th>Đủ 5 bước NĐ188</th>
+<th>Bám sát mã trong JSON</th>
+<th>Phân loại lỗi</th>
+<th>Căn cứ pháp lý</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>000308</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>000375</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>000376</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>000502</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. So với phiên bản 1.0 (đã thay thế)</h2>
+<ul>
+<li>Phiên bản cũ dùng nhánh “CA 4–13” không khớp danh sách 10 ca trong <code>Danh_sach_*</code>, và một số <strong>số lỗi</strong> (ví dụ 000308 = 8 hay 12) lệch theo <strong>file audit</strong> khác timestamp.</li>
+<li>Từ 2.0 trở đi, <strong>một file audit cố định</strong> cho mỗi STT (trùng với <code>qa_audit_fixtures.js</code>).</li>
+</ul>
+
+  </main>
+</body>
+</html>

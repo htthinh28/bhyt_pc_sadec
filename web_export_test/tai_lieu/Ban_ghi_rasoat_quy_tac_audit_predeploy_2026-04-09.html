@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bản ghi rà soát quy tắc audit BHYT — trước deploy production</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ban_ghi_rasoat_quy_tac_audit_predeploy_2026-04-09.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Bản ghi rà soát quy tắc audit BHYT — trước deploy production</h1>
+<p><strong>Ngày:</strong> 2026-04-09<br><strong>Phạm vi:</strong> Đối chiếu trường dữ liệu với schema QĐ 3176/QĐ-BYT (định nghĩa trong <code>ma_nguon/quy_tac/quyluat_cautrucdulieu/xml1.jsx</code> … <code>xml6.jsx</code>), đồng bộ tên tắt trong quy tắc, công cụ kiểm tra lặp lại.</p>
+<hr>
+<h2>1. Giới hạn phương pháp (quan trọng)</h2>
+<table>
+<thead>
+<tr>
+<th>Yêu cầu</th>
+<th>Thực tế trong repo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Dương tính giả = 0%</td>
+<td><strong>Không chứng minh được</strong> chỉ bằng rà soát tĩnh. Cần bộ kiểm thử hồi quy trên XML thật + ca huấn luyện đã khóa kết quả.</td>
+</tr>
+<tr>
+<td>Âm tính giả = 0%</td>
+<td>Tương tự — cần bộ ca vi phạm đã xác nhận và audit so khớp.</td>
+</tr>
+<tr>
+<td>Chỉ sửa data/rules</td>
+<td>Đã <strong>ưu tiên</strong> sửa seed/hardcoded; thêm <strong>alias trường trong <code>prepareData</code></strong> là lớp tương thích tên cột QĐ ↔ tên dùng trong biểu thức No-Code (không đổi luật nghiệp vụ).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Thay đổi đã thực hiện (kèm ghi chú)</h2>
+<table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Nội dung</th>
+<th>Ghi chú / lý do</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> — <code>prepareData</code></td>
+<td>Sau chuẩn hóa key, gán thêm các trường đồng nghĩa khi trống: <code>MA_TINH</code> ← <code>MATINH_CU_TRU</code>; <code>MA_DV</code> ← <code>MA_DICH_VU</code>; <code>MA_VTYT</code> ← <code>MA_VAT_TU</code>; <code>MA_GIOI_TINH</code> ← <code>GIOI_TINH</code>; <code>MA_LY_DO_VV</code> ← <code>LY_DO_VV</code>; <code>MA_LY_DO_VVIEN</code> ← <code>MA_LY_DO_VNT</code>; <code>TEN_DV</code> ← <code>TEN_DICH_VU</code>; <code>MA_DUONG_DUNG</code> ← <code>DUONG_DUNG</code></td>
+<td>Cột gửi BHXH vẫn theo QĐ; quy tắc cũ dùng tên tắt vẫn đọc được giá trị đúng từ XML đã parse.</td>
+</tr>
+<tr>
+<td><code>ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx</code> — <code>CK_11</code></td>
+<td><code>XML1.MA_TINH_TRANG_RV == &#39;2&#39;</code> → <code>XML1.MA_LOAI_RV == &#39;2&#39;</code></td>
+<td><code>MA_TINH_TRANG_RV</code> <strong>không tồn tại</strong> trong XML1 (QĐ 130/3176). Mã loại ra viện <code>&#39;2&#39;</code> thống nhất với các luật hành chính khác (chuyển tuyến).</td>
+</tr>
+<tr>
+<td><code>scripts/audit_rules_xml_schema.mjs</code></td>
+<td>Script quét <code>XMLn.TRUONG</code> trong <code>DIEU_KIEN</code> so với <code>DANH_SACH_COT_XML*</code> + danh sách trường do engine bổ sung</td>
+<td>Phục vụ rà soát lặp lại trước mỗi bản production.</td>
+</tr>
+<tr>
+<td><code>package.json</code></td>
+<td>Thêm script <code>npm run qa:rule-schema</code></td>
+<td>Gọi script trên.</td>
+</tr>
+<tr>
+<td><code>test_xml/rule_xml_schema_audit.json</code></td>
+<td>Báo cáo JSON sinh tự động</td>
+<td>Xem số tham chiếu còn lệch schema (cập nhật mỗi lần chạy).</td>
+</tr>
+<tr>
+<td><code>scripts/off_unknown_field_rules.mjs</code></td>
+<td>Tắt <code>TRANG_THAI: OFF</code> mọi quy tắc có tham chiếu <code>XMLn.FIELD</code> không thuộc schema / engine extra</td>
+<td>Báo cáo: <code>test_xml/off_unknown_field_rules_report.json</code>. Lần chạy: <strong>220</strong> <code>MA_LUAT</code> (seed JSON + hardcoded). <code>du_lieu_luat_du_lieu_muc1.jsx</code>: 0 (đã khớp).</td>
+</tr>
+<tr>
+<td><code>dong_co_giam_dinh.jsx</code> — <code>enrichXML2Data</code></td>
+<td>Nếu thiếu <code>MA_HOAT_CHAT</code>, gán <code>MA_HOAT_CHAT = MA_THUOC</code> (trim)</td>
+<td>Phục vụ quy tắc thuốc Mục 8 cần mã hoạt chất BYT; khi DM đầy đủ nên thay bằng tra cứu DM.</td>
+</tr>
+<tr>
+<td><code>scripts/audit_rules_xml_schema.mjs</code></td>
+<td>Thêm <code>MA_HOAT_CHAT</code> vào <code>ENGINE_EXTRA</code> bảng XML2</td>
+<td>Khớp với enrich trên.</td>
+</tr>
+<tr>
+<td><code>scripts/reon_muc8_ma_hoat_chat_rules.mjs</code></td>
+<td>Bật lại <strong>20</strong> quy tắc thuốc chỉ thiếu <code>MA_HOAT_CHAT</code> (sau enrich)</td>
+<td>Các mã: <code>THUOC_385</code> … <code>THUOC_528</code> (xem script). <strong>40</strong> quy tắc thuốc khác vẫn OFF (còn trường lạ như <code>XML2.LOAI_THUOC</code>, <code>XML1.TUOI_NGAY</code>, …).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Công cụ chạy lại</h2>
+<pre><code class="language-bash">npm run qa:rule-schema
+npm run qa:off-unknown-fields
+npm run qa:analyze-muc8
+npm run qa:reon-muc8-hoat-chat
+</code></pre>
+<p>Kết quả: <code>test_xml/rule_xml_schema_audit.json</code> (tổng hợp <code>UNKNOWN_FIELD</code> theo file).</p>
+<hr>
+<h2>4. Nợ kỹ thuật / rủi ro còn lại (sau bước trên)</h2>
+<ul>
+<li><p>Còn <strong>~200+</strong> tham chiếu <code>XMLn.FIELD</code> trong báo cáo tự động không khớp <code>DANH_SACH_COT_XML*</code> và không nằm trong danh sách “engine extra” — phần lớn là:</p>
+<ul>
+<li>Trường <strong>chỉ có sau ghép danh mục thuốc</strong> (ví dụ <code>XML2.MA_HOAT_CHAT</code>): cần pipeline enrich từ DM hoặc đổi điều kiện sang <code>MA_THUOC</code> + tra cứu.</li>
+<li>Trường <strong>không thuộc XML130</strong> (ví dụ một số chỉ số CLS mở rộng trên XML4): cần map sang <code>MA_CHI_SO</code> / <code>GIA_TRI</code> / <code>KET_LUAN</code> hoặc tắt rule (<code>TRANG_THAI: OFF</code>) đến khi có dữ liệu đầu vào.</li>
+<li><strong>Sai bảng</strong> (ví dụ nội dung VTYT trên <code>XML5</code>): cần sửa target bảng hoặc xóa rule trùng ý nghĩa với luật đã chạy đúng trên XML3.</li>
+</ul>
+</li>
+<li><p>Trùng ý nghĩa giữa các <code>MA_LUAT</code>: tiếp tục dùng <code>node scripts/audit_rules.js</code> (regex theo format backtick); seed <code>du_lieu_luat_du_lieu_muc1.jsx</code> dùng JSON — nên mở rộng script hoặc so khớp thủ công theo cột <code>GHI_CHU_SUA</code> trong Excel/seed.</p>
+</li>
+</ul>
+<hr>
+<h2>5. Việc nên làm trước khi bật production</h2>
+<ol>
+<li>Chạy <code>npm run qa:claim-audit</code> (hoặc quy trình audit đầy đủ trong dự án) trên <strong>tập XML đại diện</strong> + <strong>ca huấn luyện đã khóa</strong>.  </li>
+<li>Rà lại các rule còn trong <code>rule_xml_schema_audit.json</code> với mức <strong>Critical/Error</strong> — ưu tiên tắt hoặc sửa từng dòng có <code>UNKNOWN_FIELD</code> nếu không có kế hoạch enrich.  </li>
+<li>Ký duyệt nghiệp vụ: mối <code>MA_LY_DO_VVIEN</code> ↔ <code>MA_LY_DO_VNT</code> chỉ an toàn nếu CSKCB của bạn luôn điền thống nhất một nguồn cho “lý do vào viện”.</li>
+</ol>
+<hr>
+<p><em>Tài liệu này bổ sung cho <code>scripts/audit_rules.js</code> và pipeline QA hiện có; không thay thế quyết định nghiệp vụ của kiểm tra viên.</em></p>
+
+  </main>
+</body>
+</html>

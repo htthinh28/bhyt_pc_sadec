@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022209964_IP26000013.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775302894149.xlsx",
+    "maLK": "000308",
+    "durationMinutes": 4401,
+    "reportRowCount": 10,
+    "summary": {
+      "CAN_XAC_MINH_THEM": 8,
+      "HOP_LY": 2
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "O34.2;",
+    "mucThe": "2"
+  },
+  "rows": [
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "HC_130",
+      "QUY_TAC": "Tổng ngày điều trị lệch Ngày vào/ra",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "HC_171",
+      "QUY_TAC": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co chi so xet nghiem co gia tri nhung thieu dai chi so binh thuong"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "DVKT_2587",
+      "QUY_TAC": "Chỉ định - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "DVKT_2588",
+      "QUY_TAC": "Thực hiện - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "DVKT_2587",
+      "QUY_TAC": "Chỉ định - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000308",
+      "MA_LUAT": "DVKT_2588",
+      "QUY_TAC": "Thực hiện - Phẫu thuật lấy thai lần hai trở lên [Gói] (13.0002.0672_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

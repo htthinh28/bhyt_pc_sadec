@@ -1,0 +1,1336 @@
+DANH MỤC QUY TẮC TRẠNG THÁI OFF VÀ CHUYÊN ĐỀ PLACEHOLDER
+Sinh tự động: 2026-04-16 09:03:00 (UTC có thể lệch múi giờ máy)
+Repo: C:\Users\admin\Documents\Google Drive\ung_dung_cdss_bhyt
+
+=== PHẦN A — CHUYÊN ĐỀ (CHUYEN_DE) ĐIỀU KIỆN PLACEHOLDER (CHUYEN_DE_XML130_CHO_XU_LY_SAU) ===
+Nguồn: scripts/chuyen_de_placeholder_registry.json (đồng bộ sau mỗi lần sửa luật CHUYEN_DE).
+Ý nghĩa: DIEU_KIEN luôn false trên hồ sơ có MA_LK — chưa triển khai biểu thức XML130 thực chiến.
+
+Số quy tắc placeholder: 0
+
+
+=== PHẦN B — QUY TẮC TRANG_THAI: OFF TRONG MÃ NGUỒN (hardcoded .jsx, một dòng / rule) ===
+Tổng: 167 dòng rule
+
+[CDHA_01] CDHA-001
+  Tên: XML 5: Phim và XML 3: Số lượng
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_07] CDHA-007
+  Tên: XML 130: Chứng chỉ hành nghề BS
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_08] CDHA-008
+  Tên: XML 130: Chữ ký số của BS đọc KQ
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_09] CDHA-009
+  Tên: XML 130: Chữ ký số Bác sĩ đọc
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_10] CDHA-010
+  Tên: X-quang xương và VTYT: Thùng chì
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_106] CDHA-106
+  Tên: Hiệu lực xét nghiệm Creatinine
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_111] CDHA-111
+  Tên: Đối soát số lượng phim X-quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_112] CDHA-112
+  Tên: Đối soát nội soi và kết quả hình ảnh
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_113] CDHA-113
+  Tên: Độ dài mô tả kết quả (XML4)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_116] CDHA-116
+  Tên: Định dạng URL DICOM 130
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_117] CDHA-117
+  Tên: Dự phòng dị ứng thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_118] CDHA-118
+  Tên: CT/MRI và Thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_125] CDHA-125
+  Tên: CT-Scanner và Liều thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_126] CDHA-126
+  Tên: CT-Scanner và Dị ứng tôm/cua
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_127] CDHA-127
+  Tên: CT-Scanner và Chỉ số HA tâm thu
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_128] CDHA-128
+  Tên: CT-Scanner và Chỉ số GFR
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_129] CDHA-129
+  Tên: CT-Scanner và Chỉ số Creatinine
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_13] CDHA-013
+  Tên: X-quang và VTYT: Tấm nhận ảnh
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_135] CDHA-135
+  Tên: CT Mạch vành và Chỉ số Creatinine
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_137] CDHA-137
+  Tên: CT Bụng và Chỉ định Nhịn ăn
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_14] CDHA-014
+  Tên: X-quang và Chỉ số liều tia (DAP/DLP)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_141] CDHA-141
+  Tên: Chụp X-quang và In phim
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_142] CDHA-142
+  Tên: Chụp X-quang và Đối soát Phim hỏng
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_143] CDHA-143
+  Tên: Chụp X-quang và Đối soát Phim hỏng
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_144] CDHA-144
+  Tên: Chụp X-quang và Chỉ số BMI
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_149] CDHA-149
+  Tên: Chụp X-quang thực quản cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_151] CDHA-151
+  Tên: Chụp X-quang số hóa và phim thường
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_159] CDHA-159
+  Tên: Chụp X-quang chi và Bên tổn thương
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_161] CDHA-161
+  Tên: Chụp tử cung vòi trứng (HSG) và Thai
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_167] CDHA-167
+  Tên: Chụp DSA và Vật tư can thiệp
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_17] CDHA-017
+  Tên: X-quang tại giường và Khoa thực hiện
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_173] CDHA-173
+  Tên: Chụp CT và Đối soát mã BS chỉ định
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_19] CDHA-019
+  Tên: X-quang phổi và Thai sản
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_192] CDHA-192
+  Tên: An toàn tia xạ cho Phụ nữ có thai
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_195] CDHA-195
+  Tên: [XML 130] Tên phim và Kích thước phim
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_197] CDHA-197
+  Tên: [XML 130] Mã hóa loại thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_198] CDHA-198
+  Tên: [XML 130] Đối soát mã máy theo Khoa
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_200] CDHA-200
+  Tên: [XML 130] Đối soát BS chỉ định
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_201] CDHA-201
+  Tên: [XML 130] Định dạng giá trị eGFR
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_203] CDHA-203
+  Tên: [Vật tư] CT & Bơm tiêm điện
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_207] CDHA-207
+  Tên: [Thời gian] TAT trả KQ X-quang tại giường
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_208] CDHA-208
+  Tên: [Thời gian] TAT trả KQ X-quang tại giường
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_213] CDHA-213
+  Tên: [Thời gian] Siêu âm kiểm tra sau mổ nội trú
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_216] CDHA-216
+  Tên: [Thời gian] Hiệu lực X-quang phổi tiền phẫu nội trú
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_218] CDHA-218
+  Tên: [Thời gian] Hiệu lực Creatinine điều trị nội trú
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_219] CDHA-219
+  Tên: [Thời gian] Hiệu lực Creatinine (Ngoại trú)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_22] CDHA-022
+  Tên: X-quang ngực và Vật tư tấm cảm biến
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_220] CDHA-220
+  Tên: [Thời gian] Chụp X-quang Sản phụ khoa
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_221] CDHA-221
+  Tên: [Thời gian] Chụp MRI sau phẫu thuật
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_227] CDHA-227
+  Tên: [SOP] X-quang thực quản cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_228] CDHA-228
+  Tên: [SOP] Siêu âm ổ bụng & Nhịn ăn
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_234] CDHA-234
+  Tên: [Người hành nghề] KTV thực hiện X-quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_235] CDHA-235
+  Tên: [Người hành nghề] KTV thực hiện đo loãng xương
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_236] CDHA-236
+  Tên: [Người hành nghề] KTV ký XML 130 (XML3)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_237] CDHA-237
+  Tên: [Người hành nghề] KTV ký thực hiện CT
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_239] CDHA-239
+  Tên: [Người hành nghề] Chứng chỉ an toàn bức xạ
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_241] CDHA-241
+  Tên: [Người hành nghề] CCHN BS can thiệp
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_247] CDHA-247
+  Tên: [Người hành nghề] BS Hội chẩn Kỹ thuật cao
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_248] CDHA-248
+  Tên: [Người hành nghề] BS Hội chẩn ca khó
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_25] CDHA-025
+  Tên: X-quang Kỹ thuật số (DR) và Phim ướt
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_257] CDHA-257
+  Tên: [Kỹ thuật] MRI & Bảng kiểm kim loại
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_259] CDHA-259
+  Tên: [JCI] Vòng tay dị ứng & Chỉ định CQ
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_260] CDHA-260
+  Tên: [JCI] Báo động Tràn khí màng phổi
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_261] CDHA-261
+  Tên: [Điều kiện] Vật tư tấm nhận ảnh (Cassette)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_262] CDHA-262
+  Tên: [Điều kiện] Vật tư nút mạch (Coil/Glue)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_263] CDHA-263
+  Tên: [Điều kiện] Vật tư kim sinh thiết
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_264] CDHA-264
+  Tên: [Điều kiện] Vật tư Catheter trong DSA
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_265] CDHA-265
+  Tên: [Điều kiện] Tốc độ tiêm thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_267] CDHA-267
+  Tên: [Điều kiện] Thuốc tiền mê nhi khoa
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_270] CDHA-270
+  Tên: [Điều kiện] Thông báo kết quả giá trị báo động
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_271] CDHA-271
+  Tên: [Điều kiện] Thông báo kết quả báo động
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_272] CDHA-272
+  Tên: [Điều kiện] Thông báo giá trị cảnh báo
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_273] CDHA-273
+  Tên: [Điều kiện] Theo dõi sau tiêm cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_274] CDHA-274
+  Tên: [Điều kiện] Theo dõi sau tiêm cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_275] CDHA-275
+  Tên: [Điều kiện] Siêu âm thai và Tuổi mẹ
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_276] CDHA-276
+  Tên: [Điều kiện] Siêu âm doppler mạch rốn
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_279] CDHA-279
+  Tên: [Điều kiện] Kiểm tra vật tư che chắn chì
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_282] CDHA-282
+  Tên: [Điều kiện] Creatinine và CT Hệ tiết niệu
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_285] CDHA-285
+  Tên: [Điều kiện] Chỉ số lọc cầu thận (eGFR) Nhi
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_287] CDHA-287
+  Tên: [Chống CĐ] X-quang và Có thai (Tam cá 1)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_29] CDHA-029
+  Tên: VTYT: Kim chọc dò dưới SA
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_291] CDHA-291
+  Tên: [Chống CĐ] SA đầu dò âm đạo (Nữ)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_294] CDHA-294
+  Tên: [Chống CĐ] MRI và Mảnh đạn/Kim loại
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_298] CDHA-298
+  Tên: [Chống CĐ] MRI và Dị vật kim loại
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_299] CDHA-299
+  Tên: [Chống CĐ] MRI và Chứng sợ buồng kín
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_30] CDHA-030
+  Tên: VTYT: Bộ dây bơm tiêm điện
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_302] CDHA-302
+  Tên: [Chống CĐ] CT và Phản vệ độ III
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_303] CDHA-303
+  Tên: [Chống CĐ] CT có cản quang và Suy thận
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_306] CDHA-306
+  Tên: [Chống CĐ] CT cản quang & Phản vệ
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_308] CDHA-308
+  Tên: [Chống CĐ] Cần cản quang & Suy thận
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_33] CDHA-033
+  Tên: Tiền sử dị ứng thuốc cản quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_330] CDHA-330
+  Tên: [Can thiệp] Sinh thiết & Đông máu
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_35] CDHA-035
+  Tên: Thiếu phiếu kết quả CĐHA
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_38] CDHA-038
+  Tên: Thể tích thuốc cản quang và Cân nặng
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_40] CDHA-040
+  Tên: Sinh thiết dưới hướng dẫn SA
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_42] CDHA-042
+  Tên: Siêu âm và Bơm tiêm điện (Contrast)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_46] CDHA-046
+  Tên: Siêu âm tim và Chỉ số EF
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_52] CDHA-052
+  Tên: Siêu âm thai và Tuổi thai
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_58] CDHA-058
+  Tên: Siêu âm độ mờ da gáy (NT)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_62] CDHA-062
+  Tên: Siêu âm Doppler và Thai nhi
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_73] CDHA-073
+  Tên: Siêu âm bụng và Nhịn ăn
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_80] CDHA-080
+  Tên: MRI và Thai kỳ (Tam cá nguyệt 1)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_84] CDHA-084
+  Tên: MRI và Cam kết JCI (Sàng lọc)
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_85] CDHA-085
+  Tên: MRI và Cam kết JCI
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_86] CDHA-086
+  Tên: MRI và An toàn tiền sử kim loại
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_88] CDHA-088
+  Tên: MRI Tuyến yên và Prolactin máu
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_89] CDHA-089
+  Tên: MRI Tuyến yên và Kết quả nội tiết
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_91] CDHA-091
+  Tên: MRI Tim và Vật tư điện cực
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[CDHA_96] CDHA-096
+  Tên: MRI khớp có tiêm thuốc đối quang
+  File: ma_nguon/tien_ich/luat_cdha_hardcoded.jsx
+
+[Chuyen_de_024] CHUYEN_DE-024
+  Tên: XN thường quy sai quy định trước mổ Phaco
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_082] CHUYEN_DE-082
+  Tên: Có thanh toán DVKT nhưng thiếu Y lệnh
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_095] CHUYEN_DE-095
+  Tên: Bảng kê chi phí KCB lập sai quy định
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_272] CHUYEN_DE-272
+  Tên: Trưởng khoa/Phụ trách ICU sai chứng chỉ
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_288] CHUYEN_DE-288
+  Tên: Dịch vụ ngoài danh mục tương đương
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_310] CHUYEN_DE-310
+  Tên: Thiếu chữ ký Phiếu công khai DVKT/Thuốc
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_325] CHUYEN_DE-325
+  Tên: Thanh toán DVKT chưa được phê duyệt giá
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_393] CHUYEN_DE-393
+  Tên: Thiếu chữ ký Phiếu công khai
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_498] CHUYEN_DE-498
+  Tên: Khám lại trái tuyến không giấy chuyển
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[Chuyen_de_514] CHUYEN_DE-514
+  Tên: Cấp cứu nhưng hồ sơ không ghi nhận
+  File: ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx
+
+[CK_05] CK-005
+  Tên: Khám chuyên khoa tại khoa lâm sàng
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_23] CK-023
+  Tên: Công khám vượt định mức 2.000.000đ/năm
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_25] CK-025
+  Tên: CCHN bác sĩ Nhi khoa khám người lớn
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_26] CK-026
+  Tên: Khám bệnh mạn tính quá 12 lần/năm
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_27] CK-027
+  Tên: Công khám bệnh án mạn tính
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_34] CK-034
+  Tên: Thiếu chữ ký số trên hồ sơ khám
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_36] CK-036
+  Tên: CCHN bác sĩ không phù hợp khoa
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_38] CK-038
+  Tên: Khám chuyên khoa tại khoa không tương ứng
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_46] CK-046
+  Tên: Khám bệnh vượt tuyến kỹ thuật
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_51] CK-051
+  Tên: Bác sĩ khám vượt quá 02 cơ sở/ngày
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_52] CK-052
+  Tên: Trùng lặp công khám cùng giờ
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[CK_55] CK-055
+  Tên: Điều trị nội trú (mã 03/09) không qua khoa khám
+  File: ma_nguon/tien_ich/luat_cong_kham_hardcoded.jsx
+
+[GB_02] GB-002
+  Tên: Giường điều trị nội trú (mã 03/09) và mã bệnh nhẹ
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_04] GB-004
+  Tên: Giường và Ngày phẫu thuật
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_05] GB-005
+  Tên: [Hậu phẫu] Giường và Ngày phẫu thuật
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_20] GB-020
+  Tên: [BHYT] Giường và thẻ sắp hết hạn
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_28] GB-028
+  Tên: [Sản khoa] Giường con nằm cùng mẹ
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_34] GB-034
+  Tên: [Hồi sức] Giường ICU và Máy thở
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_39] GB-039
+  Tên: Giường Nhi tại khoa người lớn
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_53] GB-053
+  Tên: [Đơn giá] Giường nội trú ban ngày (mã 04)
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_54] GB-054
+  Tên: [Đơn giá] Giường nằm ghép 3 người
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_55] GB-055
+  Tên: [Đơn giá] Giường nằm ghép 2 người
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_56] GB-056
+  Tên: Giường và Đơn giá giường ghép 2
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_57] GB-057
+  Tên: Giường nội trú ban ngày (mã 04) và Mã giường BHYT
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_63] GB-063
+  Tên: [Trùng lặp] Nhiều giường trong 1 ngày
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_67] GB-067
+  Tên: [Logic] Ngày vào muộn hơn ngày mổ
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_68] GB-068
+  Tên: Giường và Thời gian phẫu thuật
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_71] GB-071
+  Tên: Chuyển khoa và Tính ngày giường
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[GB_76] GB-076
+  Tên: [Thời gian] Nằm viện tối thiểu 4 giờ
+  File: ma_nguon/tien_ich/luat_giuong_hardcoded.jsx
+
+[HD_03] HD-003
+  Tên: Khám bệnh ngày Chủ nhật
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[HD_07] HD-007
+  Tên: Gửi dữ liệu chậm (sau khi ra viện)
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[HD_08] HD-008
+  Tên: Khám sức khỏe/Theo yêu cầu (Điều 23 Luật BHYT)
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[HD_09] HD-009
+  Tên: Sai mã phương thức thanh toán
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[HD_10] HD-010
+  Tên: Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[HD_11] HD-011
+  Tên: Dịch vụ ngoài danh mục phê duyệt
+  File: ma_nguon/tien_ich/luat_hop_dong_hardcoded.jsx
+
+[NS_02] NS-002
+  Tên: Kiểm tra nhân sự có trong DM đăng ký hành nghề
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_03] NS-003
+  Tên: BS Y khoa - Phạm vi hành nghề (PL V, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_04] NS-004
+  Tên: BS YHCT - Phạm vi hành nghề (PL VI, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_05] NS-005
+  Tên: BS RHM - Phạm vi hành nghề (PL VIII, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_06] NS-006
+  Tên: BS Chuyên khoa - Phạm vi hành nghề (PL IX, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_07] NS-007
+  Tên: Điều dưỡng - Phạm vi hành nghề (PL XII, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_08] NS-008
+  Tên: Hộ sinh - Phạm vi hành nghề (PL XIII, TT 32)
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_09] NS-009
+  Tên: Kiểm tra phân cấp kỹ thuật theo vị trí chuyên môn
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_11] NS-011
+  Tên: Kê thuốc đặc trị - BS không có quyền kê
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_12] NS-012
+  Tên: CCHN hết hạn hoặc bị thu hồi
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_13] NS-013
+  Tên: DVKT ngoài DMDC BHYT hoặc ngoài phạm vi CSKCB
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_14] NS-014
+  Tên: BS chỉ định ≠ BS thực hiện - Thiếu y lệnh
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+[NS_15] NS-015
+  Tên: Nhân sự không đăng ký tại CSKCB hiện tại
+  File: ma_nguon/tien_ich/luat_nhan_su_hardcoded.jsx
+
+=== PHẦN C — QUY TẮC "TRANG_THAI": "OFF" TRONG SEED (JSON trong .jsx) ===
+Tổng: 159 rule (có thể trùng MA_LUAT nếu nhiều file; thường không)
+
+[CDSS_CM_02] SEED_DULIEU_CDSS_CM_02
+  Tên: CDSS Chuyên môn — Có kho phác đồ nhưng không có khóa ICD nào trên XML1 trùng bảng (sau gộp)
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+[DVKT_1634] (no id)
+  Tên: Chỉ định - SA Doppler ĐM, TM chi dưới (18.0045.0004)
+  File: ma_nguon/tien_ich/du_lieu_luat_pttt_muc11.jsx
+
+[HC_04] SEED_HANHCHINH_4
+  Tên: Bắt buộc ghi chú lâm sàng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_09] SEED_HANHCHINH_9
+  Tên: Miễn cùng chi trả (5 năm LT)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_10] SEED_HANHCHINH_10
+  Tên: Cấp cứu (Bất kỳ cơ sở nào)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_100] SEED_HANHCHINH_100
+  Tên: Tổng tiền thanh toán sai công thức
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_101] SEED_HANHCHINH_101
+  Tên: Tiền xét nghiệm XML1 và XML3 lệch
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_102] SEED_HANHCHINH_102
+  Tên: Tiền chẩn đoán hình ảnh lệch
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_103] SEED_HANHCHINH_103
+  Tên: Chi phí vận chuyển vượt định mức
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_108] SEED_HANHCHINH_108
+  Tên: Bác sĩ ký hồ sơ không phải điều trị
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_109] SEED_HANHCHINH_109
+  Tên: Tên file XML sai quy định
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_110] SEED_HANHCHINH_110
+  Tên: File XML chứa ký tự BOM
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_112] SEED_HANHCHINH_112
+  Tên: Sai mã bảng dữ liệu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_113] SEED_HANHCHINH_113
+  Tên: Bệnh nhân không có cân nặng/chiều cao
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_114] SEED_HANHCHINH_114
+  Tên: Thiếu ghi chú dị ứng tại XML1
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_115] SEED_HANHCHINH_115
+  Tên: Mã định danh đơn thuốc điện tử sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_116] SEED_HANHCHINH_116
+  Tên: Chênh lệch tiền thuốc do làm tròn > 10đ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_117] SEED_HANHCHINH_117
+  Tên: Thiếu ngày kết thúc đợt điều trị
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_118] SEED_HANHCHINH_118
+  Tên: Trẻ sơ sinh chưa có tên (Con bà...)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_120] SEED_HANHCHINH_120
+  Tên: Bệnh nhân nội trú thiếu nhóm máu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_122] SEED_HANHCHINH_122
+  Tên: Chữ ký số hết hạn tại ngày ký
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_123] SEED_HANHCHINH_123
+  Tên: Thẻ quân nhân (QN) thiếu đơn vị quản lý
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_124] SEED_HANHCHINH_124
+  Tên: Thẻ trẻ em (TE) không có ngày đủ 6 tuổi
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_126] SEED_HANHCHINH_126
+  Tên: Thời gian vào khoa sau y lệnh đầu tiên
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_128] SEED_HANHCHINH_128
+  Tên: Điều trị nội trú thiếu mã bác sĩ cho bệnh kèm
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_129] SEED_HANHCHINH_129
+  Tên: Ra viện diện trốn viện (Lý do 4)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_131] SEED_HANHCHINH_131
+  Tên: Thông tuyến huyện sai mức hưởng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_133] SEED_HANHCHINH_133
+  Tên: Giấy hẹn khám lại thiếu chữ ký BS
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_134] SEED_HANHCHINH_134
+  Tên: Chuyển tuyến diện cấp cứu mâu thuẫn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_135] SEED_HANHCHINH_135
+  Tên: Giấy chuyển tuyến quá hạn 1 năm
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_137] SEED_HANHCHINH_137
+  Tên: Dịch vụ kỹ thuật thiếu mã theo TT22
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_138] SEED_HANHCHINH_138
+  Tên: Đơn giá thuốc bệnh viện tự thầu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_139] SEED_HANHCHINH_139
+  Tên: Giấy nghỉ dưỡng thai thiếu số tuần
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_140] SEED_HANHCHINH_140
+  Tên: Tóm tắt hồ sơ thiếu hướng điều trị tiếp
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_141] SEED_HANHCHINH_141
+  Tên: Biên bản PTTT thiếu mã gây mê
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_142] SEED_HANHCHINH_142
+  Tên: Kết quả CLS thiếu giá trị bình thường
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_143] SEED_HANHCHINH_143
+  Tên: Hồ sơ tử vong thiếu thời điểm tử vong
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_144] SEED_HANHCHINH_144
+  Tên: Tiền xét nghiệm XML1 âm
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_145] SEED_HANHCHINH_145
+  Tên: Lỗi tính tiền BHTT cho đối tượng nghèo
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_146] SEED_HANHCHINH_146
+  Tên: Chi phí chênh lệch giá (Nguồn khác)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_148] SEED_HANHCHINH_148
+  Tên: Sai lệch số tiền miễn giảm
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_149] SEED_HANHCHINH_149
+  Tên: Giám đốc chưa ký duyệt hồ sơ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_150] SEED_HANHCHINH_150
+  Tên: Ngày ký điện tử trước ngày lập bảng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_152] SEED_HANHCHINH_152
+  Tên: Mã khoa lập hồ sơ không tồn tại
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_153] SEED_HANHCHINH_153
+  Tên: BN nhi thiếu tên người giám hộ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_155] SEED_HANHCHINH_155
+  Tên: Tiền khám lượt 3 trở đi tính BHYT
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_156] SEED_HANHCHINH_156
+  Tên: Sai mã hình thức vào viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_158] SEED_HANHCHINH_158
+  Tên: Khám bằng hình ảnh thẻ trên VssID
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_159] SEED_HANHCHINH_159
+  Tên: BN từ chối cung cấp CCCD
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_16] SEED_HANHCHINH_16
+  Tên: Ngoại trú trái tuyến (Cấp tỉnh)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_161] SEED_HANHCHINH_161
+  Tên: Sai logic mã thẻ tạm và số định danh
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_163] SEED_HANHCHINH_163
+  Tên: Sai định dạng Ngày giờ y lệnh (Phút lẻ)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_164] SEED_HANHCHINH_164
+  Tên: Tổng tiền thanh toán bị làm tròn sai số
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_165] SEED_HANHCHINH_165
+  Tên: Bệnh nhân ra viện nhưng hồ sơ chưa đóng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_166] SEED_HANHCHINH_166
+  Tên: Tệp XML thiếu mã ký số cơ quan
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_167] SEED_HANHCHINH_167
+  Tên: Diễn biến lâm sàng sau giờ tử vong
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_168] SEED_HANHCHINH_168
+  Tên: Giờ kết thúc mổ sau giờ ra viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_17] SEED_HANHCHINH_17
+  Tên: Nội trú trái tuyến (Cấp tỉnh)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_170] SEED_HANHCHINH_170
+  Tên: Thời gian gây mê vượt quá 24h
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_172] SEED_HANHCHINH_172
+  Tên: Giấy ra viện thiếu mã bệnh chính
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_174] SEED_HANHCHINH_174
+  Tên: Tổng tiền giường lệch với chi tiết
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_175] SEED_HANHCHINH_175
+  Tên: Tổng chi phí bằng 0 (Nội trú)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_177] SEED_HANHCHINH_177
+  Tên: Mã PTTT quốc tế không chuẩn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_178] SEED_HANHCHINH_178
+  Tên: Đơn vị tính thuốc chứa số
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_180] SEED_HANHCHINH_180
+  Tên: Bác sĩ mổ và bác sĩ điều trị khác nhau
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_182] SEED_HANHCHINH_182
+  Tên: Người lập bảng và bác sĩ điều trị trùng nhau
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_183] SEED_HANHCHINH_183
+  Tên: Chữ ký số bệnh viện bị thiếu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_184] SEED_HANHCHINH_184
+  Tên: Ngày ký hồ sơ sau ngày gửi cổng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_187] SEED_HANHCHINH_187
+  Tên: Có tạng hiến nhưng thiếu mã tạng
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_188] SEED_HANHCHINH_188
+  Tên: Thiếu giấy chứng sinh (Bé sơ sinh)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_189] SEED_HANHCHINH_189
+  Tên: Nghỉ dưỡng thai quá 10 ngày/lần
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_191] SEED_HANHCHINH_191
+  Tên: Tên bảng dữ liệu viết thường
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_192] SEED_HANHCHINH_192
+  Tên: File XML chứa ký tự lạ (Non-UTF8)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_195] SEED_HANHCHINH_195
+  Tên: Thiếu thông tin cổng tiếp nhận (Portal)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_196] SEED_HANHCHINH_196
+  Tên: Dùng CCCD nhưng thiếu ngày cấp
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_197] SEED_HANHCHINH_197
+  Tên: Địa chỉ thường trú và tạm trú trùng nhau
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_198] SEED_HANHCHINH_198
+  Tên: Sai mã tỉnh cấp thẻ BHYT
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_201] SEED_HANHCHINH_201
+  Tên: Bác sĩ điều trị nghỉ việc vẫn có tên
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_202] SEED_HANHCHINH_202
+  Tên: Hồ sơ ra viện quá hạn đẩy cổng (> 15 ngày)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_203] SEED_HANHCHINH_203
+  Tên: Tệp XML bị virus hoặc mã độc
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_209] SEED_HANHCHINH_209
+  Tên: Giờ vào khoa sau giờ ra viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_21] SEED_HANHCHINH_21
+  Tên: Trẻ sơ sinh chưa có thẻ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_211] SEED_HANHCHINH_211
+  Tên: Ngày cấp GCT trùng ngày ra viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_219] SEED_HANHCHINH_219
+  Tên: Sai lệch tiền DVKT (XML1 vs XML3)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_222] SEED_HANHCHINH_222
+  Tên: Mã bác sĩ chứa ký tự đặc biệt
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_224] SEED_HANHCHINH_224
+  Tên: Bác sĩ mổ trùng bác sĩ phụ mổ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_226] SEED_HANHCHINH_226
+  Tên: Trẻ em dùng mã định danh sai cấu trúc
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_227] SEED_HANHCHINH_227
+  Tên: Thiếu ảnh chân dung xác thực VNeID
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_228] SEED_HANHCHINH_228
+  Tên: BN trên 80 tuổi thiếu đối tượng ưu tiên
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_229] SEED_HANHCHINH_229
+  Tên: Thiếu giấy chứng nhận phẫu thuật
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_231] SEED_HANHCHINH_231
+  Tên: Thiếu thông tin người đỡ đẻ (Sản)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_233] SEED_HANHCHINH_233
+  Tên: Hồ sơ có thuốc gây nghiện thiếu số đơn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_234] SEED_HANHCHINH_234
+  Tên: BN nội trú chưa đánh giá nguy cơ té ngã
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_235] SEED_HANHCHINH_235
+  Tên: Thiếu mã vùng thẻ (K1, K2, K3)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_236] SEED_HANHCHINH_236
+  Tên: Tiền khám lần 2 cùng chuyên khoa
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_239] SEED_HANHCHINH_239
+  Tên: Tên thẻ XML chứa ký tự tiếng Việt
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_240] SEED_HANHCHINH_240
+  Tên: Hồ sơ gửi lại thiếu mã lý do
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_241] SEED_HANHCHINH_241
+  Tên: BN chết trước khi vào viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_243] SEED_HANHCHINH_243
+  Tên: Bác sĩ điều trị bị khóa tài khoản
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_244] SEED_HANHCHINH_244
+  Tên: Hồ sơ chưa qua bước kiểm soát nội bộ
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_26] SEED_HANHCHINH_26
+  Tên: Chuyển tuyến cấp cứu (NĐ 188)
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_27] SEED_HANHCHINH_27
+  Tên: Tỷ lệ thanh toán VTYT thay thế
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_28] SEED_HANHCHINH_28
+  Tên: Tỷ lệ thanh toán Thuốc 50%
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_29] SEED_HANHCHINH_29
+  Tên: VTYT Thủy tinh thể nhân tạo
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_30] SEED_HANHCHINH_30
+  Tên: Tỷ lệ VTYT Máy tạo nhịp tim
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_31] SEED_HANHCHINH_31
+  Tên: Họ tên chứa ký tự đặc biệt
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_33] SEED_HANHCHINH_33
+  Tên: Sai cấu trúc mã thẻ BHYT
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_34] SEED_HANHCHINH_34
+  Tên: Ngày sinh lớn hơn ngày hiện tại
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_35] SEED_HANHCHINH_35
+  Tên: Trẻ em TE nhưng tuổi > 6
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_36] SEED_HANHCHINH_36
+  Tên: Thẻ HS/SV nhưng tuổi > 28
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_38] SEED_HANHCHINH_38
+  Tên: Mã tỉnh trong địa chỉ sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_44] SEED_HANHCHINH_44
+  Tên: Giờ vào khoa trước giờ tiếp đón
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_45] SEED_HANHCHINH_45
+  Tên: Y lệnh sau khi bệnh nhân đã ra viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_48] SEED_HANHCHINH_48
+  Tên: Mã khoa phòng không đúng chuẩn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_50] SEED_HANHCHINH_50
+  Tên: Mã tai nạn thương tích sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_51] SEED_HANHCHINH_51
+  Tên: Đơn vị tính thuốc không chuẩn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_53] SEED_HANHCHINH_53
+  Tên: Chuyển tuyến thiếu số hồ sơ chuyển
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_54] SEED_HANHCHINH_54
+  Tên: Tuyến cơ sở KCB ban đầu sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_55] SEED_HANHCHINH_55
+  Tên: Cấp cứu nhưng mã lý do vào viện sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_56] SEED_HANHCHINH_56
+  Tên: Ngày cấp GCT sau ngày vào viện
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_57] SEED_HANHCHINH_57
+  Tên: Mã cơ sở chuyển đi không tồn tại
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_61] SEED_HANHCHINH_61
+  Tên: Sai lệch tổng tiền XML1 và XML3
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_64] SEED_HANHCHINH_64
+  Tên: Bác sĩ mổ trùng bác sĩ gây mê
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_66] SEED_HANHCHINH_66
+  Tên: Sai phiên bản XML 130
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_67] SEED_HANHCHINH_67
+  Tên: Mã cơ sở KCB trong file sai
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_70] SEED_HANHCHINH_70
+  Tên: Thừa tệp tin không quy định
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_72] SEED_HANHCHINH_72
+  Tên: Chẩn đoán ICD-10 tiếng Việt không dấu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_73] SEED_HANHCHINH_73
+  Tên: Bệnh nhân quốc tịch nước ngoài thiếu hộ chiếu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_75] SEED_HANHCHINH_75
+  Tên: Gửi hồ sơ chậm quá 7 ngày
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_77] SEED_HANHCHINH_77
+  Tên: Trẻ em thiếu số định danh cá nhân
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_78] SEED_HANHCHINH_78
+  Tên: Thiếu số định danh khi dùng VNeID
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_79] SEED_HANHCHINH_79
+  Tên: Mã dân tộc sai chuẩn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_81] SEED_HANHCHINH_81
+  Tên: Thẻ mã vùng K1/K2/K3 thiếu nơi sống
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_84] SEED_HANHCHINH_84
+  Tên: Thẻ BHYT hết hạn tại thời điểm y lệnh
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_85] SEED_HANHCHINH_85
+  Tên: Giấy chuyển tuyến thiếu mã nơi đi
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_87] SEED_HANHCHINH_87
+  Tên: Chuyển tuyến không đúng thẩm quyền
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_88] SEED_HANHCHINH_88
+  Tên: Thiếu mã số hồ sơ chuyển tuyến
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_89] SEED_HANHCHINH_89
+  Tên: Chẩn đoán nơi đi mâu thuẫn nơi đến
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_90] SEED_HANHCHINH_90
+  Tên: Mã thuốc không có trong danh mục thầu
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_91] SEED_HANHCHINH_91
+  Tên: Thuốc phóng xạ thiếu mã an toàn
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_93] SEED_HANHCHINH_93
+  Tên: Thuốc tự bào chế thiếu bảng kê
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[HC_97] SEED_HANHCHINH_97
+  Tên: Giấy ra viện thiếu chữ ký lãnh đạo
+  File: ma_nguon/tien_ich/du_lieu_luat_hanh_chinh_muc2.jsx
+
+[THUOC_387] SEED_THUOC_387
+  Tên: Amoxicilin/Clavulanic: Liều Nhi
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_400] SEED_THUOC_400
+  Tên: Đơn thuốc điện tử sai định dạng mã
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_442] SEED_THUOC_442
+  Tên: Methylprednisolon: Liều/24h
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_443] SEED_THUOC_443
+  Tên: Người mua hộ thuốc thiếu định danh
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_477] SEED_THUOC_477
+  Tên: Thuốc đắt tiền (>10 triệu/lọ)
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_486] SEED_THUOC_486
+  Tên: Thuốc gây nghiện BN nhi < 12 tuổi
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_511] SEED_THUOC_511
+  Tên: Thuốc thay thế dịch vụ (Cùng mã)
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_512] SEED_THUOC_512
+  Tên: Thuốc thay thế khác hoạt chất
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_513] SEED_THUOC_513
+  Tên: Thuốc thay thế thiếu mã DVKT
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_515] SEED_THUOC_515
+  Tên: Thuốc tự chế từ vị thuốc (Giá)
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_516] SEED_THUOC_516
+  Tên: Thuốc tự mua - Thiếu số hóa đơn
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[THUOC_537] SEED_THUOC_537
+  Tên: JCI Safety: Trường thông tin dị ứng không được để trống
+  File: ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx
+
+[XML_105] SEED_DULIEU_105
+  Tên: Tóm tắt HSBA rỗng (XML7)
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+[XML_128] SEED_DULIEU_128
+  Tên: XML2 có thứ tự dòng không liên tục
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+[XML_136] SEED_DULIEU_136
+  Tên: XML3 có thứ tự dòng không liên tục
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+[XML_78] SEED_DULIEU_78
+  Tên: Sơ sinh vs Giấy chứng sinh
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+[XML_82] SEED_DULIEU_82
+  Tên: Thiếu hồ sơ sơ sinh (XML8)
+  File: ma_nguon/tien_ich/du_lieu_luat_du_lieu_muc1.jsx
+
+=== PHẦN D — MẶC ĐỊNH OFF (ỨNG DỤNG ÁP KHI CHƯA CÓ CẤU HÌNH ON/OFF) ===
+Nguồn: ma_nguon/tien_ich/quy_tac_on_off_noi_bo.jsx — DANH_SACH_MAU_QUY_TAC_MAC_DINH_OFF (0 mã/pattern).
+
+
+=== PHẦN E — TẮT CỨNG (KHÔNG CHO BẬT LẠI QUA UI) ===
+Nguồn: cùng file — DANH_SACH_QUY_TAC_TAT_CUNG (4 mã).
+
+  CDHA_07
+  CDHA_113
+  DVKT_1634
+  XML_140
+
+=== GHI CHÚ ===
+- Phần B: chỉ rule ghi một dòng trong file (id, MA_LUAT, TEN_QUY_TAC, TRANG_THAI cùng dòng).
+- Phần C: object JSON nhiều dòng trong file seed.

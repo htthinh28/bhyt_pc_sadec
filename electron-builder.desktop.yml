@@ -1,0 +1,58 @@
+# Đóng gói desktop TỐI GIẢN — chỉ chạy từ thư mục staging (không có node_modules dự án).
+# Gọi qua: node scripts/stage_desktop_pack.mjs
+# Phiên bản Electron cố định (staging không có node_modules để suy ra).
+electronVersion: 35.7.5
+
+appId: com.phuongchau.cdss.bhyt
+productName: CDSS-BHYT-Phuong-Chau
+copyright: Copyright © Phuong Chau
+
+directories:
+  output: ../release-desktop
+
+# dist nằm ngoài app.asar để có thể vá bằng file CDSS-BHYT-CapNhat-Offline.exe (pkg)
+asar: true
+asarUnpack:
+  - "dist/**/*"
+
+files:
+  - dist/**/*
+  - electron-main.cjs
+  - package.json
+
+extraMetadata:
+  main: electron-main.cjs
+
+win:
+  signAndEditExecutable: false
+  target:
+    - portable
+    - nsis
+  artifactName: "${productName}-${version}-Windows-${arch}.${ext}"
+
+mac:
+  target:
+    - dmg
+    - zip
+  artifactName: "${productName}-${version}-macOS-${arch}.${ext}"
+  category: public.app-category.medical
+
+linux:
+  target:
+    - AppImage
+    - deb
+  artifactName: "${productName}-${version}-Linux-${arch}.${ext}"
+  category: Office
+
+compression: maximum
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  # Cùng appId → Windows nhận là cùng ứng dụng; chạy Setup mới ghi đè bản cũ (cùng thư mục cài).
+  deleteAppDataOnUninstall: false
+  shortcutName: "${productName}"
+  uninstallDisplayName: "${productName}"
+  # Khác tên file với bản portable (cùng pattern .exe)
+  artifactName: "${productName}-${version}-Setup-${arch}.${ext}"

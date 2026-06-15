@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 403538 - THUOC_345 - MOGASTIC 80</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_403538_THUOC_345_MOGASTIC.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 403538 - THUOC_345 - MOGASTIC 80</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Ca này dùng để huấn luyện AI cách đi từ audit JSON sang XML thật, rồi rút ra kết luận nghiệp vụ về sai chỉ định thuốc.</p>
+<p>Trọng tâm của ca:</p>
+<ul>
+<li>rule <code>THUOC_345</code></li>
+<li>thuốc <code>Mogastic 80</code> mã <code>40.750</code></li>
+<li>đối chiếu chẩn đoán XML1 với dòng thuốc XML2</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_403538_20260405_145119.json</code></li>
+<li>XML gốc: <code>tai_nguyen/xml/QD130_94170_202603_202603191106_PC-022505334.xml</code></li>
+<li>Seed rule: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+</ul>
+<p>Điểm mạnh của ca này:</p>
+<ul>
+<li>khác với ca <code>000434</code>, ca này có XML thật ngay trong repo nên có thể kiểm tra trực tiếp dữ liệu nguồn.</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>403538</code></li>
+<li>Hồ sơ điều trị nội trú</li>
+<li>Tổng cảnh báo trong audit: <code>47</code></li>
+<li>Các nhóm vấn đề lớn trong hồ sơ:<ul>
+<li>lỗi cấu trúc/thời gian XML3 và XML5</li>
+<li>lỗi thuốc <code>THUOC_345</code></li>
+<li><code>XML_121</code> trong toàn hồ sơ</li>
+</ul>
+</li>
+</ul>
+<p>Ca này không dùng để dạy AI sửa toàn bộ hồ sơ. Ca này chỉ dùng để dạy một nhánh suy luận rõ ràng: <strong>thuốc bị sai chỉ định thanh toán theo chẩn đoán</strong>.</p>
+<h2>4. Rule đích cần huấn luyện</h2>
+<h3>4.1. Định nghĩa rule</h3>
+<ul>
+<li>Mã rule: <code>THUOC_345</code></li>
+<li>Tên rule: <code>[Simethicon] Kiểm tra Chỉ định ICD-10</code></li>
+<li>Điều kiện:</li>
+</ul>
+<p><code>XML2.MA_THUOC == &#39;40.750&#39; AND XML1.MA_BENH_CHINH NOT IN (&#39;R14&#39;) AND XML1.MA_BENH_KT NOT LIKE &#39;%R14%&#39; AND XML1.CHAN_DOAN_RV NOT REGEXP &#39;(?i)(ĐẦY HƠI|CHƯỚNG BỤNG)&#39;</code></p>
+<ul>
+<li>Cảnh báo seed:</li>
+</ul>
+<p><code>⛔ [XUẤT TOÁN]: Thuốc Simecol chỉ được thanh toán cho chẩn đoán Đầy hơi, trướng bụng (R14).</code></p>
+<h3>4.2. Ý nghĩa nghiệp vụ</h3>
+<ul>
+<li>Rule này không kiểm tra liều hay số lượng.</li>
+<li>Rule này kiểm tra <strong>căn cứ thanh toán</strong> của Simethicon.</li>
+<li>Nếu hồ sơ không có <code>R14</code> hoặc mô tả tương đương như <code>đầy hơi</code>, <code>chướng bụng</code>, thì thuốc có nguy cơ bị xuất toán.</li>
+</ul>
+<h2>5. Dữ liệu thật đã xác nhận từ XML1</h2>
+<p>Từ XML gốc, đã xác nhận:</p>
+<ul>
+<li><code>MA_BENH_CHINH = E87.1</code></li>
+<li><code>MA_BENH_KT = K21;K30;K59.0;E83.5;I25;I10;G40.9</code></li>
+</ul>
+<p>Chẩn đoán ra viện có các nội dung nổi bật:</p>
+<ul>
+<li>giảm áp suất thẩm thấu và giảm Na máu</li>
+<li>bệnh trào ngược dạ dày - thực quản</li>
+<li>khó tiêu chức năng</li>
+<li>táo bón</li>
+<li>rối loạn chuyển hóa calci</li>
+<li>thiếu calci</li>
+<li>bệnh tim thiếu máu cục bộ mạn</li>
+<li>bệnh lý tăng huyết áp</li>
+<li>động kinh không đặc hiệu</li>
+</ul>
+<p>Điểm AI phải nhìn ra:</p>
+<ul>
+<li>hồ sơ có <code>K30</code> và mô tả <code>khó tiêu chức năng</code></li>
+<li>nhưng <strong>không thấy <code>R14</code></strong></li>
+<li>cũng <strong>không thấy cụm <code>đầy hơi</code> hay <code>chướng bụng</code></strong> trong dữ liệu đã xác nhận</li>
+</ul>
+<h2>6. Dữ liệu thật đã xác nhận từ XML2</h2>
+<p>Trong XML2 có ít nhất 2 dòng <code>Mogastic 80</code> mã <code>40.750</code>.</p>
+<h3>Dòng 1</h3>
+<ul>
+<li><code>STT = 3</code></li>
+<li><code>TEN_THUOC = Mogastic 80</code></li>
+<li><code>DON_VI_TINH = Viên</code></li>
+<li><code>SO_LUONG = 4</code></li>
+<li><code>LIEU_DUNG = Ngày Uống 2 lần, mỗi lần 2 viên (buổi sáng, buổi chiều)</code></li>
+<li><code>NGAY_YL = 202603170722</code></li>
+</ul>
+<h3>Dòng 2</h3>
+<ul>
+<li><code>STT = 5</code></li>
+<li><code>TEN_THUOC = Mogastic 80</code></li>
+<li><code>DON_VI_TINH = Viên</code></li>
+<li><code>SO_LUONG = 2</code></li>
+<li><code>LIEU_DUNG = Ngày Uống 2 lần, mỗi lần 1 viên (buổi sáng, buổi chiều)</code></li>
+<li><code>NGAY_YL = 202603180800</code></li>
+</ul>
+<p>Điểm AI phải nhìn ra:</p>
+<ul>
+<li>đây là 2 dòng thuốc ở 2 ngày y lệnh khác nhau</li>
+<li>audit đánh <code>THUOC_345</code> cho cả 2 dòng là hợp logic nếu cả hai cùng thiếu căn cứ chỉ định <code>R14</code></li>
+</ul>
+<h2>7. Kết quả audit thực tế</h2>
+<p>Audit ghi nhận:</p>
+<ul>
+<li><code>THUOC_345</code>: <code>2</code> lần</li>
+<li>Cảnh báo thực tế:</li>
+</ul>
+<p><code>⛔ [XUẤT TOÁN]: Thuốc Simecol chỉ được thanh toán cho chẩn đoán Đầy hơi, trướng bụng (R14). Chi tiết thuốc: [40.750] Mogastic 80.</code></p>
+<p>Điểm cần nhấn mạnh cho AI:</p>
+<ul>
+<li>audit và XML thật đang khớp nhau về mặt logic</li>
+<li>đây không phải ca chỉ có template cảnh báo mà đã có đủ dữ liệu nguồn để đối chiếu</li>
+</ul>
+<h2>8. Kết luận mẫu mà AI nên rút ra</h2>
+<p>Kết luận chuẩn cho ca này nên là:</p>
+<ol>
+<li>Hồ sơ <code>403538</code> có 2 dòng <code>Mogastic 80</code> tại XML2.</li>
+<li>Rule <code>THUOC_345</code> yêu cầu hồ sơ phải có <code>R14</code> hoặc mô tả đầy hơi/chướng bụng mới đủ căn cứ thanh toán.</li>
+<li>Dữ liệu XML1 đã xác nhận không có <code>R14</code>, cũng chưa thấy mô tả đầy hơi/chướng bụng trong chẩn đoán đã đọc được.</li>
+<li>Vì vậy, việc audit đánh <code>THUOC_345</code> cho 2 dòng <code>Mogastic 80</code> là có căn cứ.</li>
+<li>Đây là lỗi <strong>sai chỉ định thanh toán</strong>, không phải lỗi liều hay cấp dư.</li>
+</ol>
+<h2>9. Điều AI không được kết luận quá mức</h2>
+<p>AI không nên tự khẳng định:</p>
+<ul>
+<li>thuốc này chắc chắn sai chuyên môn điều trị</li>
+<li>hoặc <code>XML_121</code> của hồ sơ chắc chắn do <code>Mogastic 80</code></li>
+</ul>
+<p>Lý do:</p>
+<ul>
+<li><code>THUOC_345</code> chỉ kết luận về <strong>điều kiện thanh toán theo rule hiện hành</strong></li>
+<li><code>XML_121</code> là tín hiệu ở mức toàn hồ sơ, chưa đủ dữ liệu để chốt nó gắn với Mogastic nếu chưa rà hết toàn bộ XML2 theo ngày</li>
+</ul>
+<h2>10. Dữ liệu cần kiểm tra thêm nếu muốn đi sâu hơn</h2>
+<p>Nếu muốn nâng ca này từ mức huấn luyện cơ bản lên mức phân tích sâu, AI nên kiểm tra thêm:</p>
+<ul>
+<li>toàn bộ các dòng XML2 của hồ sơ để xác định nguồn gốc <code>XML_121</code></li>
+<li>diễn biến lâm sàng hoặc ghi chú bệnh án xem có mô tả đầy hơi/chướng bụng ngoài các trường đã đọc hay không</li>
+<li>khả năng bệnh viện dùng Simethicon cho triệu chứng khó tiêu nhưng rule hiện hành chỉ chấp nhận <code>R14</code></li>
+</ul>
+<h2>11. Bài học huấn luyện cho AI</h2>
+<h3>11.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Một thuốc có thể hợp lý về mặt điều trị nhưng vẫn không đủ căn cứ thanh toán theo rule BHYT hiện hành.</li>
+<li>Khi đánh sai chỉ định, AI phải nói rõ đó là vấn đề thanh toán, không tự động đồng nghĩa với sai chuyên môn.</li>
+</ul>
+<h3>11.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Nếu XML gốc có sẵn trong repo, AI phải ưu tiên đối chiếu lại XML thay vì chỉ tóm tắt audit JSON.</li>
+<li>Với rule chỉ định ICD-10, cần đọc ít nhất 3 trường:<ul>
+<li><code>MA_BENH_CHINH</code></li>
+<li><code>MA_BENH_KT</code></li>
+<li><code>CHAN_DOAN_RV</code></li>
+</ul>
+</li>
+</ul>
+<h3>11.3. Bài học quy trình</h3>
+<ul>
+<li>Trình tự phân tích đúng cho ca này là:<ol>
+<li>đọc rule seed</li>
+<li>đọc cảnh báo audit</li>
+<li>đọc XML1 để kiểm tra chẩn đoán</li>
+<li>đọc XML2 để xác nhận dòng thuốc thực tế</li>
+<li>mới kết luận</li>
+</ol>
+</li>
+</ul>
+<h2>12. Prompt gợi ý để luyện AI với ca này</h2>
+<ul>
+<li><code>/Mo Phong Ca Giam Dinh BHYT Ho so 403538, doi chieu audit_403538_20260405_145119.json va XML goc, tap trung THUOC_345</code></li>
+<li><code>/Phan Tich XML BHYT Theo Ho So MA_LK 403538, kiem tra Mogastic 80 va can cu thanh toan theo THUOC_345</code></li>
+<li><code>/Trich Xuat The Tri Thuc Giam Dinh Rut ra 1 the tri thuc tu ca 403538 cho nhom rule chi dinh thuoc theo ICD-10</code></li>
+</ul>
+<h2>13. Kết luận</h2>
+<p>Ca <code>403538</code> là ca huấn luyện tốt cho mức trung cấp vì có cả audit và XML thật, giúp AI học được cách:</p>
+<ul>
+<li>nối rule seed với dữ liệu nguồn</li>
+<li>phân biệt sai chỉ định thanh toán với sai chuyên môn điều trị</li>
+<li>tránh kết luận quá mức khi tín hiệu phụ như <code>XML_121</code> chưa được kiểm tra hết</li>
+</ul>
+
+  </main>
+</body>
+</html>

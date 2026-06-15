@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QUY TRÌNH PROMPT HUẤN LUYỆN AI BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Quy_trinh_prompt_huan_luyen_AI_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>QUY TRÌNH PROMPT HUẤN LUYỆN AI BHYT</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Tài liệu này đóng gói quy trình huấn luyện AI thành một bộ prompt dùng lặp lại, để anh không phải viết lại đầu bài dài mỗi lần cần dạy AI thêm một chủ đề hoặc một ca hồ sơ thật.</p>
+<h2>2. Bộ prompt nên dùng</h2>
+<h3>Prompt 1. Lập đợt huấn luyện</h3>
+<ul>
+<li>File: <code>.github/prompts/lap-dot-huan-luyen-ai-bhyt.prompt.md</code></li>
+<li>Mục đích: chọn chủ đề hẹp, nguồn seed rule, ca audit phù hợp và đầu ra cần tạo.</li>
+</ul>
+<h3>Prompt 2. Dùng audit tạo ca huấn luyện</h3>
+<ul>
+<li>File: <code>.github/prompts/dung-audit-tao-ca-huan-luyen.prompt.md</code></li>
+<li>Mục đích: biến một audit JSON và, nếu có, XML gốc thành case study huấn luyện có cấu trúc.</li>
+</ul>
+<h3>Prompt 3. Cập nhật bộ tri thức</h3>
+<ul>
+<li>File: <code>.github/prompts/cap-nhat-bo-tri-thuc-ai-bhyt.prompt.md</code></li>
+<li>Mục đích: gom kết quả của một đợt huấn luyện thành tài liệu trong <code>tai_lieu/</code>.</li>
+</ul>
+<h3>Prompt 4. Chạy trọn quy trình</h3>
+<ul>
+<li>File: <code>.github/prompts/chuong-trinh-huan-luyen-ai-bhyt.prompt.md</code></li>
+<li>Mục đích: chạy từ đầu đến cuối cho một đợt huấn luyện gồm chọn chủ đề, dựng thẻ tri thức, dựng ca thật và cập nhật tài liệu.</li>
+</ul>
+<h2>3. Cách dùng nhanh</h2>
+<p>Nếu muốn làm theo từng bước, nên dùng theo thứ tự:</p>
+<ol>
+<li><code>/Lap Dot Huan Luyen AI BHYT Chu de tim mach, uu tien rule co seed that va co audit that trong repo</code></li>
+<li><code>/Dung Audit Tao Ca Huan Luyen Ho so 403538, tap trung THUOC_345, co XML goc trong tai_nguyen/xml</code></li>
+<li><code>/Cap Nhat Bo Tri Thuc AI BHYT Cap nhat tai lieu sau dot huan luyen tim mach va ca 403538</code></li>
+</ol>
+<p>Nếu muốn chạy gói gọn trong một lệnh, dùng:</p>
+<ol>
+<li><code>/Chuong Trinh Huan Luyen AI BHYT Chu de tim mach, uu tien 1 dot the tri thuc va 1 ca ho so that</code></li>
+</ol>
+<h2>4. Khi nào dùng prompt nào</h2>
+<h3>Dùng <code>Lap Dot Huan Luyen AI BHYT</code> khi</h3>
+<ul>
+<li>chưa biết nên học chủ đề nào tiếp theo</li>
+<li>muốn AI tự chọn chủ đề hẹp từ seed rule và audit có sẵn</li>
+<li>muốn lên kế hoạch một đợt huấn luyện mới</li>
+</ul>
+<h3>Dùng <code>Dung Audit Tao Ca Huan Luyen</code> khi</h3>
+<ul>
+<li>đã có <code>MA_LK</code>, file audit hoặc file XML</li>
+<li>muốn biến một hồ sơ thật thành bài học có thể dùng lặp lại</li>
+</ul>
+<h3>Dùng <code>Cap Nhat Bo Tri Thuc AI BHYT</code> khi</h3>
+<ul>
+<li>vừa hoàn thành một đợt huấn luyện</li>
+<li>muốn AI cập nhật tài liệu trong <code>tai_lieu/</code> thay vì để kiến thức rời rạc trong hội thoại</li>
+</ul>
+<h3>Dùng <code>Chuong Trinh Huan Luyen AI BHYT</code> khi</h3>
+<ul>
+<li>muốn AI làm trọn gói từ đầu đến cuối</li>
+<li>muốn giảm thao tác điều phối thủ công</li>
+</ul>
+<h2>5. Quy ước đầu ra</h2>
+<p>Mỗi đợt huấn luyện nên cố định 2 đầu ra chính:</p>
+<ol>
+<li>một tài liệu thẻ tri thức theo chủ đề</li>
+<li>một case study từ hồ sơ thật</li>
+</ol>
+<p>Đầu ra khuyến nghị:</p>
+<ul>
+<li><code>tai_lieu/The_tri_thuc_mau_nhom_...md</code></li>
+<li><code>tai_lieu/Ca_huan_luyen_mau_...md</code></li>
+</ul>
+<h2>6. Tiêu chuẩn chất lượng</h2>
+<p>Khi dùng bộ prompt này, câu trả lời tốt phải đạt các tiêu chí sau:</p>
+<ul>
+<li>có nguồn rule hoặc dữ liệu thật trong repo</li>
+<li>nói rõ dữ liệu nào đã xác nhận, dữ liệu nào còn thiếu</li>
+<li>không đánh đồng sai thanh toán với sai chuyên môn nếu rule không kết luận như vậy</li>
+<li>ưu tiên bám mã nguồn và audit thật hơn suy luận chung chung</li>
+</ul>
+<h2>7. Gợi ý triển khai hàng tuần</h2>
+<p>Một nhịp làm việc gọn có thể là:</p>
+<ol>
+<li>đầu tuần chọn 1 chủ đề bằng prompt lập đợt</li>
+<li>giữa tuần đưa 1 hồ sơ thật vào prompt dựng case</li>
+<li>cuối tuần dùng prompt cập nhật bộ tri thức để chốt tài liệu</li>
+</ol>
+<h2>8. Kết luận</h2>
+<p>Bộ prompt này giúp anh chuyển từ kiểu làm việc theo từng hội thoại rời rạc sang quy trình huấn luyện có cấu trúc, có đầu ra lưu trữ được và có thể mở rộng dần theo từng tuần.</p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KT183 — CT/CLVT MÃ «CÓ CẢN QUANG» NHƯNG KHÔNG CÓ THUỐC CẢN QUANG (CV266) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV266_KT183_CT_can_quang_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KT183 — CT/CLVT MÃ «CÓ CẢN QUANG» NHƯNG KHÔNG CÓ THUỐC CẢN QUANG (CV266) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Nguồn:</strong> Công văn 266 — chuyên đề Trung tâm Kiểm soát BHYT, <strong>PL01 / KT183</strong> (<em>CLVT thuốc cản quang</em>), tệp tham chiếu <strong>15/09/2025</strong>.<br><strong>Mã từ chối gợi ý:</strong> S.005.442  </p>
+<hr>
+<h2>1. Nguyên tắc</h2>
+<ul>
+<li>Nếu <strong>không</strong> dùng thuốc cản quang để chụp nhưng lại thanh toán mức giá <strong>«CLVT có thuốc cản quang»</strong> → điều chỉnh về mức <strong>«không thuốc cản quang»</strong> (theo QĐ phê duyệt giá).</li>
+</ul>
+<h2>2. Dữ liệu tham chiếu trong engine</h2>
+<ul>
+<li><strong>Bảng 1:</strong> Danh sách mã DVKT cột <strong>«CÓ THUỐC CẢN QUANG»</strong> (38 mã 18.xxxx.xxxx) — neo trong <code>CHUYEN_DE_XML130_CO_DV_MA_CT_CO_CAN_QUANG_CV266_KT183</code>.</li>
+<li><strong>Bảng 2:</strong> Mã thuốc cản quang 40.632, 40.633, 40.634, 40.636–40.638, 40.641, 40.642, 40.644, 40.646–40.649 — neo 5 chữ số đầu (sau bỏ ký tự không phải số) trong <code>CHUYEN_DE_XML130_CO_THUOC_MA_BANG2_CAN_QUANG_CV266_KT183</code>.</li>
+</ul>
+<h2>3. Neo mã nguồn</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_CT_CO_CAN_QUANG_CV266_KT183</code></td>
+<td>Có dòng XML3 <code>MA_DICH_VU</code>/<code>MA_DV</code> thuộc Bảng 1 (cột có cản quang).</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_THUOC_GOI_CHAN_QUANG</code></td>
+<td>Tên/hoạt chất XML2 gợi cản quang (dùng chung Chuyen_de-207).</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_THUOC_MA_BANG2_CAN_QUANG_CV266_KT183</code></td>
+<td><code>MA_THUOC</code> XML2 khớp 5 số đầu một mã Bảng 2.</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_CO_SO_THUOC_CAN_QUANG_KT183</code></td>
+<td>OR của hai predicate trên.</td>
+</tr>
+<tr>
+<td><strong><code>Chuyen_de_610</code></strong> / <code>CHUYEN_DE-610</code></td>
+<td>Có mã Bảng 1 <strong>và</strong> không có chứng cứ thuốc cản quang trên XML2.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Cập nhật khi BYT đổi mã: sửa chuỗi <code>m === &#39;…&#39;</code> và danh sách <code>p === &#39;…&#39;</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>.</em></p>
+
+  </main>
+</body>
+</html>

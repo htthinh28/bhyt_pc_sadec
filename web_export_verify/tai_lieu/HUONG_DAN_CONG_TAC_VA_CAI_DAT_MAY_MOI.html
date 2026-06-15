@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>📦 Hướng Dẫn Đóng Gói &amp; Cài Đặt Ứng Dụng AI CDSS BHYT Trên Máy Khác</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>HUONG_DAN_CONG_TAC_VA_CAI_DAT_MAY_MOI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>📦 Hướng Dẫn Đóng Gói &amp; Cài Đặt Ứng Dụng AI CDSS BHYT Trên Máy Khác</h1>
+<p><strong>Ngày tạo:</strong> 06/04/2026
+<strong>Phiên bản:</strong> 1.0</p>
+<hr>
+<h2>📋 Yêu Cầu Hệ Thống</h2>
+<h3>Trên Máy Nhận (Máy Mới)</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Phiên bản</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Node.js</strong></td>
+<td>≥ 18.0</td>
+<td>Cần npm</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>≥ 3.8</td>
+<td>Cần pip</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>≥ 2.0</td>
+<td>Để clone/pull</td>
+</tr>
+<tr>
+<td><strong>RAM</strong></td>
+<td>≥ 4GB</td>
+<td>Khuyên 8GB</td>
+</tr>
+<tr>
+<td><strong>Disk</strong></td>
+<td>≥ 2GB</td>
+<td>Cho node_modules + Python venv</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🔧 <strong>BƯỚC 1: Chuẩn Bị Máy MỚI</strong></h2>
+<h3>1.1 Cài Node.js (Windows)</h3>
+<pre><code class="language-bash"># Tải từ https://nodejs.org (LTS version)
+# Chạy installer, chọn &quot;Add to PATH&quot;
+# Kiểm tra:
+node --version
+npm --version
+</code></pre>
+<h3>1.2 Cài Python (Windows)</h3>
+<pre><code class="language-bash"># Tải từ https://python.org
+# QUAN TRỌNG: Chọn &quot;Add Python to PATH&quot; khi cài
+python --version
+pip --version
+</code></pre>
+<h3>1.3 Cài Git (Windows)</h3>
+<pre><code class="language-bash"># Tải từ https://git-scm.com
+git --version
+</code></pre>
+<hr>
+<h2>📥 <strong>BƯỚC 2: Nhận File Từ Máy Cũ</strong></h2>
+<h3>2.1 Copy File ZIP</h3>
+<p><strong>Trên máy CŨ (máy hiện tại):</strong></p>
+<pre><code class="language-bash"># Sẽ có file zip ở Desktop hoặc Downloads
+# Tên: ung_dung_cdss_bhyt_v1.0.zip (~50MB)
+</code></pre>
+<p><strong>Trên máy MỚI:</strong></p>
+<pre><code class="language-bash"># Copy file zip vào folder bạn muốn làm việc
+# Ví dụ: C:\Users\&lt;tên_bạn&gt;\Documents\Projects\
+unzip ung_dung_cdss_bhyt_v1.0.zip
+cd ung_dung_cdss_bhyt
+</code></pre>
+<hr>
+<h2>⚙️ <strong>BƯỚC 3: Cài Đặt Dependencies</strong></h2>
+<h3>3.1 Node.js Dependencies</h3>
+<pre><code class="language-bash"># Di chuyển vào thư mục project
+cd ung_dung_cdss_bhyt
+
+# Cài npm packages
+npm install --legacy-peer-deps
+# (Chờ ~2-3 phút)
+</code></pre>
+<h3>3.2 Python Dependencies</h3>
+<pre><code class="language-bash"># Tạo virtual environment
+python -m venv venv
+
+# Kích hoạt (Windows)
+venv\Scripts\activate
+
+# Cài pip packages
+pip install -r python_service/requirements.txt
+# (Chờ ~1-2 phút)
+</code></pre>
+<hr>
+<h2>🚀 <strong>BƯỚC 4: Chạy Ứng Dụng Trên Máy Mới</strong></h2>
+<h3>4.1 Cửa sổ Terminal 1: Express Server</h3>
+<pre><code class="language-bash"># Trong thư mục project
+node server.js
+
+# Output sẽ như thế này:
+# ╔════════════════════════════════════════════════════╗
+# ║     🏥 AI CDSS BHYT - Hệ Thống Giám Định         ║
+# ╚════════════════════════════════════════════════════╝
+# ✅ Server đang chạy: http://0.0.0.0:8080
+</code></pre>
+<h3>4.2 Cửa sổ Terminal 2: Python API</h3>
+<pre><code class="language-bash"># Kích hoạt venv (nếu chưa kích hoạt)
+venv\Scripts\activate
+
+# Chạy API
+python -m uvicorn python_service.app.main:app --host 0.0.0.0 --port 8000
+
+# Output:
+# INFO:     Uvicorn running on http://0.0.0.0:8000
+</code></pre>
+<hr>
+<h2>🌐 <strong>BƯỚC 5: Truy Cập Ứng Dụng</strong></h2>
+<h3>5.1 Trên Chính Máy Mới Đó</h3>
+<pre><code>http://localhost:8080
+</code></pre>
+<h3>5.2 Từ Máy Khác Trong Mạng</h3>
+<pre><code>http://&lt;IP_máy_mới&gt;:8080
+</code></pre>
+<p><strong>Để biết IP máy mới:</strong></p>
+<pre><code class="language-bash"># Windows
+ipconfig
+
+# Tìm &quot;IPv4 Address&quot; trong mạng 192.168.x.x
+</code></pre>
+<hr>
+<h2>🛠️ <strong>BƯỚC 6: Phát Triển Tiếp</strong></h2>
+<h3>6.1 Cấu Trúc Thư Mục</h3>
+<pre><code>ung_dung_cdss_bhyt/
+├── ma_nguon/              # React Native code
+│   └── tien_ich/
+├── python_service/        # FastAPI backend
+│   └── app/
+│       └── main.py
+├── tai_lieu/              # Knowledge base files
+├── test_xml/              # Test audit data
+├── server.js              # Express wrapper
+├── package.json           # Node dependencies
+├── requirements.txt       # Python dependencies
+└── .git/                  # Version control
+</code></pre>
+<h3>6.2 Chỉnh Sửa Code &amp; Commit</h3>
+<pre><code class="language-bash"># Tạo branch mới
+git checkout -b feature/my-feature
+
+# After editing:
+git add .
+git commit -m &quot;feat: description of changes&quot;
+git push origin feature/my-feature
+</code></pre>
+<h3>6.3 Cập Nhật Từ Máy Cũ (Nếu Máy Cũ Có Thay Đổi)</h3>
+<pre><code class="language-bash">git pull origin main
+</code></pre>
+<hr>
+<h2>🐛 <strong>Troubleshooting</strong></h2>
+<h3>❌ &quot;npm: command not found&quot;</h3>
+<p><strong>Giải pháp:</strong> Node.js chưa cài hoặc chưa add vào PATH</p>
+<ul>
+<li>Tải Node.js từ <a href="https://nodejs.org">https://nodejs.org</a></li>
+<li>Chọn &quot;Add to PATH&quot; khi cài</li>
+</ul>
+<h3>❌ &quot;python: command not found&quot;</h3>
+<p><strong>Giải pháp:</strong> Python chưa cài hoặc chưa add vào PATH</p>
+<ul>
+<li>Tải Python từ <a href="https://python.org">https://python.org</a></li>
+<li>✅ <strong>IMPORTANT:</strong> Chọn &quot;Add Python to PATH&quot;</li>
+</ul>
+<h3>❌ Port 8080 bị chiếm</h3>
+<pre><code class="language-bash"># Tìm process dùng port 8080
+netstat -ano | findstr :8080
+
+# Kill process (thay &lt;PID&gt;)
+taskkill /PID &lt;PID&gt; /F
+
+# Hoặc dùng port khác:
+set PORT=9000
+node server.js
+</code></pre>
+<h3>❌ Error: EADDRINUSE</h3>
+<pre><code class="language-bash"># Đảm bảo cổng 8080 &amp; 8000 không được dùng
+# Restart tất cả cửa sổ terminal
+</code></pre>
+<h3>❌ Python venv not activate</h3>
+<pre><code class="language-bash"># Windows:
+venv\Scripts\activate
+
+# Linux/Mac:
+source venv/bin/activate
+
+# Kiểm tra: terminal sẽ hiển thị (venv) ở đầu
+</code></pre>
+<hr>
+<h2>📊 <strong>Checklist Cài Đặt</strong></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Node.js ≥ 18.0 cài xong</li>
+<li><input disabled="" type="checkbox"> Python ≥ 3.8 cài xong</li>
+<li><input disabled="" type="checkbox"> File ZIP giải nén xong</li>
+<li><input disabled="" type="checkbox"> <code>npm install</code> chạy xong</li>
+<li><input disabled="" type="checkbox"> Python venv tạo xong</li>
+<li><input disabled="" type="checkbox"> <code>pip install -r requirements.txt</code> chạy xong</li>
+<li><input disabled="" type="checkbox"> <code>node server.js</code> chạy được</li>
+<li><input disabled="" type="checkbox"> <code>python -m uvicorn ...</code> chạy được</li>
+<li><input disabled="" type="checkbox"> Truy cập được <code>http://localhost:8080</code></li>
+<li><input disabled="" type="checkbox"> API docs mở được <code>http://localhost:8000/docs</code></li>
+</ul>
+<hr>
+<h2>🎯 <strong>Điểm Quan Trọng</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Vấn Đề</th>
+<th>Lưu Ý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Port</strong></td>
+<td>Express=8080, Python=8000 (có thể đổi)</td>
+</tr>
+<tr>
+<td><strong>Virtual Env</strong></td>
+<td>Python cần venv để tránh conflict</td>
+</tr>
+<tr>
+<td><strong>Node Modules</strong></td>
+<td>~800MB, sẽ tải lại khi cài - không cần gửi</td>
+</tr>
+<tr>
+<td><strong>IP Mạng</strong></td>
+<td>Mỗi máy có IP khác, dùng <code>ipconfig</code> để xem</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>Dùng để sync code giữa 2 máy</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>📞 <strong>Liên Hệ Hỗ Trợ</strong></h2>
+<p>Nếu gặp lỗi:</p>
+<ol>
+<li>Kiểm tra version: <code>node -v</code>, <code>python --version</code>, <code>npm -v</code></li>
+<li>Xem log lỗi chi tiết</li>
+<li>Thử restart terminal &amp; tất cả service</li>
+<li>Xem phần <strong>Troubleshooting</strong> ở trên</li>
+</ol>
+<hr>
+<p><strong>Chúc bạn phát triển vui vẻ! 🚀</strong></p>
+
+  </main>
+</body>
+</html>

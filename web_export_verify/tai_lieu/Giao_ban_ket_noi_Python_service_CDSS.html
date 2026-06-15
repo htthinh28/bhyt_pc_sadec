@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giao ban — Kết nối Python service (CDSS BHYT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Giao_ban_ket_noi_Python_service_CDSS.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Giao ban — Kết nối Python service (CDSS BHYT)</h1>
+<h2>1. Mục tiêu</h2>
+<ul>
+<li>Tự động thử kết nối <strong>Python service</strong> (FastAPI) mỗi lần khởi động ứng dụng, không phụ thuộc việc người dùng có mở màn <strong>Tổng quan</strong> hay không.</li>
+<li>Hoạt động ổn khi <strong>mạng internet ngoài</strong> bật hoặc tắt: Python thường chạy <strong>localhost</strong> hoặc <strong>LAN</strong>, không phải dịch vụ cloud bắt buộc có Internet.</li>
+</ul>
+<h2>2. Giải pháp kỹ thuật đã triển khai</h2>
+<p><strong>Khởi động app:</strong> Sau khi lớp điều hướng sẵn sàng, gọi <code>kichHoatKetNoiPythonSauKhoiDongUngDung()</code> — dùng <code>ketNoiPythonServiceLucKhoiDong()</code> (thử lại nhiều lần, chờ cold-start service).</p>
+<p><strong>Cấu hình:</strong> Chỉ chạy warm-up nếu <code>expo.extra.pythonService.enabled !== false</code> trong <code>app.json</code>.</p>
+<p><strong>Sau khi dùng app:</strong> Đăng ký <code>AppState</code> → khi app trở lại <strong>active</strong>, thử lại kết nối (có debounce để tránh gọi dồn).</p>
+<p><strong>Web:</strong> Lắng nghe sự kiện <code>window.online</code> — khi mạng trở lại, thử lại (hữu ích khi <code>baseUrl</code> trỏ tới <strong>IP LAN</strong>).</p>
+<p><strong>Online / offline:</strong> Không dùng <code>navigator.onLine</code> làm điều kiện bắt buộc. Khi “offline Internet”, vẫn có thể tới <code>127.0.0.1</code>, <code>10.0.2.2</code> (Android emulator), hoặc IP máy chủ Python trên LAN.</p>
+<h2>3. Kiến nghị vận hành</h2>
+<ol>
+<li>Trên máy chạy Python: <code>npm run py:start</code> (uvicorn cổng <strong>8000</strong>, <code>--host 0.0.0.0</code>).</li>
+<li><strong>Điện thoại thật:</strong> đặt <code>app.json</code> → <code>extra.pythonService.baseUrl</code> = <code>http://&lt;IP máy tính&gt;:8000</code> — không dùng <code>127.0.0.1</code> trên điện thoại để trỏ về PC.</li>
+<li><strong>Tắt</strong> warm-up tự động (nếu cần): <code>pythonService.enabled: false</code> trong <code>app.json</code>.</li>
+<li>Kiểm tra nhanh: màn <strong>Helper</strong> hoặc <strong>Tổng quan</strong> (thẻ Python / smoke test).</li>
+</ol>
+<h2>4. Hướng nâng cấp (tùy chọn)</h2>
+<ul>
+<li>Cài <code>@react-native-community/netinfo</code> nếu cần phân tích chi tiết “mất WiFi” so với “Python service chưa chạy”.</li>
+<li>Môi trường production: cấu hình <code>baseUrl</code> cố định và TLS nếu Python deploy riêng.</li>
+</ul>
+<h2>5. Câu chốt giao ban</h2>
+<p>Chúng ta tự động warm-up và định kỳ thử lại kết nối Python ngay khi app khởi động và khi người dùng quay lại app hoặc mạng trở lại; không phụ thuộc Internet toàn cầu vì engine Python là dịch vụ cục bộ hoặc LAN — chỉ cần chạy đúng service và cấu hình đúng IP trên thiết bị thật.</p>
+<hr>
+<p><em>Tài liệu nội bộ CDSS BHYT — đồng bộ với mã nguồn <code>hybrid_python_helper.jsx</code> và <code>tuyen_duong.jsx</code>.</em></p>
+
+  </main>
+</body>
+</html>

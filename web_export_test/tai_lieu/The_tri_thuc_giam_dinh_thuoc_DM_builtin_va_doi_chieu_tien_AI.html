@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KIỂM TRA THUỐC — DANH MỤC NỘI BỘ (DM-THUOC) VÀ ĐỐI CHIẾU TIỀN</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KIỂM TRA THUỐC — DANH MỤC NỘI BỘ (DM-THUOC) VÀ ĐỐI CHIẾU TIỀN</h1>
+<p>Phiên bản tài liệu: 1.2<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Bổ sung lớp tri thức <strong>không nằm trong seed <code>THUOC_*</code></strong> nhưng chiếm tỷ trọng lớn trong audit thực tế: kiểm tra <strong>mã thuốc và giá</strong> so với <strong>danh mục nội bộ bệnh viện</strong> và <strong>đối chiếu tổng tiền</strong> giữa XML1 và XML2.</p>
+<p>Nguồn logic: <code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> (khối kiểm tra <code>XML2</code> thuốc với <code>MAP_THUOC_BV</code>, <code>MAP_BYT_PL5</code>).</p>
+<h2>2. Chuỗi kiểm tra DM thuốc (theo mã nguồn)</h2>
+<p>Với mỗi dòng <code>XML2</code> (BHYT thanh toán), hệ thống xác định:</p>
+<ul>
+<li><code>trongBV</code>: mã có trong <code>MAP_THUOC_BV</code> hay không.</li>
+<li><code>trongBYT</code>: mã có trong danh mục thuốc BYT (<code>MAP_BYT_PL5</code>) hay không (khi map đã nạp).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Mã rule</th>
+<th>Điều kiện tóm tắt</th>
+<th>Mức độ</th>
+<th>Ý nghĩa kiểm tra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DM-THUOC-01</strong></td>
+<td>Có trong BYT, <strong>không</strong> có trong DM nội bộ BV</td>
+<td>Critical</td>
+<td>Thuốc <strong>chưa được BV phê duyệt</strong> dùng/thanh toán — rủi ro xuất toán.</td>
+</tr>
+<tr>
+<td><strong>DM-THUOC-02</strong></td>
+<td>Không trong BYT và không trong DM BV</td>
+<td>Critical</td>
+<td>Thuốc <strong>ngoài cả hai</strong> danh mục — rất nặng.</td>
+</tr>
+<tr>
+<td><strong>DM-THUOC-03</strong></td>
+<td>Không xác định được trong DM BV, BYT <strong>chưa tra được</strong> (map rỗng hoặc không kết luận)</td>
+<td>Warning</td>
+<td><strong>Cần xác minh / cập nhật danh mục</strong> — không kết luận xuất toán cứng như 01/02.</td>
+</tr>
+<tr>
+<td><strong>DM-THUOC-04</strong></td>
+<td>Có trong DM BV, <code>DON_GIA</code> khai báo <strong>vượt</strong> giá trúng thầu nội bộ (ngưỡng ~0,1%)</td>
+<td>Error</td>
+<td><strong>Rủi ro tài chính / sai giá</strong> — đối chiếu hợp đồng thầu, biên bản điều chỉnh.</td>
+</tr>
+</tbody></table>
+<p><strong>AI cần nhớ:</strong> <code>DM-THUOC-03</code> thường xuất hiện khi <strong>dữ liệu danh mục runtime</strong> chưa đồng bộ hoặc mã mới; khác hoàn toàn với <code>THUOC_207</code> (ICD–thuốc).</p>
+<h3>2.1. DMBV-THUOC-* — chất lượng <strong>bản ghi</strong> trong <code>MAP_THUOC_BV</code></h3>
+<p>Khác với bảng trên (so khớp <strong>mã hồ sơ</strong> với danh mục), nhóm <strong><code>DMBV-THUOC-*</code></strong> kiểm tra <strong>tính đầy đủ của từng dòng danh mục nội bộ</strong> cho các mã thuốc <strong>đã có</strong> trong map — theo <code>dong_co_giam_dinh.jsx</code> (hàm kiểm tra chất lượng DM BV, lặp <strong>theo mã thuốc duy nhất</strong> trong XML2).</p>
+<table>
+<thead>
+<tr>
+<th>Mã rule</th>
+<th>Trường / ý chính</th>
+<th>Mức độ (mặc định trong code)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DMBV-THUOC-00</strong></td>
+<td>Chưa nạp / rỗng cả <code>MAP_THUOC_BV</code></td>
+<td>Info</td>
+</tr>
+<tr>
+<td><strong>DMBV-THUOC-01</strong></td>
+<td>Thiếu <code>TEN_THUOC</code> / hoạt chất hiển thị</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td><strong>DMBV-THUOC-02</strong></td>
+<td>Thiếu <code>DON_GIA_THAU</code> / đơn giá hợp lệ (&gt;0)</td>
+<td>Error</td>
+</tr>
+<tr>
+<td><strong>DMBV-THUOC-03</strong></td>
+<td>Thiếu <code>TU_NGAY</code> (ngày hiệu lực)</td>
+<td>Warning</td>
+</tr>
+<tr>
+<td><strong>DMBV-THUOC-04</strong></td>
+<td><code>TRANG_THAI</code> không hoạt động / không hiệu lực</td>
+<td>Warning</td>
+</tr>
+</tbody></table>
+<p><strong>AI cần nhớ:</strong> <code>DMBV-THUOC-03</code> <strong>không</strong> thay thế <code>DM-THUOC-03</code> — một cái là <strong>lỗi metadata danh mục</strong>, một cái là <strong>không xác định được mã trong DM/BYT</strong> khi chạy luồng xuất toán thuốc.</p>
+<p>Minh họa audit có <code>DMBV-THUOC-03</code>: <code>test_xml/audit_000308_20260404_184800.json</code> (cùng các rule PTTT/DVKT khác).</p>
+<h2>3. Đối chiếu tổng tiền thuốc (hai luồng)</h2>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Nơi gắn</th>
+<th>Ý chính</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML_53</strong></td>
+<td>XML1 <code>T_THUOC</code> vs <strong>tổng</strong> <code>THANH_TIEN_BV</code> các dòng thuốc nhóm MA_NHOM (thường <code>4</code>, <code>5</code>)</td>
+<td>Lệch <strong>kế toán</strong> theo công thức engine.</td>
+</tr>
+<tr>
+<td><strong>CLN-CHI-01</strong></td>
+<td>Built-in “đối chiếu tổng tiền thuốc” (có thể liệt kê dòng nổi bật)</td>
+<td>Cùng mục tiêu <strong>nhất quán XML1↔XML2</strong>, có thể hiển thị chi tiết khác nhau theo phiên bản.</td>
+</tr>
+</tbody></table>
+<p><strong>Bài học cho AI:</strong> Khi thấy <strong>cả hai</strong> hoặc một trong hai, ưu tiên mô tả là <strong>“lệch tổng hợp tiền thuốc”</strong>, sau đó đề xuất kiểm tra: làm tròn, nhóm <code>MA_NHOM</code>, dòng loại trừ BHYT, trùng import.</p>
+<h2>4. Liên hệ với seed <code>THUOC_*</code></h2>
+<ul>
+<li><strong>DM-THUOC-</strong>*: phụ thuộc <strong>bảng danh mục BV</strong> đã nạp vào app (storage / đồng bộ).</li>
+<li><strong>THUOC_</strong>*: phụ thuộc <strong>điều kiện biểu thức</strong> trên XML (ICD, liều, số lượng, INN…).</li>
+</ul>
+<p>Một dòng thuốc có thể đồng thời: <code>DM-THUOC-04</code> <strong>và</strong> <code>THUOC_41</code> <strong>và</strong> <code>THUOC_436</code> (ngoại trú) — AI <strong>liệt kê từng lớp</strong>.</p>
+<h2>5. <code>LIEU_DUNG</code> và TT 37 (gợi ý)</h2>
+<ul>
+<li>Rule <strong><code>THUOC_392</code></strong> (trong <code>du_lieu_luat_thuoc_muc8.jsx</code>) kiểm tra <strong>cấu trúc</strong> <code>LIEU_DUNG</code> theo TT 37/2024 (ngoại trú vs nội trú).</li>
+<li>Đây là lớp <strong>chất lượng nhập liệu đơn thuốc</strong>, tách khỏi DM và ICD.</li>
+</ul>
+<h2>6. Prompt mẫu</h2>
+<ul>
+<li><em>“Phân loại các cảnh báo <code>DM-THUOC-*</code> trong audit: mỗi cái là Critical / Warning / Error và hướng xử lý nghiệp vụ tương ứng.”</em></li>
+<li><em>“Giải thích sự khác nhau giữa DM-THUOC-01 và DM-THUOC-03 khi đều nói về ‘danh mục’.”</em></li>
+<li><em>“Hồ sơ có CLN-CHI-01 và XML_53: có trùng nghĩa không? Cần kiểm chứng trường nào trên XML1/XML2?”</em></li>
+</ul>
+<h2>7. Ca minh họa trong repo</h2>
+<ul>
+<li><code>audit_000308_20260404_184800.json</code> — <code>DMBV-THUOC-03</code> (thiếu <code>TU_NGAY</code> trên bản ghi DM thuốc BV) kèm PTTT/DVKT.</li>
+<li><code>Ca_huan_luyen_mau_000589_DM_THUOC_03_danh_muc_noibo_snapshot.md</code> — DM-THUOC-03 lặp nhiều dòng.</li>
+<li><code>Ca_huan_luyen_mau_OP26000908_Amoxiclav_dieu_tri_uong.md</code> — DM-THUOC-04 + THUOC_41 + THUOC_436.</li>
+<li><code>Ca_huan_luyen_mau_OP26000282_I10_tang_huyet_ap.md</code> — DM-THUOC-04 hai mã thuốc.</li>
+</ul>
+<h2>8. Liên kết</h2>
+<ul>
+<li><strong>Chỉ mục engine</strong> (CLN-THUOC-01…04, lọc ngữ cảnh <code>THUOC_391</code>/<code>417</code>): <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code>  </li>
+<li>Khung “sai thuốc”: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>  </li>
+<li>Đa nhóm thuốc BV: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>  </li>
+<li>Thanh toán thuốc tổng quan: <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

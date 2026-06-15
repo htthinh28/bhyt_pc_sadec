@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU ER26000392 — THUOC_374 (MAGNESI B6) — ICD, CẤP DƯ, INN VÀ CHỒNG LỚP</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_ER26000392_THUOC_374_Magnesi_ICD_va_chong_lop.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU ER26000392 — THUOC_374 (MAGNESI B6) — ICD, CẤP DƯ, INN VÀ CHỒNG LỚP</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI trên một hồ sơ <strong>cấp cứu / ngoại trú</strong> có <strong>nhiều rule thuốc chồng lên cùng hoặc khác dòng XML2</strong>:</p>
+<ul>
+<li><strong><code>THUOC_374</code></strong>: cổng <strong>ICD + mô tả</strong> cho Magnesi B6 (<code>40.1055</code>).</li>
+<li><strong><code>THUOC_417</code></strong>: cấp <strong>dư</strong> so với <code>SL_MOI_NGAY × SO_NGAY</code> (nhiều thuốc).</li>
+<li><strong><code>THUOC_436</code></strong>: đơn ngoại trú — tên thuốc <strong>thiếu INN trong ngoặc</strong> (TT 26/2025).</li>
+<li>Phân biệt với <strong><code>THUOC_373</code></strong> (cùng mã thuốc <code>40.1055</code> — <strong>chống chỉ định</strong> suy thận nặng / tăng calci máu trong seed) — <em>có thể không kích hoạt</em> nếu không thỏa điều kiện.</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li><p>Audit: <code>test_xml/audit_ER26000392_20260404_193517.json</code></p>
+</li>
+<li><p>XML gốc (máy người dùng): đường dẫn lưu trong <code>meta.claim_path</code> của file JSON (OneDrive); trong repo <strong>chỉ dùng audit làm ground truth</strong> nếu chưa có bản XML đồng bộ.</p>
+</li>
+<li><p>Seed: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> — <code>SEED_THUOC_374</code>, <code>SEED_THUOC_373</code>.</p>
+</li>
+</ul>
+<h2>3. Rule THUOC_374 (theo seed)</h2>
+<ul>
+<li><strong>Mã thuốc:</strong> <code>40.1055</code> (Magnesi B6 trong audit).</li>
+<li><strong>Thanh toán BHYT theo cấu hình:</strong> chỉ khi chẩn đoán phù hợp — <code>MA_BENH_CHINH</code> hoặc <code>MA_BENH_KT</code> có <strong><code>E83.4</code></strong> hoặc <strong><code>R25.2</code></strong>, hoặc <code>CHAN_DOAN_RV</code> khớp regex <em>(hạ magie | chuột rút | co giật cơ)</em> (không phân biệt hoa thường).</li>
+<li>Nếu không thỏa → cảnh báo dạng xuất toán theo nội dung seed.</li>
+</ul>
+<h2>4. Snapshot audit mẫu</h2>
+<ul>
+<li><code>meta.total_warnings</code>: <strong>9</strong></li>
+<li><code>unique_rule_codes</code>: <code>XML1-REQ-MA_DOITUONG_KCB</code>, <code>HC_06</code>, <code>THUOC_374</code>, <code>THUOC_417</code> (×3), <code>THUOC_436</code> (×3)</li>
+</ul>
+<p><strong>Gợi ý bài tập map dòng:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Index XML2 (trong JSON)</th>
+<th>Thuốc (rút từ cảnh báo)</th>
+<th>Rule thuốc điển hình</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>Collamino 1200</td>
+<td><code>THUOC_417</code>, <code>THUOC_436</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Magnesi B6</td>
+<td><code>THUOC_374</code>, <code>THUOC_417</code>, <code>THUOC_436</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mimosa Viên an thần</td>
+<td><code>THUOC_417</code>, <code>THUOC_436</code></td>
+</tr>
+</tbody></table>
+<h2>5. Bài tập cho AI</h2>
+<ol>
+<li>Với <strong>một dòng</strong> (index 1), liệt kê <strong>ba lớp</strong> lỗi khác nhau (ICD, số lượng, định dạng tên) — <strong>không gộp</strong> thành một câu “sai đơn thuốc”.</li>
+<li>So sánh <strong><code>THUOC_374</code></strong> với <strong><code>THUOC_417</code></strong>: cái nào phụ thuộc <strong>chẩn đoán</strong>, cái nào chỉ cần <strong>số học XML2</strong>.</li>
+<li>Nếu bổ sung <code>MA_BENH_KT</code> chứa <code>E83.4</code>, dự đoán <strong><code>THUOC_374</code></strong> có tắt không — <strong>căn cứ điều kiện <code>LIKE</code></strong> trong seed.</li>
+</ol>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Khung “sai thuốc”: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>  </li>
+<li>Cấp dư (DOMUVAR): <code>Ca_huan_luyen_mau_000434_THUOC_417_DOMUVAR.md</code>  </li>
+<li>INN ngoại trú: <code>Ca_huan_luyen_mau_OP26001050_Ciprofloxacin_ngoai_tru.md</code>  </li>
+<li>Danh mục built-in: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

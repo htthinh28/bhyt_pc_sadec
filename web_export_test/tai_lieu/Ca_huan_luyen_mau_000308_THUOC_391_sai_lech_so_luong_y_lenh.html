@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000308 — THUOC_391 — SAI LỆCH SỐ LƯỢNG CẤP PHÁT VỚI Y LỆNH</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000308 — THUOC_391 — SAI LỆCH SỐ LƯỢNG CẤP PHÁT VỚI Y LỆNH</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 08/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Huấn luyện AI nhận diện và giải thích đúng lớp lỗi <strong>“sai lệch giữa số lượng cấp phát và y lệnh trên cùng một dòng thuốc”</strong>, <strong>không nhầm</strong> với:</p>
+<ul>
+<li>sai chỉ định ICD–thuốc (như <code>THUOC_345</code>, <code>THUOC_417</code>);</li>
+<li>thiếu thuốc trong gói PTTT/DVKT (như <code>DVKT_2588</code> cùng hồ sơ);</li>
+<li>lỗi hành chính / tổng tiền.</li>
+</ul>
+<p>Trọng tâm rule: <strong><code>THUOC_391</code></strong>.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000308_20260405_083942.json</code></li>
+<li>XML gốc (đường dẫn lưu trong meta audit): <code>…\ip\PC022209964_IP26000013.xml</code> — nếu có bản trong repo, đối chiếu thêm; không có thì dùng <strong>toàn bộ trường trong JSON cảnh báo</strong> làm sự thật vận hành.</li>
+<li>Seed rule: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> — mục <code>THUOC_391</code>.</li>
+</ul>
+<h2>3. Tóm tắt hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>000308</code></li>
+<li><code>total_warnings</code>: <strong>8</strong> (snapshot)</li>
+<li>Cảnh báo thuốc: <strong><code>THUOC_391</code> xuất hiện 3 lần</strong> (3 dòng <code>XML2</code> khác nhau: index <code>0</code>, <code>1</code>, <code>3</code>).</li>
+<li>Thuốc minh họa trong cảnh báo: <strong>Biofazolin</strong>, mã <code>40.166</code> (trích từ text cảnh báo).</li>
+</ul>
+<p><strong>Cùng hồ sơ còn có</strong> (để tập cho AI <strong>không gộp</strong> nghĩa):</p>
+<ul>
+<li><code>DVKT_2587</code>, <code>DVKT_2588</code> — chỉ định/thực hiện DVKT phẫu thuật lấy thai (gói), liên quan <strong>O82</strong> và <strong>thiếu thuốc tê/mê trong XML2</strong> theo điều kiện rule.</li>
+<li><code>HC_130</code>, <code>HC_171</code>, <code>HD_10</code> — hành chính / hồ sơ / JCI xét nghiệm.</li>
+</ul>
+<h2>4. Rule đích: THUOC_391</h2>
+<h3>4.1. Định nghĩa trong seed</h3>
+<ul>
+<li><strong>Mã:</strong> <code>THUOC_391</code></li>
+<li><strong>Tên:</strong> Cảnh báo sai lệch y lệnh và số lượng</li>
+<li><strong>Điều kiện:</strong><br><code>XML2.SO_LUONG &lt; (XML2.SL_MOI_NGAY * XML2.SO_NGAY)</code></li>
+<li><strong>Cảnh báo (gốc):</strong><br><code>⚠️ [KIỂM TRA]: Số lượng cấp phát thấp hơn y lệnh. Vui lòng xác nhận bệnh nhân có tự túc thuốc hay không.</code></li>
+</ul>
+<h3>4.2. Ý nghĩa nghiệp vụ</h3>
+<ul>
+<li>Hệ thống so sánh <strong>số lượng thực khai</strong> (<code>SO_LUONG</code>) với <strong>số lượng lý thuyết từ y lệnh</strong> (<code>SL_MOI_NGAY × SO_NGAY</code>).</li>
+<li>Nếu <strong>cấp ít hơn</strong> y lệnh → cờ <strong>KIỂM TRA</strong>: có thể do bệnh nhân <strong>tự mua</strong>, <strong>cắt liều</strong>, <strong>ghi sai số</strong>, hoặc <strong>tách đơn</strong> — AI <strong>không</strong> được kết luận một chiều “vi phạm” mà phải nêu <strong>các giả thuyết cần đối chiếu</strong>.</li>
+</ul>
+<h3>4.3. Dữ liệu bắt buộc phải xem</h3>
+<p>Trên <strong>từng dòng</strong> có cảnh báo:</p>
+<ul>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>XML2.SL_MOI_NGAY</code></li>
+<li><code>XML2.SO_NGAY</code></li>
+<li>(Kèm) <code>XML2.TEN_THUOC</code>, <code>XML2.MA_THUOC</code>, <code>index</code> trong audit để map đúng dòng.</li>
+</ul>
+<h2>5. Bài tập cho AI (sau khi nạp audit)</h2>
+<ol>
+<li>Liệt kê <strong>đủ 3</strong> cảnh báo <code>THUOC_391</code> và ghi rõ <strong><code>index</code></strong> XML2 từng cái.</li>
+<li>Với mỗi cảnh báo, viết một dòng:<br><code>SO_LUONG = ?</code> ; <code>SL_MOI_NGAY × SO_NGAY = ?</code> ; có thỏa <code>&lt;</code> hay không (nếu số có trong JSON/XML — nếu thiếu số trong audit, ghi “cần mở XML2 dòng index X”).</li>
+<li>Giải thích <strong>vì sao</strong> đây <strong>không phải</strong> cùng một vấn đề với <code>DVKT_2588</code> (gợi ý: rule khác, bảng dữ liệu khác XML2 vs điều kiện gói trên XML3+XML2).</li>
+<li>Đề xuất <strong>câu hỏi nghiệp vụ</strong> cho điều dược / khoa: tối thiểu 2 câu (ví dụ: có tự túc? có kê nhầm SL_MOI_NGAY/SO_NGAY?).</li>
+</ol>
+<h2>6. Bài học rút ra (chuẩn hóa cho các ca sau)</h2>
+<ul>
+<li><strong>Cùng mã rule, nhiều dòng:</strong> coi là <strong>lỗi lặp theo dòng</strong>, tổng hợp báo cáo theo thuốc / theo index cho dễ xử lý.</li>
+<li><strong>THUOC_391</strong> thuộc nhóm <strong>“kiểm soát nhất quán y lệnh – cấp phát”</strong> trong khung <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>.</li>
+<li>Luôn phân tầng: nếu user hỏi chung chung “sai thuốc”, AI hỏi lại hoặc tự phân loại theo <strong>bảng 7 loại</strong> trước khi kết luận.</li>
+</ul>
+<h2>7. Liên kết</h2>
+<ul>
+<li>Khung phân loại: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code></li>
+<li>Ca Biofazolin <strong>kháng sinh / dự phòng</strong> (khác ngữ cảnh): <code>Ca_huan_luyen_mau_000339_Biofazolin_du_phong_phu_khoa.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

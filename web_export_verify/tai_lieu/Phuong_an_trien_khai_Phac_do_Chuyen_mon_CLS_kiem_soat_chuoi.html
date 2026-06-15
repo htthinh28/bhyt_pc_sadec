@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phương án triển khai: Kiểm soát phác đồ chuyên môn theo chuỗi lâm sàng — cận lâm sàng — chỉ định</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Phuong_an_trien_khai_Phac_do_Chuyen_mon_CLS_kiem_soat_chuoi.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Phương án triển khai: Kiểm soát phác đồ chuyên môn theo chuỗi lâm sàng — cận lâm sàng — chỉ định</h1>
+<p><strong>Mục đích:</strong> Làm rõ cách đáp ứng yêu cầu kiểm tra <strong>chuyên môn</strong> (chẩn đoán / loại trừ → chỉ định CLS, thuốc, DVKT, theo dõi, tái khám) sao cho module Chuyên môn <strong>có giá trị thực</strong>, không dừng ở khớp mã ICD. Tài liệu này là <strong>đặc tả kiến trúc + giao việc AI</strong>; không thay văn bản pháp lý BYT/BHXH.</p>
+<p><strong>Ngày:</strong> 11/04/2026  </p>
+<hr>
+<h2>1. Nguyên tắc (kiểm tra vs tự động)</h2>
+<table>
+<thead>
+<tr>
+<th>Nguyên tắc</th>
+<th>Giải thích</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Không “phán xét lâm sàng” bằng một rule cứng</strong></td>
+<td>Sai chỉ định trong biên bản kiểm tra BHYT thường kết hợp <strong>mã, ngữ cảnh, tần suất, tương tác thuốc, tuyến BV</strong> — engine chỉ có thể kiểm tra <strong>tập con</strong> đã <strong>mã hóa được</strong>.</td>
+</tr>
+<tr>
+<td><strong>Phác đồ nội bộ = nguồn gợi ý kiểm soát</strong></td>
+<td>Bảng CDSS trong app là <strong>tri thức BV</strong>; muốn “so với hồ sơ” cần <strong>cấu trúc hóa</strong> (mã/thẻ) hoặc <strong>AI có giám sát</strong>.</td>
+</tr>
+<tr>
+<td><strong>Minh bạch tầng</strong></td>
+<td>Phân biệt: (A) kiểm tra <strong>có kiểm chứng được</strong> trên XML, (B) gợi ý <strong>cần người/AI</strong> đọc phác đồ và hồ sơ.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Chuỗi nghiệp vụ mục tiêu (logic kiểm tra chuyên môn)</h2>
+<pre><code class="language-mermaid">flowchart LR
+  subgraph cd [Chẩn đoán trên XML]
+    X1[XML1: ICD chính / kèm]
+  end
+  subgraph px [Phác đồ CDSS đã nạp]
+    PD[Dòng phác đồ theo ICD]
+  end
+  subgraph hs [Hồ sơ thực hiện]
+    X4[XML4: CLS / chỉ số]
+    X2[XML2: Thuốc]
+    X3[XML3: DVKT]
+    X6[XML6: Theo dõi / tái khám...]
+  end
+  X1 --&gt; PD
+  PD --&gt;|&quot;gợi ý / rule có cấu trúc&quot;| hs
+  hs --&gt;|&quot;mâu thuẫn / thiếu sót có định nghĩa&quot;| CB[Cảnh báo có kiểm chứng]
+  PD --&gt;|&quot;văn bản tự do&quot;| AI[AI / GV đối chiếu]
+</code></pre>
+<p><strong>Ý nghĩa:</strong> Để rule engine <strong>có ý nghĩa</strong>, phải có <strong>ánh xạ</strong> từ phác đồ (hoặc từ chuyên môn BV) sang <strong>mã có trên XML</strong> (MA_THUOC, MA_DICH_VU, nhóm CLS, v.v.) hoặc sang <strong>câu hỏi kiểm tra</strong> do AI trả lời có cấu trúc.</p>
+<hr>
+<h2>3. Dữ liệu XML trong hệ thống (neo kỹ thuật)</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Vai trò trong kiểm soát chuỗi</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML1</strong></td>
+<td><code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>, <code>MA_BENHKEM</code> — neo chẩn đoán; thời gian đợt KCB.</td>
+</tr>
+<tr>
+<td><strong>XML4</strong> (<code>CHI_TIET_CLS</code>)</td>
+<td>Cận lâm sàng / chỉ số — phục vụ “chỉ định xét nghiệm / CLS” nếu có mã và ngày.</td>
+</tr>
+<tr>
+<td><strong>XML2</strong></td>
+<td>Thuốc: <code>MA_THUOC</code>, <code>TEN_THUOC</code>, ngày y lệnh — chỉ định thuốc.</td>
+</tr>
+<tr>
+<td><strong>XML3</strong></td>
+<td>DVKT: <code>MA_DICH_VU</code>, ngày — chỉ định dịch vụ.</td>
+</tr>
+<tr>
+<td><strong>XML5 / XML6</strong></td>
+<td>Diễn biến, xuất viện, <code>NGAY_HEN_TAI_KHAM</code> (khi có) — theo dõi / tái khám.</td>
+</tr>
+</tbody></table>
+<p><strong>Hạn chế:</strong> Không phải mọi “theo dõi lâm sàng” đều có trường số hóa trên XML; một phần chỉ có trong văn bản — đó là chỗ cần <strong>AI hoặc kiểm tra viên</strong>.</p>
+<hr>
+<h2>4. Ba tầng giải pháp (triển khai lắp ghép)</h2>
+<h3>Tầng A — Quy tắc <strong>có cấu trúc</strong> (engine hiện tại, khuyến nghị làm trước)</h3>
+<p><strong>Ý tưởng:</strong> Bổ sung <strong>bảng phụ hoặc cột JSON</strong> (trong <code>tai_lieu</code> seed / danh mục nội bộ) gắn với <strong>mã ICD đã chuẩn hóa</strong>, ví dụ:</p>
+<ul>
+<li><code>DS_MA_DVKT_GOI_Y</code> — danh sách mã DVKT “thường gắn với phác đồ này” (do BV chốt).</li>
+<li><code>DS_MA_THUOC_GOI_Y</code> hoặc <code>NHOM_HOAT_CHAT_GOI_Y</code> (nếu map được sang <code>MA_THUOC</code>).</li>
+<li><code>BAT_BUOC_CLS: true/false</code> + <code>MA_DVKT_XN</code> tối thiểu (nếu quy trình BV có chuẩn).</li>
+</ul>
+<p><strong>Rule mẫu (No-Code):</strong><br>Ví dụ: <em>Nếu có ICD trong tập X và <code>COUNT_IF(XML3, điều kiện MA_DICH_VU)</code> = 0 → Warning có mã luật riêng.</em></p>
+<p><strong>Ưu điểm:</strong> Kiểm chứng được, trích xuất báo cáo, bật/tắt theo khoa.<br><strong>Nhược:</strong> Cần <strong>đầu tư chuẩn hóa danh mục gợi ý</strong> theo BV (không tự sinh từ văn bản phác đồ Excel).</p>
+<h3>Tầng B — <strong>Bán cấu trúc</strong> từ bảng phác đồ CDSS hiện tại</h3>
+<p><strong>Ý tưởng:</strong> Giữ cột văn bản (“Điều trị đặc hiệu”, “Theo dõi cận lâm sàng”) cho người đọc; đồng thời thêm <strong>một cột</strong> <code>METADATA_KIEM_SOAT</code> (JSON) do chuyên môn điền: từ khóa mã, regex MA_*, hoặc tag nội bộ.</p>
+<p><strong>Rule:</strong> Chỉ kiểm tra được những gì đã <strong>chuyển thành mã / tập mã</strong>.</p>
+<h3>Tầng C — <strong>AI</strong> (giao việc rõ ràng, không thay người)</h3>
+<p><strong>Vai trò:</strong> Đọc <strong>(1) snapshot hồ sơ đã chuẩn hóa</strong> + <strong>(2) dòng phác đồ tương ứng ICD</strong> → trả về <strong>bảng mâu thuẫn có cấu trúc</strong> (không chỉ chat).</p>
+<p><strong>Đầu vào gợi ý (JSON):</strong></p>
+<pre><code class="language-json">{
+  &quot;ma_lk&quot;: &quot;...&quot;,
+  &quot;icd_gop&quot;: [&quot;I10&quot;, &quot;E11&quot;],
+  &quot;tom_tat_xml&quot;: {
+    &quot;thuoc_ma&quot;: [&quot;...&quot;],
+    &quot;dvkt_ma&quot;: [&quot;...&quot;],
+    &quot;co_cls&quot;: true
+  },
+  &quot;phac_do_dong&quot;: {
+    &quot;muc_tieu&quot;: &quot;...&quot;,
+    &quot;dieu_tri_dac_hieu&quot;: &quot;...&quot;,
+    &quot;theo_doi_can_lam_sang&quot;: &quot;...&quot;,
+    &quot;tai_kham&quot;: &quot;...&quot;
+  }
+}
+</code></pre>
+<p><strong>Đầu ra gợi ý (JSON):</strong></p>
+<pre><code class="language-json">{
+  &quot;muc_do&quot;: &quot;GoiY | NghiNgo | KhongDuLieu&quot;,
+  &quot;muc&quot;: [
+    {
+      &quot;noi_dung&quot;: &quot;So sánh gợi ý phác đồ với chỉ định thuốc...&quot;,
+      &quot;can_cu&quot;: &quot;XML2 vs cột Điều trị đặc hiệu&quot;,
+      &quot;ghi_chu_gv&quot;: &quot;Cần xác nhận thủ công&quot;
+    }
+  ],
+  &quot;tu_choi_trach_nhiem&quot;: &quot;AI không quyết định thanh toán hay sai chuyên môn.&quot;
+}
+</code></pre>
+<p><strong>Tích hợp đề xuất:</strong> Màn <strong>Chi tiết ca bệnh</strong> hoặc <strong>Chuyên môn</strong>: nút “<strong>Phân tích phác đồ (AI)</strong>” → gọi API (khi có) → lưu kết quả vào <strong>Tri thức từ kiểm tra</strong> để tích lũy.<br><strong>Trợ lý tri thức nội bộ hiện tại</strong> (<code>tro_ly_tri_thuc_engine.js</code>) là <strong>RAG không LLM</strong> — cần <strong>module mới</strong> hoặc <strong>cổng API</strong> nếu muốn suy luận sâu.</p>
+<hr>
+<h2>5. Kết luận: Làm gì để module <strong>không vô nghĩa</strong></h2>
+<ol>
+<li><strong>Xác định chính sách BV:</strong> Phác đồ nào được coi là “chuẩn kiểm soát” và <strong>ánh xạ sang mã</strong> (ít nhất DVKT/thuốc/CLS mẫu).  </li>
+<li><strong>Tầng A:</strong> Thêm rule có cấu trúc theo danh mục gợi ý — đây là phần <strong>sát quy định kiểm tra có kiểm chứng</strong>.  </li>
+<li><strong>Tầng C:</strong> Quy trình AI có <strong>schema đầu ra</strong>, lưu vết, <strong>bắt buộc xác nhận GV</strong> trước khi đưa vào “bài học” hệ thống.  </li>
+<li><strong>Không</strong> hứa hẹn “engine một rule” suy ra đủ chuỗi lâm sàng từ văn bản phác đồ thuần — cần <strong>cấu trúc hóa + AI có giám sát</strong>.</li>
+</ol>
+<hr>
+<h2>6. Liên kết tài liệu trong repo</h2>
+<ul>
+<li><strong>Triển khai mapping ICD ↔ DM thuốc/DVKT BV (nâng cấp, mặc định OFF):</strong> <a href="./CDSS_mapping_ICD_DM_thuoc_DVKT_nang_cap.md">CDSS_mapping_ICD_DM_thuoc_DVKT_nang_cap.md</a> — mã luật <code>CDSS_DM_UPGRADE_01</code> / <code>02</code>, file seed <code>cdss_icd_dm_goi_y_upgrade.seed.json</code>, engine <code>cdss_dm_matching_upgrade.jsx</code>.</li>
+<li>Giới hạn rule CDSS_CM hiện tại: <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</a> §4.1  </li>
+<li>DVKT Danh mục 1 (khác tầng phác đồ): <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu này là phương án kiến trúc; lựa chọn triển khai code theo lộ trình và nguồn lực chuyên môn tại đơn vị.</em></p>
+
+  </main>
+</body>
+</html>

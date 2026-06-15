@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RÀ SOÁT CA KHÁNG SINH TỪ XML THẬT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ra_soat_ca_khang_sinh_tu_XML_thuc_20260405.md</code> · Thư viện CDSS BHYT</div>
+    <h1>RÀ SOÁT CA KHÁNG SINH TỪ XML THẬT</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Tài liệu này tổng hợp kết quả quét kho XML thật trong <code>tai_nguyen/</code> để chọn các ca đại diện phục vụ huấn luyện AI về:</p>
+<ul>
+<li>kháng sinh điều trị đường tiêm</li>
+<li>kháng sinh dự phòng đường tiêm</li>
+<li>kháng sinh điều trị đường uống</li>
+<li>kháng sinh uống có bối cảnh cần phân biệt giữa điều trị và dự phòng</li>
+<li>ca mơ hồ hoặc dễ tạo false positive, false negative</li>
+</ul>
+<h2>2. Phương pháp rà soát</h2>
+<ul>
+<li>Dùng script: <code>scripts/scan_antibiotic_cases.js</code></li>
+<li>Thư mục quét: <code>tai_nguyen/</code></li>
+<li>Kết quả máy đọc được lưu tại: <code>test_xml/antibiotic_case_scan.json</code></li>
+</ul>
+<p>Script hiện làm 4 việc:</p>
+<ol>
+<li>đi qua toàn bộ file XML trong <code>tai_nguyen/</code></li>
+<li>giải mã XML con từ <code>FILEHOSO</code> nếu hồ sơ là gói ngoài, đồng thời vẫn đọc được XML trực tiếp</li>
+<li>nhận diện các dòng thuốc nghi là kháng sinh từ XML2</li>
+<li>phân loại sơ bộ theo:<ul>
+<li>đường dùng</li>
+<li>bối cảnh điều trị hay dự phòng</li>
+</ul>
+</li>
+</ol>
+<h2>3. Kết quả tổng quan</h2>
+<ul>
+<li>Số file XML đã quét: <code>1152</code></li>
+<li>Số dòng thuốc nghi là kháng sinh: <code>216</code></li>
+</ul>
+<p>Phân bố sơ bộ theo nhóm:</p>
+<ul>
+<li><code>uong | co_the_dieu_tri</code>: <code>69</code></li>
+<li><code>tiem_or_truyen | co_the_dieu_tri</code>: <code>64</code></li>
+<li><code>tiem_or_truyen | co_the_du_phong</code>: <code>38</code></li>
+<li><code>khong_ro | co_the_dieu_tri</code>: <code>28</code></li>
+<li><code>khong_ro | co_the_du_phong</code>: <code>11</code></li>
+<li><code>uong | co_the_du_phong</code>: <code>3</code></li>
+<li><code>uong | chua_phan_loai</code>: <code>3</code></li>
+</ul>
+<p>Nhận xét nhanh:</p>
+<ul>
+<li>Kho XML mới rất mạnh về ca <code>kháng sinh dự phòng đường tiêm</code>, đặc biệt là <code>Biofazolin / Cefazolin</code> trong sản khoa và các thủ thuật phụ khoa.</li>
+<li>Nhóm <code>kháng sinh điều trị đường uống</code> cũng khá dày, chủ yếu là <code>Cepmox-Clav</code> và <code>Ciprofloxacin</code>.</li>
+<li><code>Kháng sinh dự phòng đường uống</code> xuất hiện rất ít và cần đọc kỹ bối cảnh trước khi kết luận.</li>
+</ul>
+<h2>4. Các ca đại diện nên ưu tiên huấn luyện</h2>
+<h3>4.1. Nhóm kháng sinh dự phòng đường tiêm</h3>
+<h4>Ca 1. <code>403521</code> - Cefazolin/Biofazolin trong sản khoa</h4>
+<ul>
+<li>File: <code>tai_nguyen/xml/QD130_94170_202603_202603201530_PC-022601440.xml</code></li>
+<li><code>MA_LK</code>: <code>403521</code></li>
+<li>Thuốc: <code>Biofazolin</code></li>
+<li>Đường dùng: tiêm/truyền</li>
+<li>Bối cảnh: <code>O34.2</code>, con lần 2, thai đủ tháng, đau vết mổ cũ, chăm sóc bà mẹ vì tử cung có sẹo mổ trước đó</li>
+<li>Liều đọc được: <code>Ngày Tiêm mạch chậm 1 lần, mỗi lần 2 lọ</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>rất phù hợp để dạy AI cách đọc <code>kháng sinh dự phòng quanh phẫu thuật/sản khoa</code></li>
+<li>thích hợp cho bài học <code>rule coverage gap</code> vì có bối cảnh dự phòng rõ nhưng không phải lúc nào audit thuốc cũng bắn cảnh báo</li>
+</ul>
+<h4>Ca 2. <code>000435</code> - Biofazolin trong bối cảnh sẹo mổ cũ</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022602069_000435.xml</code></li>
+<li><code>MA_LK</code>: <code>000435</code></li>
+<li>Thuốc: <code>Biofazolin</code></li>
+<li>ICD chính: <code>O34.2</code></li>
+<li>Liều: <code>2 Lọ/lần * 1 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>ca gọn, dễ đọc, rất hợp để dạy nguyên tắc <code>kháng sinh dự phòng ngắn ngày</code></li>
+</ul>
+<h4>Ca 3. <code>000339</code> - Biofazolin trong thủ thuật phụ khoa</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022601324_000339.xml</code></li>
+<li><code>MA_LK</code>: <code>000339</code></li>
+<li>Thuốc: <code>Biofazolin</code></li>
+<li>ICD chính: <code>N84.0</code></li>
+<li>Bối cảnh: <code>Polyp thân tử cung</code></li>
+<li>Liều: <code>2 Lọ/lần * 1 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>dạy AI rằng dự phòng không chỉ có mổ lấy thai mà còn gặp trong các thủ thuật/surgery phụ khoa</li>
+</ul>
+<h3>4.2. Nhóm kháng sinh điều trị đường tiêm</h3>
+<h4>Ca 4. <code>000434</code> - Tenamyd-Cefotaxime 1000</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022300479_000434.xml</code></li>
+<li><code>MA_LK</code>: <code>000434</code></li>
+<li>Thuốc: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>Bối cảnh: <code>J02</code> viêm họng cấp</li>
+<li>Liều: <code>1 Lọ/lần * 2 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>là ca đã có tài liệu huấn luyện sẵn</li>
+<li>có thể nối giữa <code>XML thật</code> và <code>audit thật</code></li>
+</ul>
+<h4>Ca 5. <code>000589</code> - Tenamyd-Cefotaxime 1000 trong viêm amydan cấp</h4>
+<ul>
+<li>File: <code>tai_nguyen/xml2_ip/PC022300757_000589.xml</code></li>
+<li><code>MA_LK</code>: <code>000589</code></li>
+<li>Thuốc: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>ICD chính: <code>J03</code></li>
+<li>Liều: <code>550 mg/lần * 3 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>phù hợp để so sánh với <code>000434</code> vì cùng hoạt chất nhưng khác cách ghi liều</li>
+</ul>
+<h4>Ca 6. <code>000393</code> - Tenamyd-Cefotaxime 1000 trong viêm phế quản cấp</h4>
+<ul>
+<li>File: <code>tai_nguyen/xml2_ip/PC022406784_IP26000098.xml</code></li>
+<li><code>MA_LK</code>: <code>000393</code></li>
+<li>Thuốc: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>ICD chính: <code>J20</code></li>
+<li>Liều: <code>550 mg/lần * 1 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>cho phép AI học cách đối chiếu <code>kháng sinh điều trị</code> với bối cảnh hô hấp thay vì bối cảnh phẫu thuật</li>
+</ul>
+<h3>4.3. Nhóm kháng sinh điều trị đường uống</h3>
+<h4>Ca 7. <code>OP26000908</code> - Amoxicillin/Clavulanate trong tai mũi họng</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022101042_OP26000908.xml</code></li>
+<li><code>MA_LK</code>: <code>OP26000908</code></li>
+<li>Thuốc: <code>Cepmox-Clav 875 mg/125 mg</code></li>
+<li>Bối cảnh: thủng màng nhĩ, viêm tai giữa, viêm mũi dị ứng</li>
+<li>Liều: <code>1 Viên/lần * 3 lần/ngày * 7 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>rất phù hợp cho thẻ <code>Amoxicillin/Clavulanate</code> vì có đường uống rõ, liều rõ, và chẩn đoán dễ hiểu</li>
+</ul>
+<h4>Ca 8. <code>OP26001050</code> - Ciprofloxacin trong viêm bàng quang / niệu đạo</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022209289_OP26001050.xml</code></li>
+<li><code>MA_LK</code>: <code>OP26001050</code></li>
+<li>Thuốc: <code>Ciprofloxacin</code></li>
+<li>Bối cảnh: <code>N30.8</code>, <code>N34</code></li>
+<li>Liều: <code>1 Viên/lần * 2 lần/ngày * 7 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>đại diện tốt cho kháng sinh điều trị đường uống ở tiết niệu</li>
+</ul>
+<h4>Ca 9. <code>OP26002036</code> - Amoxicillin/Clavulanate trong áp xe da</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022406019_OP26002036.xml</code></li>
+<li><code>MA_LK</code>: <code>OP26002036</code></li>
+<li>Thuốc: <code>Cepmox-Clav 875 mg/125 mg</code></li>
+<li>Bối cảnh: <code>L02.2</code> áp xe da, nhọt, cụm nhọt ở thân; áp xe vú đã tháo mủ</li>
+<li>Liều: <code>1 Viên/lần * 2 lần/ngày * 10 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>phù hợp để dạy AI về bối cảnh điều trị sau dẫn lưu / xử trí ổ nhiễm khuẩn da mô mềm</li>
+</ul>
+<h3>4.4. Nhóm uống có bối cảnh cần phân biệt điều trị và dự phòng</h3>
+<h4>Ca 10. <code>OP26003732</code> - Amoxicillin/Clavulanate sau mổ u bả lưng</h4>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022110658_OP26003732.xml</code></li>
+<li><code>MA_LK</code>: <code>OP26003732</code></li>
+<li>Thuốc: <code>Cepmox-Clav 875 mg/125 mg</code></li>
+<li>Bối cảnh: <code>D23.5</code>, mổ u bả lưng nhiễm</li>
+<li>Liều: <code>1 Viên/lần * 2 lần/ngày * 7 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>đây là ca rất đáng dạy vì không nên kết luận vội là <code>dự phòng</code> chỉ vì có chữ <code>mổ</code></li>
+<li>chữ <code>nhiễm</code> làm thay đổi đáng kể cách hiểu sang điều trị hoặc ít nhất là hậu phẫu có biến chứng nhiễm</li>
+</ul>
+<h4>Ca 11. <code>000402</code> - Tinidazol hậu phẫu hẹp môn vị</h4>
+<ul>
+<li>File: <code>tai_nguyen/xml2_ip/PC022600755_IP26000107.xml</code></li>
+<li><code>MA_LK</code>: <code>000402</code></li>
+<li>Thuốc: <code>Tinidazol</code></li>
+<li>Bối cảnh: <code>A04.9</code>; hậu phẫu hẹp môn vị</li>
+<li>Liều: <code>1 Viên/lần * 2 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Giá trị huấn luyện:</p>
+<ul>
+<li>là ca hiếm để dạy AI cách phân biệt <code>kháng sinh/kháng khuẩn đường uống sau mổ</code> với <code>dự phòng phẫu thuật đường uống</code></li>
+</ul>
+<h2>5. Các ca mơ hồ nên dùng cho huấn luyện false positive hoặc false negative</h2>
+<h3>Ca 12. <code>000336</code> - Cefotaxime nhưng route không rõ hoàn toàn</h3>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022404459_000336.xml</code></li>
+<li><code>MA_LK</code>: <code>000336</code></li>
+<li>Thuốc: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>Bối cảnh: tay chân miệng bội nhiễm, viêm họng cấp không đặc hiệu</li>
+<li>Liều: <code>750 mg/lần * 2 lần/ngày * 01 ngày</code></li>
+</ul>
+<p>Lý do giữ lại cho huấn luyện:</p>
+<ul>
+<li>hệ thống quét nhận diện là <code>không rõ đường dùng</code></li>
+<li>đây là mẫu tốt để dạy AI không nên khẳng định quá mức khi dữ liệu route chưa đủ rõ</li>
+</ul>
+<h3>Ca 13. <code>OP26000815</code> - Amoxicillin/Clavulanate ở vết thương hở, bỏng độ II</h3>
+<ul>
+<li>File: <code>tai_nguyen/op/PC022601043_OP26000815.xml</code></li>
+<li><code>MA_LK</code>: <code>OP26000815</code></li>
+<li>Thuốc: <code>Cepmox-Clav 875 mg/125 mg</code></li>
+<li>Bối cảnh: <code>S91</code>, bỏng độ II</li>
+<li>Liều: <code>1 Viên/lần * 2 lần/ngày * 7 ngày</code></li>
+</ul>
+<p>Lý do giữ lại cho huấn luyện:</p>
+<ul>
+<li>không rõ ngay là điều trị nhiễm khuẩn, dự phòng vết thương, hay kê theo thói quen</li>
+<li>rất thích hợp cho bài tập <code>hãy chỉ ra dữ liệu còn thiếu trước khi kết luận</code></li>
+</ul>
+<h2>6. Kết luận bước rà soát</h2>
+<p>Sau đợt quét này, bộ huấn luyện kháng sinh có thể chia thành 4 cụm rõ ràng:</p>
+<ol>
+<li><code>Cefazolin/Biofazolin dự phòng tiêm</code> trong sản khoa, phụ khoa và thủ thuật</li>
+<li><code>Cefotaxime điều trị tiêm</code> trong hô hấp và nhiễm khuẩn cấp</li>
+<li><code>Amoxicillin/Clavulanate</code> và <code>Ciprofloxacin</code> điều trị đường uống trong tai mũi họng, tiết niệu, da mô mềm</li>
+<li>một nhóm nhỏ các ca <code>mơ hồ hoặc tranh chấp</code> để huấn luyện AI không kết luận vội</li>
+</ol>
+<h2>7. Cách dùng kết quả này cho bước tiếp theo</h2>
+<ul>
+<li>Dùng <code>403521</code>, <code>000435</code>, <code>000339</code> để huấn luyện sâu về <code>kháng sinh dự phòng đường tiêm</code>.</li>
+<li>Dùng <code>000434</code>, <code>000589</code>, <code>000393</code> để huấn luyện <code>kháng sinh điều trị đường tiêm</code>.</li>
+<li>Dùng <code>OP26000908</code>, <code>OP26001050</code>, <code>OP26002036</code> để huấn luyện <code>kháng sinh điều trị đường uống</code>.</li>
+<li>Dùng <code>OP26003732</code>, <code>000402</code>, <code>OP26000815</code> để huấn luyện AI về <code>ca khó</code>, <code>ngoại lệ</code>, và <code>khoảng trống dữ liệu</code>.</li>
+</ul>
+
+  </main>
+</body>
+</html>

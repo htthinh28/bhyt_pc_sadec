@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 3 - TIM MẠCH</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_thuoc_dot3_tim_mach.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 3 - TIM MẠCH</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Đợt 3 tập trung vào nhóm thuốc tim mạch và các cảnh báo an toàn tim mạch thường gặp, nhằm dạy AI cách tách bốn lớp suy luận khác nhau:</p>
+<ul>
+<li>chống chỉ định lâm sàng</li>
+<li>chỉ định thanh toán theo ICD-10</li>
+<li>liều tối đa trong 24 giờ</li>
+<li>tần suất dùng thuốc chuẩn</li>
+</ul>
+<h2>2. Nguồn tri thức</h2>
+<ul>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li>các seed rule <code>THUOC_32</code> đến <code>THUOC_39</code></li>
+<li><code>THUOC_272</code>, <code>THUOC_273</code></li>
+<li><code>THUOC_398</code></li>
+</ul>
+<h2>3. Thẻ tri thức mẫu đợt 3</h2>
+<hr>
+<h2>Thẻ 13. Amlodipin + valsartan / Wamlox</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: thuốc phối hợp hạ áp Amlodipin + Valsartan</li>
+<li>Nguồn tài liệu: <code>THUOC_32</code>, <code>THUOC_33</code>, <code>THUOC_34</code></li>
+<li>Mức độ ưu tiên huấn luyện: cao</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Thuốc phối hợp này chỉ phù hợp khi có căn cứ tăng huyết áp.</li>
+<li>Ngoài chỉ định, hệ thống còn kiểm tra chống chỉ định thai kỳ, suy thận nặng, suy gan nặng và tần suất dùng.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện thuốc: <code>XML2.MA_THUOC == &#39;40.30.501&#39;</code></li>
+<li>XML liên quan: <code>XML1</code>, <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>CALC_TAN_SUAT</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu không có <code>I10</code> hoặc mô tả tăng huyết áp tương đương thì nguy cơ xuất toán theo chỉ định.</li>
+<li>Nếu có <code>O21</code>, <code>N18.4</code>, <code>N18.5</code>, <code>K72</code> thì coi là chống chỉ định theo seed hiện có.</li>
+<li>Nếu dùng quá <code>1 lần/ngày</code> thì coi là sai phác đồ.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Thuốc tim mạch phối hợp phải được kiểm tra đồng thời ở cả ba lớp: chỉ định, an toàn, tần suất.</li>
+<li>Không được kết luận chỉ từ tên thuốc hoặc một ICD đơn lẻ.</li>
+</ul>
+<hr>
+<h2>Thẻ 14. Amlodipine Stella 10 mg</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Amlodipin đơn trị</li>
+<li>Nguồn tài liệu: <code>THUOC_35</code>, <code>THUOC_36</code>, <code>THUOC_39</code></li>
+<li>Mức độ ưu tiên huấn luyện: cao</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Amlodipin được thanh toán khi có tăng huyết áp hoặc đau thắt ngực.</li>
+<li>Đồng thời phải kiểm tra hạ huyết áp, thai kỳ và giới hạn liều tối đa 10mg/ngày.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện thuốc: <code>XML2.MA_THUOC == &#39;40.491&#39;</code></li>
+<li>XML liên quan: <code>XML1</code>, <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Không có <code>I10</code> hoặc <code>I20</code> thì nguy cơ xuất toán theo chỉ định.</li>
+<li>Có <code>I95.1</code> hoặc <code>O21</code> thì coi là chống chỉ định theo seed.</li>
+<li>Nếu lượng dùng quy đổi vượt <code>10mg/ngày</code> thì coi là sai liều.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Nhóm chẹn kênh canxi không chỉ là vấn đề chỉ định mà còn rất nhạy với liều tối đa.</li>
+<li>AI cần học cách quy đổi hàm lượng về mg/ngày khi giải thích.</li>
+</ul>
+<hr>
+<h2>Thẻ 15. Amlodipine + Lisinopril / Lisonorm</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: phối hợp Amlodipine + Lisinopril</li>
+<li>Nguồn tài liệu: <code>THUOC_37</code>, <code>THUOC_38</code></li>
+<li>Mức độ ưu tiên huấn luyện: trung bình đến cao</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Thuốc chỉ nên thanh toán cho tăng huyết áp vô căn.</li>
+<li>Seed hiện hành xem đây là thuốc cần tránh khi có thai, suy thận/gan nặng hoặc hạ huyết áp.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện thuốc: <code>XML2.MA_THUOC == &#39;40.30.497&#39;</code></li>
+<li>XML liên quan: <code>XML1</code>, <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Không có <code>I10</code> hoặc mô tả tăng huyết áp tương đương thì có nguy cơ xuất toán.</li>
+<li>Có <code>O21</code>, <code>N18.4</code>, <code>N18.5</code>, <code>I95.1</code>, <code>K72</code> thì tăng nguy cơ không phù hợp lâm sàng.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Thuốc phối hợp thường đi kèm nhiều điểm loại trừ hơn thuốc đơn trị.</li>
+<li>Khi gặp ACEI/ARB phối hợp, AI phải ưu tiên rà các mã suy thận, thai kỳ và hạ huyết áp.</li>
+</ul>
+<hr>
+<h2>Thẻ 16. Metoprolol</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Metoprolol</li>
+<li>Nguồn tài liệu: <code>THUOC_272</code>, <code>THUOC_273</code></li>
+<li>Mức độ ưu tiên huấn luyện: cao</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Metoprolol được thanh toán khi có tăng huyết áp, đau thắt ngực hoặc suy tim.</li>
+<li>Nếu tần suất dùng vượt thông lệ <code>2 lần/ngày</code> thì phải xem lại bối cảnh rối loạn nhịp hoặc chỉ định đặc biệt.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện thuốc: <code>XML2.MA_THUOC == &#39;40.515&#39;</code></li>
+<li>XML liên quan: <code>XML1</code>, <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>CALC_TAN_SUAT</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Không có <code>I10</code>, <code>I20</code>, <code>I50</code> hoặc mô tả tương đương thì nguy cơ xuất toán.</li>
+<li>Nếu <code>CALC_TAN_SUAT &gt; 2</code> thì không vội kết luận sai ngay, nhưng phải yêu cầu kiểm tra thêm lý do lâm sàng.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Có những rule là cảnh báo để rà soát, không phải lúc nào cũng là xuất toán ngay.</li>
+<li>AI phải phân biệt rõ <code>cảnh báo</code> với <code>kết luận thanh toán</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ 17. Cảnh báo tim mạch do Domperidon</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Domperidon và nguy cơ kéo dài QT</li>
+<li>Nguồn tài liệu: <code>THUOC_398</code></li>
+<li>Mức độ ưu tiên huấn luyện: cao vì dễ dùng sai trong thực tế</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Dù là thuốc tiêu hóa, Domperidon có cảnh báo tim mạch rõ ràng khi liều vượt ngưỡng <code>30mg/ngày</code>.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Điều kiện nhận diện thuốc: <code>XML2.MA_THUOC == &#39;40.688&#39;</code></li>
+<li>XML liên quan: <code>XML2</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.SO_LUONG</code></li>
+<li>hàm lượng quy đổi 10mg/đơn vị theo seed hiện hành</li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Khi <code>(XML2.SO_LUONG * 10) &gt; 30</code> thì phải cảnh báo nguy cơ kéo dài QT và đột tử.</li>
+<li>Rule này thiên về an toàn điều trị, không chỉ là thanh toán BHYT.</li>
+</ul>
+<h3>6. Bài học rút ra cho AI</h3>
+<ul>
+<li>Một bộ huấn luyện tốt không nên chia cứng theo chuyên khoa thuốc, mà nên học cả các cảnh báo chéo có giá trị lâm sàng cao.</li>
+</ul>
+<h2>4. Kết luận huấn luyện đợt 3</h2>
+<p>Đợt 3 nên dạy AI theo chuỗi sau:</p>
+<ol>
+<li>Nhận diện thuốc tim mạch hoặc thuốc có nguy cơ tim mạch.</li>
+<li>Tách kiểm tra thành các lớp: chỉ định, chống chỉ định, liều, tần suất.</li>
+<li>Gắn mỗi kết luận với trường dữ liệu cụ thể ở XML1 và XML2.</li>
+<li>Khi là <code>cảnh báo</code>, không được tự động kết luận xuất toán nếu seed không nói như vậy.</li>
+</ol>
+<h2>5. Bước tiếp theo khuyến nghị</h2>
+<p>Sau đợt này nên tiếp tục một trong hai hướng:</p>
+<ul>
+<li>nhóm kháng sinh và thuốc hạn chế</li>
+<li>nhóm nội tiết, tiêu hóa và các thuốc dễ bị sai chỉ định thanh toán</li>
+</ul>
+
+  </main>
+</body>
+</html>

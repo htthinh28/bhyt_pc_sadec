@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\Da kiem tra\\Claim_null_SOA-0000001030 (2026).xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775224101196.xlsx",
+    "maLK": "OP26002936",
+    "durationMinutes": 121,
+    "reportRowCount": 37,
+    "summary": {
+      "NGHI_DUONG_TINH_GIA": 16,
+      "CAN_XAC_MINH_THEM": 15,
+      "HOP_LY": 6
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": true,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": false,
+    "maBenhAll": "M54.2;I83;M81.0;K21.9;M54.3",
+    "mucThe": "3",
+    "maLoaiRv": "1",
+    "giayChuyenTuyen": "",
+    "maNoiDi": "",
+    "maNoiDen": "",
+    "hasInvalidCdhaMachineCode": true
+  },
+  "rows": [
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_26",
+      "QUY_TAC": "Đơn giá bằng 0",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong tim thay don gia = 0 tren XML2/XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_58",
+      "QUY_TAC": "Mức hưởng XML1 vs XML2/3",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_81",
+      "QUY_TAC": "Thẻ mức 1, 2, 5 phải hưởng 100%",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ma the BHYT nhom 3 (khong phai 1/2/5)"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_86",
+      "QUY_TAC": "Thiếu trường bắt buộc trong XML2",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_87",
+      "QUY_TAC": "Thiếu trường bắt buộc trong XML3",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_117",
+      "QUY_TAC": "Trùng khóa chính trong XML2",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong trung khoa MA_LK+STT tren XML2"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_118",
+      "QUY_TAC": "Trùng khóa chính trong XML3",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong trung khoa MA_LK+STT tren XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_139",
+      "QUY_TAC": "XML3 tham chiếu ID XML2 nhưng ID null",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "XML3 doc lap, khong co dau hieu tham chieu XML2"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "XML_140",
+      "QUY_TAC": "XML3 tham chiếu sai nhóm XML2",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HC_49",
+      "QUY_TAC": "Mã bệnh chính không phải ICD-10",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HC_52",
+      "QUY_TAC": "Mã quốc gia vật tư sai",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HC_62",
+      "QUY_TAC": "Bác sĩ điều trị thiếu mã CCHN",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML1.MA_BAC_SI dang rong"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HC_238",
+      "QUY_TAC": "Bệnh nhân quốc tế thiếu tiền công khám riêng",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "MA_QUOCTICH cho thay benh nhan trong nuoc"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HC_238",
+      "QUY_TAC": "Bệnh nhân quốc tế thiếu tiền công khám riêng",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "MA_QUOCTICH cho thay benh nhan trong nuoc"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HD_06",
+      "QUY_TAC": "Sai mã cơ sở KCB",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HD_09",
+      "QUY_TAC": "Sai mã phương thức thanh toán",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong thay dong XML4 co ket qua xet nghiem thieu CHI_SO_XN_BT"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "CK_42",
+      "QUY_TAC": "Công khám buồng lưu nhóm khám/điều trị ngoại trú quá 24h",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Tong thoi gian 121 phut (<=1440)"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "CDHA_204",
+      "QUY_TAC": "[Thời gian] Thời lượng chụp MRI tối thiểu",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong co dich vu MRI trong XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "CDHA_204",
+      "QUY_TAC": "[Thời gian] Thời lượng chụp MRI tối thiểu",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong co dich vu MRI trong XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "CDHA_284",
+      "QUY_TAC": "[Điều kiện] Chuẩn bị nhịn ăn (SA Bụng)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong co dich vu sieu am bung trong XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "CDHA_284",
+      "QUY_TAC": "[Điều kiện] Chuẩn bị nhịn ăn (SA Bụng)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Khong co dich vu sieu am bung trong XML3"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "THUOC_436",
+      "QUY_TAC": "Kiểm tra Tên thuốc (INN)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "GB_20",
+      "QUY_TAC": "[BHYT] Giường và thẻ sắp hết hạn",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "GB_26",
+      "QUY_TAC": "[Quản trị] Giường lưu nhóm khám/điều trị ngoại trú < 4h",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "XML3 khong thay dich vu giuong"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "GB_75",
+      "QUY_TAC": "[Thời gian] Nằm viện dưới 4 giờ",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Nam vien 121 phut (<240)"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1604",
+      "QUY_TAC": "Thực hiện - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co dong MA_BS_DOC_KQ rong"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1634",
+      "QUY_TAC": "Chỉ định - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ho so da co ma benh phu hop (I80/I83/E11.5)"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1636",
+      "QUY_TAC": "Thực hiện - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co dong MA_BS_DOC_KQ rong"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1604",
+      "QUY_TAC": "Thực hiện - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co dong MA_BS_DOC_KQ rong"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1634",
+      "QUY_TAC": "Chỉ định - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ho so da co ma benh phu hop (I80/I83/E11.5)"
+    },
+    {
+      "MA_LK": "OP26002936",
+      "MA_LUAT": "DVKT_1636",
+      "QUY_TAC": "Thực hiện - SA Doppler ĐM, TM chi dưới (18.0045.0004)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co dong MA_BS_DOC_KQ rong"
+    }
+  ]
+}

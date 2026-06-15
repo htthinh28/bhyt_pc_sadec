@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 1</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_thuoc_dot1.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM THUỐC ĐỢT 1</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này chuẩn hóa 6 thẻ tri thức mẫu đầu tiên cho nhóm rule <code>THUOC</code> trong repo <code>ung_dung_cdss_bhyt</code>.</p>
+<p>Phạm vi của bộ này:</p>
+<ul>
+<li>Dùng để huấn luyện AI hiểu cách đọc rule thuốc trong hệ thống.</li>
+<li>Dùng làm mẫu để tiếp tục nhân rộng ra các rule thuốc khác.</li>
+<li>Không thay thế thẩm định nghiệp vụ cuối cùng của chuyên gia kiểm tra.</li>
+</ul>
+<h2>2. Nguồn gốc tri thức</h2>
+<ul>
+<li>Seed rule nguồn: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li>Wrapper rule thuốc: <code>ma_nguon/tien_ich/luat_thuoc_hardcoded.jsx</code></li>
+<li>Meta mapping engine: <code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code></li>
+</ul>
+<p>Lưu ý quan trọng:</p>
+<ul>
+<li>Các rule có mã <code>THUOC_*</code> đang được engine gắn meta <code>THUOC_HARDCODED</code>.</li>
+<li>Chúng chạy trên luồng <code>XML2 -&gt; hardcoded thuốc</code> và thuộc phân hệ <code>LUAT_THUOC</code>.</li>
+<li>Nhiều rule thuốc đồng thời đọc dữ liệu từ <code>XML2</code> và đối chiếu chẩn đoán ở <code>XML1</code>.</li>
+</ul>
+<h2>3. Nhóm rule được chọn trong đợt 1</h2>
+<p>Đợt 1 chọn 6 cụm thuốc đầu tiên trong seed để AI học được đủ các kiểu suy luận cơ bản:</p>
+<ul>
+<li>kiểm tra liều tối đa</li>
+<li>chống chỉ định lâm sàng</li>
+<li>kiểm tra chỉ định ICD-10</li>
+<li>kiểm tra tần suất dùng thuốc</li>
+<li>kiểm tra số lượng cấp phát</li>
+<li>kiểm tra tính nhất quán giữa hướng dẫn và số lượng kê</li>
+</ul>
+<hr>
+<h2>Thẻ 1. Acetyl leucin (Gikanin)</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Acetyl leucin / Gikanin</li>
+<li>Nhóm nghiệp vụ: Thuốc, kiểm tra chỉ định và an toàn kê đơn</li>
+<li>Nguồn tài liệu: <code>THUOC_01</code>, <code>THUOC_02</code>, <code>THUOC_03</code> trong <code>du_lieu_luat_thuoc_muc8.jsx</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Thuốc Gikanin được hệ thống theo dõi ở 3 góc: liều tối đa/ngày, chống chỉ định thai kỳ, và tính đúng chỉ định theo ICD/chẩn đoán.</li>
+<li>Mục tiêu kiểm tra: tránh quá liều, tránh dùng sai đối tượng, tránh thanh toán sai chẩn đoán.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> đối với thuốc, kết hợp <code>XML1</code> đối với chẩn đoán</li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.685&#39;</code></li>
+<li>Điều kiện loại trừ / ngoại lệ: chưa thấy seed nêu ngoại lệ chuyên biệt ngoài các điều kiện chẩn đoán có sẵn</li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.MA_THUOC</code></li>
+<li><code>TONG_LIEU_24H</code></li>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu tổng liều 24 giờ vượt <code>2000mg/ngày</code> thì coi là vượt ngưỡng an toàn theo rule <code>THUOC_01</code>.</li>
+<li>Nếu hồ sơ có chẩn đoán thai nghén <code>O21</code> thì coi là chống chỉ định theo rule <code>THUOC_02</code>.</li>
+<li>Nếu chẩn đoán không rơi vào nhóm chóng mặt / rối loạn tiền đình (<code>H81</code>, <code>R42</code>, hoặc chẩn đoán ra viện tương ứng) thì có nguy cơ xuất toán theo <code>THUOC_03</code>.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: bệnh nhân chóng mặt <code>R42</code>, dùng Gikanin đúng liều <code>&lt;= 2000mg/ngày</code>.</li>
+<li>Ví dụ sai: hồ sơ thai nghén <code>O21</code> nhưng vẫn xuất hiện Gikanin.</li>
+<li>Ví dụ sai khác: hồ sơ không có <code>H81</code>, <code>R42</code>, không có mô tả chóng mặt nhưng vẫn thanh toán Gikanin.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code>, <code>SuaFileXML</code>, báo cáo chi tiết lỗi, dashboard lỗi thuốc</li>
+<li>File mã nguồn liên quan: <code>du_lieu_luat_thuoc_muc8.jsx</code>, <code>luat_thuoc_hardcoded.jsx</code>, <code>dong_co_giam_dinh.jsx</code></li>
+<li>Cách test lại: kiểm tra dòng thuốc trong XML2 và đối chiếu chẩn đoán XML1 trước khi kết luận đúng/sai</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: thuốc này đang bị sai vì quá liều, sai chẩn đoán, hay chống chỉ định?</li>
+<li>Sai lầm thường gặp: chỉ nhìn mã thuốc mà không đối chiếu chẩn đoán chính, chẩn đoán kèm và chẩn đoán ra viện.</li>
+<li>Khuyến nghị khi trả lời người dùng: nói rõ lỗi nằm ở an toàn kê đơn hay ở điều kiện thanh toán BHYT.</li>
+</ul>
+<hr>
+<h2>Thẻ 2. Aciclovir / Acyclovir</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Aciclovir</li>
+<li>Nhóm nghiệp vụ: Thuốc kháng virus, kiểm tra liều, chỉ định và chống chỉ định</li>
+<li>Nguồn tài liệu: <code>THUOC_04</code>, <code>THUOC_05</code>, <code>THUOC_06</code>, <code>THUOC_07</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Hệ thống đang kiểm soát 4 mặt: liều tuyệt đối/24 giờ, chống chỉ định suy thận nặng, đúng chỉ định Herpes/Zona, và tần suất dùng đường uống.</li>
+<li>Mục tiêu kiểm tra: tránh nguy cơ độc tính và tránh thanh toán sai bệnh.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.260&#39;</code></li>
+<li>Điều kiện loại trừ / ngoại lệ: chưa có ngoại lệ riêng trong seed được đọc</li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>TONG_LIEU_24H</code></li>
+<li><code>TAN_SUAT</code></li>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu tổng liều vượt <code>4000mg/ngày</code> thì cảnh báo quá liều nguy hiểm.</li>
+<li>Nếu chẩn đoán có <code>N18.4</code>, <code>N18.5</code> thì coi là chống chỉ định lâm sàng theo seed hiện tại.</li>
+<li>Nếu không có bằng chứng Herpes (<code>B00</code>) hoặc Zona (<code>B02</code>) thì nguy cơ xuất toán vì sai chỉ định.</li>
+<li>Nếu tần suất uống <code>&gt; 5 lần/ngày</code> thì sai phác đồ.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: hồ sơ Zona <code>B02</code>, dùng Aciclovir đúng tần suất <code>5 lần/ngày</code> và tổng liều trong ngưỡng.</li>
+<li>Ví dụ sai: hồ sơ viêm họng thông thường nhưng có Aciclovir.</li>
+<li>Ví dụ nguy hiểm: bệnh nhân suy thận nặng vẫn dùng liều cao Aciclovir.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code> tab XML2, chi tiết hồ sơ, báo cáo lỗi</li>
+<li>Cách test lại: đối chiếu chẩn đoán với nhóm Herpes/Zona và kiểm tra cả liều lẫn tần suất trên cùng một y lệnh</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: đây là sai chỉ định hay sai liều/tần suất, hay đồng thời cả hai?</li>
+<li>Sai lầm thường gặp: thấy có mã bệnh liên quan trong chẩn đoán kèm nhưng bỏ sót tình trạng suy thận nặng.</li>
+<li>Khuyến nghị khi trả lời người dùng: ưu tiên nêu rủi ro an toàn trước, sau đó mới nêu rủi ro xuất toán.</li>
+</ul>
+<hr>
+<h2>Thẻ 3. Adrenalin</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Adrenalin</li>
+<li>Nhóm nghiệp vụ: Thuốc cấp cứu</li>
+<li>Nguồn tài liệu: <code>THUOC_08</code>, <code>THUOC_09</code>, <code>THUOC_10</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Adrenalin được xem là thuốc cấp cứu, nên hệ thống kiểm tra chặt về chống chỉ định tương đối, số lượng sử dụng bất thường và chẩn đoán cấp cứu tương ứng.</li>
+<li>Mục tiêu kiểm tra: tránh thanh toán không phù hợp cho ca không có căn cứ cấp cứu.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.86&#39;</code></li>
+<li>Ngoại lệ: seed hiện tại mới thể hiện chống chỉ định tương đối, chưa thể hiện các ngoại lệ lâm sàng sâu hơn</li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu bệnh nhân có nhóm chẩn đoán tăng huyết áp, đau thắt ngực, rối loạn nhịp (<code>I10</code>, <code>I20</code>, <code>I47</code>) thì có cảnh báo chống chỉ định tương đối.</li>
+<li>Nếu dùng quá <code>10 ống</code> thì không tự kết luận sai ngay, nhưng phải chuyển sang nhánh kiểm tra diễn biến bệnh.</li>
+<li>Nếu không có bằng chứng sốc phản vệ, sốc, ngừng tim (<code>T81.1</code>, <code>R57</code>, <code>I46</code>) thì nguy cơ xuất toán cao.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: hồ sơ sốc phản vệ hoặc ngừng tim, có Adrenalin với số lượng phù hợp diễn biến.</li>
+<li>Ví dụ kiểm tra thêm: số lượng <code>&gt; 10 ống</code>, cần đối chiếu diễn biến bệnh án.</li>
+<li>Ví dụ sai: không có bệnh cảnh cấp cứu nhưng có Adrenalin trong XML2.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code>, <code>ChiTiet</code>, báo cáo chi tiết lỗi</li>
+<li>Cách test lại: kiểm tra mã bệnh, chẩn đoán ra viện và số lượng sử dụng; nếu số lượng lớn thì đối chiếu thêm bệnh án thực tế</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: đây là cảnh báo cần xác minh hay là lỗi đủ căn cứ xuất toán?</li>
+<li>Sai lầm thường gặp: thấy thuốc cấp cứu là mặc định hợp lý mà không kiểm tra chẩn đoán nền.</li>
+<li>Khuyến nghị khi trả lời người dùng: tách rõ cảnh báo “kiểm tra thêm” và cảnh báo “xuất toán”.</li>
+</ul>
+<hr>
+<h2>Thẻ 4. Albendazol</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Albendazol</li>
+<li>Nhóm nghiệp vụ: Thuốc tẩy giun, kiểm tra liều và số lượng cấp phát</li>
+<li>Nguồn tài liệu: <code>THUOC_11</code>, <code>THUOC_12</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Hệ thống kiểm tra Albendazol theo hai hướng: quá liều ở trẻ dưới 10kg và cấp phát dư số lượng so với y lệnh.</li>
+<li>Mục tiêu kiểm tra: chặn cấp thuốc vượt liều hoặc cấp không đúng chế độ dùng ngắn ngày.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code>, có dùng cân nặng từ <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.145&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.CAN_NANG</code></li>
+<li><code>TONG_LIEU_1_LAN</code></li>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu trẻ <code>&lt; 10kg</code> mà liều một lần <code>&gt; 200mg</code> thì coi là quá liều theo seed hiện tại.</li>
+<li>Nếu số lượng cấp vượt quá <code>CALC_SL_MOI_NGAY * SO_NGAY</code> thì coi là cấp dư, dễ bị xuất toán.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: trẻ 8kg dùng liều 200mg/lần, số lượng đúng theo số ngày.</li>
+<li>Ví dụ sai: trẻ 8kg nhưng kê 400mg/lần.</li>
+<li>Ví dụ sai khác: cấp nhiều viên hơn số ngày điều trị thực tế.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code> XML2, hồ sơ chi tiết</li>
+<li>Cách test lại: đối chiếu cân nặng XML1 và số lượng/tổng liều trong XML2</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: lỗi nằm ở liều trên mỗi lần dùng hay ở tổng số lượng cấp phát?</li>
+<li>Sai lầm thường gặp: kiểm tra số lượng mà quên cân nặng nhi khoa.</li>
+<li>Khuyến nghị khi trả lời người dùng: nêu rõ đây là lỗi an toàn dùng thuốc hay lỗi cấp dư thanh toán.</li>
+</ul>
+<hr>
+<h2>Thẻ 5. Alfuzosin (Alanboss XL 10)</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Alfuzosin / Alanboss XL 10</li>
+<li>Nhóm nghiệp vụ: Thuốc điều trị phì đại tuyến tiền liệt, kiểm tra chỉ định và cách dùng</li>
+<li>Nguồn tài liệu: <code>THUOC_13</code>, <code>THUOC_14</code>, <code>THUOC_15</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Hệ thống kiểm tra thuốc này ở 3 điểm: chống chỉ định suy gan/hạ huyết áp tư thế, đúng chỉ định <code>N40</code>, và tần suất chuẩn 1 lần/ngày do là dạng phóng thích kéo dài.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.412&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>CALC_TAN_SUAT</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu hồ sơ có <code>K72</code> hoặc <code>I95.1</code> thì seed hiện tại xem là chống chỉ định.</li>
+<li>Nếu không có bằng chứng <code>N40</code> hoặc mô tả phì đại tuyến tiền liệt thì có nguy cơ xuất toán do sai chỉ định.</li>
+<li>Nếu tần suất dùng <code>&gt; 1 lần/ngày</code> thì sai phác đồ do thuốc dạng XL chỉ dùng 1 lần sau ăn.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: bệnh nhân <code>N40</code>, dùng 1 lần/ngày sau ăn.</li>
+<li>Ví dụ sai: kê Alfuzosin cho hồ sơ không có bằng chứng phì đại tuyến tiền liệt.</li>
+<li>Ví dụ sai khác: kê 2 lần/ngày dù là dạng XL.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code>, <code>SuaFileXML</code>, báo cáo lỗi thuốc</li>
+<li>Cách test lại: đọc chẩn đoán trong XML1 rồi đối chiếu tần suất dùng thuốc trong XML2</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: thuốc đúng bệnh chưa, và dạng bào chế có đang bị dùng sai tần suất không?</li>
+<li>Sai lầm thường gặp: thấy đúng bệnh nhưng bỏ sót việc dùng sai tần suất của dạng XL.</li>
+<li>Khuyến nghị khi trả lời người dùng: nhấn mạnh dạng bào chế là chìa khóa suy luận, không chỉ là tên hoạt chất.</li>
+</ul>
+<hr>
+<h2>Thẻ 6. Alimemazin tartrat (Atilene)</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: Alimemazin tartrat / Atilene</li>
+<li>Nhóm nghiệp vụ: Thuốc chống dị ứng/giảm ho, kiểm tra chống chỉ định, chỉ định và nhất quán y lệnh</li>
+<li>Nguồn tài liệu: <code>THUOC_16</code>, <code>THUOC_17</code>, <code>THUOC_18</code></li>
+<li>Độ tin cậy: cao trong phạm vi rule seed hiện có</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Thuốc này được kiểm tra theo 3 hướng: chống chỉ định ở suy gan/thận nặng, đúng chỉ định dị ứng/mày đay/ho, và số lượng có khớp với hướng dẫn kê chi tiết hay không.</li>
+</ul>
+<h3>3. Phạm vi áp dụng</h3>
+<ul>
+<li>Áp dụng cho XML: <code>XML2</code> kết hợp <code>XML1</code></li>
+<li>Điều kiện áp dụng: <code>XML2.MA_THUOC == &#39;40.987&#39;</code></li>
+</ul>
+<h3>4. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_BENH_CHINH</code></li>
+<li><code>XML1.MA_BENH_KT</code></li>
+<li><code>XML1.CHAN_DOAN_RV</code></li>
+<li><code>XML2.SO_LUONG</code></li>
+<li><code>CALC_SL_MOI_NGAY</code></li>
+<li><code>SO_NGAY</code></li>
+</ul>
+<h3>5. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu có <code>N18.4</code>, <code>N18.5</code>, <code>K72</code> thì seed xem là chống chỉ định.</li>
+<li>Nếu không có bằng chứng <code>J30</code>, <code>L50</code>, <code>R05</code> hoặc mô tả viêm mũi dị ứng, mày đay, ho thì có nguy cơ xuất toán.</li>
+<li>Nếu <code>XML2.SO_LUONG != CALC_SL_MOI_NGAY * SO_NGAY</code> thì cảnh báo lỗi dữ liệu/y lệnh không nhất quán.</li>
+</ul>
+<h3>6. Ví dụ</h3>
+<ul>
+<li>Ví dụ đúng: hồ sơ ho hoặc dị ứng, số lượng thuốc đúng theo số ngày và liều mỗi ngày.</li>
+<li>Ví dụ sai: hồ sơ suy gan nặng nhưng vẫn dùng Atilene.</li>
+<li>Ví dụ lỗi dữ liệu: hướng dẫn ngày 2 lần trong 5 ngày nhưng tổng số lượng lại không khớp 10 đơn vị.</li>
+</ul>
+<h3>7. Kiểm chứng thực tế</h3>
+<ul>
+<li>Màn hình liên quan: <code>DocXML</code>, <code>SuaFileXML</code>, báo cáo chi tiết lỗi</li>
+<li>Cách test lại: kiểm tra cả căn cứ bệnh và phép tính số lượng kê thuốc</li>
+</ul>
+<h3>8. Bài học rút ra cho AI</h3>
+<ul>
+<li>Câu hỏi AI phải tự kiểm tra: đây là sai bệnh, sai chống chỉ định, hay sai dữ liệu kê đơn?</li>
+<li>Sai lầm thường gặp: chỉ nhìn mã bệnh mà không so khớp tổng số lượng với hướng dẫn dùng thuốc.</li>
+<li>Khuyến nghị khi trả lời người dùng: nếu là lỗi dữ liệu, cần nói rõ cách tính số lượng kỳ vọng.</li>
+</ul>
+<hr>
+<h2>4. Cách dùng bộ thẻ này để huấn luyện AI</h2>
+<p>Quy trình khuyến nghị:</p>
+<ol>
+<li>Dùng các thẻ này làm mẫu cấu trúc.</li>
+<li>Mỗi lần chọn thêm 1 cụm thuốc mới trong <code>du_lieu_luat_thuoc_muc8.jsx</code>.</li>
+<li>Yêu cầu AI trích xuất thành thẻ mới theo cùng khuôn.</li>
+<li>Đối chiếu lại với ca hồ sơ thật trong <code>test_xml/</code> trước khi tin dùng ở mức nghiệp vụ.</li>
+</ol>
+<h2>5. Bước tiếp theo khuyến nghị</h2>
+<p>Sau bộ mẫu này, nên tiếp tục theo thứ tự:</p>
+<ul>
+<li>Allopurinol</li>
+<li>Ambroxol</li>
+<li>Nhóm thuốc cản quang</li>
+<li>Nhóm thuốc liên quan phẫu thuật/thủ thuật</li>
+<li>Nhóm thuốc hay gây false positive tại đơn vị</li>
+</ul>
+
+  </main>
+</body>
+</html>

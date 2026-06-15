@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GÓI DỮ LIỆU HUẤN LUYỆN AI — THỰC CHIẾN (CDSS BHYT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Goi_du_lieu_huan_luyen_AI_thuc_chien.md</code> · Thư viện CDSS BHYT</div>
+    <h1>GÓI DỮ LIỆU HUẤN LUYỆN AI — THỰC CHIẾN (CDSS BHYT)</h1>
+<p>Phiên bản: 1.0 · Cập nhật: 10/04/2026  </p>
+<p>Tài liệu này <strong>gom kiến thức đã chuẩn hóa trong repo</strong> và <strong>kho tri thức tích lũy trên máy</strong> thành một khung làm việc cho AI khi phân tích hồ sơ, rule và ca bệnh — không thay thế người có thẩm quyền.</p>
+<hr>
+<h2>1. Hai tầng “kho huấn luyện”</h2>
+<table>
+<thead>
+<tr>
+<th>Tầng</th>
+<th>Vị trí</th>
+<th>Nội dung điển hình</th>
+<th>Cách lấy cho AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Kho tĩnh (repo)</strong></td>
+<td>Thư mục <code>tai_lieu/</code> — <code>Ca_huan_luyen_mau_*.md</code>, <code>Bang_neo_*.md</code>, <code>Huan_luyen_phien_*.md</code>, <code>The_tri_thuc_*.md</code>, <code>Chuan_hoa_kien_thuc_*.md</code>, v.v.</td>
+<td>Ca mẫu có MA_LK/rule, bảng neo phiên ↔ engine, thẻ tri thức VBHN/thuốc/DVKT/phác đồ</td>
+<td>Đọc trực tiếp file; dùng <strong><code>tai_lieu/_index_kho_huan_luyen_AI.json</code></strong> (sinh bởi script, xem mục 4): <strong>toàn bộ</strong> <code>.md</code> trong <code>tai_lieu/</code> được liệt kê và gán <code>category</code> theo tiền tố; tên không khớp mẫu → <code>khac</code>.</td>
+</tr>
+<tr>
+<td><strong>XML thực (GIAMDINHHS)</strong></td>
+<td>Thư mục <strong><code>tai_nguyen/</code></strong> — file <code>.xml</code> claim / hồ sơ kiểm tra (XML1… trong Base64)</td>
+<td>Huấn luyện đọc đúng cấu trúc thật, neo <code>MA_LK</code> với ca mẫu</td>
+<td><strong><code>npm run tai_lieu:index-tai-nguyen</code></strong> → <code>tai_lieu/_index_tai_nguyen_xml.json</code> (đường dẫn + <code>ma_lk</code>). Chi tiết: <a href="./Huong_dan_tai_nguyen_XML_thuc_chien_AI.md">Huong_dan_tai_nguyen_XML_thuc_chien_AI.md</a>.</td>
+</tr>
+<tr>
+<td><strong>Kho động (thiết bị)</strong></td>
+<td>AsyncStorage key <strong><code>CDSS_TRI_THUC_GD_V1</code></strong> (tối đa 500 bản ghi)</td>
+<td>Bài học tự soạn + <strong>xác nhận Đúng/Sai</strong> từng cảnh báo tại màn <strong>Chi tiết ca bệnh</strong></td>
+<td>Màn <strong>🧠 Tri thức từ kiểm tra</strong> → <strong>Copy / chia sẻ Markdown</strong> — dán vào file trong <code>tai_lieu/</code> hoặc đưa vào phiên RAG ngoài repo.</td>
+</tr>
+</tbody></table>
+<p><strong>Tri thức runtime</strong> được đóng gói trong <code>ma_nguon/tien_ich/tri_thuc_tu_giam_dinh.jsx</code>: hàm <code>xuatTriThucRaMarkdown</code>, <code>dongGoiPhanHoiXacNhanCanhBao</code>, <code>goiYTomTatTuKetQuaGiamDinh</code>.</p>
+<hr>
+<h2>2. Cấu trúc bản ghi <code>CDSS_TRI_THUC_GD_V1</code> (cho AI / tích hợp)</h2>
+<p>Mỗi phần tử trong mảng lưu trữ gồm các trường chính:</p>
+<table>
+<thead>
+<tr>
+<th>Trường</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>id</code></td>
+<td>Định danh duy nhất</td>
+</tr>
+<tr>
+<td><code>ma_lk</code>, <code>ma_bn</code>, <code>ho_ten</code></td>
+<td>Neo ca bệnh</td>
+</tr>
+<tr>
+<td><code>ngay_tao</code></td>
+<td>ISO 8601</td>
+</tr>
+<tr>
+<td><code>tom_tat</code></td>
+<td>Một dòng mô tả (≤ 500 ký tự)</td>
+</tr>
+<tr>
+<td><code>bai_hoc</code></td>
+<td>Văn bản bài học / kết luận (≤ 12000 ký tự)</td>
+</tr>
+<tr>
+<td><code>loai_ghi</code></td>
+<td><code>BAI_HOC</code> hoặc <code>XAC_NHAN_CANH_BAO</code></td>
+</tr>
+<tr>
+<td><code>phan_hoi_canh_bao_json</code></td>
+<td>Chuỗi JSON: <code>muc[]</code> với <code>ma_luat</code>, <code>phan_he</code>, <code>ket_luan</code> (ĐÚNG/SAI), <code>canh_bao_rut_gon</code>, <code>ghi_chu</code></td>
+</tr>
+<tr>
+<td><code>ma_luat_goi_y</code>, <code>snapshot_loi</code></td>
+<td>Gợi ý rule và snapshot cảnh báo rút gọn</td>
+</tr>
+</tbody></table>
+<p>Khi huấn luyện AI “thực chiến”, ưu tiên các bản <strong><code>XAC_NHAN_CANH_BAO</code></strong> vì có nhãn đúng/sai gắn mã luật.</p>
+<hr>
+<h2>3. Kho tĩnh — lộ trình đọc gợi ý (đã học trong dự án)</h2>
+<ol>
+<li><strong>Khung tổng:</strong> <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a> §5–6 (3 loại dữ liệu huấn luyện).  </li>
+<li><strong>Kỹ năng cốt lõi:</strong> <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>.  </li>
+<li><strong>Hệ thống:</strong> <a href="./Dac_ta_he_thong_CDSS_BHYT_20260405.md">Dac_ta_he_thong_CDSS_BHYT_20260405.md</a>.  </li>
+<li><strong>DVKT (VBHN 17):</strong> <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a>, <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>.  </li>
+<li><strong>Phác đồ CDSS ↔ ICD-10:</strong> <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</a>.<br>5b. <strong>Báo cáo vi phạm + hồ sơ <code>ip</code> + phác đồ (thực chiến):</strong> <a href="./Huong_dan_huan_luyen_audit_thuc_chien_va_phac_do_CDSS.md">Huong_dan_huan_luyen_audit_thuc_chien_va_phac_do_CDSS.md</a> — script <code>npm run huan-luyen:merge-audit-ip</code>.  </li>
+<li><strong>Ca mẫu:</strong> toàn bộ <code>Ca_huan_luyen_mau_*.md</code> — mỗi file một kịch bản (thuốc, DVKT, CDHA, hành chính…).  </li>
+<li><strong>Neo phiên ↔ engine:</strong> <code>Bang_neo_phien_huan_luyen_*_va_engine.md</code>.</li>
+</ol>
+<hr>
+<h2>4. File chỉ mục tự động</h2>
+<p>Chạy tại thư mục gốc repo:</p>
+<pre><code class="language-bash">node scripts/build_huan_luyen_index.mjs
+</code></pre>
+<p>Sinh <strong><code>tai_lieu/_index_kho_huan_luyen_AI.json</code></strong>: danh sách file <code>.md</code> khớp tiền tố (ca mẫu, bảng neo, thẻ tri thức, v.v.), kèm <code>category</code>, dung lượng, <code>mtime</code>.</p>
+<p>Sau đó nên chạy <code>npm run tai_lieu:prepare</code> nếu cần đồng bộ <code>public/tai_lieu/</code> cho bản web.</p>
+<hr>
+<h2>5. Prompt mẫu — dùng ngay với AI thực chiến</h2>
+<ul>
+<li><em>“Đọc <code>tai_lieu/_index_kho_huan_luyen_AI.json</code>, chọn <strong>một</strong> file <code>Ca_huan_luyen_mau_*</code> cùng nhóm rule với <code>MA_LUAT</code> …, rồi áp dụng logic đó cho đoạn XML sau.”</em>  </li>
+<li><em>“Kết hợp [The_tri_thuc_Danh_muc_1…] với cảnh báo engine sau; nêu <strong>ba</strong> điểm cần kiểm chứng trên XML3/XML1 trước khi kết luận thanh toán.”</em>  </li>
+<li><em>“Dựa trên đoạn Markdown xuất từ Tri thức từ kiểm tra (có <code>ket_luan</code> ĐÚNG/SAI), tóm tắt <strong>một</strong> bài học có thể đưa vào seed luật hoặc checklist.”</em>  </li>
+<li><em>“Phân biệt lớp <strong>phác đồ CDSS</strong> (ICD, chuyên môn) với lớp <strong>DM1 DVKT</strong> (tỷ lệ/giá) cho cùng hồ sơ — không gộp hai luận điểm.”</em></li>
+</ul>
+<hr>
+<h2>6. Liên kết nhanh</h2>
+<ul>
+<li>Quy trình prompt: <a href="./Quy_trinh_prompt_huan_luyen_AI_BHYT.md">Quy_trinh_prompt_huan_luyen_AI_BHYT.md</a>  </li>
+<li>Hướng dẫn dùng AI trong repo: <a href="./Huong_dan_dung_AI_CDSS_BHYT.md">Huong_dan_dung_AI_CDSS_BHYT.md</a>  </li>
+<li>Bài tập kỹ năng: <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Gói này cố định <strong>cách lấy và xếp lớp</strong> dữ liệu huấn luyện; nội dung pháp lý và số liệu cụ thể luôn lấy từ văn bản gốc và hồ sơ thật.</em></p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hướng dẫn sử dụng CDSS BHYT cho người không chuyên công nghệ thông tin</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_cho_nguoi_khong_chuyen_CNTT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Hướng dẫn sử dụng CDSS BHYT cho người không chuyên công nghệ thông tin</h1>
+<p><strong>Ứng dụng:</strong> CDSS BHYT Phương Châu (hỗ trợ rà soát, cảnh báo hồ sơ BHYT).<br><strong>Tài liệu này dành cho:</strong> cán bộ y tế, nhân viên hành chính, kế toán BHYT… chưa quen máy tính hoặc chưa từng cài phần mềm phức tạp.</p>
+<hr>
+<h2>1. Một vài từ dễ hiểu (đọc qua một lần là được)</h2>
+<table>
+<thead>
+<tr>
+<th>Từ hay gặp</th>
+<th>Ý nghĩa đơn giản</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Trình duyệt</strong></td>
+<td>Chương trình để mở “trang web”, ví dụ Google Chrome, Microsoft Edge, Cốc Cốc.</td>
+</tr>
+<tr>
+<td><strong>Đường link / địa chỉ web</strong></td>
+<td>Dạng <code>http://...</code> hoặc <code>https://...</code> do phòng CNTT gửi; bôi đen, copy, dán vào thanh địa chỉ của trình duyệt.</td>
+</tr>
+<tr>
+<td><strong>Tài khoản / Email đăng nhập</strong></td>
+<td>Thường là email công việc (ví dụ <code>ten@benhvien.vn</code>) do đơn vị cấp.</td>
+</tr>
+<tr>
+<td><strong>Mật khẩu</strong></td>
+<td>Chuỗi ký tự bí mật đi kèm tài khoản; không chia sẻ cho người khác.</td>
+</tr>
+<tr>
+<td><strong>File XML</strong></td>
+<td>File dữ liệu hồ sơ BHYT theo quy định; thường do phần mềm viện phát hành hoặc tải từ cổng BHXH.</td>
+</tr>
+<tr>
+<td><strong>Ứng dụng / Phần mềm</strong></td>
+<td>Chương trình chạy trên máy tính hoặc điện thoại (có icon riêng).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. Bạn sẽ mở ứng dụng bằng cách nào?</h2>
+<p>Đơn vị có thể cho bạn dùng <strong>một trong các cách sau</strong>. Bạn <strong>chỉ cần làm đúng cách mà phòng CNTT hoặc quản lý đã thông báo</strong>.</p>
+<h3>Cách A — Máy tính: file chạy được (Portable / bản đóng gói)</h3>
+<ol>
+<li>Nhận file từ phòng CNTT (thường tên dạng <code>CDSS-BHYT-...-Windows-x64.exe</code> hoặc tương tự).</li>
+<li>Lưu file vào thư mục dễ tìm, ví dụ <strong>Màn hình nền</strong> hoặc <strong>Tài liệu</strong>.</li>
+<li><strong>Nhấp đúp</strong> (double-click) vào file đó để mở.</li>
+<li>Nếu Windows hỏi “Có cho phép chạy không?”, chọn <strong>Cho phép / Run</strong> (nếu bạn tin tưởng nguồn file do đơn vị cấp).</li>
+</ol>
+<p><strong>Lưu ý:</strong> Lần đầu có thể hơi lâu; không tắt máy giữa chừng.</p>
+<h3>Cách B — Máy tính hoặc máy tính bảng: mở bằng trình duyệt (web)</h3>
+<ol>
+<li>Mở <strong>Chrome</strong>, <strong>Edge</strong> hoặc trình duyệt đơn vị cho phép.</li>
+<li>Vào <strong>địa chỉ web</strong> do phòng CNTT gửi (copy dán vào thanh địa chỉ, rồi nhấn Enter).</li>
+<li>Đợi trang tải xong; nếu có nút <strong>Đăng nhập</strong>, hãy đăng nhập như mục 4 bên dưới.</li>
+</ol>
+<p><strong>Lưu ý:</strong> Cần <strong>Internet</strong> (mạng nội bộ hoặc mạng ngoài tùy cấu hình viện).</p>
+<h3>Cách C — Điện thoại hoặc máy tính bảng (ứng dụng cài đặt)</h3>
+<ol>
+<li>Phòng CNTT sẽ hướng dẫn tải file <strong>APK</strong> (Android) hoặc cài từ <strong>App Store</strong> (iPhone) nếu đơn vị đã phát hành bản cài đặt.</li>
+<li>Cài đặt theo hướng dẫn trên màn hình điện thoại (thường chỉ cần <strong>Tiếp theo</strong> / <strong>Cài đặt</strong>).</li>
+<li>Mở icon ứng dụng <strong>CDSS BHYT</strong> (hoặc tên tương tự do đơn vị đặt).</li>
+</ol>
+<p>Nếu bạn <strong>không chắc</strong> mình thuộc cách A, B hay C, hãy <strong>gọi phòng CNTT</strong> hoặc người phụ trách — đừng tự tải phần mềm lạ trên mạng.</p>
+<hr>
+<h2>3. Chuẩn bị trước khi làm việc</h2>
+<ul>
+<li><strong>Tài khoản và mật khẩu</strong> do đơn vị cấp (nếu chưa có, xin cấp trước).</li>
+<li><strong>File XML</strong> cần kiểm tra (nếu công việc của bạn là rà soát hồ sơ).</li>
+<li><strong>Mạng ổn định</strong> nếu dùng bản web hoặc đồng bộ đám mây (theo cấu hình viện).</li>
+<li>Ghi nhớ: <strong>không</strong> gửi mật khẩu qua tin nhắn công cộng; nếu nghi ngờ lộ mật khẩu, báo quản trị để <strong>đổi mật khẩu</strong>.</li>
+</ul>
+<hr>
+<h2>4. Đăng nhập (bước rất quan trọng)</h2>
+<ol>
+<li>Mở ứng dụng hoặc trang web như mục 2.</li>
+<li>Tìm ô <strong>Tài khoản</strong> / <strong>Email</strong> — nhập email được cấp (thường viết thường cũng được, hệ thống thường tự chuẩn hóa).</li>
+<li>Tìm ô <strong>Mật khẩu</strong> — nhập đúng mật khẩu (chú ý viết hoa/thường; có thể bật “hiện mật khẩu” nếu màn hình có biểu tượng con mắt).</li>
+<li>Nhấn nút <strong>Đăng nhập</strong> (hoặc tên tương tự).</li>
+<li>Nếu thành công, bạn sẽ vào màn hình <strong>Tổng quan</strong> (danh sách các chức năng).</li>
+</ol>
+<p><strong>Nếu báo lỗi:</strong></p>
+<ul>
+<li>Đọc kỹ dòng chữ đỏ hoặc thông báo trên màn hình.</li>
+<li>Kiểm tra <strong>Caps Lock</strong> (không bật nhầm khi gõ mật khẩu).</li>
+<li>Thử <strong>copy-paste</strong> mật khẩu từ file an toàn (tránh dính khoảng trắng thừa).</li>
+<li>Vẫn không được: <strong>liên hệ phòng CNTT</strong> — không tự “thử mật khẩu” nhiều lần vì có thể bị khóa tài khoản (tùy cấu hình đơn vị).</li>
+</ul>
+<hr>
+<h2>5. Sau khi đăng nhập — bạn sẽ làm gì hằng ngày?</h2>
+<p>Tùy <strong>quyền</strong> được giao, bạn có thể thấy ít hoặc nhiều mục trên màn hình <strong>Tổng quan</strong>. Dưới đây là <strong>quy trình thường gặp</strong> cho người rà soát hồ sơ:</p>
+<ol>
+<li><p><strong>Đọc / nhập hồ sơ XML</strong><br>Vào mục tương ứng (thường liên quan đến “Đọc file XML” hoặc “Nhập hồ sơ”) → chọn file XML từ máy → xác nhận.</p>
+</li>
+<li><p><strong>Xem cảnh báo / lỗi</strong><br>Hệ thống liệt kê các dòng cần chú ý (mức độ có thể khác nhau: thông tin, cảnh báo, lỗi nghiêm trọng…). Đọc từng dòng và đối chiếu với hồ sơ thực tế.</p>
+</li>
+<li><p><strong>Xem chi tiết hoặc chỉnh sửa (nếu được phép)</strong><br>Một số vai trò được mở chi tiết từng dòng thuốc, dịch vụ… hoặc màn hình sửa XML — <strong>chỉ thao tác nếu bạn được đào tạo</strong> và có quyền.</p>
+</li>
+<li><p><strong>Lưu vào kho (nếu có)</strong><br>Sau khi kiểm tra, có thể lưu hồ sơ vào <strong>kho lưu trữ</strong> trong ứng dụng để tra cứu sau.</p>
+</li>
+<li><p><strong>Báo cáo / thống kê (nếu có)</strong><br>Cuối ngày hoặc cuối kỳ, cấp quản lý có thể xem tổng hợp số hồ sơ, số cảnh báo.</p>
+</li>
+</ol>
+<p>Nếu bạn <strong>không thấy</strong> một số nút trên, đó có thể do <strong>phân quyền</strong> — không phải lỗi máy. Hỏi quản lý trực tiếp hoặc phòng CNTT để được <strong>cấp quyền</strong> phù hợp công việc.</p>
+<hr>
+<h2>6. Một số tình huống thường gặp</h2>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Việc nên làm</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Màn hình trắng, lâu không lên</td>
+<td>Kiểm tra mạng; đóng ứng dụng mở lại; thử trình duyệt khác (nếu dùng web).</td>
+</tr>
+<tr>
+<td>Báo “không tải được” / “lỗi mạng”</td>
+<td>Xem lại Wi-Fi / dây mạng; hỏi CNTT xem hệ thống có bảo trì không.</td>
+</tr>
+<tr>
+<td>File XML không đọc được</td>
+<td>Xác nhận đúng định dạng file do viện cung cấp; thử file khác; báo IT nếu mọi file đều lỗi.</td>
+</tr>
+<tr>
+<td>Ứng dụng đóng tự động</td>
+<td>Khởi động lại máy một lần; mở lại bản portable; vẫn lỗi thì báo CNTT (có thể thiếu quyền hoặc phần mềm chặn).</td>
+</tr>
+<tr>
+<td>Quên mật khẩu</td>
+<td>Không tự đoán; liên hệ người quản trị tài khoản để <strong>cấp lại / đặt lại mật khẩu</strong>.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. An toàn và bảo mật (ngắn gọn, dễ nhớ)</h2>
+<ul>
+<li>Không chia sẻ <strong>tài khoản</strong> cho đồng nghiệp; mỗi người một tài khoản để truy vết khi cần.</li>
+<li>Đăng xuất khi <strong>rời máy dùng chung</strong> (nếu ứng dụng có nút đăng xuất).</li>
+<li>Không lưu mật khẩu vào giấy dán công khai tại quầy làm việc.</li>
+<li>Dữ liệu bệnh nhân là <strong>thông tin nhạy cảm</strong> — tuân thủ quy định của bệnh viện và pháp luật.</li>
+</ul>
+<hr>
+<h2>8. Khi nào cần gọi phòng CNTT?</h2>
+<p>Gọi ngay khi:</p>
+<ul>
+<li>Bạn <strong>chưa từng</strong> đăng nhập thành công lần nào sau khi được cấp tài khoản.</li>
+<li>Đổi máy tính / cài lại Windows / mất file chạy ứng dụng.</li>
+<li>Cần <strong>cấp quyền</strong> thêm chức năng (ví dụ chỉ được xem nhưng cần sửa hồ sơ).</li>
+<li>Nghi ngờ <strong>virus</strong> hoặc tải nhầm file không phải do đơn vị gửi.</li>
+</ul>
+<hr>
+<h2>9. Tài liệu chi tiết hơn (cho người đã quen máy tính)</h2>
+<p>Nếu bạn cần hướng dẫn <strong>sâu theo từng màn hình</strong> (tên kỹ thuật, phân hệ, quy trình nâng cao), có thể xem thêm:</p>
+<ul>
+<li><code>Huong_dan_su_dung_CDSS_BHYT_20260405.md</code> — hướng dẫn đầy đủ theo từng màn hình (phiên bản 3.0, cập nhật 08/04/2026; trong cùng thư mục <code>tai_lieu</code>).</li>
+</ul>
+<p>Tài liệu đó viết cho <strong>người vận hành và quản trị</strong>; không bắt buộc đọc nếu bạn chỉ dùng các thao tác cơ bản nêu trong file này.</p>
+<hr>
+<p><strong>Tóm tắt một dòng:</strong> Mở đúng ứng dụng hoặc đúng địa chỉ web do đơn vị cấp → đăng nhập bằng tài khoản được cấp → làm việc trên <strong>Tổng quan</strong> theo quyền của bạn → gặp sự cố thì <strong>báo CNTT</strong>, không tự cài phần mềm lạ.</p>
+<p><em>Tài liệu có thể được cập nhật theo phiên bản ứng dụng; khi đơn vị thông báo đổi cách truy cập, ưu tiên làm theo hướng dẫn nội bộ mới nhất.</em></p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC MẪU NHÓM PTTT ĐỢT 1</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_mau_nhom_pttt_dot1.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC MẪU NHÓM PTTT ĐỢT 1</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Đây là đợt huấn luyện trọn gói đầu tiên cho nhóm <code>PTTT</code>, lấy dữ liệu từ một hồ sơ XML thật trong repo và các rule built-in/seed đang chạy.</p>
+<p>Mục tiêu của đợt này là dạy AI cách nối:</p>
+<ul>
+<li>XML1</li>
+<li>XML3</li>
+<li>XML5</li>
+<li>built-in PTTT trong động cơ kiểm tra</li>
+<li>seed PTTT mức 11</li>
+</ul>
+<h2>2. Nguồn tri thức</h2>
+<ul>
+<li><code>ma_nguon/quy_tac/luat_pttt.jsx</code></li>
+<li><code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code></li>
+<li><code>ma_nguon/tien_ich/du_lieu_luat_pttt_muc11.jsx</code></li>
+<li>audit hồ sơ <code>403244</code></li>
+</ul>
+<h2>3. Thẻ tri thức mẫu đợt 1</h2>
+<hr>
+<h2>Thẻ P1. XML1 phải khai MA_PTTT_QT khi hồ sơ có PTTT</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: liên kết XML1 với XML3 cho PTTT</li>
+<li>Rule tiêu biểu: <code>CLN-PTTT-02</code></li>
+<li>Nguồn: built-in PTTT</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Nếu XML3 có dòng PTTT nhưng XML1 chưa khai <code>MA_PTTT_QT</code>, hồ sơ thiếu một trường điều phối quan trọng ở cấp hồ sơ.</li>
+</ul>
+<h3>3. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML1.MA_PTTT_QT</code></li>
+<li>các dòng PTTT trong <code>XML3</code></li>
+</ul>
+<h3>4. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là lỗi liên kết dữ liệu ở mức hồ sơ, không phải lỗi riêng của từng dòng XML3.</li>
+</ul>
+<hr>
+<h2>Thẻ P2. Dòng PTTT ở XML3 phải có MA_PTTT_QT</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: tính đầy đủ dữ liệu trên dòng PTTT</li>
+<li>Rule tiêu biểu: <code>CLN-PTTT-05</code></li>
+<li>Nguồn: built-in PTTT</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Khi một dịch vụ đã được xác định là PTTT, dòng XML3 tương ứng phải khai <code>MA_PTTT_QT</code> để phục vụ đối chiếu và thanh toán.</li>
+</ul>
+<h3>3. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML3.MA_DICH_VU</code></li>
+<li><code>XML3.MA_PTTT_QT</code></li>
+<li><code>XML1.MA_PTTT_QT</code></li>
+</ul>
+<h3>4. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu cả XML1 và XML3 đều trống <code>MA_PTTT_QT</code> thì đây là thiếu dữ liệu đồng thời ở 2 tầng.</li>
+</ul>
+<hr>
+<h2>Thẻ P3. XML5 phải có tóm tắt phẫu thuật/thủ thuật</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: chứng từ tóm tắt PTTT</li>
+<li>Rule tiêu biểu: <code>CLN-PTTT-13</code></li>
+<li>Nguồn: built-in PTTT</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Khi XML3 có PTTT, XML5 phải có nội dung <code>PHAU_THUAT</code> hoặc tóm tắt tương đương để chứng minh quá trình thực hiện.</li>
+</ul>
+<h3>3. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li>sự tồn tại của dòng PTTT trong <code>XML3</code></li>
+<li>nội dung <code>PHAU_THUAT</code> ở <code>XML5</code></li>
+</ul>
+<h3>4. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là lớp chứng cứ hồ sơ. Thiếu chứng cứ không nhất thiết luôn đồng nghĩa với không thực hiện, nhưng làm suy yếu căn cứ thanh toán rõ rệt.</li>
+</ul>
+<hr>
+<h2>Thẻ P4. Nội soi đại trực tràng gây mê cần tối thiểu 2 nhân sự</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: nhân sự tối thiểu cho DVKT có gây mê</li>
+<li>Rule tiêu biểu: <code>DVKT_0259</code></li>
+<li>Nguồn: seed PTTT mức 11</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Dịch vụ <code>02.0261.0319</code> cần tối thiểu 2 nhân viên để phản ánh nội soi và gây mê an toàn.</li>
+</ul>
+<h3>3. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML3.MA_DICH_VU</code></li>
+<li>số nhân sự ở <code>XML4.MA_NV</code></li>
+<li>nhân sự ghi ở XML3 để đối chiếu logic</li>
+</ul>
+<h3>4. Cách suy luận đúng</h3>
+<ul>
+<li>Nếu không đủ nhân sự ở bảng liên quan, phải xem đây là thiếu chứng cứ thực hiện đúng quy trình kỹ thuật.</li>
+</ul>
+<hr>
+<h2>Thẻ P5. Vật tư/hóa chất phải đi cùng một số DVKT</h2>
+<h3>1. Thông tin chung</h3>
+<ul>
+<li>Chủ đề: chứng cứ vật tư đi kèm xét nghiệm/dịch vụ</li>
+<li>Rule tiêu biểu (vẫn trong seed): <code>DVKT_0259</code> — <strong>Lưu ý (04/2026):</strong> toàn bộ nhóm quy tắc dạng <strong>Thực hiện -</strong> kết hợp <code>COUNT_IF(DS_XML5, …)</code> (trong đó có các mã như CBC laser, TSH…) đã <strong>gỡ khỏi</strong> <code>du_lieu_luat_pttt_muc11.jsx</code> để giảm dương tính giả; khi huấn luyện AI, không trích dẫn các mã đó như còn hiệu lực.</li>
+<li>Nguồn: seed PTTT mức 11</li>
+</ul>
+<h3>2. Mệnh đề nghiệp vụ cốt lõi</h3>
+<ul>
+<li>Một số DVKT chỉ được thanh toán chắc chắn khi XML5 có vật tư, hóa chất hoặc vật phẩm tiêu hao tương ứng.</li>
+</ul>
+<h3>3. Dữ liệu cần kiểm tra</h3>
+<ul>
+<li><code>XML3.MA_DICH_VU</code></li>
+<li><code>DS_XML5.TEN_VAT_TU</code></li>
+</ul>
+<h3>4. Cách suy luận đúng</h3>
+<ul>
+<li>Đây là kiểu rule kiểm tra bằng chứng thực hiện, không chỉ kiểm tra “có chỉ định hay không”.</li>
+</ul>
+<h2>4. Kết luận huấn luyện đợt PTTT 1</h2>
+<p>AI cần học rằng nhóm PTTT thường không chỉ xoay quanh chẩn đoán, mà còn xoay quanh:</p>
+<ul>
+<li>mã hóa PTTT đúng ở nhiều bảng</li>
+<li>nhân sự tham gia</li>
+<li>chứng cứ thực hiện</li>
+<li>vật tư/hóa chất đi kèm</li>
+</ul>
+<p>Đây là lớp tri thức rất phù hợp để nâng AI từ đọc thuốc sang đọc chứng từ kỹ thuật và quy trình thực hiện.</p>
+
+  </main>
+</body>
+</html>

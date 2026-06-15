@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quy trình làm việc: Cursor (AI trợ lý mã &amp; tài liệu) + OpenClaw (gateway tự động hóa) cho huấn luyện và vận hành AI kiểm tra BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Quy trình làm việc: Cursor (AI trợ lý mã &amp; tài liệu) + OpenClaw (gateway tự động hóa) cho huấn luyện và vận hành AI kiểm tra BHYT</h1>
+<p>Tài liệu mô tả <strong>cách phối hợp</strong> giữa trợ lý AI trong <strong>Cursor</strong> và <strong>OpenClaw</strong> nhằm xây dựng, kiểm thử và duy trì hệ thống hỗ trợ kiểm tra bảo hiểm y tế (BHYT) một cách <strong>đầy đủ, có thể lặp lại và áp dụng thực tế</strong>.</p>
+<h2>0. Ranh giới cố định (mọi phiên)</h2>
+<ul>
+<li><strong>Cursor:</strong> sửa <strong><code>ma_nguon/</code></strong>, script, chạy <strong><code>npm run qa:*</code></strong> (audit, fixtures, on-off), cập nhật <strong><code>test_xml</code></strong> / seed, review diff.</li>
+<li><strong>OpenClaw:</strong> xử lý <strong>tri thức</strong> trong <code>tai_lieu/</code>, <strong>báo cáo / checklist / biên bản</strong>, đối chiếu nhiều file; không giả định đã QA trên máy bạn trừ khi bạn dán kết quả.</li>
+</ul>
+<p><strong>Bàn giao chuẩn Cursor → OpenClaw:</strong> <a href="./Mau_handoff_Cursor_sang_OpenClaw.md">Mau_handoff_Cursor_sang_OpenClaw.md</a>.<br><strong>Phiên làm việc chung (copy prompt):</strong> <a href="./Phien_lam_viec_chung_Cursor_va_OpenClaw.md">Phien_lam_viec_chung_Cursor_va_OpenClaw.md</a>.<br><strong>Neo phiên huấn luyện thuốc ↔ engine:</strong> <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.<br><strong>Neo phiên huấn luyện DVKT ↔ engine:</strong> <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>.<br><strong>Kỹ năng cốt lõi + bài tập (mọi nhóm rule):</strong> <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>, <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a> (bài <strong>8–10</strong> audit <code>test_xml/</code>; <strong>11–13</strong> VTYT / bảng neo).<br><strong>VTYT — chuẩn hóa suy luận AI:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> · <strong>bảng neo:</strong> <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a> · <strong>phiên dự phòng</strong> (chưa có audit fixture): <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a>.<br><strong>Chuẩn hóa suy luận AI (DVKT):</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>.<br><strong>Lộ trình huấn luyện DVKT (thứ tự ca):</strong> <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> mục <strong>I</strong>; chỗ đặt <strong>Đợt 4</strong> trong lộ trình tổng: <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a> mục <strong>4 — Bước 3</strong>.<br><strong>Audit huấn luyện bổ sung (không thay thế snapshot 10 file):</strong> <code>test_xml/huan_luyen/*.xml</code> → <code>test_xml/audit_TRAINHL*_*.json</code> (chạy <code>npm run qa:claim-audit</code>).</p>
+<hr>
+<h2>1. Mục tiêu và phạm vi</h2>
+<ul>
+<li><strong>Mục tiêu:</strong> Chuẩn hóa luồng từ <em>thẻ tri thức / quy định</em> → <em>quy tắc &amp; mã</em> → <em>bộ ca kiểm thử</em> → <em>chạy engine / audit</em> → <em>rút kinh nghiệm cập nhật</em>.</li>
+<li><strong>Phạm vi:</strong> Repo <code>ung_dung_cdss_bhyt</code> (engine kiểm tra, tài liệu <code>tai_lieu/</code>, dữ liệu thử <code>test_xml/</code>, script QA). OpenClaw đóng vai trò <strong>gateway + agent</strong> (mô hình Google Gemini, workspace trỏ repo, tự động hóa theo lịch hoặc tác vụ nền khi bạn cấu hình).</li>
+<li><strong>Không mục tiêu:</strong> Thay thế quyết định pháp lý của con người; AI chỉ hỗ trợ kiểm tra, gợi ý và tài liệu hóa lý do.</li>
+</ul>
+<hr>
+<h2>2. Vai trò: ai làm gì?</h2>
+<table>
+<thead>
+<tr>
+<th>Khía cạnh</th>
+<th><strong>Cursor (Composer / Chat)</strong></th>
+<th><strong>OpenClaw (Gateway + Agent)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Chỉnh sửa mã</strong> trực tiếp trong repo</td>
+<td>Chính: sửa <code>ma_nguon/</code>, script, cấu hình</td>
+<td>Có thể gọi tool/ghi file nếu bạn bật và tin cậy workspace</td>
+</tr>
+<tr>
+<td><strong>Soạn / chỉnh thẻ tri thức, ca huấn luyện</strong></td>
+<td>Rất phù hợp: <code>tai_lieu/*.md</code>, cấu trúc bảng, trace ICD–thuốc–DVKT</td>
+<td>Phù hợp tóm tắt, draft, đối chiếu nhiều file theo lệnh định kỳ</td>
+</tr>
+<tr>
+<td><strong>Chạy lệnh cục bộ</strong> (test, audit)</td>
+<td>Qua terminal tích hợp</td>
+<td>Qua agent nếu được cấp quyền thực thi</td>
+</tr>
+<tr>
+<td><strong>Truy cập mô hình</strong></td>
+<td>Theo cấu hình Cursor</td>
+<td><strong>Gemini</strong> qua <code>GEMINI_API_KEY</code> + <code>auth-profiles.json</code> (provider <code>google</code>)</td>
+</tr>
+<tr>
+<td><strong>Bảo mật phiên làm việc</strong></td>
+<td>Theo chính sách Cursor</td>
+<td>Token gateway trong <code>~\.openclaw\openclaw.json</code>; không commit</td>
+</tr>
+</tbody></table>
+<p><strong>Nguyên tắc thực tiễn:</strong> Phần <strong>thay đổi mã nguồn quan trọng</strong> và <strong>review diff</strong> nên ưu tiên <strong>Cursor</strong> (diff rõ, kiểm soát phiên bản). OpenClaw phù hợp <strong>tự động hóa lặp lại</strong> (ví dụ: đọc log, nhắc chạy QA, soạn báo cáo ngắn từ kết quả JSON) sau khi bạn đã cố định lệnh và đường dẫn trong repo.</p>
+<hr>
+<h2>3. Kiến trúc làm việc (tổng quan)</h2>
+<pre><code class="language-mermaid">flowchart LR
+  subgraph nguon_pham_luat[&quot;Nguồn pháp lý &amp; hợp đồng&quot;]
+    TT12[&quot;TT12 / XML / CV266&quot;]
+    HD[&quot;Hợp đồng KCB / nội bộ BV&quot;]
+  end
+  subgraph tai_lieu_repo[&quot;Repo: tai_lieu + ma_nguon&quot;]
+    TT[&quot;Thẻ tri thức .md&quot;]
+    RULE[&quot;Engine / quy tắc .jsx/.js&quot;]
+    TEST[&quot;test_xml + script QA&quot;]
+  end
+  subgraph cong_cu[&quot;Công cụ&quot;]
+    CUR[&quot;Cursor AI&quot;]
+    OC[&quot;OpenClaw Agent&quot;]
+  end
+  TT12 --&gt; TT
+  HD --&gt; TT
+  TT --&gt; CUR
+  CUR --&gt; RULE
+  CUR --&gt; TEST
+  OC --&gt; TT
+  OC --&gt; TEST
+  RULE --&gt; TEST
+</code></pre>
+<hr>
+<h2>4. Chuẩn bị môi trường (một lần, hoặc khi đổi máy)</h2>
+<ol>
+<li><strong>Repo:</strong> Clone/sync <code>ung_dung_cdss_bhyt</code>; workspace OpenClaw trùng thư mục dự án (đã cấu hình trong <code>agents.defaults.workspace</code>).</li>
+<li><strong>Gemini / Google:</strong> <code>GEMINI_API_KEY</code> ở biến môi trường User Windows <strong>và</strong> file <code>%USERPROFILE%\.openclaw\.env</code> (gateway đọc ổn định khi chạy service).</li>
+<li><strong>OpenClaw:</strong> <code>openclaw onboard</code> (hoặc đã có <code>auth-profiles.json</code> với <code>keyRef</code> → <code>GEMINI_API_KEY</code>); <code>openclaw daemon status</code> → gateway <strong>running</strong>, port <strong>18789</strong> (mặc định).</li>
+<li><strong>Cursor:</strong> Kết nối OpenClaw (nếu dùng extension) với <strong>token gateway mới</strong> sau mỗi lần onboard/đổi <code>gateway.auth.token</code> — lấy từ <code>~\.openclaw\openclaw.json</code>.</li>
+<li><strong>Node / npm:</strong> Đúng phiên bản theo <code>package.json</code> để chạy script test/audit trong repo.</li>
+</ol>
+<hr>
+<h2>5. Vòng đời huấn luyện &amp; bổ sung tri thức (lặp đi lặp lại)</h2>
+<h3>5.1. Từ văn bản pháp lý → thẻ tri thức</h3>
+<ol>
+<li><strong>Thu thập:</strong> Văn bản chính thức (TT12, CV266, phụ lục), hợp đồng, quy trình BV.</li>
+<li><strong>Trong Cursor:</strong> Yêu cầu AI trích xuất <strong>điều kiện áp dụng</strong>, <strong>ngoại lệ</strong>, <strong>trường dữ liệu XML/HSMB</strong> liên quan; xuất ra file mới hoặc cập nhật <code>tai_lieu/The_tri_thuc_*.md</code>.</li>
+<li><strong>Chuẩn hóa:</strong> Mỗi thẻ nên có: mục đích, phạm vi, input cần có, output mong đợi (mã lỗi / mức độ), <strong>tham chiếu điều khoản</strong>, ví dụ tối thiểu 1 ca.</li>
+<li><strong>OpenClaw (tùy chọn):</strong> Giao nhiệm vụ định kỳ “đối chiếu danh sách file <code>tai_lieu/</code> với changelog pháp lý” hoặc tóm tắt diff giữa hai phiên bản cùng một chủ đề (sau khi bạn cung cấp hai nguồn văn bản).</li>
+</ol>
+<h3>5.2. Từ thẻ tri thức → quy tắc thực thi (engine)</h3>
+<ol>
+<li><strong>Ánh xạ:</strong> Với mỗi quy tắc, xác định <strong>bảng dữ liệu</strong> (danh mục thuốc, ICD, DVKT), <strong>trường hồ sơ</strong>, <strong>logic on/off</strong> (đã có pattern trong <code>ma_nguon/tien_ich/</code>).</li>
+<li><strong>Trong Cursor:</strong> Sửa trực tiếp rule engine / bảng tra cứu; chạy test cục bộ nếu có script.</li>
+<li><strong>Ghi chú trong <code>tai_lieu</code>:</strong> Cập nhật <code>Huong_dan_chay_test_AI_chi_tiet.md</code> hoặc file ca mẫu tương ứng để người sau không phỏng đoán.</li>
+</ol>
+<h3>5.3. Ca huấn luyện (ground truth)</h3>
+<ol>
+<li>Mỗi ca: mô tả bối cảnh, dữ liệu đầu vào (đã <strong>khử danh tính</strong> nếu copy từ thật), kết quả mong đợi, giải thích ngắn.</li>
+<li>Đặt tại <code>tai_lieu/Ca_huan_luyen_mau_*.md</code> hoặc <code>Danh_sach_10_ca_test_*.md</code> tương ứng.</li>
+<li><strong>Cursor:</strong> Dùng để sinh thêm biến thể ca (edge case) từ một ca gốc — luôn có <strong>người chuyên môn duyệt</strong>.</li>
+<li><strong>Gắn engine:</strong> Mỗi phiên huấn luyện thuốc trong repo phải có ít nhất một <strong>MA_LUAT</strong> / built-in + <strong>đường dẫn file mã hoặc seed</strong> — xem bảng tổng hợp <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>.</li>
+</ol>
+<hr>
+<h2>6. Vòng đời kiểm thử &amp; gắn kết thực tế</h2>
+<ol>
+<li><strong>Dữ liệu thử:</strong> <code>test_xml/</code> (JSON audit nếu có) — không đưa PII thật vào git; dùng mã giả/bệnh án mẫu.</li>
+<li><strong>Chạy kiểm tra:</strong> Trong terminal repo, dùng các script đã có (ví dụ <code>scripts/qa_*.js</code>, <code>scripts/qa_on_off_match.mjs</code> — điều chỉnh theo đúng tên file hiện tại trong repo).</li>
+<li><strong>Tiêu chí pass/fail:</strong> Khớp mã lỗi/on-off với tài liệu ca; ghi <strong>lệch</strong> vào issue hoặc file <code>tai_lieu</code> dạng “ghi nhận cần sửa rule”.</li>
+<li><strong>OpenClaw:</strong> Có thể lên lịch nhắc hoặc chạy lệnh QA sau khi bạn cố định một dòng lệnh duy nhất (ví dụ <code>node scripts/qa_audit_fixtures.js</code>) và xác nhận an toàn trên máy.</li>
+</ol>
+<hr>
+<h2>7. Phân luồng công việc hằng ngày / hằng tuần</h2>
+<h3>7.1. Phiên “cập nhật quy định mới”</h3>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Thực hiện tại</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Cursor</td>
+<td>Đọc văn bản mới, cập nhật / tạo thẻ tri thức</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cursor</td>
+<td>Sửa rule + dữ liệu tra cứu trong <code>ma_nguon/</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cursor</td>
+<td>Thêm/sửa ca mẫu trong <code>tai_lieu/</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Terminal / Cursor</td>
+<td>Chạy script QA, lưu kết quả</td>
+</tr>
+<tr>
+<td>5</td>
+<td>OpenClaw (tuỳ chọn)</td>
+<td>Tóm tắt thay đổi + checklist merge cho team</td>
+</tr>
+</tbody></table>
+<h3>7.2. Phiên “debug một hồ sơ / một XML cụ thể”</h3>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Thực hiện tại</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Cursor</td>
+<td>Dán cấu trúc dữ liệu đã khử nhạy cảm, mô tả lỗi kiểm tra</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cursor</td>
+<td>Trace trong code rule tương ứng; đề xuất sửa</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cursor</td>
+<td>Cập nhật ca regression trong <code>tai_lieu/</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>OpenClaw</td>
+<td>Có thể hỗ trợ đối chiếu nhanh nhiều đoạn tài liệu nếu bạn đính kèm file</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>8. An toàn dữ liệu và tuân thủ (BHYT / y tế)</h2>
+<ul>
+<li><strong>Không</strong> đưa họ tên, Số thẻ BHYT, CCCD, địa chỉ đầy đủ vào prompt công khai hoặc log không kiểm soát.</li>
+<li><strong>Không</strong> commit <code>GEMINI_API_KEY</code>, token OpenClaw, hoặc <code>.env</code> vào git; <code>~\.openclaw\.env</code> chỉ trên máy cục bộ.</li>
+<li>Phân loại môi trường: <strong>dev</strong> (dữ liệu giả) vs <strong>UAT</strong> (dữ liệu ẩn danh hóa) vs <strong>production</strong> (chính sách riêng của BV — thường ngoài phạm vi repo này).</li>
+<li>Mọi <strong>kết luận kiểm tra</strong> cuối cùng cần <strong>người có thẩm quyền</strong> xác nhận; AI chỉ là CDSS (hỗ trợ quyết định lâm sàng/quản trị theo định nghĩa nội bộ).</li>
+</ul>
+<hr>
+<h2>9. Khắc sự cố thường gặp</h2>
+<table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Hướng xử lý</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenClaw báo không có API key Google</td>
+<td>Kiểm tra <code>auth-profiles.json</code> + <code>%USERPROFILE%\.openclaw\.env</code> + biến User <code>GEMINI_API_KEY</code>; restart gateway.</td>
+</tr>
+<tr>
+<td><code>daemon status</code> không listen 18789</td>
+<td><code>openclaw gateway install</code> / onboard lại phần daemon; xem log <code>%TEMP%\openclaw\openclaw-*.log</code>.</td>
+</tr>
+<tr>
+<td>Cursor không kết nối OpenClaw</td>
+<td>Đồng bộ <strong>token</strong> mới trong <code>openclaw.json</code> sau onboard.</td>
+</tr>
+<tr>
+<td>Rule đúng trên ca mẫu nhưng sai trên XML thật</td>
+<td>So khớp <strong>phiên bản danh mục</strong> và <strong>tên trường</strong> mapping XML; bổ sung ca regression từ XML đã ẩn danh.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>10. Checklist “sẵn sàng huấn luyện / triển khai thêm một nhóm quy tắc”</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Thẻ tri thức trong <code>tai_lieu/</code> có trích dẫn văn bản và phạm vi áp dụng.</li>
+<li><input disabled="" type="checkbox"> Mã rule / config đã được review trong Cursor (diff rõ ràng).</li>
+<li><input disabled="" type="checkbox"> Ít nhất <strong>một ca</strong> mới trong <code>tai_lieu/</code> hoặc bộ test tự động.</li>
+<li><input disabled="" type="checkbox"> Đã chạy script QA (nếu có) và ghi kết quả.</li>
+<li><input disabled="" type="checkbox"> OpenClaw gateway <strong>running</strong> nếu team dùng agent cho tác vụ nền.</li>
+<li><input disabled="" type="checkbox"> Không có bí mật (key, token) trong repo.</li>
+</ul>
+<hr>
+<h2>11. Kết luận vận hành</h2>
+<ul>
+<li><strong>Cursor</strong> là nơi <strong>thiết kế, mã hóa và kiểm thử chặt</strong> luồng kiểm tra BHYT trong repo.</li>
+<li><strong>OpenClaw</strong> là lớp <strong>tự động hóa và tương tác mô hình</strong> trên cùng workspace, hữu ích khi bạn đã <strong>chuẩn hóa lệnh và cấu trúc thư mục</strong>.</li>
+<li><strong>Huấn luyện đầy đủ</strong> = vòng lặp <strong>pháp lý → thẻ tri thức → rule → ca/QA → sửa → tài liệu hóa</strong>, có người chuyên môn duyệt và có kiểm soát dữ liệu nhạy cảm.</li>
+</ul>
+<hr>
+<p><strong>Prompt mẫu chuẩn hóa (copy-paste):</strong> <a href="./Prompt_mau_chuan_hoa_BHYT_Cursor_OpenClaw.md">Prompt_mau_chuan_hoa_BHYT_Cursor_OpenClaw.md</a><br><strong>Sprint 60 phút (kiểm tra thuốc):</strong> <a href="./Sprint_60p_huan_luyen_giam_dinh_thuoc_Cursor_OpenClaw.md">Sprint_60p_huan_luyen_giam_dinh_thuoc_Cursor_OpenClaw.md</a><br><strong>Phiên làm việc chung (Cursor + OpenClaw, copy prompt):</strong> <a href="./Phien_lam_viec_chung_Cursor_va_OpenClaw.md">Phien_lam_viec_chung_Cursor_va_OpenClaw.md</a><br><strong>Phiên huấn luyện tiếp theo (THUOC_391):</strong> <a href="./Huan_luyen_phien_02_THUOC_391_Cursor_OpenClaw.md">Huan_luyen_phien_02_THUOC_391_Cursor_OpenClaw.md</a><br><strong>Phiên 03 (đơn &gt;30 ngày — THUOC_418 vs CLN-THUOC-04):</strong> <a href="./Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md">Huan_luyen_phien_03_THUOC_418_CLN_THUOC_04.md</a><br><strong>Phiên 04 (hạng BV — THUOC_419):</strong> <a href="./Huan_luyen_phien_04_THUOC_419_hang_BV.md">Huan_luyen_phien_04_THUOC_419_hang_BV.md</a><br><strong>Kỹ năng cốt lõi / bài tập kiểm tra (AI):</strong> <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a> · <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a> (bài <strong>8–10</strong> = audit <code>test_xml/</code>; <strong>11–13</strong> = VTYT / neo)<br><strong>VTYT — chuẩn hóa:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> · <strong>bảng neo:</strong> <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a> · <strong>phiên dự phòng:</strong> <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a><br><strong>Chuẩn hóa kiến thức AI kiểm tra DVKT:</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a><br><strong>Phiên DVKT (17/VBHN-BYT — đủ nội dung tri thức, Cursor):</strong> <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a><br><strong>Mẫu handoff Cursor → OpenClaw:</strong> <a href="./Mau_handoff_Cursor_sang_OpenClaw.md">Mau_handoff_Cursor_sang_OpenClaw.md</a><br><strong>Ví dụ regression cảnh báo THUOC/XML (ẩn danh):</strong> <a href="./Vi_du_regression_canh_bao_THUOC_XML_an_danh.md">Vi_du_regression_canh_bao_THUOC_XML_an_danh.md</a></p>
+<p><em>Tài liệu có thể chỉnh sửa theo quy trình nội bộ BV và phiên bản engine trong repo. Cập nhật khi thay đổi cấu trúc thư mục hoặc công cụ OpenClaw.</em></p>
+
+  </main>
+</body>
+</html>

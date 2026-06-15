@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KT01.19 — NỘI SOI ĐẠI TRÀNG / TRỰC TRÀNG (CHẨN ĐOÁN vs CAN THIỆP, CV266) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV266_KT01_19_noi_soi_dai_trang_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KT01.19 — NỘI SOI ĐẠI TRÀNG / TRỰC TRÀNG (CHẨN ĐOÁN vs CAN THIỆP, CV266) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Nguồn:</strong> Công văn 266 — chuyên đề Trung tâm Kiểm soát BHYT, <strong>PL01 / KT01.19</strong> (<em>Nội soi đại tràng</em>), tệp tham chiếu <strong>15/09/2025</strong>.<br><strong>Mã từ chối gợi ý:</strong> S.005.434  </p>
+<hr>
+<h2>1. Nguyên tắc thanh toán</h2>
+<ul>
+<li><strong>Không</strong> thanh toán đồng thời DVKT <strong>nội soi đại tràng, trực tràng</strong> (chẩn đoán) với DVKT <strong>nội soi can thiệp đại tràng / trực tràng</strong> — can thiệp ống tiêu hóa đã gồm phần soi thăm dò (<strong>TT 35/2016</strong>, <strong>QĐ 3805</strong> STT 45, 46, 50, 52, 53, 54, 55).</li>
+</ul>
+<h2>2. Bảng mã (đối soát engine)</h2>
+<h3>Bảng 1 — Chẩn đoán (đại tràng / trực tràng)</h3>
+<table>
+<thead>
+<tr>
+<th>MA_CP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>02.0306.0137</td>
+</tr>
+<tr>
+<td>02.0307.0136</td>
+</tr>
+<tr>
+<td>03.1062.0137</td>
+</tr>
+<tr>
+<td>20.0081.0137</td>
+</tr>
+<tr>
+<td>02.0256.0139</td>
+</tr>
+<tr>
+<td>02.0293.0138</td>
+</tr>
+<tr>
+<td>02.0308.0139</td>
+</tr>
+<tr>
+<td>02.0309.0138</td>
+</tr>
+<tr>
+<td>02.0310.0506</td>
+</tr>
+<tr>
+<td>03.0158.0137</td>
+</tr>
+<tr>
+<td>02.0311.0139</td>
+</tr>
+</tbody></table>
+<h3>Bảng 2 — Can thiệp</h3>
+<table>
+<thead>
+<tr>
+<th>MA_CP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>03.1064.0184</td>
+</tr>
+<tr>
+<td>20.0071.0184</td>
+</tr>
+<tr>
+<td>03.1063.0500</td>
+</tr>
+<tr>
+<td>20.0070.0500</td>
+</tr>
+<tr>
+<td>02.0294.0137</td>
+</tr>
+<tr>
+<td>02.0257.0139</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Neo mã nguồn</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_NS_CHAN_DOAN_DAI_TRUC_TRANG_CV266</code></td>
+<td>Dòng XML3 thuộc <strong>Bảng 1</strong> (mã) hoặc tên gợi <strong>nội soi / soi đại tràng</strong> + <strong>đại tràng / trực tràng / sigma</strong>, không mang từ khóa can thiệp / tiêm cầm máu / lấy dị vật / cấp cứu (heuristic).</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_CO_DV_MA_NS_CAN_THIEP_DAI_TRUC_TRANG_CV266</code></td>
+<td>Dòng <strong>Bảng 2</strong> hoặc tên gợi can thiệp / <strong>tiêm cầm máu</strong> / <strong>lấy dị vật</strong> / <strong>cấp cứu</strong> kèm bối cảnh đại tràng–trực tràng.</td>
+</tr>
+<tr>
+<td><strong><code>Chuyen_de_606</code></strong> / <code>CHUYEN_DE-606</code></td>
+<td>Hai điều kiện <strong>cùng</strong> hồ sơ → cảnh báo xuất toán.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Cập nhật khi BYT đổi mã: sửa danh sách <code>m === &#39;…&#39;</code> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> và bảng trên.</em></p>
+
+  </main>
+</body>
+</html>

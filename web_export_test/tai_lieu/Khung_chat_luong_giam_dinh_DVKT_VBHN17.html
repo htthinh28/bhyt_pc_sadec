@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khung chất lượng kiểm tra DVKT, chuyên đề và VBHN 17</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Khung_chat_luong_giam_dinh_DVKT_VBHN17.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Khung chất lượng kiểm tra DVKT, chuyên đề và VBHN 17</h1>
+<p>Phiên bản: 1.0<br>Ngày: 11/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<ul>
+<li>Giảm <strong>dương tính giả</strong> (cảnh báo khi hồ sơ thực tế đúng danh mục / đúng VBHN 17).</li>
+<li>Tránh hiển thị cảnh báo từ quy tắc <strong>không thể đánh giá đúng trên XML130</strong> (thiếu biến, DSL không khớp engine).</li>
+<li>Giữ <strong>một lớp quy tắc</strong> bám <strong>danh mục nội bộ M05/M06</strong> và metadata VBHN 17 (điều kiện tỷ lệ, thanh toán, phân loại PTTT…) nơi đã có ánh xạ rõ ràng trong mã nguồn.</li>
+</ul>
+<h2>2. Ba lớp trong hệ thống (vai trò khác nhau)</h2>
+<table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Nguồn chính</th>
+<th>Đối chiếu thực chiến</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A. Engine DVKT no-code</strong></td>
+<td><code>dvkt_op_giam_dinh.jsx</code>, bảng <code>CDSS_DATA_LUAT_CDHA</code>, danh mục <code>DANH_MUC_DVKT_M05</code>, thiết bị M06</td>
+<td>Cao — dùng <code>MA_DICH_VU</code> / XML3, DM nội bộ</td>
+<td>Đây là lớp ưu tiên cho “đúng mã DVKT + đúng điều kiện VBHN”.</td>
+</tr>
+<tr>
+<td><strong>B. Seed PTTT mức 11 (<code>DVKT_*</code>)</strong></td>
+<td><code>du_lieu_luat_pttt_muc11.jsx</code></td>
+<td>Trung bình–cao nếu <code>DIEU_KIEN</code> chỉ dùng biến XML đã chuẩn hóa</td>
+<td>Đã <strong>gỡ hàng loạt</strong> quy tắc dạng <strong>Thực hiện - …</strong> kết hợp <code>COUNT_IF(DS_XML5, …)</code> vì dễ FP khi XML5 không phản ánh đủ chứng cứ thực hiện. Các nhóm <strong>Chỉ định / Thanh toán / …</strong> vẫn có thể dùng <code>COUNT_IF(DS_XML5, …)</code> khi nghiệp vụ và dữ liệu thống nhất.</td>
+</tr>
+<tr>
+<td><strong>C. Kiểm tra chuyên đề (<code>CHUYEN_DE_*</code>)</strong></td>
+<td><code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code></td>
+<td>Thấp nếu giữ nguyên DSL gốc (<code>ma_dvkt</code>, <code>includes(</code>, hàm giả lập…)</td>
+<td>Nhiều điều kiện <strong>không</strong> tương thích trực tiếp với biến <code>XML*</code> trong <code>dong_co_giam_dinh.jsx</code>. Phần lớn mã được <strong>mặc định OFF</strong> qua <code>DANH_SACH_MAU_QUY_TAC_MAC_DINH_OFF</code> trong <code>quy_tac_on_off_noi_bo.jsx</code> để tránh “cảnh báo giả”. Nâng cấp đúng nghĩa = viết lại <code>DIEU_KIEN</code> theo <code>XML3</code>/<code>XML1</code> hoặc operator engine DVKT.</td>
+</tr>
+</tbody></table>
+<h2>3. Quy tắc vận hành (ban kiểm tra)</h2>
+<ol>
+<li><strong>Ưu tiên lớp A</strong> khi thêm quy tắc mới về DVKT / thiết bị / phạm vi / giá VBHN 17.</li>
+<li><strong>Lớp B</strong>: trước khi thêm rule kiểm tra “có bằng chứng trên XML5”, xác nhận XML nguồn thực tế của BV <strong>luôn</strong> có dòng tương ứng; tránh pattern đã loại bỏ (Thực hiện + đếm XML5 mù).</li>
+<li><strong>Lớp C</strong>: không bật hàng loạt; chỉ bật từng mã sau khi đối chiếu một file XML mẫu và xác nhận predicate chạy đúng.</li>
+<li><strong>Đối chiếu VBHN 17</strong>: mỗi quy tắc nên có <code>co_so_phap_ly</code> / tham chiếu điều khoản; trùng khớp mã DVKT trên <strong>M05 nội bộ</strong>, không dùng mã giả lập (<code>CHUP_MRI</code>, …) trong điều kiện engine XML trừ khi đã ánh xạ sang <code>MA_DICH_VU</code>.</li>
+</ol>
+<h2>4. Lộ trình CHUYEN_DE → XML130</h2>
+<ul>
+<li>Chi tiết lô (8 lô × ~75 mã), checklist và ví dụ: <strong><code>tai_lieu/Lo_trinh_viet_lai_CHUYEN_DE_theo_XML130.md</code></strong></li>
+<li>Theo dõi trạng thái: <strong><code>scripts/chuyen_de_batch_manifest.json</code></strong></li>
+<li>Hằng số phiên bản trong mã: <code>CHUYEN_DE_XML130_CONVERSION_VERSION</code> (<code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>)</li>
+</ul>
+<h2>5. Việc đã làm trong mã (tham chiếu)</h2>
+<ul>
+<li>Xóa khỏi seed các quy tắc <strong>Thực hiện -</strong> có <code>COUNT_IF(DS_XML5</code> (ví dụ nhóm liên quan TSH, CBC laser, glucose dịch não tủy…); phiên bản seed ghi trong <code>du_lieu_luat_pttt_muc11.jsx</code> và lọc cache trong <code>seed_luat_pttt_muc11.jsx</code>.</li>
+<li>Script đối chiếu báo lỗi: bỏ nhánh xử lý riêng các mã đã gỡ (ví dụ <code>DVKT_2335</code>).</li>
+</ul>
+<h2>6. Checklist nhanh trước khi merge quy tắc DVKT</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <code>DIEU_KIEN</code> chỉ dùng tên cột / bảng mà <code>prepareData</code> và <code>dong_co_giam_dinh</code> thực sự cung cấp.</li>
+<li><input disabled="" type="checkbox"> Không phụ thuộc hàm không tồn tại trong <code>ctx</code> (trừ khi đã có <code>taoBoXuLyRuleDongDacBiet</code> cho đúng <code>MA_LUAT</code>).</li>
+<li><input disabled="" type="checkbox"> Đã chạy thử trên ít nhất một XML thật hoặc bộ test nội bộ; số cảnh báo khớp kỳ vọng nghiệp vụ.</li>
+<li><input disabled="" type="checkbox"> ON/OFF mặc định phù hợp: quy tắc thử nghiệm → OFF hoặc trong danh sách mặc định OFF.</li>
+</ul>
+<hr>
+<p><em>Tài liệu này là khung quản trị chất lượng; cập nhật khi thay đổi kiến trúc engine hoặc seed lớn.</em></p>
+
+  </main>
+</body>
+</html>

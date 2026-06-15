@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC CHI TIẾT: DANH MỤC 1 — DVKT CÓ QUY ĐỊNH CỤ THỂ ĐIỀU KIỆN, TỶ LỆ VÀ MỨC GIÁ THANH TOÁN (17/VBHN-BYT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC CHI TIẾT: DANH MỤC 1 — DVKT CÓ QUY ĐỊNH CỤ THỂ ĐIỀU KIỆN, TỶ LỆ VÀ MỨC GIÁ THANH TOÁN (17/VBHN-BYT)</h1>
+<p>Phiên bản: 1.0<br>Ngày: 10/04/2026<br>Đối tượng: huấn luyện AI kiểm tra BHYT — <strong>bổ sung</strong> <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a> mục <strong>4</strong>; <strong>không thay thế</strong> Phụ lục Excel BYT / hợp đồng KCB.</p>
+<hr>
+<h2>1. Định danh pháp lý và vai trò Danh mục 1</h2>
+<ul>
+<li>Trong <strong>17/VBHN-BYT</strong> (cơ sở <strong>TT 35/2016/TT-BYT</strong> và các TT sửa đổi được hợp nhất), <strong>Khoản 2 Điều 1</strong> phân loại: <strong>Danh mục 1</strong> là danh mục DVKT có quy định <strong>điều kiện</strong>, <strong>tỷ lệ</strong> thanh toán và <strong>mức giá</strong> thanh toán (và trong thực hành đọc bảng còn gặp cột <strong>tham chiếu giá</strong> hoặc <strong>cách tính</strong> theo giá DV khác — lấy <strong>đúng dòng</strong> Phụ lục).</li>
+<li><strong>Ý nghĩa kiểm tra:</strong> Với <strong>mỗi mã</strong> thuộc DM1, thanh toán BHYT không chỉ hỏi “có mã không” mà phải hỏi tiếp: <strong>điều kiện dòng</strong> có thỏa không, <strong>tỷ lệ</strong> áp cho dòng đó là bao nhiêu, <strong>giá</strong> và <strong>thành tiền</strong> có bám <strong>Phụ lục + mức hưởng thẻ + đồng chi trả</strong> không.</li>
+</ul>
+<p><strong>Đối chiếu nhanh với Danh mục 2:</strong> <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a> — DM2 nhấn mạnh <strong>điều kiện</strong> thanh toán; DM1 thêm lớp <strong>tỷ lệ + giá</strong> theo cấu trúc Phụ lục.</p>
+<hr>
+<h2>2. Cấu trúc “một dòng = một gói quy tắc” trong Phụ lục DM1</h2>
+<blockquote>
+<p><strong>Nguyên tắc:</strong> Mỗi <strong>dòng</strong> Danh mục 1 trong file Excel đính kèm văn bản là một <strong>đơn vị tra cứu</strong>: mã DV, tên, <strong>điều kiện thanh toán</strong> (thường gom ở <strong>cột điều kiện</strong> — trong tài liệu nền repo thường gọi gọn là <strong>Cột 3</strong>), <strong>tỷ lệ / giá</strong> (ví dụ <strong>Cột 4</strong> trong mẫu mô tả tại thẻ tổng) — <strong>số thứ tự cột phải lấy đúng file Phụ lục</strong> bạn đang mở, không đoán giữa các phiên bản export.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Thành phần dòng (khái niệm)</th>
+<th>AI cần làm gì</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Mã DV</strong></td>
+<td>Khớp <code>MA_DICH_VU</code> (XML3, nhóm M05) với <strong>đúng dòng</strong> DM1 — cùng mã có thể có biến thể theo thời điểm HL; hỏi <strong>ngày chỉ định / ra viện</strong>.</td>
+</tr>
+<tr>
+<td><strong>Điều kiện thanh toán (cột điều kiện)</strong></td>
+<td>Đọc <strong>nguyên văn</strong> điều kiện: ICD, tần suất, kèm DV khác, đối tượng, tuyến, chuyên khoa… — đây là chỗ hay <strong>lệch</strong> giữa “có mã” và “được TT”.</td>
+</tr>
+<tr>
+<td><strong>Tỷ lệ thanh toán</strong></td>
+<td>Liên hệ <strong>Điều 2</strong> Thông tư; trên XML: <code>TYLE_TT</code>, cách tính <code>THANH_TIEN_BH</code> — đối chiếu <strong>cột Phụ lục</strong> và <strong>đối tượng thẻ</strong> (XML1).</td>
+</tr>
+<tr>
+<td><strong>Mức giá thanh toán</strong></td>
+<td>Liên hệ giá <strong>phê duyệt</strong> tại CS (<strong>Điều 3</strong>), <strong>Điều 4a</strong> (phần đã/không kết cấu trong giá DV khác / ngày giường). <strong>Không</strong> bịa giá nếu không có trong hồ sơ hoặc bảng giá đơn vị.</td>
+</tr>
+<tr>
+<td><strong>Ghi chú / tham chiếu giá DV khác</strong></td>
+<td>Một số dòng quy định tính theo <strong>giá</strong> hoặc <strong>công thức</strong> gắn DV khác — cần đọc <strong>cả</strong> dòng và mô tả gói trong HĐ KCB.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Ánh xạ sang các Điều then chốt trong 17/VBHN (tư duy lớp)</h2>
+<table>
+<thead>
+<tr>
+<th>Điều / cụm</th>
+<th>Vì sao liên quan trực tiếp DM1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Điều 2</strong> — Tỷ lệ thanh toán</td>
+<td>DM1 “có tỷ lệ” — trục <strong>TYLE_TT</strong> / thành tiền.</td>
+</tr>
+<tr>
+<td><strong>Điều 3</strong> — Điều kiện thanh toán (khoản 1 + <strong>khoản 2</strong> cột điều kiện)</td>
+<td>DM1 vừa có <strong>điều kiện dòng</strong> vừa có <strong>giá/tỷ lệ</strong> — khoản 2 nhắc <strong>Cột 3</strong> (điều kiện) cho DM1 và DM2.</td>
+</tr>
+<tr>
+<td><strong>Điều 4 khoản 2–4</strong></td>
+<td>Công thức TT; <strong>không đếm đôi</strong> công đoạn đã gộp — kiểm tra khi cùng kỳ có nhiều dòng XML3.</td>
+</tr>
+<tr>
+<td><strong>Điều 4a–4d</strong></td>
+<td>Tách / gộp giá (4a), khám (4b), ngày giường (4c), DV đặc thù (4d) — nhiều dòng DM1 là DV “đặc thù” hoặc gắn ngày giường / khám.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Dữ liệu XML ưu tiên khi phân tích một dòng DM1</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Trường / nội dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML3</strong></td>
+<td><code>MA_DICH_VU</code>, <code>TEN_DICH_VU</code>, <code>DON_GIA</code>, <code>TYLE_TT</code>, <code>THANH_TIEN_BH</code>, <code>SO_LUONG</code>, ngày chỉ định / giờ (nếu có), <code>MA_BENH</code> (ICD gợi ý chỉ định), <code>MA_KHOA</code>, <code>NGUOI_THUC_HIEN</code>…</td>
+</tr>
+<tr>
+<td><strong>XML1</strong></td>
+<td>Loại KCB, ngày vào/ra, <code>MA_BENH_CHINH</code> / kèm, đối tượng thẻ, <code>MA_CSKCB</code>.</td>
+</tr>
+<tr>
+<td><strong>XML2 / XML5 / XML6</strong></td>
+<td>Khi điều kiện DM1 kéo theo thuốc/VT, PTTT, diễn biến — không tách rời.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. Checklist AI (trước khi kết luận “đúng thanh toán theo DM1”)</h2>
+<ol>
+<li>Đã xác định <strong>thời điểm hiệu lực</strong> (đặc biệt sau <strong>31/12/2024</strong> và các điểm <strong>TT 39/2024</strong> có HL <strong>01/01/2025</strong>)?</li>
+<li>Đã đối chiếu <strong>điều kiện cột điều kiện</strong> của <strong>đúng dòng</strong> DM1 — không chỉ khớp <code>MA_DICH_VU</code>?</li>
+<li>Đã kiểm <strong>tỷ lệ</strong> trên XML với <strong>cột tỷ lệ</strong> Phụ lục + <strong>mức hưởng</strong> thẻ?</li>
+<li>Đã kiểm <strong>giá</strong> với <strong>giá phê duyệt</strong> tại CS và <strong>4a</strong> (phần đã gộp trong giá DV/giường khác)?</li>
+<li>Đã xem <strong>trùng / gộp công đoạn</strong> (Điều 4 khoản 4) khi có nhiều DV cùng kỳ?</li>
+<li>Ghi nhận giới hạn: <strong>engine</strong> chỉ rule hóa <strong>một phần</strong> dòng DM1 — phần còn lại là <strong>kiểm tra viên + tài liệu đơn vị</strong>.</li>
+</ol>
+<hr>
+<h2>6. Prompt mẫu (huấn luyện)</h2>
+<ul>
+<li><em>“Với <code>MA_DICH_VU</code> = … trên XML3, giả định thuộc <strong>Danh mục 1</strong>: liệt kê <strong>ba lớp</strong> cần kiểm tra — (1) điều kiện dòng Phụ lục, (2) tỷ lệ, (3) giá và gộp/tách 4a — và nêu trường XML dùng cho mỗi lớp.”</em></li>
+<li><em>“Nếu chỉ có mã khớp DM1 nhưng <strong>thiếu</strong> ICD / tần suất mà Phụ lục yêu cầu — kết luận kiểm soát nào (điều kiện chưa đủ) mà không bịa số?”</em></li>
+</ul>
+<hr>
+<h2>7. Liên kết</h2>
+<ul>
+<li><strong>Phác đồ CDSS theo ICD-10</strong> (chuyên môn lâm sàng, khác lớp thanh toán DVKT): <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.md</a></li>
+<li>Thẻ tổng DVKT: <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>  </li>
+<li><strong>Ví dụ quy định đơn vị CLVT (2025) + hội chẩn / biên bản:</strong> <a href="./The_tri_thuc_quy_dinh_CLVT_BVPCST_2025_giam_dinh_AI.md">The_tri_thuc_quy_dinh_CLVT_BVPCST_2025_giam_dinh_AI.md</a>  </li>
+<li><strong>Danh mục 2</strong> (chỉ điều kiện): <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>  </li>
+<li>Chuỗi luật mẫu mục <strong>11.5</strong>: <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>  </li>
+<li>Kiểm soát lỗi (phân loại cảnh báo): <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu này cố định <strong>tư duy chi tiết DM1</strong>; mọi <strong>số liệu</strong> cụ thể lấy từ <strong>Phụ lục đính kèm VBHN</strong> và <strong>hợp đồng KCB</strong> tại thời điểm hồ sơ.</em></p>
+
+  </main>
+</body>
+</html>

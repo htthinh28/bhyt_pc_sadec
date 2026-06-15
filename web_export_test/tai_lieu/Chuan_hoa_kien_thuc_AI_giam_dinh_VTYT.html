@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chuẩn hóa kiến thức kiểm tra vật tư y tế (VTYT) cho AI</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Chuẩn hóa kiến thức kiểm tra vật tư y tế (VTYT) cho AI</h1>
+<p><strong>Phiên bản:</strong> 1.2<br><strong>Ngày:</strong> 09/04/2026<br><strong>Vai trò:</strong> Tài liệu <strong>điểm vào</strong> để AI suy luận <strong>thống nhất</strong> về VTYT trong repo — <strong>bổ sung</strong> <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> mục <strong>11.6</strong>, <strong>14/VBHN-BYT 2025</strong>, Phụ lục BYT và hợp đồng KCB; <strong>không</strong> thay thế văn bản gốc.</p>
+<hr>
+<h2>0. Hiện trạng triển khai: <strong>không có</strong> bộ dữ liệu / rule seed <strong>thanh toán VTYT</strong> đầy đủ trong repo</h2>
+<p><strong>Xác nhận kỹ thuật:</strong> Trong <code>ma_nguon/</code>, <strong>không</strong> có bảng luật động (kiểu <code>du_lieu_luat_*.jsx</code>) nào sinh ra cảnh báo với tiền tố <strong><code>DM-VTYT-</code></strong> — chỉ có <strong>ánh xạ căn cứ pháp lý</strong> khi <em>có</em> <code>ma_luat</code> bắt đầu bằng <code>DM-VTYT-</code> trong <code>dong_co_giam_dinh.jsx</code> (<code>CO_SO_PHAP_LY_THEO_PREFIX_MA_LUAT</code>). Nghĩa là <strong>CSDL kiểm tra tự động theo từng mã vật tư / từng điều kiện VBHN 14</strong> <strong>chưa được nạp</strong> như nhánh <code>DVKT_*</code> hay <code>THUOC_*</code>.</p>
+<p><strong>Hệ quả cho AI:</strong></p>
+<ul>
+<li><strong>Không</strong> giả định “engine đã tra Phụ lục VTYT giống thuốc/DVKT” — tra cứu <strong>điều kiện thanh toán</strong> theo văn bản <strong>11.6 / VBHN 14</strong> là việc <strong>người + tài liệu BYT</strong>, không phải output đầy đủ từ rule seed trong repo.  </li>
+<li>Phần <strong>có trong code</strong> liên quan VTYT chủ yếu là: <strong>cấu trúc XML3</strong> (<code>MA_VAT_TU</code>, <code>GOI_VTYT</code>…), <strong>đối chiếu tổng tiền</strong> (<code>CLN-CHI-02</code> / <code>T_VTYT</code> — xem §3), <strong>liên kết vật tư với DVKT</strong> trong <code>dvkt_op_giam_dinh.jsx</code> (ví dụ khi DVKT đã bao gồm vật tư), và các rule <strong>hardcoded / chuyên đề / CDHA</strong> có chữ “VTYT” — mỗi nhóm cần đọc <strong>trạng thái ON/OFF</strong> và <strong>điều kiện</strong> riêng.  </li>
+<li><strong>Danh mục PL8 / <code>DM_VTYT</code></strong> trong luồng load BYT 7603 <strong>không</strong> đồng nghĩa đã có <strong>tập rule kiểm tra VTYT</strong> tương ứng trong seed.  </li>
+<li><strong>Lộ trình khi bổ sung CSDL:</strong> <a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a> mục <strong>4.2</strong>.</li>
+</ul>
+<hr>
+<h2>1. Mục tiêu chuẩn hóa</h2>
+<ul>
+<li>Neo cảnh báo / giải thích với <strong><code>VAN_BAN_HANH_CHINH_HIEN_HANH.VBHN_VTYT</code></strong> và <strong><code>CO_SO_PHAP_LY_VTYT</code></strong> trong <code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> (cùng chuỗi NĐ 188, QĐ 3618, TT 12/2026 Điều 10 như DVKT/thuốc khi gắn <code>co_so_phap_ly</code>).</li>
+<li>Phân tầng: điều kiện <strong>tra được trên XML/mã</strong> (QĐ 130, XML3 <code>MA_VAT_TU</code>, <code>TYLE_TT</code>…) vs <strong>chủ động / hồ sơ giấy</strong> (hợp lý lâm sàng, thầu, kho).</li>
+<li>Tránh nhầm <strong>ba nhóm</strong> trong thực tế engine: (1) dòng <strong>chỉ có <code>MA_VAT_TU</code></strong> trên XML3 — VTYT theo TT 04 / VBHN 14; (2) <strong>DVKT</strong> (<code>MA_DICH_VU</code>) có <strong>ghi chú danh mục</strong> “đã/không kết cấu vật tư” — xử lý trong <code>dvkt_op_giam_dinh.jsx</code> (toán tử liên quan vật tư); (3) rule <strong>chuyên đề / JCI</strong> trong <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code> — nhiều mệnh đề mang tính <strong>minh họa nghiệp vụ</strong>, không đồng nghĩa mọi điều kiện đã được nối đủ biến XML trong một lần chạy.</li>
+</ul>
+<hr>
+<h2>2. Nguyên tắc vàng (P1–P5)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nguyên tắc</th>
+<th>Hệ quả cho AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P1</strong></td>
+<td><strong>Thời điểm áp danh mục</strong> — VBHN 14 (2025) thay thế cách đọc VBHN 06 (2018) cho hồ sơ <strong>mới</strong>; hồ sơ cũ có thể cần <strong>mốc thời điểm</strong></td>
+<td>Trước khi chốt điều kiện thanh toán, hỏi: <strong>ngày vào / ngày ra / ngày y lệnh</strong> thuộc khung nào.</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td><strong>Danh mục + cột điều kiện</strong> (TT 04 gốc; bảng trong VBHN 14)</td>
+<td>Có <code>MA_VAT_TU</code> <strong>chưa đủ</strong> — cần <strong>dòng điều kiện</strong> (chỉ định, tuyến, đối tượng, ghi chú…) đúng Phụ lục <strong>tại thời điểm</strong>.</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td><strong>Engine ⊂ toàn bộ Phụ lục</strong> — và trong repo <strong>chưa có</strong> seed <code>DM-VTYT-*</code></td>
+<td>Không có “một phần” để mở rộng: <strong>hiện không có</strong> luật động VTYT trong CSDL; mọi áp dụng VBHN 14 chi tiết là <strong>ngoài engine</strong> (xem <strong>§0</strong>).</td>
+</tr>
+<tr>
+<td><strong>P4</strong></td>
+<td><strong>Không thu trùng</strong> với DVKT / ngày giường / công khám khi đã <strong>kết cấu giá</strong></td>
+<td>Khi đồng thời có DVKT và dòng <code>MA_VAT_TU</code>, hỏi: vật tư đã nằm trong <strong>giá gói DVKT</strong> hoặc <strong>công khám</strong> chưa? (Tinh thần <strong>Điều 4a TT 39/2024</strong> sửa TT 35 — đã neo ở mục 11.5–11.6 mau_luat; trong code: <code>checkGhiChu</code> / liên kết <code>MA_VAT_TU</code> với dòng DVKT trong <code>dvkt_op_giam_dinh.jsx</code>).</td>
+</tr>
+<tr>
+<td><strong>P5</strong></td>
+<td><strong>Kết luận pháp lý cuối</strong> thuộc cơ quan có thẩm quyền / BHXH</td>
+<td>AI chỉ <strong>hỗ trợ</strong> đối chiếu dữ liệu và chỉ ra <strong>căn cứ tra được</strong>.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Cạm bẫy tên trường trong <strong>dự án này</strong> (bắt buộc đọc trước khi giải thích “T_VTYT”)</h2>
+<p>Trong <code>dong_co_giam_dinh.jsx</code>, hàm <code>giamDinhTongChiPhi</code>:</p>
+<ul>
+<li><strong><code>XML1.T_VTYT</code></strong> được đối chiếu với <strong>tổng <code>THANH_TIEN_BV</code> của toàn bộ dòng XML3</strong> (comment mã nguồn: <em>“T_VTYT trong schema QĐ130 của dự án này bao gồm toàn bộ chi phí DVKT (XML3)”</em> — không có <code>T_DVKT</code> riêng). Cảnh báo built-in: <code>CLN-CHI-02</code> (<em>Đối chiếu T_VTYT với tổng XML3 (DVKT)</em>).</li>
+<li><strong>Khác</strong> với cách đọc từ “vật tư” trong luật: <strong>một dòng XML3 có <code>MA_VAT_TU</code></strong> mới là <strong>VTYT</strong> theo nghiệp vụ danh mục TT 04; tổng tiền <strong>chỉ các dòng có vật tư</strong> có thể được rule khác so trong <code>du_lieu_luat_du_lieu_muc1.jsx</code> (ví dụ lệch <code>T_VTYT</code> với tổng dòng có <code>MA_VAT_TU</code>).</li>
+</ul>
+<p><strong>Hệ quả cho AI:</strong> Khi thấy <code>truong_loi: &#39;T_VTYT&#39;</code> hoặc <code>ma_luat: &#39;CLN-CHI-02&#39;</code>, <strong>không</strong> tự động kết luận “sai vật tư” — đọc <strong>điều kiện</strong> và <strong>nội dung cảnh báo</strong>; có thể đang nói về <strong>lệch tổng DVKT–XML1</strong>, không phải chỉ VTYT.</p>
+<hr>
+<h2>4. Ma trận nguồn rule / dữ liệu (tóm tắt)</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Ví dụ / vị trí</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Prefix <code>DM-VTYT-</code></strong></td>
+<td><code>CO_SO_PHAP_LY_THEO_PREFIX_MA_LUAT</code> → <code>CO_SO_PHAP_LY_VTYT</code></td>
+<td><strong>Chỉ</strong> chuẩn bị <strong>căn cứ pháp lý</strong> nếu sau này có rule mang tiền tố này — <strong>hiện không có</strong> rule seed tương ứng trong repo (<strong>§0</strong>).</td>
+</tr>
+<tr>
+<td><strong>Danh mục hệ thống</strong></td>
+<td><code>DM_VTYT</code>, <code>PL8_VTYT</code> (BYT 7603 PL8), <code>MAP_VTYT_BV</code></td>
+<td>Load trong <code>dong_co_giam_dinh.jsx</code>; <strong>không</strong> đồng nghĩa đã có <strong>tập quy tắc kiểm tra thanh toán VTYT</strong> trong seed.</td>
+</tr>
+<tr>
+<td><strong>XML3 (QĐ 130)</strong></td>
+<td><code>MA_VAT_TU</code>, <code>TEN_VAT_TU</code>, <code>GOI_VTYT</code>, <code>TYLE_TT</code> / <code>TYLE_TT_BH</code>, <code>DON_GIA</code>, <code>TT_THAU</code>, <code>MA_HIEU_SP</code>…</td>
+<td>Schema: <code>ma_nguon/quy_tac/quyluat_cautrucdulieu/xml3.jsx</code>.</td>
+</tr>
+<tr>
+<td><strong>Nhận dòng VTYT cho engine DVKT no-code</strong></td>
+<td><code>extractVtytLines</code> trong <code>dvkt_op_giam_dinh.jsx</code></td>
+<td>Dùng cho kiểm tra <strong>vật tư đi kèm / trùng gói</strong> với DVKT (ví dụ <code>checkGhiChu</code>).</td>
+</tr>
+<tr>
+<td><strong>Công khám / giường / XML5</strong></td>
+<td><code>CK_15</code> (vật tư thay thế — XML5 <code>MA_VTYT</code>), <code>GB_35</code> (ICU + VTYT)</td>
+<td>Hardcoded; điều kiện theo từng file luật.</td>
+</tr>
+<tr>
+<td><strong>Chuyên đề</strong></td>
+<td><code>Chuyen_de_126</code>, <code>281</code>, <code>206</code>… — <code>loai_dv == &#39;VTYT&#39;</code></td>
+<td>Thư viện <strong>mẫu</strong> nghiệp vụ; tra <code>TRANG_THAI</code> và luồng gọi thực tế trước khi coi là “đang chạy trên mọi hồ sơ”.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. Quy trình suy luận gợi ý (7 bước)</h2>
+<ol>
+<li><strong>Xác định đối tượng:</strong> Dòng XML3 có <strong><code>MA_VAT_TU</code></strong> (và/hoặc <code>GOI_VTYT</code>) hay chỉ <strong><code>MA_DICH_VU</code></strong>?  </li>
+<li><strong>Thời điểm:</strong> Ngày KCB có thuộc khung <strong>VBHN 14</strong> không; có chỉ đạo <strong>tạm thời / vùng</strong> không (nếu có tài liệu đơn vị).  </li>
+<li><strong>Điều kiện Phụ lục:</strong> Tỷ lệ, chỉ định, giới hạn số lượng — <strong>không</strong> bịa cột nếu không có bảng.  </li>
+<li><strong>Kết cấu với DVKT / PTTT:</strong> Có <strong>ghi chú</strong> “đã bao gồm / không thanh toán riêng” trên danh mục DVKT hoặc vật tư tương ứng không?  </li>
+<li><strong>Giá và thầu:</strong> <code>DON_GIA</code>, <code>TT_THAU</code>, <code>MA_HIEU_SP</code> so với danh mục nội bộ / trúng thầu (khi rule hoặc quy trình BV yêu cầu).  </li>
+<li><strong>Đối chiếu tổng XML1:</strong> Nếu liên quan <code>T_VTYT</code> / <code>CLN-CHI-02</code> — áp dụng <strong>§3</strong> tài liệu này (nghĩa <strong>kỹ thuật dự án</strong>).  </li>
+<li><strong>Ghi nhận giới hạn:</strong> Rule <strong>OFF</strong>, thiếu seed, hoặc chuyên đề <strong>chưa</strong> gắn đủ XML → nêu rõ <strong>không suy diễn</strong> kết luận thanh toán.</li>
+</ol>
+<hr>
+<h2>6. Checklist trước khi AI “chốt” ý</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Đã phân biệt <strong>VTYT danh mục TT 04</strong> vs <strong>trường <code>T_VTYT</code> XML1</strong> (nghĩa tổng trong code)?  </li>
+<li><input disabled="" type="checkbox"> Đã kiểm tra <strong>cùng dòng / cùng thời điểm</strong> với DVKT khi có <code>MA_DICH_VU</code> + <code>MA_VAT_TU</code> liên quan?  </li>
+<li><input disabled="" type="checkbox"> <code>co_so_phap_ly</code> (nếu có) có trỏ <strong>VBHN VTYT</strong> hoặc prefix <strong><code>DM-VTYT-</code></strong> đúng bảng <code>dong_co_giam_dinh.jsx</code>?  </li>
+<li><input disabled="" type="checkbox"> Không bịa <strong>%</strong>, <strong>giá trần</strong>, <strong>điều kiện dòng Phụ lục</strong> khi không có trong hồ sơ hoặc seed?  </li>
+<li><input disabled="" type="checkbox"> Đã nhớ <strong>§0</strong>: repo <strong>không</strong> có bộ rule VTYT đầy đủ trong CSDL — không mô tả như thể đã tra được từ engine?</li>
+</ul>
+<hr>
+<h2>7. Liên kết trong repo</h2>
+<table>
+<thead>
+<tr>
+<th>Tài liệu</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> §<strong>11.6</strong></td>
+<td>Chuỗi pháp lý + VBHN 14 + TT 04 + VBHN 06</td>
+</tr>
+<tr>
+<td><a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a></td>
+<td>Phân lớp A–D, an toàn dữ liệu</td>
+</tr>
+<tr>
+<td><a href="./The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md">The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</a></td>
+<td>Cách đọc <strong>cột điều kiện danh mục</strong> (tinh thần tương tự VTYT)</td>
+</tr>
+<tr>
+<td><a href="./Huan_luyen_phien_VTYT_du_phong_Cursor.md">Huan_luyen_phien_VTYT_du_phong_Cursor.md</a></td>
+<td>Trạng thái fixture, việc cần làm khi có audit</td>
+</tr>
+<tr>
+<td><a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a></td>
+<td>Neo mã ↔ tri thức (VTYT + nhánh liên quan hiện có)</td>
+</tr>
+<tr>
+<td><a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a></td>
+<td>Gói DVKT — <strong>kết cấu vật tư</strong> trùng / không trùng</td>
+</tr>
+</tbody></table>
+<p><strong>Mã nguồn tham chiếu nhanh:</strong> <code>dong_co_giam_dinh.jsx</code> (<code>VBHN_VTYT</code>, <code>CO_SO_PHAP_LY_VTYT</code>, <code>giamDinhTongChiPhi</code>); <code>dvkt_op_giam_dinh.jsx</code> (<code>extractVtytLines</code>, <code>checkGhiChu</code>); <code>du_lieu_luat_du_lieu_muc1.jsx</code> (<code>XML_54</code>); <code>quyluat_cautrucdulieu/xml3.jsx</code>.</p>
+<hr>
+<p><em>Tài liệu này cập nhật khi đổi <strong>nghĩa trường XML1</strong>, khi <strong>bổ sung seed <code>DM-VTYT-*</code> thật</strong> trong repo, hoặc khi có fixture audit VTYT trong <code>test_xml/</code>.</em></p>
+
+  </main>
+</body>
+</html>

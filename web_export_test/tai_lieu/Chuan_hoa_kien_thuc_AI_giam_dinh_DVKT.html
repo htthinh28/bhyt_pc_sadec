@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chuẩn hóa kiến thức kiểm tra dịch vụ kỹ thuật (DVKT) cho AI</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Chuẩn hóa kiến thức kiểm tra dịch vụ kỹ thuật (DVKT) cho AI</h1>
+<p><strong>Phiên bản:</strong> 1.0<br><strong>Ngày:</strong> 09/04/2026<br><strong>Vai trò:</strong> Tài liệu <strong>điểm vào</strong> để AI (và người đào tạo) suy luận <strong>thống nhất</strong> về DVKT trong repo — bổ sung, không thay thế văn bản <strong>17/VBHN-BYT</strong>, <strong>TT 39/2024</strong>, Phụ lục Excel BYT và hợp đồng KCB.</p>
+<hr>
+<h2>1. Mục tiêu chuẩn hóa</h2>
+<ul>
+<li>Giảm trường hợp AI <strong>lẫn</strong> ba nhóm mã: <strong><code>DVKT_*</code> (seed PTTT)</strong>, <strong><code>CDHA_*</code> (hardcoded)</strong>, <strong><code>DVKT-OP-*</code> (no-code)</strong>.</li>
+<li>Bắt buộc <strong>phân tầng</strong>: điều kiện <strong>tra được trên XML/mã</strong> vs cần <strong>hồ sơ / chuyên môn / BHXH chủ động</strong>.</li>
+<li>Neo <strong>mọi giải thích</strong> về chuỗi pháp lý gợi ý trong engine (<code>CO_SO_PHAP_LY_DVKT</code>, <code>VBHN_17_META</code>) khi có — không <strong>bịa</strong> giá, %, hoặc dòng Phụ lục.</li>
+</ul>
+<hr>
+<h2>2. Nguyên tắc vàng (bất biến)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nguyên tắc</th>
+<th>Hệ quả cho AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P1</td>
+<td><strong>Thời điểm hiệu lực</strong> — đặc biệt <strong>TT 39/2024</strong> (nhiều điểm <strong>01/01/2025</strong>)</td>
+<td>Luôn hỏi: chỉ định / ra viện / ngày y lệnh thuộc mốc nào trước khi áp khung <strong>4a–4d</strong>, <strong>khoản 7 Điều 4</strong>.</td>
+</tr>
+<tr>
+<td>P2</td>
+<td><strong>Danh mục 1 / 2 / 3</strong> — đọc đúng <strong>cột điều kiện</strong> (thường <strong>Cột 3</strong>)</td>
+<td>Có <code>MA_DICH_VU</code> <strong>chưa đủ</strong>; phải đối chiếu điều kiện dòng trong Phụ lục đính kèm VBHN (số cột lấy <strong>đúng file</strong> Excel).</td>
+</tr>
+<tr>
+<td>P3</td>
+<td><strong>Engine ≠ toàn bộ Phụ lục</strong></td>
+<td>Chỉ một phần dòng được rule hóa; còn lại cần <strong>kiểm tra viên</strong> + tài liệu đơn vị.</td>
+</tr>
+<tr>
+<td>P4</td>
+<td><strong>Giá đã/không kết cấu</strong> (Điều <strong>4a</strong> + mô tả gói)</td>
+<td>Khi đồng thời có ngày giường, DVKT, VTYT, thuốc — hỏi: khoản nào <strong>đã gộp</strong> trong giá DV/giường?</td>
+</tr>
+<tr>
+<td>P5</td>
+<td><strong>Kết luận pháp lý cuối</strong></td>
+<td>AI chỉ <strong>hỗ trợ</strong>; người có thẩm quyền + BHXH quyết định thanh toán/xuất toán.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Quy trình suy luận chuẩn (7 bước)</h2>
+<p>Áp dụng cho <strong>mỗi dòng / nhóm DVKT</strong> cần phân tích:</p>
+<ol>
+<li><strong>Neo thời điểm:</strong> Ngày vào, ra, ngày y lệnh DV (XML1/XML3) — có cắt mốc <strong>HL TT 39</strong> không?</li>
+<li><strong>Neo mã:</strong> <code>MA_DICH_VU</code> (XML3, nhóm <strong>M05</strong>) — có trong <strong>DM1/2</strong> hay rơi <strong>DM3</strong> (tạm chưa TT)?</li>
+<li><strong>Neo điều kiện dòng:</strong> Cột điều kiện / ghi chú Phụ lục (không đoán số cột nếu không mở đúng file Excel).</li>
+<li><strong>Neo tiền:</strong> <code>DON_GIA</code>, <code>TYLE_TT</code>, <code>THANH_TIEN_BH</code> — đối chiếu đối tượng thẻ (XML1) và mô tả <strong>đã bao / chưa bao</strong> thuốc–VT.</li>
+<li><strong>Neo liên XML:</strong> XML1 (loại KCB, ICD, ngày); XML3 (dòng DV); XML5/6 nếu PTTT hoặc tranh chấp chỉ định.</li>
+<li><strong>Neo nguồn cảnh báo engine:</strong> Phân loại rule — bảng mục <strong>4</strong> dưới đây.</li>
+<li><strong>Diễn giải:</strong> Dùng <code>co_so_phap_ly</code> / <code>VBHN_17</code> nếu có; nếu trống, vẫn dẫn <strong>Điều/Khoản</strong> từ thẻ tri thức <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>, <strong>không</strong> chế tạo số liệu.</li>
+</ol>
+<hr>
+<h2>4. Ma trận nguồn rule trong repo (nhận diện nhanh)</h2>
+<table>
+<thead>
+<tr>
+<th>Dạng <code>ma_luat</code></th>
+<th>File / nguồn chính</th>
+<th>Ý nghĩa tối thiểu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DVKT_</code> + số</td>
+<td><code>du_lieu_luat_pttt_muc11.jsx</code> (+ <code>dong_co_giam_dinh.jsx</code>)</td>
+<td>Gói PT/TT, ICD, thuốc kèm gói — điều kiện seed theo dòng</td>
+</tr>
+<tr>
+<td><code>CDHA_</code> + số</td>
+<td><code>luat_cdha_hardcoded.jsx</code></td>
+<td>CĐHA, XN, máy, MRI, JCI… — tập trung <strong>XML3/XML4</strong> và thiết bị</td>
+</tr>
+<tr>
+<td><code>DVKT-OP-</code> + số</td>
+<td><code>dvkt_op_giam_dinh.jsx</code> (<code>DEFAULT_DVKT_RULES</code>, operator)</td>
+<td>Toán tử <strong>CHECK_</strong>* trên danh mục M05 nội bộ, giá, ICD mapping, …</td>
+</tr>
+</tbody></table>
+<p>Chi tiết ca mẫu: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>.</p>
+<hr>
+<h2>5. Checklist AI trước khi khẳng định “sai / xuất toán”</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Đã xác định <strong>thời điểm</strong> áp quy định (đặc biệt sau <strong>31/12/2024</strong>)?</li>
+<li><input disabled="" type="checkbox"> Đã đọc <strong>điều kiện Cột 3</strong> (hoặc tương đương) của <strong>đúng dòng</strong> Phụ lục — không chỉ nhìn mã DV?</li>
+<li><input disabled="" type="checkbox"> Đã kiểm tra <strong>trùng / gộp công đoạn</strong> (Điều 4 khoản 4) khi có nhiều DV cùng kỳ?</li>
+<li><input disabled="" type="checkbox"> Đã phân biệt cảnh báo <strong>dữ liệu</strong> (mã máy, thiếu XML) vs <strong>chuyên môn / chủ động</strong>?</li>
+<li><input disabled="" type="checkbox"> Đã ghi nhận giới hạn: <strong>rule tắt / OFF</strong> hoặc <strong>thiếu seed</strong> có thể làm im cảnh báo đáng lẽ cần người xem?</li>
+</ul>
+<hr>
+<h2>6. Tài liệu và lộ trình học trong repo (thứ tự)</h2>
+<ol start="0">
+<li><strong>Kỹ năng chung (mọi nhóm rule):</strong> <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a> · <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a> — nên đọc/làm <strong>trước</strong> khi đi sâu DVKT.  </li>
+<li>Thẻ tri thức: <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a><br>1b. <strong>Danh mục 1 / 2 chi tiết (VBHN 17):</strong> <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a> · <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>  </li>
+<li><strong>Kiểm soát lỗi DVKT (phân loại cảnh báo):</strong> <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a>  </li>
+<li>Chuỗi pháp lý tóm: <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> mục <strong>11.5</strong>  </li>
+<li>Phiên huấn luyện (bảng Điều + ca): <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> — mục <strong>A–J</strong> (mục <strong>I</strong> = thứ tự ca; <strong>J</strong> = kiểm soát lỗi)  </li>
+<li>Lộ trình tổng <strong>Đợt 4</strong>: <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a> mục <strong>4 — Bước 3</strong></li>
+</ol>
+<hr>
+<h2>7. Kiểm thử (QA) sau khi chỉnh rule / seed DVKT</h2>
+<p>Trong terminal repo:</p>
+<ul>
+<li><code>npm run qa:audit-fixtures</code> — đủ 10 file <code>test_xml/</code>, MA_LK khớp  </li>
+<li><code>npm run qa:on-off-match</code> — mẫu ON/OFF ổn định</li>
+</ul>
+<p>Chi tiết: <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> mục <strong>F</strong>.</p>
+<hr>
+<h2>8. Liên kết vận hành</h2>
+<ul>
+<li>Quy trình Cursor + OpenClaw: <a href="./Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.md">Quy_trinh_lam_viec_Cursor_OpenClaw_AI_giam_dinh_BHYT.md</a>  </li>
+<li>Phiên làm việc chung: <a href="./Phien_lam_viec_chung_Cursor_va_OpenClaw.md">Phien_lam_viec_chung_Cursor_va_OpenClaw.md</a></li>
+<li>Kỹ năng cốt lõi (mọi nhóm rule): <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>  </li>
+<li>Bài tập thực hành: <a href="./Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md">Bai_tap_phat_trien_ky_nang_giam_dinh_AI.md</a></li>
+<li>Chuẩn hóa <strong>VTYT</strong> (vật tư — kết cấu với DVKT): <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a>  </li>
+<li>Bảng neo VTYT ↔ engine: <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu này tóm tắt <strong>chuẩn hóa hành vi suy luận</strong>; cập nhật khi đổi cấu trúc rule DVKT hoặc bổ sung ca mẫu mới.</em></p>
+
+  </main>
+</body>
+</html>

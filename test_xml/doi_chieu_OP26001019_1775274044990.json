@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\Da kiem tra\\PC022100799_OP26001019.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775270508608.xlsx",
+    "maLK": "OP26001019",
+    "durationMinutes": 446,
+    "reportRowCount": 2,
+    "summary": {
+      "CAN_XAC_MINH_THEM": 2
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": false,
+    "maBenhAll": "I10;E78.2;K77;E79.0",
+    "mucThe": "4"
+  },
+  "rows": [
+    {
+      "MA_LK": "OP26001019",
+      "MA_LUAT": "HC_06",
+      "QUY_TAC": "Chi phí thấp (Dưới 15% LCS)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "OP26001019",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

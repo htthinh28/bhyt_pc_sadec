@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "generated_at": "2026-04-05T01:54:34.107Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022200433_000573.xml",
+    "ma_lk": "000573",
+    "total_warnings": 13,
+    "by_severity": {
+      "Warning": 13
+    },
+    "focus_summary": {
+      "XML_19": 1,
+      "XML_105": 0,
+      "XML_115": 2,
+      "XML_121": 1,
+      "HC_171": 1,
+      "HD_10": 1,
+      "THUOC_391": 2,
+      "DVKT_0141": 0,
+      "DVKT_2333": 0,
+      "DVKT_2335": 0,
+      "DVKT_2696": 1
+    }
+  },
+  "unique_rule_codes": [
+    "CLN-GIUONG-01",
+    "DVKT_2696",
+    "HC_171",
+    "HC_224",
+    "HC_97",
+    "HD_10",
+    "THUOC_391",
+    "XML_115",
+    "XML_121",
+    "XML_19",
+    "XML3-TIME-NGAY_TH_YL-AFTER-OUT"
+  ],
+  "rule_summary": {
+    "CLN-GIUONG-01": 1,
+    "DVKT_2696": 1,
+    "HC_171": 1,
+    "HC_224": 1,
+    "HC_97": 1,
+    "HD_10": 1,
+    "THUOC_391": 2,
+    "XML_115": 2,
+    "XML_121": 1,
+    "XML_19": 1,
+    "XML3-TIME-NGAY_TH_YL-AFTER-OUT": 1
+  },
+  "warnings": [
+    {
+      "phan_he": "XML1",
+      "index": -1,
+      "truong_loi": "SO_NGAY_DTRI",
+      "canh_bao": "Tổng ngày giường XML3 [2] không khớp SO_NGAY_DTRI XML1 [4]. Chênh 2 ngày (QĐ 130 khoản 3.2). Dòng giường XML3: [K19.1939] Giường Ngoại khoa loại 3 Hạng III - Khoa Ngoại tổng hợp: 0,5 ngày; [K19.1918] Giường Nội khoa loại 2 Hạng III - Khoa Ngoại tổng hợp: 0,5 ngày; [K19.1939] Giường Ngoại khoa loại 3 Hạng III - Khoa Ngoại tổng hợp: 1 ngày.",
+      "muc_do": "Warning",
+      "ma_luat": "CLN-GIUONG-01",
+      "ten_quy_tac": "Số ngày giường",
+      "dieu_kien": "BUILT-IN",
+      "co_so_phap_ly": "17/VBHN-BYT (31/12/2024): danh mục và điều kiện thanh toán DVKT thuộc phạm vi BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "DVKT_2696",
+      "phan_he": "XML3",
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "🔴 Cần mã: K60.3 / K60.4 (Rò hậu môn). Chi tiết dịch vụ: [10.0557.0494_GT] Phẫu thuật điều trị rò hậu môn đơn giản. Nhân sự liên quan: 0003914/BL-CCHN (0003914/BL-CCHN;004287/TV-CCHN;000742/ST-CCHN;006346/ST-CCHN;000029/ĐT-CCHN;007043/CT-CCHN); Chức danh: 1; Phạm vi: 110.",
+      "muc_do": "Warning",
+      "index": 7,
+      "ma_luat": "DVKT_2696",
+      "ten_quy_tac": "Chỉ định - PT điều trị rò hậu môn đơn giản [Gói] (10.0557.0494_GT)",
+      "dieu_kien": "XML3.MA_DICH_VU == '10.0557.0494_GT' AND NOT (XML1.MA_BENH STARTS_WITH 'K60.3' OR XML1.MA_BENH STARTS_WITH 'K60.4')",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "HC_171",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi hồ sơ: Điều trị nội trú bắt buộc phải có dữ liệu diễn biến bệnh hàng ngày (XML5).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_171",
+      "ten_quy_tac": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND COUNT(XML5) == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_224",
+      "phan_he": "XML8",
+      "truong_loi": "MA_PT_VIEN",
+      "canh_bao": "⚠️ Audit: Một người không thể vừa là phẫu thuật viên chính vừa là phụ mổ.",
+      "muc_do": "Warning",
+      "index": 0,
+      "ma_luat": "HC_224",
+      "ten_quy_tac": "Bác sĩ mổ trùng bác sĩ phụ mổ",
+      "dieu_kien": "XML8.MA_PT_VIEN == XML8.MA_PHU_MO",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_97",
+      "phan_he": "XML7",
+      "truong_loi": "KY_LANH_DAO",
+      "canh_bao": "⛔ Pháp lý: Giấy ra viện điện tử bắt buộc có chữ ký số của lãnh đạo đơn vị.",
+      "muc_do": "Warning",
+      "index": 0,
+      "ma_luat": "HC_97",
+      "ten_quy_tac": "Giấy ra viện thiếu chữ ký lãnh đạo",
+      "dieu_kien": "XML7.KY_LANH_DAO == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HD_10",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ JCI Audit: Kết quả cận lâm sàng thiếu dải chỉ số bình thường, vi phạm tiêu chuẩn chất lượng cam kết trong Hợp đồng.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HD_10",
+      "ten_quy_tac": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "dieu_kien": "COUNT_IF(XML4, IS_EMPTY(item.CHI_SO_XN_BT)) > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "THUOC_391",
+      "phan_he": "XML2",
+      "truong_loi": "SO_LUONG",
+      "canh_bao": "⚠️ [KIỂM TRA]: Số lượng cấp phát thấp hơn y lệnh. Vui lòng xác nhận bệnh nhân có tự túc thuốc hay không. Chi tiết thuốc: [40.736] Dafodin.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "THUOC_391",
+      "ten_quy_tac": "Cảnh báo sai lệch y lệnh và số lượng",
+      "dieu_kien": "XML2.SO_LUONG < (XML2.SL_MOI_NGAY * XML2.SO_NGAY)",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "THUOC_391",
+      "phan_he": "XML2",
+      "truong_loi": "SO_LUONG",
+      "canh_bao": "⚠️ [KIỂM TRA]: Số lượng cấp phát thấp hơn y lệnh. Vui lòng xác nhận bệnh nhân có tự túc thuốc hay không. Chi tiết thuốc: [40.736] Dafodin.",
+      "muc_do": "Warning",
+      "index": 3,
+      "ma_luat": "THUOC_391",
+      "ten_quy_tac": "Cảnh báo sai lệch y lệnh và số lượng",
+      "dieu_kien": "XML2.SO_LUONG < (XML2.SL_MOI_NGAY * XML2.SO_NGAY)",
+      "co_so_phap_ly": ""
+    },
+    {
+      "id": "XML_115",
+      "phan_he": "XML3",
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "⛔ [DỮ LIỆU]: Dịch vụ kỹ thuật đã thực hiện nhưng bỏ trống thời điểm trả kết quả (NGAY_KQ) tại XML3. Chi tiết dịch vụ: [23.0020.1493] Đo hoạt độ AST (GOT) [Máu]. Nhân sự liên quan: 0003914/BL-CCHN (Nguyễn Vũ Hảo); Chức danh: 1; Phạm vi: 110.",
+      "muc_do": "Warning",
+      "index": 1,
+      "ma_luat": "XML_115",
+      "ten_quy_tac": "Trống ngày trả kết quả",
+      "dieu_kien": "!IS_EMPTY(XML3.MA_DICH_VU) && IS_EMPTY(XML3.NGAY_KQ) && !XML3.MA_NHOM IN ('13', '14')",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "XML_115",
+      "phan_he": "XML3",
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "⛔ [DỮ LIỆU]: Dịch vụ kỹ thuật đã thực hiện nhưng bỏ trống thời điểm trả kết quả (NGAY_KQ) tại XML3. Chi tiết dịch vụ: [10.0557.0494_GT] Phẫu thuật điều trị rò hậu môn đơn giản. Nhân sự liên quan: 0003914/BL-CCHN (0003914/BL-CCHN;004287/TV-CCHN;000742/ST-CCHN;006346/ST-CCHN;000029/ĐT-CCHN;007043/CT-CCHN); Chức danh: 1; Phạm vi: 110.",
+      "muc_do": "Warning",
+      "index": 7,
+      "ma_luat": "XML_115",
+      "ten_quy_tac": "Trống ngày trả kết quả",
+      "dieu_kien": "!IS_EMPTY(XML3.MA_DICH_VU) && IS_EMPTY(XML3.NGAY_KQ) && !XML3.MA_NHOM IN ('13', '14')",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "XML_121",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ Có dấu hiệu kê trùng 1 loại thuốc nhiều lần trong cùng một ngày y lệnh.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "XML_121",
+      "ten_quy_tac": "Trùng lặp Thuốc cùng ngày",
+      "dieu_kien": "COUNT_DISTINCT(XML2, item => item.MA_THUOC + SUBSTR(item.NGAY_YL, 1, 8)) < COUNT_IF(XML2, item => !IS_EMPTY(item.MA_THUOC))",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "XML_19",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ [XUẤT TOÁN]: Bệnh nhân nội trú (Mã 3) nhưng không có dữ liệu diễn biến bệnh lý hàng ngày tại bảng XML5.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "XML_19",
+      "ten_quy_tac": "Diễn biến rỗng (XML5)",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' && (COUNT(XML5) == 0 || ALL(XML5, i => IS_EMPTY(i.DIEN_BIEN)))",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "phan_he": "XML3",
+      "index": 1,
+      "truong_loi": "NGAY_TH_YL",
+      "canh_bao": "XML3: Dong 2: NGAY_TH_YL [202603071401] muon hon NGAY_RA [202603061024]. Chi tiết dịch vụ: [23.0020.1493] Đo hoạt độ AST (GOT) [Máu]. Nhân sự liên quan: 0003914/BL-CCHN (Nguyễn Vũ Hảo); Chức danh: 1; Phạm vi: 110.",
+      "muc_do": "Warning",
+      "ma_luat": "XML3-TIME-NGAY_TH_YL-AFTER-OUT",
+      "ten_quy_tac": "Kiểm tra cấu trúc XML theo QĐ3176",
+      "dieu_kien": "STATIC"
+    }
+  ]
+}

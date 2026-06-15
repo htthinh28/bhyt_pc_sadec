@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌐 Hướng Dẫn Truy Cập Ứng Dụng AI CDSS BHYT Qua Mạng Nội Bộ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_truy_cap_ung_dung_tren_mang_noi_bo.md</code> · Thư viện CDSS BHYT</div>
+    <h1>🌐 Hướng Dẫn Truy Cập Ứng Dụng AI CDSS BHYT Qua Mạng Nội Bộ</h1>
+<p><strong>Cập nhật: 06/04/2026</strong></p>
+<hr>
+<h2>📋Thông Tin Server</h2>
+<table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Server Hostname</strong></td>
+<td><code>DESKTOP-L3NS1HD</code></td>
+</tr>
+<tr>
+<td><strong>IP Nội bộ</strong></td>
+<td><code>192.168.100.86</code></td>
+</tr>
+<tr>
+<td><strong>Mạng</strong></td>
+<td><code>192.168.100.0/24</code></td>
+</tr>
+<tr>
+<td><strong>Cổng Ứng Dụng</strong></td>
+<td><code>8080</code> (Express)</td>
+</tr>
+<tr>
+<td><strong>Cổng API</strong></td>
+<td><code>8000</code> (Python FastAPI)</td>
+</tr>
+<tr>
+<td><strong>Trạng thái</strong></td>
+<td>✅ Online</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🚀 Cách Truy Cập</h2>
+<h3><strong>Từ Máy Tính Khác (Nội Bộ)</strong></h3>
+<h4>Opción 1️⃣: Dùng IP Tĩnh (Khuyến Nghị)</h4>
+<pre><code>http://192.168.100.86:8080
+</code></pre>
+<p><strong>✅ Ưu điểm:</strong></p>
+<ul>
+<li>Nhanh, ổn định</li>
+<li>Không phụ thuộc DNS hoặc giải pháp tên</li>
+</ul>
+<p><strong>📋 Hướng dẫn:</strong></p>
+<ol>
+<li>Mở trình duyệt (Chrome, Edge, Firefox)</li>
+<li>Dán vào thanh địa chỉ: <code>http://192.168.100.86:8080</code></li>
+<li>Bấm Enter</li>
+</ol>
+<hr>
+<h4>Opción 2️⃣: Dùng Hostname (Nếu DNS Hoạt Động)</h4>
+<pre><code>http://DESKTOP-L3NS1HD:8080
+</code></pre>
+<p><strong>⚠️ Lưu ý:</strong></p>
+<ul>
+<li>Cần máy tính hỗ trợ mDNS hoặc Active Directory</li>
+<li>Nếu không kết nối được, dùng IP thay thế</li>
+</ul>
+<hr>
+<h3><strong>Từ Máy Tính Server (Máy Chủ)</strong></h3>
+<pre><code>http://localhost:8080
+</code></pre>
+<p>hoặc</p>
+<pre><code>http://127.0.0.1:8080
+</code></pre>
+<hr>
+<h2>🔌 API - Giám Định Tự Động</h2>
+<h3><strong>Truy Cập API Documentation</strong></h3>
+<pre><code>http://192.168.100.86:8000/docs
+</code></pre>
+<p><strong>Chứa:</strong></p>
+<ul>
+<li>✅ Swagger UI (giao diện tương tác)</li>
+<li>📚 Danh sách tất cả endpoints</li>
+<li>🧪 TestEndpoints trực tiếp từ trình duyệt</li>
+</ul>
+<hr>
+<h3><strong>Kiểm Tra Sức Khỏe API</strong></h3>
+<pre><code class="language-bash">curl http://192.168.100.86:8000/health
+</code></pre>
+<hr>
+<h2>🛠️ Cách Chỉnh Sửa Cấu Hình</h2>
+<h3><strong>Nếu Cần Thay Đổi Port</strong></h3>
+<p><strong>File:</strong> <code>server.js</code> (dòng 7)</p>
+<pre><code class="language-javascript">const PORT = process.env.PORT || 8080;  // Thay 8080 thành port khác
+</code></pre>
+<p><strong>Hoặc dùng biến môi trường:</strong></p>
+<pre><code class="language-bash">set PORT=9000
+node server.js
+</code></pre>
+<hr>
+<h2>⚠️ Troubleshooting</h2>
+<h3><strong>❌ Không Thể Kết Nối</strong></h3>
+<p><strong>Kiểm tra 1: Firewall</strong></p>
+<pre><code class="language-bash">netstat -ano | grep 8080
+</code></pre>
+<p>Nếu không thấy <code>LISTENING</code>, server chưa chạy.</p>
+<p><strong>Kiểm tra 2: Server Có Chạy Không?</strong></p>
+<pre><code class="language-bash">curl http://localhost:8080/health
+</code></pre>
+<p><strong>Kiểm tra 3: Câble/WiFi</strong></p>
+<ul>
+<li>Đảm bảo PC khác nằm <strong>trong cùng mạng</strong>: <code>192.168.100.x</code></li>
+<li>Ping server: <code>ping 192.168.100.86</code></li>
+</ul>
+<hr>
+<h3><strong>❌ Kết Nối Chậm</strong></h3>
+<ul>
+<li><strong>Lý do:</strong> Mạng tắc, máy yếu</li>
+<li><strong>Giải pháp:</strong> Khép lại các ứng dụng không cần, restart server</li>
+</ul>
+<pre><code class="language-bash"># Dừng server
+pkill -f &quot;node server.js&quot;
+
+# Khởi động lại
+cd &quot;c:\Users\admin\Documents\Google Drive\ung_dung_cdss_bhyt&quot;
+node server.js
+</code></pre>
+<hr>
+<h2>📚 Kết Nối Python API</h2>
+<p><strong>Từ Bất Kỳ Máy Nào Trong Mạng:</strong></p>
+<pre><code class="language-python">import requests
+
+# Xem tài liệu API
+response = requests.get(&#39;http://192.168.100.86:8000/docs&#39;)
+
+# Gửi yêu cầu kiểm tra (ví dụ)
+claim_data = {
+    &quot;ma_lk&quot;: &quot;000589&quot;,
+    &quot;xml_content&quot;: &quot;...&quot;
+}
+response = requests.post(
+    &#39;http://192.168.100.86:8000/audit&#39;,
+    json=claim_data
+)
+print(response.json())
+</code></pre>
+<hr>
+<h2>🔒 Bảo Mật</h2>
+<h3><strong>⚠️ Chỉ Dành Cho Mạng Nội Bộ</strong></h3>
+<ul>
+<li><strong>Không</strong> để server chạy trên internet công cộng</li>
+<li>Nếu cần, cố định <strong>IP thay vì public</strong></li>
+<li>Thêm <strong>xác thực</strong> nếu mở rộng sang bên ngoài</li>
+</ul>
+<hr>
+<h2>📞 Hỗ Trợ</h2>
+<table>
+<thead>
+<tr>
+<th>Vấn Đề</th>
+<th>Liên Hệ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Server không chạy</td>
+<td>Khởi động lại: <code>node server.js</code></td>
+</tr>
+<tr>
+<td>Port bị chiếm</td>
+<td>Thay port, xem phần Troubleshooting</td>
+</tr>
+<tr>
+<td>API lỗi</td>
+<td>Kiểm tra: <code>http://192.168.100.86:8000/docs</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2>🎯 Tóm Tắt Nhanh</h2>
+<pre><code>┌─────────────────────────────────────────┐
+│  🏥 AI CDSS BHYT - Truy Cập Nội Bộ     │
+├─────────────────────────────────────────┤
+│ 📱 Web App:  http://192.168.100.86:8080 │
+│ 📡 API:      http://192.168.100.86:8000 │
+│ 📚 Docs:     http://192.168.100.86:8000/docs │
+│                                         │
+│ ✅ Status:   [Online] ✓                │
+│ ⚙️  Hostname: DESKTOP-L3NS1HD          │
+│ 🔌 Port App: 8080                      │
+│ 🔌 Port API: 8000                      │
+└─────────────────────────────────────────┘
+</code></pre>
+<hr>
+<p><strong>Các máy tính khác có thể truy cập ngay bây giờ! 🚀</strong></p>
+
+  </main>
+</body>
+</html>

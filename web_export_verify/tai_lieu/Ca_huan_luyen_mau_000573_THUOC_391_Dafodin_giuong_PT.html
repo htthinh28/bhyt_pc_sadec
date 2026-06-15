@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000573 — THUOC_391 — DAFODIN TRONG HỒ SƠ NỘI TRÚ (GIƯỜNG + DVKT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000573_THUOC_391_Dafodin_giuong_PT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000573 — THUOC_391 — DAFODIN TRONG HỒ SƠ NỘI TRÚ (GIƯỜNG + DVKT)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Bổ sung <strong>ngữ cảnh thứ hai</strong> cho <strong><code>THUOC_391</code></strong> (số lượng cấp phát <strong>thấp hơn</strong> y lệnh <code>SL_MOI_NGAY × SO_NGAY</code>), song song với ca mổ sản <strong><code>000308</code></strong>:</p>
+<ul>
+<li>Hồ sơ có <strong>giường bệnh</strong>, <strong>DVKT</strong>, <strong>XML7/XML8</strong> — AI không được kết luận “chỉ có lỗi thuốc” mà bỏ qua dòng thời gian XML3.</li>
+<li>Cùng một rule <strong><code>THUOC_391</code></strong> có thể <strong>lặp</strong> trên <strong>hai index</strong> khác nhau (cùng tên thuốc nếu kê nhiều lần trong XML).</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>Audit: <code>test_xml/audit_000573_20260405_084557.json</code> (hoặc các bản <code>065622</code>, <code>080431</code>, <code>085434</code> cùng <code>MA_LK</code> — rule thuốc giữ nguyên; bản <code>085434</code> có thêm <code>XML_19</code>, <code>XML_115</code>, <code>XML_121</code>).</li>
+<li>XML gốc: thường nằm ngoài repo; <code>test_xml/doi_chieu_000573_*.json</code> có <code>claimPath</code> tham chiếu.</li>
+</ul>
+<h2>3. Dữ liệu thuốc trong audit mẫu</h2>
+<ul>
+<li>Rule: <strong><code>THUOC_391</code></strong> × <strong>2</strong></li>
+<li>Thuốc minh họa: <strong><code>[40.736] Dafodin</code></strong></li>
+<li>Index trong JSON mẫu: <strong>1</strong> và <strong>3</strong> (đối chiếu từng block <code>warnings</code>).</li>
+</ul>
+<h2>4. Cảnh báo đi kèm (không thuộc thuốc nhưng cùng hồ sơ)</h2>
+<p>Ví dụ snapshot <code>084557</code>:</p>
+<ul>
+<li><code>CLN-GIUONG-01</code>, <code>DVKT_2696</code>, <code>HC_171</code>, <code>HC_224</code>, <code>HC_97</code>, <code>HD_10</code>, <code>XML3-TIME-NGAY_TH_YL-AFTER-OUT</code></li>
+</ul>
+<p><strong>Bài học:</strong> Kiểm tra thuốc là <strong>một phần</strong> checklist; báo cáo cho người dùng nên <strong>nhóm theo phân hệ</strong> (XML2 vs XML3 vs XML7/8).</p>
+<h2>5. Bài tập cho AI</h2>
+<ol>
+<li>Chứng minh bằng số: với mỗi cảnh báo <code>THUOC_391</code>, so sánh <code>SO_LUONG</code> với <code>SL_MOI_NGAY * SO_NGAY</code> (trích từ XML nếu có, hoặc từ text cảnh báo).</li>
+<li>So sánh <strong>mức độ nghiệp vụ</strong> <code>THUOC_391</code> (kiểm tra / tự túc) với <code>THUOC_417</code> (cấp dư / xuất toán trong wording seed).</li>
+<li>Nêu <strong>một</strong> tình huốn hợp lệ khiến <code>SO_LUONG</code> &lt; y lệnh mà <strong>không</strong> phải gian lận (ví dụ: tách đợt cấp, ngưng sớm — mang tính giả định, cần chứng từ).</li>
+</ol>
+<h2>6. Liên kết</h2>
+<ul>
+<li>Ca <code>THUOC_391</code> (mổ sản / Biofazolin): <code>Ca_huan_luyen_mau_000308_THUOC_391_sai_lech_so_luong_y_lenh.md</code>  </li>
+<li>Khung phân loại: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

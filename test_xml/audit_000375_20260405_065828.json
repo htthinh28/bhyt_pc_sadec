@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "generated_at": "2026-04-04T23:58:28.196Z",
+    "claim_path": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022112088_IP26000080.xml",
+    "ma_lk": "000375",
+    "total_warnings": 6,
+    "by_severity": {
+      "Warning": 6
+    },
+    "focus_summary": {
+      "XML_19": 0,
+      "XML_105": 0,
+      "XML_129": 0,
+      "XML_134": 0,
+      "HC_46": 1,
+      "HC_68": 1,
+      "HC_171": 1,
+      "HD_10": 1,
+      "DVKT_0141": 0,
+      "DVKT_2333": 0,
+      "DVKT_2335": 0
+    }
+  },
+  "unique_rule_codes": [
+    "DVKT-OP-09",
+    "HC_171",
+    "HC_46",
+    "HC_68",
+    "HD_10"
+  ],
+  "rule_summary": {
+    "DVKT-OP-09": 2,
+    "HC_171": 1,
+    "HC_46": 1,
+    "HC_68": 1,
+    "HD_10": 1
+  },
+  "warnings": [
+    {
+      "phan_he": "XML3",
+      "index": 0,
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "DVKT không nằm trong danh mục nội bộ được phê duyệt. Mã DVKT [K27.1918] chưa có trong danh mục để đối chiếu. Can cu: VBHN 17/VBHN-BYT (31/12/2024) , Dieu 3 khoan 1 diem a; Dieu 3 khoan 2. Nghị định 188/2025/NĐ-CP (quy định thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính). Thông tư 01/2025/TT-BYT (quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT). Quyết định 3618/QĐ-BHXH (quy trình kiểm tra BHYT và bộ chỉ tiêu dữ liệu kiểm tra điện tử). Chi tiết dịch vụ: [K27.1918] Giường Nội khoa loại 2 Hạng III - Khoa Phụ - Sản. Nhân sự liên quan: 006998/HCM-GPHN (006998/HCM-GPHN); Chức danh: 1; Phạm vi: 113.",
+      "muc_do": "Warning",
+      "ma_luat": "DVKT-OP-09",
+      "ten_quy_tac": "Danh mục nội bộ được phê duyệt",
+      "dieu_kien": "CHECK_INTERNAL_APPROVAL",
+      "co_so_phap_ly": "VBHN 17/VBHN-BYT (31/12/2024) , Dieu 3 khoan 1 diem a; Dieu 3 khoan 2. Nghị định 188/2025/NĐ-CP (quy định thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính). Thông tư 01/2025/TT-BYT (quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT). Quyết định 3618/QĐ-BHXH (quy trình kiểm tra BHYT và bộ chỉ tiêu dữ liệu kiểm tra điện tử)"
+    },
+    {
+      "phan_he": "XML3",
+      "index": 1,
+      "truong_loi": "MA_DICH_VU",
+      "canh_bao": "DVKT không nằm trong danh mục nội bộ được phê duyệt. Mã DVKT [K27.1918] chưa có trong danh mục để đối chiếu. Can cu: VBHN 17/VBHN-BYT (31/12/2024) , Dieu 3 khoan 1 diem a; Dieu 3 khoan 2. Nghị định 188/2025/NĐ-CP (quy định thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính). Thông tư 01/2025/TT-BYT (quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT). Quyết định 3618/QĐ-BHXH (quy trình kiểm tra BHYT và bộ chỉ tiêu dữ liệu kiểm tra điện tử). Chi tiết dịch vụ: [K27.1918] Giường Nội khoa loại 2 Hạng III - Khoa Phụ - Sản. Nhân sự liên quan: 004078/CT-CCHN (004078/CT-CCHN); Chức danh: 1; Phạm vi: 113.",
+      "muc_do": "Warning",
+      "ma_luat": "DVKT-OP-09",
+      "ten_quy_tac": "Danh mục nội bộ được phê duyệt",
+      "dieu_kien": "CHECK_INTERNAL_APPROVAL",
+      "co_so_phap_ly": "VBHN 17/VBHN-BYT (31/12/2024) , Dieu 3 khoan 1 diem a; Dieu 3 khoan 2. Nghị định 188/2025/NĐ-CP (quy định thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính). Thông tư 01/2025/TT-BYT (quy định đăng ký KCB ban đầu, thẻ KCB BHYT điện tử và hồ sơ chuyển cơ sở KCB BHYT). Quyết định 3618/QĐ-BHXH (quy trình kiểm tra BHYT và bộ chỉ tiêu dữ liệu kiểm tra điện tử)"
+    },
+    {
+      "id": "HC_171",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi hồ sơ: Điều trị nội trú bắt buộc phải có dữ liệu diễn biến bệnh hàng ngày (XML5).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_171",
+      "ten_quy_tac": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND COUNT(XML5) == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_46",
+      "phan_he": "XML1",
+      "truong_loi": "MA_LOAI_KCB",
+      "canh_bao": "⛔ Lỗi logic: Điều trị nội trú tối thiểu phải tính là 1 ngày (hoặc 4h theo quy định mới).",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_46",
+      "ten_quy_tac": "Thời gian nằm viện nội trú = 0",
+      "dieu_kien": "XML1.MA_LOAI_KCB == '3' AND XML1.SO_NGAY_DTRI == 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HC_68",
+      "phan_he": "XML1",
+      "truong_loi": "T_THUOC",
+      "canh_bao": "⛔ Thiếu dữ liệu: XML1 báo có tiền thuốc nhưng không có tệp XML2 đính kèm.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HC_68",
+      "ten_quy_tac": "Thiếu tệp chi tiết XML2",
+      "dieu_kien": "COUNT(XML2) == 0 AND XML1.T_THUOC > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    },
+    {
+      "id": "HD_10",
+      "phan_he": "XML1",
+      "truong_loi": "UNKNOWN",
+      "canh_bao": "⚠️ JCI Audit: Kết quả cận lâm sàng thiếu dải chỉ số bình thường, vi phạm tiêu chuẩn chất lượng cam kết trong Hợp đồng.",
+      "muc_do": "Warning",
+      "index": -1,
+      "ma_luat": "HD_10",
+      "ten_quy_tac": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "dieu_kien": "COUNT_IF(XML4, IS_EMPTY(item.CHI_SO_XN_BT)) > 0",
+      "co_so_phap_ly": "Quyết định 130/QĐ-BYT: quy định cấu trúc và danh mục chỉ tiêu dữ liệu XML KCB BHYT. Nghị định 188/2025/NĐ-CP: quy định về thanh toán chi phí KCB BHYT, thủ tục thanh toán và xử lý vi phạm hành chính. Quyết định 3618/QĐ-BHXH: quy trình kiểm tra BHYT và bộ danh mục, chỉ tiêu dữ liệu phục vụ kiểm tra điện tử."
+    }
+  ]
+}

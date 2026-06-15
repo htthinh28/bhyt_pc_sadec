@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tri thức — Bộ 177 (04/2026): pipeline kiểm tra &amp; cập nhật quy tắc</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Tri_thuc_bo_177_04_2026_pipeline_giam_dinh_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Tri thức — Bộ 177 (04/2026): pipeline kiểm tra &amp; cập nhật quy tắc</h1>
+<p>Tài liệu phục vụ <strong>Thư viện</strong> và <strong>Trợ lý tri thức</strong> (RAG nội bộ): mô tả cách dùng thư mục <code>tai_nguyen/177 - 04032026</code>, chạy audit batch, và gắn kết quả với vòng đời quy tắc trong CDSS.</p>
+<h2>Mục đích</h2>
+<ul>
+<li>Kiểm thử quy tắc mới trên <strong>cùng tập hồ sơ</strong> (XML) mà BV đã xuất / cổng đã trả.</li>
+<li>Tổng hợp <strong>mã lỗi / mã luật</strong> (<code>ma_luat</code>, <code>tang_V15</code>, <code>namespace_quy_tac</code>) để rà soát false positive và bổ sung luật ON/OFF hoặc luật cứng khi cần.</li>
+<li>Cung cấp <strong>ngữ cảnh huấn luyện AI</strong>: không thay cho kết luận pháp lý; dùng cùng màn «Tri thức từ kiểm tra» để ghi nhận xác nhận Đúng/Sai từng cảnh báo.</li>
+</ul>
+<h2>Luồng chuẩn</h2>
+<ol>
+<li>Đặt file <code>*.xml</code> vào <code>tai_nguyen/177 - 04032026/</code> (một cấp). Chi tiết: README trong thư mục đó.</li>
+<li>Chạy <code>npm run qa:claim-audit-177</code>.</li>
+<li>Mở JSON kết quả trong <code>test_xml/audit_thu_muc_177_*.json</code> — đối chiếu <code>rule_summary</code> với màn <strong>Thư viện → Tra cứu quy tắc phân lập</strong> và tab ON/OFF nội bộ.</li>
+<li>Khi cần đưa bản tóm tắt vào bundle web: <code>npm run tai_lieu:prepare</code>.</li>
+</ol>
+<h2>Liên kết nội bộ</h2>
+<ul>
+<li>Audit engine: <code>scripts/run_claim_audit.js</code> (bundle <code>claim_audit_entry.jsx</code>, cùng pipeline <code>chayGiamDinhToanDienV15HybridDongBo</code>).</li>
+<li>Tổng hợp quy tắc cho UI Thư viện: <code>ma_nguon/tien_ich/tra_cuu_quy_tac_phan_lap.js</code>.</li>
+<li>Ghi nhận bài học sau ca: màn <strong>Tri thức từ kiểm tra</strong> (<code>tri_thuc_tu_giam_dinh</code>), xuất Markdown vào <code>tai_lieu/</code> nếu cần.</li>
+</ul>
+<h2>Kết quả run gần nhất</h2>
+<!-- AUTO_AUDIT_177_START --><p><em>Chưa chạy audit: không có file *.xml trong thư mục (chỉ có metadata hoặc rỗng).</em></p>
+<!-- AUTO_AUDIT_177_END -->
+
+  </main>
+</body>
+</html>

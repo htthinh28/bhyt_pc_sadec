@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RÀ SOÁT KHOẢNG TRỐNG RULE KHÁNG SINH</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ra_soat_khoang_trong_rule_khang_sinh_20260405.md</code> · Thư viện CDSS BHYT</div>
+    <h1>RÀ SOÁT KHOẢNG TRỐNG RULE KHÁNG SINH</h1>
+<p>Phiên bản tài liệu: 1.1<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Tài liệu này tổng hợp các khoảng trống độ phủ của rule kháng sinh trong repo, dựa trên:</p>
+<ul>
+<li>bộ nguồn chuyên môn đã chốt</li>
+<li>kết quả quét <code>216</code> dòng kháng sinh từ XML thật</li>
+<li>ba audit đại diện mới sinh</li>
+<li>điều kiện seed và các ngoại lệ đang chạy trong engine</li>
+</ul>
+<h2>2. Kết luận tổng quan</h2>
+<p>Rule kháng sinh hiện tại có xu hướng:</p>
+<ul>
+<li>phủ khá tốt một số <code>mã thuốc rất cụ thể</code></li>
+<li>nhưng chưa phủ đều theo <code>nhóm hoạt chất</code>, <code>bối cảnh phẫu thuật</code>, <code>nhóm bệnh</code>, và <code>chuẩn hóa đơn vị</code></li>
+</ul>
+<p>Điều này tạo ra 3 kiểu rủi ro:</p>
+<ol>
+<li><code>lọt cảnh báo</code> ở các ca dự phòng hợp lệ hoặc cần kiểm chứng thêm</li>
+<li><code>false positive</code> vì rule chỉ định quá hẹp so với bối cảnh lâm sàng thật</li>
+<li><code>false positive kỹ thuật</code> do so sánh khác đơn vị</li>
+</ol>
+<h2>3. Các khoảng trống chính</h2>
+<h3>3.1. Khoảng trống 1 - Cefazolin dự phòng vẫn phụ thuộc ICD quá nặng</h3>
+<p>Quan sát từ dữ liệu thật:</p>
+<ul>
+<li>nhóm <code>tiem_or_truyen | co_the_du_phong</code> có <code>38</code> dòng kháng sinh</li>
+<li>rất nhiều ca là <code>Biofazolin/Cefazolin</code> trong sản khoa, phụ khoa, thủ thuật</li>
+<li>các ca như <code>403521</code> và <code>000339</code> cho thấy bối cảnh dự phòng rõ, nhưng audit không nhất thiết phát sinh cảnh báo thuốc tương ứng</li>
+</ul>
+<p>Rule hiện có:</p>
+<ul>
+<li><code>THUOC_84</code></li>
+<li><code>THUOC_85</code></li>
+<li><code>THUOC_393</code></li>
+</ul>
+<p>Điểm thiếu:</p>
+<ul>
+<li><code>THUOC_85</code> chủ yếu đọc <code>ICD</code> và chuỗi <code>DỰ PHÒNG NHIỄM TRÙNG</code></li>
+<li>chưa mô hình hóa đủ bối cảnh <code>MA_PTTT_QT</code>, DVKT mổ/thủ thuật, hoặc XML5/diễn biến hậu phẫu</li>
+</ul>
+<p>Khuyến nghị:</p>
+<ol>
+<li>thêm tầng nhận diện <code>dự phòng phẫu thuật</code> từ <code>MA_PTTT_QT</code> và XML3</li>
+<li>không chỉ phụ thuộc <code>Z29.2</code> hoặc text trong chẩn đoán ra viện</li>
+<li>giữ cơ chế lọc dương tính giả theo ngữ cảnh như engine đã làm với <code>THUOC_85</code>, nhưng bổ sung dữ liệu đầu vào để cảnh báo có ý nghĩa hơn</li>
+</ol>
+<h3>3.2. Khoảng trống 2 - Amoxicillin/Clavulanate người lớn ngoại trú có nguy cơ rule quá hẹp</h3>
+<p>Quan sát từ dữ liệu thật:</p>
+<ul>
+<li>nhóm <code>uong | co_the_dieu_tri</code> có <code>69</code> dòng</li>
+<li><code>Cepmox-Clav 875/125</code> xuất hiện nhiều trong tai mũi họng, da mô mềm, tiết niệu, phụ khoa</li>
+<li>trước khi sửa, ca <code>OP26000908</code> bị <code>THUOC_41</code> dù có <code>H66.9</code> viêm tai giữa không đặc hiệu</li>
+</ul>
+<p>Rule hiện có:</p>
+<ul>
+<li><code>THUOC_40</code>: chống chỉ định</li>
+<li><code>THUOC_41</code>: chỉ định ICD-10</li>
+<li><code>THUOC_42</code>: liều tối đa nhi</li>
+</ul>
+<p>Tình trạng hiện tại sau kiểm thử ngày <code>06/04/2026</code>:</p>
+<ul>
+<li><code>THUOC_41</code> đã được mở rộng để nhận <code>H66</code> và chuỗi <code>viêm tai giữa</code></li>
+<li>audit <code>OP26000908</code> giảm từ <code>11</code> xuống <code>10</code> cảnh báo, không còn <code>THUOC_41</code></li>
+</ul>
+<p>Điểm còn thiếu:</p>
+<ul>
+<li><code>THUOC_41</code> chỉ cho <code>J01</code>, <code>J03</code>, <code>J06</code>, <code>J15</code>, <code>J20</code>, <code>L01</code></li>
+<li>chưa phản ánh tốt một số bối cảnh tai mũi họng thực tế như <code>viêm tai giữa</code></li>
+<li>phần liều đang mạnh về nhi khoa, nhưng chưa có lớp giải thích hoặc kiểm tra thêm cho người lớn ngoại trú</li>
+</ul>
+<p>Khuyến nghị tiếp theo:</p>
+<ol>
+<li>tiếp tục rà phạm vi chỉ định thanh toán với nhóm tai mũi họng khác ngoài <code>H66</code></li>
+<li>nếu nghiệp vụ xác nhận phù hợp, mở tiếp nhóm ICD hoặc regex lân cận theo tài liệu chỉ định hợp lệ tại khoản 3 Điều 8 TT 37/2024</li>
+<li>giữ tách bạch giữa <code>chỉ định lâm sàng</code>, <code>chống chỉ định</code>, <code>liều/tần suất</code>, và <code>điều kiện thanh toán BHYT</code></li>
+</ol>
+<h3>3.3. Khoảng trống 3 - Chưa có lớp rule đủ rõ cho Cefotaxime điều trị tiêm</h3>
+<p>Quan sát từ dữ liệu thật:</p>
+<ul>
+<li>nhóm <code>tiem_or_truyen | co_the_dieu_tri</code> có <code>64</code> dòng</li>
+<li><code>Tenamyd-Cefotaxime 1000</code> xuất hiện lặp nhiều ở các ca <code>000434</code>, <code>000589</code>, <code>000393</code></li>
+</ul>
+<p>Điểm đáng chú ý:</p>
+<ul>
+<li>trong ca <code>000589</code>, cảnh báo nổi bật cho Cefotaxime lại là <code>THUOC_391</code> về lệch số lượng</li>
+<li>chưa thấy cụm seed rõ ràng cho <code>Cefotaxime</code> tương ứng với tần suất xuất hiện trong dữ liệu thật</li>
+</ul>
+<p>Khuyến nghị:</p>
+<ol>
+<li>bổ sung cụm rule riêng cho <code>Cefotaxime</code> hoặc nhóm Cephalosporin điều trị tiêm</li>
+<li>tối thiểu có các lớp:<ul>
+<li>kiểm tra chỉ định cơ bản</li>
+<li>kiểm tra liều/ngày nếu đủ dữ liệu</li>
+<li>kiểm tra nhất quán y lệnh sau khi chuẩn hóa đơn vị</li>
+</ul>
+</li>
+</ol>
+<h3>3.4. Khoảng trống 4 - Rule <code>THUOC_391</code> có nguy cơ false positive do lệch đơn vị</h3>
+<p>Chứng cứ trực tiếp ban đầu:</p>
+<ul>
+<li>ca <code>000589</code> từng bị cảnh báo <code>SO_LUONG = 3 &lt; y lệnh 1650</code></li>
+<li><code>1650</code> ở đây rõ ràng là <code>mg/ngày</code>, không phải <code>lọ/ngày</code></li>
+</ul>
+<p>Nguyên nhân gốc:</p>
+<ul>
+<li>rule cũ so sánh:<ul>
+<li><code>XML2.SO_LUONG</code></li>
+<li>với <code>XML2.SL_MOI_NGAY * XML2.SO_NGAY</code></li>
+</ul>
+</li>
+<li>nhưng chưa chắc hai vế đã cùng một đơn vị đo</li>
+</ul>
+<p>Tình trạng hiện tại sau kiểm thử ngày <code>06/04/2026</code>:</p>
+<ul>
+<li>engine đã bổ sung chặn ngữ cảnh khi <code>SO_LUONG</code> nhỏ hơn cả <code>hàm lượng một đơn vị</code> sau quy đổi</li>
+<li>với ca <code>000589</code>, <code>THUOC_391</code> đã rơi khỏi audit, tổng cảnh báo giảm từ <code>8</code> xuống <code>6</code></li>
+<li>cảnh báo còn lại tập trung vào <code>DOMUVAR</code>, hành chính, và trùng thuốc cùng ngày</li>
+</ul>
+<p>Khuyến nghị tiếp theo:</p>
+<ol>
+<li>chuẩn hóa thêm các trường hợp <code>hàm lượng phức hợp</code> hoặc <code>đơn vị không chuẩn</code> ngoài mẫu <code>1g</code>, <code>500mg</code>, <code>5ml</code></li>
+<li>cân nhắc thêm thông tin giải trình để nêu rõ lý do bỏ <code>THUOC_391</code> khi gặp dữ liệu tự mâu thuẫn</li>
+<li>tiếp tục sửa tại gốc logic so sánh, không tắt hàng loạt <code>THUOC_391</code></li>
+</ol>
+<h3>3.5. Khoảng trống 5 - Chưa có lớp tri thức hệ thống cho kháng sinh trẻ em ngoài Amoxiclav</h3>
+<p>Quan sát từ seed:</p>
+<ul>
+<li>đã có logic nhi khoa cho <code>Amoxicillin/Clavulanate</code></li>
+<li>nhưng chưa thấy một lớp chuẩn hóa đủ rộng cho <code>kháng sinh trẻ em</code> ở mức hệ thống</li>
+</ul>
+<p>Khuyến nghị:</p>
+<ol>
+<li>thêm bộ tri thức hoặc helper dùng chung cho ca nhi khoa:<ul>
+<li>đọc cân nặng</li>
+<li>quy đổi mg/kg/ngày</li>
+<li>kiểm tra tần suất theo tuổi</li>
+<li>chặn trần liều tối đa</li>
+</ul>
+</li>
+<li>không chỉ đóng ở mức từng mã thuốc riêng lẻ</li>
+</ol>
+<h3>3.6. Khoảng trống 6 - Thiếu lớp rule rõ cho Ciprofloxacin đường uống</h3>
+<p>Quan sát từ dữ liệu thật:</p>
+<ul>
+<li>có các ca <code>Ciprofloxacin</code> đường uống trong tiết niệu và phụ khoa, ví dụ <code>OP26001050</code></li>
+<li>nhưng trong cụm seed vừa rà chưa thấy lớp rule nổi bật tương xứng</li>
+</ul>
+<p>Khuyến nghị:</p>
+<ol>
+<li>rà xem repo có rule ở file khác hay không; nếu chưa có, nên bổ sung theo nhóm chỉ định thực tế</li>
+<li>với ca trẻ em, cần lớp kiểm soát chặt hơn do đây là nhóm thuốc nhạy cảm hơn trong nhi khoa</li>
+</ol>
+<h2>4. Điểm đặc biệt trong engine hiện tại</h2>
+<p>Trong <code>dong_co_giam_dinh.jsx</code>, engine đã có một số lọc ngữ cảnh hữu ích, ví dụ:</p>
+<ul>
+<li>bỏ <code>THUOC_85</code> khi đã nhận ra có phẫu thuật hoặc thủ thuật</li>
+<li>bỏ <code>THUOC_342</code> trong bối cảnh thai kỳ hoặc sản khoa</li>
+</ul>
+<p>Điều này cho thấy hướng sửa đúng là:</p>
+<ul>
+<li>tăng cường <code>mô hình hóa ngữ cảnh</code></li>
+<li>không chỉ thêm nhiều ICD cứng hơn</li>
+</ul>
+<h2>5. Thứ tự ưu tiên đề xuất nếu sửa rule</h2>
+<ol>
+<li>Mở rộng nhận diện <code>Cefazolin dự phòng</code> theo bối cảnh phẫu thuật/thủ thuật.</li>
+<li>Bổ sung cụm rule rõ hơn cho <code>Cefotaxime</code> điều trị tiêm.</li>
+<li>Bổ sung lớp tri thức và kiểm soát cho kháng sinh trẻ em dùng chung.</li>
+<li>Rà tiếp các nhóm chỉ định tai mũi họng ngoài <code>H66</code> cho <code>Amoxicillin/Clavulanate</code>.</li>
+<li>Chuẩn hóa thêm các ca kê đơn/y lệnh có đơn vị phức hợp.</li>
+</ol>
+<h2>6. Kết luận</h2>
+<p>Kho XML thật cho thấy hệ thống đã có nhiều nền tảng tốt, nhưng độ phủ rule kháng sinh hiện vẫn còn lệch giữa:</p>
+<ul>
+<li><code>nhóm thuốc được seed sâu</code></li>
+<li>và <code>nhóm thuốc xuất hiện thật trong hồ sơ</code></li>
+</ul>
+<p>Nếu muốn AI hỗ trợ kiểm tra kháng sinh tốt hơn, cần kết hợp 3 hướng cùng lúc:</p>
+<ol>
+<li>làm giàu tri thức pháp lý và nhi khoa</li>
+<li>tăng độ phủ rule theo dữ liệu thật</li>
+<li>sửa các điểm so sánh kỹ thuật dễ gây dương tính giả</li>
+</ol>
+
+  </main>
+</body>
+</html>

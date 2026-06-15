@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUAN LUYEN MAU OP26000282 - NHOM I10 TANG HUYET AP</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_OP26000282_I10_tang_huyet_ap.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUAN LUYEN MAU OP26000282 - NHOM I10 TANG HUYET AP</h1>
+<p>Phien ban tai lieu: 1.0<br>Ngay cap nhat: 06/04/2026</p>
+<h2>1. Van de trung tam</h2>
+<p>Huong dan AI phan tich ho so co <code>I10</code> la benh chinh va ket luan theo 3 lop:</p>
+<ol>
+<li>lop chuyen mon (chi dinh/chong chi dinh)</li>
+<li>lop hanh chinh ke don</li>
+<li>lop tai chinh - ke toan</li>
+</ol>
+<h2>2. Nguon du lieu</h2>
+<ul>
+<li>XML goc: <code>tai_nguyen/op/PC022515584_OP26000282.xml</code></li>
+<li>Audit: <code>test_xml/audit_OP26000282_20260406_224330.json</code></li>
+</ul>
+<h2>3. Du lieu da xac nhan</h2>
+<ul>
+<li><code>MA_LK</code>: <code>OP26000282</code></li>
+<li><code>MA_LOAI_KCB</code>: <code>01</code> (ngoai tru)</li>
+<li><code>MA_BENH_CHINH</code>: <code>I10</code></li>
+<li><code>MA_BENH_KT</code>: <code>J02;E78.2;K21</code></li>
+</ul>
+<p>Danh sach thuoc chinh:</p>
+<ul>
+<li><code>40.155</code> - Cepmox-Clav 875 mg/125 mg</li>
+<li><code>40.30.496</code> - Troysar AM (thuoc tim mach phoi hop)</li>
+<li><code>40.549</code> - Insuact 20</li>
+<li><code>40.48</code> - Partamol Tab.</li>
+</ul>
+<h2>4. Ket qua audit trong tam</h2>
+<p>Tong canh bao: <code>9</code></p>
+<ul>
+<li><code>DM-THUOC-04</code>: 2 canh bao (don gia vuot gia trung thau noi bo)</li>
+<li><code>THUOC_311</code>: 1 canh bao (Paracetamol sai nhom chan doan theo rule)</li>
+<li><code>THUOC_436</code>: 5 canh bao (ten thuoc ngoai tru chua dung chuan INN)</li>
+<li><code>XML_53</code>: 1 canh bao (lech tong tien thuoc XML1 va XML2)</li>
+</ul>
+<h2>5. Dien giai theo nhom chuyen mon I10</h2>
+<h3>5.1. Lop chuyen mon</h3>
+<ul>
+<li>Ho so co <code>I10</code> ro rang -&gt; truc tim mach hop le de xet chi dinh thuoc ha ap.</li>
+<li>Cac canh bao hien co khong cho thay xung dot truc tiep &quot;I10 voi thuoc ha ap&quot; trong audit nay.</li>
+<li>Co 1 canh bao <code>THUOC_311</code> lien quan Paracetamol, thuoc nhom trieu chung, khong phai truc chinh I10.</li>
+</ul>
+<h3>5.2. Lop hanh chinh ke don</h3>
+<ul>
+<li><code>THUOC_436</code> xuat hien 5 lan, cho thay van de chuan hoa ten thuoc ngoai tru (INN).</li>
+<li>Day la loi quy trinh ke don/du lieu, khong dong nghia sai chi dinh I10.</li>
+</ul>
+<h3>5.3. Lop tai chinh - ke toan</h3>
+<ul>
+<li><code>DM-THUOC-04</code> (2 dong) va <code>XML_53</code> cho thay rui ro tai chinh ro net.</li>
+<li>Day la lop can uu tien doi chieu bang gia noi bo va so lieu tong hop truoc khi quyet toan.</li>
+</ul>
+<h2>6. Ket luan nghiep vu mau</h2>
+<ol>
+<li>Ve chuyen mon I10: ho so co truc tim mach ro rang, khong co bang chung tu audit nay cho thay sai chi dinh toan bo nhom ha ap.</li>
+<li>Rui ro chinh hien tai nam o:<ul>
+<li>chuan hoa don ngoai tru (<code>THUOC_436</code>)</li>
+<li>gia thuoc vuot gia trung thau (<code>DM-THUOC-04</code>)</li>
+<li>lech tong hop tien thuoc (<code>XML_53</code>)</li>
+</ul>
+</li>
+<li>Huong xu ly uu tien:<ul>
+<li>doi chieu gia trung thau noi bo tung dong</li>
+<li>doi chieu <code>T_THUOC</code> XML1 voi tong <code>THANH_TIEN_BV</code> XML2</li>
+<li>chuan hoa ten INN trong don ngoai tru</li>
+</ul>
+</li>
+</ol>
+<h2>7. Bai hoc rut ra cho AI</h2>
+<h3>7.1. Bai hoc chuyen mon</h3>
+<ul>
+<li>Khi <code>I10</code> la benh chinh, AI phai khoi dong phan tich tim mach truoc, khong de canh bao hanh chinh lam lech truc phan tich.</li>
+</ul>
+<h3>7.2. Bai hoc giam dinh</h3>
+<ul>
+<li>Ho so co the &quot;dung huong chuyen mon&quot; nhung van &quot;sai lop thanh toan/du lieu&quot;.</li>
+</ul>
+<h3>7.3. Bai hoc ket luan</h3>
+<ul>
+<li>Ket luan tot phai ghi theo lop, tranh ket luan mot cau chung chung cho toan bo ho so.</li>
+</ul>
+<h2>8. Prompt tai su dung</h2>
+<pre><code class="language-text">Phan tich ho so OP26000282 theo nhom I10:
+1) Xac dinh vai tro I10 va cac benh kem.
+2) Tach canh bao theo 3 lop: chuyen mon, hanh chinh, tai chinh.
+3) Cho ket luan uu tien xu ly theo thu tu rui ro.
+4) Neu ro phan nao da du chung cu va phan nao can doi chieu them.
+</code></pre>
+
+  </main>
+</body>
+</html>

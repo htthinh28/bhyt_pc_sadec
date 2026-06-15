@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THỰC CHIẾN: TỔNG HỢP KỸ NĂNG VỚI `tai_nguyen/xml2_ip`</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Thuc_chien_tong_hop_xml2_ip_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THỰC CHIẾN: TỔNG HỢP KỸ NĂNG VỚI <code>tai_nguyen/xml2_ip</code></h1>
+<p>Phiên bản: 1.0 · Cập nhật: 10/04/2026  </p>
+<h2>1. Nguồn và vai trò</h2>
+<ul>
+<li><strong>Thư mục:</strong> <code>tai_nguyen/xml2_ip/</code> — file <strong>GIAMDINHHS</strong> (XML1–4 trong <code>NOIDUNGFILE</code> Base64), tên file thường gợi <strong>nội trú / IP</strong> (<code>*_IP26*.xml</code>).</li>
+<li><strong>Mục đích:</strong> luyện AI đọc hồ sơ thật cùng cấu trúc với luồng CDSS: neo <code>MA_LK</code>, so khớp cảnh báo engine, viết ca mẫu, rà rule DVKT/thuốc/CLS — <strong>không</strong> công khai nguyên file nếu chưa khử nhận dạng theo quy định.</li>
+</ul>
+<h2>2. Chỉ mục và neo nhanh</h2>
+<pre><code class="language-bash">npm run tai_lieu:index-tai-nguyen-xml2-ip
+</code></pre>
+<ul>
+<li>Output: <code>tai_lieu/_index_tai_nguyen_xml2_ip.json</code> — mỗi dòng có <code>relPath</code>, <code>ma_lk</code>, <code>ma_cskcb</code>, <strong><code>ma_loai_kcb</code></strong>, <strong><code>ma_benh_chinh</code></strong> (nếu có).</li>
+<li>Gói dữ liệu huấn luyện tổng quát: <a href="./Goi_du_lieu_huan_luyen_AI_thuc_chien.md">Goi_du_lieu_huan_luyen_AI_thuc_chien.md</a>.</li>
+</ul>
+<h2>3. Checklist đọc XML sau khi giải Base64</h2>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Nội dung</th>
+<th>Gợi ý kỹ năng</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XML1</td>
+<td><code>MA_LOAI_KCB</code>, <code>MA_BENH_CHINH</code>, thời gian vào/ra, tuyến</td>
+<td>Neo loại KCB (ví dụ <code>03</code> nội trú), ICD chính cho phác đồ rule</td>
+</tr>
+<tr>
+<td>XML2</td>
+<td>Thuốc: <code>MA_THUOC</code>, <code>NGAY_YL</code>, <code>DUONG_DUNG</code>, <code>LIEU_DUNG</code></td>
+<td>Đối chiếu DM thuốc, ngày y lệnh vs ngày vào viện, nhóm ATB/ngoại trừ</td>
+</tr>
+<tr>
+<td>XML3</td>
+<td>DVKT: <code>MA_DICH_VU</code>, <code>NGAY_YL</code>, <code>NGAY_TH_YL</code></td>
+<td><a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a>, điều kiện thanh toán Danh mục 2</td>
+</tr>
+<tr>
+<td>XML4</td>
+<td>CLS: <code>MA_CHI_SO</code>, kết quả</td>
+<td>Chuẩn hóa chỉ số / máy nếu rule yêu cầu</td>
+</tr>
+</tbody></table>
+<h2>4. Luồng prompt gợi ý (thực chiến)</h2>
+<ol>
+<li>Chọn một <code>ma_lk</code> hoặc <code>relPath</code> từ JSON chỉ mục.</li>
+<li>Yêu cầu AI: trích khối XML1–4 tương ứng, liệt kê <strong>chỉ các trường</strong> cần cho rule đang học (tránh dump toàn bộ PII).</li>
+<li>Áp rule: so sánh với output engine trong app hoặc mô tả trong thẻ tri thức tĩnh.</li>
+<li>Ghi lại <strong>ca mẫu</strong> (mã ẩn danh): bệnh chính, DVKT/thuốc nghi ngờ, căn cứ pháp lý / Danh mục.</li>
+</ol>
+<h2>5. Liên kết trong repo</h2>
+<ul>
+<li>Hướng dẫn nguồn XML: <a href="./Huong_dan_tai_nguyen_XML_thuc_chien_AI.md">Huong_dan_tai_nguyen_XML_thuc_chien_AI.md</a></li>
+<li>Lộ trình huấn luyện: <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu tổng hợp kỹ năng đọc nội trú từ <code>xml2_ip</code>; bổ sung khi có thêm rule hoặc chỉ mục con mới.</em></p>
+
+  </main>
+</body>
+</html>

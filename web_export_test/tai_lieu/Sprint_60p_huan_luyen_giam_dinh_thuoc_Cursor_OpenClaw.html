@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sprint 60 phút — Một vòng huấn luyện kiểm tra thuốc (Cursor + OpenClaw)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Sprint_60p_huan_luyen_giam_dinh_thuoc_Cursor_OpenClaw.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Sprint 60 phút — Một vòng huấn luyện kiểm tra thuốc (Cursor + OpenClaw)</h1>
+<p><strong>Mục tiêu thực tế trong 60 phút:</strong> Hoàn thành <strong>một vòng</strong> “tri thức → engine → ca/audit → QA → ghi nhận”, <em>không</em> phải toàn bộ nghiệp vụ thuốc BHYT. Dùng song song <strong>Cursor</strong> (sửa/đọc repo, trace mã) và <strong>OpenClaw</strong> (tóm tắt, đối chiếu nhiều file, checklist) nếu gateway đang chạy.</p>
+<p><strong>Tài liệu neo:</strong> <a href="./The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md">The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</a>, <a href="./The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md">The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</a>, <a href="./Prompt_mau_chuan_hoa_BHYT_Cursor_OpenClaw.md">Prompt_mau_chuan_hoa_BHYT_Cursor_OpenClaw.md</a>.</p>
+<p><strong>Mã nguồn neo:</strong> <code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code>, <code>ma_nguon/tien_ich/luat_thuoc_hardcoded.jsx</code>, <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code>.</p>
+<hr>
+<h2>0. Chuẩn bị trước khi bấm giờ (≤ 5 phút — không tính vào 60 phút hoặc gộp vào phút 0–5)</h2>
+<table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Kiểm tra</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Repo mở đúng <code>ung_dung_cdss_bhyt</code></td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>GEMINI_API_KEY</code> + <code>%USERPROFILE%\.openclaw\.env</code></td>
+<td>✓</td>
+</tr>
+<tr>
+<td><code>openclaw daemon status</code> → gateway <strong>running</strong>, port <strong>18789</strong></td>
+<td>✓ (nếu dùng OpenClaw)</td>
+</tr>
+<tr>
+<td>Token client OpenClaw khớp <code>gateway.auth.token</code> trong <code>openclaw.json</code></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Không mở hồ sơ có PII thật trong prompt</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Phút 0–10 — Neo tri thức &amp; chỉ mục engine</h2>
+<p><strong>Cursor (bắt buộc):</strong></p>
+<ol>
+<li>Mở và đọc lướt §1–§4 của <code>The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</code> (khái niệm thanh toán vs an toàn, XML1+XML2, cột Phụ lục I).</li>
+<li>Đọc toàn bộ <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> (bảng <code>CLN-THUOC-*</code>, <code>DM-THUOC-*</code>, <code>THUOC_*</code>, lọc <code>locCanhBaoDuongTinhGiaTheoNguCanh</code>).</li>
+</ol>
+<p><strong>OpenClaw (song song, nếu có):</strong> Dán prompt <strong>P1</strong> (mục M trong file Prompt mẫu).</p>
+<p><strong>Kết quả chốt 10 phút:</strong> Một dòng ghi chú tay hoặc trong chat: <em>“Thuốc: nguồn cảnh báo = hardcoded seed + built-in DM; phải đọc điều kiện từng <code>MA_LUAT</code> trong seed, không đoán.”</em></p>
+<hr>
+<h2>Phút 10–25 — Chọn một trục huấn luyện + một mã luật cụ thể</h2>
+<p><strong>Chọn 1 trong 2 trục</strong> (đừng làm cả hai):</p>
+<table>
+<thead>
+<tr>
+<th>Trục</th>
+<th>Gợi ý</th>
+<th>Việc làm trong Cursor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>A. Nghiệp vụ Phụ lục I / thanh toán</strong></td>
+<td>§3.4–3.5 thẻ thanh toán thuốc</td>
+<td>Liệt kê 3 điều kiện cần kiểm tra khi <code>MA_CSKCB = 94170</code> + 1 ví dụ giả.</td>
+</tr>
+<tr>
+<td><strong>B. Engine / một mã cảnh báo</strong></td>
+<td><code>THUOC_391</code>, <code>THUOC_417</code>, hoặc <code>CLN-THUOC-04</code></td>
+<td>Tìm trong <code>du_lieu_luat_thuoc_muc8.jsx</code> hoặc chỉ mục engine dòng điều kiện; copy <strong>mã luật + ý điều kiện</strong> (không cần paste cả file).</td>
+</tr>
+</tbody></table>
+<p><strong>OpenClaw:</strong> Prompt <strong>P2</strong> — tóm tắt bảng “mã luật | ý nghĩa | file tham chiếu” từ nội dung bạn vừa trích.</p>
+<p><strong>Kết quả chốt 25 phút:</strong> Tên mã luật/chủ đề đã chọn + 3 bullet “khi nào kích hoạt / khi nào bị lọc”.</p>
+<hr>
+<h2>Phút 25–40 — Gắn với ca mẫu hoặc audit JSON (không PII)</h2>
+<p><strong>Cursor:</strong></p>
+<ol>
+<li>Mở <strong>một</strong> file trong <code>tai_lieu/Ca_huan_luyen_mau_*THUOC*.md</code> <strong>hoặc</strong> một <code>test_xml/audit_*.json</code> có chứa mã luật bạn chọn (dùng tìm kiếm theo <code>THUOC_</code> / <code>DM-THUOC</code>).</li>
+<li>Viết 5–7 dòng: <em>input chính</em> → <em>kỳ vọng cảnh báo</em> → <em>có khớp seed/engine không</em> (nếu không khớp, ghi “cần trace thêm”).</li>
+</ol>
+<p><strong>OpenClaw:</strong> Prompt <strong>P3</strong> — đối chiếu ca mẫu với đoạn bạn trích từ chỉ mục engine (chỉ phân tích, không sửa repo trừ khi bạn yêu cầu riêng).</p>
+<p><strong>Kết quả chốt 40 phút:</strong> Đoạn “hồ sơ giả / audit” + kết luận 1 câu.</p>
+<hr>
+<h2>Phút 40–52 — QA tự động (nếu môi trường sẵn sàng)</h2>
+<p>Từ thư mục gốc repo (PowerShell):</p>
+<pre><code class="language-powershell">npm run qa:audit-fixtures
+</code></pre>
+<p>Hoặc (kiểm tra khớp on/off quy tắc, nếu phù hợp ngữ cảnh hiện tại):</p>
+<pre><code class="language-powershell">npm run qa:on-off-match
+</code></pre>
+<p><strong>Cursor:</strong> Dán output (đã cắt phần nhạy cảm) + hỏi: <em>“Kết luận pass/fail và có cảnh báo thuốc nào lệch với tài liệu không?”</em></p>
+<p><strong>OpenClaw:</strong> Prompt <strong>P4</strong> — checklist 5 mục “việc cần làm nếu QA fail”.</p>
+<p><strong>Kết quả chốt 52 phút:</strong> Pass/fail + 1 hành động ưu tiên (sửa doc / sửa seed / bổ sung ca).</p>
+<hr>
+<h2>Phút 52–60 — Bàn giao &amp; cố định tri thức</h2>
+<p>Làm <strong>một</strong> việc sau (chọn một):</p>
+<ul>
+<li>Cập nhật <strong>một dòng</strong> vào <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> (ví dụ: ghi chú huấn luyện mới cho mã luật đã chọn), <strong>hoặc</strong></li>
+<li>Tạo/ghi thêm mục vào file ca mẫu liên quan (nếu team cho phép), <strong>hoặc</strong></li>
+<li>Chỉ ghi <strong>biên bản ngắn</strong> trong issue nội bộ / nhật ký: ngày, mã luật, kết quả QA.</li>
+</ul>
+<p><strong>OpenClaw:</strong> Prompt <strong>P5</strong> — biên bản 8 dòng tối đa cho người không chuyên CNTT.</p>
+<hr>
+<h2>Định nghĩa “xong trong 60 phút”</h2>
+<p>Phiên được coi là <strong>hoàn chỉnh</strong> khi:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Đã đọc chỉ mục engine + một trục (A hoặc B) có tên cụ thể.</li>
+<li><input disabled="" type="checkbox"> Đã liên kết với <strong>ít nhất một</strong> ca/audit trong repo (hoặc giải thích vì sao không tìm thấy).</li>
+<li><input disabled="" type="checkbox"> Đã chạy <strong>ít nhất một</strong> lệnh <code>npm run qa:*</code> hoặc ghi rõ <em>“môi trường chưa chạy được — lý do”</em>.</li>
+<li><input disabled="" type="checkbox"> Có <strong>một</strong> bản ghi cập nhật (file tai_lieu hoặc biên bản).</li>
+</ul>
+<hr>
+<h2>Nếu thiếu thời gian</h2>
+<p>Bỏ bớt theo thứ tự: OpenClaw P4/P5 → QA thứ hai → trục A (giữ trục B nếu ưu tiên kỹ thuật).</p>
+<hr>
+<p><em>Phiên bản: 1.0 — đồng bộ quy trình Cursor + OpenClaw cho kiểm tra thuốc.</em></p>
+
+  </main>
+</body>
+</html>

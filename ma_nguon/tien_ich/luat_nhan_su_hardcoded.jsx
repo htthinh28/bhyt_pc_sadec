@@ -1,0 +1,29 @@
+/**
+ * CODE CỨNG DỮ LIỆU BẢNG LUẬT: LUAT_NHAN_SU
+ * Nguồn: File Excel (15 quy tắc)
+ * Đã lọc trùng: 0 dòng
+ * ON/OFF: kiểm soát qua màn hình Quản lý Quy tắc ON/OFF
+ * KHÔNG CẬP NHẬT THỦ CÔNG - dùng Import hoặc chạy lại script gen_hardcoded_rules.js
+ */
+
+// NS_01 / NS_10: có handler trong dong_co_giam_dinh.jsx (batchContext — trùng MA_LK; BS + mốc thời gian trên hai MA_LK).
+// NS_02–NS_09, NS_11–NS_15: DIEU_KIEN dạng pseudo (DM_NHAN_SU, DM_PL_*, …) — cần map nền / handler riêng trước khi bật ON.
+const CACHE_RULES_HARDCODED = Object.freeze([
+  { id: 'NS-001', MA_LUAT: 'NS_01', TEN_QUY_TAC: `Kiểm tra trùng mã liên kết (MA_LK)`, DIEU_KIEN: `DUPLICATE(XML1.MA_LK) WITHIN SAME XML1.MA_CSKCB AND SAME MONTH`, CANH_BAO: `⛔ [LỖI DỮ LIỆU]: Mã liên kết (MA_LK) bị trùng lặp trong cùng kỳ. Cổng kiểm tra BHXH sẽ từ chối tiếp nhận hồ sơ.`, TRANG_THAI: 'ON' },
+  { id: 'NS-002', MA_LUAT: 'NS_02', TEN_QUY_TAC: `Kiểm tra nhân sự có trong DM đăng ký hành nghề`, DIEU_KIEN: `XML3.NGUOI_THUC_HIEN NOT IN DM_NHAN_SU.MA_CCHN`, CANH_BAO: `⛔ [SAI QUY ĐỊNH]: Người thực hiện DVKT ({NGUOI_THUC_HIEN}) không có trong danh mục nhân sự đăng ký hành nghề tại CSKCB.`, TRANG_THAI: 'OFF' },
+  { id: 'NS-003', MA_LUAT: 'NS_03', TEN_QUY_TAC: `BS Y khoa - Phạm vi hành nghề (PL V, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Y khoa' AND XML3.MA_DICH_VU NOT IN DM_PL_V_TT32`, CANH_BAO: `⛔ [SAI PHẠM]: DVKT {MA_DICH_VU} ngoài 507 kỹ thuật được phép của BS Y khoa (PL V, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-004', MA_LUAT: 'NS_04', TEN_QUY_TAC: `BS YHCT - Phạm vi hành nghề (PL VI, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Y học cổ truyền' AND XML3.MA_DICH_VU NOT IN DM_PL_VI_TT32`, CANH_BAO: `⛔ [SAI PHẠM]: DVKT {MA_DICH_VU} không thuộc danh mục kỹ thuật YHCT (PL VI, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-005', MA_LUAT: 'NS_05', TEN_QUY_TAC: `BS RHM - Phạm vi hành nghề (PL VIII, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Răng hàm mặt' AND XML3.MA_DICH_VU NOT IN DM_PL_VIII_TT32`, CANH_BAO: `⛔ [SAI PHẠM]: DVKT {MA_DICH_VU} ngoài 339 danh mục kỹ thuật RHM (PL VIII, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-006', MA_LUAT: 'NS_06', TEN_QUY_TAC: `BS Chuyên khoa - Phạm vi hành nghề (PL IX, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Chuyên khoa' AND XML3.MA_DICH_VU NOT IN DM_PL_IX_TT32`, CANH_BAO: `⛔ [XUẤT TOÁN]: BS chuyên khoa thực hiện kỹ thuật ngoài danh mục chuyên khoa (PL IX, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-007', MA_LUAT: 'NS_07', TEN_QUY_TAC: `Điều dưỡng - Phạm vi hành nghề (PL XII, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Điều dưỡng' AND XML3.MA_DICH_VU NOT IN DM_PL_XII_TT32`, CANH_BAO: `⛔ [SAI PHẠM]: Điều dưỡng thực hiện kỹ thuật ngoài phạm vi hành nghề (PL XII, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-008', MA_LUAT: 'NS_08', TEN_QUY_TAC: `Hộ sinh - Phạm vi hành nghề (PL XIII, TT 32)`, DIEU_KIEN: `DM_NHAN_SU.PHAM_VI_HANH_NGHE = 'Hộ sinh' AND XML3.MA_DICH_VU NOT IN DM_PL_XIII_TT32`, CANH_BAO: `⛔ [SAI PHẠM]: Hộ sinh thực hiện DVKT ngoài 133 kỹ thuật Sản-Nhi (PL XIII, TT 32/2023/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-009', MA_LUAT: 'NS_09', TEN_QUY_TAC: `Kiểm tra phân cấp kỹ thuật theo vị trí chuyên môn`, DIEU_KIEN: `XML3.MA_DICH_VU IN DM_DVKT.MA_DICH_VU AND DM_NHAN_SU.VI_TRI_CHUYEN_MON NOT MATCH DM_DVKT.PHAN_LOAI_PTTT`, CANH_BAO: `⛔ [SAI QUY ĐỊNH]: Người thực hiện không đủ phân cấp kỹ thuật (VD: Y sĩ làm kỹ thuật dành cho Bác sĩ).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-010', MA_LUAT: 'NS_10', TEN_QUY_TAC: `BS "Phân thân" - Trùng thời gian thực hiện DVKT (trừ CLS xét nghiệm)`, DIEU_KIEN: `XML3.NGUOI_THUC_HIEN = SAME_BS AND XML3.NGAY_YL OVERLAP ACROSS DIFFERENT XML1.MA_LK AND NOT(XML3 là DVKT nhóm xét nghiệm: MA_NHOM==2 hoặc TEN_DICH_VU gợi xét nghiệm)`, CANH_BAO: `⛔ [XUẤT TOÁN]: BS ({NGUOI_THUC_HIEN}) thực hiện ≥2 DVKT/PTTT cùng thời điểm (NGAY_YL) trên ≥2 bệnh nhân khác nhau. Không áp dụng cho dòng dịch vụ nhóm xét nghiệm (MA_NHOM=2 / tên DVKT xét nghiệm) — nhân viên chuyên môn xét nghiệm.`, TRANG_THAI: 'ON' },
+  { id: 'NS-011', MA_LUAT: 'NS_11', TEN_QUY_TAC: `Kê thuốc đặc trị - BS không có quyền kê`, DIEU_KIEN: `XML1.MA_BAC_SI = DM_NHAN_SU.MA_CCHN AND XML2.MA_THUOC IN DM_THUOC_DAC_TRI AND DM_NHAN_SU.VI_TRI_CHUYEN_MON != 'BAC_SI_CHUYEN_KHOA'`, CANH_BAO: `⚠️ [CẢNH BÁO]: Thuốc đặc trị ({MA_THUOC}) chỉ được kê bởi BS chuyên khoa (TT 30/2018/TT-BYT).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-012', MA_LUAT: 'NS_12', TEN_QUY_TAC: `CCHN hết hạn hoặc bị thu hồi`, DIEU_KIEN: `DM_NHAN_SU.NGAY_HET_HAN_CCHN < XML1.NGAY_VAO AND DM_NHAN_SU.TRANG_THAI_CCHN = 'HET_HAN'`, CANH_BAO: `⛔ [SAI QUY ĐỊNH]: Người hành nghề ({NGUOI_THUC_HIEN}) có CCHN hết hạn/bị thu hồi tại thời điểm KCB. Vi phạm Luật KCB 2023.`, TRANG_THAI: 'OFF' },
+  { id: 'NS-013', MA_LUAT: 'NS_13', TEN_QUY_TAC: `DVKT ngoài DMDC BHYT hoặc ngoài phạm vi CSKCB`, DIEU_KIEN: `XML3.MA_DICH_VU NOT IN DM_DVKT_BHYT.MA_DICH_VU OR XML3.MA_DICH_VU NOT IN DM_CSKCB.DANH_MUC_KT_DUOC_PHEP`, CANH_BAO: `⛔ [XUẤT TOÁN]: DVKT {MA_DICH_VU} không thuộc DMDC BHYT hoặc ngoài phạm vi được cấp phép của CSKCB ({MA_CSKCB}).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-014', MA_LUAT: 'NS_14', TEN_QUY_TAC: `BS chỉ định ≠ BS thực hiện - Thiếu y lệnh`, DIEU_KIEN: `XML3.NGUOI_THUC_HIEN != XML1.MA_BAC_SI AND XML3.MA_DICH_VU IN DM_DVKT_CAN_CHI_DINH AND XML3.MA_PTTT_QT IS NULL`, CANH_BAO: `⚠️ [CẢNH BÁO]: DVKT {MA_DICH_VU} do người khác thực hiện nhưng thiếu y lệnh/chỉ định của BS điều trị (Bảng 1).`, TRANG_THAI: 'OFF' },
+  { id: 'NS-015', MA_LUAT: 'NS_15', TEN_QUY_TAC: `Nhân sự không đăng ký tại CSKCB hiện tại`, DIEU_KIEN: `XML3.NGUOI_THUC_HIEN IN DM_NHAN_SU.MA_CCHN AND DM_NHAN_SU.MA_CSKCB_DANG_KY != XML1.MA_CSKCB`, CANH_BAO: `⚠️ [CẢNH BÁO]: Người thực hiện ({NGUOI_THUC_HIEN}) có CCHN nhưng không đăng ký hành nghề tại CSKCB {MA_CSKCB}.`, TRANG_THAI: 'OFF' },
+]);
+
+export const layDanhSachLuatNhanSuHardcoded = () => CACHE_RULES_HARDCODED.map((row) => ({ ...row }));

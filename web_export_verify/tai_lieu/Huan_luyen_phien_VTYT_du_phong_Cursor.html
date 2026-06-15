@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Huấn luyện VTYT cho AI — phiên dự phòng (chưa có fixture audit trong repo)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huan_luyen_phien_VTYT_du_phong_Cursor.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Huấn luyện VTYT cho AI — phiên dự phòng (chưa có fixture audit trong repo)</h1>
+<p><strong>Phiên bản:</strong> 1.5<br><strong>Ngày:</strong> 09/04/2026<br><strong>Trạng thái:</strong> <strong>Chưa</strong> có file <code>test_xml/audit_*</code> chuyên VTYT và ca mẫu <code>Ca_huan_luyen_mau_*VTYT*</code> — tài liệu này là <strong>khung</strong> để khi có hồ sơ + audit thì bổ sung theo cùng tinh thần phiên DVKT.</p>
+<p><strong>CSDL rule trong repo:</strong> <strong>Không</strong> có seed <strong><code>DM-VTYT-*</code></strong> (kiểm tra thanh toán VTYT theo danh mục như DVKT/thuốc) — xem <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>0</strong>.</p>
+<p><strong>Chuẩn hóa suy luận cho AI (đọc trước):</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> — nguyên tắc P1–P5, ma trận nguồn rule, <strong>§3</strong> về nghĩa <code>XML1.T_VTYT</code> trong dự án.<br><strong>Bảng neo mã ↔ engine (VTYT + nhánh liên quan):</strong> <a href="./Bang_neo_phien_huan_luyen_vtyt_va_engine.md">Bang_neo_phien_huan_luyen_vtyt_va_engine.md</a>.</p>
+<p><strong>Văn bản pháp lý “điều kiện thanh toán VTYT BHYT” hiện hành (neo trong repo):</strong> mục <strong>11.6</strong> <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> — trụ cột là <strong>14/VBHN-BYT 2025</strong> (liên kết công khai cùng ID <strong>670262</strong>). Bản <code>.doc</code> tải từ Thư viện pháp luật (ví dụ tên <code>14_VBHN-BYT_670262.doc</code>) là <strong>cùng văn bản</strong> đó; trong repo <strong>không</strong> nhúng file <code>.doc</code> — nếu cần học offline, giữ bản tải ngoài repo hoặc chuyển sang <strong>PDF/txt</strong> rồi (tuỳ chính sách đơn vị) đặt vào thư mục tài liệu nội bộ. AI chỉ neo theo <strong>mục 11.6 + mã nguồn</strong> <code>CO_SO_PHAP_LY_VTYT</code>, không trích dẫn nội dung từ <code>.doc</code> nếu không được dán vào phiên làm việc.</p>
+<hr>
+<h2>1. Vì sao tách khỏi DVKT / thuốc</h2>
+<ul>
+<li>VTYT thường nằm <strong>XML3</strong> (<code>MA_VAT_TU</code>, <code>GOI_VTYT</code>, <code>TYLE_TT</code>…) và có <strong>danh mục + điều kiện</strong> riêng (VBHN 14, TT 04/2017…), khác seed <strong><code>DVKT_*</code></strong> và khác <strong><code>THUOC_*</code> / M8</strong>.</li>
+<li>Giao thoa <strong>đã kết cấu trong giá DVKT / ngày giường</strong> — xem mục <strong>11.5</strong> và <strong>11.6</strong> trong <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>.</li>
+</ul>
+<hr>
+<h2>2. Hiện tại dùng gì để “luyện đọc điều kiện danh mục”</h2>
+<p>Cho đến khi có audit VTYT:</p>
+<ul>
+<li><strong>Chuẩn hóa VTYT (AI):</strong> <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a>.  </li>
+<li><strong>Đợt 3 (thuốc + XML liên quan)</strong> trong <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a> — Bước 3.  </li>
+<li><strong>Cách đọc cột điều kiện / danh mục</strong> (tinh thần tương tự VTYT): <a href="./The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md">The_tri_thuc_mau_thanh_toan_thuoc_BHYT.md</a>.  </li>
+<li><strong>Neo engine thuốc</strong>: <a href="./Bang_neo_phien_huan_luyen_thuoc_va_engine.md">Bang_neo_phien_huan_luyen_thuoc_va_engine.md</a>, <a href="./The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md">The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</a>.</li>
+</ul>
+<hr>
+<h2>3. Checklist khi đã có <code>MA_LK</code> + XML + JSON audit VTYT</h2>
+<ol>
+<li>Xác định <strong>XML3</strong> (hoặc XML4/5 nếu rule đó khai báo) — <code>index</code>, <code>MA_VAT_TU</code>, <code>GOI_VTYT</code>, <code>TYLE_TT</code>.  </li>
+<li><strong>Không</strong> gộp cảnh báo VTYT với <strong>HC_</strong>* / <strong>HD_</strong>* nếu không cùng phân hệ — áp dụng phân lớp trong <a href="./Ky_nang_cot_loi_giam_dinh_AI_BHYT.md">Ky_nang_cot_loi_giam_dinh_AI_BHYT.md</a>.  </li>
+<li>Neo <code>co_so_phap_ly</code> trong cảnh báo (nếu có) với <strong>VBHN VTYT</strong> trong <code>dong_co_giam_dinh.jsx</code> — không bịa giá hay % ngoài hồ sơ.  </li>
+<li>Chạy <code>npm run qa:audit-fixtures</code> sau khi thêm file audit vào bộ fixture.</li>
+</ol>
+<hr>
+<h2>4. Việc cần làm để “mở” phiên VTYT đầy đủ</h2>
+<h3>4.1. Tài liệu &amp; audit (ưu tiên trước khi nạp rule)</h3>
+<ul>
+<li>Thêm <strong>ít nhất một</strong> <code>test_xml/audit_*.json</code> có cảnh báo gắn VTYT (hoặc rule gắn <code>MA_VAT_TU</code> / prefix <strong><code>DM-VTYT-</code></strong> sau khi có seed).  </li>
+<li>Viết <code>Ca_huan_luyen_mau_&lt;MA_LK&gt;_VTYT_*.md</code> (mục tiêu, nguồn audit, tóm tắt, không PII).  </li>
+<li>Neo vào <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a> mục <strong>11.6</strong> và (khi có) bảng neo tương tự DVKT.</li>
+</ul>
+<h3>4.2. Khi đơn vị muốn <strong>có thanh toán VTYT trong CSDL</strong> (bổ sung rule — lập trình)</h3>
+<p>Hiện <strong>chưa có</strong> seed <strong><code>DM-VTYT-*</code></strong> (<a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>0</strong>). Lộ trình gợi ý (theo cùng tinh thần các nhóm <code>DVKT_*</code> / <code>THUOC_*</code>):</p>
+<ol>
+<li><strong>Quy ước mã:</strong> dùng tiền tố <strong><code>DM-VTYT-</code></strong> + id nội bộ; <code>co_so_phap_ly</code> sẽ ăn sẵn cụm <strong>VBHN_VTYT</strong> qua <code>dong_co_giam_dinh.jsx</code> (đã map).  </li>
+<li><strong>Nơi khai báo:</strong> thêm rule động vào bảng luật XML đang dùng (cùng pattern với rule nhóm khác trong <code>ma_nguon/tien_ich/du_lieu_luat_*.jsx</code> hoặc cơ chế ON/OFF nội bộ — <strong>theo chỗ đội dự án đang gắn rule mới</strong>).  </li>
+<li><strong>Điều kiện:</strong> bám <strong>XML3</strong> (<code>MA_VAT_TU</code>, <code>TYLE_TT</code>, <code>SO_LUONG</code>, <code>NGAY_YL</code>…) và XML1/4/5 nếu cần; tránh pseudo-field chưa có trong parser.  </li>
+<li><strong>Kiểm thử:</strong> <code>npm run qa:audit-fixtures</code> + <code>npm run qa:on-off-match</code> sau khi thêm audit mẫu; cập nhật <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_VTYT.md</a> §<strong>0</strong> (bỏ dòng “chưa có seed” hoặc ghi <strong>từ phiên bản …</strong>).  </li>
+<li><strong>Huấn luyện AI:</strong> một dòng trong bảng neo + ví dụ <code>ma_luat</code> thật trong <code>Bai_tap</code> hoặc ca mẫu.</li>
+</ol>
+<hr>
+<p><em>Cập nhật phiên bản này khi repo có fixture VTYT đầu tiên hoặc seed <code>DM-VTYT-*</code> đầu tiên.</em></p>
+
+  </main>
+</body>
+</html>

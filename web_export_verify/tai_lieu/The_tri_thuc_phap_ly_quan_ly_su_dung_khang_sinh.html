@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC PHÁP LÝ VỀ QUẢN LÝ SỬ DỤNG KHÁNG SINH</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_phap_ly_quan_ly_su_dung_khang_sinh.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC PHÁP LÝ VỀ QUẢN LÝ SỬ DỤNG KHÁNG SINH</h1>
+<p>Phiên bản tài liệu: 1.1<br>Ngày cập nhật: 08/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này chuẩn hóa các nguyên tắc pháp lý và nghiệp vụ cốt lõi để AI dùng khi:</p>
+<ul>
+<li>phân tích ca kháng sinh điều trị</li>
+<li>phân tích ca kháng sinh dự phòng phẫu thuật</li>
+<li>giải thích vì sao một rule stewardship có ý nghĩa</li>
+<li>nhận diện chỗ lệch giữa <code>nguồn chuyên môn</code> và <code>logic engine đang chạy</code></li>
+</ul>
+<p>Danh mục URL và thứ tự ưu tiên nguồn gốc: <strong><code>Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code></strong> (bản 1.1+).</p>
+<p>Nguồn nền dùng để rút thẻ:</p>
+<ul>
+<li><code>Quyết định 5631/QĐ-BYT năm 2020</code></li>
+<li><code>Quyết định 2115/QĐ-BYT ngày 11/05/2023</code> và sổ tay kèm theo</li>
+<li><code>Hướng dẫn sử dụng kháng sinh</code> bản cập nhật cuối khi in <code>09/01/2015</code></li>
+<li><code>British National Formulary - BNF 85</code> cho nguyên tắc dùng kháng sinh trẻ em</li>
+<li><code>15/VBHN-BYT năm 2025</code> cho đối chiếu phạm vi thanh toán thuốc BHYT</li>
+</ul>
+<p>Lưu ý phạm vi:</p>
+<ul>
+<li>Đây là bộ <code>thẻ tri thức huấn luyện</code>, không thay thế việc mở tài liệu gốc khi cần trích nguyên văn hoặc tranh luận pháp lý chi tiết.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-01. Mục tiêu của chương trình quản lý sử dụng kháng sinh</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Quản lý sử dụng kháng sinh không chỉ nhằm giảm chi phí thanh toán.</li>
+<li>Mục tiêu đồng thời là:<ul>
+<li>tối ưu hiệu quả điều trị</li>
+<li>giảm kháng thuốc</li>
+<li>giảm độc tính và biến cố bất lợi</li>
+<li>chuẩn hóa thực hành kê đơn trong bệnh viện</li>
+</ul>
+</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Khi gặp rule liên quan <code>hội chẩn</code>, <code>kháng sinh đồ</code>, <code>TDM</code>, <code>giám sát xét nghiệm</code>, AI không được diễn đạt như một lỗi kế toán đơn thuần.</li>
+<li>AI phải hiểu đây là lớp <code>stewardship</code> và <code>an toàn điều trị</code>.</li>
+</ul>
+<h3>3. Câu hỏi kiểm tra nhanh</h3>
+<ul>
+<li>Cảnh báo này đang bảo vệ <code>thanh toán</code>, <code>an toàn</code>, hay <code>quản trị sử dụng kháng sinh</code>?</li>
+</ul>
+<hr>
+<h2>Thẻ PL-02. Kháng sinh dự phòng phẫu thuật phải khác kháng sinh điều trị</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Kháng sinh dự phòng phẫu thuật là kháng sinh dùng để ngăn ngừa nhiễm khuẩn quanh mổ, không mặc nhiên đồng nghĩa với điều trị nhiễm khuẩn.</li>
+<li>Không được gộp chung mọi trường hợp <code>sau mổ</code> thành <code>dự phòng</code> nếu hồ sơ đã có bằng chứng nhiễm khuẩn.</li>
+</ul>
+<h3>2. Dữ liệu AI phải đọc</h3>
+<ul>
+<li><code>MA_PTTT_QT</code></li>
+<li>XML3 có thủ thuật/phẫu thuật gì</li>
+<li>chẩn đoán nhiễm khuẩn ở XML1</li>
+<li>diễn biến bệnh ở XML5</li>
+<li>thời gian và thời lượng dùng thuốc ở XML2</li>
+</ul>
+<h3>3. Ý nghĩa cho AI</h3>
+<ul>
+<li>Nếu hồ sơ có <code>mổ</code> nhưng đồng thời có <code>nhiễm</code>, <code>áp xe</code>, <code>bội nhiễm</code>, <code>viêm mủ</code>, AI phải đặt câu hỏi liệu đây là <code>điều trị</code> hay <code>dự phòng kéo dài</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-03. Nguyên tắc thời điểm dùng kháng sinh dự phòng</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Kháng sinh dự phòng chỉ có ý nghĩa khi gắn chặt với thời điểm phẫu thuật/thủ thuật.</li>
+<li>Nếu thời điểm dùng lệch xa bối cảnh mổ, giá trị dự phòng giảm đi và cần xem lại chỉ định thực tế.</li>
+</ul>
+<h3>2. Dữ liệu cần đối chiếu</h3>
+<ul>
+<li><code>XML2.NGAY_YL</code></li>
+<li><code>XML3.NGAY_YL</code></li>
+<li><code>XML3.NGAY_TH_YL</code></li>
+<li>các dấu mốc mổ hoặc thủ thuật trong hồ sơ</li>
+</ul>
+<h3>3. Ý nghĩa cho AI</h3>
+<ul>
+<li>AI không nên chỉ đọc <code>SO_NGAY</code>; phải đọc cả <code>thời điểm khởi đầu</code> so với can thiệp phẫu thuật.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-04. Kháng sinh dự phòng không nên kéo dài không có căn cứ</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Tinh thần chung của tài liệu quản lý sử dụng kháng sinh là hạn chế kéo dài kháng sinh dự phòng khi không có bằng chứng chuyển sang nhiễm khuẩn thật.</li>
+</ul>
+<h3>2. Dấu hiệu AI cần tìm</h3>
+<ul>
+<li>thời lượng dùng vượt quá khoảng dự phòng thông thường</li>
+<li>không có ICD hoặc diễn biến chứng minh nhiễm khuẩn</li>
+<li>không có xét nghiệm, cấy hoặc hội chẩn bổ sung giải thích vì sao kéo dài</li>
+</ul>
+<h3>3. Ý nghĩa cho AI</h3>
+<ul>
+<li>Đây là nền giải thích cho các rule kiểu <code>dự phòng quá 24 giờ</code>.</li>
+<li>Nếu hồ sơ kéo dài hơn nhưng có bằng chứng nhiễm khuẩn, AI phải chuyển tư duy từ <code>dự phòng</code> sang <code>điều trị</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-05. Kháng sinh điều trị phải gắn với chẩn đoán và ổ nhiễm khuẩn</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Kháng sinh điều trị phải có căn cứ từ vị trí nhiễm khuẩn, mức độ bệnh, chẩn đoán, và bối cảnh lâm sàng.</li>
+</ul>
+<h3>2. Dữ liệu cần đọc</h3>
+<ul>
+<li>ICD chính và kèm theo</li>
+<li>chẩn đoán vào viện, ra viện</li>
+<li>diễn biến lâm sàng</li>
+<li>kết quả xét nghiệm liên quan nếu có</li>
+</ul>
+<h3>3. Ý nghĩa cho AI</h3>
+<ul>
+<li>Khi phản biện các rule chỉ định thuốc theo ICD-10, AI phải nhớ rằng <code>ICD</code> là một căn cứ quan trọng nhưng không phải căn cứ duy nhất.</li>
+<li>Nếu bối cảnh lâm sàng mạnh mà ICD chưa phản ánh đủ, AI phải ghi nhận khả năng <code>thiếu mã hóa</code> hoặc <code>khoảng trống logic của rule</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-06. Cần ưu tiên lấy bằng chứng vi sinh khi phù hợp</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Chương trình quản lý sử dụng kháng sinh nhấn mạnh việc dùng bằng chứng vi sinh và kháng sinh đồ khi cần, đặc biệt với kháng sinh phổ rộng hoặc nhóm cần kiểm soát.</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Khi hồ sơ dùng kháng sinh mạnh, kéo dài, hoặc phối hợp nhiều loại, AI nên chủ động hỏi thêm:<ul>
+<li>có nuôi cấy không</li>
+<li>có kháng sinh đồ không</li>
+<li>có điều chỉnh thuốc theo kết quả không</li>
+</ul>
+</li>
+</ul>
+<h3>3. Nhóm rule liên quan trong repo</h3>
+<ul>
+<li>các rule về <code>KS_DO</code></li>
+<li>các rule stewardship cho nhóm <code>G3</code></li>
+</ul>
+<hr>
+<h2>Thẻ PL-07. Đánh giá lại kháng sinh sau một khoảng điều trị ban đầu</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Tinh thần quản lý sử dụng kháng sinh là phải đánh giá lại sau giai đoạn đầu điều trị để quyết định:<ul>
+<li>tiếp tục</li>
+<li>đổi thuốc</li>
+<li>xuống thang</li>
+<li>ngừng thuốc</li>
+</ul>
+</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Với ca nội trú kéo dài nhiều ngày, AI không nên chỉ nhìn ngày đầu kê thuốc.</li>
+<li>AI cần đọc toàn bộ diễn biến, xét nghiệm và thay đổi phác đồ nếu có.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-08. Kháng sinh cần kiểm soát phải có quy trình phê duyệt hoặc hội chẩn phù hợp</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Một số kháng sinh cần được quản lý chặt hơn thông qua hội chẩn, phê duyệt, hoặc điều kiện bổ sung tùy mô hình bệnh viện.</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Khi gặp các kháng sinh hạn chế, AI phải tìm thêm bằng chứng về:<ul>
+<li>hội chẩn</li>
+<li>ý kiến chuyên khoa</li>
+<li>căn cứ vi sinh</li>
+<li>lý do dùng thuốc vượt mức thông thường</li>
+</ul>
+</li>
+</ul>
+<h3>3. Liên hệ với repo</h3>
+<ul>
+<li>Đây là nền nghiệp vụ cho các rule kiểu <code>Linezolid</code>, <code>Vancomycin</code>, <code>G3</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-09. Không để AI kết luận quá mức khi dữ liệu thiếu</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Nếu hồ sơ thiếu đường dùng, thiếu thời điểm mổ, thiếu diễn biến bệnh, hoặc thiếu căn cứ vi sinh, AI không được kết luận chắc chắn theo kiểu tuyệt đối.</li>
+</ul>
+<h3>2. Cách kết luận đúng</h3>
+<ul>
+<li>Thay vì nói <code>sai chắc chắn</code>, AI nên nói:<ul>
+<li><code>nghi dự phòng kéo dài chưa có đủ căn cứ</code></li>
+<li><code>cần kiểm tra thêm XML3/XML5</code></li>
+<li><code>có khả năng thiếu mã hóa hoặc thiếu dữ liệu</code></li>
+</ul>
+</li>
+</ul>
+<h3>3. Giá trị huấn luyện</h3>
+<ul>
+<li>Đây là thẻ rất quan trọng để giảm <code>false positive</code> trong phân tích hồ sơ thật.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-10. Cách xử lý khi nguồn chuyên môn và engine đang lệch nhau</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Trong repo này, <code>mã nguồn đang chạy</code> là nguồn sự thật của hành vi hệ thống.</li>
+<li>Nhưng khi giải thích nghiệp vụ kháng sinh, AI vẫn phải đối chiếu với nguồn chuyên môn đã chốt.</li>
+</ul>
+<h3>2. Quy tắc trả lời đúng</h3>
+<ul>
+<li>Nếu engine chưa phủ đúng tinh thần tài liệu chuyên môn:<ul>
+<li>nói rõ đây là <code>khoảng cách giữa nguồn nghiệp vụ và logic hệ thống</code></li>
+<li>nêu dữ liệu cần kiểm chứng thêm</li>
+<li>không tự ý đề xuất sửa rule diện rộng nếu chưa có thêm ca thật đối chứng</li>
+</ul>
+</li>
+</ul>
+<h3>3. Giá trị huấn luyện</h3>
+<ul>
+<li>Thẻ này giúp AI làm việc an toàn khi gặp các ca như <code>403521</code>, nơi bối cảnh dự phòng rất rõ nhưng cảnh báo thuốc chưa chắc đã xuất hiện đúng mức.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-11. Kháng sinh trẻ em không được suy trực tiếp từ liều người lớn</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Trong nhi khoa, liều kháng sinh phải được đọc theo <code>cân nặng</code>, <code>tuổi</code>, <code>đường dùng</code>, <code>tần suất</code>, và khi cần là <code>chức năng thận</code>.</li>
+<li>Không được lấy liều người lớn rồi chia ước lượng cho trẻ em.</li>
+</ul>
+<h3>2. Dữ liệu AI phải kiểm tra</h3>
+<ul>
+<li><code>XML1.CAN_NANG</code></li>
+<li>tuổi từ <code>NGAY_SINH</code></li>
+<li>tổng liều 24 giờ</li>
+<li>số lần dùng trong ngày</li>
+<li>dạng bào chế và hàm lượng thực tế</li>
+</ul>
+<h3>3. Ý nghĩa cho AI</h3>
+<ul>
+<li>Khi hồ sơ có cân nặng, AI phải ưu tiên tư duy <code>mg/kg/ngày</code> thay vì chỉ đọc <code>số viên</code>, <code>số gói</code>, <code>số lọ</code>.</li>
+<li>Đây là thẻ nền cho tất cả rule kháng sinh trẻ em, không chỉ riêng <code>Amoxicillin/Clavulanate</code>.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-12. Kháng sinh trẻ em luôn cần đối chiếu trần liều tối đa</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Liều tính theo cân nặng vẫn phải được chặn bởi <code>trần liều tối đa an toàn</code> nếu có.</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Một công thức <code>mg/kg</code> đúng chưa đủ để kết luận an toàn tuyệt đối.</li>
+<li>AI phải kiểm tra thêm nguy cơ vượt trần liều ngày, đặc biệt với beta-lactam và các thuốc có nguy cơ độc tính cao.</li>
+</ul>
+<h3>3. Liên hệ với repo</h3>
+<ul>
+<li>Các rule như <code>THUOC_42</code> là ví dụ đã có của tư duy này, nhưng phạm vi hiện còn hẹp.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-13. Phạm vi thanh toán thuốc BHYT không chỉ phụ thuộc tên thuốc</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Khi đánh giá thanh toán thuốc BHYT, AI không được nhìn mỗi <code>tên thương mại</code>.</li>
+<li>Phải đối chiếu đồng thời:<ul>
+<li>hoạt chất</li>
+<li>dạng bào chế</li>
+<li>nồng độ hoặc hàm lượng</li>
+<li>đường dùng</li>
+<li>điều kiện chỉ định và đối tượng áp dụng nếu có</li>
+</ul>
+</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Hai thuốc cùng hoạt chất nhưng khác hàm lượng hoặc đường dùng có thể không cùng điều kiện thanh toán.</li>
+<li>Đây là lớp tri thức quan trọng khi đọc các rule <code>THUOC_*</code> theo mã thuốc cụ thể.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-14. Quyền thanh toán BHYT của thuốc phải gắn với bối cảnh hồ sơ thực tế</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Một thuốc thuộc phạm vi thanh toán chưa đủ để kết luận thanh toán đúng.</li>
+<li>AI còn phải kiểm tra xem hồ sơ có <code>căn cứ chỉ định</code>, <code>bối cảnh điều trị</code>, và <code>dữ liệu mã hóa</code> phù hợp hay không.</li>
+</ul>
+<h3>2. Ý nghĩa cho AI</h3>
+<ul>
+<li>Nếu hồ sơ có bối cảnh lâm sàng hợp lý nhưng mã hóa ICD chưa đủ, AI phải ghi nhận khả năng <code>thiếu mã hóa</code> hoặc <code>rule quá hẹp</code>.</li>
+<li>Nếu vừa thiếu căn cứ lâm sàng vừa thiếu mã hóa, nguy cơ xuất toán cao hơn nhiều.</li>
+</ul>
+<hr>
+<h2>Thẻ PL-15. Ca trẻ em dùng kháng sinh cần kết luận thận trọng hơn ca người lớn</h2>
+<h3>1. Mệnh đề cốt lõi</h3>
+<ul>
+<li>Với ca trẻ em, AI phải mặc định mức độ thận trọng cao hơn vì sai liều hoặc sai tần suất dễ gây hậu quả hơn.</li>
+</ul>
+<h3>2. Quy trình gợi ý</h3>
+<ul>
+<li>xác nhận tuổi và cân nặng</li>
+<li>quy đổi tổng liều ngày</li>
+<li>đối chiếu theo nhóm thuốc và đường dùng</li>
+<li>kiểm tra trần liều và tần suất</li>
+<li>sau đó mới bàn đến thanh toán BHYT</li>
+</ul>
+<h2>2. Cách dùng bộ thẻ này</h2>
+<ul>
+<li>Đọc trước <code>Bo_nguon_tri_thuc_quan_ly_su_dung_khang_sinh.md</code> để biết nguồn nào được ưu tiên và thứ tự suy luận (XML → rule → phân biệt nghiệp vụ vs engine).</li>
+<li>Dùng cùng <code>The_tri_thuc_mau_nhom_thuoc_dot4_khang_sinh.md</code> khi huấn luyện nhóm thuốc.</li>
+<li>Dùng trước khi tạo ca <code>false positive</code>, <code>false negative</code>, hoặc ca <code>tranh chấp nghiệp vụ</code> liên quan kháng sinh.</li>
+<li>Dùng để giải thích vì sao một rule stewardship cần tồn tại ngay cả khi không gắn trực tiếp với xuất toán BHYT.</li>
+</ul>
+
+  </main>
+</body>
+</html>

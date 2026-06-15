@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000589 - CEFOTAXIME ĐIỀU TRỊ TIÊM VÀ LỖI CHUẨN HÓA ĐƠN VỊ</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000589_Cefotaxime_dieu_tri_tiem.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000589 - CEFOTAXIME ĐIỀU TRỊ TIÊM VÀ LỖI CHUẨN HÓA ĐƠN VỊ</h1>
+<p>Phiên bản tài liệu: 1.1<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Ca này dùng để dạy AI một loại lỗi khó hơn lỗi chỉ định đơn thuần: <code>cảnh báo số lượng sai do chưa chuẩn hóa đơn vị giữa mg và lọ</code>.</p>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>XML gốc: <code>tai_nguyen/xml2_ip/PC022300757_000589.xml</code></li>
+<li>Audit trước sửa: <code>test_xml/audit_000589_20260405_232716.json</code></li>
+<li>Audit sau sửa: <code>test_xml/audit_000589_20260406_075114.json</code></li>
+<li>Kết quả quét tổng hợp: <code>test_xml/antibiotic_case_scan.json</code></li>
+</ul>
+<h2>3. Bối cảnh hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>000589</code></li>
+<li>Kháng sinh chính cần tập trung: <code>Tenamyd-Cefotaxime 1000</code></li>
+<li>Đường dùng: <code>tiêm/truyền</code></li>
+<li>Chẩn đoán chính: <code>J03</code></li>
+<li>Chẩn đoán ra viện: <code>Viêm amyđan cấp; khó tiêu chức năng</code></li>
+</ul>
+<h2>4. Dữ liệu thuốc thật đã xác nhận</h2>
+<ul>
+<li><code>TEN_THUOC = Tenamyd-Cefotaxime 1000</code></li>
+<li><code>LIEU_DUNG = 550 mg/lần * 3 lần/ngày * 01 ngày [1650 mg/ngày]</code></li>
+</ul>
+<p>Điểm AI cần nhận ra:</p>
+<ul>
+<li>liều đang được mô tả bằng <code>mg/ngày</code></li>
+<li>trong khi <code>SO_LUONG</code> ở XML2 thường là đơn vị cấp phát như <code>lọ</code></li>
+</ul>
+<h2>5. Kết quả audit và thay đổi sau sửa engine</h2>
+<p>Trước khi sửa engine, audit có <code>8</code> cảnh báo, trong đó đáng chú ý là:</p>
+<ul>
+<li><code>THUOC_391</code>: xuất hiện <code>2</code> lần trên <code>Tenamyd-Cefotaxime 1000</code></li>
+<li><code>THUOC_417</code> và <code>THUOC_63</code> lại rơi vào <code>DOMUVAR</code>, không phải kháng sinh chính của ca</li>
+</ul>
+<p>Thông điệp quan trọng từ <code>THUOC_391</code> lúc đó:</p>
+<ul>
+<li>hệ thống tính: <code>Cấp phát 3 &lt; y lệnh 1650</code></li>
+<li>rồi kết luận thiếu <code>1647 đơn vị</code></li>
+</ul>
+<p>Sau khi bổ sung chặn dữ liệu tự mâu thuẫn về đơn vị trong engine:</p>
+<ul>
+<li>audit giảm còn <code>6</code> cảnh báo</li>
+<li><code>THUOC_391</code> đã rơi khỏi kết quả</li>
+<li>các cảnh báo còn lại tập trung vào <code>DOMUVAR</code>, hành chính, và <code>XML_121</code></li>
+</ul>
+<h2>6. Vấn đề cốt lõi</h2>
+<p>Con số <code>1650</code> ở đây là <code>mg/ngày</code>, không phải <code>lọ/ngày</code>.</p>
+<p>Vì vậy, cảnh báo cũ rất có khả năng đang so sánh sai 2 đại lượng khác đơn vị:</p>
+<ul>
+<li><code>SO_LUONG = số lọ hoặc số đơn vị cấp phát</code></li>
+<li><code>SL_MOI_NGAY = số mg/ngày</code> hoặc giá trị chưa chuẩn hóa về cùng đơn vị</li>
+</ul>
+<h2>7. Kết luận huấn luyện mẫu</h2>
+<p>Kết luận đúng cho ca này sau khi đã kiểm thử lại nên là:</p>
+<ol>
+<li>Hồ sơ có <code>Cefotaxime</code> điều trị tiêm trong bối cảnh viêm amydan cấp.</li>
+<li>Cảnh báo <code>THUOC_391</code> trước đây là <code>false positive kỹ thuật</code>, vì so sánh <code>3</code> với <code>1650</code> là bất thường về mặt nghiệp vụ.</li>
+<li>Sau khi sửa engine, ca này trở thành ví dụ tốt cho việc <code>xác định đúng nguyên nhân gốc rồi sửa tại lớp chuẩn hóa/ngữ cảnh</code>, thay vì tắt rule hàng loạt.</li>
+</ol>
+<h2>8. Điều AI phải đề xuất kiểm tra thêm</h2>
+<ol>
+<li><code>SO_LUONG</code> đang tính theo <code>lọ</code>, <code>ống</code>, hay <code>mg</code>?</li>
+<li><code>DON_VI_TINH</code> có đang bị khai theo hoạt chất thay vì đơn vị đóng gói không?</li>
+<li>Có cần thêm bước quy đổi mở rộng cho các hàm lượng phức hợp ngoài mẫu <code>1g</code>, <code>500mg</code>, <code>5ml</code> hay không?</li>
+</ol>
+<h2>9. Bài học huấn luyện</h2>
+<h3>9.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Không phải cảnh báo số lượng nào cũng là lỗi cấp thiếu hoặc cấp dư thật.</li>
+<li>Với kháng sinh tiêm, phải cực kỳ chú ý tới <code>hàm lượng</code>, <code>lọ</code>, <code>mg</code> và <code>liều quy đổi</code>.</li>
+</ul>
+<h3>9.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Cần sửa ở gốc logic so sánh đơn vị, không nên vá bằng cách tắt cảnh báo hàng loạt.</li>
+<li>Điều này cũng phù hợp với tư duy thanh toán BHYT theo Điều 8 TT 37/2024: chỉ thanh toán khi dữ liệu kê đơn, chỉ định, sử dụng thuốc và căn cứ hồ sơ đủ tin cậy.</li>
+</ul>
+<h3>9.3. Bài học cho AI</h3>
+<ul>
+<li>Nếu thấy một cảnh báo có chênh lệch quá lớn và vô lý như <code>3</code> so với <code>1650</code>, AI phải nghi ngay tới <code>unit mismatch</code> trước khi kết luận bệnh viện cấp thiếu thuốc.</li>
+</ul>
+
+  </main>
+</body>
+</html>

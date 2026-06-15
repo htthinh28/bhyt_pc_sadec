@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KT08 — TỶ LỆ PHẪU THUẬT THỨ 2+ TRONG CÙNG MỘT LẦN MỔ (CV266) CHO AI KIỂM TRA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_CV266_KT08_PT_ty_le_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KT08 — TỶ LỆ PHẪU THUẬT THỨ 2+ TRONG CÙNG MỘT LẦN MỔ (CV266) CHO AI KIỂM TRA</h1>
+<p>Phiên bản: 1.0<br>Ngày: 19/04/2026  </p>
+<p><strong>Nguồn:</strong> Công văn 266 — chuyên đề Trung tâm Kiểm soát BHYT, <strong>PL01 / KT08</strong> (<em>PT sai tỷ lệ</em>), tệp tham chiếu <strong>15/09/2025</strong>.<br><strong>Mã từ chối gợi ý:</strong> T.008.667  </p>
+<hr>
+<h2>1. Căn cứ (tóm tắt)</h2>
+<ul>
+<li><strong>TT 35/2016/TT-BYT</strong> khoản 2 Điều 4d, được sửa đổi, bổ sung tại <strong>TT 39/2024/TT-BYT</strong> khoản 4 Điều 1.</li>
+<li>Nhiều can thiệp trong <strong>cùng một lần</strong> phẫu thuật: thanh toán theo DVKT phức tạp nhất / giá cao nhất; các phẫu thuật phát sinh ngoài quy trình của phẫu thuật đó:<ul>
+<li><strong>50%</strong> giá nếu vẫn do <strong>một kíp</strong> phẫu thuật thực hiện;</li>
+<li><strong>80%</strong> giá nếu phải <strong>thay kíp</strong> phẫu thuật khác.</li>
+</ul>
+</li>
+</ul>
+<h2>2. Giới hạn dữ liệu XML130</h2>
+<ul>
+<li>XML130 không luôn phân biệt rõ «PT chính» vs «PT phát sinh», không chuẩn hóa «cùng một lần mổ» theo giờ/phiếu GMHS.</li>
+<li>Cột <strong>TYLE_TT_BH</strong>, <strong>MA_BAC_SI</strong>, <strong>MA_PTTT</strong> trên XML3 có thể dùng để rà sâu hơn ngoài engine heuristic hiện tại.</li>
+</ul>
+<hr>
+<h2>3. Neo mã nguồn</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Ý nghĩa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CHUYEN_DE_XML130_SO_DONG_TEN_PHAU_THUAT_IT_NHAT_2_CV266_KT08</code></td>
+<td>≥2 dòng XML3 có <code>TEN_DICH_VU</code> gợi chữ «Phẫu thuật» / «Phau thuat».</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_NOI_TRU_CO_KHOANG_NAM_VIEN</code></td>
+<td>Nội trú / ban ngày (MA_LOAI_KCB 03/09/04) có NGAY_VAO — NGAY_RA hợp lệ.</td>
+</tr>
+<tr>
+<td><code>CHUYEN_DE_XML130_NGOAI_TRU_DUOI_10_PHUT</code></td>
+<td>Proxy ngoại trú «đợt rất ngắn» (loại trừ dương giả OP).</td>
+</tr>
+<tr>
+<td><strong><code>Chuyen_de_608</code></strong> / <code>CHUYEN_DE-608</code></td>
+<td>(Nội trú có khoảng nằm viện <strong>hoặc</strong> không phải proxy OP &lt;10 phút) <strong>và</strong> ≥2 dòng tên gợi phẫu thuật.</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>Cập nhật khi đổi logic phạm vi đợt KCB hoặc bổ sung đối chiếu TYLE_TT_BH/MA_BAC_SI: sửa <code>luat_giam_dinh_chuyen_de_hardcoded.jsx</code>.</em></p>
+
+  </main>
+</body>
+</html>

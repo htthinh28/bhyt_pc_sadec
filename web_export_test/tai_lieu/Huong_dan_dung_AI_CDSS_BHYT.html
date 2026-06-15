@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN DÙNG AI CDSS BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_dung_AI_CDSS_BHYT.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN DÙNG AI CDSS BHYT</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này là bản dùng nhanh 1 trang để sử dụng bộ AI đã cấu hình cho dự án <code>ung_dung_cdss_bhyt</code> trong VS Code.</p>
+<p>Mục tiêu:</p>
+<ul>
+<li>Giúp lập trình viên và đội nghiệp vụ gọi đúng agent/prompt cho từng tình huống.</li>
+<li>Giảm việc phải viết lại yêu cầu dài dòng mỗi lần làm việc.</li>
+<li>Giữ AI bám đúng kiến trúc đang chạy và hạn chế làm sai luồng nghiệp vụ.</li>
+</ul>
+<h2>2. Những gì đã được cấu hình</h2>
+<h3>2.1. AI mức repo CDSS BHYT</h3>
+<ul>
+<li>Workspace instructions: <code>.github/copilot-instructions.md</code></li>
+<li>Custom agent: <code>.github/agents/cdss-bhyt.agent.md</code></li>
+<li>Prompt nghiệp vụ: nằm trong <code>.github/prompts/</code></li>
+</ul>
+<p>AI mức repo có nhiệm vụ:</p>
+<ul>
+<li>Trả lời bằng tiếng Việt.</li>
+<li>Ưu tiên giữ nguyên chức năng hệ thống hiện có.</li>
+<li>Bám theo kiến trúc thật đang chạy qua <code>App.jsx</code> và <code>ma_nguon/dieu_huong/tuyen_duong.jsx</code>.</li>
+<li>Ưu tiên sửa root cause, thay đổi nhỏ, kiểm tra có mục tiêu.</li>
+</ul>
+<h3>2.2. AI mức cá nhân</h3>
+<ul>
+<li>Agent cá nhân: <code>Tro Ly Ky Thuat Ca Nhan</code></li>
+<li>Vị trí: hồ sơ VS Code của người dùng, không nằm trong repo Git</li>
+</ul>
+<p>AI mức cá nhân phù hợp khi:</p>
+<ul>
+<li>Làm việc đa dự án.</li>
+<li>Cần một trợ lý kỹ thuật dùng chung cho code, tài liệu, Git, review, debug.</li>
+</ul>
+<h2>3. Cách mở và sử dụng</h2>
+<h3>3.1. Dùng agent</h3>
+<p>Trong chat Copilot:</p>
+<ol>
+<li>Mở cửa sổ chat trong VS Code.</li>
+<li>Chọn agent ở thanh chọn agent.</li>
+<li>Chọn một trong hai agent sau:<ul>
+<li><code>CDSS BHYT Agent</code>: dùng riêng cho repo này.</li>
+<li><code>Tro Ly Ky Thuat Ca Nhan</code>: dùng cho nhiều repo/dự án.</li>
+</ul>
+</li>
+</ol>
+<h3>3.2. Dùng prompt</h3>
+<p>Trong chat Copilot:</p>
+<ol>
+<li>Gõ ký tự <code>/</code>.</li>
+<li>Chọn prompt mong muốn.</li>
+<li>Điền đầu vào ngắn gọn như mã hồ sơ, tên file XML, mã rule, màn hình, lỗi, hoặc mục tiêu chỉnh sửa.</li>
+</ol>
+<p>Nếu chưa thấy prompt hoặc agent mới:</p>
+<ul>
+<li>Mở chat mới.</li>
+<li>Hoặc Reload Window trong VS Code.</li>
+</ul>
+<h2>4. Bộ prompt hiện có và cách dùng</h2>
+<h3>4.1. Nhóm sửa lỗi và vận hành</h3>
+<ul>
+<li><p><code>Sua Loi CDSS</code>
+Dùng khi có lỗi màn hình, lỗi luồng nghiệp vụ, lỗi storage, lỗi điều hướng, lỗi rule engine.</p>
+</li>
+<li><p><code>Doc Loi Tu Anh CDSS</code>
+Dùng khi người dùng gửi ảnh chụp màn hình, popup, console, dashboard lỗi hoặc màn hình DocXML/Sua XML.</p>
+</li>
+<li><p><code>Review An Toan CDSS</code>
+Dùng khi cần review theo hướng tìm bug, regression, rủi ro nghiệp vụ, thiếu test.</p>
+</li>
+</ul>
+<h3>4.2. Nhóm XML và hồ sơ BHYT</h3>
+<ul>
+<li><p><code>Phan Tich XML BHYT Theo Ho So</code>
+Dùng khi cần lần theo một hồ sơ bằng <code>MA_LK</code>, tên file XML, XML1-XML6, mã rule hoặc trường dữ liệu.</p>
+</li>
+<li><p><code>So Sanh Truoc Sau Sua XML</code>
+Dùng khi cần so sánh bản trước và sau sửa của một hồ sơ XML BHYT.</p>
+</li>
+<li><p><code>Bao Cao Ket Qua Sua Ho So</code>
+Dùng khi cần viết nhanh báo cáo kết quả sau khi sửa hồ sơ.</p>
+</li>
+</ul>
+<h3>4.3. Nhóm tài liệu và quy trình</h3>
+<ul>
+<li><p><code>Cap Nhat Tai Lieu CDSS</code>
+Dùng khi cần cập nhật tài liệu theo đúng trạng thái mã nguồn đang chạy.</p>
+</li>
+<li><p><code>Chuan Bi Commit CDSS</code>
+Dùng khi cần rà soát thay đổi trước khi commit và đề xuất commit message.</p>
+</li>
+<li><p><code>Audit Rule CDSS</code>
+Dùng khi cần phân tích rule, hardcoded rules, seed rules, dashboard lỗi, báo cáo thống kê.</p>
+</li>
+</ul>
+<h2>5. Mẫu câu dùng nhanh</h2>
+<h3>5.1. Sửa lỗi</h3>
+<ul>
+<li><code>/Sua Loi CDSS Loi DocXML khi mo chi tiet ho so 000434, tren web bi QuotaExceededError</code></li>
+<li><code>/Doc Loi Tu Anh CDSS Anh chup popup loi sua XML nay dang cho thay gi?</code></li>
+</ul>
+<h3>5.2. Phân tích XML</h3>
+<ul>
+<li><code>/Phan Tich XML BHYT Theo Ho So MA_LK 000434, tap trung XML3 va XML5, rule THUOC_417</code></li>
+<li><code>/So Sanh Truoc Sau Sua XML So sanh 2 file XML truoc va sau sua cua ho so OP26002936</code></li>
+</ul>
+<h3>5.3. Rule và báo cáo</h3>
+<ul>
+<li><code>/Audit Rule CDSS Kiem tra vi sao rule THUOC_417 van danh sai tren ho so 000434</code></li>
+<li><code>/Bao Cao Ket Qua Sua Ho So Ho so 000434 da sua xong, viet bao cao ngan cho nghiep vu</code></li>
+</ul>
+<h3>5.4. Tài liệu và Git</h3>
+<ul>
+<li><code>/Cap Nhat Tai Lieu CDSS Cap nhat lai mo ta phan he DocXML va Sua XML theo ma nguon hien tai</code></li>
+<li><code>/Chuan Bi Commit CDSS Kiem tra thay doi hien tai va de xuat commit message</code></li>
+</ul>
+<h2>6. Nguyên tắc sử dụng an toàn</h2>
+<ul>
+<li>Luôn coi mã nguồn đang chạy là nguồn sự thật ưu tiên cao hơn tài liệu cũ.</li>
+<li>Khi giao việc liên quan nghiệp vụ, nên nêu rõ màn hình, mã hồ sơ, mã rule, hoặc file XML cụ thể.</li>
+<li>Với thay đổi lớn, nên yêu cầu AI nêu rõ file bị ảnh hưởng và cách kiểm tra lại.</li>
+<li>Nếu làm trên luồng nhạy cảm như dashboard, DocXML, Sua XML, báo cáo, rule engine hoặc storage, nên yêu cầu AI giữ nguyên hành vi cũ nếu không có chỉ đạo đổi hành vi.</li>
+</ul>
+<h2>7. Giới hạn cần biết</h2>
+<ul>
+<li>Prompt và agent trong repo chỉ có tác dụng khi làm việc trong workspace này.</li>
+<li>Agent cá nhân dùng được rộng hơn nhưng không tự thay thế toàn bộ hướng dẫn đặc thù của repo.</li>
+<li>Các file mới tạo trong repo chỉ có trên máy local cho đến khi được commit và push lên GitHub.</li>
+</ul>
+<h2>8. Khuyến nghị cho đội sử dụng</h2>
+<ul>
+<li>Khi gặp lỗi thật: ưu tiên <code>Doc Loi Tu Anh CDSS</code> hoặc <code>Sua Loi CDSS</code>.</li>
+<li>Khi xử lý hồ sơ XML: ưu tiên <code>Phan Tich XML BHYT Theo Ho So</code>.</li>
+<li>Khi đã sửa xong hồ sơ: dùng <code>So Sanh Truoc Sau Sua XML</code> rồi <code>Bao Cao Ket Qua Sua Ho So</code>.</li>
+<li>Trước khi commit: dùng <code>Chuan Bi Commit CDSS</code>.</li>
+<li>Khi cần rà soát an toàn trước khi gộp code: dùng <code>Review An Toan CDSS</code>.</li>
+</ul>
+<h2>9. Kết luận</h2>
+<p>Với bộ agent và prompt hiện tại, đội có thể dùng AI theo hướng chuẩn hóa hơn cho các việc chính của CDSS BHYT:</p>
+<ul>
+<li>sửa lỗi</li>
+<li>phân tích XML BHYT</li>
+<li>audit rule</li>
+<li>cập nhật tài liệu</li>
+<li>chuẩn bị commit</li>
+<li>tổng hợp báo cáo sau sửa hồ sơ</li>
+</ul>
+<p>Nếu sau này phát sinh tác vụ lặp lại mới, có thể bổ sung thêm prompt riêng thay vì dùng một prompt chung cho mọi việc.</p>
+
+  </main>
+</body>
+</html>

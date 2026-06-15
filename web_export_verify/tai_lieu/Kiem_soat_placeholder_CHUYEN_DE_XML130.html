@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kiểm soát quy tắc placeholder CHUYEN_DE (XML130)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Kiem_soat_placeholder_CHUYEN_DE_XML130.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Kiểm soát quy tắc placeholder CHUYEN_DE (XML130)</h1>
+<h2>Mục đích</h2>
+<p>Một số quy tắc dùng <code>CHUYEN_DE_XML130_CHO_XU_LY_SAU</code> trong <code>ma_nguon/tien_ich/luat_giam_dinh_chuyen_de_hardcoded.jsx</code>: biểu thức kỹ thuật <strong>luôn sai</strong> trên hồ sơ có <code>MA_LK</code>, để tránh cảnh báo giả từ DSL Excel cũ (<code>ma_dvkt</code>, <code>has_dvkt</code>, …) không còn đánh giá đúng trên XML130.</p>
+<p>Điều này <strong>không</strong> biến quy tắc thành “đã triển khai thực chiến”. Chỉ khi <code>DIEU_KIEN</code> được thay bằng biểu thức XML130/handler thật (hoặc nguồn dữ liệu bổ sung) thì mới coi là sẵn sàng vận hành.</p>
+<h2>Quy trình bắt buộc</h2>
+<ol>
+<li><p><strong>Danh sách định kỳ:</strong> Sau mỗi lần sửa luật CHUYEN_DE, chạy:</p>
+<pre><code class="language-bash">npm run chuyen-de:sync-placeholder-registry
+</code></pre>
+<p>File sinh ra: <code>scripts/chuyen_de_placeholder_registry.json</code> (danh sách <code>rule_ids</code>, <code>placeholder_count</code>).</p>
+</li>
+<li><p><strong>Ý nghĩa vận hành:</strong> Quy tắc còn trong registry <strong>không phát cảnh báo thật</strong> trên XML điển hình (vì điều kiện luôn false). Việc để <code>TRANG_THAI: &#39;ON&#39;</code> chỉ giữ quy tắc trong cấu hình — <strong>không</strong> đồng nghĩa đã kiểm tra được theo nghiệp vụ.</p>
+</li>
+<li><p><strong>Khuyến nghị sản phẩm:</strong> Với quy tắc chỉ còn placeholder và chưa có lộ trình dữ liệu trong 1–2 sprint, cân nhắc chuyển <code>TRANG_THAI: &#39;OFF&#39;</code> để tránh hiểu nhầm “đã bật là đã chạy”.</p>
+</li>
+<li><p><strong>Ghi nhận lộ trình:</strong> Khi thay placeholder bằng điều kiện thật, xóa id khỏi danh sách (bằng cách chạy lại script sync sau khi sửa mã nguồn).</p>
+</li>
+</ol>
+<h2>Liên quan</h2>
+<ul>
+<li><code>tai_lieu/Tri_thuc_AI_CHUYEN_DE_XML130_thuc_chien.md</code> — phân loại điều kiện, QA (<code>lint</code>, <code>qa:rule-schema</code>, claim audit), triển khai thực chiến.</li>
+<li><code>tai_lieu/Lo_trinh_viet_lai_CHUYEN_DE_theo_XML130.md</code> — lộ trình theo lô.</li>
+<li><code>scripts/chuyen_de_batch_manifest.json</code> — trạng thái từng lô viết lại.</li>
+</ul>
+
+  </main>
+</body>
+</html>

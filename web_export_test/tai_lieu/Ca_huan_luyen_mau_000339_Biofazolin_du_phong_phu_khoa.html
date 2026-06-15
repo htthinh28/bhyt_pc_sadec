@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CA HUẤN LUYỆN MẪU 000339 - BIOFAZOLIN DỰ PHÒNG PHỤ KHOA</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Ca_huan_luyen_mau_000339_Biofazolin_du_phong_phu_khoa.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CA HUẤN LUYỆN MẪU 000339 - BIOFAZOLIN DỰ PHÒNG PHỤ KHOA</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 05/04/2026</p>
+<h2>1. Mục tiêu</h2>
+<p>Ca này dùng để huấn luyện AI về <code>kháng sinh dự phòng đường tiêm</code> trong bối cảnh phụ khoa, khác với ca sản khoa <code>403521</code> đã có trước đó.</p>
+<p>Trọng tâm của ca:</p>
+<ul>
+<li>nhận diện bối cảnh dự phòng quanh thủ thuật/phẫu thuật</li>
+<li>không kết luận sai thành điều trị nhiễm khuẩn chỉ vì có dùng kháng sinh</li>
+<li>phát hiện khoảng trống độ phủ khi engine không tạo cảnh báo thuốc tương ứng</li>
+</ul>
+<h2>2. Nguồn dữ liệu</h2>
+<ul>
+<li>XML gốc: <code>tai_nguyen/op/PC022601324_000339.xml</code></li>
+<li>Audit hiện tại: <code>test_xml/audit_000339_20260405_232511.json</code></li>
+<li>Kết quả quét tổng hợp: <code>test_xml/antibiotic_case_scan.json</code></li>
+<li>Rule seed liên quan để đối chiếu ý nghĩa nghiệp vụ:<ul>
+<li><code>THUOC_84</code></li>
+<li><code>THUOC_85</code></li>
+<li><code>THUOC_393</code></li>
+</ul>
+</li>
+</ul>
+<h2>3. Bối cảnh hồ sơ</h2>
+<ul>
+<li><code>MA_LK</code>: <code>000339</code></li>
+<li>Thuốc kháng sinh chính: <code>Biofazolin</code></li>
+<li>Đường dùng: <code>tiêm/truyền</code></li>
+<li>Chẩn đoán chính: <code>N84.0</code></li>
+<li>Bối cảnh lâm sàng đã quét được: <code>Polyp thân tử cung</code></li>
+</ul>
+<p>Điểm cần AI nhìn ra:</p>
+<ul>
+<li>Đây là bối cảnh phụ khoa có thủ thuật hoặc phẫu thuật.</li>
+<li>Mẫu dùng <code>2 lọ x 1 lần/ngày x 01 ngày</code> rất giống logic <code>kháng sinh dự phòng ngắn ngày</code>.</li>
+</ul>
+<h2>4. Dữ liệu thuốc thật đã xác nhận</h2>
+<ul>
+<li><code>TEN_THUOC = Biofazolin</code></li>
+<li><code>SO_LUONG = 2</code></li>
+<li><code>LIEU_DUNG = 2 Lọ/lần * 1 lần/ngày * 01 ngày [2 Lọ/ngày]</code></li>
+</ul>
+<p>Diễn giải nhanh:</p>
+<ul>
+<li>Nếu mỗi lọ là <code>1g</code> Cefazolin, tổng liều ngày đang ở mức <code>2g/ngày</code>.</li>
+<li>Mức này không vượt ngưỡng <code>6g/ngày</code> theo tư duy của <code>THUOC_393</code>.</li>
+</ul>
+<h2>5. Kết quả audit hiện tại</h2>
+<p>Audit mới sinh có <code>14</code> cảnh báo, nhưng chỉ có <code>1</code> cảnh báo thuộc <code>THUOC_HARDCODED</code>, và cảnh báo đó không phải kháng sinh mà là:</p>
+<ul>
+<li><code>THUOC_342</code> trên <code>Mekoferrat-B9</code></li>
+</ul>
+<p>Điểm đáng chú ý:</p>
+<ul>
+<li>không có cảnh báo thuốc nào cho <code>Biofazolin</code></li>
+<li>audit tập trung nhiều hơn vào:<ul>
+<li>lỗi hành chính</li>
+<li>lỗi ngày vào/ngày ra</li>
+<li>yêu cầu giải phẫu bệnh ở DVKT</li>
+</ul>
+</li>
+</ul>
+<h2>6. Cách đọc đúng cho AI</h2>
+<p>AI không nên kết luận:</p>
+<ul>
+<li><code>không có cảnh báo thuốc</code> đồng nghĩa với <code>không có gì đáng học</code></li>
+</ul>
+<p>Kết luận đúng hơn là:</p>
+<ol>
+<li>Hồ sơ có dùng <code>Biofazolin</code> trong bối cảnh thủ thuật phụ khoa.</li>
+<li>Mẫu liều dùng ngắn ngày, một lần trong ngày, rất phù hợp với <code>kháng sinh dự phòng</code>.</li>
+<li>Engine hiện tại không phát sinh cảnh báo kháng sinh tương ứng.</li>
+<li>Đây là ca thích hợp để dạy AI cách nhận diện <code>dự phòng đúng bối cảnh</code> ngay cả khi audit không tạo ra rule thuốc rõ ràng.</li>
+</ol>
+<h2>7. Giá trị của ca này</h2>
+<p>Ca <code>000339</code> giúp AI học một điểm quan trọng:</p>
+<ul>
+<li><code>dự phòng kháng sinh</code> không chỉ xuất hiện trong sản khoa mà còn có thể gặp trong phụ khoa và thủ thuật chuyên khoa</li>
+</ul>
+<h2>8. Bài học huấn luyện</h2>
+<h3>8.1. Bài học nghiệp vụ</h3>
+<ul>
+<li>Không nên dùng một danh sách ICD hẹp để hiểu toàn bộ dự phòng phẫu thuật.</li>
+<li>Bối cảnh DVKT và loại thủ thuật có giá trị rất lớn.</li>
+</ul>
+<h3>8.2. Bài học kỹ thuật</h3>
+<ul>
+<li>Nếu rule thuốc chỉ nhìn <code>XML1</code> mà không gắn với DVKT/phẫu thuật, rất dễ lọt các ca dự phòng hợp lý như thế này.</li>
+</ul>
+<h3>8.3. Bài học quy trình</h3>
+<ul>
+<li>Trình tự đọc ca này nên là:<ol>
+<li>đọc chẩn đoán chính</li>
+<li>xác định có thủ thuật/phẫu thuật phụ khoa</li>
+<li>đọc dòng <code>Biofazolin</code></li>
+<li>đối chiếu thời lượng dùng thuốc</li>
+<li>mới đánh giá xem có cần cảnh báo hay không</li>
+</ol>
+</li>
+</ul>
+
+  </main>
+</body>
+</html>

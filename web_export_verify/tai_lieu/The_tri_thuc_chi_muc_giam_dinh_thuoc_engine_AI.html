@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHỈ MỤC ENGINE: KIỂM TRA THUỐC (MÃ NGUỒN + LUỒNG CẢNH BÁO)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_chi_muc_giam_dinh_thuoc_engine_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>CHỈ MỤC ENGINE: KIỂM TRA THUỐC (MÃ NGUỒN + LUỒNG CẢNH BÁO)</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 06/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>Tài liệu này bổ sung cho các “thẻ nghiệp vụ” (<code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>, <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>, …) bằng cách <strong>neo AI vào đúng tầng mã</strong> trong <code>ma_nguon/tien_ich/dong_co_giam_dinh.jsx</code> và seed <code>du_lieu_luat_thuoc_muc8.jsx</code>.</p>
+<p>Sau khi đọc tài liệu này, AI cần trả lời được:</p>
+<ul>
+<li>Cảnh báo <code>THUOC_*</code> / <code>DM-THUOC-*</code> / <code>DMBV-THUOC-*</code> / <code>CLN-THUOC-*</code> <strong>đến từ đâu</strong> (built-in vs hardcoded).</li>
+<li>Cảnh báo có thể <strong>biến mất sau lọc ngữ cảnh</strong> <code>locCanhBaoDuongTinhGiaTheoNguCanh</code> vì lý do gì.</li>
+<li>Trường XML2 nào được <strong>làm giàu</strong> (<code>enrichXML2Data</code>) trước khi so sánh y lệnh — vì sao không được “cứng” <code>SO_LUONG</code> vs <code>SL_MOI_NGAY * SO_NGAY</code> mù quáng.</li>
+</ul>
+<p><strong>Nguồn sự thật:</strong> <code>dong_co_giam_dinh.jsx</code> (các hàm được trích dẫn bên dưới).</p>
+<h2>2. Phân loại mã luật thuốc (theo metadata trong code)</h2>
+<p>Trong <code>dong_co_giam_dinh.jsx</code>, nhánh gán <code>namespace_quy_tac</code> / <code>nguon_quy_tac</code> (khi export audit) quy ước khoảng:</p>
+<table>
+<thead>
+<tr>
+<th>Tiền tố / pattern</th>
+<th>Namespace điển hình</th>
+<th>Nguồn</th>
+<th>Tab gợi ý UI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>THUOC_</code> + số</td>
+<td><code>THUOC_HARDCODED</code></td>
+<td><code>luat_thuoc_hardcoded</code></td>
+<td><code>LUAT_THUOC</code></td>
+</tr>
+<tr>
+<td><code>DM-THUOC-</code>, <code>DMBV-THUOC-</code>, <code>CLN-THUOC-</code></td>
+<td><code>THUOC_DANH_MUC_BUILTIN</code></td>
+<td><code>dong_co_giam_dinh</code></td>
+<td><code>LUAT_THUOC</code></td>
+</tr>
+</tbody></table>
+<p>Seed đầy đủ: <code>ma_nguon/tien_ich/du_lieu_luat_thuoc_muc8.jsx</code> (hàng trăm rule <code>THUOC_*</code>; điều kiện là chuỗi biểu thức được engine đánh giá trên XML1+XML2 đã chuẩn hóa).</p>
+<h2>3. Tầng built-in trên XML2 (cùng file <code>dong_co_giam_dinh.jsx</code>)</h2>
+<h3>3.1. <code>giamDinhThuoc(hoSo, dm)</code> — <code>CLN-THUOC-01</code> … <code>04</code></h3>
+<p>Chạy trên <strong>từng dòng</strong> XML2 (sau <code>enrichXML2Data</code>), chỉ áp dụng điều kiện BHYT thanh toán như các luồng khác.</p>
+<table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Điều kiện ý niệm</th>
+<th>Ghi chú cho AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>CLN-THUOC-01</strong></td>
+<td>Trùng <code>MA_THUOC</code> trên hai dòng</td>
+<td><strong>Chỉ ngoại trú</strong> (<code>laNgoaiTru</code>) — nội trú không báo trùng theo nhánh này.</td>
+</tr>
+<tr>
+<td><strong>CLN-THUOC-02</strong></td>
+<td><code>SO_LUONG</code> ≤ 0</td>
+<td>Error.</td>
+</tr>
+<tr>
+<td><strong>CLN-THUOC-03</strong></td>
+<td><code>LIEU_DUNG</code> rỗng</td>
+<td>Warning — chất lượng đơn.</td>
+</tr>
+<tr>
+<td><strong>CLN-THUOC-04</strong></td>
+<td>Ngoại trú, <code>max(SO_NGAY_DTRI, SO_NGAY) &gt; 30</code> và <strong>không</strong> thuộc danh mục ICD được phép kê &gt;30 ngày</td>
+<td>Phụ thuộc <code>dm.BO_QUY_TAC_ICD10_KE_DON_TREN_30_NGAY</code> + <code>isClaimAllowedPrescriptionOver30Days(xml1, dm)</code>.</td>
+</tr>
+</tbody></table>
+<h3>3.2. Khối <code>DM-THUOC-01</code> … <code>04</code></h3>
+<p>So khớp <code>MA_THUOC</code> với <code>MAP_THUOC_BV</code> và <code>MAP_BYT_PL5</code> — xem thẻ <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>.</p>
+<h3>3.3. <code>DMBV-THUOC-00</code> … <code>04</code></h3>
+<p>Kiểm tra <strong>chất lượng bản ghi</strong> danh mục BV cho mã thuốc <strong>đã có</strong> trong map — cùng thẻ DM §2.1.</p>
+<h2>4. Làm giàu XML2 và giải thích <code>THUOC_391</code> / <code>THUOC_417</code></h2>
+<ul>
+<li>Hàm <strong><code>enrichXML2Data</code></strong> (cùng file) suy ra <code>CALC_SL_MOI_NGAY</code>, <code>SO_NGAY</code>, đơn vị từ <code>LIEU_DUNG</code> / các trường số khi có thể.</li>
+<li>Nhiều rule seed dùng <strong><code>CALC_SL_MOI_NGAY</code></strong> hoặc <code>SL_MOI_NGAY</code> — AI phải đọc <strong>điều kiện từng <code>MA_LUAT</code></strong> trong seed, không đoán.</li>
+<li><strong><code>boSungChiTietCanhBaoGiaiTrinh</code></strong>: với <code>ma_luat === &#39;THUOC_391&#39;</code>, engine <strong>thêm khối “Cách tính”</strong> (<code>layChiTietTinhToanThieuThuoc</code>) vào text cảnh báo sau khi render template.</li>
+</ul>
+<h2>5. Lọc ngữ cảnh <code>locCanhBaoDuongTinhGiaTheoNguCanh</code> — các dòng liên quan thuốc</h2>
+<p>Sau khi gom cảnh báo, một phần bị <strong>loại bỏ</strong> nếu ngữ cảnh hồ sơ không “đủ điều kiện hiển thị”. Các mã <strong>trực tiếp liên quan thuốc</strong> (trích từ logic filter trong code):</p>
+<table>
+<thead>
+<tr>
+<th>Mã luật</th>
+<th>Khi nào bị lọc (tóm tắt)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>DM-THUOC-03</strong></td>
+<td>Luôn loại (không hiển thị sau filter) — cần kiểm tra pipeline nếu audit cũ vẫn còn.</td>
+</tr>
+<tr>
+<td><strong>DMBV-</strong>*</td>
+<td>Toàn bộ loại.</td>
+</tr>
+<tr>
+<td><strong>THUOC_400</strong></td>
+<td>Không còn dòng thuốc XML2.</td>
+</tr>
+<tr>
+<td><strong>THUOC_85</strong></td>
+<td>Có PTTT/thủ thuật thực sự trên XML3 (<code>coPhauThuatHoacThuThuat</code>).</td>
+</tr>
+<tr>
+<td><strong>THUOC_342</strong></td>
+<td>Thai kỳ / sản khoa suy từ ICD + mô tả (<code>coThaiKyHoacSanKhoa</code>).</td>
+</tr>
+<tr>
+<td><strong>THUOC_391</strong>, <strong>THUOC_416</strong>, <strong>THUOC_417</strong></td>
+<td><code>coLechDonViYLenhVaCapPhatThuoc(dong)</code> — đơn vị cấp phát vs đơn vị y lệnh <strong>không tương thích</strong> (ví dụ viên vs ml) nên <strong>không</strong> áp so sánh số tuyến tính.</td>
+</tr>
+<tr>
+<td><strong>THUOC_417</strong>, <strong>THUOC_416</strong></td>
+<td><code>laVuotNguongDoLamTronThuoc(dong)</code> — cấp dư <strong>bằng làm tròn lên 1 đơn vị rời rạc</strong> (viên, gói, ống, …) khi y lệnh có phần thập phân.</td>
+</tr>
+</tbody></table>
+<p><strong>Bài học huấn luyện:</strong> Nếu AI thấy XML2 “hụt” cảnh báo <code>THUOC_417</code> dù <code>SO_LUONG</code> &gt; tích, hãy kiểm tra <strong>đơn vị</strong> và <strong>làm tròn</strong> trước khi kết luận lỗi engine.</p>
+<h2>6. Đối chiếu nhanh: rule thuốc xuất hiện trong <code>test_xml/</code> (snapshot repo)</h2>
+<p>Thống kê mang tính <strong>tham chiếu huấn luyện</strong>, không cố định vĩnh viễn:</p>
+<ul>
+<li><code>THUOC_391</code> — nhiều file (nội trú / PT).</li>
+<li><code>THUOC_417</code> — nhiều file (cấp dư).</li>
+<li><code>THUOC_436</code>, <code>THUOC_207</code>, <code>THUOC_63</code> — đa hồ sơ.</li>
+<li><code>DM-THUOC-04</code> — ngoại trú mẫu OP.</li>
+<li><code>DMBV-THUOC-03</code> — vài audit (metadata danh mục).</li>
+</ul>
+<p>Khi thêm rule mới, nên chạy <code>npm run qa:audit-fixtures</code> và cập nhật ca minh họa.</p>
+<h2>7. Gói prompt huấn luyện (xoay vòng)</h2>
+<ol>
+<li><em>“Cho biết cảnh báo này thuộc built-in hay seed: [dán <code>ma_luat</code> + <code>nguon_quy_tac</code>]. Trích một điều kiện từ seed nếu là <code>THUOC_*</code>.”</em></li>
+<li><em>“Hồ sơ ngoại trú có hai dòng cùng <code>MA_THUOC</code>. Rule nào phát sinh? Nội trú có giống không?”</em> (kỳ vọng: <code>CLN-THUOC-01</code> chỉ ngoại trú.)</li>
+<li><em>“Vì sao <code>THUOC_391</code> có thể bị lọc dù <code>SO_LUONG</code> &lt; <code>SL_MOI_NGAY * SO_NGAY</code>?”</em> (đơn vị / <code>coLechDonViYLenhVaCapPhatThuoc</code>.)</li>
+<li><em>“Phân biệt <code>DM-THUOC-03</code> và <code>DMBV-THUOC-03</code> bằng một câu mỗi khái niệm.”</em></li>
+<li><em>“Liệt kê các trường XML1 cần đọc để quyết định <code>CLN-THUOC-04</code>.”</em></li>
+</ol>
+<h2>8. Liên kết nội bộ</h2>
+<ul>
+<li>Khung phân loại “sai thuốc”: <code>The_tri_thuc_kiem_soat_sai_thuoc_AI.md</code>  </li>
+<li>DM + tiền + DMBV: <code>The_tri_thuc_giam_dinh_thuoc_DM_builtin_va_doi_chieu_tien_AI.md</code>  </li>
+<li>Đa nhóm thuốc BV: <code>The_tri_thuc_da_dang_nhom_thuoc_dan_muc_BV_AI.md</code>  </li>
+<li>Lộ trình: <code>Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</code></li>
+</ul>
+
+  </main>
+</body>
+</html>

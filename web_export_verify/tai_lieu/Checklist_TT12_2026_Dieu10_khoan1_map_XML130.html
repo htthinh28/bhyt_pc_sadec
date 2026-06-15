@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist: TT 12/2026/TT-BTC — Điều 10 khoản 1 → trường dữ liệu XML 130 (tham chiếu)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Checklist_TT12_2026_Dieu10_khoan1_map_XML130.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Checklist: TT 12/2026/TT-BTC — Điều 10 khoản 1 → trường dữ liệu XML 130 (tham chiếu)</h1>
+<p>Phiên bản: 1.0<br>Ngày: 06/04/2026<br>Căn cứ pháp lý: <strong>Thông tư 12/2026/TT-BTC</strong>, <strong>Điều 10 khoản 1</strong> (các nội dung rà soát hồ sơ đề nghị thanh toán — kiểm tra <strong>tự động</strong>).<br>Tra cứu: <a href="https://thuvienphapluat.vn/van-ban/Bao-hiem/Thong-tu-12-2026-TT-BTC-thu-tuc-giam-dinh-chi-phi-kham-chua-benh-bao-hiem-y-te-694954.aspx">Thông tư 12/2026/TT-BTC</a></p>
+<p>Mục đích: map từng <strong>điểm a–m</strong> sang <strong>lớp dữ liệu</strong> trong hồ sơ điện tử (XML1…XML6 theo QĐ 130/BYT) để huấn luyện AI, viết rule và đối chiếu <code>co_so_phap_ly</code> trong CDSS. Đây là bản <strong>tham chiếu kỹ thuật</strong>, không thay thế văn bản gốc.</p>
+<hr>
+<h2>Bảng map nhanh</h2>
+<table>
+<thead>
+<tr>
+<th>Điểm Đ10 k1</th>
+<th>Nội dung rà soát (tóm tắt)</th>
+<th>Trường / nhóm XML gợi ý</th>
+<th>Ghi chú cho engine</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>a</strong></td>
+<td>Thông tin thẻ BHYT</td>
+<td><strong>XML1</strong>: <code>MA_THE</code>, <code>GT_THE_TU</code>, <code>GT_THE_DEN</code>, <code>MA_DKBD</code>, <code>MA_BENH_NHAN</code>…; tra cứu tuyến/đối tượng liên quan <code>MA_DOI_TUONG</code>, <code>MA_LOAI_KCB</code></td>
+<td>Lỗi cấu trúc / hết hạn thẻ → thường <code>XML_*</code> / hành chính</td>
+</tr>
+<tr>
+<td><strong>b</strong></td>
+<td>Mức hưởng, quyền lợi người bệnh</td>
+<td><strong>XML1</strong>: <code>MUC_HUONG</code>, <code>MUC_CUNG_CHI_TRA</code>, các trường liên quan đồng chi trả; <strong>XML6</strong> (nếu có chi tiết thanh toán)</td>
+<td>Đối chiếu chính sách từng đối tượng BHYT</td>
+</tr>
+<tr>
+<td><strong>c</strong></td>
+<td>Phạm vi TT thuốc, TBYT, DVKT theo <strong>danh mục tại CSKCB</strong></td>
+<td><strong>XML2</strong> (thuốc): <code>MA_THUOC</code>, <code>MA_PP_CHE_BIEN</code>, <code>DON_VI_TINH</code>…; <strong>XML3</strong> (DVKT/VTYT): <code>MA_DICH_VU</code>, <code>MA_VAT_TU</code>, <code>MA_NHOM</code>…; <strong>XML1</strong>: bối cảnh CS (<code>MA_CSKCB</code>, <code>MA_NOI_CHUYEN</code>)</td>
+<td>Rule <code>THUOC_*</code>, <code>DM-THUOC-*</code>, <code>DVKT_*</code>, <code>DM-VTYT-*</code>; BYT: 15/VBHN thuốc, 17/VBHN DVKT, <strong>14/VBHN-BYT 2025</strong> + TT 04/2017 VTYT (mục <strong>11.6</strong> thẻ Luật 2025)</td>
+</tr>
+<tr>
+<td><strong>d</strong></td>
+<td>Mức thanh toán (giá, ngày giường, vận chuyển…)</td>
+<td><strong>XML2</strong>: <code>DON_GIA</code>, <code>THANH_TIEN</code>, <code>SO_LUONG</code>; <strong>XML3</strong>: <code>DON_GIA</code>, <code>THANH_TIEN</code>; <strong>XML1</strong>: thời gian nội trú <code>NGAY_VAO</code>, <code>NGAY_RA</code>, <code>SO_NGAY_DTRI</code></td>
+<td>Giá trúng thầu / giá BHYT; <code>DM-THUOC-04</code>, DVKT giá</td>
+</tr>
+<tr>
+<td><strong>đ</strong></td>
+<td>Tỷ lệ, <strong>điều kiện</strong> thanh toán (thuốc, TBYT, DVKT)</td>
+<td><strong>XML1</strong>: <code>MA_BENH_CHINH</code>, <code>MA_BENH_KT</code>, <code>CHAN_DOAN_*</code>; <strong>XML2/3</strong>: chỉ định ICD, nhóm DVKT; bảng quy tắc chỉ định/chống chỉ định</td>
+<td>Luật thuốc <code>THUOC_32</code>–<code>THUOC_38</code>, DVKT ICD, tỷ lệ TT</td>
+</tr>
+<tr>
+<td><strong>e</strong></td>
+<td>Phạm vi chuyên môn, thời gian KCB của <strong>CSKCB</strong></td>
+<td><strong>XML1</strong>: <code>MA_LOAI_KCB</code>, <code>MA_KHOA</code>, <code>MA_NOI_CHUYEN</code>; metadata hợp đồng/danh mục CS (ngoài XML claim)</td>
+<td>Liên quan NĐ 188, hợp đồng KCB BHYT</td>
+</tr>
+<tr>
+<td><strong>g</strong></td>
+<td>Phạm vi hành nghề, thời gian làm việc <strong>người hành nghề</strong></td>
+<td><strong>XML2</strong>: <code>MA_BS_CHI_DINH</code>; <strong>XML3</strong>: <code>MA_BS_CHI_DINH</code> / người thực hiện; <strong>XML1</strong>: <code>MA_BAC_SI</code></td>
+<td>Rule nhân sự / mapping DVKT–bác sĩ</td>
+</tr>
+<tr>
+<td><strong>h</strong></td>
+<td>Thời gian giữa các lần KCB</td>
+<td><strong>XML1</strong>: <code>NGAY_VAO</code>, <code>NGAY_RA</code>, <code>NGAY_TTOAN</code>; lịch sử nhiều <code>MA_LK</code> (liên thông)</td>
+<td>Cảnh báo tái khám/trùng đợt (cần thêm rule nội bộ)</td>
+</tr>
+<tr>
+<td><strong>i</strong></td>
+<td>Dịch vụ KCB <strong>hợp lý</strong> theo tiêu chuẩn BYT (khoản 3 Điều 6 Luật BHYT)</td>
+<td>Toàn bộ XML + hồ sơ lâm sàng; <strong>XML4</strong> CLS nếu có; chỉ định so với chẩn đoán</td>
+<td>Kiểm tra chủ động / chuyên môn; <strong>điểm i</strong> thường cần bổ sung tài liệu (khoản 2–3 Điều 10)</td>
+</tr>
+<tr>
+<td><strong>k</strong></td>
+<td>Số liệu <strong>thống nhất</strong> trên Bảng kê chi tiết</td>
+<td>Đối chiếu <strong>XML1–6</strong> với tổng hợp; <code>THANH_TIEN</code> các bảng vs XML6 / logic tổng</td>
+<td><code>XML_53</code>, cảnh báo lệch tổng</td>
+</tr>
+<tr>
+<td><strong>m</strong></td>
+<td>Số lượng thuốc/TBYT khớp <strong>đấu thầu / điều chuyển</strong> (Điều 43 NĐ 188/2025)</td>
+<td><strong>XML2</strong> <code>SO_LUONG</code>, mã thuốc; danh mục mua sắm nội bộ / hợp đồng</td>
+<td>Vượt khối lượng mua sắm → từ chối một phần</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Điểm cần kiểm tra chủ động (gợi ý từ khoản 2–3 Điều 10)</h2>
+<ul>
+<li><strong>đ</strong> (tỷ lệ, điều kiện) và <strong>i</strong> (hợp lý): khi hệ thống <strong>không đủ thông tin</strong> tự động, Bảng kê có thể chuyển trạng thái cần <strong>tài liệu chứng minh</strong> / điều chỉnh (Mẫu 09/BH — Phụ lục I TT 12/2026).</li>
+</ul>
+<hr>
+<h2>Liên kết nội bộ dự án</h2>
+<ul>
+<li>Căn cứ pháp lý tổng hợp: <code>The_tri_thuc_mau_luat_BHYT_2008_2025.md</code> mục <strong>11.2</strong>; chuỗi <strong>VTYT</strong> mục <strong>11.6</strong>; <strong>Luật KCB</strong> + NĐ 96 + TT 32 mục <strong>11.7</strong> (bổ sung cho điểm <strong>e, g, i</strong> — phạm vi CS, hành nghề, hợp lý dịch vụ / bệnh án).  </li>
+<li><strong>Văn bản đầy đủ</strong> (Điều 10 khoản 1 đủ điểm a–m + Điều 13 khoản 1–3): <code>ma_nguon/tien_ich/co_so_phap_ly_tt12_2026.jsx</code> (<code>CHUOI_DAY_DU_TT12_2026_D10_VA_D13</code>). <strong>Trích dẫn ngắn</strong> trên báo cáo lỗi: cùng file (<code>CHUOI_TRICH_DAN_TT12_2026_D10_VA_D13</code>) — dùng trong <code>dong_co_giam_dinh.jsx</code> (<code>co_so_phap_ly</code>) và <code>resolveLegalBasis</code> trong <code>dvkt_op_giam_dinh.jsx</code>.</li>
+</ul>
+
+  </main>
+</body>
+</html>

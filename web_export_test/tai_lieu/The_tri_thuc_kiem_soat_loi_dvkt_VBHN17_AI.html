@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC: KIỂM SOÁT LỖI DỊCH VỤ KỸ THUẬT (DVKT) THEO 17/VBHN-BYT — CHO AI KIỂM TRA BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC: KIỂM SOÁT LỖI DỊCH VỤ KỸ THUẬT (DVKT) THEO 17/VBHN-BYT — CHO AI KIỂM TRA BHYT</h1>
+<p>Phiên bản tài liệu: 1.0<br>Ngày cập nhật: 10/04/2026</p>
+<h2>1. Mục đích</h2>
+<p>“Lỗi DVKT” trong kiểm tra BHYT <strong>không</strong> chỉ là “mã không nằm danh mục”. Theo tinh thần <strong>17/VBHN-BYT</strong> (và <strong>TT 39/2024</strong> cho nhiều điểm cấu trúc viện phí), AI cần:</p>
+<ul>
+<li>phân tầng <strong>lỗi thanh toán / xuất toán</strong> vs <strong>lỗi dữ liệu XML</strong> vs <strong>nghiệp vụ cần hồ sơ giấy / BHXH chủ động</strong>;</li>
+<li>không gom mọi cảnh báo <code>DVKT_*</code> / <code>CDHA_*</code> / <code>DVKT-OP-*</code> thành một kết luận “DV sai”;</li>
+<li>neo giải thích với <strong>Điều/Khoản</strong> đã có trong <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a> và chuỗi <code>CO_SO_PHAP_LY_DVKT</code> / <code>VBHN_17_META</code> trong engine khi có — <strong>không</strong> bịa giá, %, hoặc ô Phụ lục.</li>
+</ul>
+<p>Tài liệu này là <strong>khung kiểm soát lỗi</strong>; chi tiết từng Điều xem bảng mục <strong>A</strong> trong <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a>.</p>
+<h2>2. Định nghĩa làm việc (cho AI)</h2>
+<table>
+<thead>
+<tr>
+<th>Thuật ngữ</th>
+<th>Ý nghĩa trong CDSS / VBHN 17</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sai phạm vi danh mục</strong></td>
+<td><code>MA_DICH_VU</code> rơi <strong>Danh mục 3</strong> (tạm chưa TT) hoặc nhóm <strong>loại trừ</strong> Luật BHYT — khác với “đủ DM nhưng sai điều kiện dòng”.</td>
+</tr>
+<tr>
+<td><strong>Sai điều kiện dòng (Cột 3 / tương đương)</strong></td>
+<td>Mã <strong>có</strong> trong DM1/2 nhưng <strong>điều kiện</strong> thanh toán theo dòng (chẩn đoán, tần suất, kèm DV…) không thỏa — engine chỉ bắt <strong>phần đã rule hóa</strong>.</td>
+</tr>
+<tr>
+<td><strong>Sai tuyến / phạm vi kỹ thuật CS</strong></td>
+<td>CSKCB không đủ <strong>tuyến hoặc nhóm DV</strong> được phép — thường gắn <code>MA_CSKCB</code>, DM nội bộ, rule <code>DVKT-OP-*</code> (CHECK nội bộ).</td>
+</tr>
+<tr>
+<td><strong>Sai PTTT / gói phẫu thuật</strong></td>
+<td>Phân loại PT/TT, ICD, thuốc tê/mê kèm gói — nhóm <code>DVKT_*</code> seed PTTT, XML3 + XML1 + XML2.</td>
+</tr>
+<tr>
+<td><strong>Sai tiền / tỷ lệ / gộp–tách</strong></td>
+<td><code>DON_GIA</code>, <code>TYLE_TT</code>, trùng công đoạn (<strong>Điều 4 khoản 4</strong>), hoặc <strong>4a–4d</strong> (giá đã kết cấu trong ngày giường / DV khác).</td>
+</tr>
+<tr>
+<td><strong>Sai thời điểm / một lượt KCB</strong></td>
+<td>Mốc <strong>HL TT 39</strong> (nhiều điểm <strong>01/01/2025</strong>), “một lượt” (<strong>khoản 7 Điều 4</strong>) — không gán một mức cho cả đợt nếu hồ sơ cắt qua 31/12/2024.</td>
+</tr>
+<tr>
+<td><strong>Lỗi dữ liệu kỹ thuật (máy, mã, thời gian)</strong></td>
+<td>Ví dụ <code>MA_MAY</code>, chờ MRI sau vào viện — nhóm <code>CDHA_*</code>: <strong>chất lượng dữ liệu</strong> khác <strong>sai chỉ định lâm sàng</strong>.</td>
+</tr>
+<tr>
+<td><strong>Kiểm tra chủ động</strong></td>
+<td>Kỹ thuật mới, tranh chấp chỉ định, thiếu chứng từ — AI chỉ <strong>gợi ý hướng tra cứu</strong>, không thay quyết định BHXH.</td>
+</tr>
+</tbody></table>
+<h2>3. Phân loại kiểm soát (bảng tra nhanh)</h2>
+<table>
+<thead>
+<tr>
+<th>STT</th>
+<th>Loại kiểm soát</th>
+<th>Dữ liệu ưu tiên</th>
+<th>Gợi ý rule / nhóm mã</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Phạm vi DM1 / DM2 / DM3</td>
+<td><code>XML3.MA_DICH_VU</code>, đối tượng XML1</td>
+<td>Điều 1, <strong>Điều 4 khoản 6</strong>; <code>VBHN_17_META</code> trong no-code</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Điều kiện dòng Phụ lục</td>
+<td>Cột điều kiện (thường <strong>Cột 3</strong>) + ICD / XML5</td>
+<td>Điều <strong>3 khoản 2</strong>; bổ sung tay khi chưa seed</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tuyến BV &amp; DM nội bộ / phê duyệt</td>
+<td><code>MA_CSKCB</code>, bảng M05 nội bộ</td>
+<td><strong><code>DVKT-OP-*</code></strong>, <code>CHECK_INTERNAL_APPROVAL</code> — ca <strong>000375</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gói PTTT, ICD, thuốc kèm gói</td>
+<td>XML3 + XML1 + XML2</td>
+<td><strong><code>DVKT_2587</code></strong>, <strong><code>DVKT_2588</code></strong> — ca <strong>000308</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>CĐHA — thời gian, nội trú</td>
+<td>XML1 ngày vào; XML3 ngày chỉ định</td>
+<td><strong><code>CDHA_164</code></strong> — ca <strong>000502</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>CĐHA — thiết bị / mã máy</td>
+<td><code>XML3.MA_MAY</code>, DM thiết bị</td>
+<td><strong><code>CDHA_101</code></strong> — ca <strong>000538</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Trùng / gộp công đoạn</td>
+<td>Toàn bộ XML3 cùng kỳ</td>
+<td><strong>Điều 4 khoản 4</strong>; không kết luận chỉ từ hai dòng tách nếu thiếu bảng giá</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4a–4d (giá gộp, khám, giường, DV đặc thù)</td>
+<td>XML1, XML3, XML2, mô tả giá</td>
+<td>TT <strong>39/2024</strong>; rule từng nhóm trong seed / nội bộ</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Mốc hiệu lực &amp; một lượt KCB</td>
+<td>Ngày vào/ra, ngày y lệnh</td>
+<td><strong>Điều 5</strong>, <strong>Điều 4 khoản 7</strong> (TT 39)</td>
+</tr>
+</tbody></table>
+<h2>4. Nguyên tắc suy luận (tránh nhầm)</h2>
+<ol>
+<li><strong>Ba nhánh mã khác nhau:</strong> <code>DVKT_*</code> (số, seed PTTT), <code>CDHA_*</code> (hardcoded), <code>DVKT-OP-*</code> (no-code) — không đồng nhất “cùng là DVKT” về cách sửa hay mức rủi ro.</li>
+<li><strong>Một hồ sơ, nhiều lớp:</strong> Ví dụ vừa cảnh báo <strong>thiếu thuốc gói mổ</strong> vừa có <strong><code>CDHA_164</code></strong> — tách giải thích theo <strong>từng mã</strong> và <strong>từng XML</strong>.</li>
+<li><strong>“Cảnh báo” ≠ “xuất toán”:</strong> Nhiều rule mang tính <strong>kiểm tra / gợi ý</strong>; mức xử lý do nghiệp vụ + BHXH.</li>
+<li><strong>Engine ≠ cả Phụ lục:</strong> Thiếu seed hoặc rule <strong>OFF</strong> có thể <strong>im</strong> cảnh báo — ghi nhận giới hạn, không kết luận “đúng tuyệt đối” từ im lặng.</li>
+<li><strong>Thiếu Excel Phụ lục / HĐ KCB:</strong> Nói rõ <em>cần đối chiếu tại thời điểm hồ sơ</em> — không điền số giả.</li>
+</ol>
+<h2>5. Prompt mẫu cho huấn luyện AI</h2>
+<p>Sau khi nạp audit JSON hoặc XML:</p>
+<ul>
+<li><em>“Phân loại các cảnh báo liên quan DVKT/CĐHA trong hồ sơ này theo bảng mục 3 trong <code>The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</code>. Mỗi dòng: <code>ma_luat</code>, nhóm nhánh (<code>DVKT_*</code> / <code>CDHA_*</code> / <code>DVKT-OP-*</code>), trường XML chính, và một dòng kết luận nghiệp vụ.”</em></li>
+<li><em>“Với cảnh báo gói PTTT (<code>DVKT_2587</code>/<code>2588</code>), chỉ rõ liên kết XML3–XML1–XML2 nào được seed dùng — không nhầm với lỗi thuốc độc lập.”</em></li>
+<li><em>“Có tồn tại xung đột mốc <strong>01/01/2025</strong> (TT 39) với ngày trong hồ sơ không? Nếu có, liệt kê từng khoản cần tách (4a–4d, khoản 7) mà không gộp một kết luận.”</em></li>
+</ul>
+<h2>6. Ca huấn luyện gắn khung này</h2>
+<table>
+<thead>
+<tr>
+<th>Ca</th>
+<th>Trọng tâm “lỗi / kiểm soát DVKT”</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="./Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md">Ca_huan_luyen_mau_000308_DVKT_2587_2588_PTTT_goi_thuoc.md</a></td>
+<td>Gói PT, ICD O82, thuốc tê/mê — <code>DVKT_2587</code> / <code>DVKT_2588</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md">Ca_huan_luyen_mau_000502_CDHA_164_MRI_noitru.md</a></td>
+<td>Thời gian chờ MRI nội trú — <code>CDHA_164</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000538_CDHA_101_ma_may_XQ.md">Ca_huan_luyen_mau_000538_CDHA_101_ma_may_XQ.md</a></td>
+<td>Mã máy thiết bị — <code>CDHA_101</code></td>
+</tr>
+<tr>
+<td><a href="./Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md">Ca_huan_luyen_mau_000375_DVKT_OP_09_danh_muc_noibo.md</a></td>
+<td>Danh mục nội bộ M05 — <code>DVKT-OP-09</code></td>
+</tr>
+</tbody></table>
+<p>Lộ trình đọc ca: <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> mục <strong>I</strong>.</p>
+<h2>7. Tài liệu nền trong repo (đọc cùng)</h2>
+<ul>
+<li>Chuẩn hóa suy luận: <a href="./Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md">Chuan_hoa_kien_thuc_AI_giam_dinh_DVKT.md</a>  </li>
+<li><strong>Danh mục 1 / 2 (chi tiết đúng tên VBHN):</strong> <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a> · <a href="./The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md">The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</a>  </li>
+<li>Phiên đầy đủ (bảng Điều A–J): <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a>  </li>
+<li>Bảng neo mã ↔ engine: <a href="./Bang_neo_phien_huan_luyen_dvkt_va_engine.md">Bang_neo_phien_huan_luyen_dvkt_va_engine.md</a>  </li>
+<li>Thẻ VBHN 17 (tri thức pháp lý): <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>  </li>
+<li>Chuỗi mục <strong>11.5</strong> luật mẫu: <a href="./The_tri_thuc_mau_luat_BHYT_2008_2025.md">The_tri_thuc_mau_luat_BHYT_2008_2025.md</a>  </li>
+<li>Song song cách làm với thuốc: <a href="./The_tri_thuc_kiem_soat_sai_thuoc_AI.md">The_tri_thuc_kiem_soat_sai_thuoc_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu này bổ sung lớp “kiểm soát lỗi” cho đợt DVKT / VBHN 17; cập nhật khi bổ sung ca mẫu hoặc thay đổi nhóm rule trong engine.</em></p>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hướng dẫn AI / kỹ thuật viên — chạy kiểm thử repo CDSS BHYT</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>HUONG_DAN_AI_CHAY_KIEM_THU.md</code> · Thư viện CDSS BHYT</div>
+    <h1>Hướng dẫn AI / kỹ thuật viên — chạy kiểm thử repo CDSS BHYT</h1>
+<p>Chạy tại <strong>thư mục gốc</strong> repo (có <code>package.json</code>).</p>
+<h2>1. Lint (bắt buộc trước khi merge)</h2>
+<pre><code class="language-bash">npm run lint
+</code></pre>
+<ul>
+<li>Gồm: <code>expo lint</code>, kiểm tra encoding (mojibake), chuẩn font Arial trong mã nguồn.</li>
+<li><strong>Pass:</strong> exit code <code>0</code>, không báo lỗi ESLint.</li>
+</ul>
+<h2>2. QA snapshot <code>test_xml/</code> (10 file audit chuẩn)</h2>
+<pre><code class="language-bash">npm run qa:audit-fixtures
+</code></pre>
+<ul>
+<li>Kiểm tra tồn tại file, <code>meta.ma_lk</code> khớp tên file, đọc JSON hợp lệ.</li>
+<li><strong>Pass:</strong> dòng cuối <code>Kết luận: đủ 10 file, MA_LK khớp.</code> — exit <code>0</code>.</li>
+</ul>
+<h2>3. Schema quy tắc / trường XML</h2>
+<pre><code class="language-bash">npm run qa:rule-schema
+</code></pre>
+<ul>
+<li>Ghi <code>test_xml/rule_xml_schema_audit.json</code>; có thể in số trường tham chiếu ngoài schema (thông tin, không phải fail cứng).</li>
+</ul>
+<h2>4. Kiểm tra engine trên một XML (smoke)</h2>
+<pre><code class="language-bash">npm run qa:claim-audit-smoke
+</code></pre>
+<p>Hoặc tùy file:</p>
+<pre><code class="language-bash">node scripts/run_claim_audit.js path/to/file.xml --out=test_xml/ket_qua.json
+</code></pre>
+<ul>
+<li><strong>Pass:</strong> in <code>Tong canh bao</code>, <code>Theo muc do</code>, <code>Output: ...json</code>, exit <code>0</code>.</li>
+<li>Bundle esbuild ~11MB tạm; lần đầu có thể vài phút.</li>
+</ul>
+<h2>5. Gói QA đầy đủ (một lệnh)</h2>
+<pre><code class="language-bash">npm run qa:audit-all
+</code></pre>
+<p>Chạy lần lượt: <code>tai_lieu:index-huan-luyen</code> → <code>qa:audit-fixtures</code> → <code>qa:on-off-match</code> → <code>qa:rule-schema</code> → <code>qa:rule-trang-thai</code> → <code>qa:claim-audit-smoke</code> → <code>qa:chuyen-de-placeholder</code> → <code>qa:chuyen-de-thuc-chien</code> → <code>tai_lieu:prepare</code>.</p>
+<p><strong>Vì sao có thể lâu (hàng chục phút):</strong> <code>expo lint</code> (nếu chạy <code>npm run lint</code> trước) thường ~1–2 phút; <code>qa:rule-trang-thai</code> in danh sách hàng nghìn dòng; <code>qa:claim-audit-smoke</code> bundle esbuild tạm ~12MB; Google Drive đôi khi làm I/O chậm. Nên tách từng bước khi cần xác định chỗ kẹt.</p>
+<p><strong>Tri thức cho AI (mặc định ON/OFF UI):</strong> danh sách mã <strong>giữ OFF</strong> (MRI, DSA, chuyên đề placeholder XML130, vài mã khóa cứng) nằm trong <code>ma_nguon/tien_ich/data_quy_tac_giu_off_mo_rong.json</code>, được <code>quy_tac_on_off_noi_bo.jsx</code> nạp thành <code>Set</code> — không lặp lại danh sách dài trong mã.</p>
+<h2>6. Khác (tùy nhu cầu)</h2>
+<table>
+<thead>
+<tr>
+<th>Lệnh</th>
+<th>Mục đích</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>npm run qa:claim-audit</code></td>
+<td>Cùng entry <code>run_claim_audit.js</code>, truyền tham số XML/out</td>
+</tr>
+<tr>
+<td><code>npm run qa:on-off-match</code></td>
+<td>Đối soát bật/tắt quy tắc nội bộ</td>
+</tr>
+<tr>
+<td><code>npm run qa:python-service</code></td>
+<td>Smoke Python service (cổng 8000)</td>
+</tr>
+</tbody></table>
+<h2>7. Sau khi sửa <code>tai_lieu/*.md</code> trong repo</h2>
+<pre><code class="language-bash">npm run tai_lieu:prepare
+</code></pre>
+<p>Để đồng bộ <code>public/tai_lieu/</code> và manifest Thư viện trong app.</p>
+<hr>
+<p><strong>Kết luận cho phiên AI:</strong> <code>npm run lint</code> + <code>npm run qa:audit-all</code> (hoặc tối thiểu <code>qa:audit-fixtures</code> + <code>qa:claim-audit-smoke</code>) exit <code>0</code> thì <strong>chuỗi QA chính đạt</strong>; bổ sung <code>qa:on-off-match</code> khi đổi logic ON/OFF.</p>
+
+  </main>
+</body>
+</html>

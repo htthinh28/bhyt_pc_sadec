@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "claimPath": "C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\OneDrive_2_3-24-2026\\ip\\PC022200433_IP26000278.xml",
+    "reportPath": "C:\\Users\\admin\\Downloads\\Bao_Cao_Vi_Pham_1775346489903.xlsx",
+    "maLK": "000573",
+    "durationMinutes": 5904,
+    "reportRowCount": 17,
+    "summary": {
+      "HOP_LY": 3,
+      "NGHI_DUONG_TINH_GIA": 7,
+      "CAN_XAC_MINH_THEM": 7
+    }
+  },
+  "evidence": {
+    "xml1MissingBsDieuTri": true,
+    "xml4MissingBsDoc": false,
+    "hasAnyZeroDonGia": false,
+    "uniqXml2Key": true,
+    "uniqXml3Key": true,
+    "hasMRI": false,
+    "hasSABung": false,
+    "hasGiuong": true,
+    "maBenhAll": "K60.5;I10;K59.0;K64.8;K21.9",
+    "mucThe": "4",
+    "maLoaiRv": "1",
+    "giayChuyenTuyen": "",
+    "maNoiDi": "",
+    "maNoiDen": "",
+    "hasInvalidCdhaMachineCode": false
+  },
+  "rows": [
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "XML_19",
+      "QUY_TAC": "Diễn biến rỗng (XML5)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "XML_105",
+      "QUY_TAC": "Tóm tắt HSBA rỗng (XML7)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ho so da co XML7"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "XML_115",
+      "QUY_TAC": "Trống ngày trả kết quả",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can doi chieu tung dong XML4 voi truong ngay tra ket qua thuc te"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "XML_115",
+      "QUY_TAC": "Trống ngày trả kết quả",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can doi chieu tung dong XML4 voi truong ngay tra ket qua thuc te"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "XML_121",
+      "QUY_TAC": "Trùng lặp Thuốc cùng ngày",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can doi chieu trung lap thuoc theo ngay, ma va ham luong"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "HC_171",
+      "QUY_TAC": "Hồ sơ nội trú thiếu bảng diễn biến",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "Ho so noi tru khong co XML5"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "HD_10",
+      "QUY_TAC": "Thiếu căn cứ thanh toán xét nghiệm (JCI Audit)",
+      "KET_QUA_DOI_CHIEU": "HOP_LY",
+      "LY_DO": "XML4 co chi so xet nghiem co gia tri nhung thieu dai chi so binh thuong"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "THUOC_391",
+      "QUY_TAC": "Cảnh báo sai lệch y lệnh và số lượng",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_0141",
+      "QUY_TAC": "Chỉ định - Định lượng Creatinin máu (23.0051.1494)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Creatinin la can lam sang pho bien trong ho so noi tru/san khoa"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2333",
+      "QUY_TAC": "Chỉ định - Tổng phân tích tế bào máu ngoại vi [laser] (22.0121.1369)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Tong phan tich te bao mau la can lam sang pho bien trong noi tru/san khoa"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2335",
+      "QUY_TAC": "Thực hiện - Tổng phân tích tế bào máu ngoại vi [laser] (22.0121.1369)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ho so thieu XML5 nen canh bao vat tu xet nghiem de trung lap voi loi cau truc"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2696",
+      "QUY_TAC": "Chỉ định - PT điều trị rò hậu môn đơn giản [Gói] (10.0557.0494_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_0141",
+      "QUY_TAC": "Chỉ định - Định lượng Creatinin máu (23.0051.1494)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Creatinin la can lam sang pho bien trong ho so noi tru/san khoa"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2333",
+      "QUY_TAC": "Chỉ định - Tổng phân tích tế bào máu ngoại vi [laser] (22.0121.1369)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Tong phan tich te bao mau la can lam sang pho bien trong noi tru/san khoa"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2335",
+      "QUY_TAC": "Thực hiện - Tổng phân tích tế bào máu ngoại vi [laser] (22.0121.1369)",
+      "KET_QUA_DOI_CHIEU": "NGHI_DUONG_TINH_GIA",
+      "LY_DO": "Ho so thieu XML5 nen canh bao vat tu xet nghiem de trung lap voi loi cau truc"
+    },
+    {
+      "MA_LK": "000573",
+      "MA_LUAT": "DVKT_2696",
+      "QUY_TAC": "Chỉ định - PT điều trị rò hậu môn đơn giản [Gói] (10.0557.0494_GT)",
+      "KET_QUA_DOI_CHIEU": "CAN_XAC_MINH_THEM",
+      "LY_DO": "Can du lieu ngoai ho so hoac chi tiet engine de ket luan"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+# 🎯 ĐƯỜNG DẪN TRUY CẬP NHANH
+
+## 📱 Ứng Dụng Web
+```
+http://192.168.100.86:8080
+```
+👉 **Dán link này vào trình duyệt của máy bất kỳ trong mạng nội bộ**
+
+---
+
+## 📡 API Giám Định
+```
+http://192.168.100.86:8000/docs
+```
+👉 **Tài liệu API tương tác (Swagger)**
+
+---
+
+## ✅ Trạng Thái
+- **Express Server** (8080): ✓ Online
+- **Python API** (8000): ✓ Online
+- **Mạng**: `192.168.100.0/24`
+- **Hostname**: `DESKTOP-L3NS1HD`
+- **IP**: `192.168.100.86`
+
+---
+
+## 🚀 Cách Sử Dụng
+
+### **Từ PC Khác:**
+1. Mở Chrome/Edge/Firefox
+2. Gõ: `192.168.100.86:8080`
+3. Nhấn Enter
+
+### **Test API:**
+```bash
+curl http://192.168.100.86:8000/health
+```
+
+---
+
+**Server đang chạy! 🎉**

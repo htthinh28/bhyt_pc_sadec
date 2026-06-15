@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THẺ TRI THỨC CHI TIẾT: DANH MỤC 2 — DVKT CÓ QUY ĐỊNH CỤ THỂ ĐIỀU KIỆN THANH TOÁN (17/VBHN-BYT)</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>The_tri_thuc_Danh_muc_2_DVKT_dieu_kien_thanh_toan_VBHN17_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>THẺ TRI THỨC CHI TIẾT: DANH MỤC 2 — DVKT CÓ QUY ĐỊNH CỤ THỂ ĐIỀU KIỆN THANH TOÁN (17/VBHN-BYT)</h1>
+<p>Phiên bản: 1.0<br>Ngày: 10/04/2026<br>Đối tượng: huấn luyện AI kiểm tra BHYT — <strong>bổ sung</strong> <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a> mục <strong>4</strong>; <strong>không thay thế</strong> Phụ lục Excel BYT / hợp đồng KCB.</p>
+<hr>
+<h2>1. Định danh pháp lý và vai trò Danh mục 2</h2>
+<ul>
+<li>Trong <strong>17/VBHN-BYT</strong> (<strong>Khoản 2 Điều 1</strong>), <strong>Danh mục 2</strong> là danh mục DVKT có quy định <strong>cụ thể điều kiện thanh toán</strong> (trọng tâm là <strong>điều kiện</strong> được mô tả theo <strong>từng dòng</strong> trong Phụ lục).</li>
+<li><strong>Ý nghĩa kiểm tra:</strong> Lỗi AI thường gặp là <strong>“thấy <code>MA_DICH_VU</code> trùng mã trong DM2 → cho là đủ điều kiện TT”</strong>. Đúng ra: mã chỉ là <strong>điều kiện cần</strong>; <strong>điều kiện đủ</strong> nằm ở <strong>nội dung điều kiện dòng</strong> (và các lớp <strong>Điều 3 khoản 1</strong>: phạm vi CS, QTDH, giá phê duyệt — khi tranh chấp).</li>
+</ul>
+<p><strong>Đối chiếu nhanh với Danh mục 1:</strong> <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a> — DM1 thêm <strong>tỷ lệ + mức giá</strong> theo cấu trúc Phụ lục; DM2 nhấn mạnh <strong>điều kiện</strong> nhưng <strong>không</strong> được hiểu là “không có ràng buộc tiền” — vẫn phải thỏa <strong>Điều 2–4</strong> khi đã TT.</p>
+<hr>
+<h2>2. Cấu trúc “một dòng = một bộ điều kiện” trong Phụ lục DM2</h2>
+<blockquote>
+<p><strong>Nguyên tắc:</strong> Mỗi <strong>dòng</strong> Danh mục 2 là một <strong>gói điều kiện</strong> gắn với <strong>mã DV</strong>. Cột <strong>điều kiện thanh toán</strong> (trong tài liệu nền repo thường gọi gọn <strong>Cột 3</strong>) là nơi ghi <strong>điều kiện cụ thể</strong>: chẩn đoán, đối tượng bệnh nhân, tần suất trong chu kỳ điều trị, phải kèm DV khác, giới hạn tuyến/chuyên môn, v.v. — <strong>mở đúng file Phụ lục</strong>; không suy diễn cột nếu khác bản export.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Thành phần dòng (khái niệm)</th>
+<th>AI cần làm gì</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Mã DV</strong></td>
+<td>Khớp <code>MA_DICH_VU</code> với dòng DM2; kiểm <strong>ngày</strong> áp dụng (HL TT sửa đổi / VBHN).</td>
+</tr>
+<tr>
+<td><strong>Điều kiện thanh toán (trọng tâm DM2)</strong></td>
+<td><strong>Đọc toàn bộ</strong> điều kiện: tách thành các <strong>tiểu kiện</strong> có thể kiểm trên XML (ICD, số lần, khoa, loại KCB) vs cần <strong>bệnh án / QTDH / chủ động BHXH</strong>.</td>
+</tr>
+<tr>
+<td><strong>Liên kết Điều 3</strong></td>
+<td>(a) Trong phạm vi DV được phê duyệt tại CS; (b) QTDH; (c) Giá phê duyệt — DM2 vẫn chịu <strong>khung</strong> này.</td>
+</tr>
+<tr>
+<td><strong>Không nhầm với DM1</strong></td>
+<td>DM2 không có cùng “nhãn” <strong>tỷ lệ + giá</strong> như DM1 trong bảng tổng quan — nhưng trên hồ sơ thực tế vẫn có <strong><code>DON_GIA</code> / <code>TYLE_TT</code></strong>; kiểm tra <strong>không mâu thuẫn</strong> Điều 2–4 và Phụ lục <strong>DM1</strong> nếu cùng mã được phân loại lại theo thời điểm (hiếm — cần đối chiếu văn bản).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. Ánh xạ sang các Điều then chốt (nhấn mạnh điều kiện)</h2>
+<table>
+<thead>
+<tr>
+<th>Điều / cụm</th>
+<th>Vì sao DM2 “dính” mạnh</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Điều 3 khoản 2</strong></td>
+<td>Quy định rõ <strong>Danh mục 1 và 2</strong> có thêm điều kiện <strong>Cột 3</strong> — đây là <strong>trục chính</strong> của DM2.</td>
+</tr>
+<tr>
+<td><strong>Điều 1 điểm a</strong></td>
+<td>Điều kiện <strong>tuyến / phạm vi kỹ thuật</strong> CS — thường đan vào <strong>điều kiện dòng</strong> hoặc kiểm riêng.</td>
+</tr>
+<tr>
+<td><strong>Điều 4 khoản 4</strong></td>
+<td>Dù điều kiện dòng thỏa, vẫn hỏi: có <strong>trùng công đoạn</strong> / <strong>gộp giá</strong> không.</td>
+</tr>
+<tr>
+<td><strong>Điều 4d</strong></td>
+<td>Nhiều DV trong DM2 (hoặc được đọc cùng nhóm đặc thù) là XN/CĐHA/thủ thuật — chỗ mở rộng rule <code>CDHA_*</code> / điều kiện tần suất.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Dữ liệu XML ưu tiên khi phân tích một dòng DM2</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Trường / nội dung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>XML3</strong></td>
+<td><code>MA_DICH_VU</code>, ngày/giờ chỉ định, <code>MA_BENH</code> (ICD), <code>SO_LUONG</code> (lần / ngày — tùy DV), <code>MA_KHOA</code>, <code>TEN_DICH_VU</code> (gợi ý đối chiếu tên–mã).</td>
+</tr>
+<tr>
+<td><strong>XML1</strong></td>
+<td>ICD chính/kèm, loại KCB, ngày vào/ra — phục vụ điều kiện “trong đợt”, “ngoại trú”, v.v.</td>
+</tr>
+<tr>
+<td><strong>XML5</strong></td>
+<td>Diễn biến, chỉ định — khi điều kiện DM2 đòi <strong>hợp lý chuyên môn</strong> hoặc chuỗi chỉ định.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. Checklist AI (trước khi kết luận “đủ điều kiện TT theo DM2”)</h2>
+<ol>
+<li>Đã <strong>phân tách</strong> điều kiện dòng thành các mệnh đề có thể <strong>kiểm chứng</strong> bằng dữ liệu điện tử vs cần <strong>hồ sơ giấy</strong>?</li>
+<li>Đã đối chiếu <strong>ICD</strong> (XML1/XML3) với phạm vi điều kiện (nếu Phụ lục yêu cầu)?</li>
+<li>Đã kiểm <strong>tần suất / số lần / trong cùng đợt</strong> nếu điều kiện có giới hạn?</li>
+<li>Đã kiểm <strong>Điều 3 khoản 1</strong> (CS, QTDH, giá) ở mức <strong>khung</strong> — không bỏ qua vì “chỉ là DM2”?</li>
+<li>Đã kiểm <strong>trùng / gộp</strong> (Điều 4 khoản 4) và <strong>4a</strong> nếu cùng kỳ có nhiều dòng tiền?</li>
+<li>Ghi nhận: <strong>thiếu rule seed</strong> cho đúng điều kiện dòng → hệ thống có thể <strong>không cảnh báo</strong> — không đồng nghĩa hồ sơ <strong>chắc chắn đạt</strong>.</li>
+</ol>
+<hr>
+<h2>6. Sai lầm điển hình khi huấn luyện AI (tránh)</h2>
+<table>
+<thead>
+<tr>
+<th>Sai lầm</th>
+<th>Chỉnh lại</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Coi <strong>có mã trong DM2</strong> = đủ TT</td>
+<td>Phải đọc <strong>điều kiện dòng</strong> + khung Điều 3.</td>
+</tr>
+<tr>
+<td>Gộp <strong>DM2</strong> với <strong>DM1</strong> khi giải thích tỷ lệ/giá</td>
+<td>Phân biệt <strong>cấu trúc Phụ lục</strong>; nếu cùng mã xuất hiện ở hai nhánh theo thời điểm — <strong>đối chiếu văn bản + ngày hồ sơ</strong>.</td>
+</tr>
+<tr>
+<td>Bỏ qua <strong>mốc HL TT 39/2024</strong></td>
+<td>Điều kiện “một lượt”, khám, ngày giường, 4a–4d có thể làm <strong>thay đổi</strong> cách đọc cùng một dòng DM2 theo ngày chỉ định.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Prompt mẫu (huấn luyện)</h2>
+<ul>
+<li><em>“Giả định <code>MA_DICH_VU</code> thuộc <strong>Danh mục 2</strong>: không nêu kết luận TT; hãy liệt kê <strong>các mệnh đề điều kiện</strong> cần kiểm từ Phụ lục (placeholder: …) và map sang <strong>trường XML</strong> tương ứng.”</em></li>
+<li><em>“So sánh <strong>hai</strong> trường hợp: (A) vi phạm <strong>điều kiện dòng</strong> DM2; (B) đủ điều kiện dòng nhưng vi phạm <strong>Điều 4 khoản 4</strong> (trùng gộp) — cách phân biệt trong giải thích nghiệp vụ.”</em></li>
+</ul>
+<hr>
+<h2>8. Liên kết</h2>
+<ul>
+<li>Thẻ tổng DVKT: <a href="./The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md">The_tri_thuc_giam_dinh_DVKT_VBHN_17_BYT.md</a>  </li>
+<li><strong>Danh mục 1</strong> (điều kiện + tỷ lệ + giá): <a href="./The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md">The_tri_thuc_Danh_muc_1_DVKT_dieu_kien_ty_le_gia_VBHN17_AI.md</a>  </li>
+<li>Phiên huấn luyện (bảng Điều): <a href="./Huan_luyen_phien_DVKT_VBHN17_Cursor.md">Huan_luyen_phien_DVKT_VBHN17_Cursor.md</a> mục <strong>B</strong>  </li>
+<li>Kiểm soát lỗi: <a href="./The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md">The_tri_thuc_kiem_soat_loi_dvkt_VBHN17_AI.md</a></li>
+</ul>
+<hr>
+<p><em>Tài liệu này cố định <strong>tư duy chi tiết DM2</strong>; nội dung <strong>điều kiện từng dòng</strong> lấy từ <strong>Phụ lục</strong> và <strong>hướng dẫn tại đơn vị</strong>, không chế tạo trong thẻ.</em></p>
+
+  </main>
+</body>
+</html>

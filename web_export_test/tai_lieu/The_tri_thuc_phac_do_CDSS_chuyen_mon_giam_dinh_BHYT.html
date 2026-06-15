@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tri thức — Phác đồ CDSS chuyên môn &amp; kiểm tra BHYT</title>
+  <style>
+    body { font-family: system-ui, Segoe UI, Arial, sans-serif; line-height: 1.5; max-width: 52rem; margin: 1.5rem auto; padding: 0 1rem; color: #1a1a1a; }
+    h1 { font-size: 1.35rem; }
+    h2 { font-size: 1.1rem; margin-top: 1.25rem; }
+    code { background: #f3f4f6; padding: 0.1em 0.35em; border-radius: 4px; }
+    ul { padding-left: 1.25rem; }
+  </style>
+</head>
+<body>
+  <h1>Tri thức nội bộ: Phác đồ CDSS (Chuyên môn) ↔ Kiểm tra BHYT</h1>
+  <p>Dữ liệu phác đồ được quản lý tại module <strong>Chuyên môn</strong> (bảng CDSS Guidelines), lưu cục bộ dưới khóa <code>CDSS_DATA_PHAC_DO_V3</code>. Engine kiểm tra gom token ICD từ <code>XML1.MA_BENH_CHINH</code>, <code>XML1.MA_BENH_KT</code> và <code>XML1.MA_BENHKEM</code>, <strong>khử trùng</strong> (cùng mã chỉ giữ một), rồi đối chiếu với cột <code>MÃ ICD-10</code> (chuẩn hóa bỏ dấu chấm).</p>
+
+  <h2>Quy tắc seed (LUẬT DỮ LIỆU)</h2>
+  <ul>
+    <li><strong>CDSS_CM_01</strong> (Info, mặc định ON): Có kho và <strong>ít nhất một</strong> mã ICD (chính hoặc kèm, không trùng) khớp phác đồ — nhắc đối chiếu lâm sàng/thuốc/DVKT (Điều 15 Luật BHYT).</li>
+    <li><strong>CDSS_CM_02</strong> (Warning, mặc định OFF): Có kho, hồ sơ có ít nhất một mã ICD gom được, nhưng <strong>không mã nào</strong> khớp bảng — gợi ý bổ sung dữ liệu chuyên môn.</li>
+  </ul>
+
+  <h2>Hàm điều kiện trong engine</h2>
+  <ul>
+    <li><code>CO_KHO_TRI_THUC_PHAC_DO()</code> — đã nạp ít nhất một dòng phác đồ.</li>
+    <li><code>CO_PHAC_DO_CDSS_CHO_ICD(mã)</code> — một mã ICD đơn lẻ (tùy quy tắc tùy biến).</li>
+    <li><code>CO_PHAC_DO_CDSS_CHO_BAT_CU_ICD_TREN_XML1(XML1)</code> — có khớp phác đồ theo tập ICD đã gộp.</li>
+    <li><code>KHONG_CO_PHAC_DO_CDSS_CHO_MA_ICD_GOP_TREN_XML1(XML1)</code> — có mã ICD trên hồ sơ nhưng không mã nào khớp kho.</li>
+  </ul>
+
+  <p><em>Huấn luyện AI:</em> kết hợp với thẻ xác nhận cảnh báo trong chi tiết ca bệnh và kho tri thức tích lũy (<code>CDSS_TRI_THUC_GD_V1</code>) để củng cố đúng/sai theo từng mã luật.</p>
+  <p><strong>Bổ sung chi tiết theo ICD-10:</strong> xem <a href="./The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI.html">The_tri_thuc_phac_do_CDSS_chuyen_mon_ICD10_AI</a> (thẻ tri thức Markdown đầy đủ).</p>
+</body>
+</html>

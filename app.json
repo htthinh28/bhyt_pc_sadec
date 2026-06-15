@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "CDSS BHYT Phuong Chau",
+    "slug": "ung_dung_cdss_bhyt",
+    "version": "1.2.0",
+    "orientation": "default",
+    "icon": "./tai_nguyen/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.phuongchau.cdss.bhyt"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FF66A3",
+        "foregroundImage": "./tai_nguyen/icon.png"
+      },
+      "package": "com.phuongchau.cdss.bhyt"
+    },
+    "web": {
+      "favicon": "./tai_nguyen/icon.png"
+    },
+    "extra": {
+      "firebase": {
+        "enabled": true,
+        "orgId": "phuongchau",
+        "authMode": "email_password",
+        "authEmail": "bshotanthinh@gmail.com",
+        "apiKey": "AIzaSyCXgRo5bFMMeArMZP3wNJRmhrA3BpY38QI",
+        "authDomain": "bhyt-cdss.firebaseapp.com",
+        "projectId": "bhyt-cdss",
+        "storageBucket": "bhyt-cdss.firebasestorage.app",
+        "messagingSenderId": "338989428470",
+        "appId": "1:338989428470:web:a1e7b8da884c34bcfac6d7",
+        "measurementId": "G-ZN1E3NNVP3"
+      },
+      "his": {
+        "enabled": true,
+        "orgCode": "phuongchau",
+        "restBaseUrl": "http://10.10.1.250:8081/api/v1",
+        "restHealthPaths": "/health,/ready,/actuator/health",
+        "fhirBaseUrl": "http://10.10.1.250:8081/fhir",
+        "graphqlUrl": "http://10.10.1.250:8081/graphql",
+        "soapWsdlUrl": "http://10.10.1.250:8081/wsdl",
+        "soapServiceUrl": "http://10.10.1.250:8081/services/soap",
+        "websocketUrl": "ws://10.10.1.250:8081/api/v1/realtime/his",
+        "websocketProtocols": "",
+        "timeoutMs": 15000,
+        "reconnectDelayMs": 5000
+      },
+      "pythonService": {
+        "enabled": true,
+        "baseUrl": "",
+        "timeoutMs": 20000,
+        "chatTimeoutMs": 120000
+      }
+    },
+    "plugins": [
+      "@react-native-community/datetimepicker"
+    ]
+  }
+}

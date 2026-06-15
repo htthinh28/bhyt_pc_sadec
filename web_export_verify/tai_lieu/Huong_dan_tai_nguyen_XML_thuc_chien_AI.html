@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HƯỚNG DẪN: DÙNG XML THỰC TRONG `tai_nguyen/` CHO HUẤN LUYỆN AI THỰC CHIẾN</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; margin: 0; padding: 24px; background: #f6f7f9; color: #1a1a2e; }
+    main { max-width: 900px; margin: 0 auto; background: #fff; padding: 28px 32px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    h1, h2, h3 { line-height: 1.25; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.92em; }
+    pre { overflow: auto; padding: 12px; background: #f0f1f3; border-radius: 8px; }
+    blockquote { border-left: 4px solid #c2185b; margin: 0; padding-left: 16px; color: #444; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 20px; }
+    a { color: #1565c0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="meta">Nguồn: <code>Huong_dan_tai_nguyen_XML_thuc_chien_AI.md</code> · Thư viện CDSS BHYT</div>
+    <h1>HƯỚNG DẪN: DÙNG XML THỰC TRONG <code>tai_nguyen/</code> CHO HUẤN LUYỆN AI THỰC CHIẾN</h1>
+<p>Phiên bản: 1.0 · Cập nhật: 10/04/2026  </p>
+<h2>1. Nguồn dữ liệu</h2>
+<ul>
+<li><strong>Thư mục:</strong> <code>tai_nguyen/</code> (gốc repo, cùng cấp <code>ma_nguon/</code>, <code>tai_lieu/</code>).</li>
+<li><strong>Định dạng:</strong> file <strong><code>GIAMDINHHS</code></strong> (XML ngoài), trong đó từng <code>FILEHOSO</code> có <code>LOAIHOSO</code> (XML1…XML4) và <strong><code>NOIDUNGFILE</code></strong> chứa <strong>Base64</strong> của từng bảng XML nội bộ — giống luồng nhập mà CDSS BHYT xử lý sau khi giải mã.</li>
+<li><strong>Ý nghĩa huấn luyện:</strong> đây là <strong>hồ sơ thật</strong> (mã lượt, CSKCB, chi tiết điều trị) — dùng để tập cho AI: đọc cảnh báo engine, đối chiếu rule, viết ca mẫu, <strong>không</strong> đăng công khai nguyên file nếu chưa khử nhận dạng theo quy định đơn vị.</li>
+</ul>
+<h2>2. Chỉ mục máy đọc (<code>MA_LK</code> ↔ đường dẫn file)</h2>
+<p>Chạy:</p>
+<pre><code class="language-bash">npm run tai_lieu:index-tai-nguyen
+</code></pre>
+<p>hoặc:</p>
+<pre><code class="language-bash">node scripts/index_tai_nguyen_xml.mjs
+</code></pre>
+<p>Sinh <strong><code>tai_lieu/_index_tai_nguyen_xml.json</code></strong> gồm:</p>
+<ul>
+<li><code>tong_so</code> — số file <code>.xml</code> tìm được (đệ quy mọi thư mục con).</li>
+<li><code>items[]</code> — mỗi phần tử: <code>relPath</code>, <code>bytes</code>, <code>mtime</code>, <strong><code>ma_lk</code></strong> (trích từ nội dung XML1 sau Base64), <strong><code>ma_cskcb</code></strong> (từ <code>THONGTINDONVI</code> nếu có), <strong><code>ma_loai_kcb</code></strong>, <strong><code>ma_benh_chinh</code></strong> (khi có trong XML1).</li>
+</ul>
+<p>Khi <code>ma_lk</code> trống hoặc có <code>loi_doc</code>, cần mở file gốc kiểm tra (file hỏng hoặc không đúng mẫu GIAMDINHHS).</p>
+<h3>Chỉ mục theo thư mục con (ví dụ <code>xml2_ip</code>)</h3>
+<p>Để chỉ quét một thư mục dưới <code>tai_nguyen/</code> (tránh trộn toàn bộ kho XML):</p>
+<pre><code class="language-bash">npm run tai_lieu:index-tai-nguyen-xml2-ip
+</code></pre>
+<p>hoặc:</p>
+<pre><code class="language-bash">node scripts/index_tai_nguyen_xml.mjs xml2_ip
+</code></pre>
+<p>Sinh <strong><code>tai_lieu/_index_tai_nguyen_xml2_ip.json</code></strong>. Cấu trúc giống chỉ mục toàn cục; thêm <strong><code>ma_loai_kcb</code></strong>, <strong><code>ma_benh_chinh</code></strong> (khi có trong XML1 sau Base64) để lọc ca theo loại KCB và ICD chính. Tổng hợp kỹ năng đọc nội trú từ nguồn này: <a href="./Thuc_chien_tong_hop_xml2_ip_AI.md">Thuc_chien_tong_hop_xml2_ip_AI.md</a>.</p>
+<h2>3. Cách dùng với AI thực chiến</h2>
+<ol>
+<li><strong>Chọn ca:</strong> lọc trong JSON theo <code>ma_lk</code> trùng với ca đang phân tích trong app / <code>Ca_huan_luyen_mau_*.md</code>.</li>
+<li><strong>Mở file XML:</strong> đường dẫn tuyệt đối = <code>{repo}/tai_nguyen/...</code> (bỏ tiền tố <code>tai_nguyen/</code> trong <code>relPath</code> là đường dẫn tương đối trong thư mục đó).</li>
+<li><strong>Prompt gợi ý:</strong> <em>“Đọc file <code>…</code> trong <code>tai_nguyen</code>, giải thích cấu trúc GIAMDINHHS và trích <code>MA_LK</code> khớp với index.”</em> — hoặc sau khi import vào CDSS: so sánh kết quả kiểm tra với cùng <code>MA_LK</code>.</li>
+<li><strong>Kết hợp kho tri thức tĩnh:</strong> <a href="./Goi_du_lieu_huan_luyen_AI_thuc_chien.md">Goi_du_lieu_huan_luyen_AI_thuc_chien.md</a>, <a href="./Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md">Lo_trinh_huan_luyen_AI_giam_dinh_BHYT.md</a>.</li>
+</ol>
+<h2>4. An toàn và Git</h2>
+<ul>
+<li>File <code>_index_tai_nguyen_xml.json</code> chứa <strong>mã lượt khám</strong> — chỉ commit/push nếu chính sách đơn vị cho phép; có thể thêm vào <code>.gitignore</code> cục bộ hoặc chỉ giữ script + không lưu index.</li>
+<li>Thư mục <code>tai_nguyen/*.json</code> và <code>*.pdf</code> đã được <code>.gitignore</code> mặc định (khác với file <code>.xml</code>).</li>
+</ul>
+<h2>5. Liên kết kỹ thuật trong repo</h2>
+<ul>
+<li>Giải mã / nhập tương tự luồng ứng dụng: các màn <strong>Đọc XML</strong> / <code>nhap_file_xml</code> (tham chiếu mã nguồn khi cần đồng bộ hành vi).</li>
+</ul>
+<hr>
+<p><em>Tài liệu này mô tả <strong>cách lấy và neo</strong> dữ liệu huấn luyện; không thay thế quy trình bảo mật và phân quyền nội bộ.</em></p>
+
+  </main>
+</body>
+</html>
