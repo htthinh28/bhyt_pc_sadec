@@ -51,6 +51,11 @@ import {
     PHIEN_BAN_DANH_MUC_TRANG_THIET_BI_M06,
 } from '../thanh_phan/trang_thiet_bi';
 import {
+    COT_THONG_TIN_CO_SO,
+    DANH_MUC_THONG_TIN_CO_SO,
+    PHIEN_BAN_THONG_TIN_CO_SO,
+} from '../thanh_phan/thong_tin_co_so';
+import {
     capNhatMetaDatasetCucBoTheoRows,
     hydrateDvktTableFromFirebase,
     layMetaDatasetCucBo,
@@ -112,6 +117,11 @@ const CODE_CATALOG_SEEDS = {
     version: PHIEN_BAN_DANH_MUC_TRANG_THIET_BI_M06,
     rows: DANH_MUC_TRANG_THIET_BI_M06,
     columns: COT_DANH_MUC_TRANG_THIET_BI_M06,
+  },
+  THONG_TIN_CO_SO: {
+    version: PHIEN_BAN_THONG_TIN_CO_SO,
+    rows: DANH_MUC_THONG_TIN_CO_SO,
+    columns: COT_THONG_TIN_CO_SO,
   },
   DANH_MUC_ICD10_CAP_CUU: {
     version: PHIEN_BAN_DANH_MUC_ICD10_CAP_CUU,

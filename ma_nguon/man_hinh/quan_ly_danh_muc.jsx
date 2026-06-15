@@ -28,6 +28,7 @@ import { CD } from '../tien_ich/chu_de_giao_dien';
 import { quayLaiAnToan } from '../tien_ich/dieu_huong_an_toan';
 import { dieuHuongMoTabMoi } from '../tien_ich/dieu_huong_mo_tab_moi';
 import { xoaCacheBoMayGiamDinh } from '../tien_ich/dong_co_giam_dinh';
+import { taiCauHinhCoSo } from '../tien_ich/cau_hinh_co_so';
 import {
     doiSoatBoDuLieuDanhMucVoiFirebase,
     flushFirebaseDanhMucQueue,
@@ -74,7 +75,7 @@ const DANH_SACH_TAB = [
   { id: 'DANH_MUC_ICD10', ten: 'Danh mục ICD-10' }, 
   { id: 'DANH_MUC_ICD10_CAP_CUU', ten: 'ICD10 cấp cứu' },
   { id: 'DANH_MUC_ICD10_KE_DON_TREN_30_NGAY', ten: 'ICD10 kê >30 ngày' },
-  { id: 'THONG_TIN_CO_SO', ten: 'Thông tin Cơ sở' },
+  { id: 'THONG_TIN_CO_SO', ten: 'Thông tin Cơ sở (cấu hình BV)' },
   { id: 'DANH_MUC_KHOA_LS_M01', ten: 'Mẫu 01 (Khoa/Giường)' },
   { id: 'DANH_MUC_NHAN_SU', ten: 'Mẫu 02 (Nhân sự)' },
   { id: 'DANH_MUC_MAPPING_NGUOI_HANH_NGHE', ten: 'Mapping người hành nghề' },
@@ -238,6 +239,9 @@ const ManHinhQuanLyDanhMuc = ({ navigation, route }) => {
       syncRemote: !localOnly,
     });
     try { xoaCacheBoMayGiamDinh(); } catch {}
+    if (currentKey === 'THONG_TIN_CO_SO') {
+      try { await taiCauHinhCoSo(); } catch {}
+    }
     dirtyRef.current = false;
     return true;
   };

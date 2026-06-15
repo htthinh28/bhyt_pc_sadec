@@ -1,0 +1,12 @@
+{
+  "ten_goi": "mau",
+  "mo_ta": "Gói mẫu triển khai đa bệnh viện — sao chép thư mục, đổi MA_CSKCB và danh mục M01–M06.",
+  "catalogs": [
+    {
+      "key": "THONG_TIN_CO_SO",
+      "file": "THONG_TIN_CO_SO.json",
+      "columns_key": "COLS_THONG_TIN_CO_SO",
+      "columns_file": "COLS_THONG_TIN_CO_SO.json"
+    }
+  ]
+}

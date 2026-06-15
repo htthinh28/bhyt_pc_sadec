@@ -1,0 +1,24 @@
+[
+  {
+    "MA_CSKCB": "94170",
+    "TEN_CSKCB": "Ứng dụng hỗ trợ kiểm tra bảo hiểm y tế",
+    "DON_VI_THU_HUONG": "Ứng dụng hỗ trợ kiểm tra bảo hiểm y tế",
+    "ORG_ID": "phuongchau",
+    "HOP_DONG_TU_NGAY": "20260101",
+    "HOP_DONG_DEN_NGAY": "20261231",
+    "GIO_BAT_DAU_SANG": "0700",
+    "GIO_KET_THUC_SANG": "1130",
+    "GIO_BAT_DAU_CHIEU": "1300",
+    "GIO_KET_THUC_CHIEU": "1630",
+    "KHAM_NGOAI_GIO": "Không",
+    "DIEU_TRI_BAN_NGAY": "Không",
+    "DIA_CHI": "Số 373, đường Phú Lợi, Phường Phú Lợi, Thành phố Cần Thơ",
+    "DIEN_THOAI": "02993526868",
+    "EMAIL": "khth.st@phuongchau.com",
+    "SO_BAN_KHAM": "19",
+    "GIUONG_PHE_DUYET": "100",
+    "CAP_CHUYEN_MON": "Cơ bản",
+    "TUYEN_CHUYEN_MON": "Huyện",
+    "GIA_AP_DUNG": "Tư nhân theo giá công lập"
+  }
+]

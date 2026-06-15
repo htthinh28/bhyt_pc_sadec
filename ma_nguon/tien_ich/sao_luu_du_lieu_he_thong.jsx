@@ -19,6 +19,7 @@ const DEFAULT_KEY_PREFIXES = [
   'KHO_XML_',
   'SESSION_DOC_XML_',
   'TAB_DANG_MO',
+  'THONG_TIN_CO_SO',
 ];
 
 const WEB_EXPORT_VERSION = 1;

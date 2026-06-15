@@ -4,7 +4,56 @@
  * Đã lọc trùng: 0 dòng
  * ON/OFF: kiểm soát qua màn hình Quản lý Quy tắc ON/OFF
  * KHÔNG CẬP NHẬT THỦ CÔNG - dùng Import hoặc chạy lại script gen_hardcoded_rules.js
+ * Tham số HD_01/03/04/05/06: đọc từ danh mục THONG_TIN_CO_SO (`cau_hinh_co_so.js`).
  */
+
+import { layThamSoHopDong } from './cau_hinh_co_so';
+
+const formatNgay = (yyyymmdd) => {
+  const s = String(yyyymmdd || '');
+  if (s.length !== 8) return s;
+  return `${s.slice(6, 8)}/${s.slice(4, 6)}/${s.slice(0, 4)}`;
+};
+
+const formatGio = (hhmm) => {
+  const s = String(hhmm || '').padStart(4, '0');
+  return `${s.slice(0, 2)}:${s.slice(2, 4)}`;
+};
+
+const khungGioHanhChinh = (p) => (
+  `((SUBSTR(XML1.NGAY_VAO, 9, 4) BETWEEN '${p.gioBatDauSang}' AND '${p.gioKetThucSang}') OR (SUBSTR(XML1.NGAY_VAO, 9, 4) BETWEEN '${p.gioBatDauChieu}' AND '${p.gioKetThucChieu}'))`
+);
+
+const apDungThamSoCoSo = (rules) => {
+  const p = layThamSoHopDong();
+  const gioLabel = `${formatGio(p.gioBatDauSang)}-${formatGio(p.gioKetThucSang)} và ${formatGio(p.gioBatDauChieu)}-${formatGio(p.gioKetThucChieu)}`;
+  const tuNgay = formatNgay(p.hopDongTuNgay);
+  const denNgay = formatNgay(p.hopDongDenNgay);
+
+  return rules.map((row) => {
+    const next = { ...row };
+    if (row.MA_LUAT === 'HD_01') {
+      next.DIEU_KIEN = `XML1.MA_LOAI_KCB == '01' AND NOT ${khungGioHanhChinh(p)}`;
+      next.CANH_BAO = `⛔ VI PHẠM ĐIỀU 1 (2.2.1): Tiếp đón ngoại trú ngoài giờ hành chính thỏa thuận (${gioLabel}).`;
+    }
+    if (row.MA_LUAT === 'HD_03') {
+      next.DIEU_KIEN = `XML1.MA_LOAI_KCB == '01' AND DAY_OF_WEEK(SUBSTR(XML1.NGAY_VAO, 1, 8)) == 1 AND NOT ${khungGioHanhChinh(p)}`;
+    }
+    if (row.MA_LUAT === 'HD_04') {
+      next.DIEU_KIEN = `TO_NUMBER(SUBSTR(XML1.NGAY_VAO, 1, 8)) < ${p.hopDongTuNgay} OR TO_NUMBER(SUBSTR(XML1.NGAY_VAO, 1, 8)) > ${p.hopDongDenNgay}`;
+      next.CANH_BAO = `⛔ VI PHẠM ĐIỀU 5: Thời điểm KCB nằm ngoài thời hạn hiệu lực hợp đồng (${tuNgay} - ${denNgay}).`;
+    }
+    if (row.MA_LUAT === 'HD_05') {
+      next.DIEU_KIEN = `XML1.MA_LOAI_KCB == '01' AND COUNT_DISTINCT(XML3, MA_NHOM == '1') > ${p.soBanKham}`;
+      next.CANH_BAO = `⚠️ CẢNH BÁO: Số lượng bàn khám hoạt động vượt quá ${p.soBanKham} bàn đã phê duyệt tại Điều 1 (2.3.a).`;
+    }
+    if (row.MA_LUAT === 'HD_06' && p.maCskcb) {
+      next.DIEU_KIEN = `XML1.MA_CSKCB != '${p.maCskcb}'`;
+      next.CANH_BAO = `⛔ SAI LỆCH: Mã cơ sở KCB trên hồ sơ không khớp với mã ${p.maCskcb} đã cấu hình trong hệ thống.`;
+    }
+    return next;
+  });
+};
 
 const CACHE_RULES_HARDCODED = Object.freeze([
   { id: 'HD-001', MA_LUAT: 'HD_01', TEN_QUY_TAC: `Giờ tiếp đón ngoại trú sai quy định`, DIEU_KIEN: `XML1.MA_LOAI_KCB == '01' AND NOT ((SUBSTR(XML1.NGAY_VAO, 9, 4) BETWEEN '0700' AND '1130') OR (SUBSTR(XML1.NGAY_VAO, 9, 4) BETWEEN '1300' AND '1630'))`, CANH_BAO: `⛔ VI PHẠM ĐIỀU 1 (2.2.1): Tiếp đón ngoại trú ngoài giờ hành chính thỏa thuận (07:00-11:30 và 13:00-16:30).`, TRANG_THAI: 'ON' },
@@ -34,4 +83,4 @@ AND IS_HOLIDAY(SUBSTR(XML1.NGAY_VAO,1,8))`, CANH_BAO: `⛔ VI PHẠM ĐIỀU 1 (
   { id: 'HD-023', MA_LUAT: 'HD_23', TEN_QUY_TAC: `DV vượt phạm vi chuyên môn BV`, DIEU_KIEN: `!IS_EMPTY(MA_DICH_VU) AND MA_DICH_VU NOT IN DM_KY_THUAT_BV`, BIEU_THUC_CHUAN_HOA: `Biểu thức chuẩn cần tường minh scope dòng hiện tại, ví dụ CURRENT.MA_DICH_VU; runtime giữ nguyên để không đổi cú pháp engine đang lưu hành.`, CANH_BAO: `🔴 Vượt phạm vi chuyên môn (không thanh toán)`, TRANG_THAI: 'ON' },
 ]);
 
-export const layDanhSachLuatHopDongHardcoded = () => CACHE_RULES_HARDCODED.map((row) => ({ ...row }));
+export const layDanhSachLuatHopDongHardcoded = () => apDungThamSoCoSo(CACHE_RULES_HARDCODED.map((row) => ({ ...row })));

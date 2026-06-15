@@ -24,6 +24,7 @@ import { BANG_ICD10_TT06, PHIEN_BAN_ICD10_TT06 } from '../thanh_phan/icd10_tt06_
 import { giamDinhCdssDmMatchingUpgrade } from './cdss_dm_matching_upgrade';
 import { CHUOI_TRICH_DAN_TT12_2026_D10_VA_D13 as TT_12_2026_BTC_DIEU10_K1 } from './co_so_phap_ly_tt12_2026';
 import { docDanhMucTuKho } from './kho_du_lieu';
+import { taiCauHinhCoSo, lamMoiCauHinhCoSo } from './cau_hinh_co_so';
 import { kiemTraDinhDangXML } from './kiem_tra_xml';
 import { layDanhSachLuatCdhaHardcoded } from './luat_cdha_hardcoded';
 import { layDanhSachLuatCongKhamHardcoded } from './luat_cong_kham_hardcoded';
@@ -121,6 +122,7 @@ export const xoaCacheBoMayGiamDinh = () => {
     cache_ChunkDuLieuDangNap.clear();
     cache_DanhSachTabLuatDong = null;
     cache_BienDichDieuKienLuat.clear();
+    try { lamMoiCauHinhCoSo(); } catch {}
 };
 
 const UPPER = (val) => String(val || "").toUpperCase().trim();
@@ -3361,7 +3363,6 @@ const locCanhBaoDuongTinhGiaTheoNguCanh = (hoSo, dsLỗi, dm) => {
         if (ma === 'HC_224' && (xml8.length === 0 || !dong || IS_EMPTY(dong?.MA_PT_VIEN) || IS_EMPTY(dong?.MA_PHU_MO))) return false;
         if (ma === 'HC_242' && tongChiCanBang) return false;
         if (ma === 'DM-DVKT-03' && laDongDichVuGiuong(dong)) return false;
-        if (ma === 'HD_06' && !IS_EMPTY(xml1.MA_CSKCB) && /94170/.test(`${canhBao} ${dieuKien}`)) return false;
         if (ma === 'HD_09' && IS_EMPTY(xml1.MA_TTDV)) return false;
         if (ma === 'CK_03' && !['1', '01'].includes(maLoaiKcb)) return false;
         if (ma === 'THUOC_400' && !coThuoc) return false;
@@ -6468,6 +6469,7 @@ export const chayBoMayGiamDinhV3 = async (hoSo, options = {}) => {
  */
 export const lamNongCoSoTruocBatchGiamDinh = async () => {
     await Promise.all([
+        taiCauHinhCoSo(),
         taiDanhMucHeThong(),
         taiMapTrangThaiQuyTacNoiBo(),
         taiMapGhiDeNoiDungQuyTacNoiBo(),
