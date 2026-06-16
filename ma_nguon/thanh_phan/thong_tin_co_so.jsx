@@ -16,7 +16,7 @@ export const COT_THONG_TIN_CO_SO = [
 ];
 export const THONG_TIN_CO_SO = {
   // --- THÔNG TIN HÀNH CHÍNH CƠ BẢN ---
-  MA_CSKCB: "94170",
+  MA_CSKCB: "87189",
   TEN_CSKCB: TEN_UNG_DUNG_HOA,
   DON_VI_THU_HUONG: TEN_UNG_DUNG_HOA,
   ORG_ID: "phuongchau",

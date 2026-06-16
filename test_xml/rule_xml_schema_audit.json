@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-23T11:34:08.377Z",
+  "timestamp": "2026-06-16T12:51:09.243Z",
   "schemaTables": {
     "XML1": [
       "CAN_NANG",
@@ -1093,7 +1093,7 @@
     {
       "file": "ma_nguon\\tien_ich\\luat_giam_dinh_chuyen_de_hardcoded.jsx",
       "missing": false,
-      "blocks": 386,
+      "blocks": 388,
       "issues": []
     },
     {
@@ -1118,13 +1118,13 @@
     {
       "file": "ma_nguon\\tien_ich\\du_lieu_luat_thuoc_muc8.jsx",
       "missing": false,
-      "blocks": 536,
+      "blocks": 538,
       "issues": [
         {
           "table": "XML1",
           "field": "T_NGOAIDS",
           "reason": "UNKNOWN_FIELD",
-          "blockIndex": 534
+          "blockIndex": 535
         }
       ]
     }

@@ -3,6 +3,7 @@ from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
 import re
+import unicodedata
 from typing import Any, Dict, List
 
 from fastapi import FastAPI, HTTPException
@@ -34,7 +35,8 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 ICD_CHRONIC_FILE = REPO_ROOT / "ma_nguon" / "thanh_phan" / "icd10_ke_don_tren_30_ngay.jsx"
 ICD_CODE_PATTERN = re.compile(r"[A-Z][0-9]{2}(?:\.[0-9A-Z]+)?")
 ICD_RANGE_PATTERN = re.compile(r"^([A-Z])(\d{2})(?:\.[0-9A-Z]+)?\s*(?:ĐẾN|DEN|TO|-)\s*([A-Z])(\d{2})(?:\.[0-9A-Z]+)?$", re.IGNORECASE)
-DM_KHAM = {
+
+DM_KHAM_FALLBACK = {
     "01.0001.0001",
     "01.0002.0001",
     "01.0003.0001",
@@ -46,6 +48,53 @@ DM_KHAM = {
     "01.0009.0001",
     "01.0010.0001",
 }
+
+def _strip_vietnamese_accents(s: str) -> str:
+    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode("utf-8")
+
+
+@lru_cache(maxsize=1)
+def _load_dm_kham_from_dvkt_seed() -> set[str] | None:
+    """
+    Nâng cấp DM_KHAM theo danh mục nội bộ mới (dich_vu_ky_thuat.jsx).
+
+    Heuristic:
+    - Lấy mọi dòng TEN_DICH_VU bắt đầu bằng "Khám" (không dấu).
+    - Lấy lại MA_DICH_VU nằm trong object ngay phía trước.
+    """
+    dvkt_path = REPO_ROOT / "ma_nguon" / "thanh_phan" / "dich_vu_ky_thuat.jsx"
+    if not dvkt_path.exists():
+        return None
+
+    text = dvkt_path.read_text(encoding="utf-8", errors="ignore")
+    lines = text.splitlines()
+
+    out: set[str] = set()
+    for i, line in enumerate(lines):
+        if '"TEN_DICH_VU"' not in line:
+            continue
+        m = re.search(r'"TEN_DICH_VU"\s*:\s*"([^"]*)"', line)
+        if not m:
+            continue
+
+        ten = m.group(1)
+        ten_norm = _strip_vietnamese_accents(ten).strip().upper().replace(" ", "")
+        if not ten_norm.startswith("KHAM"):
+            continue
+
+        # Quay ngược tìm MA_DICH_VU gần nhất trong object
+        for j in range(i - 1, max(i - 60, -1), -1):
+            mj = re.search(r'"MA_DICH_VU"\s*:\s*"([^"]*)"', lines[j])
+            if mj:
+                code = mj.group(1).strip()
+                if code:
+                    out.add(code)
+                break
+
+    return out or None
+
+
+DM_KHAM = _load_dm_kham_from_dvkt_seed() or DM_KHAM_FALLBACK
 
 
 def lay_ma_lk(claim: Dict[str, Any]) -> str:

@@ -57,7 +57,7 @@ const main = async () => {
         MA_LY_DO_VV: '2',
       },
       xml3: [{
-        MA_DV: '01.0001.0001',
+        MA_DV: '03.18',
         TEN_DICH_VU: 'Kham benh smoke test noi tru',
         DON_GIA: 50000,
         THANH_TIEN: 50000,
@@ -78,7 +78,7 @@ const main = async () => {
         MA_LY_DO_VV: '2',
       },
       xml3: [{
-        MA_DV: '01.0001.0001',
+        MA_DV: '03.18',
         TEN_DICH_VU: 'Kham benh smoke test ngoai tru',
         DON_GIA: 50000,
         THANH_TIEN: 50000,
@@ -99,7 +99,7 @@ const main = async () => {
         MA_LY_DO_VV: '2',
       },
       xml3: [{
-        MA_DV: '01.0001.0001',
+        MA_DV: '03.18',
         TEN_DICH_VU: 'Kham benh smoke test noi tru ban ngay 1',
         DON_GIA: 50000,
         THANH_TIEN: 50000,
@@ -107,7 +107,7 @@ const main = async () => {
         NGAY_YL: '202604051030',
         MA_KHOA: 'K01',
       }, {
-        MA_DV: '01.0001.0001',
+        MA_DV: '03.18',
         TEN_DICH_VU: 'Kham benh smoke test noi tru ban ngay 2',
         DON_GIA: 50000,
         THANH_TIEN: 15000,
@@ -120,7 +120,7 @@ const main = async () => {
       source: 'qa_python_service_script',
       mode: 'batch_audit',
       expect_compatible_claim_results: true,
-      dm_kham: ['01.0001.0001'],
+      dm_kham: ['03.18'],
       ma_khoa_kham: ['K01'],
     },
   };
