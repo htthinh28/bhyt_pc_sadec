@@ -2393,7 +2393,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   panel_phai_status_label: {
     fontSize: 14,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     flex: 1,
     paddingRight: 8,
@@ -2401,7 +2401,7 @@ const taoStylesTongQuan = (CD) => ({
   panel_phai_status_val: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#94A3B8',
+    color: CD.text.muted,
     fontFamily: CD.font.family,
   },
   panel_phai_status_ok: { color: '#2E7D32' },
@@ -2525,7 +2525,7 @@ const taoStylesTongQuan = (CD) => ({
     backgroundColor: CD.surface.subtle,
     borderRadius: 11,
     borderWidth: 1,
-    borderColor: '#EDF2F7',
+    borderColor: CD.border.divider,
   },
   sidebar_hint_bullet: {
     fontSize: 8,
@@ -2653,7 +2653,7 @@ const taoStylesTongQuan = (CD) => ({
     width: 40,
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#CBD5E1',
+    backgroundColor: CD.border.glass_md,
     marginBottom: 12,
   },
   tri_thuc_modal_header: {
@@ -2671,7 +2671,7 @@ const taoStylesTongQuan = (CD) => ({
   tri_thuc_modal_close: {
     padding: 8,
     borderRadius: 10,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: CD.surface.inset,
   },
   tri_thuc_modal_close_txt: { fontSize: 16, color: CD.text.secondary, fontWeight: '700' },
   tri_thuc_modal_sub: {
@@ -2717,7 +2717,7 @@ const taoStylesTongQuan = (CD) => ({
     lineHeight: 17,
     flexShrink: 1,
   },
-  tri_thuc_modal_row_chev: { fontSize: 18, color: '#94A3B8', fontWeight: '700' },
+  tri_thuc_modal_row_chev: { fontSize: 18, color: CD.text.muted, fontWeight: '700' },
 
   // ── SECTIONS ──
   section_block: { marginHorizontal: 8, marginTop: 14 },
@@ -2740,7 +2740,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   import_section_sub: {
     fontSize: 11,
-    color: '#94A3B8',
+    color: CD.text.muted,
     fontFamily: CD.font.family,
     marginTop: 2,
   },
@@ -2766,12 +2766,12 @@ const taoStylesTongQuan = (CD) => ({
   },
   import_card_compact: {
     width: '100%',
-    backgroundColor: 'rgba(248,250,252,0.72)',
+    backgroundColor: CD.bg.glass_card_md,
     borderRadius: 14,
     paddingVertical: 10,
     paddingHorizontal: 12,
     borderWidth: 1,
-    borderColor: 'rgba(226,232,240,0.85)',
+    borderColor: CD.border.glass,
     ...Platform.select({
       web: {
         boxShadow: '0 8px 20px rgba(15,23,42,0.06), inset 0 1px 0 rgba(255,255,255,0.65)',
@@ -2815,7 +2815,7 @@ const taoStylesTongQuan = (CD) => ({
     marginTop: 2,
   },
   python_badge_line: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 8, minWidth: 0 },
-  python_badge_dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: '#94A3B8' },
+  python_badge_dot: { width: 7, height: 7, borderRadius: 4, backgroundColor: CD.text.muted },
   python_badge_dot_checking: { backgroundColor: '#F59E0B' },
   python_badge_dot_ok: { backgroundColor: '#22C55E' },
   python_badge_dot_err: { backgroundColor: '#EF4444' },
@@ -2823,7 +2823,7 @@ const taoStylesTongQuan = (CD) => ({
     flex: 1,
     fontSize: 10,
     lineHeight: 14,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   import_pick_btn_sm: {
@@ -2851,7 +2851,7 @@ const taoStylesTongQuan = (CD) => ({
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 10,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: CD.surface.inset,
     borderWidth: 1,
     borderColor: CD.border.glass,
     ...Platform.select({ web: { cursor: 'pointer' } }),
@@ -2859,7 +2859,7 @@ const taoStylesTongQuan = (CD) => ({
   helper_redirect_txt_tight: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#334155',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   import_kt_block: {
@@ -2871,7 +2871,7 @@ const taoStylesTongQuan = (CD) => ({
   import_kt_paragraph: {
     fontSize: 11,
     lineHeight: 16,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginBottom: 8,
   },
@@ -2887,7 +2887,7 @@ const taoStylesTongQuan = (CD) => ({
   import_chip_tight_txt: {
     fontSize: 10,
     fontWeight: '700',
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   import_nangcao_block: { marginTop: 8, borderTopWidth: 1, borderTopColor: 'rgba(148,163,184,0.25)', paddingTop: 6 },
@@ -2974,7 +2974,7 @@ const taoStylesTongQuan = (CD) => ({
     backgroundColor: CD.surface.card,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#EDF2F7',
+    borderColor: CD.border.divider,
     borderLeftWidth: 3,
     minWidth: '100%',
     ...Platform.select({
@@ -2987,7 +2987,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   module_card_sidebar_item_hover: Platform.select({
     web: {
-      borderColor: '#CBD5E1',
+      borderColor: CD.border.glass_md,
       boxShadow: '0 6px 16px rgba(15, 23, 42, 0.07)',
       transform: [{ translateY: -1 }],
     },
@@ -3009,7 +3009,7 @@ const taoStylesTongQuan = (CD) => ({
   module_name_sidebar: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#1E293B',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
     lineHeight: 20,
   },
@@ -3028,11 +3028,11 @@ const taoStylesTongQuan = (CD) => ({
     marginBottom: 10,
     marginTop: 8,
   },
-  sidebar_divider_line: { flex: 1, height: StyleSheet.hairlineWidth, backgroundColor: '#E2E8F0' },
+  sidebar_divider_line: { flex: 1, height: StyleSheet.hairlineWidth, backgroundColor: CD.border.divider },
   sidebar_divider_label: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#94A3B8',
+    color: CD.text.muted,
     letterSpacing: 1.4,
     fontFamily: CD.font.family,
   },
@@ -3057,23 +3057,23 @@ const taoStylesTongQuan = (CD) => ({
   },
   module_card_sidebar_secondary_hover: Platform.select({
     web: {
-      backgroundColor: '#F1F5F9',
-      borderColor: '#CBD5E1',
+      backgroundColor: CD.surface.inset,
+      borderColor: CD.border.glass_md,
     },
     default: {},
   }),
   module_icon_wrap_secondary: {
-    backgroundColor: '#EEF2FF',
+    backgroundColor: CD.surface.brand_tint,
   },
   module_name_sidebar_secondary: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   module_hint_secondary: {
     fontSize: 11,
-    color: '#94A3B8',
+    color: CD.text.muted,
     marginTop: 3,
     fontFamily: CD.font.family,
   },
@@ -3207,7 +3207,7 @@ const taoStylesTongQuan = (CD) => ({
   import_upload_subtitle: {
     fontSize: 12,
     lineHeight: 15,
-    color: '#46607E',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginTop: 2,
     marginBottom: 8,
@@ -3219,7 +3219,7 @@ const taoStylesTongQuan = (CD) => ({
   python_warmup_hint: {
     fontSize: 11,
     lineHeight: 14,
-    color: '#5C6B7A',
+    color: CD.text.muted,
     fontFamily: CD.font.family,
     textAlign: 'center',
     maxWidth: 520,
@@ -3301,7 +3301,7 @@ const taoStylesTongQuan = (CD) => ({
   import_auto_folder_note: {
     fontSize: 11,
     lineHeight: 17,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginBottom: 10,
   },
@@ -3326,7 +3326,7 @@ const taoStylesTongQuan = (CD) => ({
     marginTop: 12,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#CBD5E1',
+    borderColor: CD.border.glass_md,
     backgroundColor: CD.surface.subtle,
     overflow: 'hidden',
   },
@@ -3336,20 +3336,20 @@ const taoStylesTongQuan = (CD) => ({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 6,
-    backgroundColor: '#EEF2FF',
+    backgroundColor: CD.surface.brand_tint,
     borderBottomWidth: 1,
-    borderBottomColor: '#C7D2FE',
+    borderBottomColor: CD.border.accent,
   },
   import_auto_folder_log_title: {
     fontSize: 11,
     fontWeight: '800',
-    color: '#3730A3',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   import_auto_folder_clear: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#4F46E5',
+    color: CD.text.link,
     fontFamily: CD.font.family,
     ...Platform.select({ web: { cursor: 'pointer' } }),
   },
@@ -3357,7 +3357,7 @@ const taoStylesTongQuan = (CD) => ({
   import_auto_folder_line: {
     fontSize: 11,
     lineHeight: 17,
-    color: '#1E293B',
+    color: CD.text.primary,
     fontFamily: CD.font.mono,
     marginBottom: 6,
   },
@@ -3415,15 +3415,15 @@ const taoStylesTongQuan = (CD) => ({
     paddingVertical: 6,
     paddingHorizontal: 10,
     borderRadius: 10,
-    backgroundColor: '#EEF2FF',
+    backgroundColor: CD.surface.brand_tint,
     borderWidth: 1,
-    borderColor: '#C7D2FE',
+    borderColor: CD.border.accent,
     ...Platform.select({ web: { cursor: 'pointer' } }),
   },
   python_refresh_txt: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#3730A3',
+    color: CD.text.link,
     fontFamily: CD.font.family,
   },
   python_action_btn_busy: {
@@ -3441,7 +3441,7 @@ const taoStylesTongQuan = (CD) => ({
     borderRadius: 999,
     backgroundColor: CD.surface.subtle,
     borderWidth: 1,
-    borderColor: '#CBD5E1',
+    borderColor: CD.border.glass_md,
     ...Platform.select({ web: { cursor: 'pointer' } }),
   },
   audit_engine_chip_active: {
@@ -3451,7 +3451,7 @@ const taoStylesTongQuan = (CD) => ({
   audit_engine_chip_txt: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#334155',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   audit_engine_chip_txt_active: {
@@ -3491,7 +3491,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   python_status_meta: {
     fontSize: 11,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginBottom: 4,
   },
@@ -3499,7 +3499,7 @@ const taoStylesTongQuan = (CD) => ({
     paddingVertical: 3,
     paddingHorizontal: 8,
     borderRadius: 999,
-    backgroundColor: '#CBD5E1',
+    backgroundColor: CD.border.glass_md,
   },
   python_smoke_badge_pass: {
     backgroundColor: '#16A34A',
@@ -3519,7 +3519,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   python_status_sub: {
     fontSize: 11,
-    color: '#334155',
+    color: CD.text.secondary,
     lineHeight: 16,
     fontFamily: CD.font.family,
   },
@@ -3564,7 +3564,7 @@ const taoStylesTongQuan = (CD) => ({
   },
   unified_ops_meta: {
     fontSize: 11,
-    color: '#334155',
+    color: CD.text.secondary,
     lineHeight: 16,
     fontFamily: CD.font.family,
     marginTop: 4,
@@ -3841,17 +3841,17 @@ const taoStylesTongQuan = (CD) => ({
   },
   rule_occurrence_meta: {
     fontSize: 12,
-    color: '#475569',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   rule_name: { fontSize: 17, fontWeight: '700', color: CD.text.table_cell, fontFamily: CD.font.family, flex: 1 },
   rule_desc: { fontSize: 15, color: CD.text.secondary, fontFamily: CD.font.family, lineHeight: 22 },
   rule_meta: { fontSize: 13, color: CD.text.link, fontFamily: CD.font.family, marginTop: 4 },
   rule_meta_subtle: { fontSize: 12, color: CD.text.muted, fontFamily: CD.font.family, marginTop: 2 },
-  rule_flow: { fontSize: 13, color: '#546E7A', fontFamily: CD.font.family, lineHeight: 19, marginTop: 2 },
+  rule_flow: { fontSize: 13, color: CD.text.secondary, fontFamily: CD.font.family, lineHeight: 19, marginTop: 2 },
   rule_hint_action: {
     fontSize: 12,
-    color: '#0369A1',
+    color: CD.text.link,
     fontFamily: CD.font.family,
     marginTop: 6,
   },
@@ -3968,12 +3968,12 @@ const taoStylesTongQuan = (CD) => ({
   rule_instance_desc_phu: {
     fontSize: 12,
     lineHeight: 18,
-    color: CD.text.muted || '#94A3B8',
+    color: CD.text.muted,
     fontFamily: CD.font.family,
     marginBottom: 6,
     paddingLeft: 10,
     borderLeftWidth: 2,
-    borderLeftColor: '#E2E8F0',
+    borderLeftColor: CD.border.divider,
   },
   rule_instance_actions: {
     flexDirection: 'row',
@@ -4017,8 +4017,8 @@ const taoStylesTongQuan = (CD) => ({
     borderWidth: 1, borderColor: CD.border.glass,
   },
   empty_icon: { fontSize: 56, marginBottom: 16 },
-  empty_title: { fontSize: 22, fontWeight: '700', color: CD.text.secondary, fontFamily: CD.font.family, marginBottom: 8 },
-  empty_sub: { fontSize: 18, color: CD.text.muted, fontFamily: CD.font.family, textAlign: 'center' },
+  empty_title: { fontSize: 22, fontWeight: '700', color: CD.text.primary, fontFamily: CD.font.family, marginBottom: 8 },
+  empty_sub: { fontSize: 18, color: CD.text.secondary, fontFamily: CD.font.family, textAlign: 'center' },
 
   chiTietLoiModal_root: {
     flex: 1,

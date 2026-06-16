@@ -9,7 +9,7 @@ const DONG_TAC_GIA = 'Tác giả Ths.Bs.CKII Hồ Tấn Thịnh';
 
 export default function ChanTrangUngDung({ style, children }) {
   const CD = useChuDe();
-  const mau = CD.text?.muted || '#9E9E9E';
+  const mau = CD.text?.secondary || '#64748B';
 
   return (
     <View
