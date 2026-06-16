@@ -10,7 +10,8 @@ _Learn about the person you're helping. Update this as you go._
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+- **Deploy mặc định:** Sau mỗi lần sửa code xong, tự **commit + push GitHub** và **deploy Vercel production** (không cần hỏi lại), trừ khi user nói không push.
+- Dự án CDSS BHYT — BV Sa Đéc (`MA_CSKCB` 87189), repo `bhyt_pc_sadec`, Vercel `bhyt-pc-sadec.vercel.app`.
 
 ---
 

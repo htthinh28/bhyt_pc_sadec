@@ -31,7 +31,7 @@ import ThanhPanelPhai from '../thanh_phan/thanh_panel_phai';
 import KhungCuonThanhPhai from '../thanh_phan/khung_cuon_thanh_phai';
 import { LOGO_UNG_DUNG, TEN_UNG_DUNG } from '../tien_ich/ten_ung_dung';
 import KhungTroLyTriThucChat from '../thanh_phan/khung_tro_ly_tri_thuc_chat';
-import { BoChonChuDe, CD } from '../tien_ich/chu_de_giao_dien';
+import { BoChonChuDe, useChuDe, useChuDeStyles } from '../tien_ich/chu_de_giao_dien';
 import {
   CHE_DO_GIAM_DINH,
   docCheDoGiamDinh,
@@ -372,6 +372,8 @@ const HienThiCanhBaoLoi = ({ loi, styleChinh, stylePhu }) => (
 );
 
 const ManHinhTongQuan = ({ navigation }) => {
+  const CD = useChuDe();
+  const styles = useChuDeStyles(taoStylesTongQuan);
   const { dungSidebarTrai, width: beRongCuaSo } = useLayoutMode();
   const rongSidebarDash = beRongCuaSo >= BREAKPOINTS.xl ? 300 : 260;
   const [thanhTienIchMo, setThanhTienIchMo] = useState(false);
@@ -2230,7 +2232,7 @@ ${phanDongKhoi.join('\n')}
   );
 };
 
-const styles = StyleSheet.create({
+const taoStylesTongQuan = (CD) => ({
   vung_an_toan: {
     flex: 1,
     position: 'relative',
@@ -2263,9 +2265,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   header_left: { flexDirection: 'row', alignItems: 'center', gap: 16 },
-  logo: { width: 60, height: 60, borderRadius: 30, backgroundColor: '#FFF', borderWidth: 2, borderColor: 'rgba(255,255,255,0.5)' },
-  header_ten_bv: { fontSize: 20, fontWeight: '900', color: '#FFF', fontFamily: CD.font.family, letterSpacing: 0.3, lineHeight: 28, flexShrink: 1 },
-  header_sub: { fontSize: 16, color: 'rgba(255,255,255,0.75)', fontFamily: CD.font.family, marginTop: 2 },
+  logo: { width: 60, height: 60, borderRadius: 30, backgroundColor: CD.on_brand.primary, borderWidth: 2, borderColor: CD.on_brand.border },
+  header_ten_bv: { fontSize: 20, fontWeight: '900', color: CD.on_brand.primary, fontFamily: CD.font.family, letterSpacing: 0.3, lineHeight: 28, flexShrink: 1 },
+  header_sub: { fontSize: 16, color: CD.on_brand.secondary, fontFamily: CD.font.family, marginTop: 2 },
   header_right: {
     alignItems: Platform.OS === 'web' ? 'flex-end' : 'flex-start',
     gap: 8,
@@ -2287,8 +2289,8 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.25)',
   },
   user_badge_icon: { fontSize: 22 },
-  user_badge_name: { fontSize: 17, fontWeight: '700', color: '#FFF', fontFamily: CD.font.family },
-  user_badge_role: { fontSize: 14, color: 'rgba(255,255,255,0.7)', fontFamily: CD.font.family },
+  user_badge_name: { fontSize: 17, fontWeight: '700', color: CD.on_brand.primary, fontFamily: CD.font.family },
+  user_badge_role: { fontSize: 14, color: CD.on_brand.muted, fontFamily: CD.font.family },
   btn_doi_mk: {
     paddingVertical: 10,
     paddingHorizontal: 14,
@@ -2298,14 +2300,14 @@ const styles = StyleSheet.create({
     marginRight: 8,
     ...Platform.select({ web: { cursor: 'pointer' } }),
   },
-  btn_doi_mk_txt: { fontSize: 15, color: '#FFF', fontWeight: '600', fontFamily: CD.font.family },
+  btn_doi_mk_txt: { fontSize: 15, color: CD.on_brand.primary, fontWeight: '600', fontFamily: CD.font.family },
   btn_logout: {
     paddingVertical: 8, paddingHorizontal: 16,
     backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: 10,
     borderWidth: 1, borderColor: 'rgba(255,255,255,0.2)',
     ...Platform.select({ web: { backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', cursor: 'pointer' } }),
   },
-  btn_logout_txt: { fontSize: 16, color: '#FFF', fontWeight: '600', fontFamily: CD.font.family },
+  btn_logout_txt: { fontSize: 16, color: CD.on_brand.primary, fontWeight: '600', fontFamily: CD.font.family },
 
   btn_panel_phai: {
     paddingVertical: 10,
@@ -2319,7 +2321,7 @@ const styles = StyleSheet.create({
   },
   btn_panel_phai_txt: {
     fontSize: 15,
-    color: '#FFF',
+    color: CD.on_brand.primary,
     fontWeight: '700',
     fontFamily: CD.font.family,
   },
@@ -2330,28 +2332,28 @@ const styles = StyleSheet.create({
   panel_phai_section_title: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#64748B',
+    color: CD.text.secondary,
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginBottom: 10,
     fontFamily: CD.font.family,
   },
   panel_phai_user_card: {
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderRadius: 12,
     padding: 12,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
   },
   panel_phai_user_name: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   panel_phai_user_role: {
     fontSize: 13,
-    color: '#64748B',
+    color: CD.text.secondary,
     marginTop: 4,
     fontFamily: CD.font.family,
   },
@@ -2362,11 +2364,11 @@ const styles = StyleSheet.create({
   },
   panel_phai_kpi_item: {
     width: '48%',
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderRadius: 12,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     borderLeftWidth: 3,
   },
   panel_phai_kpi_icon: { fontSize: 18, marginBottom: 4 },
@@ -2377,7 +2379,7 @@ const styles = StyleSheet.create({
   },
   panel_phai_kpi_label: {
     fontSize: 11,
-    color: '#64748B',
+    color: CD.text.secondary,
     marginTop: 2,
     fontFamily: CD.font.family,
   },
@@ -2387,7 +2389,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#EEF2F7',
+    borderBottomColor: CD.border.divider,
   },
   panel_phai_status_label: {
     fontSize: 14,
@@ -2409,9 +2411,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 12,
-    backgroundColor: '#FCE4EC',
+    backgroundColor: CD.surface.brand_tint,
     borderWidth: 1,
-    borderColor: '#F8BBD0',
+    borderColor: CD.border.accent,
   },
   panel_phai_link_btn_txt: {
     fontSize: 14,
@@ -2427,9 +2429,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 8,
     borderRadius: 12,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     borderLeftWidth: 3,
   },
   panel_phai_tri_thuc_icon: { fontSize: 20 },
@@ -2437,7 +2439,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     fontWeight: '600',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
 
@@ -2454,9 +2456,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   sidebar_dashboard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: CD.surface.card,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     borderRadius: 20,
     padding: 0,
     overflow: 'hidden',
@@ -2484,9 +2486,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 14,
-    backgroundColor: '#FAFBFC',
+    backgroundColor: CD.surface.card_alt,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#EEF2F7',
+    borderBottomColor: CD.border.divider,
   },
   sidebar_header_accent: {
     width: 4,
@@ -2501,13 +2503,13 @@ const styles = StyleSheet.create({
   sidebar_title: {
     fontSize: 17,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     letterSpacing: -0.3,
     fontFamily: CD.font.family,
   },
   sidebar_subtitle: {
     fontSize: 12,
-    color: '#64748B',
+    color: CD.text.secondary,
     marginTop: 4,
     fontFamily: CD.font.family,
   },
@@ -2520,7 +2522,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
     paddingVertical: 9,
     paddingHorizontal: 11,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderRadius: 11,
     borderWidth: 1,
     borderColor: '#EDF2F7',
@@ -2534,7 +2536,7 @@ const styles = StyleSheet.create({
   sidebar_hint_web: {
     flex: 1,
     fontSize: 11,
-    color: '#64748B',
+    color: CD.text.secondary,
     lineHeight: 16,
     fontFamily: CD.font.family,
   },
@@ -2556,7 +2558,7 @@ const styles = StyleSheet.create({
   },
   kpi_card: {
     ...(Platform.OS === 'web' ? { flex: 1, minWidth: 104, maxWidth: 126 } : { flexGrow: 1, flexBasis: '47%' }),
-    backgroundColor: 'rgba(15, 23, 42, 0.42)',
+    backgroundColor: CD.surface.kpi,
     borderRadius: 14,
     paddingVertical: 6,
     paddingHorizontal: 7,
@@ -2569,8 +2571,8 @@ const styles = StyleSheet.create({
   kpi_icon_wrap: { width: 24, height: 24, borderRadius: 8, justifyContent: 'center', alignItems: 'center', marginRight: 7 },
   kpi_icon: { fontSize: 13 },
   kpi_text_block: { flex: 1, alignItems: 'flex-start' },
-  kpi_value: { fontSize: 15, fontWeight: '900', fontFamily: CD.font.family, lineHeight: 16 },
-  kpi_label: { fontSize: 9, color: 'rgba(255,255,255,0.72)', marginTop: 1, fontFamily: CD.font.family, textAlign: 'left' },
+  kpi_value: { fontSize: 15, fontWeight: '900', color: CD.on_glass.primary, fontFamily: CD.font.family, lineHeight: 16 },
+  kpi_label: { fontSize: 9, color: CD.on_glass.muted, marginTop: 1, fontFamily: CD.font.family, textAlign: 'left' },
 
   tri_thuc_fab: {
     position: 'absolute',
@@ -2604,7 +2606,7 @@ const styles = StyleSheet.create({
   },
   tri_thuc_modal_backdrop: {
     flex: 1,
-    backgroundColor: '#0f172a',
+    backgroundColor: CD.surface.overlay,
   },
   tri_thuc_modal_sheet: {
     marginHorizontal: 12,
@@ -2614,9 +2616,9 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    backgroundColor: '#fff',
+    backgroundColor: CD.surface.elevated,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     maxHeight: '78%',
     ...Platform.select({
       web: {
@@ -2663,7 +2665,7 @@ const styles = StyleSheet.create({
   tri_thuc_modal_title: {
     fontSize: 19,
     fontWeight: '900',
-    color: '#0f172a',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   tri_thuc_modal_close: {
@@ -2671,10 +2673,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#F1F5F9',
   },
-  tri_thuc_modal_close_txt: { fontSize: 16, color: '#64748B', fontWeight: '700' },
+  tri_thuc_modal_close_txt: { fontSize: 16, color: CD.text.secondary, fontWeight: '700' },
   tri_thuc_modal_sub: {
     fontSize: 13,
-    color: '#64748B',
+    color: CD.text.secondary,
     marginBottom: 14,
     lineHeight: 20,
     fontFamily: CD.font.family,
@@ -2688,9 +2690,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 14,
     borderLeftWidth: 4,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     marginBottom: 10,
   },
   tri_thuc_modal_row_icon: {
@@ -2704,12 +2706,12 @@ const styles = StyleSheet.create({
   tri_thuc_modal_row_title: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#0f172a',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   tri_thuc_modal_row_hint: {
     fontSize: 12,
-    color: '#64748B',
+    color: CD.text.secondary,
     marginTop: 4,
     fontFamily: CD.font.family,
     lineHeight: 17,
@@ -2732,7 +2734,7 @@ const styles = StyleSheet.create({
   import_section_title: {
     fontSize: 17,
     fontWeight: '800',
-    color: '#F8FAFC',
+    color: CD.on_glass.primary,
     fontFamily: CD.font.family,
     letterSpacing: -0.2,
   },
@@ -2802,13 +2804,13 @@ const styles = StyleSheet.create({
   audit_engine_title_compact: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
     letterSpacing: -0.2,
   },
   import_tagline: {
     fontSize: 11,
-    color: '#64748B',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginTop: 2,
   },
@@ -2851,7 +2853,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#F1F5F9',
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     ...Platform.select({ web: { cursor: 'pointer' } }),
   },
   helper_redirect_txt_tight: {
@@ -2878,9 +2880,9 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 8,
     borderRadius: 999,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
   },
   import_chip_tight_txt: {
     fontSize: 10,
@@ -2919,7 +2921,7 @@ const styles = StyleSheet.create({
   import_nangcao_one_line: {
     fontSize: 10,
     lineHeight: 15,
-    color: '#64748B',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
   },
   import_folder_btn: {
@@ -2945,7 +2947,7 @@ const styles = StyleSheet.create({
   section_note: {
     fontSize: 12,
     lineHeight: 16,
-    color: '#64748B',
+    color: CD.text.secondary,
     fontFamily: CD.font.family,
     marginTop: -6,
     marginBottom: 10,
@@ -2969,7 +2971,7 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingVertical: 12,
     paddingHorizontal: 14,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: CD.surface.card,
     borderRadius: 14,
     borderWidth: 1,
     borderColor: '#EDF2F7',
@@ -3040,10 +3042,10 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingVertical: 12,
     paddingHorizontal: 14,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
     minWidth: '100%',
     ...Platform.select({
       web: {
@@ -3292,7 +3294,7 @@ const styles = StyleSheet.create({
   import_auto_folder_title: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
     marginBottom: 6,
   },
@@ -3325,7 +3327,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#CBD5E1',
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     overflow: 'hidden',
   },
   import_auto_folder_log_header: {
@@ -3406,7 +3408,7 @@ const styles = StyleSheet.create({
   audit_engine_title: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   python_refresh_btn: {
@@ -3437,7 +3439,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 999,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderWidth: 1,
     borderColor: '#CBD5E1',
     ...Platform.select({ web: { cursor: 'pointer' } }),
@@ -3453,14 +3455,14 @@ const styles = StyleSheet.create({
     fontFamily: CD.font.family,
   },
   audit_engine_chip_txt_active: {
-    color: '#FFFFFF',
+    color: CD.on_brand.primary,
   },
   python_status_card: {
-    backgroundColor: '#F8FAFC',
+    backgroundColor: CD.surface.subtle,
     borderRadius: 14,
     padding: 8,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
   },
   python_status_row: {
     flexDirection: 'row',
@@ -3483,7 +3485,7 @@ const styles = StyleSheet.create({
   python_status_title: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
     flex: 1,
   },
@@ -3511,7 +3513,7 @@ const styles = StyleSheet.create({
   python_smoke_badge_txt: {
     fontSize: 10,
     fontWeight: '800',
-    color: '#FFFFFF',
+    color: CD.on_brand.primary,
     fontFamily: CD.font.family,
     letterSpacing: 0.4,
   },
@@ -3536,11 +3538,11 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   unified_ops_card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: CD.surface.card,
     borderRadius: 14,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: CD.border.glass,
   },
   unified_ops_header: {
     marginBottom: 4,
@@ -3548,7 +3550,7 @@ const styles = StyleSheet.create({
   unified_ops_title: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
     marginBottom: 0,
   },
@@ -3578,13 +3580,13 @@ const styles = StyleSheet.create({
   conflict_title: { fontSize: 18, fontWeight: '700', color: CD.severity.error.text, fontFamily: CD.font.family },
   conflict_btns: { flexDirection: 'row', gap: 10, padding: 14, flexWrap: 'wrap' },
   conflict_btn: { paddingVertical: 10, paddingHorizontal: 20, borderRadius: 10 },
-  conflict_btn_txt: { color: '#FFF', fontWeight: '700', fontSize: 17, fontFamily: CD.font.family },
+  conflict_btn_txt: { color: CD.on_brand.primary, fontWeight: '700', fontSize: 17, fontFamily: CD.font.family },
 
   // ── WORKSPACE & EXPORT ──
   workspace_header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14, flexWrap: 'wrap', gap: 10 },
   export_btns: { flexDirection: 'row', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' },
   btn_export: { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 10 },
-  btn_export_txt: { color: '#FFF', fontWeight: '700', fontSize: 16, fontFamily: CD.font.family },
+  btn_export_txt: { color: CD.on_brand.primary, fontWeight: '700', fontSize: 16, fontFamily: CD.font.family },
 
   rule_filter_panel: {
     marginBottom: 12,
@@ -3684,7 +3686,7 @@ const styles = StyleSheet.create({
     fontFamily: CD.font.family,
   },
   rule_filter_chip_txt_active: {
-    color: '#FFFFFF',
+    color: CD.on_brand.primary,
   },
   rule_filter_subtitle: {
     fontSize: 12,
@@ -3793,7 +3795,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', paddingVertical: 16, paddingHorizontal: 20,
     backgroundColor: CD.bg.table_header, borderBottomWidth: 1, borderBottomColor: CD.border.glass,
   },
-  th: { fontSize: 20, fontWeight: '700', color: '#FFFFFF', fontFamily: CD.font.family },
+  th: { fontSize: 20, fontWeight: '700', color: CD.text.table_header, fontFamily: CD.font.family },
   table_row: { flexDirection: 'row', alignItems: 'center', paddingVertical: 16, paddingHorizontal: 20, borderBottomWidth: 1, borderBottomColor: CD.border.divider },
   table_row_alt: { backgroundColor: CD.bg.table_row_even },
   table_row_active: {
@@ -3834,7 +3836,7 @@ const styles = StyleSheet.create({
   rule_priority_chip_txt: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#0F172A',
+    color: CD.text.primary,
     fontFamily: CD.font.family,
   },
   rule_occurrence_meta: {
@@ -4124,7 +4126,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   chiTietLoiModal_footerBtnTxt: {
-    color: '#FFF',
+    color: CD.on_brand.primary,
     fontSize: 14,
     fontWeight: '800',
     fontFamily: CD.font.family,

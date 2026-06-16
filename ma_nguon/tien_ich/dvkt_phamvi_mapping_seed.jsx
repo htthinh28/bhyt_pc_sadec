@@ -1,9 +1,9 @@
 /**
- * Seed mapping pham vi hanh nghe DVKT tu BANG B trong workbook NVYT CN Cong T01.2026.
- * Nguon: C:\\Users\\admin\\Documents\\Google Drive\\BHYT\\danh muc benh vien\\Nhan vien y te NVYT_CN Cổng T01.2026.xlsx
+ * Seed mapping pham vi hanh nghe DVKT tu BANG B trong workbook NVYT.
+ * Nguon: cap nhat cung bo NVYT Sa Dec (FileNhanVienYTe) — prefix DVKT ↔ PHAMVI_CM / CHUCDANH_NN
  */
 
-export const PHIEN_BAN_DVKT_PHAMVI_MAPPING = '2026-03-31-dvkt-phamvi-mapping-84';
+export const PHIEN_BAN_DVKT_PHAMVI_MAPPING = '2026-06-16-dvkt-phamvi-mapping-84';
 
 export const COT_DVKT_PHAMVI_MAPPING = [
   "PREFIX_DVKT",

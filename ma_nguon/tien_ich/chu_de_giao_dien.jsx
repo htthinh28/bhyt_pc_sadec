@@ -17,7 +17,7 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Appearance, Platform, useColorScheme } from 'react-native';
+import { Appearance, Platform, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // [1] TOKEN GENERATORS
@@ -42,14 +42,14 @@ const _radius  = { xs:6, sm:8, md:12, lg:16, xl:20, xxl:24, pill:100 };
 const _spacing = { xs:4, sm:8, md:12, lg:16, xl:20, xxl:24, xxxl:32 };
 const _icon    = { sm:18, md:22, lg:28, xl:36, hero:52 };
 
-/** Tạo token chế độ TỐI (glassmorphism dark) */
+/** Tạo token chế độ TỐI (glassmorphism dark) — tương phản dịu, tránh chói */
 const taoTokenToi = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile, bgModal) => {
     const [r,g,b]    = _rgb(mauDam);
     const [r2,g2,b2] = _rgb(mauChinh);
     // Nền tối trung tính — không nhuốm màu theme
-    const _bgWeb    = bgWeb    || 'linear-gradient(135deg, #0d0d0f 0%, #111111 40%, #141418 70%, #181818 100%)';
-    const _bgMobile = bgMobile || '#111111';
-    const _bgModal  = bgModal  || 'rgba(17,17,17,0.97)';
+    const _bgWeb    = bgWeb    || 'linear-gradient(135deg, #121316 0%, #151518 40%, #18181c 70%, #1a1a1f 100%)';
+    const _bgMobile = bgMobile || '#141418';
+    const _bgModal  = bgModal  || 'rgba(20,20,24,0.97)';
     return {
         brand: { mauChinh, mauChinh2: mauSang, mauDam, mauNhat: mauNhap },
         bg: {
@@ -59,41 +59,64 @@ const taoTokenToi = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile, bgModa
             glass_card_md:   'rgba(255,255,255,0.10)',
             glass_input:     'rgba(255,255,255,0.08)',
             glass_modal:     _bgModal,
-            glass_overlay:   'rgba(0,0,0,0.75)',
+            glass_overlay:   'rgba(0,0,0,0.72)',
             glass_header:    `rgba(${r},${g},${b},0.92)`,
-            table_header:    `rgba(${r2},${g2},${b2},0.30)`,
-            table_row_even:  'rgba(255,255,255,0.04)',
-            table_row_odd:   'rgba(255,255,255,0.01)',
-            table_row_sel:   `rgba(${r2},${g2},${b2},0.20)`,
-            table_row_dup:   `rgba(${r2},${g2},${b2},0.15)`,
+            table_header:    `rgba(${r2},${g2},${b2},0.28)`,
+            table_row_even:  'rgba(255,255,255,0.045)',
+            table_row_odd:   'rgba(255,255,255,0.015)',
+            table_row_sel:   `rgba(${r2},${g2},${b2},0.18)`,
+            table_row_dup:   `rgba(${r2},${g2},${b2},0.13)`,
+        },
+        surface: {
+            card:       'rgba(255,255,255,0.08)',
+            card_alt:   'rgba(255,255,255,0.05)',
+            subtle:     'rgba(255,255,255,0.04)',
+            elevated:   'rgba(24,24,28,0.98)',
+            overlay:    'rgba(8,8,12,0.78)',
+            kpi:        'rgba(255,255,255,0.09)',
+            brand_tint: `rgba(${r2},${g2},${b2},0.14)`,
+            inset:      'rgba(255,255,255,0.10)',
+        },
+        on_brand: {
+            primary:      '#F2F3F5',
+            secondary:    'rgba(242,243,245,0.84)',
+            muted:        'rgba(242,243,245,0.70)',
+            faint:        'rgba(242,243,245,0.54)',
+            border:       'rgba(255,255,255,0.26)',
+            glass_bg:     'rgba(255,255,255,0.14)',
+            glass_border: 'rgba(255,255,255,0.22)',
+        },
+        on_glass: {
+            primary: '#EDEFF2',
+            muted:   'rgba(237,239,242,0.74)',
         },
         border: {
-            glass:       'rgba(255,255,255,0.12)',
-            glass_md:    'rgba(255,255,255,0.18)',
-            input:       'rgba(255,255,255,0.15)',
-            divider:     'rgba(255,255,255,0.08)',
-            accent:      `rgba(${r2},${g2},${b2},0.40)`,
-            header:      'rgba(255,255,255,0.15)',
-            error:       'rgba(244,67,54,0.50)',
-            input_error: 'rgba(255,100,100,0.60)',
+            glass:       'rgba(255,255,255,0.13)',
+            glass_md:    'rgba(255,255,255,0.19)',
+            input:       'rgba(255,255,255,0.16)',
+            divider:     'rgba(255,255,255,0.09)',
+            accent:      `rgba(${r2},${g2},${b2},0.38)`,
+            header:      'rgba(255,255,255,0.16)',
+            error:       'rgba(244,67,54,0.48)',
+            input_error: 'rgba(255,120,120,0.58)',
         },
         text: {
-            primary:      '#FFFFFF',
-            secondary:    'rgba(255,255,255,0.70)',
-            muted:        'rgba(255,255,255,0.50)',
-            placeholder:  'rgba(255,255,255,0.30)',
+            primary:      '#E8EAED',
+            secondary:    'rgba(232,234,237,0.74)',
+            muted:        'rgba(232,234,237,0.54)',
+            placeholder:  'rgba(232,234,237,0.38)',
             accent:       mauNhap,
-            table_header: '#FFFFFF',
-            table_cell:   'rgba(255,255,255,0.85)',
-            link:         '#90CAF9',
+            table_header: '#F0F2F5',
+            table_cell:   'rgba(232,234,237,0.88)',
+            link:         '#93C5FD',
             success:      '#A5D6A7',
         },
         severity: {
-            critical: { bg:'rgba(244,67,54,0.15)',  border:'rgba(244,67,54,0.40)',  text:'#FF6B6B',  left:'#F44336' },
-            error:    { bg:'rgba(255,152,0,0.15)',  border:'rgba(255,152,0,0.40)',  text:'#FFB74D',  left:'#FF9800' },
-            warning:  { bg:'rgba(255,235,59,0.10)', border:'rgba(255,235,59,0.35)', text:'#FFF176',  left:'#FFC107' },
-            info:     { bg:'rgba(33,150,243,0.15)', border:'rgba(33,150,243,0.30)', text:'#90CAF9',  left:'#2196F3' },
-            success:  { bg:'rgba(76,175,80,0.15)',  border:'rgba(76,175,80,0.40)',  text:'#A5D6A7',  left:'#4CAF50' },
+            critical: { bg:'rgba(244,67,54,0.14)',  border:'rgba(244,67,54,0.38)',  text:'#FCA5A5',  left:'#EF5350' },
+            error:    { bg:'rgba(255,152,0,0.14)',  border:'rgba(255,152,0,0.36)',  text:'#FFCC80',  left:'#FB8C00' },
+            warning:  { bg:'rgba(255,193,7,0.10)',  border:'rgba(255,193,7,0.32)',  text:'#FFE082',  left:'#FFB300' },
+            info:     { bg:'rgba(33,150,243,0.14)', border:'rgba(33,150,243,0.28)', text:'#93C5FD',  left:'#42A5F5' },
+            success:  { bg:'rgba(76,175,80,0.14)',  border:'rgba(76,175,80,0.36)',  text:'#A5D6A7',  left:'#66BB6A' },
         },
         web: {
             blur_card:        'blur(20px) saturate(180%)',
@@ -120,7 +143,7 @@ const taoTokenToi = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile, bgModa
     };
 };
 
-/** Tạo token chế độ SÁNG */
+/** Tạo token chế độ SÁNG — nền off-white, chữ tối mềm, tương phản WCAG AA */
 const taoTokenSang = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile) => {
     const [r,g,b]    = _rgb(mauDam);
     const [r2,g2,b2] = _rgb(mauChinh);
@@ -129,45 +152,68 @@ const taoTokenSang = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile) => {
         bg: {
             gradient_web:    bgWeb,
             gradient_mobile: bgMobile,
-            glass_card:      'rgba(255,255,255,0.82)',
-            glass_card_md:   'rgba(255,255,255,0.92)',
-            glass_input:     'rgba(255,255,255,0.88)',
-            glass_modal:     'rgba(255,250,252,0.97)',
-            glass_overlay:   'rgba(0,0,0,0.35)',
+            glass_card:      'rgba(255,255,255,0.78)',
+            glass_card_md:   'rgba(255,255,255,0.90)',
+            glass_input:     'rgba(255,255,255,0.86)',
+            glass_modal:     'rgba(252,252,254,0.98)',
+            glass_overlay:   'rgba(15,23,42,0.30)',
             glass_header:    `rgba(${r},${g},${b},0.95)`,
-            table_header:    `rgba(${r2},${g2},${b2},0.18)`,
-            table_row_even:  'rgba(0,0,0,0.03)',
-            table_row_odd:   'rgba(255,255,255,0.60)',
-            table_row_sel:   `rgba(${r2},${g2},${b2},0.12)`,
-            table_row_dup:   `rgba(${r2},${g2},${b2},0.08)`,
+            table_header:    `rgba(${r2},${g2},${b2},0.14)`,
+            table_row_even:  'rgba(17,24,28,0.030)',
+            table_row_odd:   'rgba(255,255,255,0.55)',
+            table_row_sel:   `rgba(${r2},${g2},${b2},0.10)`,
+            table_row_dup:   `rgba(${r2},${g2},${b2},0.07)`,
+        },
+        surface: {
+            card:       'rgba(255,255,255,0.94)',
+            card_alt:   'rgba(255,255,255,0.98)',
+            subtle:     'rgba(17,24,28,0.038)',
+            elevated:   '#FAFBFC',
+            overlay:    'rgba(15,23,42,0.34)',
+            kpi:        'rgba(17,24,28,0.52)',
+            brand_tint: `rgba(${r2},${g2},${b2},0.10)`,
+            inset:      'rgba(17,24,28,0.055)',
+        },
+        on_brand: {
+            primary:      '#FAFBFC',
+            secondary:    'rgba(250,251,252,0.90)',
+            muted:        'rgba(250,251,252,0.76)',
+            faint:        'rgba(250,251,252,0.60)',
+            border:       'rgba(255,255,255,0.38)',
+            glass_bg:     'rgba(255,255,255,0.20)',
+            glass_border: 'rgba(255,255,255,0.32)',
+        },
+        on_glass: {
+            primary: '#F4F5F7',
+            muted:   'rgba(244,245,247,0.80)',
         },
         border: {
-            glass:       'rgba(0,0,0,0.10)',
-            glass_md:    'rgba(0,0,0,0.15)',
-            input:       `rgba(${r2},${g2},${b2},0.30)`,
-            divider:     'rgba(0,0,0,0.08)',
-            accent:      `rgba(${r2},${g2},${b2},0.50)`,
-            header:      'rgba(255,255,255,0.30)',
-            error:       'rgba(211,47,47,0.50)',
-            input_error: 'rgba(211,47,47,0.60)',
+            glass:       'rgba(17,24,28,0.11)',
+            glass_md:    'rgba(17,24,28,0.16)',
+            input:       `rgba(${r2},${g2},${b2},0.28)`,
+            divider:     'rgba(17,24,28,0.09)',
+            accent:      `rgba(${r2},${g2},${b2},0.46)`,
+            header:      'rgba(255,255,255,0.32)',
+            error:       'rgba(211,47,47,0.48)',
+            input_error: 'rgba(211,47,47,0.58)',
         },
         text: {
-            primary:      '#1A1A2E',
-            secondary:    'rgba(0,0,0,0.65)',
-            muted:        'rgba(0,0,0,0.45)',
-            placeholder:  'rgba(0,0,0,0.30)',
+            primary:      '#14181C',
+            secondary:    'rgba(20,24,28,0.74)',
+            muted:        'rgba(20,24,28,0.56)',
+            placeholder:  'rgba(20,24,28,0.42)',
             accent:       mauDam,
-            table_header: '#FFFFFF',
-            table_cell:   'rgba(0,0,0,0.80)',
-            link:         '#1565C0',
+            table_header: '#14181C',
+            table_cell:   'rgba(20,24,28,0.84)',
+            link:         '#1558A8',
             success:      '#2E7D32',
         },
         severity: {
-            critical: { bg:'rgba(211,47,47,0.10)',  border:'rgba(211,47,47,0.35)',  text:'#C62828',  left:'#D32F2F' },
-            error:    { bg:'rgba(230,81,0,0.10)',   border:'rgba(230,81,0,0.35)',   text:'#E65100',  left:'#F57C00' },
-            warning:  { bg:'rgba(245,127,23,0.10)', border:'rgba(245,127,23,0.30)', text:'#E65100',  left:'#F9A825' },
-            info:     { bg:'rgba(21,101,192,0.10)', border:'rgba(21,101,192,0.25)', text:'#1565C0',  left:'#1976D2' },
-            success:  { bg:'rgba(46,125,50,0.10)',  border:'rgba(46,125,50,0.30)',  text:'#2E7D32',  left:'#388E3C' },
+            critical: { bg:'rgba(211,47,47,0.09)',  border:'rgba(211,47,47,0.32)',  text:'#B71C1C',  left:'#C62828' },
+            error:    { bg:'rgba(230,81,0,0.09)',   border:'rgba(230,81,0,0.30)',   text:'#BF360C',  left:'#E65100' },
+            warning:  { bg:'rgba(245,127,23,0.09)', border:'rgba(245,127,23,0.28)', text:'#E65100',  left:'#EF6C00' },
+            info:     { bg:'rgba(21,101,192,0.09)', border:'rgba(21,101,192,0.22)', text:'#0D47A1',  left:'#1565C0' },
+            success:  { bg:'rgba(46,125,50,0.09)',  border:'rgba(46,125,50,0.28)',  text:'#1B5E20',  left:'#2E7D32' },
         },
         web: {
             blur_card:        'blur(20px) saturate(200%)',
@@ -198,9 +244,9 @@ const taoTokenSang = (mauChinh, mauDam, mauSang, mauNhap, bgWeb, bgMobile) => {
 // [2] BỘ CHỦ ĐỀ (mỗi chủ đề có tokens tối + sáng)
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Nền sáng trung tính dùng chung cho MỌI theme (trắng tinh)
-const _SANG_BG  = 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 40%, #f5f6f7 70%, #f0f1f3 100%)';
-const _SANG_MOB = '#FFFFFF';
+// Nền sáng trung tính dùng chung cho MỌI theme (off-white, không chói)
+const _SANG_BG  = 'linear-gradient(135deg, #f4f5f7 0%, #f8f9fa 40%, #f1f2f4 70%, #eceef1 100%)';
+const _SANG_MOB = '#F4F5F7';
 
 // Chế độ tối — tất cả theme dùng nền đen trung tính (không nhuốm màu)
 const _pinkToi    = taoTokenToi('#C2185B','#880E4F','#E91E63','#F48FB1');
@@ -352,7 +398,7 @@ export const ChuDeProvider = ({ children }) => {
         return () => { huy = true; };
     }, []);
 
-    /** Web: đồng bộ scrollbar/form controls + theme-color (PWA / trình duyệt) */
+    /** Web: đồng bộ scrollbar/form controls + theme-color + CSS variables */
     useEffect(() => {
         if (Platform.OS !== 'web' || typeof document === 'undefined') return;
         const root = document.documentElement;
@@ -364,8 +410,49 @@ export const ChuDeProvider = ({ children }) => {
             meta.setAttribute('name', 'theme-color');
             document.head.appendChild(meta);
         }
-        meta.setAttribute('content', cheDoSang ? '#f5f6f7' : '#111111');
-    }, [cheDoSang]);
+        meta.setAttribute('content', cheDoSang ? _SANG_MOB : '#141418');
+
+        const t = tokens;
+        const cssVars = `
+:root[data-cdss-theme="${cheDoSang ? 'light' : 'dark'}"] {
+  --cdss-bg: ${t.bg.gradient_mobile};
+  --cdss-text: ${t.text.primary};
+  --cdss-text-muted: ${t.text.muted};
+  --cdss-surface: ${t.surface.card};
+  --cdss-border: ${t.border.glass};
+  --cdss-brand: ${t.brand.mauChinh};
+}
+html, body {
+  background-color: ${t.bg.gradient_mobile};
+  color: ${t.text.primary};
+}
+::selection {
+  background: ${cheDoSang ? 'rgba(21,101,192,0.22)' : 'rgba(144,202,249,0.28)'};
+  color: ${t.text.primary};
+}
+* {
+  scrollbar-color: ${cheDoSang ? 'rgba(17,24,28,0.28) transparent' : 'rgba(255,255,255,0.22) transparent'};
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: ${cheDoSang ? 'rgba(17,24,28,0.22)' : 'rgba(255,255,255,0.20)'};
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: ${cheDoSang ? 'rgba(17,24,28,0.34)' : 'rgba(255,255,255,0.30)'};
+}
+`;
+        let el = document.getElementById('cdss-theme-vars');
+        if (!el) {
+            el = document.createElement('style');
+            el.id = 'cdss-theme-vars';
+            document.head.appendChild(el);
+        }
+        el.textContent = cssVars;
+    }, [cheDoSang, tokens]);
 
     const doiChuDe = useCallback(async (tenMoi) => {
         if (!DANH_SACH_CHU_DE[tenMoi]) return;
@@ -408,6 +495,19 @@ export const ChuDeProvider = ({ children }) => {
 
 /** Hook dùng trong màn hình: const CD = useChuDe(); */
 export const useChuDe = () => useContext(ChuDeContext);
+
+/**
+ * StyleSheet động theo chủ đề — cập nhật ngay khi đổi Sáng/Tối hoặc màu chủ đạo.
+ * @param {(cd: object) => object} factory — hàm trả về object style (dùng tham số CD)
+ */
+export const useChuDeStyles = (factory) => {
+    const ctx = useChuDe();
+    const themeKey = `${ctx._tenChuDe}_${ctx._cheDoSang ? 'S' : 'T'}`;
+    return useMemo(
+        () => StyleSheet.create(factory(ctx)),
+        [themeKey, factory, ctx]
+    );
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
 // [5] STATIC CD – đọc đồng bộ từ localStorage khi module load
@@ -540,135 +640,22 @@ export const btnSecondary = (extra = {}) => ({
 // [6] COMPONENT PICKER CHỦ ĐỀ
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
 // Màu brand chính của từng chủ đề (dùng để highlight button đang active)
 const _MAU_BRAND = { PINK:'#C2185B', BLUE:'#1565C0', TEAL:'#00838F', VIOLET:'#6A1B9A' };
 
-export const BoChonChuDe = ({ style }) => {
-    const ctx = useChuDe();
-    const tenHienTai = ctx._tenChuDe || 'PINK';
-    const cheDoSang = ctx._cheDoSang || false;
-    const cheDoLuuTru = ctx._cheDoLuuTru || CHE_DO_LUU_TRU.TU_DONG;
-    const doiChuDe = ctx._doiChuDe;
-    const doiCheDoGiaoDien = ctx._doiCheDoGiaoDien;
-    const [dangApDung, setDangApDung] = useState(null); // key đang trong quá trình áp dụng
-
-    // Áp dụng trực tiếp — không dùng Alert (Alert.alert không hoạt động trên Expo Web)
-    const apDungChuDe = async (key) => {
-        if (tenHienTai === key || dangApDung) return;
-        setDangApDung(key);
-        try {
-            if (doiChuDe) await doiChuDe(key);
-        } finally {
-            setDangApDung(null);
-        }
-    };
-
-    const nutCheDo = (ma, nhan, icon) => {
-        const active = cheDoLuuTru === ma;
-        return (
-            <TouchableOpacity
-                style={[
-                    st_picker.che_do_nut,
-                    cheDoSang && st_picker.che_do_nut_sang,
-                    active && st_picker.che_do_nut_on,
-                    active && cheDoSang && st_picker.che_do_nut_on_sang,
-                ]}
-                onPress={() => doiCheDoGiaoDien && doiCheDoGiaoDien(ma)}
-                accessibilityRole="button"
-                accessibilityState={{ selected: active }}
-            >
-                <Text style={st_picker.che_do_icon}>{icon}</Text>
-                <Text style={[
-                    st_picker.che_do_txt,
-                    cheDoSang && st_picker.che_do_txt_sang,
-                    active && st_picker.che_do_txt_on,
-                ]}>{nhan}</Text>
-            </TouchableOpacity>
-        );
-    };
-
-    return (
-        <View style={[st_picker.container, cheDoSang && st_picker.container_sang, style]}>
-
-            {/* Header: tiêu đề + chế độ sáng/tối (Tự động / Sáng / Tối) */}
-            <View style={st_picker.hang_header}>
-                <Text style={[st_picker.tieu_de, cheDoSang && st_picker.tieu_de_sang]}>
-                    🎨  Chủ đề giao diện
-                </Text>
-            </View>
-            <View style={st_picker.che_do_hang}>
-                {nutCheDo(CHE_DO_LUU_TRU.TU_DONG, 'Tự động', '🖥')}
-                {nutCheDo(CHE_DO_LUU_TRU.SANG, 'Sáng', '☀️')}
-                {nutCheDo(CHE_DO_LUU_TRU.TOI, 'Tối', '🌙')}
-            </View>
-
-            {/* Danh sách màu chủ đạo */}
-            <View style={st_picker.hang}>
-                {Object.entries(DANH_SACH_CHU_DE).map(([key, chu_de]) => {
-                    const isActive  = tenHienTai === key;
-                    const isLoading = dangApDung === key;
-                    const mauBrand  = _MAU_BRAND[key];
-                    return (
-                        <TouchableOpacity
-                            key={key}
-                            disabled={!!dangApDung}
-                            style={[
-                                st_picker.nut,
-                                cheDoSang  && st_picker.nut_sang,
-                                isActive   && st_picker.nut_active,
-                                isActive   && cheDoSang && st_picker.nut_active_sang,
-                                // Highlight màu brand của chủ đề đang active
-                                isActive   && { borderColor: mauBrand, borderWidth: 2,
-                                    ...(Platform.OS === 'web' ? { boxShadow: `0 0 20px ${mauBrand}55` } : {}),
-                                },
-                            ]}
-                            onPress={() => apDungChuDe(key)}
-                        >
-                            <Text style={st_picker.icon}>{chu_de.icon}</Text>
-                            <Text style={[
-                                st_picker.ten,
-                                cheDoSang && st_picker.ten_sang,
-                                isActive  && (cheDoSang ? st_picker.ten_active_sang : st_picker.ten_active),
-                            ]}>
-                                {isLoading ? 'Đang áp dụng...' : chu_de.ten}
-                            </Text>
-                            {isActive && !isLoading && (
-                                <Text style={[st_picker.check, { color: mauBrand }]}>✓</Text>
-                            )}
-                            {isLoading && <Text style={st_picker.spinner}>⟳</Text>}
-                        </TouchableOpacity>
-                    );
-                })}
-            </View>
-
-            {/* Gợi ý hành động */}
-            <Text style={[st_picker.goi_y, cheDoSang && st_picker.goi_y_sang]}>
-                Chọn màu chủ đạo và chế độ sáng — áp dụng ngay trên web và bản cài đặt, không cần tải lại trang.
-            </Text>
-        </View>
-    );
-};
-
-const st_picker = StyleSheet.create({
+const taoStylesBoChonChuDe = (CD) => ({
     container: {
-        backgroundColor: 'rgba(255,255,255,0.07)',
+        backgroundColor: CD.bg.glass_card,
         borderRadius: 20,
         borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.12)',
+        borderColor: CD.border.glass,
         padding: 20,
         ...Platform.select({
             web: {
-                backdropFilter: 'blur(20px)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.40)',
+                backdropFilter: CD.web.blur_card,
+                boxShadow: CD.web.shadow_card,
             },
         }),
-    },
-    container_sang: {
-        backgroundColor: 'rgba(255,255,255,0.85)',
-        borderColor: 'rgba(0,0,0,0.12)',
-        ...Platform.select({ web: { boxShadow: '0 4px 24px rgba(0,0,0,0.10)' } }),
     },
     hang_header: {
         flexDirection: 'row',
@@ -691,40 +678,28 @@ const st_picker = StyleSheet.create({
         paddingHorizontal: 12,
         borderRadius: 14,
         borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.2)',
-        backgroundColor: 'rgba(255,255,255,0.06)',
+        borderColor: CD.border.glass_md,
+        backgroundColor: CD.surface.subtle,
         ...Platform.select({ web: { cursor: 'pointer' } }),
     },
-    che_do_nut_sang: {
-        borderColor: 'rgba(0,0,0,0.14)',
-        backgroundColor: 'rgba(0,0,0,0.04)',
-    },
     che_do_nut_on: {
-        borderColor: 'rgba(255,255,255,0.45)',
-        backgroundColor: 'rgba(255,255,255,0.14)',
-    },
-    che_do_nut_on_sang: {
-        borderColor: 'rgba(0,0,0,0.28)',
-        backgroundColor: 'rgba(0,0,0,0.10)',
+        borderColor: CD.border.accent,
+        backgroundColor: CD.surface.brand_tint,
     },
     che_do_icon: { fontSize: 15 },
     che_do_txt: {
         fontSize: 15,
         fontWeight: '600',
-        color: 'rgba(255,255,255,0.88)',
-        fontFamily: Platform.OS === 'web'
-            ? "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif" : 'Arial',
+        color: CD.text.secondary,
+        fontFamily: CD.font.family,
     },
-    che_do_txt_sang: { color: 'rgba(0,0,0,0.62)' },
-    che_do_txt_on: { fontWeight: '800' },
+    che_do_txt_on: { fontWeight: '800', color: CD.text.primary },
     tieu_de: {
         fontSize: 20,
         fontWeight: '700',
-        color: '#FFFFFF',
-        fontFamily: Platform.OS === 'web'
-            ? "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif" : 'Arial',
+        color: CD.text.primary,
+        fontFamily: CD.font.family,
     },
-    tieu_de_sang: { color: '#1A1A2E' },
     hang: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
     nut: {
         flexDirection: 'row',
@@ -734,40 +709,118 @@ const st_picker = StyleSheet.create({
         paddingHorizontal: 18,
         borderRadius: 14,
         borderWidth: 1,
-        borderColor: 'rgba(255,255,255,0.15)',
-        backgroundColor: 'rgba(255,255,255,0.06)',
+        borderColor: CD.border.glass,
+        backgroundColor: CD.surface.subtle,
         ...Platform.select({ web: { cursor: 'pointer', transition: 'all 0.2s ease' } }),
     },
-    nut_sang: {
-        borderColor: 'rgba(0,0,0,0.12)',
-        backgroundColor: 'rgba(0,0,0,0.04)',
-    },
     nut_active: {
-        backgroundColor: 'rgba(255,255,255,0.14)',
-    },
-    nut_active_sang: {
-        backgroundColor: 'rgba(0,0,0,0.08)',
+        backgroundColor: CD.surface.brand_tint,
     },
     icon: { fontSize: 22 },
     ten: {
         fontSize: 18,
-        color: 'rgba(255,255,255,0.70)',
-        fontFamily: Platform.OS === 'web'
-            ? "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif" : 'Arial',
+        color: CD.text.secondary,
+        fontFamily: CD.font.family,
     },
-    ten_sang:        { color: 'rgba(0,0,0,0.60)' },
-    ten_active:      { color: '#FFFFFF', fontWeight: '700' },
-    ten_active_sang: { color: '#1A1A2E', fontWeight: '700' },
-    check:      { fontSize: 16, fontWeight: '700' },
-    spinner:    { fontSize: 16, color: 'rgba(255,255,255,0.60)' },
+    ten_active: { color: CD.text.primary, fontWeight: '700' },
+    check: { fontSize: 16, fontWeight: '700' },
+    spinner: { fontSize: 16, color: CD.text.muted },
     goi_y: {
         fontSize: 15,
-        color: 'rgba(255,255,255,0.35)',
-        fontFamily: Platform.OS === 'web'
-            ? "'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif" : 'Arial',
+        color: CD.text.muted,
+        fontFamily: CD.font.family,
         marginTop: 14,
         textAlign: 'center',
         fontStyle: 'italic',
     },
-    goi_y_sang: { color: 'rgba(0,0,0,0.35)' },
 });
+
+export const BoChonChuDe = ({ style }) => {
+    const ctx = useChuDe();
+    const st_picker = useChuDeStyles(taoStylesBoChonChuDe);
+    const tenHienTai = ctx._tenChuDe || 'PINK';
+    const cheDoLuuTru = ctx._cheDoLuuTru || CHE_DO_LUU_TRU.TU_DONG;
+    const doiChuDe = ctx._doiChuDe;
+    const doiCheDoGiaoDien = ctx._doiCheDoGiaoDien;
+    const [dangApDung, setDangApDung] = useState(null); // key đang trong quá trình áp dụng
+
+    // Áp dụng trực tiếp — không dùng Alert (Alert.alert không hoạt động trên Expo Web)
+    const apDungChuDe = async (key) => {
+        if (tenHienTai === key || dangApDung) return;
+        setDangApDung(key);
+        try {
+            if (doiChuDe) await doiChuDe(key);
+        } finally {
+            setDangApDung(null);
+        }
+    };
+
+    const nutCheDo = (ma, nhan, icon) => {
+        const active = cheDoLuuTru === ma;
+        return (
+            <TouchableOpacity
+                style={[st_picker.che_do_nut, active && st_picker.che_do_nut_on]}
+                onPress={() => doiCheDoGiaoDien && doiCheDoGiaoDien(ma)}
+                accessibilityRole="button"
+                accessibilityState={{ selected: active }}
+            >
+                <Text style={st_picker.che_do_icon}>{icon}</Text>
+                <Text style={[st_picker.che_do_txt, active && st_picker.che_do_txt_on]}>{nhan}</Text>
+            </TouchableOpacity>
+        );
+    };
+
+    return (
+        <View style={[st_picker.container, style]}>
+
+            {/* Header: tiêu đề + chế độ sáng/tối (Tự động / Sáng / Tối) */}
+            <View style={st_picker.hang_header}>
+                <Text style={st_picker.tieu_de}>
+                    🎨  Chủ đề giao diện
+                </Text>
+            </View>
+            <View style={st_picker.che_do_hang}>
+                {nutCheDo(CHE_DO_LUU_TRU.TU_DONG, 'Tự động', '🖥')}
+                {nutCheDo(CHE_DO_LUU_TRU.SANG, 'Sáng', '☀️')}
+                {nutCheDo(CHE_DO_LUU_TRU.TOI, 'Tối', '🌙')}
+            </View>
+
+            {/* Danh sách màu chủ đạo */}
+            <View style={st_picker.hang}>
+                {Object.entries(DANH_SACH_CHU_DE).map(([key, chu_de]) => {
+                    const isActive  = tenHienTai === key;
+                    const isLoading = dangApDung === key;
+                    const mauBrand  = _MAU_BRAND[key];
+                    return (
+                        <TouchableOpacity
+                            key={key}
+                            disabled={!!dangApDung}
+                            style={[
+                                st_picker.nut,
+                                isActive && st_picker.nut_active,
+                                isActive && { borderColor: mauBrand, borderWidth: 2,
+                                    ...(Platform.OS === 'web' ? { boxShadow: `0 0 16px ${mauBrand}44` } : {}),
+                                },
+                            ]}
+                            onPress={() => apDungChuDe(key)}
+                        >
+                            <Text style={st_picker.icon}>{chu_de.icon}</Text>
+                            <Text style={[st_picker.ten, isActive && st_picker.ten_active]}>
+                                {isLoading ? 'Đang áp dụng...' : chu_de.ten}
+                            </Text>
+                            {isActive && !isLoading && (
+                                <Text style={[st_picker.check, { color: mauBrand }]}>✓</Text>
+                            )}
+                            {isLoading && <Text style={st_picker.spinner}>⟳</Text>}
+                        </TouchableOpacity>
+                    );
+                })}
+            </View>
+
+            {/* Gợi ý hành động */}
+            <Text style={st_picker.goi_y}>
+                Chọn màu chủ đạo và chế độ sáng — áp dụng ngay trên web và bản cài đặt, không cần tải lại trang.
+            </Text>
+        </View>
+    );
+};

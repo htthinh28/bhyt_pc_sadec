@@ -63,10 +63,15 @@ import {
     syncDvktTablesToFirebase,
 } from './firebase_cloud_bhyt';
 import {
-    COT_DVKT_PHAMVI_MAPPING,
-    DU_LIEU_DVKT_PHAMVI_MAPPING,
-    PHIEN_BAN_DVKT_PHAMVI_MAPPING,
+  COT_DVKT_PHAMVI_MAPPING,
+  DU_LIEU_DVKT_PHAMVI_MAPPING,
+  PHIEN_BAN_DVKT_PHAMVI_MAPPING,
 } from './dvkt_phamvi_mapping_seed';
+import {
+  COT_DVKT_EQUIP_DVKT_MAP,
+  DU_LIEU_DVKT_EQUIP_DVKT_MAP,
+  PHIEN_BAN_DVKT_EQUIP_DVKT_MAP,
+} from './dvkt_equip_dvkt_map_seed';
 import { capNhatDanhMuc, docDanhMucTuKho } from './kho_du_lieu';
 import DU_LIEU_TUONG_TAC_THUOC_SEED from '../chuyen_mon/tuong_tac_thuoc/du_lieu_tuong_tac_thuoc.seed.json';
 
@@ -161,9 +166,9 @@ const CODE_CATALOG_SEEDS = {
   },
   /** PREFIX_DVKT → MA_MAY_PREFIX bắt buộc (CHECK_EQUIPMENT / DVKT-OP-04) */
   DVKT_EQUIP_DVKT_MAP: {
-    version: '2026-04-14-equip-dvkt-v1',
-    rows: [],
-    columns: ['PREFIX_DVKT', 'MA_MAY_PREFIX', 'GHI_CHU'],
+    version: PHIEN_BAN_DVKT_EQUIP_DVKT_MAP,
+    rows: DU_LIEU_DVKT_EQUIP_DVKT_MAP,
+    columns: COT_DVKT_EQUIP_DVKT_MAP,
   },
   /** Cặp mã thuốc nội bộ — tương tác lâm sàng / dược lâm sàng (đối chiếu XML2 cùng đợt KCB) */
   DANH_MUC_TUONG_TAC_THUOC: {

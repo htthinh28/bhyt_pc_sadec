@@ -129,6 +129,23 @@ export const MAU_SAC = {
 // ============================================================
 
 /**
+ * Trả về màu chữ + nền theo mức độ cảnh báo, đồng bộ chế độ Sáng/Tối qua design tokens.
+ * @param {object} CD — tokens từ useChuDe()
+ * @param {string} muc_do — 'Critical' | 'Error' | 'Warning' | 'Info'
+ */
+export const layMauMucDoTheoCD = (CD, muc_do) => {
+  const map = { Critical: 'critical', Error: 'error', Warning: 'warning', Info: 'info' };
+  const key = map[muc_do] || 'info';
+  const s = CD?.severity?.[key] || {};
+  return {
+    mau_nen:  s.bg    || MAU_SAC.thong_tin.nhat,
+    mau_chu:  s.text  || MAU_SAC.thong_tin.dam,
+    mau_vien: s.border || MAU_SAC.thong_tin.vua,
+    mau_icon: s.left  || MAU_SAC.thong_tin.chinh,
+  };
+};
+
+/**
  * Trả về màu chữ + màu nền tương ứng theo mức độ cảnh báo CDSS
  * @param {string} muc_do — 'Critical' | 'Error' | 'Warning' | 'Info'
  * @returns {{ mau_nen: string, mau_chu: string, mau_vien: string }}
