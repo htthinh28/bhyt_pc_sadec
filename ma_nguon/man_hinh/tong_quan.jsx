@@ -389,6 +389,7 @@ const ManHinhTongQuan = ({ navigation }) => {
   const [boLocMaKhoa, setBoLocMaKhoa] = useState(NHOM_VI_PHAM_TAT_CA);
   const [tuKhoaLocQuyTac, setTuKhoaLocQuyTac] = useState('');
   const [tuKhoaLocHoSo, setTuKhoaLocHoSo] = useState('');
+  const [boLocPanelMo, setBoLocPanelMo] = useState(true);
   const [tuKhoaTraCuuChiTiet, setTuKhoaTraCuuChiTiet] = useState('');
   const [loaiTraCuuChiTiet, setLoaiTraCuuChiTiet] = useState('TAT_CA');
   /** Cửa sổ chi tiết ca lỗi theo quy tắc (chuột phải / nhấn giữ dòng bảng) — không thay luồng chạm thường */
@@ -592,6 +593,45 @@ const ManHinhTongQuan = ({ navigation }) => {
       .map(([id, label]) => ({ id, label }))
       .sort((a, b) => String(a.id).localeCompare(String(b.id), 'vi'));
   }, [danhSachLoiChiTietDashboard]);
+
+  const xoaBoLocQuyTac = () => {
+    setBoLocLoaiUuTien('TAT_CA');
+    setBoLocNhomViPham(NHOM_VI_PHAM_TAT_CA);
+    setBoLocNhomCapLoaiKcb(NHOM_VI_PHAM_TAT_CA);
+    setBoLocMaKhoa(NHOM_VI_PHAM_TAT_CA);
+    setTuKhoaLocQuyTac('');
+    setTuKhoaLocHoSo('');
+  };
+
+  const tomTatBoLoc = useMemo(() => {
+    const phan = [];
+    if (boLocLoaiUuTien !== 'TAT_CA') {
+      const map = {
+        XUAT_TOAN: 'Xuất toán',
+        CAU_TRUC_XML: 'Vi phạm cấu trúc XML',
+        CANH_BAO: 'Cảnh báo',
+        NHAC_NHO: 'Nhắc nhở',
+      };
+      phan.push(map[boLocLoaiUuTien] || boLocLoaiUuTien);
+    }
+    if (boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA) {
+      const nhom = DANH_SACH_NHOM_VI_PHAM_LOC.find((x) => x.id === boLocNhomViPham);
+      if (nhom) phan.push(nhom.label);
+    }
+    if (boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA) {
+      const opt = DANH_SACH_NHOM_CAP_LOAI_KCB_LOC.find((x) => x.id === boLocNhomCapLoaiKcb);
+      if (opt) phan.push(opt.label);
+    }
+    if (boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA) {
+      const khoa = thaKhoaTuDuLieu.find((x) => x.id === boLocMaKhoa);
+      phan.push(khoa?.label || `Khoa ${boLocMaKhoa}`);
+    }
+    const q1 = tuKhoaLocQuyTac.trim();
+    const q2 = tuKhoaLocHoSo.trim();
+    if (q1) phan.push(`Quy tắc: “${q1}”`);
+    if (q2) phan.push(`Hồ sơ: “${q2}”`);
+    return phan.length ? phan.join(' · ') : null;
+  }, [boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, tuKhoaLocQuyTac, tuKhoaLocHoSo, thaKhoaTuDuLieu]);
 
   const ketQuaTraCuuChiTiet = useMemo(() => locDanhSachLoiChiTiet(danhSachLoiChiTietDashboard, {
     tuKhoa: tuKhoaTraCuuChiTiet,
@@ -1625,7 +1665,41 @@ ${phanDongKhoi.join('\n')}
             </View>
           </View>
 
-          <View style={styles.rule_filter_panel}>
+          <View style={[styles.rule_filter_panel, !boLocPanelMo && styles.rule_filter_panel_collapsed]}>
+            <View style={styles.rule_filter_header}>
+              <View style={styles.rule_filter_header_lead}>
+                <Text style={styles.rule_filter_header_title}>Bộ lọc quy tắc</Text>
+                {!boLocPanelMo ? (
+                  <Text style={styles.rule_filter_header_hint} numberOfLines={2}>
+                    {tomTatBoLoc || 'Chưa chọn tiêu chí — hiển thị toàn bộ quy tắc'}
+                  </Text>
+                ) : null}
+              </View>
+              <View style={styles.rule_filter_header_actions}>
+                {!boLocPanelMo && coBoLocDangBat ? (
+                  <TouchableOpacity style={styles.rule_filter_clear_btn_compact} onPress={xoaBoLocQuyTac}>
+                    <Text style={styles.rule_filter_clear_txt}>Xóa lọc</Text>
+                  </TouchableOpacity>
+                ) : null}
+                <Pressable
+                  style={({ pressed, hovered }) => [
+                    styles.rule_filter_toggle_btn,
+                    Platform.OS === 'web' && hovered && styles.rule_filter_toggle_btn_hover,
+                    pressed && styles.rule_filter_toggle_btn_pressed,
+                  ]}
+                  onPress={() => setBoLocPanelMo((v) => !v)}
+                  accessibilityRole="button"
+                  accessibilityLabel={boLocPanelMo ? 'Ẩn bộ lọc quy tắc' : 'Hiện bộ lọc quy tắc'}
+                >
+                  <Text style={styles.rule_filter_toggle_txt}>
+                    {boLocPanelMo ? '▲ Ẩn bộ lọc' : '▼ Hiện bộ lọc'}
+                  </Text>
+                </Pressable>
+              </View>
+            </View>
+
+            {boLocPanelMo ? (
+              <>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator
@@ -1764,19 +1838,14 @@ ${phanDongKhoi.join('\n')}
               {coBoLocDangBat ? (
                 <TouchableOpacity
                   style={styles.rule_filter_clear_btn}
-                  onPress={() => {
-                    setBoLocLoaiUuTien('TAT_CA');
-                    setBoLocNhomViPham(NHOM_VI_PHAM_TAT_CA);
-                    setBoLocNhomCapLoaiKcb(NHOM_VI_PHAM_TAT_CA);
-                    setBoLocMaKhoa(NHOM_VI_PHAM_TAT_CA);
-                    setTuKhoaLocQuyTac('');
-                    setTuKhoaLocHoSo('');
-                  }}
+                  onPress={xoaBoLocQuyTac}
                 >
                   <Text style={styles.rule_filter_clear_txt}>Xóa lọc</Text>
                 </TouchableOpacity>
               ) : null}
             </View>
+              </>
+            ) : null}
             <Text style={styles.rule_filter_status}>
               Hiển thị {danhMucDaLoc.length}/{thongKe.danhMuc.length} quy tắc · {danhSachLoiChiTietSauLocXuat.length} dòng lỗi khớp lọc (Excel/XML)
             </Text>
@@ -3612,6 +3681,77 @@ const taoStylesTongQuan = (CD) => ({
         elevation: 8,
       },
     }),
+  },
+  rule_filter_panel_collapsed: {
+    gap: 6,
+    paddingVertical: 10,
+  },
+  rule_filter_header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: 10,
+  },
+  rule_filter_header_lead: {
+    flex: 1,
+    minWidth: 0,
+    paddingRight: 4,
+  },
+  rule_filter_header_title: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: CD.text.primary,
+    fontFamily: CD.font.family,
+    letterSpacing: -0.1,
+  },
+  rule_filter_header_hint: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: CD.text.secondary,
+    fontFamily: CD.font.family,
+    marginTop: 4,
+  },
+  rule_filter_header_actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    flexShrink: 0,
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+  },
+  rule_filter_toggle_btn: {
+    paddingVertical: 7,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: CD.border.glass_md,
+    backgroundColor: CD.surface.subtle,
+    ...Platform.select({ web: { cursor: 'pointer' } }),
+  },
+  rule_filter_toggle_btn_hover: {
+    backgroundColor: CD.surface.inset,
+    borderColor: CD.border.accent,
+  },
+  rule_filter_toggle_btn_pressed: {
+    opacity: 0.88,
+  },
+  rule_filter_toggle_txt: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: CD.text.primary,
+    fontFamily: CD.font.family,
+  },
+  rule_filter_clear_btn_compact: {
+    minHeight: 34,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: 'rgba(96,165,250,0.35)',
+    backgroundColor: 'rgba(59,130,246,0.14)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...Platform.select({ web: { cursor: 'pointer' } }),
   },
   rule_filter_scroll: {
     flexGrow: 0,
