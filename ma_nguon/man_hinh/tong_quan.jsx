@@ -57,6 +57,12 @@ import {
   phangHoaDanhSachLoiChiTiet,
   tongHopQuyTacTuDanhSachChiTiet,
 } from '../tien_ich/thong_ke_loi_dung_chung';
+import {
+  DANH_SACH_BO_LOC_QUY_TAC_ICD10,
+  khopBoLocQuyTacIcd,
+  layNhanBoLocQuyTacIcd,
+  NHOM_QUY_TAC_ICD_TAT_CA,
+} from '../tien_ich/bo_loc_quy_tac_icd10';
 
 // [CẬP NHẬT LÕI]: Thống nhất dùng kho_du_lieu để đồng bộ với man_hinh_kho_luu_tru
 import { gomTrungLapCanhBaoTheoMaLuatVaNoiDung, xoaCacheBoMayGiamDinh } from '../tien_ich/dong_co_giam_dinh';
@@ -387,6 +393,7 @@ const ManHinhTongQuan = ({ navigation }) => {
   const [boLocNhomViPham, setBoLocNhomViPham] = useState(NHOM_VI_PHAM_TAT_CA);
   const [boLocNhomCapLoaiKcb, setBoLocNhomCapLoaiKcb] = useState(NHOM_VI_PHAM_TAT_CA);
   const [boLocMaKhoa, setBoLocMaKhoa] = useState(NHOM_VI_PHAM_TAT_CA);
+  const [boLocQuyTacIcd, setBoLocQuyTacIcd] = useState(NHOM_QUY_TAC_ICD_TAT_CA);
   const [tuKhoaLocQuyTac, setTuKhoaLocQuyTac] = useState('');
   const [tuKhoaLocHoSo, setTuKhoaLocHoSo] = useState('');
   const [boLocPanelMo, setBoLocPanelMo] = useState(true);
@@ -531,6 +538,11 @@ const ManHinhTongQuan = ({ navigation }) => {
         if (!khopKhoa) return false;
       }
 
+      if (boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA) {
+        const khopIcd = (item.chi_tiet_phat_sinh || []).some((ct) => khopBoLocQuyTacIcd(ct, boLocQuyTacIcd));
+        if (!khopIcd) return false;
+      }
+
       const chuoiQuyTac = chuanHoaToken([
         item.ma_luat,
         item.ten_quy_tac,
@@ -554,7 +566,7 @@ const ManHinhTongQuan = ({ navigation }) => {
   };
 
   const danhMucDaLoc = locDanhMucQuyTac(thongKe.danhMuc);
-  const coBoLocDangBat = boLocLoaiUuTien !== 'TAT_CA' || boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA || boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA || boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA || tuKhoaLocQuyTac.trim() !== '' || tuKhoaLocHoSo.trim() !== '';
+  const coBoLocDangBat = boLocLoaiUuTien !== 'TAT_CA' || boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA || boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA || boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA || boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA || tuKhoaLocQuyTac.trim() !== '' || tuKhoaLocHoSo.trim() !== '';
   const danhSachLoiChiTietDashboard = useMemo(() => phangHoaDanhSachLoiChiTiet(rawDanhSach), [rawDanhSach]);
 
   /** Từng dòng lỗi (chi tiết) sau bộ lọc QPS — dùng chung xuất Excel / XML, khớp ưu tiên, nhóm NV, loại KCB, khoa, 2 ô từ khóa. */
@@ -565,6 +577,7 @@ const ManHinhTongQuan = ({ navigation }) => {
       nhomViPham: boLocNhomViPham,
       nhomCapLoaiKcb802: boLocNhomCapLoaiKcb,
       maKhoa: boLocMaKhoa,
+      nhomQuyTacIcd: boLocQuyTacIcd,
       tuKhoa: '',
     });
     const q1 = chuanHoaToken(tuKhoaLocQuyTac);
@@ -580,7 +593,7 @@ const ManHinhTongQuan = ({ navigation }) => {
       }
       return true;
     });
-  }, [rawDanhSach, boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, tuKhoaLocQuyTac, tuKhoaLocHoSo]);
+  }, [rawDanhSach, boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd, tuKhoaLocQuyTac, tuKhoaLocHoSo]);
 
   const thaKhoaTuDuLieu = useMemo(() => {
     const map = new Map();
@@ -599,6 +612,7 @@ const ManHinhTongQuan = ({ navigation }) => {
     setBoLocNhomViPham(NHOM_VI_PHAM_TAT_CA);
     setBoLocNhomCapLoaiKcb(NHOM_VI_PHAM_TAT_CA);
     setBoLocMaKhoa(NHOM_VI_PHAM_TAT_CA);
+    setBoLocQuyTacIcd(NHOM_QUY_TAC_ICD_TAT_CA);
     setTuKhoaLocQuyTac('');
     setTuKhoaLocHoSo('');
   };
@@ -626,12 +640,15 @@ const ManHinhTongQuan = ({ navigation }) => {
       const khoa = thaKhoaTuDuLieu.find((x) => x.id === boLocMaKhoa);
       phan.push(khoa?.label || `Khoa ${boLocMaKhoa}`);
     }
+    if (boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA) {
+      phan.push(`ICD-10: ${layNhanBoLocQuyTacIcd(boLocQuyTacIcd)}`);
+    }
     const q1 = tuKhoaLocQuyTac.trim();
     const q2 = tuKhoaLocHoSo.trim();
     if (q1) phan.push(`Quy tắc: “${q1}”`);
     if (q2) phan.push(`Hồ sơ: “${q2}”`);
     return phan.length ? phan.join(' · ') : null;
-  }, [boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, tuKhoaLocQuyTac, tuKhoaLocHoSo, thaKhoaTuDuLieu]);
+  }, [boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd, tuKhoaLocQuyTac, tuKhoaLocHoSo, thaKhoaTuDuLieu]);
 
   const ketQuaTraCuuChiTiet = useMemo(() => locDanhSachLoiChiTiet(danhSachLoiChiTietDashboard, {
     tuKhoa: tuKhoaTraCuuChiTiet,
@@ -639,7 +656,8 @@ const ManHinhTongQuan = ({ navigation }) => {
     nhomViPham: boLocNhomViPham,
     nhomCapLoaiKcb802: boLocNhomCapLoaiKcb,
     maKhoa: boLocMaKhoa,
-  }), [danhSachLoiChiTietDashboard, loaiTraCuuChiTiet, tuKhoaTraCuuChiTiet, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa]);
+    nhomQuyTacIcd: boLocQuyTacIcd,
+  }), [danhSachLoiChiTietDashboard, loaiTraCuuChiTiet, tuKhoaTraCuuChiTiet, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd]);
   const ketQuaTraCuuChiTietHienThi = ketQuaTraCuuChiTiet.slice(0, 60);
 
   useEffect(() => {
@@ -651,7 +669,7 @@ const ManHinhTongQuan = ({ navigation }) => {
     if (!daTonTai) {
       setKhoaQuyTacDangChon(danhMucDaLoc[0].khoa);
     }
-  }, [boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, danhMucDaLoc, khoaQuyTacDangChon, tuKhoaLocHoSo, tuKhoaLocQuyTac]);
+  }, [boLocLoaiUuTien, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd, danhMucDaLoc, khoaQuyTacDangChon, tuKhoaLocHoSo, tuKhoaLocQuyTac]);
 
   const tinhToanDashboard = (danhSachHoSo) => {
     const tongSo = danhSachHoSo.length;
@@ -671,9 +689,10 @@ const ManHinhTongQuan = ({ navigation }) => {
       if (boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA && c.nhom_vi_pham !== boLocNhomViPham) return false;
       if (boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA && (c.nhom_cap_loai_kcb || layNhomCapLoaiKcb802(c.ma_loai_kcb_chuan)) !== boLocNhomCapLoaiKcb) return false;
       if (boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA && (c.ma_khoa_chuan || 'KHONG_RO') !== boLocMaKhoa) return false;
+      if (boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA && !khopBoLocQuyTacIcd(c, boLocQuyTacIcd)) return false;
       return true;
     });
-  }, [quyTacDangChon, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa]);
+  }, [quyTacDangChon, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd]);
 
   const chiTietModalDaLoc = useMemo(() => {
     const rawAll = quyTacChoModalChiTiet?.chi_tiet_phat_sinh || [];
@@ -681,6 +700,7 @@ const ManHinhTongQuan = ({ navigation }) => {
       if (boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA && c.nhom_vi_pham !== boLocNhomViPham) return false;
       if (boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA && (c.nhom_cap_loai_kcb || layNhomCapLoaiKcb802(c.ma_loai_kcb_chuan)) !== boLocNhomCapLoaiKcb) return false;
       if (boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA && (c.ma_khoa_chuan || 'KHONG_RO') !== boLocMaKhoa) return false;
+      if (boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA && !khopBoLocQuyTacIcd(c, boLocQuyTacIcd)) return false;
       return true;
     });
     const q = chuanHoaToken(tuKhoaLocChiTietModal).trim();
@@ -699,7 +719,7 @@ const ManHinhTongQuan = ({ navigation }) => {
       ].filter(Boolean).join(' | '));
       return s.includes(q);
     });
-  }, [quyTacChoModalChiTiet, tuKhoaLocChiTietModal, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa]);
+  }, [quyTacChoModalChiTiet, tuKhoaLocChiTietModal, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd]);
 
   const tongCaModalSauLocBoLoc = useMemo(() => {
     const rawAll = quyTacChoModalChiTiet?.chi_tiet_phat_sinh || [];
@@ -707,9 +727,10 @@ const ManHinhTongQuan = ({ navigation }) => {
       if (boLocNhomViPham !== NHOM_VI_PHAM_TAT_CA && c.nhom_vi_pham !== boLocNhomViPham) return false;
       if (boLocNhomCapLoaiKcb !== NHOM_VI_PHAM_TAT_CA && (c.nhom_cap_loai_kcb || layNhomCapLoaiKcb802(c.ma_loai_kcb_chuan)) !== boLocNhomCapLoaiKcb) return false;
       if (boLocMaKhoa !== NHOM_VI_PHAM_TAT_CA && (c.ma_khoa_chuan || 'KHONG_RO') !== boLocMaKhoa) return false;
+      if (boLocQuyTacIcd !== NHOM_QUY_TAC_ICD_TAT_CA && !khopBoLocQuyTacIcd(c, boLocQuyTacIcd)) return false;
       return true;
     }).length;
-  }, [quyTacChoModalChiTiet, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa]);
+  }, [quyTacChoModalChiTiet, boLocNhomViPham, boLocNhomCapLoaiKcb, boLocMaKhoa, boLocQuyTacIcd]);
 
   const timHoSoTrongKhoTheoMaLK = (maLK) => {
     const m = chuanHoaMaLK(maLK);
@@ -1762,6 +1783,30 @@ ${phanDongKhoi.join('\n')}
               </View>
               <View style={styles.rule_filter_group_sep} />
               <View style={[styles.rule_filter_group, styles.rule_filter_group_wide]}>
+                <Text style={styles.rule_filter_group_label} numberOfLines={2}>Quy tắc ICD-10 (báo cáo QPS)</Text>
+                <View style={styles.rule_filter_chips_wrap}>
+                  {DANH_SACH_BO_LOC_QUY_TAC_ICD10.map((opt) => (
+                    <TouchableOpacity
+                      key={`icd_${opt.id || 'tat_ca'}`}
+                      style={[
+                        styles.rule_filter_chip,
+                        styles.rule_filter_chip_nhom,
+                        boLocQuyTacIcd === opt.id && styles.rule_filter_chip_active,
+                      ]}
+                      onPress={() => setBoLocQuyTacIcd(opt.id)}
+                    >
+                      <Text style={[
+                        styles.rule_filter_chip_txt,
+                        boLocQuyTacIcd === opt.id && styles.rule_filter_chip_txt_active,
+                      ]} numberOfLines={2}>
+                        {opt.label}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+              <View style={styles.rule_filter_group_sep} />
+              <View style={[styles.rule_filter_group, styles.rule_filter_group_wide]}>
                 <Text style={styles.rule_filter_group_label} numberOfLines={2}>Loại KCB (QĐ 824 / MA_LOAI_KCB)</Text>
                 <View style={styles.rule_filter_chips_wrap}>
                   {DANH_SACH_NHOM_CAP_LOAI_KCB_LOC.map((opt) => (
@@ -2023,7 +2068,7 @@ ${phanDongKhoi.join('\n')}
                 placeholderTextColor={CD.text.placeholder}
               />
             </View>
-            <Text style={styles.rule_filter_section_hint}>Áp dụng cùng bộ lọc nhóm nghiệp vụ, MA_LOAI_KCB và MA_KHOA như ô Lọc phía trên.</Text>
+            <Text style={styles.rule_filter_section_hint}>Áp dụng cùng bộ lọc nhóm nghiệp vụ, quy tắc ICD-10, MA_LOAI_KCB và MA_KHOA như ô Lọc phía trên.</Text>
             <Text style={styles.rule_filter_status}>Khớp {ketQuaTraCuuChiTiet.length}/{danhSachLoiChiTietDashboard.length} lỗi chi tiết{ketQuaTraCuuChiTiet.length > ketQuaTraCuuChiTietHienThi.length ? ` • đang hiển thị ${ketQuaTraCuuChiTietHienThi.length} dòng đầu` : ''}</Text>
 
             {ketQuaTraCuuChiTietHienThi.length === 0 ? (

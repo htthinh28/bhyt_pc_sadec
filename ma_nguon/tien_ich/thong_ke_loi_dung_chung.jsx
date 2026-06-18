@@ -1,4 +1,5 @@
 import { chuanHoaCanhBaoGiamDinh } from './chuan_hoa_van_ban';
+import { khopBoLocQuyTacIcd, phanLoaiNhomQuyTacIcd, NHOM_QUY_TAC_ICD_TAT_CA } from './bo_loc_quy_tac_icd10';
 import { suyRaNamespaceVaNguonQuyTac } from './dong_co_giam_dinh';
 import { DANH_MUC_QUY_TAC_NOI_BO, khopMaLuatTheoMau, suyRaThongTinQuanTriQuyTac } from './quy_tac_on_off_noi_bo';
 
@@ -667,6 +668,15 @@ export const taoBanGhiLoiChiTiet = (hoSo = {}, loi = {}, stt = 0) => {
     index,
     tab_quan_tri_goi_y: tabQuanTri,
   });
+  const banGhiIcdTam = {
+    ma_luat: maLuat,
+    ten_quy_tac: tenQuyTac,
+    dieu_kien: String(layGiaTriTheoKhoaKhongPhanBiet(daChuan, 'dieu_kien', '')).trim(),
+    namespace_quy_tac: namespaceTuLoi || metaQuyTac.namespace_quy_tac || '',
+    truong_loi: truongLoi,
+    canh_bao: canhBao,
+  };
+  const nhomQuyTacIcd = phanLoaiNhomQuyTacIcd(banGhiIcdTam);
   const bsTheoDong = layNgayYLenhNgayKqVaBacSiTuLoiHoSo(daChuan, hoSo);
   const maBsDongRaw = String(bsTheoDong.bacSiChiDinh || bsTheoDong.bacSiThucHien || '').trim();
   const maBsKhamXml1 = String(xml1?.MA_BS_KHAM || '').trim();
@@ -718,6 +728,7 @@ export const taoBanGhiLoiChiTiet = (hoSo = {}, loi = {}, stt = 0) => {
     tab_quan_tri_goi_y: tabQuanTri,
     nhom_vi_pham: nhomViPhamMeta.id,
     nhan_nhom_vi_pham: nhomViPhamMeta.label,
+    nhom_quy_tac_icd: nhomQuyTacIcd,
     loai_hien_thi: thongTinLoai.id,
     nhan_loai_hien_thi: thongTinLoai.label,
     muc_uu_tien: thongTinLoai.priority,
@@ -851,11 +862,13 @@ export const locDanhSachLoiChiTiet = (danhSachChiTiet = [], boLoc = {}) => {
   const nhomViPhamLoc = String(boLoc?.nhomViPham || NHOM_VI_PHAM_TAT_CA).trim();
   const nhomCapLoaiKcbLoc = String(boLoc?.nhomCapLoaiKcb802 ?? NHOM_VI_PHAM_TAT_CA).trim();
   const maKhoaLoc = String(boLoc?.maKhoa ?? NHOM_VI_PHAM_TAT_CA).trim();
+  const nhomQuyTacIcdLoc = String(boLoc?.nhomQuyTacIcd ?? NHOM_QUY_TAC_ICD_TAT_CA).trim();
 
   return (Array.isArray(danhSachChiTiet) ? danhSachChiTiet : []).filter((item) => {
     if (loaiHienThi !== 'TAT_CA' && item.loai_hien_thi !== loaiHienThi) return false;
     if (nhomLoiCode && item.nhom_loi_code !== nhomLoiCode) return false;
     if (nhomViPhamLoc !== NHOM_VI_PHAM_TAT_CA && item.nhom_vi_pham !== nhomViPhamLoc) return false;
+    if (nhomQuyTacIcdLoc !== NHOM_QUY_TAC_ICD_TAT_CA && !khopBoLocQuyTacIcd(item, nhomQuyTacIcdLoc)) return false;
     if (nhomCapLoaiKcbLoc !== NHOM_VI_PHAM_TAT_CA) {
       const bucket = item.nhom_cap_loai_kcb || layNhomCapLoaiKcb802(item.ma_loai_kcb_chuan);
       if (bucket !== nhomCapLoaiKcbLoc) return false;
@@ -877,6 +890,7 @@ export const locDanhSachLoiChiTiet = (danhSachChiTiet = [], boLoc = {}) => {
       item.nhom_loi_code,
       item.nhom_vi_pham,
       item.nhan_nhom_vi_pham,
+      ...(Array.isArray(item.nhom_quy_tac_icd) ? item.nhom_quy_tac_icd : []),
       item.ma_loai_kcb_chuan,
       item.ma_loai_kcb,
       item.ten_loai_kcb_802,
