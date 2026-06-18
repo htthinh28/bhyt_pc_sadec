@@ -33,7 +33,7 @@ import BangMoHinhMuc5 from './BangMoHinhMuc5';
 import BieuDoGiftedBarNgang from './BieuDoGiftedBarNgang';
 import BieuDoGiftedCotDoc from './BieuDoGiftedCotDoc';
 import HeatmapCm00 from './HeatmapCm00';
-import { useLayoutMode } from '../../tien_ich/diem_anh_man_hinh';
+import { rongSidebarTheoMan, useLayoutMode } from '../../tien_ich/diem_anh_man_hinh';
 
 const NHANH = [
   {
@@ -467,7 +467,8 @@ const KPI_LINEAGE = {
 
 export default function BaoCaoHub() {
   const navigation = useNavigation();
-  const { dungBoCucDoc } = useLayoutMode();
+  const { dungBoCucDoc, width: winW } = useLayoutMode();
+  const rongSidebarBaoCao = rongSidebarTheoMan(winW, { min: 168, max: 220, ratio: 0.2 });
   const [nhanh, setNhanh] = useState('QUAN_TRI');
   const [quanTriThe, setQuanTriThe] = useState('M5');
   const [tai, setTai] = useState({
@@ -1170,7 +1171,11 @@ export default function BaoCaoHub() {
 
       <View style={[styles.bodyRow, dungBoCucDoc && styles.bodyRowDoc]}>
         <ScrollView
-          style={[styles.sidebarScroll, dungBoCucDoc && styles.sidebarScrollDoc]}
+          style={[
+            styles.sidebarScroll,
+            !dungBoCucDoc && { width: rongSidebarBaoCao, maxWidth: rongSidebarBaoCao + 12 },
+            dungBoCucDoc && styles.sidebarScrollDoc,
+          ]}
           contentContainerStyle={styles.sidebarInner}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"

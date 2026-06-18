@@ -79,7 +79,7 @@ import NhapFileXML, {
   taiNguonPhuThuocNhapXml,
   xuLyMotFileXmlChoBanGiamDinh,
 } from '../tien_ich/nhap_file_xml';
-import { BREAKPOINTS, useLayoutMode } from '../tien_ich/diem_anh_man_hinh';
+import { BREAKPOINTS, useKieuResponsive, useLayoutMode } from '../tien_ich/diem_anh_man_hinh';
 
 const chuanHoaTenSheetXlsx = (name) => {
   const s = String(name || 'Sheet')
@@ -381,6 +381,7 @@ const ManHinhTongQuan = ({ navigation }) => {
   const CD = useChuDe();
   const styles = useChuDeStyles(taoStylesTongQuan);
   const { dungSidebarTrai, width: beRongCuaSo } = useLayoutMode();
+  const kieu = useKieuResponsive();
   const rongSidebarDash = beRongCuaSo >= BREAKPOINTS.xl ? 300 : 260;
   const [thanhTienIchMo, setThanhTienIchMo] = useState(false);
   const [chenAmThanhTienIch, setChenAmThanhTienIch] = useState(60);
@@ -1373,17 +1374,17 @@ ${phanDongKhoi.join('\n')}
     <SafeAreaView style={styles.vung_an_toan}>
 
       {/* ── 1. HEADER GRADIENT ── */}
-      <View style={styles.header}>
-        <View style={styles.header_main_row}>
+      <View style={[styles.header, kieu.paddingHeader]}>
+        <View style={[styles.header_main_row, kieu.flexRowSm, kieu.alignCenterRowSm]}>
           <View style={styles.header_left}>
-            <Image source={{ uri: LOGO_UNG_DUNG }} style={styles.logo} resizeMode="contain" />
+            <Image source={{ uri: LOGO_UNG_DUNG }} style={[styles.logo, kieu.logoSize]} resizeMode="contain" />
             <View>
-              <Text style={styles.header_ten_bv}>{TEN_UNG_DUNG}</Text>
+              <Text style={[styles.header_ten_bv, kieu.headerTitle]}>{TEN_UNG_DUNG}</Text>
               <Text style={styles.header_sub}>Hệ thống hỗ trợ kiểm tra hồ sơ BHYT · QĐ 130</Text>
             </View>
           </View>
-          <View style={styles.header_right}>
-            <View style={styles.header_account_row}>
+          <View style={[styles.header_right, kieu.headerRight]}>
+            <View style={[styles.header_account_row, kieu.accountRowJustify]}>
               <View style={styles.user_badge}>
                 <Text style={styles.user_badge_icon}>👤</Text>
                 <View>
@@ -1403,9 +1404,9 @@ ${phanDongKhoi.join('\n')}
                 <Text style={styles.btn_logout_txt}>⏻ Đăng xuất</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.kpi_row}>
+            <View style={[styles.kpi_row, kieu.kpiRow]}>
               {danhSachKpi.map((kpi, i) => (
-                <View key={i} style={[styles.kpi_card, { borderTopColor: kpi.mau }]}>
+                <View key={i} style={[styles.kpi_card, kieu.kpiCard, { borderTopColor: kpi.mau }]}>
                   <View style={[styles.kpi_icon_wrap, { backgroundColor: kpi.mauNhat }]}>
                     <Text style={styles.kpi_icon}>{kpi.icon}</Text>
                   </View>
@@ -1425,7 +1426,7 @@ ${phanDongKhoi.join('\n')}
           styles.sidebar_dashboard,
           dungSidebarTrai
             ? { width: rongSidebarDash }
-            : styles.sidebar_dashboard_compact,
+            : [styles.sidebar_dashboard_compact, kieu.sidebarCompact],
         ]}>
           <View style={styles.sidebar_header}>
             <View style={[styles.sidebar_header_accent, { backgroundColor: CD.brand.mauChinh }]} />
@@ -1517,7 +1518,7 @@ ${phanDongKhoi.join('\n')}
         >
 
         {/* ── 4. KHU VỰC VẬN HÀNH THỐNG NHẤT (thẻ nạp gọn) ── */}
-        <View style={[styles.section_block, styles.section_block_import_tight]}>
+        <View style={[styles.section_block, styles.section_block_import_tight, kieu.contentMax]}>
           <View style={styles.import_section_head_row}>
             <View style={{ flex: 1, minWidth: 120 }}>
               <Text style={styles.import_section_title}>Luồng kiểm tra tổng quát</Text>
@@ -1547,7 +1548,7 @@ ${phanDongKhoi.join('\n')}
             ) : (
               <View style={styles.import_inner}>
                 <View style={styles.import_card_compact}>
-                  <View style={styles.import_hero_row}>
+                  <View style={[styles.import_hero_row, kieu.flexRowSm]}>
                     <View style={styles.import_hero_lead}>
                       <Text style={styles.audit_engine_title_compact}>Nạp hồ sơ XML</Text>
                       <Text style={styles.import_tagline} numberOfLines={1}>
@@ -1574,7 +1575,7 @@ ${phanDongKhoi.join('\n')}
                         </Text>
                       </View>
                     </View>
-                    <View style={styles.import_hero_actions}>
+                    <View style={[styles.import_hero_actions, kieu.importHeroActions]}>
                       <NhapFileXML
                         onDuLieuSanSang={nhanDienHoSoTuFile}
                         styleButton={styles.import_pick_btn_sm}
@@ -1865,7 +1866,7 @@ ${phanDongKhoi.join('\n')}
                 </View>
               </View>
             </ScrollView>
-            <View style={styles.rule_filter_input_row}>
+            <View style={[styles.rule_filter_input_row, kieu.filterInputRow]}>
               <TextInput
                 style={styles.rule_filter_input}
                 value={tuKhoaLocQuyTac}
@@ -2059,7 +2060,7 @@ ${phanDongKhoi.join('\n')}
                 </TouchableOpacity>
               ))}
             </View>
-            <View style={styles.rule_filter_input_row}>
+            <View style={[styles.rule_filter_input_row, kieu.filterInputRow]}>
               <TextInput
                 style={styles.rule_filter_input}
                 value={tuKhoaTraCuuChiTiet}

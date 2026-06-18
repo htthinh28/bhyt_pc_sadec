@@ -1220,7 +1220,7 @@ const styles = StyleSheet.create({
   mo_ta: { color: CD.text.secondary, fontSize: 15, marginTop: 3, fontFamily: CD.font.family },
   bo_cuc_chinh: {
     flex: 1,
-    flexDirection: Platform.OS === 'web' ? 'row' : 'column',
+    flexDirection: 'row',
     gap: 12,
     paddingHorizontal: 12,
     paddingBottom: 12,
@@ -1229,19 +1229,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   sidebar_trai: {
-    ...(Platform.OS === 'web' ? { flex: 1, minWidth: 340, maxWidth: 560 } : { width: '100%' }),
+    flex: 1,
+    minWidth: 280,
+    maxWidth: 560,
   },
   sidebar_trai_full: {
     minWidth: 0,
     maxWidth: '100%',
     width: '100%',
+    flex: undefined,
     alignSelf: 'stretch',
   },
   sidebar_trai_content: {
     paddingBottom: 16,
   },
   khu_vuc_phai: {
-    flex: Platform.OS === 'web' ? 2 : 1,
+    flex: 2,
     minWidth: 0,
   },
   khu_vuc_phai_full: {

@@ -9,21 +9,17 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  useWindowDimensions,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CD } from '../tien_ich/chu_de_giao_dien';
-import { BREAKPOINTS } from '../tien_ich/diem_anh_man_hinh';
+import { useLayoutMode, useKieuResponsive } from '../tien_ich/diem_anh_man_hinh';
 import { inHoacChiaSePdfTuBang } from '../tien_ich/in_an_chung';
 import taiLieuManifest from '../tien_ich/tai_lieu_manifest.json';
 import taiLieuTagCatalog from '../tien_ich/tai_lieu_tag_catalog.json';
 import { layGocUrlTaiLieu, taoUrlMoTaiLieu } from '../tien_ich/tai_lieu_url';
 import { dieuHuongMoTabMoi } from '../tien_ich/dieu_huong_mo_tab_moi';
 import ThuVienPanelTraCuuQuyTac from './thu_vien_panel_tra_cuu_quy_tac';
-
-const RONG_BREAKPOINT_HAI_COT = BREAKPOINTS.md;
-const RONG_SIDEBAR_TOC = 300;
 
 const moLienKet = async (url) => {
   const trimmed = String(url || '').trim();
@@ -81,8 +77,9 @@ const laFileHtml = (relPath) => {
 };
 
 const ManHinhThuVien = ({ navigation }) => {
-  const { width: beRong, height: beCao } = useWindowDimensions();
-  const dungHaiCot = beRong >= RONG_BREAKPOINT_HAI_COT;
+  const { width: beRong, height: beCao, dungHaiCot } = useLayoutMode();
+  const kieu = useKieuResponsive();
+  const rongSidebarToc = beRong < 768 ? '100%' : beRong < 1024 ? 260 : 300;
 
   /** 'TAI_LIEU' | 'QUY_TAC' */
   const [cheDo, setCheDo] = useState('TAI_LIEU');
@@ -335,7 +332,7 @@ const ManHinhThuVien = ({ navigation }) => {
     <View
       style={[
         styles.sidebar,
-        dungHaiCot ? styles.sidebar_ngang : styles.sidebar_dung,
+        dungHaiCot ? [styles.sidebar_ngang, { width: rongSidebarToc }] : styles.sidebar_dung,
         !dungHaiCot && beCao > 0
           ? { maxHeight: Math.min(420, Math.max(260, beCao * 0.4)) }
           : null,
@@ -504,7 +501,7 @@ const ManHinhThuVien = ({ navigation }) => {
           <ThuVienPanelTraCuuQuyTac />
         </View>
       ) : (
-        <View style={[styles.khung_chinh, dungHaiCot ? styles.khung_hai_cot : styles.khung_mot_cot]}>
+        <View style={[styles.khung_chinh, dungHaiCot ? styles.khung_hai_cot : styles.khung_mot_cot, kieu.paddingPage]}>
           {khoiMucLuc}
           <View style={styles.panel_phai}>
             {dauViewDoc}
@@ -635,7 +632,6 @@ const styles = StyleSheet.create({
     ...Platform.select({ web: { boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }, default: { elevation: 2 } }),
   },
   sidebar_ngang: {
-    width: RONG_SIDEBAR_TOC,
     flexShrink: 0,
     borderRightWidth: 1,
     borderRightColor: CD.border.divider,

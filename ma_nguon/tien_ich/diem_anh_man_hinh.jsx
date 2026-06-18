@@ -86,3 +86,103 @@ export function rongSidebarCap(width) {
   if (width < BREAKPOINTS.sm) return 232;
   return 292;
 }
+
+/**
+ * Kiểu layout động theo chiều rộng — thay `Platform.OS === 'web'` cho flexDirection / maxWidth.
+ * Dùng trong JSX: style={[styles.header_main_row, kieu.flexRowSm]}
+ */
+export function taoKieuResponsive(width = 390) {
+  const w = Number(width) || 390;
+  const phone = w < BREAKPOINTS.sm;
+  const tablet = w >= BREAKPOINTS.sm && w < BREAKPOINTS.xl;
+  const laptop = w >= BREAKPOINTS.xl;
+  const wideSm = w >= BREAKPOINTS.sm;
+  const wideMd = w >= BREAKPOINTS.md;
+
+  return {
+    phone,
+    tablet,
+    laptop,
+    paddingPage: {
+      paddingHorizontal: phone ? 12 : tablet ? 16 : 24,
+    },
+    paddingHeader: {
+      paddingHorizontal: phone ? 12 : tablet ? 16 : 24,
+      paddingVertical: phone ? 12 : 16,
+    },
+    flexRowSm: {
+      flexDirection: wideSm ? 'row' : 'column',
+    },
+    flexRowMd: {
+      flexDirection: wideMd ? 'row' : 'column',
+    },
+    alignCenterRowSm: {
+      alignItems: wideSm ? 'center' : 'flex-start',
+    },
+    headerRight: {
+      alignItems: wideSm ? 'flex-end' : 'flex-start',
+      maxWidth: wideSm ? '58%' : '100%',
+      width: wideSm ? undefined : '100%',
+    },
+    accountRowJustify: {
+      justifyContent: wideSm ? 'flex-end' : 'flex-start',
+    },
+    kpiRow: {
+      flexWrap: wideSm ? 'nowrap' : 'wrap',
+      justifyContent: wideSm ? 'flex-end' : 'space-between',
+    },
+    kpiCard: wideSm
+      ? { flex: 1, minWidth: 104, maxWidth: 126 }
+      : { flexGrow: 1, flexBasis: phone ? '47%' : '22%', minWidth: 100 },
+    contentMax: {
+      maxWidth: laptop ? 680 : '100%',
+      width: '100%',
+      alignSelf: 'center',
+    },
+    importHeroActions: {
+      justifyContent: wideSm ? 'flex-end' : 'center',
+      alignSelf: wideSm ? 'auto' : 'stretch',
+    },
+    filterInputRow: {
+      flexDirection: wideMd ? 'row' : 'column',
+      alignItems: wideMd ? 'center' : 'stretch',
+    },
+    sidebarCompact: {
+      maxHeight: phone ? 260 : w < BREAKPOINTS.lg ? 320 : 360,
+    },
+    searchInput: {
+      flex: 1,
+      minWidth: 0,
+      width: phone ? '100%' : Math.min(560, Math.max(240, w - 48)),
+      maxWidth: '100%',
+    },
+    headerTitle: {
+      fontSize: phone ? 17 : tablet ? 19 : 20,
+    },
+    logoSize: {
+      width: phone ? 48 : 60,
+      height: phone ? 48 : 60,
+      borderRadius: phone ? 24 : 30,
+    },
+    containerCenter: {
+      width: '100%',
+      maxWidth: w >= BREAKPOINTS.xxl ? 1440 : w >= BREAKPOINTS.xl ? 1200 : undefined,
+      alignSelf: 'center',
+    },
+    sidebarRow: {
+      flex: wideMd && !phone ? 1 : undefined,
+      minWidth: wideMd && w >= BREAKPOINTS.lg ? 300 : 0,
+      maxWidth: wideMd && w >= BREAKPOINTS.lg ? 560 : '100%',
+      width: w < BREAKPOINTS.lg ? '100%' : undefined,
+    },
+    mainFlex: {
+      flex: w >= BREAKPOINTS.lg ? 2 : 1,
+      minWidth: 0,
+    },
+  };
+}
+
+export function useKieuResponsive() {
+  const { width } = useWindowDimensions();
+  return useMemo(() => taoKieuResponsive(width), [width]);
+}

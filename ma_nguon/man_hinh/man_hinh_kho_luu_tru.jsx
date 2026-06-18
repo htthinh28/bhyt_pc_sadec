@@ -29,6 +29,7 @@ import {
   xoaHoSoKhoiKho,
 } from '../tien_ich/kho_du_lieu';
 import { CD } from '../tien_ich/chu_de_giao_dien';
+import { useKieuResponsive } from '../tien_ich/diem_anh_man_hinh';
 import { inHoacChiaSePdfTuBang } from '../tien_ich/in_an_chung';
 import { xuLyFileXML130Va4210 } from '../tien_ich/xml_helper';
 
@@ -197,6 +198,7 @@ const layDuLieuXmlChiTiet = (hs) => {
 };
 
 const ManHinhKhoLuuTru = ({ navigation }) => {
+  const kieu = useKieuResponsive();
   const [danhSachKho, setDanhSachKho] = useState([]);
   const [tuKhoa, setTuKhoa] = useState('');
   const [hoSoDangXem, setHoSoDangXem] = useState(null);
@@ -878,11 +880,11 @@ const ManHinhKhoLuuTru = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.vung_an_toan}>
-      <View style={styles.thanh_tieu_de}>
+      <View style={[styles.thanh_tieu_de, kieu.paddingHeader, kieu.flexRowSm, { flexWrap: 'wrap', gap: 10 }]}>
         <TouchableOpacity onPress={() => navigation?.navigate('TongQuan')} style={styles.nut_quay_lai}>
-          <Text style={styles.chu_nut_header}>⬅ TỔNG QUAN</Text>
+          <Text style={[styles.chu_nut_header, kieu.phone && { fontSize: 16 }]}>⬅ TỔNG QUAN</Text>
         </TouchableOpacity>
-        <Text style={styles.chu_tieu_de}>🗄️ KHO LƯU TRỮ & TRUY VẾT HỒ SƠ</Text>
+        <Text style={[styles.chu_tieu_de, kieu.phone && { fontSize: 20 }]} numberOfLines={2}>🗄️ KHO LƯU TRỮ & TRUY VẾT HỒ SƠ</Text>
         <View style={{ flexDirection: 'row', gap: 10 }}>
           {selectedIds.length > 0 && (
             <React.Fragment>
@@ -900,12 +902,12 @@ const ManHinhKhoLuuTru = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.khung_chinh}>
+      <View style={[styles.khung_chinh, kieu.paddingPage]}>
         {hoSoDangSua ? renderModalSua() : hoSoDangXem ? renderChiTietHoSo() : (
           <React.Fragment>
-            <View style={styles.thanh_cong_cu}>
+            <View style={[styles.thanh_cong_cu, kieu.flexRowSm]}>
               <TextInput
-                style={styles.o_tim_kiem}
+                style={[styles.o_tim_kiem, kieu.searchInput, kieu.phone && { fontSize: 16, paddingVertical: 12 }]}
                 placeholder="🔍 Mã LK, tên BN, MA_LOAI_KCB hoặc loại KCB…"
                 placeholderTextColor="rgba(255,255,255,0.4)"
                 value={tuKhoa}
@@ -1029,7 +1031,9 @@ const styles = StyleSheet.create({
   o_tim_kiem: {
     backgroundColor: CD.bg.glass_input, borderWidth: 1, borderColor: CD.border.input,
     borderRadius: 12, color: CD.text.primary, fontSize: 22, paddingVertical: 14, paddingHorizontal: 16,
-    width: 560,
+    flex: 1,
+    minWidth: 0,
+    maxWidth: '100%',
     ...Platform.select({ web: { backdropFilter: CD.web.blur_input, outlineStyle: 'none' } }),
   },
   thong_ke: { fontSize: 20, fontWeight: '700', color: CD.brand.mauNhat, fontFamily: CD.font.family },
