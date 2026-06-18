@@ -91,6 +91,7 @@ const rbac = read('ma_nguon/tien_ich/rbac_engine.jsx');
 const saoLuu = read('ma_nguon/tien_ich/sao_luu_tai_khoan_rbac.jsx');
 const phanQuyen = read('ma_nguon/man_hinh/phan_quyen_truy_cap.jsx');
 const dangNhap = read('ma_nguon/man_hinh/dang_nhap.jsx');
+const seedTaiKhoan = read('ma_nguon/tien_ich/seed_tai_khoan_cdss.jsx');
 
 assert(luuTru.includes('CDSS_HE_THONG_DB'), 'missing IndexedDB name');
 assert(luuTru.includes('damBaoMigrateKhoaHeThong'), 'missing migrate helper');
@@ -101,6 +102,9 @@ assert(saoLuu.includes('phucHoiPhieuBanTaiKhoanRbac'), 'missing backup restore')
 assert(phanQuyen.includes('damBaoMigratePhanQuyen'), 'phan_quyen should migrate on init');
 assert(phanQuyen.includes('xuatPhieuBanTaiKhoanRbacWeb'), 'phan_quyen should export backup');
 assert(dangNhap.includes('damBaoMigratePhanQuyen'), 'dang_nhap should migrate before load users');
+assert(dangNhap.includes('damBaoSeedTaiKhoan'), 'dang_nhap should seed bundled accounts');
+assert(seedTaiKhoan.includes('haidang@phuongchau.com'), 'seed should include haidang account');
+assert(seedTaiKhoan.includes('damBaoSeedTaiKhoan'), 'seed module should export damBaoSeedTaiKhoan');
 
 console.log(JSON.stringify({
   ok: true,

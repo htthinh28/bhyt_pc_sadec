@@ -25,6 +25,7 @@ import { CD } from '../tien_ich/chu_de_giao_dien';
 import { capNhatTaiKhoanTheoEmail, docDanhSachTaiKhoan, ghiNhatKyHeThong, luuDanhSachTaiKhoan } from '../tien_ich/nhat_ky_he_thong';
 import { luuPhienDangNhap } from '../tien_ich/phien_dang_nhap';
 import { damBaoMigratePhanQuyen, layVaiTroPhienHieuLuc, taiRBAC } from '../tien_ich/rbac_engine';
+import { damBaoSeedTaiKhoan } from '../tien_ich/seed_tai_khoan_cdss';
 import { TEN_UNG_DUNG, TEN_UNG_DUNG_XUONG_DONG, LOGO_UNG_DUNG, HINH_NEN_DANG_NHAP } from '../tien_ich/ten_ung_dung';
 
 const ADMIN_EMAIL = 'htthinh28@gmail.com';
@@ -93,6 +94,7 @@ const ManHinhDangNhap = ({ navigation }) => {
       let dsUsers;
       try {
         await damBaoMigratePhanQuyen();
+        await damBaoSeedTaiKhoan();
         dsUsers = await docDanhSachTaiKhoan();
       } catch (storageError) {
         if (tkChuan === ADMIN_EMAIL && mk === ADMIN_LEGACY_PASSWORD) {
