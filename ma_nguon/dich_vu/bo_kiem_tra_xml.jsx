@@ -4,6 +4,14 @@
  */
 
 import { CAU_TRUC_DU_LIEU } from '../quy_tac/quyluat_cautrucdulieu/quyluat_cau_truc_du_lieu';
+import {
+  CO_SO_PHAP_LY_SUA_DOI_QD3176,
+  daApDungSuaDoiQd3176,
+  laDinhDangSoDangKyUbndHopLe,
+  laSoDangKyUbndThuocHiem,
+  layMaxLengthMucHuongChoDong,
+  mocNgayYmdChoDongChiTiet,
+} from '../tien_ich/sua_doi_qd3176_2026';
 
 export const kiemTraToanDienHoSo = (hoSo) => {
   let danhSachLỗi = [];
@@ -85,7 +93,7 @@ export const kiemTraToanDienHoSo = (hoSo) => {
   };
 
   // --- LỚP 2: KIỂM TRA CẤU TRÚC VÀ GIÁ TRỊ TỪNG BẢNG ---
-  const quetTungBang = (tenXML, duLieu) => {
+  const quetTungBang = (tenXML, duLieu, xml1 = {}) => {
     if (!duLieu) return;
     const quyTac = CAU_TRUC_DU_LIEU[tenXML].quy_tac;
     const cotChuan = CAU_TRUC_DU_LIEU[tenXML].cot;
@@ -113,9 +121,31 @@ export const kiemTraToanDienHoSo = (hoSo) => {
           danhSachLỗi.push({ phan_loai: tenXML, muc_do: 'Error', noi_dung: `Dòng ${index + 1}: Trường ${field} không được để trống.` });
         }
 
-        // Kiểm tra độ dài
-        if (rule.maxLength && String(val).length > rule.maxLength) {
-          danhSachLỗi.push({ phan_loai: tenXML, muc_do: 'Warning', noi_dung: `Dòng ${index + 1}: ${field} vượt quá ${rule.maxLength} ký tự.` });
+        // Kiểm tra độ dài (MUC_HUONG: theo mốc QĐ sửa đổi 3176/2026)
+        const maxLenCoHieuLuc =
+          field === 'MUC_HUONG' && (tenXML === 'XML2' || tenXML === 'XML3')
+            ? layMaxLengthMucHuongChoDong(row, xml1)
+            : rule.maxLength;
+        if (maxLenCoHieuLuc && String(val).length > maxLenCoHieuLuc) {
+          danhSachLỗi.push({
+            phan_loai: tenXML,
+            muc_do: 'Warning',
+            noi_dung: `Dòng ${index + 1}: ${field} vượt quá ${maxLenCoHieuLuc} ký tự${field === 'MUC_HUONG' ? ` (QĐ 3176${daApDungSuaDoiQd3176(mocNgayYmdChoDongChiTiet(row, xml1)) ? ' sau sửa đổi 29/6/2026' : ' trước sửa đổi'})` : ''}.`,
+          });
+        }
+
+        if (
+          tenXML === 'XML2' &&
+          field === 'SO_DANG_KY' &&
+          laSoDangKyUbndThuocHiem(val) &&
+          daApDungSuaDoiQd3176(mocNgayYmdChoDongChiTiet(row, xml1)) &&
+          !laDinhDangSoDangKyUbndHopLe(val)
+        ) {
+          danhSachLỗi.push({
+            phan_loai: tenXML,
+            muc_do: 'Warning',
+            noi_dung: `Dòng ${index + 1}: SO_DANG_KY [${String(val).trim()}] thuốc hiếm phải mã hóa UBND.YYYY.X.S (${CO_SO_PHAP_LY_SUA_DOI_QD3176}).`,
+          });
         }
 
         // Chuẩn hóa kiểm tra thời gian theo thành phần: năm-tháng-ngày-giờ-phút
@@ -271,13 +301,15 @@ export const kiemTraToanDienHoSo = (hoSo) => {
     });
   };
 
+  const xml1Row = Array.isArray(hoSo.xml1) ? hoSo.xml1[0] : hoSo.xml1;
+
   // THỰC THI KIỂM TRA
-  quetTungBang('XML1', hoSo.xml1);
-  quetTungBang('XML2', hoSo.xml2);
-  quetTungBang('XML3', hoSo.xml3);
-  quetTungBang('XML4', hoSo.xml4);
-  quetTungBang('XML5', hoSo.xml5);
-  quetTungBang('XML6', hoSo.xml6);
+  quetTungBang('XML1', hoSo.xml1, xml1Row);
+  quetTungBang('XML2', hoSo.xml2, xml1Row);
+  quetTungBang('XML3', hoSo.xml3, xml1Row);
+  quetTungBang('XML4', hoSo.xml4, xml1Row);
+  quetTungBang('XML5', hoSo.xml5, xml1Row);
+  quetTungBang('XML6', hoSo.xml6, xml1Row);
   kiemTraLogicLienKet();
 
   return danhSachLỗi;

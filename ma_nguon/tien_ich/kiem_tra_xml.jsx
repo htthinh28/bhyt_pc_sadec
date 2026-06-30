@@ -7,6 +7,14 @@
 
 import { CAU_TRUC_DU_LIEU } from '../quy_tac/quyluat_cautrucdulieu/quyluat_cau_truc_du_lieu';
 import { kiemTraGdhChanHoSoChiTiet } from './kiem_tra_gdh_chan_ho_so';
+import {
+  CO_SO_PHAP_LY_SUA_DOI_QD3176,
+  daApDungSuaDoiQd3176,
+  laDinhDangSoDangKyUbndHopLe,
+  laSoDangKyUbndThuocHiem,
+  layMaxLengthMucHuongChoDong,
+  mocNgayYmdChoDongChiTiet,
+} from './sua_doi_qd3176_2026';
 
 const DANH_SACH_BANG_XML = [
   'XML1', 'XML2', 'XML3', 'XML4', 'XML5', 'XML6', 'XML7', 'XML8', 'XML9', 'XML10', 'XML11', 'XML12', 'XML13', 'XML14', 'XML15',
@@ -26,7 +34,7 @@ const BANG_XML_KHONG_BAT_BAO_THIEU = new Set([
 ]);
 const TEN_QUY_TAC_CAU_TRUC = 'Kiểm tra cấu trúc XML theo QĐ3176';
 const CO_SO_PHAP_LY_CAU_TRUC_XML =
-  'QĐ 3176/QĐ-BYT (bảng trường bắt buộc đồng bộ file QD3176_Truong_Bat_Buoc_1.xlsx) + QĐ 130/QĐ-BYT; alias bổ sung cho cột Phụ lục 1 CV 7464/BYT-BH (QĐ 4210).';
+  'QĐ 3176/QĐ-BYT (bảng trường bắt buộc đồng bộ file QD3176_Truong_Bat_Buoc_1.xlsx) + QĐ 130/QĐ-BYT + QĐ sửa đổi QĐ 3176 (29/6/2026: MUC_HUONG 4 ký tự, SO_DANG_KY UBND.YYYY.X.S); alias bổ sung cho cột Phụ lục 1 CV 7464/BYT-BH (QĐ 4210).';
 
 /**
  * Trường bắt buộc theo từng bảng — đồng bộ với phụ lục QĐ 3176/QĐ-BYT (file QD3176_Truong_Bat_Buoc_1.xlsx).
@@ -486,7 +494,7 @@ const kiemTraLienTruongTheoBang = (tenBang, row, index, danhSachLoi) => {
   }
 };
 
-const kiemTraTheoQuyTacBang = (tenBang, rows, danhSachLoi, maLkGoc) => {
+const kiemTraTheoQuyTacBang = (tenBang, rows, danhSachLoi, maLkGoc, xml1 = {}) => {
   const cauTruc = CAU_TRUC_DU_LIEU[tenBang] || { cot: [], quy_tac: {} };
   const coCauHinhBang = CAU_TRUC_DU_LIEU[tenBang];
   const coTruongBatBuoc = (TRUONG_BAT_BUOC_BO_SUNG[tenBang] || []).length > 0;
@@ -570,14 +578,36 @@ const kiemTraTheoQuyTacBang = (tenBang, rows, danhSachLoi, maLkGoc) => {
       const valueText = String(val ?? '').trim();
       if (laRong(val)) return;
 
-      if (rule?.maxLength && valueText.length > rule.maxLength) {
+      const maxLenCoHieuLuc =
+        field === 'MUC_HUONG' && (tenBang === 'XML2' || tenBang === 'XML3')
+          ? layMaxLengthMucHuongChoDong(row, xml1)
+          : rule?.maxLength;
+
+      if (maxLenCoHieuLuc && valueText.length > maxLenCoHieuLuc) {
         pushLoi(danhSachLoi, {
           phanHe: tenBang,
           index,
           truong: field,
           maLuat: `${tenBang}-MAXLEN-${field}`,
           mucDo: 'Warning',
-          noiDung: `Gia tri [${field}] vuot qua do dai toi da ${rule.maxLength}.`,
+          noiDung: `Gia tri [${field}] vuot qua do dai toi da ${maxLenCoHieuLuc}${field === 'MUC_HUONG' ? ` (QĐ 3176${daApDungSuaDoiQd3176(mocNgayYmdChoDongChiTiet(row, xml1)) ? ' sau sửa đổi 29/6/2026' : ' trước sửa đổi'})` : ''}.`,
+        });
+      }
+
+      if (
+        tenBang === 'XML2' &&
+        field === 'SO_DANG_KY' &&
+        laSoDangKyUbndThuocHiem(val) &&
+        daApDungSuaDoiQd3176(mocNgayYmdChoDongChiTiet(row, xml1)) &&
+        !laDinhDangSoDangKyUbndHopLe(val)
+      ) {
+        pushLoi(danhSachLoi, {
+          phanHe: tenBang,
+          index,
+          truong: field,
+          maLuat: `${tenBang}-SO_DANG_KY-UBND-FORMAT`,
+          mucDo: 'Warning',
+          noiDung: `SO_DANG_KY [${valueText}] thuốc hiếm (UBND cấp phép NK) phải mã hóa UBND.YYYY.X.S theo QĐ sửa đổi QĐ 3176 (${CO_SO_PHAP_LY_SUA_DOI_QD3176}).`,
         });
       }
 
@@ -834,7 +864,7 @@ export const kiemTraDinhDangXML = (hoSo) => {
   DANH_SACH_BANG_XML.forEach((tenBang) => {
     const rows = layDanhSachDong(hoSo, tenBang);
     if (rows.length === 0) return;
-    kiemTraTheoQuyTacBang(tenBang, rows, danhSachLoi, maLkGoc);
+    kiemTraTheoQuyTacBang(tenBang, rows, danhSachLoi, maLkGoc, xml1);
   });
 
   kiemTraLienBangXML1(xml1, danhSachLoi);
