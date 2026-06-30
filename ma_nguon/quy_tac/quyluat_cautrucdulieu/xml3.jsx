@@ -1,6 +1,7 @@
 /**
  * CẤU TRÚC DỮ LIỆU XML3: CHỈ TIÊU CHI TIẾT DỊCH VỤ KỸ THUẬT VÀ VẬT TƯ Y TẾ
- * Căn cứ pháp lý: QĐ 3176/QĐ-BYT (2024), sửa đổi QĐ 4750/QĐ-BYT và QĐ 130/QĐ-BYT
+ * Căn cứ pháp lý: QĐ 3176/QĐ-BYT (2024), sửa đổi QĐ 4750/QĐ-BYT và QĐ 130/QĐ-BYT;
+ * bổ sung QĐ sửa đổi QĐ 3176 (ký 29/6/2026): MUC_HUONG tối đa 4 ký tự.
  * Tiêu chuẩn JCI: Chương COP (Chăm sóc người bệnh) & ASC (Gây mê và Phẫu thuật)
  */
 
@@ -40,7 +41,14 @@ export const QUY_TAC_KIEM_TRA_XML3 = {
   THANH_TIEN_BV: { required: true, maxLength: 15, type: 'number', mo_ta: 'Số tiền thanh toán theo giá của bệnh viện' },
   THANH_TIEN_BH: { required: true, maxLength: 15, type: 'number', mo_ta: 'Mức giá do quỹ BHYT thanh toán' },
   T_TRANTT: { required: false, maxLength: 15, type: 'number', mo_ta: 'Mức thanh toán BHYT của VTYT (mức trần)' },
-  MUC_HUONG: { required: true, maxLength: 3, type: 'number', mo_ta: 'Mức hưởng BHYT tương ứng' },
+  MUC_HUONG: {
+    required: true,
+    maxLength: 3,
+    maxLength_moi: 4,
+    moc_ap_dung_maxLength_moi: '20260629',
+    type: 'number',
+    mo_ta: 'Mức hưởng BHYT tương ứng (tối đa 3 ký tự trước 29/6/2026; 4 ký tự từ ngày ký QĐ sửa đổi QĐ 3176).',
+  },
   T_NGUONKHAC_NSNN: { required: false, maxLength: 15, type: 'number', mo_ta: 'Số tiền DVKT/VTYT được NSNN hỗ trợ' },
   T_NGUONKHAC_VTNN: { required: false, maxLength: 15, type: 'number', mo_ta: 'Số tiền được viện trợ ngoài nước hỗ trợ' },
   T_NGUONKHAC_VTTN: { required: false, maxLength: 15, type: 'number', mo_ta: 'Số tiền được viện trợ trong nước hỗ trợ' },
@@ -71,5 +79,6 @@ export const QUY_TAC_KIEM_TRA_XML3 = {
 /**
  * TÀI LIỆU THAM KHẢO
  * [1] Bộ Y tế (2024), Quyết định 3176/QĐ-BYT về chuẩn định dạng dữ liệu đầu ra phục vụ quản lý, kiểm tra, thanh toán BHYT.
- * [2] Joint Commission International (JCI), Chương COP & ASC - Đối chiếu thực hiện Y lệnh Lâm sàng.
+ * [2] Bộ Y tế (2026), Quyết định sửa đổi, bổ sung QĐ 3176/QĐ-BYT (ký 29/6/2026): MUC_HUONG tối đa 4 ký tự.
+ * [3] Joint Commission International (JCI), Chương COP & ASC - Đối chiếu thực hiện Y lệnh Lâm sàng.
  */

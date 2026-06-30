@@ -1,6 +1,7 @@
 /**
  * CẤU TRÚC DỮ LIỆU XML2: CHI TIẾT THUỐC ĐIỀU TRỊ
- * Căn cứ pháp lý: QĐ 3176/QĐ-BYT (2024), sửa đổi QĐ 4750/QĐ-BYT và QĐ 130/QĐ-BYT
+ * Căn cứ pháp lý: QĐ 3176/QĐ-BYT (2024), sửa đổi QĐ 4750/QĐ-BYT và QĐ 130/QĐ-BYT;
+ * bổ sung QĐ sửa đổi QĐ 3176 (ký 29/6/2026): MUC_HUONG tối đa 4 ký tự; SO_DANG_KY thuốc hiếm UBND.YYYY.X.S.
  * Chức năng: Quản lý danh mục và chi phí thuốc BHYT
  * Tiêu chuẩn JCI: Chương MMU (Quản lý và Sử dụng thuốc)
  */
@@ -32,7 +33,13 @@ export const QUY_TAC_KIEM_TRA_XML2 = {
   DANG_BAO_CHE: { required: false, maxLength: 1024, type: 'string', mo_ta: 'Dạng bào chế của thuốc' },
   LIEU_DUNG: { required: false, maxLength: 1024, type: 'string', mo_ta: 'Liều dùng thuốc cho người bệnh' },
   CACH_DUNG: { required: false, maxLength: 1024, type: 'string', mo_ta: 'Lời dặn của thầy thuốc' },
-  SO_DANG_KY: { required: false, maxLength: 255, type: 'string', mo_ta: 'Số đăng ký lưu hành của thuốc' },
+  SO_DANG_KY: {
+    required: false,
+    maxLength: 255,
+    type: 'string',
+    mo_ta:
+      'Số đăng ký lưu hành của thuốc. Thuốc hiếm do UBND tỉnh cấp phép nhập khẩu (từ 29/6/2026): mã hóa UBND.YYYY.X.S.',
+  },
   TT_THAU: { required: false, maxLength: 50, type: 'string', mo_ta: 'Thông tin thầu của thuốc' },
   PHAM_VI: { required: true, maxLength: 1, type: 'number', mo_ta: 'Mã xác định phạm vi hưởng BHYT' },
   TYLE_TT_BH: { required: true, maxLength: 3, type: 'number', mo_ta: 'Tỷ lệ thanh toán BHYT (%)' },
@@ -45,7 +52,14 @@ export const QUY_TAC_KIEM_TRA_XML2 = {
   T_NGUONKHAC_VTTN: { required: false, maxLength: 15, type: 'number', mo_ta: 'Số tiền thuốc được viện trợ trong nước hỗ trợ' },
   T_NGUONKHAC_CL: { required: false, maxLength: 15, type: 'number', mo_ta: 'Số tiền thuốc được các nguồn khác còn lại hỗ trợ' },
   T_NGUONKHAC: { required: false, maxLength: 15, type: 'number', mo_ta: 'Tổng số tiền các nguồn khác chi trả' },
-  MUC_HUONG: { required: true, maxLength: 3, type: 'number', mo_ta: 'Mức hưởng BHYT tương ứng' },
+  MUC_HUONG: {
+    required: true,
+    maxLength: 3,
+    maxLength_moi: 4,
+    moc_ap_dung_maxLength_moi: '20260629',
+    type: 'number',
+    mo_ta: 'Mức hưởng BHYT tương ứng (tối đa 3 ký tự trước 29/6/2026; 4 ký tự từ ngày ký QĐ sửa đổi QĐ 3176).',
+  },
   T_BNTT: { required: true, maxLength: 15, type: 'number', mo_ta: 'Số tiền người bệnh tự trả' },
   T_BNCCT: { required: true, maxLength: 15, type: 'number', mo_ta: 'Số tiền người bệnh cùng chi trả' },
   T_BHTT: { required: true, maxLength: 15, type: 'number', mo_ta: 'Số tiền đề nghị BHXH thanh toán' },
@@ -63,5 +77,6 @@ export const QUY_TAC_KIEM_TRA_XML2 = {
 /**
  * TÀI LIỆU THAM KHẢO
  * [1] Bộ Y tế (2024), Quyết định số 3176/QĐ-BYT về chuẩn định dạng dữ liệu đầu ra XML2.
- * [2] Joint Commission International (JCI), Chương MMU - Đảm bảo y lệnh kê đơn đầy đủ thông tin định danh và thời gian.
+ * [2] Bộ Y tế (2026), Quyết định sửa đổi, bổ sung QĐ 3176/QĐ-BYT (ký 29/6/2026): MUC_HUONG, SO_DANG_KY.
+ * [3] Joint Commission International (JCI), Chương MMU - Đảm bảo y lệnh kê đơn đầy đủ thông tin định danh và thời gian.
  */

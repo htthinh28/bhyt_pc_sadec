@@ -1,5 +1,5 @@
-/** AUTO-GENERATED from DuLieu_LUAT_DU_LIEU (12).xlsx + CV 302 ngưỡng LCS 01/7/2026 */
-export const PHIEN_BAN_SEED_LUAT_DU_LIEU_MUC1 = '2026-06-11_cv302_xml_lcs';
+/** AUTO-GENERATED from DuLieu_LUAT_DU_LIEU (12).xlsx + CV 302 ngưỡng LCS 01/7/2026 + QĐ sửa đổi QĐ 3176 (29/6/2026) */
+export const PHIEN_BAN_SEED_LUAT_DU_LIEU_MUC1 = '2026-06-30_qd3176_sua_doi_muc_huong_so_dang_ky';
 export const COT_SEED_LUAT_DU_LIEU_MUC1 = ["TRANG_THAI","MA_LUAT","TEN_QUY_TAC","DIEU_KIEN","CANH_BAO","DIEU_KIEN (Toán tử No-Code)","GHI_CHU_SUA","NGUON_DU_LIEU"];
 export const DU_LIEU_SEED_LUAT_DU_LIEU_MUC1 = [
   {
@@ -1268,5 +1268,38 @@ export const DU_LIEU_SEED_LUAT_DU_LIEU_MUC1 = [
     "GHI_CHU_SUA": "Mặc định OFF (dễ ồn khi kho lớn). Bật khi muốn nhắc đồng bộ dữ liệu Chuyên môn. Điều kiện chỉ so khớp ICD trên XML1 với MAP — không đánh giá lâm sàng.",
     "NGUON_DU_LIEU": "CDSS Phác đồ BV + engine dong_co_giam_dinh",
     "MUC_DO": "Warning"
+  },
+  {
+    "id": "SEED_DULIEU_QD3176_MH2",
+    "TRANG_THAI": "ON",
+    "MA_LUAT": "XML_3176_MH2",
+    "TEN_QUY_TAC": "MUC_HUONG XML2 vượt độ dài theo mốc QĐ sửa đổi 3176",
+    "DIEU_KIEN": "COUNT_IF(XML2, item => !IS_EMPTY(item.MUC_HUONG) && ((SUBSTR(XML1.NGAY_VAO, 1, 8) < '20260629' AND LEN(String(item.MUC_HUONG)) > 3) OR (SUBSTR(XML1.NGAY_VAO, 1, 8) >= '20260629' AND LEN(String(item.MUC_HUONG)) > 4))) > 0",
+    "CANH_BAO": "⚠️ [QĐ 3176 sửa đổi 29/6/2026]: MUC_HUONG (Bảng 2) vượt độ dài tối đa — 3 ký tự trước ngày ký QĐ; 4 ký tự từ ngày ký trở đi.",
+    "DIEU_KIEN (Toán tử No-Code)": "",
+    "GHI_CHU_SUA": "Bổ sung theo QĐ sửa đổi QĐ 3176; giữ kiểm tra cũ (max 3) cho hồ sơ trước 29/6/2026.",
+    "NGUON_DU_LIEU": "QĐ sửa đổi QĐ 3176/QĐ-BYT ký 29/6/2026"
+  },
+  {
+    "id": "SEED_DULIEU_QD3176_MH3",
+    "TRANG_THAI": "ON",
+    "MA_LUAT": "XML_3176_MH3",
+    "TEN_QUY_TAC": "MUC_HUONG XML3 vượt độ dài theo mốc QĐ sửa đổi 3176",
+    "DIEU_KIEN": "COUNT_IF(XML3, item => !IS_EMPTY(item.MUC_HUONG) && ((SUBSTR(XML1.NGAY_VAO, 1, 8) < '20260629' AND LEN(String(item.MUC_HUONG)) > 3) OR (SUBSTR(XML1.NGAY_VAO, 1, 8) >= '20260629' AND LEN(String(item.MUC_HUONG)) > 4))) > 0",
+    "CANH_BAO": "⚠️ [QĐ 3176 sửa đổi 29/6/2026]: MUC_HUONG (Bảng 3) vượt độ dài tối đa — 3 ký tự trước ngày ký QĐ; 4 ký tự từ ngày ký trở đi.",
+    "DIEU_KIEN (Toán tử No-Code)": "",
+    "GHI_CHU_SUA": "Bổ sung theo QĐ sửa đổi QĐ 3176; giữ kiểm tra cũ (max 3) cho hồ sơ trước 29/6/2026.",
+    "NGUON_DU_LIEU": "QĐ sửa đổi QĐ 3176/QĐ-BYT ký 29/6/2026"
+  },
+  {
+    "id": "SEED_DULIEU_QD3176_SDK",
+    "TRANG_THAI": "ON",
+    "MA_LUAT": "XML_3176_SDK",
+    "TEN_QUY_TAC": "SO_DANG_KY thuốc hiếm UBND sai định dạng",
+    "DIEU_KIEN": "SUBSTR(XML1.NGAY_VAO, 1, 8) >= '20260629' AND COUNT_IF(XML2, item => !IS_EMPTY(item.SO_DANG_KY) && UPPER(String(item.SO_DANG_KY)) STARTS_WITH 'UBND' AND NOT (String(item.SO_DANG_KY) MATCH '^UBND\\\\.\\\\d{4}\\\\.\\\\d+\\\\.\\\\d+$')) > 0",
+    "CANH_BAO": "⚠️ [QĐ 3176 sửa đổi 29/6/2026]: SO_DANG_KY thuốc hiếm (UBND cấp phép nhập khẩu) phải mã hóa UBND.YYYY.X.S (YYYY=năm cấp GP, X=số VB cấp phép NK, S=STT thuốc trong VB).",
+    "DIEU_KIEN (Toán tử No-Code)": "",
+    "GHI_CHU_SUA": "Chỉ kiểm tra khi giá trị bắt đầu bằng UBND; số đăng ký thông thường (VD-, VN-, …) không đổi.",
+    "NGUON_DU_LIEU": "QĐ sửa đổi QĐ 3176/QĐ-BYT ký 29/6/2026"
   }
 ];
